@@ -12,9 +12,11 @@
   <object-name>lamptwo</object-name>
   <object-name>lampthree</object-name>
   <object-name>lampfour</object-name> 
+  <!--
   <condition>
 		<not><property>/sim/rendering/rembrandt/enabled</property></not>
   </condition>
+  -->
   <emission>
     <red>1.0</red>
     <green>0.2</green>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+
+  <title>Boeing 707</title>
+
+  <key>
+    <name>s</name>
+    <desc>autostart / shutdown</desc>
+  </key>
+  <key>
+    <name>L</name>
+    <desc>toggle landing lights</desc>
+  </key>
+  <key>
+    <name>Ctrl + B</name>
+    <desc>Speedbrake</desc>
+  </key>
+  <key>
+    <name>Del</name>
+    <desc>Toggle Reverser</desc>
+  </key>
+
+  <text>
+  _________ Boeing 707-420 __________
+	
+	The first development of this Aircraft
+	was from Innis Cunningham. This version
+	is a revamp from this original. Nearly 
+	everthing is written and painted new.
+	Also the jsb. But ...
+	It is more easier to write and paint 
+	a model, if you have the old one to
+	copy and past the "blueprints".
+	Have fun wis Innis Cunningham revamps 707.
+
+  </text>
+
+</PropertyList>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+<key n="127">
+	<name>Delete</name>
+	<desc>Toggle Reversers</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.togglereverser();</script>
+  </binding>
+</key>
+
+<key n="115">
+  <name>s</name>
+  <desc>autostart / shutdown</desc>
+  <binding>
+      <command>property-toggle</command>
+      <property>sim/model/start-idling</property>
+  </binding>
+</key>
+<key n="108">
+  <name>L</name>
+  <desc>toggle landing lights</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.toggleLandingLights();</script>
+  </binding>
+</key>
+
+</PropertyList>

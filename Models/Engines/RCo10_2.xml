@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <path>conwayRCo10.ac</path>	
+  
+	<animation>
+		<type>spin</type>
+		<object-name>engineDisk</object-name>
+		<property>engines/engine[1]/rpm</property>
+		<factor>20</factor>   
+		<center>
+		 <x-m>0.0</x-m>
+		 <y-m>0.0</y-m>
+		 <z-m>0.0</z-m>
+		</center>
+		<axis>
+		 <x>1</x>
+		 <y>0</y>
+		 <z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+	<type>select</type>
+	<object-name>exhaustHeat</object-name>
+		<condition>
+			<greater-than>
+				<property>engines/engine[1]/rpm</property>
+				<value>31</value>
+			</greater-than>
+		</condition>
+	</animation>
+		
+	<animation>
+		<type>material</type>
+		<object-name>exhaustHeat</object-name>
+		<emission>
+			<red>0.002</red>
+			<green>0.002</green>
+			<blue>0.000025</blue>
+			<factor-prop>engines/engine[1]/rpm</factor-prop>
+		</emission>
+	</animation>
+	
+  <!-- smoke -->
+	<model>
+		<path>Aircraft/707/Models/Effects/smoke_2.xml</path>
+		<offsets>
+			<x-m> 2.1</x-m>
+			<y-m> 0.0</y-m>
+			<z-m> 0.0</z-m>
+		</offsets>
+	</model>
+	
+</PropertyList>

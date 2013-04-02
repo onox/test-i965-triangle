@@ -984,7 +984,7 @@
  <animation>
   <type>translate</type>
   <object-name>leflap</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1010,7 +1010,7 @@
  <animation>
   <type>translate</type>
   <object-name>ibleslat</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1035,7 +1035,7 @@
  <animation>
   <type>translate</type>
   <object-name>obleslat</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1092,7 +1092,7 @@
   <animation>
   <type>translate</type>
   <object-name>rhleflap</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1117,7 +1117,7 @@
   <animation>
   <type>translate</type>
   <object-name>rhibleslat</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1142,7 +1142,7 @@
   <animation>
   <type>translate</type>
   <object-name>rhobleslat</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1183,7 +1183,7 @@
  <animation>
   <type>translate</type>
   <object-name>lhobflap</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1244,7 +1244,7 @@
   <type>translate</type>
   <object-name>lhfiletflap</object-name>
   <object-name>lhibflap</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1285,7 +1285,7 @@
  <animation>
   <type>translate</type>
   <object-name>rhobflap</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -1346,7 +1346,7 @@
   <type>translate</type>
   <object-name>rhfiletflap</object-name>
   <object-name>rhibflap</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry>
       <ind>0.0</ind>

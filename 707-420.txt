@@ -1,0 +1,20 @@
+Innis Cunningham build this aircraft for Flightgear times ago
+using the program AC3D. In Blender I have no change any longer to open this files.
+The texture was very dark since FG 2.9 and there are no other features inside and 
+outside the model. So I write a new plane with lot of stolen details from other
+aircrafts. Also there are a lot of liveries from Presets Hangar.
+Next step was to change the jsbsim fdm but it works now very smooth.
+
+Ctrl+B activates and deactivates the speed brakes
+G and Shift+G raises and lowers the landing gear.
+] and [ lower and raise the leading and trailing edge flaps.
+
+Thanks to 
+Innis Cunningham
+and all the other flightgear developer
+
+Marc Kraus
+
+NOTE:
+707-420
+The 707-420 was identical to the −320 but fitted with Rolls-Royce Conway 508 turbofans (or by-pass turbojets as Rolls-Royce called them). First announced customer was Lufthansa. BOAC's controversial order was announced six months later but the British carrier got the first service-ready aircraft off the production line. The British Air Registration Board refused to give the aircraft a certificate of airworthiness, citing insufficient lateral control, excessive rudder forces and the ability to over rotate on take off, stalling the wing on the ground (a fault of the de Havilland Comet 1). Boeing responded by adding 40 inches to the vertical tail, applying full instead of partial rudder boost and fitting an underfin to prevent over rotation. These modifications became standard on all 707 variants and were retrofitted to all earlier 707s. The 37 -420s were delivered to BOAC, Lufthansa, Air-India, El Al and Varig through November 1963; Lufthansa was the first to carry passengers, in March 1960.

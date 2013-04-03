@@ -937,7 +937,7 @@
   <type>rotate</type>
   <object-name>rudder</object-name>
   <property>controls/flight/rudder</property>
-  <factor>22.5</factor>
+  <factor>-22.5</factor>
   <offset-deg>0</offset-deg>   
   <axis>
 		<x1-m> 22.57</x1-m>

@@ -145,6 +145,7 @@
   </offsets>
 </model>
 
+<!--
 <model>
   <name>zero_reader</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/zero_reader.xml</path>
@@ -152,6 +153,17 @@
     <x-m>-18.916</x-m>
     <y-m>-0.434</y-m>
     <z-m>0.90</z-m>
+  </offsets>
+</model>
+-->
+
+<model>
+  <name>ai</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/ai/ai.xml</path>
+  <offsets>
+    <x-m>-18.963</x-m>
+    <y-m>-0.434</y-m>
+    <z-m>0.893</z-m>
   </offsets>
 </model>
 

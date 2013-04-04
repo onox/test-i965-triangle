@@ -2,8 +2,8 @@
 <PropertyList>
  <sim>
   <description>Boeing 707</description>
-  <author>Innis Cunningham revamp by the Lake of Constance Hangar :: M.Kraus</author>
-  <status>1.0.1</status>
+  <author>Innis Cunninghams 707 - revamp by the Lake of Constance Hangar</author>
+  <status>1.0.2</status>
 
   <flight-model>jsb</flight-model>
   <aero>707</aero>

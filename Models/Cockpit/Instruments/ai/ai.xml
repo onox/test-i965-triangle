@@ -7,10 +7,12 @@
 		<type>material</type>
 		<object-name>bank-index</object-name>
 		<object-name>off-flag</object-name>
+		<object-name>off-nav</object-name>
 		<object-name>reticl</object-name>
 		<object-name>ZR.Azi</object-name>
 		<object-name>ZR.Alt</object-name>
 		<object-name>gs-scale</object-name>
+		<object-name>ai-dir</object-name>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
@@ -104,14 +106,25 @@
     </center>
     <axis><x>-1</x></axis>
   </animation>
+  
+	<animation>
+		<type>select</type>
+		<object-name>off-nav</object-name>
+		<condition>
+		  <and>
+		    <property>/instrumentation/nav[0]/nav-loc</property>
+		    <not><property>/instrumentation/nav[0]/in-range</property></not>
+		  </and>
+		</condition>
+	</animation>
 
 	<animation>
 		<type>select</type>
 		<object-name>gs-scale</object-name>
 		<condition>
 		  <and>
-		    <not><property>/instrumentation/nav[0]/nav-loc</property></not>
-		    <not><property>/instrumentation/nav[0]/in-range</property></not>
+		    <property>/instrumentation/nav[0]/nav-loc</property>
+		    <not><property>/instrumentation/nav[0]/gs-in-range</property></not>
 		  </and>
 		</condition>
 	</animation>
@@ -214,7 +227,6 @@
 	<animation>
 		<type>pick</type>
 		<object-name>adi-knob</object-name>
-		<object-name>sphere</object-name>
 		<visible>true</visible>
 		  <action>
 		    <name>calibrate reset</name>
@@ -246,6 +258,78 @@
 		    <binding>
 		      <command>property-adjust</command>
 		      <property>/instrumentation/attitude-indicator/horizon-offset-deg</property>
+		      <step>0.1</step>
+		      <min>-5</min>
+		      <max>5</max>
+		      <wrap>false</wrap>
+		    </binding>
+		  </action>
+	</animation>
+	
+	<!-- dir -->
+		<animation>
+		<type>translate</type>
+		<object-name>ai-dir</object-name>
+		<property>/instrumentation/attitude-indicator/dir-offset-deg</property>
+		<factor>0.001</factor>
+		<axis>
+		  <x>0</x>
+		  <y>1</y>
+		  <z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>dir-knob</object-name>
+		<property>/instrumentation/attitude-indicator/dir-offset-deg</property>
+		<factor>25</factor>
+		<center>
+		  <x-m>0</x-m>
+		  <y-m>-0.0354</y-m>
+		  <z-m>-0.0361</z-m>
+		</center>
+		<axis>
+		  <x>-1</x>
+		  <y>0</y>
+		  <z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>dir-knob</object-name>
+		<visible>true</visible>
+		  <action>
+		    <name>calibrate reset d</name>
+		    <button>0</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+		      <command>property-assign</command>
+		      <property>/instrumentation/attitude-indicator/dir-offset-deg</property>
+		      <value>0</value>
+		    </binding>
+		  </action>      
+		  <action>
+		    <name>calibrate fine dec d</name>
+		    <button>3</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+		      <command>property-adjust</command>
+		      <property>/instrumentation/attitude-indicator/dir-offset-deg</property>
+		      <step>-0.1</step>
+		      <min>-5</min>
+		      <max>5</max>
+		      <wrap>false</wrap>
+		    </binding>
+		  </action>
+		  <action>
+		    <name>calibrate fine inc d</name>
+		    <button>4</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+		      <command>property-adjust</command>
+		      <property>/instrumentation/attitude-indicator/dir-offset-deg</property>
 		      <step>0.1</step>
 		      <min>-5</min>
 		      <max>5</max>

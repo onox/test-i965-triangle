@@ -129,5 +129,8 @@ setlistener( "/autopilot/settings/target-speed-kt", h_tas );
 setlistener( "/autopilot/settings/vertical-speed-fpm", h_vs);
 
 
-
+var show_alti = func {
+  var s_alti = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0;
+  help_win.write(sprintf("Actual altitude is: %.0f ", s_alti) );
+}
 

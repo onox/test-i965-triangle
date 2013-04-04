@@ -97,11 +97,11 @@
 
 <model>
   <name>asi</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/asi.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/asi/asi.xml</path>
   <offsets>
-    <x-m>-18.916</x-m>
-    <y-m>-0.526</y-m>
-    <z-m>0.90</z-m>
+    <x-m>-18.919</x-m>
+    <y-m>-0.5275</y-m>
+    <z-m>0.8814</z-m>
   </offsets>
 </model>
 
@@ -161,9 +161,9 @@
   <name>ai</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/ai/ai.xml</path>
   <offsets>
-    <x-m>-18.963</x-m>
-    <y-m>-0.434</y-m>
-    <z-m>0.893</z-m>
+    <x-m>-18.967</x-m>
+    <y-m>-0.435</y-m>
+    <z-m>0.885</z-m>
   </offsets>
 </model>
 

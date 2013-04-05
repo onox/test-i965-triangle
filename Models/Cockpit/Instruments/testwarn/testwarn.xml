@@ -25,6 +25,11 @@
 			<factor-prop>/controls/lighting/panel-norm</factor-prop>
 		</emission>
 	</animation>
+
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>shadow</object-name>
+  </effect>
   
     <!-- The warn knop -->
     <animation>

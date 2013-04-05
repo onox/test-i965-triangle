@@ -189,9 +189,9 @@
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/marker_beacons.xml</path>
   <offsets>
       <x-m>-18.916</x-m>
-      <y-m>-0.42</y-m>
-      <z-m> 0.72</z-m>
-      <roll-deg>-90</roll-deg>
+      <y-m>-0.30</y-m>
+      <z-m> 0.70</z-m>
+      <roll-deg>90</roll-deg>
   </offsets>
 </model>
 

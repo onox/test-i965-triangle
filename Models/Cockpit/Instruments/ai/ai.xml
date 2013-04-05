@@ -111,10 +111,13 @@
 		<type>select</type>
 		<object-name>off-nav</object-name>
 		<condition>
-		  <and>
-		    <property>/instrumentation/nav[0]/nav-loc</property>
-		    <not><property>/instrumentation/nav[0]/in-range</property></not>
-		  </and>
+		  <or>
+		    <not><property>/instrumentation/nav[0]/nav-loc</property></not>
+				<and>
+				  <property>/instrumentation/nav[0]/nav-loc</property>
+				  <not><property>/instrumentation/nav[0]/in-range</property></not>
+				</and>
+			</or>
 		</condition>
 	</animation>
 
@@ -122,10 +125,13 @@
 		<type>select</type>
 		<object-name>gs-scale</object-name>
 		<condition>
-		  <and>
-		    <property>/instrumentation/nav[0]/nav-loc</property>
-		    <not><property>/instrumentation/nav[0]/gs-in-range</property></not>
-		  </and>
+		  <or>
+		    <not><property>/instrumentation/nav[0]/nav-loc</property></not>
+				<and>
+				  <property>/instrumentation/nav[0]/nav-loc</property>
+				  <not><property>/instrumentation/nav[0]/gs-in-range</property></not>
+				</and>
+			</or>
 		</condition>
 	</animation>
   
@@ -214,8 +220,8 @@
 		<factor>25</factor>
 		<center>
 		  <x-m>0</x-m>
-		  <y-m>0.0354</y-m>
-		  <z-m>-0.0361</z-m>
+		  <y-m>0.041</y-m>
+		  <z-m>-0.0389</z-m>
 		</center>
 		<axis>
 		  <x>-1</x>
@@ -286,8 +292,8 @@
 		<factor>25</factor>
 		<center>
 		  <x-m>0</x-m>
-		  <y-m>-0.0354</y-m>
-		  <z-m>-0.0361</z-m>
+		  <y-m>-0.037</y-m>
+		  <z-m>-0.039</z-m>
 		</center>
 		<axis>
 		  <x>-1</x>

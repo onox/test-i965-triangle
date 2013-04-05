@@ -92,16 +92,23 @@
   <object-name>adf2</object-name>
 </animation>
 
-<!-- Captain Panel -->
-<!-- Translations from old model: x+ 0.1, z+ 0.165 -->
-
 <model>
   <name>asi</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/asi/asi.xml</path>
   <offsets>
     <x-m>-18.919</x-m>
-    <y-m>-0.5275</y-m>
-    <z-m>0.8814</z-m>
+    <y-m>-0.53</y-m>
+    <z-m>0.882</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>testwarn</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/testwarn/testwarn.xml</path>
+  <offsets>
+    <x-m>-18.919</x-m>
+    <y-m>-0.62</y-m>
+    <z-m>0.882</z-m>
   </offsets>
 </model>
 
@@ -163,7 +170,7 @@
   <offsets>
     <x-m>-18.967</x-m>
     <y-m>-0.435</y-m>
-    <z-m>0.885</z-m>
+    <z-m>0.883</z-m>
   </offsets>
 </model>
 
@@ -181,9 +188,10 @@
   <name>marker_beacons</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/marker_beacons.xml</path>
   <offsets>
-    <x-m>-18.916</x-m>
-    <y-m>-0.590</y-m>
-    <z-m>0.860</z-m>
+      <x-m>-18.916</x-m>
+      <y-m>-0.42</y-m>
+      <z-m> 0.72</z-m>
+      <roll-deg>-90</roll-deg>
   </offsets>
 </model>
 

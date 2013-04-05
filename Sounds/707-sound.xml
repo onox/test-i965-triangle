@@ -840,7 +840,15 @@
 		</volume>
 	</enginesmsg>
 
-
+	<testwarning>
+		<name>test warning</name>
+		<mode>looped</mode>
+		<path>Aircraft/707/Sounds/warning.wav</path>
+		<property>/controls/test/warn-knob</property>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</testwarning>
 
 </fx>
 

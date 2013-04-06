@@ -7,7 +7,7 @@
 <animation>
   <type>rotate</type>
   <object-name>SwMBTest</object-name>
-  <property>/instrumentation/marker-beacon/test</property>
+  <property>/controls/test/warn-knob</property>
   <interpolation>
     <entry><ind>0</ind><dep>-25</dep></entry>
     <entry><ind>1</ind><dep> 25</dep></entry>
@@ -32,7 +32,7 @@
         <button>0</button>
         <binding>
           <command>property-toggle</command>
-          <property>/instrumentation/marker-beacon/test</property>
+          <property>/controls/test/warn-knob</property>
         </binding>
         <binding>
           <command>property-toggle</command>
@@ -47,7 +47,7 @@
   <condition>
     <or>
       <property>/instrumentation/marker-beacon/outer</property>
-      <property>/instrumentation/marker-beacon/test</property>
+      <property>/controls/test/warn-knob</property>
     </or>
   </condition>
 </animation>
@@ -57,7 +57,7 @@
   <condition>
     <and>
       <not><property>/instrumentation/marker-beacon/outer</property></not>
-      <not><property>/instrumentation/marker-beacon/test</property></not>
+      <not><property>/controls/test/warn-knob</property></not>
     </and>
   </condition>
 </animation>
@@ -68,7 +68,7 @@
   <condition>
     <or>
       <property>/instrumentation/marker-beacon/middle</property>
-      <property>/instrumentation/marker-beacon/test</property>
+      <property>/controls/test/warn-knob</property>
     </or>
   </condition>
 </animation>
@@ -78,7 +78,7 @@
   <condition>
     <and>
       <not><property>/instrumentation/marker-beacon/middle</property></not>
-      <not><property>/instrumentation/marker-beacon/test</property></not>
+      <not><property>/controls/test/warn-knob</property></not>
     </and>
   </condition>
 </animation>
@@ -89,7 +89,7 @@
   <condition>
     <or>
       <property>/instrumentation/marker-beacon/inner</property>
-      <property>/instrumentation/marker-beacon/test</property>
+      <property>/controls/test/warn-knob</property>
     </or>
   </condition>
 </animation>
@@ -99,7 +99,7 @@
   <condition>
     <and>
       <not><property>/instrumentation/marker-beacon/inner</property></not>
-      <not><property>/instrumentation/marker-beacon/test</property></not>
+      <not><property>/controls/test/warn-knob</property></not>
     </and>
   </condition>
 </animation>

@@ -55,6 +55,7 @@ Syd Adams
         <object-name>dmeOn</object-name>
         <condition>
           <or>
+            <property>/controls/test/warn-knob</property>  
             <property>/instrumentation/nav[0]/gs-in-range</property>
             <and>
               <property>/instrumentation/dme[0]/in-range</property>

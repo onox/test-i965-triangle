@@ -756,18 +756,6 @@
 			<factor>1</factor>
 		</volume>
 	</stall>
-
-	<switch>
-		<name>click on</name>
-		<mode>once</mode>
-		<path>Aircraft/707/Sounds/FastenSeatbelt.wav</path>
-		<condition>
-			<property>controls/switches/seatbelt-sign</property>
-		</condition>
-		<volume>
-			<factor>1</factor>
-		</volume>
-	</switch>
 	
 	<!-- sound in the cockpit at autostart procedure -->
 	<enginesmsg>
@@ -849,6 +837,30 @@
 			<factor>1</factor>
 		</volume>
 	</testwarning>
+
+    <rain>
+      <name>rain</name>
+      <mode>looped</mode>
+      <path>Aircraft/707/Sounds/rain.wav</path>
+      <condition>
+        <greater-than>
+          <property>/environment/metar/rain-norm</property>
+          <value>0.2</value>
+        </greater-than>
+      </condition>
+      <volume>
+        <property>/environment/metar/rain-norm</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.4</min>
+        <max>0.9</max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.001</factor>
+        <offset>1.0</offset>
+      </pitch>
+    </rain>
 
 </fx>
 

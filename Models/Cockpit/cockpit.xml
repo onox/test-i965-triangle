@@ -2,6 +2,30 @@
 <PropertyList>
  <path>cockpit.ac</path>
 
+	<!-- No preview for fgrun-->
+	<animation>
+		<object-name>LightVolume1</object-name>
+		<object-name>LightVolume2</object-name>
+		<nopreview/>
+	</animation>
+	
+	<!-- Rembrand -  light -->
+	<animation>
+		<type>select</type>
+		<object-name>LightVolume1</object-name>
+		<condition>
+			<property>/sim/rendering/rembrandt/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>LightVolume2</object-name>
+		<condition>
+				<property>/sim/rendering/rembrandt/enabled</property>
+				<property>/controls/test/warn-knob</property>
+		</condition>
+	</animation>
+
 	<model>
 		<name>panel</name>
 		<path>Aircraft/707/Models/Cockpit/panel.xml</path>
@@ -269,6 +293,7 @@
 
   <animation>
 		<type>pick</type>
+		<object-name>window.pilot</object-name>
 		<object-name>window.piop</object-name>
 		<action>
 		  <button>0</button>
@@ -369,6 +394,7 @@
   <animation>
 		<type>pick</type>
 		<object-name>window.copilot</object-name>
+		<object-name>window.coop</object-name>
 		<action>
 		  <button>0</button>
 		  <repeatable>true</repeatable>
@@ -379,5 +405,96 @@
 		  </binding>
 		</action>
   </animation>
+  
+	<!-- inner light -->
+	<animation>
+		<type>light</type>
+		<light-type>point</light-type>
+		<name>InnerLight</name>
+		<object-name>LightVolume1</object-name>
+		<position>
+			<x>-17.97</x>
+			<y> 0.0</y>
+			<z> 1.48</z>
+		</position>
+		<direction>
+			<x>-0.3</x>
+			<y> 0.0</y>
+			<z>-0.7</z>
+		</direction>
+    <dim-factor>
+      <property>/controls/lighting/cabin-dim</property>
+      <factor>1</factor>
+      <offset>0</offset>
+      <min>0</min>
+      <max>1</max>
+    </dim-factor>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>0.002</l>
+			<q>0.00005</q>
+		</attenuation>
+		<exponent>40</exponent>
+		<near-m>0.05</near-m>
+		<far-m>250</far-m>
+		<cutoff>40</cutoff>
+	</animation>
+	
+	<!-- the fire warning on engineer panel -->
+	<animation>
+		<type>light</type>
+		<light-type>point</light-type>
+		<name>FireWarningLight</name>
+		<object-name>LightVolume2</object-name>
+		<position>
+			<x>-17.90</x>
+			<y> 0.0</y>
+			<z> 0.88</z>
+		</position>
+		<direction>
+			<x>-0.3</x>
+			<y> 0.0</y>
+			<z>-0.7</z>
+		</direction>
+		<ambient>
+			<r>0.99</r>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
+		</ambient>
+		<diffuse>
+			<r>0.99</r>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>0.99</r>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>0.7</l>
+			<q>8</q>
+		</attenuation>
+		<exponent>40</exponent>
+		<near-m>0.05</near-m>
+		<far-m>250</far-m>
+		<cutoff>40</cutoff>
+	</animation>
 
 </PropertyList>

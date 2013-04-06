@@ -49,19 +49,22 @@
   <type>select</type>
   <object-name>LampAPOn</object-name>
   <condition>
-  	<and>
-      <property>/autopilot/switches/ap</property>
-      <or>
-        <greater-than>
-          <property>/systems/electrical/right-bus</property>
-          <value>12</value>
-        </greater-than>
-        <greater-than>
-          <property>/systems/electrical/left-bus</property>
-          <value>12</value>
-      	</greater-than>
-      </or>
-    </and>
+  	<or>
+  	  <property>/controls/test/warn-knob</property>
+			<and>
+		    <property>/autopilot/switches/ap</property>
+		    <or>
+		      <greater-than>
+		        <property>/systems/electrical/right-bus</property>
+		        <value>12</value>
+		      </greater-than>
+		      <greater-than>
+		        <property>/systems/electrical/left-bus</property>
+		        <value>12</value>
+		    	</greater-than>
+		    </or>
+		  </and>
+		</or>
   </condition>
 </animation>
 

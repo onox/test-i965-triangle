@@ -118,17 +118,17 @@
   <offsets>
     <x-m>-18.916</x-m>
     <y-m>-0.343</y-m>
-    <z-m>0.80</z-m>
+    <z-m>0.77</z-m>
   </offsets>
 </model>
 
 <model>
   <name>alt</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/alt.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/alt/alt.xml</path>
   <offsets>
     <x-m>-18.916</x-m>
-    <y-m>-0.343</y-m>
-    <z-m>0.90</z-m>
+    <y-m>-0.252</y-m>
+    <z-m>0.885</z-m>
   </offsets>
 </model>
 
@@ -138,17 +138,7 @@
   <offsets>
     <x-m>-18.916</x-m>
     <y-m>-0.434</y-m>
-    <z-m>0.80</z-m>
-  </offsets>
-</model>
-
-<model>
-  <name>turn_bank</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/turn_bank.xml</path>
-  <offsets>
-    <x-m>-18.916</x-m>
-    <y-m>-0.526</y-m>
-    <z-m>0.80</z-m>
+    <z-m>0.77</z-m>
   </offsets>
 </model>
 
@@ -179,8 +169,8 @@
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/rmi.xml</path>
   <offsets>
     <x-m>-18.916</x-m>
-    <y-m>-0.252</y-m>
-    <z-m> 0.80</z-m>
+    <y-m>-0.526</y-m>
+    <z-m>0.77</z-m>
   </offsets>
 </model>
 
@@ -213,7 +203,7 @@
   <offsets>
     <x-m>-18.916</x-m>
     <y-m>-0.252</y-m>
-    <z-m>0.90</z-m>
+    <z-m> 0.77</z-m>
   </offsets>
 </model>
 
@@ -297,31 +287,9 @@
   <name>air_temp</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/airtemp.xml</path>
   <offsets>
-    <x-m>-15.648</x-m>
+    <x-m>-18.916</x-m>
     <y-m>0.044</y-m>
     <z-m>0.914</z-m>
-  </offsets>
-</model>
-
-<model>
-  <name>landing_gear</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/landing_gear.xml</path>
-  <offsets>
-    <x-m>-18.916</x-m>
-    <y-m>0.120</y-m>
-    <z-m>0.914</z-m>
-  </offsets>
-</model>
-
-<!-- Overhead Compass Box -->
-
-<model>
-  <name>compass</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/compass_magnetic.xml</path>
-  <offsets>
-    <x-m>-18.960</x-m>
-    <y-m>0</y-m>
-    <z-m>1.27</z-m>
   </offsets>
 </model>
 
@@ -422,12 +390,12 @@
 </model>
 
 <model>
-  <name>pbrake_cp</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/parking_brake_cp.xml</path>
+  <name>pneumatic_brake</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/pneubrake/pneubrake.xml</path>
   <offsets>
-    <x-m>-18.65</x-m>
-    <y-m>0.212</y-m>
-    <z-m>0.696</z-m>
+    <x-m>0</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
   </offsets>
 </model>
 

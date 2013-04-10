@@ -95,7 +95,7 @@ help_win.fg = [0,1,1,1];
 var messenger = func{
 help_win.write(arg[0]);
 }
-print("Help subsystem started");
+print("Help infosystem started");
 
 var h_altimeter = func {
 	var press_inhg = getprop("/instrumentation/altimeter/setting-inhg");
@@ -133,4 +133,29 @@ var show_alti = func {
   var s_alti = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0;
   help_win.write(sprintf("Actual altitude is: %.0f ", s_alti) );
 }
+
+######################## Helper for the light without rembrandt #################
+
+setlistener("/controls/lighting/cabin-dim",
+            func(cd) { 
+              var pl = getprop("/controls/lighting/panel-norm") or 0;
+              var cd = cd.getValue();
+              if (pl < cd){
+              	pl = cd;
+              	if (pl < 0.8){
+              		pl = 0.8;
+              	}
+              	setprop("/controls/lighting/panel-norm", pl);
+              }
+
+            },1,0);
+
+
+
+
+
+
+
+
+
 

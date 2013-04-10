@@ -14,7 +14,7 @@
 <turbine_engine name="MK508">
   <milthrust> 17500.0 </milthrust>
   <bypassratio>     0.3 </bypassratio>
-  <tsfc>            0.726 </tsfc>
+  <tsfc>            0.82 </tsfc>
   <bleed>           0.04</bleed>
   <idlen1>         30.0 </idlen1>
   <idlen2>         60.0 </idlen2>

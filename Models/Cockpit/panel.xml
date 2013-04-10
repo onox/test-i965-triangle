@@ -9,8 +9,11 @@
   <type>noshadow</type>
   <object-name>asi</object-name>
   <object-name>ai</object-name>
-  <object-name>vsi</object-name>
+  <object-name>agl</object-name>
   <object-name>alt</object-name>
+  <object-name>rmi</object-name>
+  
+  <object-name>vsi</object-name>
   <object-name>mdi</object-name>
   <object-name>turn_bank</object-name>
   <object-name>ctl_pos</object-name>
@@ -103,6 +106,16 @@
 </model>
 
 <model>
+  <name>rmi</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+  <offsets>
+    <x-m>-18.919</x-m>
+    <y-m>-0.53</y-m>
+    <z-m>0.797</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>testwarn</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/testwarn/testwarn.xml</path>
   <offsets>
@@ -123,12 +136,22 @@
 </model>
 
 <model>
+  <name>agl</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/agl/agl.xml</path>
+  <offsets>
+    <x-m>-18.967</x-m>
+    <y-m>-0.350</y-m>
+    <z-m>0.878</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>alt</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/alt/alt.xml</path>
   <offsets>
     <x-m>-18.916</x-m>
-    <y-m>-0.252</y-m>
-    <z-m>0.885</z-m>
+    <y-m>-0.278</y-m>
+    <z-m>0.888</z-m>
   </offsets>
 </model>
 
@@ -165,23 +188,12 @@
 </model>
 
 <model>
-  <name>rmi</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/rmi.xml</path>
+  <name>marker_beacon</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
   <offsets>
-    <x-m>-18.916</x-m>
-    <y-m>-0.526</y-m>
-    <z-m>0.77</z-m>
-  </offsets>
-</model>
-
-<model>
-  <name>marker_beacons</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/marker_beacons.xml</path>
-  <offsets>
-      <x-m>-18.916</x-m>
-      <y-m>-0.30</y-m>
-      <z-m> 0.70</z-m>
-      <roll-deg>90</roll-deg>
+    <x-m>-18.921</x-m>
+    <y-m>-0.21</y-m>
+    <z-m>0.885</z-m>
   </offsets>
 </model>
 
@@ -230,6 +242,16 @@
 <!-- END OF STUFF FROM M.KRAUS -->
 
 <!-- Hood Console -->
+
+<model>
+  <name>Standby Adi</name>
+  <path>Aircraft/707/Models/Cockpit/Test-Instruments/standby-adi/stdby-adi.xml</path>
+  <offsets>
+      <x-m>-18.913</x-m>
+      <y-m>-0.045</y-m>
+      <z-m> 0.935</z-m>
+  </offsets>
+</model>
 
 <model>
   <name>Autopilot Helper</name>

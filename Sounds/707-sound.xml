@@ -861,6 +861,134 @@
         <offset>1.0</offset>
       </pitch>
     </rain>
+ 
+   <click>
+   <name>click on</name>
+   <path>Aircraft/707/Sounds/click.wav</path>
+   <condition>
+    <property>/instrumentation/generic/click</property>
+   </condition>
+   <volume>
+    <max>0.2</max>
+   </volume>
+  </click>
+
+  <click>
+   <name>click off</name>
+   <path>Aircraft/707/Sounds/click.wav</path>
+   <condition>
+    <not>
+     <property>/instrumentation/generic/click</property>
+    </not>
+   </condition>
+   <volume>
+    <max>0.2</max>
+   </volume>
+  </click>
+  
+  <switch>
+    <name>click1 on</name>
+    <mode>once</mode>
+    <path>Aircraft/707/Sounds/click.wav</path>
+    <condition>
+      <property>/sim/sound/switch1</property>
+    </condition>
+    <volume>
+      <offset> 1 </offset>
+    </volume>
+  </switch>
+
+  <switch>
+    <name>click1 off</name>
+    <mode>once</mode>
+    <path>Aircraft/707/Sounds/click.wav</path>
+    <condition>
+      <not>
+        <property>/sim/sound/switch1</property>
+      </not>
+    </condition>
+    <volume>
+      <offset> 1 </offset>
+    </volume>
+  </switch>
+
+  <switch>
+    <name>click2 on</name>
+    <mode>once</mode>
+    <path>Aircraft/707/Sounds/click2.wav</path>
+    <condition>
+      <property>/sim/sound/switch2</property>
+    </condition>
+    <volume>
+      <offset> 1 </offset>
+    </volume>
+  </switch>
+
+  <switch>
+    <name>click2 off</name>
+    <mode>once</mode>
+    <path>Aircraft/707/Sounds/click2.wav</path>
+    <condition>
+      <not>
+        <property>/sim/sound/switch2</property>
+      </not>
+    </condition>
+    <volume>
+      <offset> 1 </offset>
+    </volume>
+  </switch>
+
+  <switch>
+    <name>click3 on</name>
+    <mode>once</mode>
+    <path>Aircraft/707/Sounds/click3.wav</path>
+    <condition>
+      <property>/sim/sound/switch3</property>
+    </condition>
+    <volume>
+      <offset> 0.5 </offset>
+    </volume>
+  </switch>
+
+  <switch>
+    <name>click3 off</name>
+    <mode>once</mode>
+    <path>Aircraft/707/Sounds/click3.wav</path>
+    <condition>
+      <not>
+        <property>/sim/sound/switch3</property>
+      </not>
+    </condition>
+    <volume>
+      <offset> 0.5 </offset>
+    </volume>
+  </switch>
+
+  <switch>
+    <name>click4 on</name>
+    <mode>once</mode>
+    <path>Aircraft/707/Sounds/click4.wav</path>
+    <condition>
+      <property>/sim/sound/switch4</property>
+    </condition>
+    <volume>
+      <offset> 1 </offset>
+    </volume>
+  </switch>
+
+  <switch>
+    <name>click4 off</name>
+    <mode>once</mode>
+    <path>Aircraft/707/Sounds/click4.wav</path>
+    <condition>
+      <not>
+        <property>/sim/sound/switch4</property>
+      </not>
+    </condition>
+    <volume>
+      <offset> 1 </offset>
+    </volume>
+  </switch>
 
 </fx>
 

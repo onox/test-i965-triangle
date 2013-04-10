@@ -9,6 +9,57 @@
 		<nopreview/>
 	</animation>
 	
+  <!-- internal light effect without rembrandt -->	
+	<animation>
+		<type>material</type>
+		<object-name>firewarning</object-name>
+		<object-name>panel</object-name> 
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.6</red>
+		  <green>0.6</green>
+		  <blue>0.6</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>cover</object-name>
+		<object-name>interieur</object-name>
+		<object-name>internal.sky</object-name>
+		<object-name>window.side</object-name> 
+		<object-name>window.pilot</object-name>
+		<object-name>window.copilot</object-name>
+		<object-name>window.piop</object-name>
+		<object-name>window.coop</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.3</red>
+		  <green>0.3</green>
+		  <blue>0.3</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>window.front</object-name>   
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>	
+		
 	<!-- Rembrand -  light -->
 	<animation>
 		<type>select</type>
@@ -27,7 +78,7 @@
 	</animation>
 
 	<model>
-		<name>panel</name>
+		<name>panel-equipment</name>
 		<path>Aircraft/707/Models/Cockpit/panel.xml</path>
 		<offsets>
 		  <x-m>0.0</x-m>

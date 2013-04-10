@@ -14,6 +14,10 @@
         <path>Aircraft/707/Systems/autopilot.xml</path>
     </autopilot>
 	</systems>
+
+	<instrumentation>
+    <path>Aircraft/707/Systems/instrumentation.xml</path>
+  </instrumentation>
   
   <sound>
       <path>Aircraft/707/Sounds/707-sound.xml</path>
@@ -309,7 +313,9 @@
 			<max-lb type="double"> 10000.0</max-lb>
 		</weight>
 	</payload>
- 
+	
+	<instrumentation include="Systems/instrumentation-init.xml"/>	
+	
  <nasal>
 		<b707>
 		  <file>Aircraft/707/Nasal/liveries.nas</file>
@@ -318,7 +324,8 @@
 		  <file>Aircraft/707/Nasal/mk-707.nas</file>
 		  <file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
 			<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>
-			<file>Aircraft/707/Nasal/mk-frw.nas</file>    
+			<file>Aircraft/707/Nasal/mk-frw.nas</file> 
+			<file>Aircraft/707/Nasal/mk-rmi.nas</file>    
 			<file>Aircraft/707/Nasal/mk-ki266.nas</file>
 		  <file>Aircraft/707/Nasal/doors.nas</file>
 		  <file>Aircraft/707/Nasal/tyresmoke.nas</file>

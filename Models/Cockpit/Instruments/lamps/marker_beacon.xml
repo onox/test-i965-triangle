@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>marker_beacon.ac</path>
+
+<animation>
+  <type>noshadow</type>
+  <object-name>LampBlue</object-name>
+  <object-name>LampAmber</object-name>
+  <object-name>LampWhite</object-name>
+  <object-name>LampBlueON</object-name>
+  <object-name>LampAmberON</object-name>
+  <object-name>LampWhiteON</object-name>
+</animation>
+
+<effect>
+	<inherits-from>Effects/model-transparent</inherits-from>
+	<object-name>shadow</object-name>
+</effect>
+
+<animation>
+  <type>material</type>
+  <object-name>LampWhiteON</object-name>
+  <emission>
+    <red>   0.5 </red>
+    <green> 0.5 </green>
+    <blue>  0.5 </blue>
+  </emission>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>LampAmberON</object-name>
+  <emission>
+    <red>   0.5 </red>
+    <green> 0.3 </green>
+    <blue>  0 </blue>
+  </emission>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>LampBlueON</object-name>
+  <emission>
+    <red>   0 </red>
+    <green> 0 </green>
+    <blue>  1.0 </blue>
+  </emission>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>LampBlueON</object-name>
+  <condition>
+    <or>
+      <property>/instrumentation/marker-beacon/outer</property>
+      <property>/controls/test/warn-knob</property>
+    </or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>LampBlue</object-name>
+  <condition>
+    <and>
+      <not><property>/instrumentation/marker-beacon/outer</property></not>
+      <not><property>/controls/test/warn-knob</property></not>
+    </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>LampAmberON</object-name>
+  <condition>
+    <or>
+      <property>/instrumentation/marker-beacon/middle</property>
+      <property>/controls/test/warn-knob</property>
+    </or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>LampAmber</object-name>
+  <condition>
+    <and>
+      <not><property>/instrumentation/marker-beacon/middle</property></not>
+      <not><property>/controls/test/warn-knob</property></not>
+    </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>LampWhiteON</object-name>
+  <condition>
+    <or>
+      <property>/instrumentation/marker-beacon/inner</property>
+      <property>/controls/test/warn-knob</property>
+    </or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>LampWhite</object-name>
+  <condition>
+    <and>
+      <not><property>/instrumentation/marker-beacon/inner</property></not>
+      <not><property>/controls/test/warn-knob</property></not>
+    </and>
+  </condition>
+</animation>
+
+</PropertyList>
+

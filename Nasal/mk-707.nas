@@ -123,15 +123,33 @@ var h_vs = func {
 	help_win.write(sprintf("Vertical speed: %.0f ", press_vs) );
 }
 
+var h_mis = func {
+	var press_mis = getprop("/instrumentation/rmi/face-offset");
+	if(  press_mis == nil ) press_mis = 0.0;
+	help_win.write(sprintf("%.0f degrees", press_mis) );
+}
+
+
 setlistener( "/instrumentation/altimeter/setting-inhg", h_altimeter );
 setlistener( "/autopilot/settings/heading-bug-deg", h_heading );
 setlistener( "/autopilot/settings/target-speed-kt", h_tas );
 setlistener( "/autopilot/settings/vertical-speed-fpm", h_vs);
+setlistener( "/instrumentation/rmi/face-offset", h_mis);
 
 
 var show_alti = func {
+	var press_inhg = getprop("/instrumentation/altimeter/setting-inhg");
+	if(  press_inhg == nil ) press_inhg = 0.0;
+	var alt_ft = getprop("/instrumentation/aglradar/alt-ft");
+	if(  alt_ft == nil ) alt_ft = 0.0;
+	var alt_on = getprop("/instrumentation/aglradar/power-btn");
+	if(  alt_on == nil ) alt_on = 0;	
   var s_alti = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0;
-  help_win.write(sprintf("Actual altitude is: %.0f ", s_alti) );
+  if(alt_on){
+  	help_win.write(sprintf("With %.2f inhg the actual altitude is: %.0f ft. AGL is %.0f ft", press_inhg, s_alti, alt_ft) );
+  }else{
+   	help_win.write(sprintf("With %.2f inhg the actual altitude is: %.0f ft. Groundradar is off.", press_inhg, s_alti, alt_ft) ); 
+  }
 }
 
 ######################## Helper for the light without rembrandt #################

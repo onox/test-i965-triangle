@@ -34,22 +34,4 @@ setlistener("gear/gear[2]/position-norm", func {
 	}
 },1,0);
 
-#============================ Rain ===================================
-aircraft.rain.init();
-
-#==================== Tyre Smoke / Rain Effects ======================
-var tyresmoke_and_rain = func {
-	if (run_tyresmoke0)
-		tyresmoke_0.update();
-	if (run_tyresmoke1)
-		tyresmoke_1.update();
-	if (run_tyresmoke2)
-		tyresmoke_2.update();
-	aircraft.rain.update();
-	settimer(tyresmoke_and_rain, 0);
-}# end tyresmoke_and_rain
-
-# == fire it up ===
-tyresmoke_and_rain();
-
 # end 

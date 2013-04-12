@@ -160,7 +160,7 @@
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
-            <step>1</step>
+            <step>-1</step>
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
@@ -171,7 +171,7 @@
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
-            <step>10</step>
+            <step>-10</step>
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
@@ -189,6 +189,35 @@
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
+            <step>1</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>10</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+    </action>
+    <action>
+        <name>hdg dec</name>
+        <button>3</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
             <step>-1</step>
             <min>0</min>
             <max>360</max>
@@ -207,8 +236,8 @@
         </binding>
     </action>
     <action>
-        <name>hdg dec</name>
-        <button>3</button>
+        <name>hdg inc</name>
+        <button>4</button>
         <repeatable>true</repeatable>
         <binding>
             <condition>
@@ -230,35 +259,6 @@
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
             <step>10</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-    </action>
-    <action>
-        <name>hdg inc</name>
-        <button>4</button>
-        <repeatable>true</repeatable>
-        <binding>
-            <condition>
-                <not>
-                    <property>devices/status/keyboard/shift</property>
-                </not>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>-1</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-                <property>devices/status/keyboard/shift</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>-10</step>
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
@@ -276,7 +276,7 @@
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
-            <step>1</step>
+            <step>-1</step>
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
@@ -287,7 +287,7 @@
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
-            <step>10</step>
+            <step>-10</step>
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
@@ -305,6 +305,35 @@
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
+            <step>1</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>10</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+    </action>
+    <action>
+        <name>hdg dec</name>
+        <button>3</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
             <step>-1</step>
             <min>0</min>
             <max>360</max>
@@ -323,8 +352,8 @@
         </binding>
     </action>
     <action>
-        <name>hdg dec</name>
-        <button>3</button>
+        <name>hdg inc</name>
+        <button>4</button>
         <repeatable>true</repeatable>
         <binding>
             <condition>
@@ -346,35 +375,6 @@
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
             <step>10</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-    </action>
-    <action>
-        <name>hdg inc</name>
-        <button>4</button>
-        <repeatable>true</repeatable>
-        <binding>
-            <condition>
-                <not>
-                    <property>devices/status/keyboard/shift</property>
-                </not>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>-1</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-                <property>devices/status/keyboard/shift</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>-10</step>
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>

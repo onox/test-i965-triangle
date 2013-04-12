@@ -18,6 +18,7 @@
 	<animation>
 		<type>material</type>
 		<object-name>arrow</object-name>
+		<object-name>mda-needle</object-name>
 		<object-name>off-flag</object-name>
 		<object-name>altnum100</object-name>
 		<object-name>altnum1000</object-name>
@@ -83,10 +84,7 @@
 		  <or>
 		    <and>
 				  <property>/instrumentation/aglradar/power-btn</property>
-				  <less-than>
-				    <property>/instrumentation/aglradar/alt-ft</property>
-				  	<value>500</value>
-				  </less-than>
+				  <property>/instrumentation/aglradar/mda-lamp</property>
 				</and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
@@ -164,15 +162,30 @@
 		  <z>1</z>
 		</axis>
 	</animation>
+
+  <animation>
+		<type>translate</type>
+		<object-name>mda-needle</object-name>
+		<property>/instrumentation/aglradar/alt-offset-ft</property>
+		<interpolation>
+			<entry><ind>-350</ind><dep> -0.03586</dep></entry>
+		  <entry><ind>   0</ind><dep>  0.0		 </dep></entry>
+		  <entry><ind> 350</ind><dep>  0.03586</dep></entry>
+		</interpolation>
+		<axis>
+		  <x>0</x>
+		  <y>0</y>
+		  <z>1</z>
+		</axis>
+	</animation>
 	
   <!-- the Flightlevel digits -->	
   <animation>
       <type>textranslate</type>
       <object-name>altnum100</object-name>
-      <property>/instrumentation/aglradar/alt-ft</property>
-      <factor>0.001</factor>
-      <step>100</step>
-      <scroll>20</scroll>
+      <property>/instrumentation/aglradar/alt-offset-ft</property>
+      <factor>0.1</factor>
+      <step>1</step>
       <axis>
           <x>0</x>
           <y>1</y>
@@ -183,10 +196,9 @@
   <animation>
       <type>textranslate</type>
       <object-name>altnum1000</object-name>
-      <property>/instrumentation/aglradar/alt-ft</property>
-      <factor>0.0001</factor>
-      <step>1000</step>
-      <scroll>20</scroll>
+      <property>/instrumentation/aglradar/alt-offset-ft</property>
+      <factor>0.01</factor>
+      <step>10</step>
       <axis>
           <x>0</x>
           <y>1</y>
@@ -197,10 +209,9 @@
   <animation>
       <type>textranslate</type>
       <object-name>altnum10000</object-name>
-      <property>/instrumentation/aglradar/alt-ft</property>
-      <factor>0.00001</factor>
-      <step>10000</step>
-      <scroll>20</scroll>
+      <property>/instrumentation/aglradar/alt-offset-ft</property>
+      <factor>0.001</factor>
+      <step>100</step>
       <axis>
           <x>0</x>
           <y>1</y>
@@ -213,7 +224,7 @@
 		<type>rotate</type>
 		<object-name>agl-knob</object-name>
 		<property>/instrumentation/aglradar/alt-offset-ft</property>
-		<factor>25</factor>
+		<factor>1</factor>
 		<center>
 		  <x-m>0</x-m>
 		  <y-m>0.0095</y-m>
@@ -229,6 +240,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>agl-knob</object-name>
+		<object-name>face</object-name>
 		<visible>true</visible>
 		  <action>
 		    <name>calibrate reset</name>
@@ -239,32 +251,72 @@
 					 <property>/instrumentation/aglradar/alt-offset-ft</property>
 					 <value>0</value>
 				</binding>
-		  </action>      
+				<binding>
+					<command>property-toggle</command>
+					<property>/sim/sound/switch3</property>
+				</binding>
+		  </action>  
 		  <action>
-		    <name>calibrate fine dec</name>
-		    <button>3</button>
-		    <repeatable>true</repeatable>
-		    <binding>
-		      <command>property-adjust</command>
-		      <property>/instrumentation/aglradar/alt-offset-ft</property>
-		      <step>-1</step>
-		      <min>-10</min>
-		      <max>10</max>
-		      <wrap>false</wrap>
-		    </binding>
+		      <button>3</button>
+		      <binding>
+		          <condition>
+		              <not>
+		                  <property>devices/status/keyboard/shift</property>
+		              </not>
+		          </condition>
+						  <command>property-adjust</command>
+						  <property>/instrumentation/aglradar/alt-offset-ft</property>
+						  <step>5</step>
+						  <min>0</min>
+						  <max>400</max>
+						  <wrap>false</wrap>
+		      </binding>
+		      <binding>
+		          <condition>
+		              <property>devices/status/keyboard/shift</property>
+		          </condition>
+						  <command>property-adjust</command>
+						  <property>/instrumentation/aglradar/alt-offset-ft</property>
+						  <step>100</step>
+						  <min>0</min>
+						  <max>400</max>
+						  <wrap>false</wrap>
+		      </binding>
+					<binding>
+						<command>property-toggle</command>
+						<property>/sim/sound/switch3</property>
+					</binding>
 		  </action>
 		  <action>
-		    <name>calibrate fine inc</name>
-		    <button>4</button>
-		    <repeatable>true</repeatable>
-		    <binding>
-		      <command>property-adjust</command>
-		      <property>/instrumentation/aglradar/alt-offset-ft</property>
-		      <step>1</step>
-		      <min>-10</min>
-		      <max>10</max>
-		      <wrap>false</wrap>
-		    </binding>
+		      <button>4</button>
+		      <binding>
+		          <condition>
+		              <not>
+		                  <property>devices/status/keyboard/shift</property>
+		              </not>
+		          </condition>
+						  <command>property-adjust</command>
+						  <property>/instrumentation/aglradar/alt-offset-ft</property>
+						  <step>-5</step>
+						  <min>0</min>
+						  <max>400</max>
+						  <wrap>false</wrap>
+		      </binding>
+		      <binding>
+		          <condition>
+		              <property>devices/status/keyboard/shift</property>
+		          </condition>
+						  <command>property-adjust</command>
+						  <property>/instrumentation/aglradar/alt-offset-ft</property>
+						  <step>-100</step>
+						  <min>0</min>
+						  <max>400</max>
+						  <wrap>false</wrap>
+		      </binding>
+					<binding>
+						<command>property-toggle</command>
+						<property>/sim/sound/switch3</property>
+					</binding>
 		  </action>
 	</animation>
 	

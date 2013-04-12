@@ -837,6 +837,21 @@
 			<factor>1</factor>
 		</volume>
 	</testwarning>
+	
+	<mdawarning>
+		<name>mda warning</name>
+		<mode>once</mode>
+		<path>Aircraft/707/Sounds/warning.wav</path>
+      <condition>
+        <and>
+				  <property>/instrumentation/aglradar/power-btn</property>
+				  <property>/instrumentation/aglradar/mda-lamp</property>
+				</and>
+      </condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</mdawarning>	
 
     <rain>
       <name>rain</name>

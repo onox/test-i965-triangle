@@ -16,8 +16,8 @@
   <mode>adf</mode>
   <serviceable type="bool">true</serviceable>
   <frequencies>
-    <selected-khz type="int">473</selected-khz>  <!-- EDNY near the lake of constance -->
-    <standby-khz type="int">442</standby-khz>    <!-- EDSN ancient military airbase -->
+    <selected-khz type="int">442</selected-khz>  <!-- EDNY near the lake of constance -->
+    <standby-khz type="int">473</standby-khz>    <!-- EDSN ancient military airbase -->
   </frequencies>
 </adf>
 
@@ -52,7 +52,7 @@
     <display-sel-khz type="int">0</display-sel-khz>
     <display-sel-mhz type="int">0</display-sel-mhz>
     <selected-mhz-fmt type="string">0</selected-mhz-fmt>
-    <selected-mhz type="double">0</selected-mhz>
+    <selected-mhz type="double">114.3</selected-mhz>
     <display-sby-khz type="int">0</display-sby-khz>
     <display-sby-mhz type="int">0</display-sby-mhz>
     <standby-mhz-fmt type="string">0</standby-mhz-fmt>
@@ -66,7 +66,7 @@
     <display-sel-khz type="int">0</display-sel-khz>
     <display-sel-mhz type="int">0</display-sel-mhz>
     <selected-mhz-fmt type="string">0</selected-mhz-fmt>
-    <selected-mhz type="double">0</selected-mhz>
+    <selected-mhz type="double">110.05</selected-mhz>
     <display-sby-khz type="int">0</display-sby-khz>
     <display-sby-mhz type="int">0</display-sby-mhz>
     <standby-mhz-fmt type="string">0</standby-mhz-fmt>
@@ -112,5 +112,11 @@
     <seconds type="int">0</seconds>
   </flight-time>
 </frw>
+
+<!-- The agl-radar -->
+<aglradar>
+  <power-btn type="bool">0</power-btn>
+  <mda-lamp type="bool">0</mda-lamp>
+</aglradar>
 
 </PropertyList>

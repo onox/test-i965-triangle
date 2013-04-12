@@ -224,11 +224,12 @@
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/dme/dme.xml</path>
   <offsets>
       <x-m>-18.916</x-m>
-      <y-m>-0.480</y-m>
+      <y-m>-0.440</y-m>
       <z-m> 0.72</z-m>
   </offsets>
 </model>
 
+<!--
 <model>
   <name>AGL-Radar</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/agl-radar/agl-radar.xml</path>
@@ -238,11 +239,12 @@
     <z-m> 0.73</z-m>
   </offsets>
 </model>
-
+-->
 <!-- END OF STUFF FROM M.KRAUS -->
 
 <!-- Hood Console -->
 
+<!--
 <model>
   <name>Standby Adi</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/standby-adi/stdby-adi.xml</path>
@@ -252,6 +254,7 @@
       <z-m> 0.935</z-m>
   </offsets>
 </model>
+-->
 
 <model>
   <name>Autopilot Helper</name>

@@ -107,28 +107,8 @@
 		      <repeatable>true</repeatable>
 		      <interval-sec>0.2</interval-sec>
 		      <binding>
-		          <condition>
-		              <not>
-		                  <property>devices/status/keyboard/shift</property>
-		              </not>
-		          </condition>
-		          <command>property-adjust</command>
-		          <property>/instrumentation/rmi/face-offset</property>
-		          <step>10</step>
-		          <min>0</min>
-		          <max>359</max>
-		          <wrap>1</wrap>
-		      </binding>
-		      <binding>
-		          <condition>
-		              <property>devices/status/keyboard/shift</property>
-		          </condition>
-		          <command>property-adjust</command>
-		          <property>/instrumentation/rmi/face-offset</property>
-		          <step>20</step>
-		          <min>0</min>
-		          <max>359</max>
-		          <wrap>1</wrap>
+		          <command>nasal</command>
+		          <script>b707.rmiNavInfo(1);</script>
 		      </binding>
 		  </action>
 		  <action>
@@ -136,28 +116,8 @@
 		      <repeatable>true</repeatable>
 		      <interval-sec>0.2</interval-sec>
 		      <binding>
-		          <condition>
-		              <not>
-		                  <property>devices/status/keyboard/shift</property>
-		              </not>
-		          </condition>
-		          <command>property-adjust</command>
-		          <property>/instrumentation/rmi/face-offset</property>
-		          <step>-10</step>
-		          <min>0</min>
-		          <max>359</max>
-		          <wrap>1</wrap>
-		      </binding>
-		      <binding>
-		          <condition>
-		              <property>devices/status/keyboard/shift</property>
-		          </condition>
-		          <command>property-adjust</command>
-		          <property>/instrumentation/rmi/face-offset</property>
-		          <step>-20</step>
-		          <min>0</min>
-		          <max>359</max>
-		          <wrap>1</wrap>
+		          <command>nasal</command>
+		          <script>b707.rmiNavInfo(2);</script>
 		      </binding>
 		  </action>
 		  <action>

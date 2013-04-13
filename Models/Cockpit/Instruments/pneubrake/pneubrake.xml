@@ -58,18 +58,14 @@
       <action>
         <button>0</button>
         <repeatable>false</repeatable>
-          <binding>
-            <command>property-assign</command>
-            <property>/controls/gear/brake-parking</property>  
-            <value>1.0</value>
-          </binding>
-        <mod-up>
-          <binding>
-            <command>property-assign</command>
-            <property>/controls/gear/brake-parking</property>  
-            <value>0.0</value>
-          </binding>
-        </mod-up>
+        <binding>
+          <command>property-toggle</command>
+          <property>/controls/gear/brake-parking</property>  
+        </binding>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/sound/switch1</property>
+        </binding>
       </action>
     </animation>
 

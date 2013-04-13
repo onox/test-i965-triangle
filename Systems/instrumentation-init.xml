@@ -51,12 +51,12 @@
   <frequencies>
     <display-sel-khz type="int">0</display-sel-khz>
     <display-sel-mhz type="int">0</display-sel-mhz>
-    <selected-mhz-fmt type="string">0</selected-mhz-fmt>
-    <selected-mhz type="double">114.3</selected-mhz>
+    <selected-mhz-fmt type="string">114.30</selected-mhz-fmt>
+    <selected-mhz type="double">114.30</selected-mhz>
     <display-sby-khz type="int">0</display-sby-khz>
     <display-sby-mhz type="int">0</display-sby-mhz>
-    <standby-mhz-fmt type="string">0</standby-mhz-fmt>
-    <standby-mhz type="double">0</standby-mhz>
+    <standby-mhz-fmt type="string">109.60</standby-mhz-fmt>
+    <standby-mhz type="double">109.6</standby-mhz>
   </frequencies>
   <serviceable type="bool">true</serviceable>
   <radials><selected-deg>0</selected-deg></radials>
@@ -65,12 +65,12 @@
   <frequencies>
     <display-sel-khz type="int">0</display-sel-khz>
     <display-sel-mhz type="int">0</display-sel-mhz>
-    <selected-mhz-fmt type="string">0</selected-mhz-fmt>
+    <selected-mhz-fmt type="string">110.05</selected-mhz-fmt>
     <selected-mhz type="double">110.05</selected-mhz>
     <display-sby-khz type="int">0</display-sby-khz>
     <display-sby-mhz type="int">0</display-sby-mhz>
-    <standby-mhz-fmt type="string">0</standby-mhz-fmt>
-    <standby-mhz type="double">0</standby-mhz>
+    <standby-mhz-fmt type="string">116.10</standby-mhz-fmt>
+    <standby-mhz type="double">116.10</standby-mhz>
   </frequencies>
   <serviceable type="bool">true</serviceable>
   <radials><selected-deg>0</selected-deg></radials>

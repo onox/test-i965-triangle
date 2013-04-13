@@ -876,6 +876,18 @@
         <offset>1.0</offset>
       </pitch>
     </rain>
+
+	<pneumatic>
+		<name>pneumatic break</name>
+		<mode>once</mode>
+		<path>Aircraft/707/Sounds/pneumatic.wav</path>
+      <condition>
+				 <property>/controls/gear/brake-parking</property>
+      </condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</pneumatic>	
  
    <click>
    <name>click on</name>

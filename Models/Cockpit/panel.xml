@@ -12,14 +12,13 @@
   <object-name>agl</object-name>
   <object-name>alt</object-name>
   <object-name>rmi</object-name>
+  <object-name>testwarn</object-name>
   
   <object-name>vsi</object-name>
   <object-name>mdi</object-name>
   <object-name>turn_bank</object-name>
   <object-name>ctl_pos</object-name>
-  <object-name>clock</object-name>
   <object-name>zero_reader</object-name>
-  <object-name>rmi</object-name>
   <object-name>marker_beacons</object-name>
   <object-name>terrain_warn</object-name>
   <object-name>pbrake_p</object-name>
@@ -45,7 +44,6 @@
   <object-name>fuelRo</object-name>
   <object-name>asi_eng</object-name>
   <object-name>alt_eng</object-name>
-  <object-name>clock_eng</object-name>
   <object-name>fuelTotal</object-name>
   <object-name>air_temp_eng</object-name>
   <object-name>cowlflaps_L</object-name>
@@ -130,7 +128,7 @@
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/vsi.xml</path>
   <offsets>
     <x-m>-18.916</x-m>
-    <y-m>-0.343</y-m>
+    <y-m>-0.330</y-m>
     <z-m>0.77</z-m>
   </offsets>
 </model>
@@ -154,6 +152,7 @@
     <z-m>0.888</z-m>
   </offsets>
 </model>
+
 
 <model>
   <name>mdi</name>
@@ -186,7 +185,17 @@
     <z-m>0.883</z-m>
   </offsets>
 </model>
-
+<!--
+<model>
+  <name>hsi</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/hsi/hsi.xml</path>
+  <offsets>
+    <x-m>-18.967</x-m>
+    <y-m>-0.433</y-m>
+    <z-m>0.773</z-m>
+  </offsets>
+</model>
+-->
 <model>
   <name>marker_beacon</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
@@ -197,6 +206,7 @@
   </offsets>
 </model>
 
+<!--
 <model>
   <name>clock</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/clock_adjustable.xml</path>
@@ -206,7 +216,7 @@
     <z-m>0.75</z-m>
   </offsets>
 </model>
-
+-->
 
 <!-- STUFF FROM M.Kraus -->
 <model>
@@ -214,7 +224,7 @@
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/pic-dev/pic-dev1.xml</path>
   <offsets>
     <x-m>-18.916</x-m>
-    <y-m>-0.252</y-m>
+    <y-m>-0.242</y-m>
     <z-m> 0.77</z-m>
   </offsets>
 </model>
@@ -224,7 +234,7 @@
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/dme/dme.xml</path>
   <offsets>
       <x-m>-18.916</x-m>
-      <y-m>-0.440</y-m>
+      <y-m>-0.580</y-m>
       <z-m> 0.72</z-m>
   </offsets>
 </model>
@@ -435,6 +445,63 @@
     <z-m>  1.05</z-m>
   </offsets>
 </model>
+
+
+<!-- middle pedestal -->
+  	<model>
+      <path>Aircraft/707/Models/Cockpit/Instruments/radio/comm1.xml</path>
+      <offsets>
+          <x-m>-18.9</x-m>
+          <y-m>-0.113</y-m>
+          <z-m>0.7672</z-m>
+          <pitch-deg>-79</pitch-deg>
+      </offsets>
+    </model>
+  	<model>
+      <path>Aircraft/707/Models/Cockpit/Instruments/radio/comm2.xml</path>
+      <offsets>
+          <x-m>-18.9</x-m>
+          <y-m> 0.113</y-m>
+          <z-m>0.7672</z-m>
+          <pitch-deg>-79</pitch-deg>
+      </offsets>
+    </model>
+  	<model>
+      <path>Aircraft/707/Models/Cockpit/Instruments/radio/nav1.xml</path>
+      <offsets>
+          <x-m>-18.844</x-m>
+          <y-m>-0.113</y-m>
+          <z-m>0.7575</z-m>
+          <pitch-deg>-79</pitch-deg>
+      </offsets>
+    </model>
+  	<model>
+      <path>Aircraft/707/Models/Cockpit/Instruments/radio/nav2.xml</path>
+      <offsets>
+          <x-m>-18.844</x-m>
+          <y-m> 0.113</y-m>
+          <z-m>0.7575</z-m>
+          <pitch-deg>-79</pitch-deg>
+      </offsets>
+    </model>
+    <model>
+      <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf1.xml</path>
+        <offsets>
+            <x-m>-18.788</x-m>
+          	<y-m>-0.113</y-m>
+            <z-m>0.7479</z-m>
+            <pitch-deg>-79</pitch-deg>
+        </offsets>
+    </model>
+    <model>
+      <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf2.xml</path>
+        <offsets>
+            <x-m>-18.788</x-m>
+          	<y-m> 0.113</y-m>
+            <z-m>0.7479</z-m>
+            <pitch-deg>-79</pitch-deg>
+        </offsets>
+    </model>
 
 
 </PropertyList>

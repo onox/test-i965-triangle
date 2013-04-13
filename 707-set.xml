@@ -18,7 +18,7 @@
 	<instrumentation>
     <path>Aircraft/707/Systems/instrumentation.xml</path>
   </instrumentation>
-  
+
   <sound>
       <path>Aircraft/707/Sounds/707-sound.xml</path>
       <switch type = "bool">0</switch>

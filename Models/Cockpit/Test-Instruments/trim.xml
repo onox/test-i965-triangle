@@ -70,4 +70,19 @@
   </axis>
 </animation>
 
+<!-- all trim wheels to zero -->
+<animation>
+	<type>pick</type>
+	<object-name>Trim.Face</object-name>
+	<action>
+	  <button>0</button>
+	  <repeatable>true</repeatable>
+	  <interval-sec>0.2</interval-sec>
+	   <binding>
+	    <command>nasal</command>
+	    <script>b707.applyTrimWheels(0, 0);b707.applyTrimWheels(0, 1);b707.applyTrimWheels(0, 2)</script>
+	   </binding>
+	</action>
+</animation>
+
 </PropertyList>

@@ -77,6 +77,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hsi-ring</object-name>
+		<object-name>hdg-arrow</object-name>
 		<object-name>sphere</object-name>
 		<object-name>CrsNum.off</object-name>
 		<object-name>CrsNum.1</object-name>
@@ -86,20 +87,6 @@
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
 		<object-name>needle</object-name>
-		
-		
-		<property>instrumentation/heading-indicator/indicated-heading-deg</property>
-		<factor>-1</factor>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>rotate</type>
-		<object-name>hdg-arrow</object-name>
 		<property>instrumentation/heading-indicator/indicated-heading-deg</property>
 		<factor>-1</factor>
 		<axis>

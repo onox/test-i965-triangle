@@ -7,15 +7,35 @@ The only reason it's here is to specify a second ADF.
 
 <PropertyList>
 
-    <adf>
-        <name>adf</name>
-        <number>0</number>
-    </adf>
+		<adf>
+			<name>adf</name>
+			<number>0</number>
+		</adf>
 
-    <adf>
-        <name>adf</name>
-        <number>1</number>
-    </adf>
+		<adf>
+			<name>adf</name>
+			<number>1</number>
+		</adf>
+
+		<nav-radio>
+			<name>nav</name>
+			<number>0</number>
+		</nav-radio>
+
+		<nav-radio>
+			<name>nav</name>
+			<number>1</number>
+		</nav-radio>
+
+		<dme>
+			<name>dme</name>
+			<number>0</number>
+		</dme>
+
+		<dme>
+			<name>dme</name>
+			<number>1</number>
+		</dme>
 
     <airspeed-indicator>
         <name>airspeed-indicator</name>
@@ -36,6 +56,12 @@ The only reason it's here is to specify a second ADF.
         <suction>/systems/vacuum/suction-inhg</suction>
     </attitude-indicator>
 
+		<vertical-speed-indicator>
+			<name>vertical-speed-indicator</name>
+			<number>0</number>
+			<static-pressure>/systems/static/pressure-inhg</static-pressure>
+		</vertical-speed-indicator>
+
     <clock>
         <name>clock</name>
         <number>0</number>
@@ -52,20 +78,15 @@ The only reason it's here is to specify a second ADF.
         <number>0</number>
     </magnetic-compass>
 
-    <nav-radio>
-        <name>nav</name>
-        <number>0</number>
-    </nav-radio>
-
-    <nav-radio>
-        <name>nav</name>
-        <number>1</number>
-    </nav-radio>
-
     <slip-skid-ball>
         <name>slip-skid-ball</name>
         <number>0</number>
     </slip-skid-ball>
+
+		<turn-indicator>
+			<name>turn-indicator</name>
+			<number>0</number>
+		</turn-indicator>
 
     <turn-indicator>
         <name>turn-indicator</name>

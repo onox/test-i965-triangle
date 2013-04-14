@@ -153,7 +153,7 @@
   </offsets>
 </model>
 
-
+<!--
 <model>
   <name>mdi</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/compass_mdi_with_hdg.xml</path>
@@ -163,7 +163,7 @@
     <z-m>0.77</z-m>
   </offsets>
 </model>
-
+-->
 <!--
 <model>
   <name>zero_reader</name>
@@ -185,7 +185,7 @@
     <z-m>0.883</z-m>
   </offsets>
 </model>
-<!--
+
 <model>
   <name>hsi</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/hsi/hsi.xml</path>
@@ -195,7 +195,7 @@
     <z-m>0.773</z-m>
   </offsets>
 </model>
--->
+
 <model>
   <name>marker_beacon</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>

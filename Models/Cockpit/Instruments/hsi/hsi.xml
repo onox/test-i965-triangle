@@ -9,7 +9,14 @@
 		<object-name>sphere</object-name>
 		<object-name>hdg-arrow</object-name>
 		<object-name>hsi-ring</object-name>
-		<object-name>needle</object-name>
+		<object-name>needle</object-name>       
+		<object-name>CrsNum.1</object-name>
+    <object-name>CrsNum.2</object-name>
+    <object-name>CrsNum.3</object-name>
+    <object-name>CrsNum.off</object-name>
+    <object-name>From</object-name>
+    <object-name>To</object-name>
+    <object-name>noNav</object-name>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
@@ -57,84 +64,81 @@
 	<animation>
 		<type>select</type>
 		<object-name>off-flag</object-name>
-		<condition>
-		  <or>
-		    <not><property>/instrumentation/nav[0]/nav-loc</property></not>
-				<and>
-				  <property>/instrumentation/nav[0]/nav-loc</property>
-				  <not><property>/instrumentation/nav[0]/in-range</property></not>
-				</and>
-				<less-than>
-					<property>/systems/electrical/right-bus</property>
-					<value>12</value>
-				</less-than>
-			</or>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
 		<object-name>CrsNum.off</object-name>
 		<condition>
 			<less-than>
-		  	<property>/systems/electrical/right-bus</property>
-		  	<value>12</value>
-		  </less-than>
+				<property>/systems/electrical/right-bus</property>
+				<value>12</value>
+			</less-than>
 		</condition>
 	</animation>
 	
 <!-- compass with hdg function -->
-<animation>
-  <type>rotate</type>
-  <object-name>hdg-knob</object-name>
-  <property>/autopilot/settings/heading-bug-deg</property>
-  <factor>5</factor>
-  <center>
-    <x-m>0</x-m>
-    <y-m>0.03898</y-m>
-    <z-m>-0.0396</z-m>
-  </center>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>hsi-ring</object-name>
+		<object-name>sphere</object-name>
+		<object-name>CrsNum.off</object-name>
+		<object-name>CrsNum.1</object-name>
+		<object-name>CrsNum.2</object-name>
+		<object-name>CrsNum.3</object-name>
+		<object-name>To</object-name>
+		<object-name>From</object-name>
+		<object-name>noNav</object-name>
+		<object-name>needle</object-name>
+		
+		
+		<property>instrumentation/heading-indicator/indicated-heading-deg</property>
+		<factor>-1</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-<animation>
-  <type>rotate</type>
-  <object-name>hsi-ring</object-name>
-  <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-  <factor> -1 </factor>
-  <axis>
-    <x> -1 </x>
-    <y>  0 </y>
-    <z>  0 </z>
-  </axis>
-</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>hdg-arrow</object-name>
+		<property>instrumentation/heading-indicator/indicated-heading-deg</property>
+		<factor>-1</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-<animation>
-  <type>rotate</type>
-  <object-name>hdg-arrow</object-name>
-  <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-  <factor> -1 </factor>
-  <axis>
-    <x> -1 </x>
-    <y>  0 </y>
-    <z>  0 </z>
-  </axis>
-</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>hdg-arrow</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	 
+  <animation>
+		<type>rotate</type>
+		<object-name>sphere</object-name>
+		<object-name>CrsNum.off</object-name>
+		<object-name>CrsNum.1</object-name>
+		<object-name>CrsNum.2</object-name>
+		<object-name>CrsNum.3</object-name>
+		<object-name>To</object-name>
+		<object-name>From</object-name>
+		<object-name>noNav</object-name>
+		<object-name>needle</object-name>
+		<property>/instrumentation/nav[0]/radials/selected-deg</property>
+		<axis>
+			<x>-1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+  </animation>
 
-<animation>
-  <type>rotate</type>
-  <object-name>hdg-arrow</object-name>
-   <property>/autopilot/settings/heading-bug-deg</property>
-  <axis>
-    <x> -1 </x>
-    <y>  0 </y>
-    <z>  0 </z>
-  </axis>
-</animation>
 
 <animation>
   <type>pick</type>
@@ -152,6 +156,9 @@
                 <not>
                     <property>devices/status/keyboard/shift</property>
                 </not>
+                <not>
+                    <property>devices/status/keyboard/ctrl</property>
+                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -163,6 +170,9 @@
         <binding>
             <condition>
                 <property>devices/status/keyboard/shift</property>
+                <not>
+                    <property>devices/status/keyboard/ctrl</property>
+                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -170,6 +180,17 @@
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
+        </binding>
+        <binding>
+            <condition>
+               <property>devices/status/keyboard/ctrl</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>instrumentation/heading-indicator/offset-deg</property>
+            <step>1</step>
+            <min>-45</min>
+            <max>45</max>
+            <wrap>false</wrap>
         </binding>
     </action>
     <action>
@@ -181,6 +202,9 @@
                 <not>
                     <property>devices/status/keyboard/shift</property>
                 </not>
+                <not>
+                    <property>devices/status/keyboard/ctrl</property>
+                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -192,6 +216,9 @@
         <binding>
             <condition>
                 <property>devices/status/keyboard/shift</property>
+                <not>
+                    <property>devices/status/keyboard/ctrl</property>
+                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -199,6 +226,17 @@
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
+        </binding>        
+        <binding>
+            <condition>
+               <property>devices/status/keyboard/ctrl</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>instrumentation/heading-indicator/offset-deg</property>
+            <step>-1</step>
+            <min>-45</min>
+            <max>45</max>
+            <wrap>false</wrap>
         </binding>
     </action>
     <action>
@@ -210,6 +248,9 @@
                 <not>
                     <property>devices/status/keyboard/shift</property>
                 </not>
+                <not>
+                    <property>devices/status/keyboard/ctrl</property>
+                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -221,6 +262,9 @@
         <binding>
             <condition>
                 <property>devices/status/keyboard/shift</property>
+                <not>
+                    <property>devices/status/keyboard/ctrl</property>
+                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -228,6 +272,17 @@
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
+        </binding>
+        <binding>
+            <condition>
+               <property>devices/status/keyboard/ctrl</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>instrumentation/heading-indicator/offset-deg</property>
+            <step>1</step>
+            <min>-45</min>
+            <max>45</max>
+            <wrap>false</wrap>
         </binding>
     </action>
     <action>
@@ -239,63 +294,8 @@
                 <not>
                     <property>devices/status/keyboard/shift</property>
                 </not>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>-1</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-                <property>devices/status/keyboard/shift</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>-10</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-    </action>
-    <action>
-        <name>hdg dec</name>
-        <button>0</button>
-        <repeatable>true</repeatable>
-        <binding>
-            <condition>
                 <not>
-                    <property>devices/status/keyboard/shift</property>
-                </not>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>1</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-                <property>devices/status/keyboard/shift</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>10</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-    </action>
-    <action>
-        <name>hdg inc</name>
-        <button>1</button>
-        <repeatable>true</repeatable>
-        <binding>
-            <condition>
-                <not>
-                    <property>devices/status/keyboard/shift</property>
+                    <property>devices/status/keyboard/ctrl</property>
                 </not>
             </condition>
             <command>property-adjust</command>
@@ -308,6 +308,9 @@
         <binding>
             <condition>
                 <property>devices/status/keyboard/shift</property>
+                <not>
+                    <property>devices/status/keyboard/ctrl</property>
+                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -316,69 +319,257 @@
             <max>360</max>
             <wrap>true</wrap>
         </binding>
-    </action>
-    <action>
-        <name>hdg dec</name>
-        <button>3</button>
-        <repeatable>true</repeatable>
         <binding>
             <condition>
-                <not>
-                    <property>devices/status/keyboard/shift</property>
-                </not>
+               <property>devices/status/keyboard/ctrl</property>
             </condition>
             <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>1</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-                <property>devices/status/keyboard/shift</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>10</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-    </action>
-    <action>
-        <name>hdg inc</name>
-        <button>4</button>
-        <repeatable>true</repeatable>
-        <binding>
-            <condition>
-                <not>
-                    <property>devices/status/keyboard/shift</property>
-                </not>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
+            <property>instrumentation/heading-indicator/offset-deg</property>
             <step>-1</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-                <property>devices/status/keyboard/shift</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>/autopilot/settings/heading-bug-deg</property>
-            <step>-10</step>
-            <min>0</min>
-            <max>360</max>
-            <wrap>true</wrap>
+            <min>-45</min>
+            <max>45</max>
+            <wrap>false</wrap>
         </binding>
     </action>
-</animation>
+	</animation>
+	
 
+<!-- action for nav -->
 
-<!-- deviation action for nav 1 -->
+    <animation>
+        <type>select</type>
+        <object-name>noNav</object-name>
+        <condition>
+            <or>
+		          <not>
+		              <property>/instrumentation/nav[0]/data-is-valid</property>
+		          </not>
+		          <and>
+				        <not>
+				            <property>/instrumentation/nav[0]/from-flag</property>
+				        </not>
+				        <not>
+				            <property>/instrumentation/nav[0]/to-flag</property>
+				        </not>
+				      </and>	          
+		        </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>To</object-name>
+        <condition>
+            <property>/instrumentation/nav[0]/to-flag</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>From</object-name>
+        <condition>
+            <property>/instrumentation/nav[0]/from-flag</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>translate</type>
+        <object-name>needle</object-name>
+        <property>/instrumentation/nav[0]/heading-needle-deflection</property>
+        <interpolation>
+        <entry><ind>-10.0</ind><dep>-0.0152</dep></entry>
+        <entry><ind>10.0</ind><dep>0.0152</dep></entry>
+    </interpolation>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>-0.006</z-m>
+        </center>
+    </animation>
+
+		<animation>
+				<type>textranslate</type>
+				<object-name>CrsNum.1</object-name>
+				<property>/instrumentation/nav[0]/radials/selected-deg</property>
+				<factor>0.001</factor>
+				<step>100</step>
+				<scroll>1</scroll>
+				<axis>
+				    <x>0</x>
+				    <y>1</y>
+				    <z>0</z>
+				</axis>
+		</animation>
+
+		<animation>
+				<type>textranslate</type>
+				<object-name>CrsNum.2</object-name>
+				<property>/instrumentation/nav[0]/radials/selected-deg</property>
+				<factor>0.01</factor>
+				<step>10</step>
+				<scroll>1</scroll>
+				<axis>
+				    <x>0</x>
+				    <y>1</y>
+				    <z>0</z>
+				</axis>
+		</animation>
+
+		<animation>
+				<type>textranslate</type>
+				<object-name>CrsNum.3</object-name>
+				<property>/instrumentation/nav[0]/radials/selected-deg</property>
+				<factor>0.1</factor>
+				<step>1</step>
+				<scroll>1</scroll>
+				<axis>
+				    <x>0</x>
+				    <y>1</y>
+				    <z>0</z>
+				</axis>
+		</animation>
+		
+    <animation>
+      <type>rotate</type>
+      <object-name>course-knob</object-name>
+      <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <factor>-1</factor>
+      <center>
+      <x-m> 0.0</x-m>
+      <y-m>-0.0389</y-m>
+      <z-m>-0.0397</z-m>
+      </center>
+      <axis>
+        <x> 1 </x>
+        <y> 0 </y>
+        <z> 0 </z>
+      </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>crsPane</object-name>
+        <visible>false</visible>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                <condition>
+                    <not>
+                        <property>devices/status/keyboard/shift</property>
+                    </not>
+                </condition>
+                <command>property-adjust</command>
+                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <step>10</step>
+                <min>0</min>
+                <max>359</max>
+                <wrap>1</wrap>
+            </binding>
+            <binding>
+                <condition>
+                    <property>devices/status/keyboard/shift</property>
+                </condition>
+                <command>property-adjust</command>
+                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <step>20</step>
+                <min>0</min>
+                <max>359</max>
+                <wrap>1</wrap>
+            </binding>
+        </action>
+        <action>
+            <button>1</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                <condition>
+                    <not>
+                        <property>devices/status/keyboard/shift</property>
+                    </not>
+                </condition>
+                <command>property-adjust</command>
+                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <step>-10</step>
+                <min>0</min>
+                <max>359</max>
+                <wrap>1</wrap>
+            </binding>
+            <binding>
+                <condition>
+                    <property>devices/status/keyboard/shift</property>
+                </condition>
+                <command>property-adjust</command>
+                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <step>-20</step>
+                <min>0</min>
+                <max>359</max>
+                <wrap>1</wrap>
+            </binding>
+        </action>
+        <action>
+            <button>3</button>
+            <binding>
+                <condition>
+                    <not>
+                        <property>devices/status/keyboard/shift</property>
+                    </not>
+                </condition>
+                <command>property-adjust</command>
+                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <step>1</step>
+                <min>0</min>
+                <max>359</max>
+                <wrap>1</wrap>
+            </binding>
+            <binding>
+                <condition>
+                    <property>devices/status/keyboard/shift</property>
+                </condition>
+                <command>property-adjust</command>
+                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <step>5</step>
+                <min>0</min>
+                <max>359</max>
+                <wrap>1</wrap>
+            </binding>
+        </action>
+        <action>
+            <button>4</button>
+            <binding>
+                <condition>
+                    <not>
+                        <property>devices/status/keyboard/shift</property>
+                    </not>
+                </condition>
+                <command>property-adjust</command>
+                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <step>-1</step>
+                <min>0</min>
+                <max>359</max>
+                <wrap>1</wrap>
+            </binding>
+            <binding>
+                <condition>
+                    <property>devices/status/keyboard/shift</property>
+                </condition>
+                <command>property-adjust</command>
+                <property>/instrumentation/nav[0]/radials/selected-deg</property>
+                <step>-5</step>
+                <min>0</min>
+                <max>359</max>
+                <wrap>1</wrap>
+            </binding>
+        </action>
+    </animation>
+
+ 
 
   <animation>
     <type>range</type>

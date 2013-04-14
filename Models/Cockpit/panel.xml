@@ -13,8 +13,9 @@
   <object-name>alt</object-name>
   <object-name>rmi</object-name>
   <object-name>testwarn</object-name>
-  
   <object-name>vsi</object-name>
+  <object-name>dme</object-name>
+  
   <object-name>mdi</object-name>
   <object-name>turn_bank</object-name>
   <object-name>ctl_pos</object-name>
@@ -125,14 +126,24 @@
 
 <model>
   <name>vsi</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/vsi.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/vs/vsi.xml</path>
   <offsets>
     <x-m>-18.916</x-m>
-    <y-m>-0.330</y-m>
-    <z-m>0.77</z-m>
+    <y-m>-0.337</y-m>
+    <z-m>0.789</z-m>
   </offsets>
 </model>
-
+<!--
+<model>
+  <name>dme</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/dme/dme.xml</path>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m>-0.337</y-m>
+    <z-m>0.71</z-m>
+  </offsets>
+</model>
+-->
 <model>
   <name>agl</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/agl/agl.xml</path>
@@ -218,7 +229,7 @@
 </model>
 -->
 
-<!-- STUFF FROM M.Kraus -->
+<!-- STUFF FROM M.Kraus 
 <model>
   <name>Pic Deviation / Radial Finder</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/pic-dev/pic-dev1.xml</path>
@@ -228,13 +239,14 @@
     <z-m> 0.77</z-m>
   </offsets>
 </model>
+-->
 
 <model>
-  <name>DME</name>
+  <name>DMEOld</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/dme/dme.xml</path>
   <offsets>
       <x-m>-18.916</x-m>
-      <y-m>-0.580</y-m>
+      <y-m>-0.573</y-m>
       <z-m> 0.72</z-m>
   </offsets>
 </model>
@@ -383,7 +395,7 @@
 </model>
 
 <model>
-  <name>DME</name>
+  <name>DMEOld</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/dme/dme.xml</path>
   <offsets>
       <x-m>-18.916</x-m>

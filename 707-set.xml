@@ -326,13 +326,9 @@
 			<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>
 			<file>Aircraft/707/Nasal/mk-frw.nas</file> 
 			<file>Aircraft/707/Nasal/mk-rmi.nas</file>    
-			<file>Aircraft/707/Nasal/mk-ki266.nas</file>
 		  <file>Aircraft/707/Nasal/doors.nas</file>
 		  <file>Aircraft/707/Nasal/tyresmoke.nas</file>
 		  <file>Aircraft/707/Nasal/brakesystem.nas</file>
-		  <script><![CDATA[
-		    ki266.new(0);
-		  ]]></script>
 		</b707>
   </nasal>
 

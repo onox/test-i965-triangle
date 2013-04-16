@@ -1,8 +1,9 @@
 AC3Db
 MATERIAL "more" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 MATERIAL "hsi" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
+MATERIAL "frameShadow" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 OBJECT world
-kids 20
+kids 21
 OBJECT poly
 name "CrsNum.1"
 loc 0.047568 -0.017389 -0.018906
@@ -4064,6 +4065,27 @@ refs 4
 3 0.146677792072 0.191917806864
 2 0.038796566427 0.191917806864
 1 0.038796566427 0.13224363327
+kids 0
+OBJECT poly
+name "shadow"
+loc 0.046705 -0.001894 0.000015
+data 6
+shadow
+texture "shadow.png"
+texrep 1 1
+numvert 4
+0 -0.057722 -0.058613
+0 -0.057722 0.057618
+-0 0.057469 0.057618
+-0 0.057469 -0.058613
+numsurf 1
+SURF 0x10
+mat 2
+refs 4
+0 0.996449589729 0.003665864468
+3 0.996449708939 0.993726968765
+2 0.006388274953 0.993727207184
+1 0.006388274953 0.003665924072
 kids 0
 OBJECT poly
 name "sphere"

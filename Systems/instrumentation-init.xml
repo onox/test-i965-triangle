@@ -76,6 +76,40 @@
   <radials><selected-deg>0</selected-deg></radials>
 </nav>
 
+<dme n="0">
+  <mode>dme</mode>
+  <serviceable type="bool">true</serviceable>
+  <frequencies>
+    <selected-mhz type="double">114.30</selected-mhz>
+    <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
+  </frequencies>
+  <power-btn type="bool">true</power-btn>
+  <indicated-distance-nm type="double">0.0</indicated-distance-nm>
+  <indicated-time-min type="double">0.0</indicated-time-min>
+	<indicated-ground-speed-kt type="double">0.0</indicated-ground-speed-kt>
+	<switch-min-kts type="bool">true</switch-min-kts>
+	<min-kts-display type="double">0.0</min-kts-display>
+	<miles-display type="double">0.0</miles-display>
+	<left-dot type="bool">false</left-dot>
+</dme>
+
+<dme n="1">
+  <mode>dme</mode>
+  <serviceable type="bool">true</serviceable>
+  <frequencies>
+    <selected-mhz type="double">110.05</selected-mhz>
+    <source type="string">/instrumentation/nav[1]/frequencies/selected-mhz</source>
+  </frequencies>
+  <power-btn type="bool">true</power-btn>
+  <indicated-distance-nm type="double">0.0</indicated-distance-nm>
+  <indicated-time-min type="double">0.0</indicated-time-min>
+	<indicated-ground-speed-kt type="double">0.0</indicated-ground-speed-kt>
+	<switch-min-kts type="bool">true</switch-min-kts>
+	<min-kts-display type="double">0.0</min-kts-display>
+	<miles-display type="double">0.0</miles-display>
+	<left-dot type="bool">false</left-dot>
+</dme>
+
 <comm n="0">
   <frequencies>
     <display-sel-khz type="int">0</display-sel-khz>

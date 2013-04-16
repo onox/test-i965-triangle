@@ -133,7 +133,7 @@
     <z-m>0.789</z-m>
   </offsets>
 </model>
-<!--
+
 <model>
   <name>dme</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/dme/dme.xml</path>
@@ -143,7 +143,7 @@
     <z-m>0.71</z-m>
   </offsets>
 </model>
--->
+
 <model>
   <name>agl</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/agl/agl.xml</path>
@@ -239,7 +239,6 @@
     <z-m> 0.77</z-m>
   </offsets>
 </model>
--->
 
 <model>
   <name>DMEOld</name>
@@ -251,7 +250,6 @@
   </offsets>
 </model>
 
-<!--
 <model>
   <name>AGL-Radar</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/agl-radar/agl-radar.xml</path>
@@ -288,6 +286,7 @@
   </offsets>
 </model>
 
+<!--
 <model>
   <name>autopilot_warn</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/lamps/ap-warning.xml</path>
@@ -297,6 +296,7 @@
     <z-m> 1.05</z-m>
   </offsets>
 </model>
+-->
 
 <model>
   <name>ALT-Setting</name>
@@ -393,7 +393,7 @@
     <z-m> 0.90</z-m>
   </offsets>
 </model>
-
+<!--
 <model>
   <name>DMEOld</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/dme/dme.xml</path>
@@ -404,6 +404,7 @@
   </offsets>
 </model>
 
+
 <model>
   <name>AGL-Radar</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/agl-radar/agl-radar.xml</path>
@@ -413,7 +414,7 @@
     <z-m> 0.73</z-m>
   </offsets>
 </model>
-
+-->
 <!-- END OF STUFF FROM M.KRAUS -->
 
 <model>

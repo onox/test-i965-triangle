@@ -18,9 +18,9 @@
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
-		  <red>0.6</red>
-		  <green>0.6</green>
-		  <blue>0.6</blue>
+		  <red>0.4</red>
+		  <green>0.4</green>
+		  <blue>0.4</blue>
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
 	</animation>
@@ -30,25 +30,29 @@
 		<object-name>cover</object-name>
 		<object-name>interieur</object-name>
 		<object-name>internal.sky</object-name>
-		<object-name>window.side</object-name> 
 		<object-name>window.pilot</object-name>
 		<object-name>window.copilot</object-name>
 		<object-name>window.piop</object-name>
 		<object-name>window.coop</object-name>
+		<object-name>window.side</object-name> 
+		<object-name>pedestal</object-name> 
+		<object-name>AileronTab</object-name>  
+		<object-name>ElevatorTab</object-name>  
+		<object-name>RudderTab</object-name>  
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
-		  <red>0.3</red>
-		  <green>0.3</green>
-		  <blue>0.3</blue>
+		  <red>0.25</red>
+		  <green>0.25</green>
+		  <blue>0.25</blue>
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 	
 	<animation>
 		<type>material</type>
-		<object-name>window.front</object-name>   
+		<object-name>window.front</object-name>  
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>

@@ -152,21 +152,37 @@ var show_alti = func {
   }
 }
 
-######################## Helper for the light without rembrandt #################
+var show_dme = func {
+  var dme = getprop("/controls/switches/dme") or 0;
+  var tacan_miles = getprop("/instrumentation/tacan/indicated-distance-nm") or 0;
+  var dme_miles1 = getprop("/instrumentation/dme/indicated-distance-nm") or 0;
+  var dme_miles2 = getprop("/instrumentation/dme[1]/indicated-distance-nm") or 0;
 
-setlistener("/controls/lighting/cabin-dim",
-            func(cd) { 
-              var pl = getprop("/controls/lighting/panel-norm") or 0;
-              var cd = cd.getValue();
-              if (pl < cd){
-              	pl = cd;
-              	if (pl < 0.8){
-              		pl = 0.8;
-              	}
-              	setprop("/controls/lighting/panel-norm", pl);
-              }
+  var decToString = func(x){
+    var d = int(math.mod((x*100),100));
 
-            },1,0);
+    return (int(x)~"."~d);  
+  }
+
+  if (dme == 2){
+    var x = decToString(tacan_miles);
+    var freq = getprop("/instrumentation/tacan/frequencies/selected-channel") or 0;
+    var frex = getprop("/instrumentation/tacan/frequencies/selected-channel[4]");
+    help_win.write(sprintf("Distance to TACAN \""~freq ~ frex~"\" %.2f nm", x) );
+  }
+  
+  if (dme == 1){
+    var x = decToString(dme_miles2);
+    var id = getprop("/instrumentation/nav[1]/nav-id") or 0.0;
+    help_win.write(sprintf("Distance to VOR-DME \""~id~"\" %.2f nm", x) );
+  }
+
+  if (!dme){
+    var x = decToString(dme_miles1);
+    var id = getprop("/instrumentation/nav/nav-id") or 0.0;             
+    help_win.write(sprintf("Distance to VOR-DME \""~id~"\" %.2f nm", x) );
+  }
+}
 
 
 

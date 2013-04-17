@@ -1103,7 +1103,7 @@ refs 4
 kids 0
 OBJECT poly
 name "shadow"
-loc 0.001334 0 -0
+loc 0.001334 -0 0.000433
 data 6
 shadow
 texture "shadow.png"

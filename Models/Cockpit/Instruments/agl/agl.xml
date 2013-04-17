@@ -38,7 +38,6 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>switch</object-name>
 		<object-name>agl-knob</object-name>		
 		<object-name>lampOff</object-name>
 		<condition>
@@ -48,21 +47,6 @@
 			<red>0.2</red>
 			<green>0.2</green>
 			<blue>0.2</blue>
-			<factor-prop>/controls/lighting/panel-norm</factor-prop>
-		</emission>
-	</animation>
-
-	<animation>
-		<type>material</type>	
-		<object-name>sockle</object-name>
-		<object-name>switchsup</object-name>
-		<condition>
-			<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
-		</condition>
-		<emission>
-			<red>0.15</red>
-			<green>0.15</green>
-			<blue>0.15</blue>
 			<factor-prop>/controls/lighting/panel-norm</factor-prop>
 		</emission>
 	</animation>
@@ -76,7 +60,6 @@
 		<object-name>altnum1000</object-name>
 		<object-name>altnum10000</object-name>
 		<object-name>shadow</object-name>
-		<object-name>switchshadow</object-name>
 		<object-name>face</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
@@ -92,10 +75,7 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>switch</object-name>
-		<object-name>agl-knob</object-name>		
-		<object-name>sockle</object-name>
-		<object-name>switchsup</object-name>
+		<object-name>agl-knob</object-name>
 		<object-name>frame</object-name>
 		<object-name>lampOff</object-name>
 		<condition>
@@ -123,13 +103,11 @@
 	<animation>
 		<type>noshadow</type>
 		<object-name>shadow</object-name>
-		<object-name>switchshadow</object-name>
 	</animation>
 
 	<effect>
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>shadow</object-name>
-		<object-name>switchshadow</object-name>
   </effect>
   
 	<animation>
@@ -160,44 +138,6 @@
 		<condition>
 		  	<not><property>/instrumentation/aglradar/power-btn</property></not>
 		</condition>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>switch</object-name>
-		<property>/instrumentation/aglradar/power-btn</property>
-		<factor>-60</factor>
-		<center>
-		  <x-m>0.0467</x-m>
-		  <y-m>0.0</y-m>
-		  <z-m>0.0738</z-m>
-		</center>
-		<axis>
-		  <x>0</x>
-		  <y>1</y>
-		  <z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>switch</object-name>
-		<object-name>sockle</object-name>
-		<object-name>switchsup</object-name>
-		<visible>true</visible>
-		  <action>
-		    <name>on_off</name>
-		    <button>0</button>
-		    <repeatable>true</repeatable>
-				<binding>
-					 <command>property-toggle</command>
-					 <property>/instrumentation/aglradar/power-btn</property>
-				</binding>
-        <binding>
-          <command>property-toggle</command>
-          <property>/sim/sound/switch2</property>
-        </binding>
-		  </action>
 	</animation>
 	
 	<!-- the alt arrow -->

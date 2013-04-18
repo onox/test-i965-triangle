@@ -269,6 +269,10 @@
                 <max>43200</max>
                 <wrap>false</wrap>
             </binding>
+            <binding>
+							<command>property-toggle</command>
+							<property>/sim/sound/switch3</property>
+						</binding>
         </action>
     </animation>
 
@@ -301,10 +305,31 @@
                 <max>43200</max>
                 <wrap>false</wrap>
             </binding>
+            <binding>
+							<command>property-toggle</command>
+							<property>/sim/sound/switch3</property>
+						</binding>
         </action>
     </animation>
     
     <!-- start stop and reset the stopwatch-->
+    <animation>
+        <type>translate</type>
+        <object-name>time.stop</object-name>
+        <property>/instrumentation/stopwatch/running</property>
+        <factor>0.005</factor>
+        <axis>
+            <x> 1.0</x>
+            <y> 0.0</y>
+            <z> 0.0</z>
+        </axis>
+        <center>
+            <x-m> 0.0</x-m>
+            <y-m> 0.03</y-m>
+            <z-m>-0.03</z-m>
+        </center>
+    </animation>
+    
     <animation>
         <type>pick</type>
         <object-name>time.stop</object-name>
@@ -316,6 +341,10 @@
                 <command>nasal</command>
                 <script>b707.sw_start_stop();</script>
             </binding>
+            <binding>
+							<command>property-toggle</command>
+							<property>/sim/sound/switch2</property>
+						</binding>
         </action>
     </animation>
     
@@ -330,6 +359,10 @@
                 <command>nasal</command>
                 <script>b707.sw_reset();</script>
             </binding>
+            <binding>
+							<command>property-toggle</command>
+							<property>/sim/sound/switch2</property>
+						</binding>
         </action>
     </animation>
     

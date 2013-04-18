@@ -8,6 +8,9 @@
   <flight-model>jsb</flight-model>
   <aero>707</aero>
   <virtual-cockpit archive="y">false</virtual-cockpit> 
+	<startup>
+		<splash-texture>Aircraft/707/splash.png</splash-texture>
+	</startup>
   
   <systems n="0">
     <autopilot n="0">

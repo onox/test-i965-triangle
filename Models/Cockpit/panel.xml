@@ -132,6 +132,26 @@
   </offsets>
 </model>
 
+<model>
+  <name>trim</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/trim/trim.xml</path>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m>-0.25</y-m>
+    <z-m>0.71</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>mach</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/mach/mach.xml</path>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m>-0.6</y-m>
+    <z-m>0.71</z-m>
+  </offsets>
+</model>
+
 <!-- Hood Console -->
 
 
@@ -167,16 +187,6 @@
 </model>
 
 <model>
-  <name>trim</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/trim.xml</path>
-  <offsets>
-    <x-m>-18.916</x-m>
-    <y-m>-0.019</y-m>
-    <z-m>0.84</z-m>
-  </offsets>
-</model>
-
-<model>
   <name>air_temp</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/airtemp.xml</path>
   <offsets>
@@ -185,9 +195,6 @@
     <z-m>0.914</z-m>
   </offsets>
 </model>
-
-
-
 
 <model>
   <name>flight rallye watch</name>
@@ -317,6 +324,26 @@
   <offsets>
     <x-m>-18.916</x-m>
     <y-m> 0.495</y-m>
+    <z-m>0.71</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>trim</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/trim/trim.xml</path>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m>0.575</y-m> 
+    <z-m>0.71</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>mach</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/mach/mach.xml</path>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m> 0.231</y-m>
     <z-m>0.71</z-m>
   </offsets>
 </model>

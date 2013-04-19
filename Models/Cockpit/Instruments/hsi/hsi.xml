@@ -466,7 +466,7 @@
       <type>rotate</type>
       <object-name>course-knob</object-name>
       <property>/instrumentation/nav[0]/radials/selected-deg</property>
-        <factor>-90</factor>
+        <factor>-10</factor>
       <center>
       <x-m> 0.0</x-m>
       <y-m>-0.0389</y-m>

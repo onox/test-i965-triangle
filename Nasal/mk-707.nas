@@ -184,6 +184,21 @@ var show_dme = func {
   }
 }
 
+#################################### helper for the standby ADI ############################################
+var gauge_erec = func {
+  setprop("/instrumentation/vertical-speed-indicator/serviceable",0);
+  var tmp_vs = getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm") or 0;
+  var tmp_vs_target_max = 4000;
+  var tmp_vs_target_min = -3000;
+  interpolate("/instrumentation/adi/knob-pos",1,0.2);
+  interpolate("/instrumentation/vertical-speed-indicator/indicated-speed-fpm",tmp_vs_target_max,0.3); 
+	settimer( func{ interpolate("/instrumentation/vertical-speed-indicator/indicated-speed-fpm",tmp_vs_target_min,0.7); }, 0.3);
+	settimer( func{ interpolate("/instrumentation/vertical-speed-indicator/indicated-speed-fpm",tmp_vs,0.5); }, 1.0);
+	settimer( func{   setprop("/instrumentation/vertical-speed-indicator/serviceable", 1);
+										setprop("/instrumentation/adi/knob-pos", 0); }, 1.5);
+
+}
+
 
 
 

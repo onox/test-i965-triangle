@@ -168,11 +168,31 @@
 
 <!-- Center Panel -->
 <model>
+  <name>altm</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/altm/altm.xml</path>
+  <offsets>
+      <x-m>-18.92</x-m>
+      <y-m>-0.13</y-m>
+      <z-m> 0.945</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>adi</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/adi/adi.xml</path>
+  <offsets>
+      <x-m>-18.92</x-m>
+      <y-m>-0.13</y-m>
+      <z-m> 0.874</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>Autopilot Helper</name>
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/ap/ap.xml</path>
   <offsets>
       <x-m>-18.913</x-m>
-      <y-m>-0.119</y-m>
+      <y-m>-0.04</y-m>
       <z-m> 0.940</z-m>
   </offsets>
 </model>
@@ -182,7 +202,7 @@
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/alt-set/alt-set.xml</path>
   <offsets>
       <x-m>-18.913</x-m>
-      <y-m>-0.119</y-m>
+      <y-m>-0.04</y-m>
       <z-m> 0.90</z-m>
   </offsets>
 </model>
@@ -192,7 +212,7 @@
   <path>Aircraft/707/Models/Cockpit/Test-Instruments/flaps.xml</path>
   <offsets>
     <x-m>-18.916</x-m>
-    <y-m>-0.119</y-m>
+    <y-m>-0.04</y-m>
     <z-m>0.84</z-m>
   </offsets>
 </model>

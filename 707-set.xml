@@ -319,21 +319,21 @@
 	
 	<instrumentation include="Systems/instrumentation-init.xml"/>	
 	
- <nasal>
-		<b707>
-		  <file>Aircraft/707/Nasal/liveries.nas</file>
-		  <file>Aircraft/707/Nasal/test_system.nas</file>
-		  <file>Aircraft/707/Nasal/electrical.nas</file>
-		  <file>Aircraft/707/Nasal/mk-707.nas</file>
-		  <file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
-			<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>
-			<file>Aircraft/707/Nasal/mk-frw.nas</file>
-		  <file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
-			<file>Aircraft/707/Nasal/mk-rmi.nas</file>    
-		  <file>Aircraft/707/Nasal/doors.nas</file>
-		  <file>Aircraft/707/Nasal/tyresmoke.nas</file>
-		  <file>Aircraft/707/Nasal/brakesystem.nas</file>
-		</b707>
-  </nasal>
+	 <nasal>
+			<b707>
+				<file>Aircraft/707/Nasal/liveries.nas</file>
+				<file>Aircraft/707/Nasal/test_system.nas</file>
+				<file>Aircraft/707/Nasal/electrical.nas</file>
+				<file>Aircraft/707/Nasal/mk-707.nas</file>
+				<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
+				<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>
+				<file>Aircraft/707/Nasal/mk-frw.nas</file>
+				<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
+				<file>Aircraft/707/Nasal/mk-rmi.nas</file>    
+				<file>Aircraft/707/Nasal/doors.nas</file>
+				<file>Aircraft/707/Nasal/tyresmoke.nas</file>
+				<file>Aircraft/707/Nasal/brakesystem.nas</file>
+			</b707>
+		</nasal>
 
 </PropertyList>

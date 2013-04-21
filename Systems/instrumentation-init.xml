@@ -169,4 +169,9 @@
   <mda-lamp type="bool">0</mda-lamp>
 </aglradar>
 
+<!-- the knob on the standby ai -->
+<adi>
+  <knob-pos type="double">0.0</knob-pos>
+</adi>
+
 </PropertyList>

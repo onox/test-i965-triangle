@@ -172,7 +172,7 @@
   <path>Aircraft/707/Models/Cockpit/Instruments/altm/altm.xml</path>
   <offsets>
       <x-m>-18.92</x-m>
-      <y-m>-0.13</y-m>
+      <y-m>-0.141</y-m>
       <z-m> 0.945</z-m>
   </offsets>
 </model>
@@ -182,48 +182,18 @@
   <path>Aircraft/707/Models/Cockpit/Instruments/adi/adi.xml</path>
   <offsets>
       <x-m>-18.92</x-m>
-      <y-m>-0.13</y-m>
+      <y-m>-0.141</y-m>
       <z-m> 0.874</z-m>
   </offsets>
 </model>
 
 <model>
-  <name>Autopilot Helper</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/ap/ap.xml</path>
+  <name>gears flaps and control lights</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/flapstack/flapstack.xml</path>
   <offsets>
-      <x-m>-18.913</x-m>
-      <y-m>-0.04</y-m>
-      <z-m> 0.940</z-m>
-  </offsets>
-</model>
-
-<model>
-  <name>ALT-Setting</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/alt-set/alt-set.xml</path>
-  <offsets>
-      <x-m>-18.913</x-m>
-      <y-m>-0.04</y-m>
-      <z-m> 0.90</z-m>
-  </offsets>
-</model>
-
-<model>
-  <name>flaps</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/flaps.xml</path>
-  <offsets>
-    <x-m>-18.916</x-m>
-    <y-m>-0.04</y-m>
-    <z-m>0.84</z-m>
-  </offsets>
-</model>
-
-<model>
-  <name>air_temp</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/airtemp.xml</path>
-  <offsets>
-    <x-m>-18.916</x-m>
-    <y-m>0.044</y-m>
-    <z-m>0.914</z-m>
+    <x-m>-18.92</x-m>
+    <y-m>  0.0</y-m>
+    <z-m>  0.89</z-m>
   </offsets>
 </model>
 
@@ -239,8 +209,8 @@
 
 <!-- Copilot Panel -->
 <model>
-  <name>ObenLinks</name>
-  <path>Aircraft/707/Models/Cockpit/Instruments/clock/clock.xml</path>
+  <name>air_temp</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/airtemp/airtemp.xml</path>
   <offsets>
     <x-m>-18.919</x-m>
     <y-m> 0.231</y-m>
@@ -343,7 +313,6 @@
   <path>Aircraft/707/Models/Cockpit/Instruments/clock/clock.xml</path>
   <offsets>
     <x-m>-18.916</x-m>
-    <!--<y-m>-0.25</y-m>  + 0.82 -->
     <y-m>0.575</y-m>    
     <z-m>0.80</z-m>
   </offsets>
@@ -402,6 +371,26 @@
   </offsets>
 </model>
 
+<model>
+  <name>Autopilot Helper</name>
+  <path>Aircraft/707/Models/Cockpit/Test-Instruments/ap/ap.xml</path>
+  <offsets>
+      <x-m>-18.812</x-m>
+      <y-m>-0.125</y-m>
+      <z-m> 1.05</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>ALT-Setting</name>
+  <path>Aircraft/707/Models/Cockpit/Test-Instruments/alt-set/alt-set.xml</path>
+  <offsets>
+      <x-m>-18.812</x-m>
+      <y-m>-0.125</y-m>
+      <z-m> 1.031</z-m>
+  </offsets>
+</model>
+
 
 <!-- middle pedestal -->
   	<model>
@@ -409,8 +398,8 @@
       <offsets>
           <x-m>-18.9</x-m>
           <y-m>-0.113</y-m>
-          <z-m>0.7672</z-m>
-          <pitch-deg>-79</pitch-deg>
+          <z-m>0.747</z-m>
+          <pitch-deg>-72</pitch-deg>
       </offsets>
     </model>
   	<model>
@@ -418,8 +407,8 @@
       <offsets>
           <x-m>-18.9</x-m>
           <y-m> 0.113</y-m>
-          <z-m>0.7672</z-m>
-          <pitch-deg>-79</pitch-deg>
+          <z-m>0.747</z-m>
+          <pitch-deg>-72</pitch-deg>
       </offsets>
     </model>
   	<model>
@@ -427,8 +416,8 @@
       <offsets>
           <x-m>-18.844</x-m>
           <y-m>-0.113</y-m>
-          <z-m>0.7575</z-m>
-          <pitch-deg>-79</pitch-deg>
+          <z-m>0.728</z-m>
+          <pitch-deg>-71</pitch-deg>
       </offsets>
     </model>
   	<model>
@@ -436,8 +425,8 @@
       <offsets>
           <x-m>-18.844</x-m>
           <y-m> 0.113</y-m>
-          <z-m>0.7575</z-m>
-          <pitch-deg>-79</pitch-deg>
+          <z-m>0.728</z-m>
+          <pitch-deg>-71</pitch-deg>
       </offsets>
     </model>
     <model>
@@ -445,8 +434,8 @@
         <offsets>
             <x-m>-18.788</x-m>
           	<y-m>-0.113</y-m>
-            <z-m>0.7479</z-m>
-            <pitch-deg>-79</pitch-deg>
+            <z-m>0.709</z-m>
+            <pitch-deg>-71</pitch-deg>
         </offsets>
     </model>
     <model>
@@ -454,8 +443,8 @@
         <offsets>
             <x-m>-18.788</x-m>
           	<y-m> 0.113</y-m>
-            <z-m>0.7479</z-m>
-            <pitch-deg>-79</pitch-deg>
+            <z-m>0.709</z-m>
+            <pitch-deg>-71</pitch-deg>
         </offsets>
     </model>
 

@@ -146,6 +146,9 @@
 		<type>translate</type>
 		<object-name>arrow</object-name>
 		<property>/instrumentation/aglradar/alt-ft</property>
+		<condition>
+		   <property>/instrumentation/aglradar/power-btn</property>
+		</condition>
 		<interpolation>
 			<entry><ind>-350</ind><dep> -0.03586</dep></entry>
 		  <entry><ind>   0</ind><dep>  0.0		 </dep></entry>

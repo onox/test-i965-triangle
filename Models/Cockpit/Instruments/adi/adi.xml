@@ -117,6 +117,8 @@
 	<animation>
 		<type>noshadow</type>
 		<object-name>shadow</object-name>
+		<object-name>bkg</object-name>
+		<object-name>ring</object-name>
 	</animation>
 
 	<effect>
@@ -201,11 +203,17 @@
 		  <z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
-		<type>range</type>
-		<min-m>0</min-m>
-		<max-m>50</max-m>
+		<type>translate</type>
+		<object-name>marker</object-name>
+		<property>/instrumentation/adi/horizon-offset-deg</property>
+		<factor>0.002</factor>
+		<axis>
+		  <x>0</x>
+		  <y>0</y>
+		  <z>1</z>
+		</axis>
 	</animation>
 	
   
@@ -226,16 +234,42 @@
           <z-m>-0.026</z-m>
       </center>
   </animation> 
-     
+    
+	<animation>
+			<type>rotate</type>
+      <object-name>gaugeKnob</object-name>
+			<property>/instrumentation/adi/horizon-offset-deg</property>
+			<interpolation>
+				<entry><ind> 1</ind><dep> 60</dep></entry>
+				<entry><ind> 0</ind><dep>  0</dep></entry>
+				<entry><ind>-1</ind><dep>-60</dep></entry>
+			</interpolation>
+      <center>
+        <x-m> 0.007</x-m>
+        <y-m> 0.026</y-m>
+        <z-m>-0.026</z-m>
+      </center>
+			<axis>
+				<x>-1</x>
+				<y>0</y>
+				<z>0</z>
+			</axis>
+		</animation>
+
 	<animation>
 		<type>pick</type>
-		<object-name>gaugeKnob</object-name>
-		<object-name>gaugeScale</object-name>
+  	<object-name>gaugeKnob</object-name>
+  	<object-name>gaugeScale</object-name>
 		<visible>true</visible>
-      <action>
-        <name>erec gauge</name>
-        <button>0</button>
-      	<repeatable>false</repeatable>
+		  <action>
+		    <name>adi calibrate reset</name>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		      <command>property-assign</command>
+		      <property>/instrumentation/adi/horizon-offset-deg</property>
+		      <value>0</value>
+		    </binding>
         <binding>
           <command>nasal</command>
           <script>b707.gauge_erec();</script>
@@ -247,58 +281,33 @@
             <value>0.0</value>
           </binding>
         </mod-up>
-      </action>
-  </animation>
-  
-    <animation>
-      <type>rotate</type>
-      <object-name>gaugeKnob</object-name>
-      <property>/instrumentation/altimeter/setting-inhg</property>
-			<interpolation>
-				<entry><ind>30.0</ind><dep>  60</dep></entry>
-				<entry><ind>29.92</ind><dep>  0</dep></entry>
-				<entry><ind>29.84</ind><dep>-60</dep></entry>
-			</interpolation>
-      <center>
-        <x-m> 0.007</x-m>
-        <y-m> 0.026</y-m>
-        <z-m>-0.026</z-m>
-      </center>
-      <axis>
-        <x> -1 </x>
-        <y>  0 </y>
-        <z>  0 </z>
-      </axis>
-    </animation>
-
-
-    <animation>
-        <type>pick</type>
-      	<object-name>gaugeKnob</object-name>
-      	<object-name>gaugeScale</object-name>
-        <visible>true</visible>
-        <action>
-            <button>3</button>
-            <binding>
-            <command>property-adjust</command>
-            <property>/instrumentation/altimeter/setting-inhg</property>
-            <step>0.01</step>
-            <min>29.84</min>
-            <max>30.0</max>
-            <wrap>false</wrap>
-            </binding>
-        </action>
-        <action>
-            <button>4</button>
-            <binding>
-            <command>property-adjust</command>
-            <property>/instrumentation/altimeter/setting-inhg</property>
-            <step>-0.01</step>
-            <min>29.84</min>
-            <max>30.0</max>
-            <wrap>false</wrap>
-            </binding>
-        </action>
-    </animation>
+		  </action>      
+		  <action>
+		    <name>adi calibrate fine dec</name>
+		    <button>3</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+		      <command>property-adjust</command>
+		      <property>/instrumentation/adi/horizon-offset-deg</property>
+		      <step>-0.2</step>
+		      <min>-1</min>
+		      <max>1</max>
+		      <wrap>false</wrap>
+		    </binding>
+		  </action>
+		  <action>
+		    <name>adi calibrate fine inc</name>
+		    <button>4</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+		      <command>property-adjust</command>
+		      <property>/instrumentation/adi/horizon-offset-deg</property>
+		      <step>0.2</step>
+		      <min>-1</min>
+		      <max>1</max>
+		      <wrap>false</wrap>
+		    </binding>
+		  </action>
+	</animation>
 
 </PropertyList>

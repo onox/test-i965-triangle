@@ -76,7 +76,116 @@
 		  <blue>0.3</blue>
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
-	</animation>	
+	</animation>
+	
+<!-- the control lamps -->
+	<animation>
+		<type>material</type>
+		<object-name>lamp.door.ON</object-name>
+		<emission>
+		  <red>   0.9 </red>
+		  <green> 0.7 </green>
+		  <blue>  0.9 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>lamp.gear.ON</object-name>
+		<emission>
+		  <red>   0.9 </red>
+		  <green> 0.7 </green>
+		  <blue>  0.9 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>lamp.warning.ON</object-name>
+		<emission>
+		  <red>   0.9 </red>
+		  <green> 0.7 </green>
+		  <blue>  0.9 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>lamps.gears.ON</object-name>
+		<emission>
+		  <red>   0.1 </red>
+		  <green> 0.7 </green>
+		  <blue>  0.1 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lamp.door.ON</object-name>
+		<condition>
+		  <or>
+		    <property>sim/multiplay/generic/float[4]</property>
+		    <property>sim/multiplay/generic/float[5]</property>
+		    <property>/controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>lamp.gear.ON</object-name>
+		<condition>
+		  <or>
+		    <and>
+		    	<less-than>
+						<property>gear/gear[0]/position-norm</property>
+						<value>1</value>
+					</less-than>
+		    	<greater-than>
+						<property>gear/gear[0]/position-norm</property>
+						<value>0</value>
+					</greater-than>
+				</and>
+		    <property>/controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>lamp.warning.ON</object-name>
+		<condition>
+		  <or>
+		    <property>sim/multiplay/generic/float[4]</property>
+		    <property>sim/multiplay/generic/float[5]</property>
+		    <and>
+		    	<less-than>
+						<property>gear/gear[0]/position-norm</property>
+						<value>1</value>
+					</less-than>
+		    	<greater-than>
+						<property>gear/gear[0]/position-norm</property>
+						<value>0</value>
+					</greater-than>
+				</and>
+		    <property>/controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lamps.gears.ON</object-name>
+		<condition>
+		  <or>
+				<equals>
+						<property>gear/gear[0]/position-norm</property>
+						<value>1</value>
+				</equals>
+		    <property>/controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
 
 <!-- gears up and down -->
 	<animation>
@@ -120,9 +229,9 @@
   <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry><ind>   0</ind><dep>  0</dep></entry>
-    <entry><ind> 0.2</ind><dep> 72</dep></entry>
-    <entry><ind> 0.4</ind><dep>108</dep></entry>
-    <entry><ind> 0.6</ind><dep>144</dep></entry>
+    <entry><ind> 0.2</ind><dep> 48</dep></entry>
+    <entry><ind> 0.4</ind><dep> 90</dep></entry>
+    <entry><ind> 0.6</ind><dep>136</dep></entry>
     <entry><ind>   1</ind><dep>180</dep></entry>
   </interpolation>
 	<center>
@@ -143,9 +252,9 @@
   <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry><ind>   0</ind><dep>  0</dep></entry>
-    <entry><ind> 0.2</ind><dep> 72</dep></entry>
-    <entry><ind> 0.4</ind><dep>108</dep></entry>
-    <entry><ind> 0.6</ind><dep>144</dep></entry>
+    <entry><ind> 0.2</ind><dep> 48</dep></entry>
+    <entry><ind> 0.4</ind><dep> 90</dep></entry>
+    <entry><ind> 0.6</ind><dep>136</dep></entry>
     <entry><ind>   1</ind><dep>180</dep></entry>
   </interpolation>
 	<center>
@@ -166,8 +275,10 @@
   <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry><ind>   0</ind><dep>  0</dep></entry>
-    <entry><ind> 0.2</ind><dep> 36</dep></entry>
-    <entry><ind>   1</ind><dep> 36</dep></entry>
+    <entry><ind> 0.2</ind><dep> 42</dep></entry>
+    <entry><ind> 0.4</ind><dep> 96</dep></entry>
+    <entry><ind> 0.6</ind><dep>130</dep></entry>
+    <entry><ind>   1</ind><dep>180</dep></entry>
   </interpolation>
 	<center>
 		<x-m>0.0</x-m>
@@ -187,8 +298,10 @@
   <property>surface-positions/flap-pos-norm</property>
   <interpolation>
     <entry><ind>   0</ind><dep>  0</dep></entry>
-    <entry><ind> 0.2</ind><dep> 36</dep></entry>
-    <entry><ind>   1</ind><dep> 36</dep></entry>
+    <entry><ind> 0.2</ind><dep> 51</dep></entry>
+    <entry><ind> 0.4</ind><dep> 84</dep></entry>
+    <entry><ind> 0.6</ind><dep>142</dep></entry>
+    <entry><ind>   1</ind><dep>178</dep></entry>
   </interpolation>
 	<center>
 		<x-m>0.0</x-m>

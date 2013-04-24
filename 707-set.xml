@@ -37,7 +37,7 @@
    <config>
      <!-- x/y/z == right/up/back -->
 		 <x-offset-m archive="y">-0.46</x-offset-m>
-		 <y-offset-m archive="y">1.24</y-offset-m>
+		 <y-offset-m archive="y">1.19</y-offset-m>
 		 <z-offset-m archive="y">-18.2</z-offset-m>
 		 <pitch-offset-deg archive="y">-16.0</pitch-offset-deg>
 		 <default-field-of-view-deg type="double">72</default-field-of-view-deg>
@@ -59,7 +59,7 @@
 		 <from-model-idx type="int">true</from-model-idx>
      <!-- x/y/z == right/up/back -->
 		 <x-offset-m archive="y"> 0.46</x-offset-m>
-		 <y-offset-m archive="y">1.24</y-offset-m>
+		 <y-offset-m archive="y">1.19</y-offset-m>
 		 <z-offset-m archive="y">-18.2</z-offset-m>
 		 <pitch-offset-deg archive="y">-16.0</pitch-offset-deg>
 		 <default-field-of-view-deg type="double">72</default-field-of-view-deg>
@@ -151,7 +151,11 @@
     <setting>0.6</setting>	<!-- 60% approach-->
     <setting>1.0</setting>	<!-- 100% landing -->
   </flaps>
-
+  
+	<aircraft-data>
+		<path>instrumentation/stopwatch/flight-time/total</path>
+	</aircraft-data>
+	
  </sim>
 
 	<engines>

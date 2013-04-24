@@ -235,8 +235,6 @@
         <object-name>Dme.1</object-name>
         <property>/instrumentation/dme/indicated-distance-nm</property>
         <factor>1</factor>
-        <step>0.000001</step>
-        <scroll>1</scroll>
         <axis>
             <x>0</x>
             <y>1</y>
@@ -276,8 +274,6 @@
         <object-name>Dme.1.1</object-name>
         <property>/instrumentation/dme[1]/indicated-distance-nm</property>
         <factor>1</factor>
-        <step>0.000001</step>
-        <scroll>1</scroll>
         <axis>
             <x>0</x>
             <y>1</y>
@@ -318,8 +314,6 @@
         <object-name>Tacan.1</object-name>
         <property>/instrumentation/tacan/indicated-distance-nm</property>
         <factor>1</factor>
-        <step>0.000001</step>
-        <scroll>1</scroll>
         <axis>
             <x>0</x>
             <y>1</y>

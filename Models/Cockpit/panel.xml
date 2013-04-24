@@ -188,12 +188,32 @@
 </model>
 
 <model>
-  <name>gears flaps and control lights</name>
+  <name>gears_and_flaps</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/flapstack/flapstack.xml</path>
   <offsets>
     <x-m>-18.92</x-m>
     <y-m>  0.0</y-m>
     <z-m>  0.89</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>oil_and_flaps_warning</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/lamps/oil_and_flaps.xml</path>
+  <offsets>
+    <x-m>-18.92</x-m>
+    <y-m>  0.093</y-m>
+    <z-m>  0.80</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>oil_and_slats_warning</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/lamps/oil_and_slats.xml</path>
+  <offsets>
+    <x-m>-18.92</x-m>
+    <y-m> -0.141</y-m>
+    <z-m>  0.80</z-m>
   </offsets>
 </model>
 

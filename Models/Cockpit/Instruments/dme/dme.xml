@@ -8,13 +8,16 @@
       <object-name>Dme.1</object-name>
       <object-name>Dme.10</object-name>
       <object-name>Dme.100</object-name>
+      <object-name>Dme.1000</object-name>
       <object-name>Dme.1.1</object-name>
       <object-name>Dme.10.1</object-name>
       <object-name>Dme.100.1</object-name>
+      <object-name>Dme.1000.1</object-name>
       <object-name>Dot</object-name>
       <object-name>Tacan.1</object-name>
       <object-name>Tacan.10</object-name>
       <object-name>Tacan.100</object-name>
+      <object-name>Tacan.1000</object-name>
       <object-name>NoDME</object-name>
       <object-name>DME.Face</object-name>
 		<condition>
@@ -33,13 +36,16 @@
       <object-name>Dme.1</object-name>
       <object-name>Dme.10</object-name>
       <object-name>Dme.100</object-name>
+      <object-name>Dme.1000</object-name>
       <object-name>Dme.1.1</object-name>
       <object-name>Dme.10.1</object-name>
       <object-name>Dme.100.1</object-name>
+      <object-name>Dme.1000.1</object-name>
       <object-name>Dot</object-name>
       <object-name>Tacan.1</object-name>
       <object-name>Tacan.10</object-name>
       <object-name>Tacan.100</object-name>
+      <object-name>Tacan.1000</object-name>
       <object-name>NoDME</object-name>
       <object-name>DME.Face</object-name>
 			<object-name>shadow</object-name>
@@ -147,6 +153,7 @@
 		<object-name>Dme.1</object-name>
 		<object-name>Dme.10</object-name>
 		<object-name>Dme.100</object-name>
+		<object-name>Dme.1000</object-name>
 		<condition>
 		  <equals>
 		    <property>/controls/switches/dme</property>
@@ -160,6 +167,7 @@
 		<object-name>Dme.1.1</object-name>
 		<object-name>Dme.10.1</object-name>
 		<object-name>Dme.100.1</object-name>
+		<object-name>Dme.1000.1</object-name>
 		<condition>
 		  <equals>
 		    <property>/controls/switches/dme</property>
@@ -173,6 +181,7 @@
 		<object-name>Tacan.1</object-name>
 		<object-name>Tacan.10</object-name>
 		<object-name>Tacan.100</object-name>
+		<object-name>Tacan.1000</object-name>
 		<condition>
 		  <equals>
 		    <property>/controls/switches/dme</property>
@@ -203,6 +212,19 @@
 			</or>
 		</condition>
 	</animation>
+	
+    <animation>
+        <type>textranslate</type>
+        <object-name>Dme.1000</object-name>
+        <property>/instrumentation/dme/indicated-distance-nm</property>
+		    <factor>0.001</factor>
+		    <step>100</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
 
     <animation>
         <type>textranslate</type>
@@ -241,7 +263,19 @@
             <z>0</z>
         </axis>
     </animation>
-    
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Dme.1000.1</object-name>
+        <property>/instrumentation/dme[1]/indicated-distance-nm</property>
+		    <factor>0.001</factor>
+		    <step>100</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>    
 
     <animation>
         <type>textranslate</type>
@@ -274,6 +308,20 @@
         <object-name>Dme.1.1</object-name>
         <property>/instrumentation/dme[1]/indicated-distance-nm</property>
         <factor>1</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Tacan.1000</object-name>
+        <property>/instrumentation/tacan/indicated-distance-nm</property>
+        <factor>0.001</factor>
+        <step>100</step>
+		    <bias>0.005</bias>
         <axis>
             <x>0</x>
             <y>1</y>

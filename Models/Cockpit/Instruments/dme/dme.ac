@@ -2,7 +2,7 @@ AC3Db
 MATERIAL "dme" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 MATERIAL "shadow" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 OBJECT world
-kids 18
+kids 21
 OBJECT poly
 name "Bezel"
 loc -0.00022 0 -0
@@ -732,7 +732,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Dme.1"
-loc 0.000062 -0.010748 -0.013141
+loc 0.000062 -0.010748 -0.016953
 data 5
 Dme.1
 texture "face.png"
@@ -754,7 +754,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Dme.1.1"
-loc 0.000022 -0.010748 -0.013141
+loc 0.000022 -0.010748 -0.016953
 data 7
 Dme.1.1
 texture "face.png"
@@ -776,7 +776,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Dme.10"
-loc 0.000062 -0.010748 -0.001809
+loc 0.000062 -0.010748 -0.005621
 data 6
 Dme.10
 texture "face.png"
@@ -798,7 +798,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Dme.10.1"
-loc 0.000022 -0.010748 -0.001809
+loc 0.000022 -0.010748 -0.005621
 data 8
 Dme.10.1
 texture "face.png"
@@ -820,7 +820,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Dme.100"
-loc 0.000062 -0.010748 0.00572
+loc 0.000062 -0.010748 0.001908
 data 7
 Dme.100
 texture "face.png"
@@ -842,9 +842,53 @@ refs 4
 kids 0
 OBJECT poly
 name "Dme.100.1"
-loc 0.000022 -0.010748 0.00572
+loc 0.000022 -0.010748 0.001908
 data 9
 Dme.100.1
+texture "face.png"
+texrep 1 1
+crease 45.000001
+numvert 4
+0 0.007203 0.00064
+0 0.007203 0.007122
+0 0.016465 0.007122
+0 0.016465 0.00064
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+1 0.030040558428 0.01505061239
+0 0.132808893919 0.01505061239
+3 0.132808893919 0.088456064463
+2 0.030040558428 0.088456064463
+kids 0
+OBJECT poly
+name "Dme.1000"
+loc 0.000062 -0.010748 0.009526
+data 8
+Dme.1000
+texture "face.png"
+texrep 1 1
+crease 45.000001
+numvert 4
+0 0.007203 0.00064
+0 0.007203 0.007122
+0 0.016465 0.007122
+0 0.016465 0.00064
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+1 0.030040558428 0.01505061239
+0 0.132808893919 0.01505061239
+3 0.132808893919 0.088456064463
+2 0.030040558428 0.088456064463
+kids 0
+OBJECT poly
+name "Dme.1000.1"
+loc 0.000023 -0.010748 0.009526
+data 10
+Dme.1000.1
 texture "face.png"
 texrep 1 1
 crease 45.000001
@@ -886,12 +930,12 @@ refs 4
 kids 0
 OBJECT poly
 name "NoDME"
-loc 0.015896 0.000757 0.008018
+loc 0.015896 0.000757 0.004206
 data 5
 NoDME
 texture "face.png"
 texrep 1 1
-numvert 12
+numvert 16
 -0.015736 -0.000729 -0.0204
 -0.015736 -0.000729 -0.014038
 -0.015736 0.000606 -0.014038
@@ -904,7 +948,11 @@ numvert 12
 -0.015736 -0.000729 0.004853
 -0.015736 0.000606 0.004853
 -0.015736 0.000606 -0.00151
-numsurf 3
+-0.015736 0.000606 0.006108
+-0.015736 0.000606 0.012471
+-0.015736 -0.000729 0.012471
+-0.015736 -0.000729 0.006108
+numsurf 4
 SURF 0x10
 mat 0
 refs 4
@@ -926,10 +974,17 @@ refs 4
 11 0.774401009083 0.01939971
 10 0.589704692364 0.01939971
 9 0.589704692364 0.004073243123
+SURF 0x10
+mat 0
+refs 4
+15 0.774401009083 0.004073243123
+12 0.774401009083 0.01939971
+13 0.589704692364 0.01939971
+14 0.589704692364 0.004073243123
 kids 0
 OBJECT poly
 name "Tacan.1"
-loc -0.000018 -0.010748 -0.01304
+loc -0.000018 -0.010748 -0.016853
 data 7
 Tacan.1
 texture "face.png"
@@ -951,7 +1006,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Tacan.10"
-loc -0.000018 -0.010748 -0.001809
+loc -0.000018 -0.010748 -0.005621
 data 8
 Tacan.10
 texture "face.png"
@@ -973,9 +1028,31 @@ refs 4
 kids 0
 OBJECT poly
 name "Tacan.100"
-loc -0.000018 -0.010748 0.00572
+loc -0.000018 -0.010748 0.001908
 data 9
 Tacan.100
+texture "face.png"
+texrep 1 1
+crease 45.000001
+numvert 4
+0 0.007203 0.00064
+0 0.007203 0.007122
+0 0.016465 0.007122
+0 0.016465 0.00064
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+1 0.030040558428 0.01505061239
+0 0.132808893919 0.01505061239
+3 0.132808893919 0.088456064463
+2 0.030040558428 0.088456064463
+kids 0
+OBJECT poly
+name "Tacan.1000"
+loc -0.000022 -0.010748 0.009526
+data 10
+Tacan.1000
 texture "face.png"
 texrep 1 1
 crease 45.000001

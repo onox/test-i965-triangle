@@ -201,8 +201,14 @@ var startup = func
 		#{
 		#	setprop("controls/engines/msg", 2);
 		#}, 20);
-		 
-
+		
+		# switch on the FlightRallyeMode
+		var frwKnob = getprop("instrumentation/frw/btn-mode");
+		if (frwKnob == 0) {
+		  setprop("instrumentation/frw/btn-mode",1);
+		  b707.frw_mode();
+		}
+		
  };
 
 var shutdown = func

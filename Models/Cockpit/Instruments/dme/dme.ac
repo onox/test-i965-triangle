@@ -908,7 +908,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Dot"
-loc -0.014075 -0.01363 -0.059799
+loc -0.014075 -0.01363 -0.063841
 data 3
 Dot
 texture "face.png"

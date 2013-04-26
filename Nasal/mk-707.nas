@@ -90,7 +90,7 @@ var toggleLandingLights = func {
 
 ################## Little Help Window on bottom of screen #################
 var help_win = screen.window.new( 0, 0, 1, 3 );
-help_win.fg = [0,1,1,1];
+help_win.fg = [08,0.08,0.0,1];
 
 var messenger = func{
 help_win.write(arg[0]);

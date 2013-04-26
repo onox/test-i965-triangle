@@ -8,6 +8,7 @@
 	<type>material</type>
   <object-name>LampGreen</object-name>
   <object-name>LampAmber</object-name>
+  <object-name>LampAmber.001</object-name>
   <object-name>Sockle</object-name>
 	<condition>
 		<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
@@ -24,6 +25,7 @@
 	<type>material</type>
   <object-name>LampGreen</object-name>
   <object-name>LampAmber</object-name>
+  <object-name>LampAmber.001</object-name>
   <object-name>Sockle</object-name>
   <object-name>shadow</object-name>
 	<condition>
@@ -42,8 +44,10 @@
   <type>noshadow</type>
   <object-name>LampGreen</object-name>
   <object-name>LampAmber</object-name>
+  <object-name>LampAmber.001</object-name>
   <object-name>LampGreenON</object-name>
   <object-name>LampAmberON</object-name>
+  <object-name>LampAmberON.001</object-name>
 </animation>
 
 <effect>
@@ -54,6 +58,7 @@
 <animation>
   <type>material</type>
   <object-name>LampAmberON</object-name>
+  <object-name>LampAmberON.001</object-name>
   <emission>
     <red>   0.5 </red>
     <green> 0.3 </green>
@@ -98,8 +103,8 @@
   <condition>
     <or>
     	<less-than>
-      	<property>/engines/engine[0]/oil-pressure-psi</property>
-      	<value>6.1</value>
+      	<property>/engines/engine[2]/oil-pressure-psi</property>
+      	<value>12.1</value>
       </less-than>
       <property>/controls/test/warn-knob</property>
     </or>
@@ -111,8 +116,36 @@
   <condition>
     <and>
       <greater-than>
-      	<property>/engines/engine[0]/oil-pressure-psi</property>
-      	<value>6.1</value>
+      	<property>/engines/engine[2]/oil-pressure-psi</property>
+      	<value>12.1</value>
+      </greater-than>
+      <not><property>/controls/test/warn-knob</property></not>
+    </and>
+  </condition>
+</animation>
+
+
+<animation>
+  <type>select</type>
+  <object-name>LampAmberON.001</object-name>
+  <condition>
+    <or>
+    	<less-than>
+      	<property>/engines/engine[3]/oil-pressure-psi</property>
+      	<value>12.1</value>
+      </less-than>
+      <property>/controls/test/warn-knob</property>
+    </or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>LampAmber.001</object-name>
+  <condition>
+    <and>
+      <greater-than>
+      	<property>/engines/engine[3]/oil-pressure-psi</property>
+      	<value>12.1</value>
       </greater-than>
       <not><property>/controls/test/warn-knob</property></not>
     </and>

@@ -188,6 +188,206 @@
 </model>
 
 <model>
+  <name>epr1</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/epr_1.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.08</y-m>
+      <z-m> 0.976</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>epr2</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/epr_2.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.038</y-m>
+      <z-m> 0.976</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>epr3</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/epr_3.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.004</y-m>
+      <z-m> 0.976</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>epr4</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/epr_4.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.046</y-m>
+      <z-m> 0.976</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>n11</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n1_1.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.08</y-m>
+      <z-m> 0.933</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>n12</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n1_2.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.038</y-m>
+      <z-m> 0.933</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>n13</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n1_3.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.004</y-m>
+      <z-m> 0.933</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>n14</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n1_4.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.046</y-m>
+      <z-m> 0.933</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>extemp1</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/exh_1.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.08</y-m>
+      <z-m> 0.887</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>extemp2</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/exh_2.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.038</y-m>
+      <z-m> 0.887</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>extemp3</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/exh_3.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.004</y-m>
+      <z-m> 0.887</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>extemp4</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/exh_4.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.046</y-m>
+      <z-m> 0.887</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>n21</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_1.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.08</y-m>
+      <z-m> 0.841</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>n22</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_2.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.038</y-m>
+      <z-m> 0.841</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>n23</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_3.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.004</y-m>
+      <z-m> 0.841</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>n24</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_4.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.046</y-m>
+      <z-m> 0.841</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>ff1</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_1.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.08</y-m>
+      <z-m> 0.795</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>ff2</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_2.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m>-0.038</y-m>
+      <z-m> 0.795</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>ff3</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_3.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.004</y-m>
+      <z-m> 0.795</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>ff4</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_4.xml</path>
+  <offsets>
+      <x-m>-18.919</x-m>
+      <y-m> 0.046</y-m>
+      <z-m> 0.795</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>gears_and_flaps</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/flapstack/flapstack.xml</path>
   <offsets>

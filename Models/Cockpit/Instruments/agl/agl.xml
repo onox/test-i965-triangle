@@ -95,8 +95,8 @@
 		<object-name>lampOn</object-name>
 		<emission>
 		  <red>   1.0 </red>
-		  <green> 0.4 </green>
-		  <blue>  0.0 </blue>
+		  <green> 0.8 </green>
+		  <blue>  0.4 </blue>
 		</emission>
 	</animation>
 

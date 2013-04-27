@@ -83,9 +83,9 @@
 		<type>material</type>
 		<object-name>lamp.door.ON</object-name>
 		<emission>
-		  <red>   0.9 </red>
-		  <green> 0.7 </green>
-		  <blue>  0.9 </blue>
+		  <red>   1.0 </red>
+		  <green> 0.8 </green>
+		  <blue>  0.4 </blue>
 		</emission>
 	</animation>
 	
@@ -93,9 +93,9 @@
 		<type>material</type>
 		<object-name>lamp.gear.ON</object-name>
 		<emission>
-		  <red>   0.9 </red>
-		  <green> 0.7 </green>
-		  <blue>  0.9 </blue>
+		  <red>   1.0 </red>
+		  <green> 0.8 </green>
+		  <blue>  0.4 </blue>
 		</emission>
 	</animation>
 	
@@ -103,9 +103,9 @@
 		<type>material</type>
 		<object-name>lamp.warning.ON</object-name>
 		<emission>
-		  <red>   0.9 </red>
-		  <green> 0.7 </green>
-		  <blue>  0.9 </blue>
+		  <red>   1.0 </red>
+		  <green> 0.8 </green>
+		  <blue>  0.4 </blue>
 		</emission>
 	</animation>
 	

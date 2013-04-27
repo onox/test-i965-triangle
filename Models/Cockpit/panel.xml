@@ -168,6 +168,16 @@
 
 <!-- Center Panel -->
 <model>
+  <name>reverser_warning_lights</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/lamps/reverser.xml</path>
+  <offsets>
+      <x-m>-18.92</x-m>
+      <y-m> 0.0</y-m>
+      <z-m> 0.985</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>altm</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/altm/altm.xml</path>
   <offsets>

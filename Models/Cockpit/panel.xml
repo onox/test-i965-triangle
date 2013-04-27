@@ -349,7 +349,7 @@
 
 <model>
   <name>ff1</name>
-  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_1.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/ffkgh_1.xml</path>
   <offsets>
       <x-m>-18.919</x-m>
       <y-m>-0.08</y-m>
@@ -359,7 +359,7 @@
 
 <model>
   <name>ff2</name>
-  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_2.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/ffkgh_2.xml</path>
   <offsets>
       <x-m>-18.919</x-m>
       <y-m>-0.038</y-m>
@@ -369,7 +369,7 @@
 
 <model>
   <name>ff3</name>
-  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_3.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/ffkgh_3.xml</path>
   <offsets>
       <x-m>-18.919</x-m>
       <y-m> 0.004</y-m>
@@ -379,7 +379,7 @@
 
 <model>
   <name>ff4</name>
-  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_4.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/ffkgh_4.xml</path>
   <offsets>
       <x-m>-18.919</x-m>
       <y-m> 0.046</y-m>

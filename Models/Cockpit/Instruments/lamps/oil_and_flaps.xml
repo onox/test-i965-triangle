@@ -9,7 +9,6 @@
   <object-name>LampGreen</object-name>
   <object-name>LampAmber</object-name>
   <object-name>LampAmber.001</object-name>
-  <object-name>sup</object-name>
   <object-name>Sockle</object-name>
 	<condition>
 		<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
@@ -28,7 +27,6 @@
   <object-name>LampAmber</object-name>
   <object-name>LampAmber.001</object-name>
   <object-name>Sockle</object-name>
-  <object-name>sup</object-name>
   <object-name>shadow</object-name>
 	<condition>
 		<not><property>/sim/rendering/rembrandt/enabled</property></not>

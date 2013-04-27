@@ -10,6 +10,42 @@
 <PropertyList>
 
   <!-- =============================================================== -->
+  <!-- aileron servo driver.                                           -->
+  <!-- =============================================================== -->
+
+	<filter>
+		<name>SERVO-DRIVER:aileron</name>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<enable>
+			<condition>
+				<or>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>dg-heading-hold</value>
+					</equals>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>true-heading-hold</value>
+					</equals>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>nav1-hold</value>
+					</equals>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>wing-leveler</value>
+					</equals>
+				</or>
+			</condition>
+		</enable>
+		<input>/autopilot/internal/aileron-servo</input>
+		<output>/controls/flight/aileron</output>
+		<type>noise-spike</type>
+		<max-rate-of-change>0.8</max-rate-of-change>
+	</filter>
+
+  <!-- =============================================================== -->
   <!-- Roll Axis Modes                                                 -->
   <!-- =============================================================== -->
 
@@ -28,7 +64,7 @@
       <value>0.0</value>
     </reference>
     <output>
-      <prop>/controls/flight/aileron</prop>
+      <prop>/autopilot/internal/aileron-servo</prop>
     </output>
     <config>
       <Kp>0.5</Kp>        <!-- proportional gain -->
@@ -64,7 +100,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <Kp>-1.0</Kp>        <!-- proportional gain -->
+      <Kp>-2.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
@@ -91,7 +127,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </reference>
     <output>
-      <prop>/controls/flight/aileron</prop>
+      <prop>/autopilot/internal/aileron-servo</prop>
     </output>
     <config>
       <Kp>0.1</Kp>        <!-- proportional gain -->
@@ -127,7 +163,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <Kp>-1.0</Kp>        <!-- proportional gain -->
+      <Kp>-2.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
@@ -154,7 +190,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </reference>
     <output>
-      <prop>/controls/flight/aileron</prop>
+      <prop>/autopilot/internal/aileron-servo</prop>
     </output>
     <config>
       <Kp>0.1</Kp>        <!-- proportional gain -->
@@ -218,7 +254,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </reference>
     <output>
-      <prop>/controls/flight/aileron</prop>
+      <prop>/autopilot/internal/aileron-servo</prop>
     </output>
     <config>
       <!-- <Kp>0.2</Kp>        proportional gain -->
@@ -311,7 +347,8 @@
       <value>altitude-hold</value>
     </enable>
     <input>
-      <prop>/position/altitude-ft</prop>
+      <!-- <prop>/position/altitude-ft</prop> -->
+      <prop>/instrumentation/altimeter/indicated-altitude-ft</prop>
     </input>
     <reference>
       <prop>/autopilot/settings/target-altitude-ft</prop>
@@ -323,8 +360,8 @@
       <!-- <Kp>0.1</Kp>       proportional gain -->
       <Kp>0.03</Kp>          <!-- proportional gain -->
       <Ki>0.0</Ki>          <!-- integral gain -->
-      <u_min>-15.67</u_min> <!-- minimum output clamp -->
-      <u_max>7.33</u_max>   <!-- maximum output clamp -->
+      <u_min>-25.0</u_min> <!-- minimum output clamp -->
+      <u_max>25.0</u_max>   <!-- maximum output clamp -->
     </config>
   </pi-simple-controller>
 
@@ -382,8 +419,8 @@
     <config>
       <Kp>0.3</Kp>          <!-- proportional gain -->
       <Ki>0.0</Ki>          <!-- integral gain -->
-      <u_min>-16.67</u_min> <!-- minimum output clamp -->
-      <u_max>8.33</u_max>   <!-- maximum output clamp -->
+      <u_min>-25.0</u_min> <!-- minimum output clamp -->
+      <u_max>25.0</u_max>   <!-- maximum output clamp -->
     </config>
   </pi-simple-controller>
 

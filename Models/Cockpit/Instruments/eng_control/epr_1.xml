@@ -2,13 +2,7 @@
 
 <PropertyList>
 
-<path>instr.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>face</object-name>
-  <texture>epr.png</texture>
-</animation>
+<path>instr_epr.ac</path>
 
 	<animation>
 		<type>material</type>
@@ -45,6 +39,10 @@
 	<animation>
 		<type>noshadow</type>
 		<object-name>shadow</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			<property>/controls/lighting/cabin-dim</property>
+		</condition>
 	</animation>
 
 	<effect>

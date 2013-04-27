@@ -81,7 +81,7 @@
   <object-name>LampGreenON</object-name>
   <condition>
     <or>
-      <property>surface-positions/flap-pos-norm</property>
+      <property>surface-positions/speedbrake-pos-norm</property>
       <property>/controls/test/warn-knob</property>
     </or>
   </condition>
@@ -91,7 +91,7 @@
   <object-name>LampGreen</object-name>
   <condition>
     <and>
-      <not><property>surface-positions/flap-pos-norm</property></not>
+      <not><property>surface-positions/speedbrake-pos-norm</property></not>
       <not><property>/controls/test/warn-knob</property></not>
     </and>
   </condition>

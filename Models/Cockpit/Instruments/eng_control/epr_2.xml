@@ -2,13 +2,7 @@
 
 <PropertyList>
 
-<path>instr.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>face</object-name>
-  <texture>epr.png</texture>
-</animation>
+<path>instr_epr.ac</path>
 
 	<animation>
 		<type>material</type>

@@ -603,7 +603,7 @@
 
 <model>
   <name>Autopilot Helper</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/ap/ap.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/ap/ap-fg.xml</path>
   <offsets>
       <x-m>-18.812</x-m>
       <y-m>-0.125</y-m>
@@ -613,7 +613,7 @@
 
 <model>
   <name>ALT-Setting</name>
-  <path>Aircraft/707/Models/Cockpit/Test-Instruments/alt-set/alt-set.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/alt-set/alt-set.xml</path>
   <offsets>
       <x-m>-18.812</x-m>
       <y-m>-0.125</y-m>

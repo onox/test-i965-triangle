@@ -80,7 +80,8 @@
 				<property>/controls/test/warn-knob</property>
 		</condition>
 	</animation>
-
+	
+	<!-- equipment -->
 	<model>
 		<name>panel-equipment</name>
 		<path>Aircraft/707/Models/Cockpit/panel.xml</path>
@@ -91,6 +92,32 @@
 		</offsets>
 	</model>
 
+	<model>
+		<name>wiper_pilot</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/wiper/wiper-l.xml</path>
+		<offsets>
+		  <x-m>-19.06</x-m>
+		  <y-m> -0.54</y-m>
+		  <z-m>  0.98</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg> 40</pitch-deg>
+			<heading-deg> 26.5</heading-deg>
+		</offsets>
+	</model>
+	<model>
+		<name>wiper_copilot</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/wiper/wiper-r.xml</path>
+		<offsets>
+		  <x-m>-19.06</x-m>
+		  <y-m>  0.54</y-m>
+		  <z-m>  0.98</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg> 40</pitch-deg>
+			<heading-deg> -26.5</heading-deg>
+		</offsets>
+	</model>
+  
+	
 	<animation>
 		<type>rotate</type>
 		<object-name>AileronTab</object-name>

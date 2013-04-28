@@ -1028,6 +1028,54 @@
       <offset> 1 </offset>
     </volume>
   </switch>
+  
+    <wiperhu>
+      <name>wiperhu</name>
+      <mode>once</mode>
+      <path>Aircraft/707/Sounds/hu.wav</path>
+      <condition>
+        <less-than>
+      		<property>/controls/special/wiper-deg</property>
+          <value>109</value>
+        </less-than>
+      </condition>
+      <volume>
+        <property>/environment/metar/rain-norm</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.3</min>
+        <max>0.8</max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.01</factor>
+        <offset>1.0</offset>
+      </pitch>
+    </wiperhu>
+    
+    <wiperho>
+      <name>wiperho</name>
+      <mode>once</mode>
+      <path>Aircraft/707/Sounds/ho.wav</path>
+      <condition>
+        <greater-than>
+      		<property>/controls/special/wiper-deg</property>
+          <value>1</value>
+        </greater-than>
+      </condition>
+      <volume>
+        <property>/environment/metar/rain-norm</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.3</min>
+        <max>0.8</max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.01</factor>
+        <offset>1.0</offset>
+      </pitch>
+    </wiperho>
 
 </fx>
 

@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<!-- Boeing 707 by the Lake of Constance Hangar :: M.Kraus Avril 2013 -->
+<PropertyList>
+
+<path>ap.ac</path>
+
+<!-- Wiper -->
+<animation>
+  <type>rotate</type>
+  <object-name>KnobPedWW</object-name>
+  <property>/controls/special/wiper-switch</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>   0</dep></entry>
+    <entry><ind>1</ind><dep>  45</dep></entry>
+    <entry><ind>2</ind><dep> 225</dep></entry>
+    <entry><ind>3</ind><dep> 270</dep></entry>
+    <entry><ind>4</ind><dep> 315</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>-0.0277</x-m>
+    <y-m> -0.0453</y-m>
+    <z-m>  0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobPedWW</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/controls/special/wiper-switch</property>
+      <step>1</step>
+      <min>0</min>
+      <max>5</max>
+      <wrap>1</wrap>
+    </binding>
+  </action>
+  <action>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/controls/special/wiper-switch</property>
+      <step>-1</step>
+      <min>0</min>
+      <max>5</max>
+      <wrap>1</wrap>
+    </binding>
+  </action>
+</animation>
+
+<!-- The Autopilot support -->
+
+<!-- Autopilot on off -->
+<animation>
+  <type>rotate</type>
+  <object-name>switch.001</object-name>
+  <property>/autopilot/switches/ap</property>
+  <factor>-50</factor>
+  <center>
+    <x-m> 0.0365</x-m>
+    <y-m>  0.056</y-m>
+    <z-m>  0.044</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <visible>true</visible>
+  <object-name>switch.001</object-name>
+  <object-name>sockle.001</object-name>
+  <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/autopilot/switches/ap</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/sound/switch1</property>
+      </binding>
+  </action>
+</animation>
+
+<!-- Autopilot ALT on off -->
+<animation>
+  <type>rotate</type>
+  <object-name>switch.000</object-name>
+  <property>/autopilot/switches/alt</property>
+  <factor>-50</factor>
+  <center>
+    <x-m> 0.0365</x-m>
+    <y-m>  0.088</y-m>
+    <z-m>  0.044</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <visible>true</visible>
+  <object-name>switch.000</object-name>
+  <object-name>sockle.000</object-name>
+  <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/autopilot/switches/alt</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/sound/switch1</property>
+      </binding>
+  </action>
+</animation>
+
+
+<!-- Autopilot Pitch wheels -->
+<animation>
+  <type>rotate</type>
+  <object-name>APKnobPitch</object-name>
+  <property>/autopilot/settings/vertical-speed-fpm</property>
+  <factor>3</factor>
+  <center>
+    <x-m> 0.0787</x-m>
+    <y-m>  0.0</y-m>
+    <z-m>  0.0087</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>APKnobPitch</object-name>
+  <action>
+    <name>small increase (scrollwheel)</name>
+    <button>3</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/autopilot/settings/vertical-speed-fpm</property>
+      <step>-100</step>
+      <min>-6000</min>
+      <max>6000</max>
+      <wrap>1</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>small decrease (scrollwheel)</name>
+    <button>4</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/autopilot/settings/vertical-speed-fpm</property>
+      <step>100</step>
+      <min>-6000</min>
+      <max>6000</max>
+      <wrap>1</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>increase</name>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/autopilot/settings/vertical-speed-fpm</property>
+      <step>-1000</step>
+      <min>-6000</min>
+      <max>6000</max>
+      <wrap>1</wrap>
+    </binding>
+  </action>
+  <action>
+    <name>decrease</name>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/autopilot/settings/vertical-speed-fpm</property>
+      <step>1000</step>
+      <min>-6000</min>
+      <max>6000</max>
+      <wrap>1</wrap>
+    </binding>
+  </action>
+</animation>
+
+<!-- Autopilot heading control -->
+<animation>
+  <type>rotate</type>
+  <object-name>APKnobHdg</object-name>
+  <property>/autopilot/internal/heading-bug-error-deg</property>
+  <factor>1</factor>   
+  <center>
+    <x-m> 0.0878</x-m>
+    <y-m>  0.07275</y-m>
+    <z-m>  0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>APKnobHdg</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>1</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>10</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+    </action>
+    <action>
+        <button>1</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>-1</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>-10</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+    </action>
+    <action>
+        <button>3</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>1</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>10</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+    </action>
+    <action>
+        <button>4</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>-1</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+            <command>property-adjust</command>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <step>-10</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>true</wrap>
+        </binding>
+    </action>
+</animation>
+
+<!-- Autopilot select knob -->
+<animation>
+  <type>rotate</type>
+  <object-name>KnobPedFP</object-name>
+  <property>/controls/special/flightpath-switch</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>   5</dep></entry>  <!-- AP selection off -->
+    <entry><ind>1</ind><dep> 315</dep></entry>  <!-- AP selection on VHF VOR/NDB or ILS -->
+    <entry><ind>2</ind><dep> 260</dep></entry>  <!-- AP selection on ILS and Glidepath -->
+  </interpolation>
+  <center>
+    <x-m>-0.0277</x-m>
+    <y-m>  0.0221</y-m>
+    <z-m>  0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+
+
+<animation>
+  <type>pick</type>
+  <object-name>KnobPedFP</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/controls/special/flightpath-switch</property>
+      <step>1</step>
+      <min>0</min>
+      <max>2</max>
+      <wrap>0</wrap>
+    </binding>
+  </action>
+  <action>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/controls/special/flightpath-switch</property>
+      <step>-1</step>
+      <min>0</min>
+      <max>2</max>
+      <wrap>0</wrap>
+    </binding>
+  </action>
+</animation>
+
+</PropertyList>

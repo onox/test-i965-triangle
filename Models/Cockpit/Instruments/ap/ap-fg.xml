@@ -64,6 +64,7 @@
         <object-name>apprOff</object-name>
         <object-name>gpsOff</object-name>
         <object-name>pitchOff</object-name>
+				<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/controls/lighting/cabin-dim</property>
@@ -75,7 +76,16 @@
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
 	</animation>
+	
+	<animation>
+		<type>noshadow</type>
+		<object-name>shadow</object-name>
+	</animation>
 
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>shadow</object-name>
+	</effect>
 
     <animation>
         <type>select</type>

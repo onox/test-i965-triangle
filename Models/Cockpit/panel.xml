@@ -178,6 +178,16 @@
 </model>
 
 <model>
+  <name>ALT-Setting</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/alt-set/alt-set.xml</path>
+  <offsets>
+      <x-m>-18.92</x-m>
+      <y-m>-0.141</y-m>
+      <z-m> 0.993</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>altm</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/altm/altm.xml</path>
   <offsets>
@@ -607,19 +617,10 @@
   <offsets>
       <x-m>-18.812</x-m>
       <y-m>-0.125</y-m>
-      <z-m> 1.05</z-m>
+      <z-m> 1.045</z-m>
   </offsets>
 </model>
 
-<model>
-  <name>ALT-Setting</name>
-  <path>Aircraft/707/Models/Cockpit/Instruments/alt-set/alt-set.xml</path>
-  <offsets>
-      <x-m>-18.812</x-m>
-      <y-m>-0.125</y-m>
-      <z-m> 1.031</z-m>
-  </offsets>
-</model>
 
 
 <!-- middle pedestal -->

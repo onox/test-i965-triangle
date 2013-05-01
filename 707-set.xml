@@ -342,6 +342,7 @@
 				<file>Aircraft/707/Nasal/doors.nas</file>
 				<file>Aircraft/707/Nasal/tyresmoke.nas</file>
 				<file>Aircraft/707/Nasal/brakesystem.nas</file>
+				<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
 			</b707>
 		</nasal>
 

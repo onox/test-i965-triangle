@@ -1,7 +1,6 @@
-#setlistener("/instrumentation/aglradar/power-btn", func (state){
-#  var state = state.getBoolValue() or 0;
-#  if (state) agl_radar_control();
-#});
+# Lake of Constance Hangar :: M.Kraus
+# Avril 2013
+# This file is licenced under the terms of the GNU General Public Licence V2 or later
 
 
 var agl_radar_control = func {

@@ -163,6 +163,13 @@
   </flight-time>
 </stopwatch>
 
+<operating-time>
+  <start-time>0.0</start-time>
+	<total type="double">0.0</total>
+	<total-h type="double">0.0</total-h>
+	<total-m type="double">0.0</total-m>
+</operating-time>
+
 <!-- agl-radar -->
 <aglradar>
   <power-btn type="bool">0</power-btn>

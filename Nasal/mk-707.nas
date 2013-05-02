@@ -1,6 +1,6 @@
 # Lake of Constance Hangar :: M.Kraus
 # Avril 2013
-
+# This file is licenced under the terms of the GNU General Public Licence V2 or later
 ################################ Reverser ####################################
 var togglereverser = func {
 	r1 = "/fdm/jsbsim/propulsion/engine";
@@ -200,9 +200,31 @@ var gauge_erec = func {
 }
 
 
+####################################### total operating time ###################################
+var operating_time_counter = func {
 
+	print("operating time counter works");
 
+  var act_time    	= props.globals.getNode("/sim/time/elapsed-sec");
+  var start_time  	= props.globals.getNode("/instrumentation/operating-time/start-time");
+  var old_total   	= props.globals.getNode("/instrumentation/operating-time/total");
+  var old_total_h   = props.globals.getNode("/instrumentation/operating-time/total-h");
+  var old_total_m   = props.globals.getNode("/instrumentation/operating-time/total-m");
+  
+  var new_total   = old_total.getValue() + (act_time.getValue() - start_time.getValue());
+  
+  var hours = new_total / 3600;
+  var minutes = int(math.mod(new_total / 60, 60));
+  
+  start_time.setValue(act_time.getValue());
+  old_total.setValue(new_total);
+  old_total_h.setValue(hours);
+  old_total_m.setValue(minutes);
+  
+	settimer( operating_time_counter, 60);
+}
 
+operating_time_counter();
 
 
 

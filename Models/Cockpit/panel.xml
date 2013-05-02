@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!-- Boeing 707 by the Lake of Constance Hangar :: M.Kraus Avril 2013 -->
+<!-- This file is licenced under the terms of the GNU General Public Licence V2 or later -->
 <PropertyList>
 
 <model>
@@ -455,6 +456,16 @@
     <x-m>-18.919</x-m>
     <y-m> 0.231</y-m>
     <z-m>0.949</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>operating_time_indicator</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/operating_time/opt.xml</path>
+  <offsets>
+    <x-m>-18.919</x-m>
+    <y-m> 0.226</y-m>
+    <z-m>0.874</z-m>
   </offsets>
 </model>
 

@@ -137,6 +137,16 @@
 		</offsets>
 	</model>
 	
+	<animation>
+		<type>select</type>
+		<object-name>yokes</object-name>
+		<condition>
+      <not>
+       <property>sim/yokes-visible</property>
+      </not>
+		</condition>
+	</animation>	
+
 	<model>
 		<name>pilots</name>
 		<path>Aircraft/707/Models/Cockpit/Pilots/pilots.xml</path>
@@ -155,6 +165,31 @@
       <property>sim/current-view/internal</property>
 			</not>
 		</condition>
+	</animation>
+	
+	<!-- rudder pedals -->
+	<animation>
+		<type>translate</type>
+		<object-name>PedalL</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>0.10</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>PedalR</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-0.10</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
 	</animation>
   
 	

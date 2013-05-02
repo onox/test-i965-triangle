@@ -27,5 +27,12 @@
       <script>b707.toggleLandingLights();</script>
   </binding>
 </key>
-
+<key n="121">
+  <name>y</name>
+  <desc>toggle yokes</desc>
+  <binding>
+      <command>property-toggle</command>
+      <property>sim/yokes-visible</property>
+  </binding>
+</key>
 </PropertyList>

@@ -82,7 +82,7 @@ var apHeadingWaypointSetVSpeed = func {
 			}
 			# clamb: limit vspeed to min., max. values
 			if (vspeed > 0) {
-				maxVSpeed = 1500.0;
+				maxVSpeed = 3500.0;
 			}
 			else {
 				vspeed = (vspeed < -1000.0) ? -1000.0 : vspeed;
@@ -90,8 +90,8 @@ var apHeadingWaypointSetVSpeed = func {
 			}
 
 			# clamp climbrate according to weigth, altitude etc.
-			var minClimpRate = -1500.0;
-			var maxClimpRate = 1500.0;
+			var minClimpRate = -2500.0;
+			var maxClimpRate = 3500.0;
 			vspeed = (vspeed < minClimpRate ? minClimpRate : vspeed);
 			vspeed = (vspeed > maxClimpRate ? maxClimpRate : vspeed);
 

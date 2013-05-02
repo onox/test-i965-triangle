@@ -1,3 +1,6 @@
+# Lake of Constance Hangar :: M.Kraus
+# Avril 2013
+# This file is licenced under the terms of the GNU General Public Licence V2 or later
 #=======================================================================
 # In copilot mode the value of autopilot kill all pilot - copilot action
 # so pilot settings better be written to switch boolean values
@@ -186,6 +189,13 @@ setlistener("/controls/special/flightpath-switch", func (fs){
 		if (a and  ap and fs == 1) setprop("/autopilot/switches/appr", 0);
 		if (a and !ap and fs == 2) setprop("/autopilot/switches/appr", 1);
 
+});
+
+setlistener("/controls/special/yoke-switch1", func (s1){
+    var s1 = s1.getBoolValue();
+    if (s1 == 1){
+      setprop("/autopilot/switches/ap", 0);
+    }
 });
 
 

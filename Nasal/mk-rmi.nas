@@ -18,6 +18,8 @@
 # Wolfram Gottfried aka 'Yakko'
 # Gary Neely aka 'Buckaroo'
 # with little changes by Lake of Constance Hangar :: M.Kraus
+# Avril 2013
+# This file is licenced under the terms of the GNU General Public Licence V2 or later
 
 
 var updateRMI = func {

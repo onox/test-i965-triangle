@@ -119,6 +119,13 @@
 					<script>aircraft.livery.dialog.open()</script>
 				</binding>
 			</item>
+			<item>
+				<label>Show/Hide Yokes</label>
+				<binding>
+					<command>property-toggle</command>
+      		<property>sim/yokes-visible</property>
+				</binding>
+			</item>
 			</menu>
 		</default>
 	</menubar>
@@ -153,7 +160,7 @@
   </flaps>
   
 	<aircraft-data>
-		<path>instrumentation/stopwatch/flight-time/total</path>
+		<path>/instrumentation/operating-time/total</path>
 	</aircraft-data>
 	
  </sim>

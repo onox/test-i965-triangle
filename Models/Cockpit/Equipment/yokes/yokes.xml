@@ -5,11 +5,13 @@
 
 	<animation>
 		<type>material</type>
-		<object-name>YokeColL</object-name>
+		<object-name>YokeCol</object-name>
 		<object-name>ap-dis-knob-L</object-name>
 		<object-name>ap-dis-knob-R</object-name>
 		<object-name>yokeL</object-name>
-		<object-name>logo</object-name>
+		<object-name>logoL</object-name>
+		<object-name>yokeR</object-name>
+		<object-name>logoR</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/controls/lighting/cabin-dim</property>
@@ -22,32 +24,19 @@
 		</emission>
 	</animation>
 	
-  <!-- Yokes -->
-  <animation>
-   <type>pick</type>
-   <object-name>YokeColL</object-name>
-   <visible>true</visible>
-   <action>
-     <button>0</button>
-     <repeatable>false</repeatable>
-     <binding>
-       <command>property-toggle</command>
-       <property>/sim/yokes-visible</property>
-     </binding>
-   </action>
-  </animation>
-
   <animation>
     <type>rotate</type>
-    <object-name>YokeColL</object-name>
-    <object-name>ap-dis-knob-L</object-name>
-    <object-name>ap-dis-knob-R</object-name>
-    <object-name>logo</object-name>
-    <object-name>yokeL</object-name>
+		<object-name>YokeCol</object-name>
+		<object-name>ap-dis-knob-L</object-name>
+		<object-name>ap-dis-knob-R</object-name>
+		<object-name>yokeL</object-name>
+		<object-name>logoL</object-name>
+		<object-name>yokeR</object-name>
+		<object-name>logoR</object-name>
     <property>surface-positions/elevator-pos-norm</property>
     <factor> -8 </factor>
     <center>
-      <x-m>-18.778 </x-m>
+      <x-m>-18.718 </x-m>
       <y-m>-0.462 </y-m>
       <z-m> 0.352 </z-m>
     </center>
@@ -61,8 +50,7 @@
   <animation>
     <type>rotate</type>
     <object-name>ap-dis-knob-L</object-name>
-    <object-name>ap-dis-knob-R</object-name>
-    <object-name>logo</object-name>
+    <object-name>logoL</object-name>
     <object-name>yokeL</object-name>
     <property>surface-positions/left-aileron-pos-norm</property>
     <factor> -50 </factor>
@@ -77,5 +65,67 @@
       <z> 0 </z>
     </axis>
   </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ap-dis-knob-R</object-name>
+    <object-name>logoR</object-name>
+    <object-name>yokeR</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor> -50 </factor>
+    <center>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.447 </y-m>
+      <z-m> 0.875 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <!-- Rudder Foot Pedal Animations -->
+
+	<animation>
+		<type>translate</type>
+		<object-name>ap-dis-knob-L</object-name>
+		<property>/controls/special/yoke-switch1</property>
+		<factor>0.003</factor>
+    <axis>   
+      <x1-m> -18.649</x1-m>
+			<y1-m> -0.558</y1-m>
+      <z1-m>  0.885</z1-m>
+      <x2-m> -18.674</x2-m>
+      <y2-m> -0.632</y2-m>
+      <z2-m>  0.867</z2-m>
+    </axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ap-dis-knob-R</object-name>
+		<object-name>ap-dis-knob-L</object-name>
+		<visible>true</visible>
+		  <action>
+		    <name>Yokeswitch1</name>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/controls/special/yoke-switch1</property>
+		    </binding>        
+		    <mod-up>
+          <binding>
+		      <command>property-toggle</command>
+		      <property>/controls/special/yoke-switch1</property>
+          </binding>
+        </mod-up>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/sound/switch2</property>
+        </binding>
+		  </action>
+	</animation>
 
 </PropertyList>

@@ -17,21 +17,20 @@
   </key>
   <key>
     <name>Del</name>
-    <desc>Toggle Reverser</desc>
+    <desc>Toggle reverser</desc>
+  </key>
+  <key>
+    <name>y</name>
+    <desc>toggle yokes</desc>
   </key>
 
   <text>
-  _________ Boeing 707-420 __________
+  _________ Boeing 707-420/430 __________
 	
-	The first development of this Aircraft
-	was from Innis Cunningham. This version
-	is a revamp from this original. Nearly 
-	everthing is written and painted new.
-	Also the jsb. But ...
-	It is more easier to write and paint 
-	a model, if you have the old one to
-	copy and past the "blueprints".
-	Have fun wis Innis Cunningham revamps 707.
+	The first 707 for Flightgear was from Innis Cunningham. 
+	This version is a revamp of that original. Nearly 
+	everthing in 3D models is written and painted new.
+	Also the jsb fdm and the autopilot.
 
   </text>
 

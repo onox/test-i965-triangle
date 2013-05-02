@@ -1372,7 +1372,7 @@
   <type>rotate</type>
   <object-name>lhsp1</object-name>
   <property>surface-positions/speedbrake-pos-norm</property>
-  <factor>75</factor>
+  <factor>59</factor>
   <offset-deg>0</offset-deg>   
   <axis>
 		<x1-m>  4.69</x1-m>
@@ -1389,7 +1389,7 @@
   <type>rotate</type>
   <object-name>lhsp3</object-name>
   <property>surface-positions/speedbrake-pos-norm</property>
-  <factor>75</factor>
+  <factor>59</factor>
   <offset-deg>0</offset-deg>   
   <axis>
 		<x1-m>  1.98</x1-m>
@@ -1405,7 +1405,7 @@
   <type>rotate</type>
   <object-name>rhsp1</object-name>
   <property>surface-positions/speedbrake-pos-norm</property>
-  <factor>-75</factor>
+  <factor>-59</factor>
   <offset-deg>0</offset-deg>   
   <axis>
 		<x1-m>  4.69</x1-m>
@@ -1421,7 +1421,7 @@
   <type>rotate</type>
   <object-name>rhsp3</object-name>   
   <property>surface-positions/speedbrake-pos-norm</property>
-  <factor>-75</factor>
+  <factor>-59</factor>
   <offset-deg>0</offset-deg>  
   <axis>
 		<x1-m>  1.98</x1-m>

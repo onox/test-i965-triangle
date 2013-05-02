@@ -90,7 +90,7 @@ var toggleLandingLights = func {
 
 ################## Little Help Window on bottom of screen #################
 var help_win = screen.window.new( 0, 0, 1, 3 );
-help_win.fg = [08,0.08,0.0,1];
+help_win.fg = [1,1,1,1];
 
 var messenger = func{
 help_win.write(arg[0]);
@@ -109,6 +109,12 @@ var h_heading = func {
 	var press_hdg = getprop("/autopilot/settings/heading-bug-deg");
 	if(  press_hdg == nil ) press_hdg = 0.0;
 	help_win.write(sprintf("Target heading: %.0f ", press_hdg) );
+}
+
+var h_course = func {
+	var press_course = getprop("/instrumentation/nav/radials/selected-deg");
+	if(  press_course == nil ) press_course = 0.0;
+	help_win.write(sprintf("Selected course is: %.0f ", press_course) );
 }
 
 var h_tas = func {
@@ -132,6 +138,7 @@ var h_mis = func {
 
 setlistener( "/instrumentation/altimeter/setting-inhg", h_altimeter );
 setlistener( "/autopilot/settings/heading-bug-deg", h_heading );
+setlistener( "/instrumentation/nav/radials/selected-deg", h_course );
 setlistener( "/autopilot/settings/target-speed-kt", h_tas );
 setlistener( "/autopilot/settings/vertical-speed-fpm", h_vs);
 setlistener( "/instrumentation/rmi/face-offset", h_mis);

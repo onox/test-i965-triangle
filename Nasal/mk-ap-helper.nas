@@ -42,6 +42,7 @@ setlistener("/autopilot/switches/ap", func (ap){
       setprop("/autopilot/locks/altitude", "");
       setprop("/autopilot/locks/heading", "");
       setprop("/autopilot/locks/speed", "");
+      setprop("/autopilot/locks/passive-mode", 0);
       setprop("/autopilot/switches/hdg", 0);
       setprop("/autopilot/switches/alt", 0);
       setprop("/autopilot/switches/ias", 0);
@@ -96,6 +97,7 @@ setlistener("/autopilot/switches/pitch", func (pitch){
     var pitch = pitch.getBoolValue();
     if (pitch == 1){
       setprop("/autopilot/switches/ap", 1);
+      setprop("/autopilot/locks/passive-mode", 0);
       setprop("/autopilot/switches/appr", 0);
       setprop("/autopilot/switches/alt", 0);
       setprop("/autopilot/locks/altitude", "vertical-speed-hold");
@@ -110,6 +112,7 @@ setlistener("/autopilot/switches/gps", func (gps){
     if (gps == 1){
       if (routeIsSet == 1){
         setprop("/autopilot/switches/ap", 1);
+      	setprop("/autopilot/locks/passive-mode", 1);
         setprop("/autopilot/switches/hdg", 0);
         setprop("/autopilot/switches/nav", 0);
         setprop("/autopilot/locks/heading", "true-heading-hold");
@@ -118,6 +121,7 @@ setlistener("/autopilot/switches/gps", func (gps){
       }
     }else{
       setprop("/autopilot/locks/heading", "");
+      setprop("/autopilot/locks/passive-mode", 0);
     }
 });
 
@@ -127,11 +131,13 @@ setlistener("/autopilot/switches/nav", func (nav){
       setprop("/autopilot/switches/ap", 1);
       setprop("/autopilot/switches/hdg", 0);
       setprop("/autopilot/switches/gps", 0);
+      setprop("/autopilot/locks/passive-mode", 0);
       setprop("/autopilot/locks/heading", "nav1-hold");
       setprop("/controls/special/flightpath-switch", 1);
     }else{
       setprop("/autopilot/locks/heading", "");
       setprop("/controls/special/flightpath-switch", 0);
+      setprop("/autopilot/locks/passive-mode", 0);
     }
 });
 
@@ -141,6 +147,7 @@ setlistener("/autopilot/switches/appr", func (appr){
       setprop("/autopilot/switches/ap", 1);
       setprop("/autopilot/switches/alt", 0);
       setprop("/autopilot/switches/pitch", 0);
+      setprop("/autopilot/locks/passive-mode", 0);
       setprop("/autopilot/locks/altitude", "gs1-hold");
       setprop("/controls/special/flightpath-switch", 2);
     }else{

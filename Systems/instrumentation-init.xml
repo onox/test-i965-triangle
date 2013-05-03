@@ -21,14 +21,6 @@
   </frequencies>
 </adf>
 
-<onmi-bearing-selector n="0">
-  <needles-pivot type="bool">false</needles-pivot>
-</onmi-bearing-selector>
-
-<onmi-bearing-selector n="1">
-  <needles-pivot type="bool">false</needles-pivot>
-</onmi-bearing-selector>
-
 <rmi>	
 	<face-offset type="double">0.0</face-offset>
 	<rmi-needle n="0">

@@ -1,22 +1,41 @@
 <?xml version="1.0"?>
 
 <!--
-**********************************************************************
-This file selects the instrumentation modules that should be available.
-**********************************************************************
+707 usage: Note that this file is essentially a copy of the generic instrumentation.
+The only reason it's here is to specify a second ADF.
 -->
 
 <PropertyList>
 
-    <adf>
-        <name>adf</name>
-        <number>0</number>
-    </adf>
+		<adf>
+			<name>adf</name>
+			<number>0</number>
+		</adf>
 
-    <adf>
-        <name>adf</name>
-        <number>1</number>
-    </adf>
+		<adf>
+			<name>adf</name>
+			<number>1</number>
+		</adf>
+
+		<nav-radio>
+			<name>nav</name>
+			<number>0</number>
+		</nav-radio>
+
+		<nav-radio>
+			<name>nav</name>
+			<number>1</number>
+		</nav-radio>
+
+		<dme>
+			<name>dme</name>
+			<number>0</number>
+		</dme>
+
+		<dme>
+			<name>dme</name>
+			<number>1</number>
+		</dme>
 
     <airspeed-indicator>
         <name>airspeed-indicator</name>
@@ -37,72 +56,57 @@ This file selects the instrumentation modules that should be available.
         <suction>/systems/vacuum/suction-inhg</suction>
     </attitude-indicator>
 
-    <inst-vertical-speed-indicator>
-        <name>inst-vertical-speed-indicator</name>
-        <number>0</number>
-        <static-pressure>/systems/static/pressure-inhg</static-pressure>
-    </inst-vertical-speed-indicator>
+		<vertical-speed-indicator>
+			<name>vertical-speed-indicator</name>
+			<number>0</number>
+			<static-pressure>/systems/static/pressure-inhg</static-pressure>
+		</vertical-speed-indicator>
 
     <clock>
         <name>clock</name>
         <number>0</number>
-    </clock>
-
-    <heading-indicator>
-        <name>heading-indicator</name>
-        <number>0</number>
-        <suction>/systems/vacuum/suction-inhg</suction>
-    </heading-indicator>
-
-    <heading-indicator-dg>
-        <name>heading-indicator-dg</name>
-        <number>0</number>
-    </heading-indicator-dg>
+    </clock> 
+    
+		<heading-indicator-dg>
+		  <name>heading-indicator</name>
+		  <number>0</number>
+		  <suction>/systems/vacuum/suction-inhg</suction>
+		</heading-indicator-dg>
 
     <magnetic-compass>
         <name>magnetic-compass</name>
         <number>0</number>
     </magnetic-compass>
 
-    <nav-radio>
-        <name>nav</name>
-        <number>0</number>
-    </nav-radio>
-
-    <nav-radio>
-        <name>nav</name>
-        <number>1</number>
-    </nav-radio>
-
-    <dme>
-        <name>dme</name>
-        <number>0</number>
-    </dme>
-
-    <dme>
-        <name>dme</name>
-        <number>1</number>
-    </dme>
-
     <slip-skid-ball>
         <name>slip-skid-ball</name>
         <number>0</number>
     </slip-skid-ball>
 
-    <turn-indicator>
-        <name>turn-indicator</name>
-        <number>0</number>
-    </turn-indicator>
+		<turn-indicator>
+			<name>turn-indicator</name>
+			<number>0</number>
+		</turn-indicator>
 
     <radar>
         <name>radar</name>
         <number>0</number>
     </radar>
 
+    <mk-viii>
+        <name>mk-viii</name>
+        <number>0</number>
+    </mk-viii> 
+
     <marker-beacon>
         <name>marker-beacon</name>
         <number>0</number>
-    </marker-beacon>
+    </marker-beacon> 
+
+    <transponder>
+        <name>transponder</name>
+        <number>0</number>
+    </transponder> 
 
 
 </PropertyList>

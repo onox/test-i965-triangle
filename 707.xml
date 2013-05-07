@@ -600,6 +600,34 @@
                 </setting>
             </traverse>
             <output>fcs/speedbrake-pos-norm</output>
+        </kinematic>        
+        
+        <switch name="Leading Edge Flaps">
+            <default value="0"/>
+            <test logic="AND" value="1.0000">
+                fcs/flap-cmd-norm GT 0.1
+                /controls/special/slats-switch == 1
+            </test>
+            <output>fcs/LE-flap-cmd-norm</output>
+        </switch>
+
+        <kinematic name="Leading Edge Flaps Control">
+            <input>fcs/LE-flap-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0</position>
+                    <time>0.0</time>
+                </setting>
+                <setting>
+                    <position>0.5</position>
+                    <time>2.0</time>
+                </setting>
+                <setting>
+                    <position>1.0</position>
+                    <time>2.0</time>
+                </setting>
+            </traverse>
+            <output>fcs/wing-fold-pos-norm</output>
         </kinematic>
 			
      </channel>
@@ -761,6 +789,14 @@
            <value>0.05</value>
          </product>
     </function>
+    
+		<function name="aero/coefficient/CDLEflap">
+			<description>Drag_due_to_leading_edge_flaps</description>
+				<product>
+						<property>fcs/wing-fold-pos-norm</property>
+						<value>0.01</value>
+				</product>
+		</function>
 
     <function name="aero/coefficient/CDbeta">
        <description>Drag_due_to_sideslip</description>

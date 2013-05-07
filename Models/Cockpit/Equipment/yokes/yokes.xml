@@ -12,6 +12,10 @@
 		<object-name>logoL</object-name>
 		<object-name>yokeR</object-name>
 		<object-name>logoR</object-name>
+		<object-name>sup.001</object-name>
+		<object-name>switch.001</object-name>
+		<object-name>sup.002</object-name>
+		<object-name>switch.002</object-name>
 		<condition>
 			<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -32,6 +36,10 @@
 		<object-name>logoL</object-name>
 		<object-name>yokeR</object-name>
 		<object-name>logoR</object-name>
+		<object-name>sup.001</object-name>
+		<object-name>switch.001</object-name>
+		<object-name>sup.002</object-name>
+		<object-name>switch.002</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/controls/lighting/cabin-dim</property>
@@ -53,6 +61,10 @@
 		<object-name>logoL</object-name>
 		<object-name>yokeR</object-name>
 		<object-name>logoR</object-name>
+		<object-name>sup.001</object-name>
+		<object-name>switch.001</object-name>
+		<object-name>sup.002</object-name>
+		<object-name>switch.002</object-name>
     <property>surface-positions/elevator-pos-norm</property>
     <factor> -8 </factor>
     <center>
@@ -72,6 +84,8 @@
     <object-name>ap-dis-knob-L</object-name>
     <object-name>logoL</object-name>
     <object-name>yokeL</object-name>
+		<object-name>sup.001</object-name>
+		<object-name>switch.001</object-name>
     <property>surface-positions/left-aileron-pos-norm</property>
     <factor> -50 </factor>
     <center>
@@ -91,6 +105,8 @@
     <object-name>ap-dis-knob-R</object-name>
     <object-name>logoR</object-name>
     <object-name>yokeR</object-name>
+		<object-name>sup.002</object-name>
+		<object-name>switch.002</object-name>
     <property>surface-positions/left-aileron-pos-norm</property>
     <factor> -50 </factor>
     <center>
@@ -162,5 +178,170 @@
         </binding>
 		  </action>
 	</animation>
+	
+	<!-- the STAB TRIM switches -->
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.001</object-name>
+		<property>/controls/special/yoke-switch2</property>
+		<interpolation>
+		  <entry><ind> 1.0</ind><dep> -10.0</dep></entry>
+		  <entry><ind> 0.0</ind><dep>   0.0</dep></entry>
+		  <entry><ind>-1.0</ind><dep>  10.0</dep></entry>
+		</interpolation>
+    <axis>   
+      <x1-m> -18.679</x1-m>
+			<y1-m>  -0.755</y1-m>
+      <z1-m>   0.933</z1-m>
+      <x2-m> -18.605</x2-m>
+      <y2-m>  -0.465</y2-m>
+      <z2-m>   0.909</z2-m>
+    </axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.002</object-name>
+		<property>/controls/special/yoke-switch2</property>
+		<interpolation>
+		  <entry><ind> 1.0</ind><dep> -10.0</dep></entry>
+		  <entry><ind> 0.0</ind><dep>   0.0</dep></entry>
+		  <entry><ind>-1.0</ind><dep>  10.0</dep></entry>
+		</interpolation>
+    <axis>   
+      <x1-m> -18.609</x1-m>
+			<y1-m>   0.452</y1-m>
+      <z1-m>   0.912</z1-m>
+      <x2-m> -18.677</x2-m>
+      <y2-m>   0.741</y2-m>
+      <z2-m>   0.93</z2-m>
+    </axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sup.001</object-name>
+		<object-name>switch.001</object-name>
+		<object-name>sup.002</object-name>
+		<object-name>switch.002</object-name>
+		<visible>true</visible>
+     <action>
+        <button>0</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+        <command>property-adjust</command>
+        <property>/controls/flight/elevator-trim</property>
+        <step>0.005</step>
+        <min>-1.0</min>
+        <max> 1.0</max>
+        <wrap>false</wrap>
+        </binding>        
+        <binding>
+		      <command>property-assign</command>
+		      <property>/controls/special/yoke-switch2</property>
+		      <value type="double">1.0</value>
+		    </binding>        
+		    <mod-up>
+		      <binding>
+				    <command>property-assign</command>
+				    <property>/controls/special/yoke-switch2</property>
+				    <value type="double">0.0</value>
+				  </binding>   
+        </mod-up>         
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch3</property>
+		    </binding>
+    </action>
+    <action>
+        <button>1</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+        <command>property-adjust</command>
+        <property>/controls/flight/elevator-trim</property>
+        <step>-0.005</step>
+        <min>-1.0</min>
+        <max> 1.0</max>
+        <wrap>false</wrap>
+        </binding>
+        <binding>
+		      <command>property-assign</command>
+		      <property>/controls/special/yoke-switch2</property>
+		      <value type="double">-1.0</value>
+		    </binding>        
+		    <mod-up>
+		      <binding>
+				    <command>property-assign</command>
+				    <property>/controls/special/yoke-switch2</property>
+				    <value type="double">0.0</value>
+				  </binding>   
+        </mod-up>       
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch3</property>
+		    </binding>
+    </action>
+     <action>
+        <button>3</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+		      <command>property-adjust</command>
+		      <property>/controls/flight/elevator-trim</property>
+		      <step>0.005</step>
+		      <min>-1.0</min>
+		      <max> 1.0</max>
+		      <wrap>false</wrap>
+        </binding>      
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch3</property>
+		    </binding>
+    </action>
+    <action>
+        <button>4</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+		      <command>property-adjust</command>
+		      <property>/controls/flight/elevator-trim</property>
+		      <step>-0.005</step>
+		      <min>-1.0</min>
+		      <max> 1.0</max>
+		      <wrap>false</wrap>
+        </binding>              
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch3</property>
+		    </binding>
+    </action>
+	</animation>
+	
+	
+
+	
+	
+	<!--
+			  <action>
+		    <name>Yokeswitch2</name>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/controls/special/yoke-switch2</property>
+		    </binding>        
+		    <mod-up>
+          <binding>
+		      <command>property-toggle</command>
+		      <property>/controls/special/yoke-switch2</property>
+          </binding>
+        </mod-up>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/sound/switch2</property>
+        </binding>
+		  </action>-->
 
 </PropertyList>

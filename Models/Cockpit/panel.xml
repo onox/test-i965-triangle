@@ -124,6 +124,16 @@
 </model>
 
 <model>
+  <name>speed-limit-lamps</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/lamps/speed-limit.xml</path>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m>-0.6</y-m>
+    <z-m>0.78</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>mach</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/mach/mach.xml</path>
   <offsets>

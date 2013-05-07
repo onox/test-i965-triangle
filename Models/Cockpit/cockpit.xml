@@ -277,32 +277,32 @@
 		    <script>b707.applyTrimWheels(0, 0)</script>
 		   </binding>
 		</action>
-		<action>
-		  <button>3</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/flight/elevator-trim</property>
-		    <step>-0.01</step>
-		    <min>-1</min>
-		    <max>1</max>
-		    <wrap>false</wrap>
-		  </binding>
-		</action>
-		<action>
-		  <button>4</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/flight/elevator-trim</property>
-		    <step> 0.01</step>
-		    <min>-1</min>
-		    <max>1</max>
-		    <wrap>false</wrap>
-		  </binding>
-		</action>
+     <action>
+        <button>3</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+		      <command>property-adjust</command>
+		      <property>/controls/flight/elevator-trim</property>
+		      <step>-0.01</step>
+		      <min>-1.0</min>
+		      <max> 1.0</max>
+		      <wrap>false</wrap>
+        </binding>    
+    </action>
+    <action>
+        <button>4</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+		      <command>property-adjust</command>
+		      <property>/controls/flight/elevator-trim</property>
+		      <step> 0.01</step>
+		      <min>-1.0</min>
+		      <max> 1.0</max>
+		      <wrap>false</wrap>
+        </binding>                
+    </action>
 	</animation>
 	
 	<animation>

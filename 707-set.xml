@@ -2,7 +2,7 @@
 <PropertyList>
  <sim>
   <description>Boeing 707</description>
-  <author>Innis Cunninghams 707 - revamp by the Lake of Constance Hangar</author>
+  <author>707 revamp by the Lake of Constance Hangar [Original from Innis Cunningham]</author>
   <status>1.0.2</status>
 
   <flight-model>jsb</flight-model>
@@ -284,6 +284,7 @@
 		<special>
 			<wiper-switch type="int">0</wiper-switch>
 			<wiper-deg type="double">0.0</wiper-deg>
+			<slats-switch type="double">0.0</slats-switch>
 		</special>
  </controls>
  

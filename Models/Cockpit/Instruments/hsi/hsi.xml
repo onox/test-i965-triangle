@@ -128,8 +128,19 @@
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
 		<object-name>needle</object-name>
-		<property>instrumentation/heading-indicator/indicated-heading-deg</property>
+		<property>/instrumentation/heading-indicator/indicated-heading-deg</property>
 		<factor>-1</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>hdg-arrow</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
 		<axis>
 			<x>-1</x>
 			<y>0</y>
@@ -139,8 +150,13 @@
 
 	<animation>
 		<type>rotate</type>
-		<object-name>hdg-arrow</object-name>
-		<property>autopilot/settings/heading-bug-deg</property>
+		<object-name>hdg-knob</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>        
+		<center>
+      <x-m>0.0</x-m>
+      <y-m>0.0389</y-m>
+      <z-m>-0.0396</z-m>
+    </center>
 		<axis>
 			<x>-1</x>
 			<y>0</y>

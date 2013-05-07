@@ -42,7 +42,6 @@ setlistener("/autopilot/switches/ap", func (ap){
       setprop("/autopilot/locks/altitude", "");
       setprop("/autopilot/locks/heading", "");
       setprop("/autopilot/locks/speed", "");
-      setprop("/autopilot/locks/passive-mode", 0);
       setprop("/autopilot/switches/hdg", 0);
       setprop("/autopilot/switches/alt", 0);
       setprop("/autopilot/switches/ias", 0);

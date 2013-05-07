@@ -1,5 +1,5 @@
 ####    jet engine electrical system    ####
-####    Syd Adams    ####
+####    based on Curtis Olson's nasal electrical code    ####
 var count=0;
 var ammeter_ave = 0.0;
 var Lbus = props.globals.initNode("/systems/electrical/left-bus",0,"DOUBLE");

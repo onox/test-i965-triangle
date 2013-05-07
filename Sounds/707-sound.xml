@@ -738,19 +738,25 @@
 	</wind>
  
 	<stall>
-		<name>stall</name>
-		<path>Sounds/stall.wav</path>		
+		<name>stall or overspeed</name>
+		<path>Aircraft/707/Sounds/warning.wav</path>		
 		<condition>
-		  <and>
-		  	<equals>
-					<property>/velocities/airspeed-kt</property>
-					<value>130.0</value>
-				</equals>
+		  <or>
+				<and>
+					<less-than>
+						<property>/velocities/airspeed-kt</property>
+						<value>160.0</value>
+					</less-than>
+					<greater-than>
+						<property>/position/altitude-agl-ft</property>
+						<value>200.0</value>					
+					</greater-than>
+				</and>
 				<greater-than>
-					<property>/position/altitude-ft</property>
-					<value>400.0</value>					
+					<property>/velocities/mach</property>
+					<value>0.81</value>
 				</greater-than>
-			</and>
+			</or>
 		</condition>
 		<volume>
 			<factor>1</factor>

@@ -2,6 +2,18 @@
 # Avril 2013
 # This file is licenced under the terms of the GNU General Public Licence V2 or later
 ################################ Reverser ####################################
+
+# The heading offset to 0
+var turn_offset_deg = setlistener("/systems/electrical/right-bus", func(volt)
+{
+if (volt.getValue() >= 25.18)
+ {
+  interpolate("/instrumentation/heading-indicator/offset-deg", 0, 2);
+  removelistener(turn_offset_deg);
+ }
+}, 0, 0);
+
+
 var togglereverser = func {
 	r1 = "/fdm/jsbsim/propulsion/engine";
 	r2 = "/fdm/jsbsim/propulsion/engine[1]";

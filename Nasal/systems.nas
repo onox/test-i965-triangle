@@ -321,8 +321,15 @@ var startup = func
     }, 1);
     removelistener(engine4listener2);
    }
-  }, 0, 0);  
-  
+  }, 0, 0); 
+   
+	# switch on the FlightRallyeMode
+	var frwKnob = getprop("instrumentation/frw/btn-mode");
+	if (frwKnob == 0) {
+		setprop("instrumentation/frw/btn-mode",1);
+		b707.frw_mode();
+	}
+	
  };
 
 var shutdown = func

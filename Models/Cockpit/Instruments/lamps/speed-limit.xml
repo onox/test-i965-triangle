@@ -8,8 +8,6 @@
 	<type>material</type>
   <object-name>LampAmber</object-name>
   <object-name>LampAmber.001</object-name>
-  <object-name>LampAmberON</object-name>
-  <object-name>LampAmberON.001</object-name>
   <object-name>Sockle</object-name>
 	<condition>
 		<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
@@ -26,8 +24,6 @@
 	<type>material</type>
   <object-name>LampAmber</object-name>
   <object-name>LampAmber.001</object-name>
-  <object-name>LampAmberON</object-name>
-  <object-name>LampAmberON.001</object-name>
   <object-name>Sockle</object-name>
   <object-name>shadow</object-name>
 	<condition>
@@ -58,16 +54,6 @@
 <animation>
   <type>material</type>
   <object-name>LampAmberON</object-name>
-  <emission>
-    <red>   1.0 </red>
-    <green> 0.8 </green>
-    <blue>  0.4 </blue>
-  </emission>
-</animation>
-
-
-<animation>
-  <type>material</type>
   <object-name>LampAmberON.001</object-name>
   <emission>
     <red>   1.0 </red>

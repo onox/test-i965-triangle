@@ -2,7 +2,7 @@ AC3Db
 MATERIAL "yoke" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 MATERIAL "logo" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 OBJECT world
-kids 11
+kids 17
 OBJECT poly
 name "YokeCol"
 loc -16.965231 -0.128531 -0.127775
@@ -4089,6 +4089,126 @@ refs 3
 40 0.403841942549 0.985314905643
 44 0.090153872967 0.775714993477
 42 0.226152002811 0.911713242531
+kids 0
+OBJECT poly
+name "plane.down"
+loc -18.638186 0.934339 -0.595693
+data 10
+plane.down
+texrep 1 1
+numvert 4
+0 0.004134 1.190923
+0 0.004134 1.219459
+0 -0.013989 1.219459
+0 -0.013989 1.190923
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0 0
+0 0 0
+1 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "plane.down.001"
+loc -18.638186 0.934339 -0.595693
+data 14
+plane.down.001
+texrep 1 1
+numvert 4
+0 -0.013989 -0.011425
+0 -0.013989 0.017112
+0 0.004134 0.017112
+0 0.004134 -0.011425
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0 0
+3 0 0
+2 0 0
+1 0 0
+kids 0
+OBJECT poly
+name "plane.out"
+loc -18.645136 0.88528 -0.569209
+data 9
+plane.out
+texrep 1 1
+numvert 4
+-0.021439 0.004867 1.13744
+0.003002 0.003297 1.152086
+0.003002 -0.014723 1.150154
+-0.021439 -0.013153 1.135508
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0 0
+0 0 0
+1 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "plane.out.001"
+loc -18.645136 0.88528 -0.569209
+data 13
+plane.out.001
+texrep 1 1
+numvert 4
+0.005445 -0.015387 0.000275
+-0.01792 -0.012258 0.016359
+-0.01792 0.005532 0.012897
+0.005445 0.002402 -0.003187
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0 0
+3 0 0
+2 0 0
+1 0 0
+kids 0
+OBJECT poly
+name "plane.up"
+loc -18.637445 0.914228 -0.595693
+data 8
+plane.up
+texrep 1 1
+numvert 4
+0 0.004134 1.190923
+0 0.004134 1.219459
+0 -0.013989 1.219459
+0 -0.013989 1.190923
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0 0
+0 0 0
+1 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "plane.up.001"
+loc -18.637445 0.914228 -0.595693
+data 12
+plane.up.001
+texrep 1 1
+numvert 4
+0 -0.013989 -0.011425
+0 -0.013989 0.017112
+0 0.004134 0.017112
+0 0.004134 -0.011425
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0 0
+3 0 0
+2 0 0
+1 0 0
 kids 0
 OBJECT poly
 name "sup.001"

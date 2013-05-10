@@ -1,40 +1,36 @@
 # Lake of Constance Hangar :: M.Kraus
 # Avril 2013
 # This file is licenced under the terms of the GNU General Public Licence V2 or later
-# ==================================== timer stuff ===============================
-var run_tyresmoke0 = 0;
-var run_tyresmoke1 = 0;
-var run_tyresmoke2 = 0;
-var tyresmoke_0 = aircraft.tyresmoke.new(0, 0, 0.3, 0);
-var tyresmoke_1 = aircraft.tyresmoke.new(1, 0, 0.3, 0);
-var tyresmoke_2 = aircraft.tyresmoke.new(2, 0, 0.3, 0);
+# ===================================================================================
 
-# =============================== listeners ===============================
-setlistener("gear/gear[0]/position-norm", func {
-	var gear = getprop("gear/gear[0]/position-norm");
-	if (gear == 1 ){
-		run_tyresmoke0 = 1;
+###################### from the brakesystem.nas #####################
+
+setlistener("gear/brake-smoke", func (brakesmoke){
+	var brakesmoke = brakesmoke.getValue() or 0;
+	if(brakesmoke){
+		setprop("/controls/special/tyresmoke", 2);
 	}else{
-		run_tyresmoke0 = 0;
+		setprop("/controls/special/tyresmoke", 0);
 	}
 },1,0);
 
-setlistener("gear/gear[1]/position-norm", func {
-	var gear = getprop("gear/gear[1]/position-norm");
-	if (gear == 1 ){
-		run_tyresmoke1 = 1;
-	}else{
-		run_tyresmoke1 = 0;
+setlistener("gear/gear[0]/wow", func (wow_0){
+	var wow_0 = wow_0.getValue() or 0;
+	var state = props.globals.getNode("/controls/special/tyresmoke");
+	if(wow_0){
+		setprop("/controls/special/tyresmoke", 3);
+		settimer( func { setprop("/controls/special/tyresmoke",0); }, 2);
 	}
 },1,0);
 
-setlistener("gear/gear[2]/position-norm", func {
-	var gear = getprop("gear/gear[2]/position-norm");
-	if (gear == 1 ){
-		run_tyresmoke2 = 1;
-	}else{
-		run_tyresmoke2 = 0;
+setlistener("gear/gear[1]/wow", func (wow_1){
+	var wow_1 = wow_1.getValue() or 0;
+	var state = props.globals.getNode("/controls/special/tyresmoke");
+	if(wow_1){
+	  var state_nr = (state.getValue() > 2) ? 3 : 2;
+	  state.setValue(state_nr);
+		settimer( func { setprop("/controls/special/tyresmoke",0); }, 2);
 	}
 },1,0);
 
-# end 
+

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Boeing 707 by the Lake of Constance Hangar :: M.Kraus Avril 2013 -->
+<!-- This file is licenced under the terms of the GNU General Public Licence V2 or later -->
+<PropertyList>
+ 	<path>ohpanel.ac</path>
+
+	<model>
+		<name>light_panel</name>
+		<path>Aircraft/707/Models/Cockpit/Instruments/el_control/epanel.xml</path>
+		<offsets>
+		  <x-m> 0.032</x-m>
+		  <y-m> 0.213</y-m>
+		  <z-m>-0.267</z-m>
+		</offsets>
+	</model>
+	
+</PropertyList>

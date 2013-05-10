@@ -147,7 +147,6 @@ var h_mis = func {
 	help_win.write(sprintf("%.0f degrees", press_mis) );
 }
 
-
 setlistener( "/instrumentation/altimeter/setting-inhg", h_altimeter );
 setlistener( "/autopilot/settings/heading-bug-deg", h_heading );
 setlistener( "/instrumentation/nav/radials/selected-deg", h_course );

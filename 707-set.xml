@@ -138,8 +138,9 @@
 			<int n="1" alias="/controls/lighting/landing-light[1]"/> 											<!-- landing light left and right -->
 			<int n="2" alias="/controls/lighting/landing-light[2]"/> 											<!-- landing light tail -->
 			<int n="3" alias="/controls/lighting/nav-lights"/> 														<!-- wings green and red -->
-			<int n="4" alias="/controls/lighting/beacon-state/state"/>										<!-- beacon switch -->
-			<int n="5" alias="/controls/lighting/strobe-state/state"/>										<!-- Strobe switch -->
+			<int n="4" alias="/controls/lighting/beacon-state/state"/>										<!-- beacon -->
+			<int n="5" alias="/controls/lighting/strobe-state/state"/>										<!-- Strobe -->
+			<int n="6" alias="/controls/special/tyresmoke"/>															<!-- tyresmoke -->
 			<float n="0" alias="/controls/lighting/cabin-dim"/> 													<!-- cabin light dimmer -->
 			<float n="1" alias="/gear/gear[0]/compression-norm"/> 												<!-- multiplayer see the wheels turning -->
 			<float n="2" alias="/gear/gear[0]/rollspeed-ms"/> 												    <!-- multiplayer see the hanging backwheels -->

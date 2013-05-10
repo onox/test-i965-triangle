@@ -54,7 +54,8 @@ var BrakeSystem =
         # Initial thermal energy
         setprop("/gear/brake-thermal-energy",0.0);
         setprop("/gear/brake-smoke",0);
-        setprop("sim/animation/fire-services",0);
+        setprop("sim/animation/fire-services",0); 
+        setprop("/controls/special/tyresmoke",0);
         me.LastSimTime = 0.0;
     },
 

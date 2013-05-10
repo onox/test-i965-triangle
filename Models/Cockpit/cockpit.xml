@@ -93,13 +93,23 @@
 	</model>
 
 	<model>
+		<name>overhead-panel-equipment</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/ohpanel.xml</path>
+		<offsets>
+		  <x-m>-18.56</x-m>
+		  <y-m>  0.0</y-m>
+		  <z-m>  1.385</z-m>
+			<pitch-deg>69.5</pitch-deg>
+		</offsets>
+	</model>	
+	
+	<model>
 		<name>wiper_pilot</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/wiper/wiper-l.xml</path>
 		<offsets>
 		  <x-m>-19.06</x-m>
 		  <y-m> -0.54</y-m>
 		  <z-m>  0.98</z-m>
-			<roll-deg>0</roll-deg>
 			<pitch-deg> 40</pitch-deg>
 			<heading-deg> 26.5</heading-deg>
 		</offsets>

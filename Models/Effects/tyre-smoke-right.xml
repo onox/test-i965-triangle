@@ -15,10 +15,10 @@
         </offsets>
 
         <condition>
-            <or>
-                <property>gear/gear[2]/tyre-smoke</property>
-                <property>gear/brake-smoke</property>
-            </or>
+        	<greater-than>
+            <property>sim/multiplay/generic/int[6]</property>
+            <value>1.0</value>
+          </greater-than>
         </condition>
 
         <attach>world</attach>

@@ -431,7 +431,8 @@ var listenerApGsNearFarFunc = func {
 
 		if (getprop("/instrumentation/nav[0]/gs-in-range") == 1) {
 			var nav1GsRateOfClimp = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
-			if (nav1GsRateOfClimp < -2.0 and nav1GsRateOfClimp > -30.0) {	# in GS
+			if (nav1GsRateOfClimp < -2.0) {	# in GS
+
 				if (getprop("/instrumentation/nav[0]/gs-rate-of-climb") != nil) {
 					gsRateNearFarFiltered = nav1GsRateOfClimp;
 					setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
@@ -517,4 +518,30 @@ var listenerApNav1NearFarFunc = func {
 setlistener("/autopilot/locks/heading", listenerApNav1NearFarFunc);
 
 
+### speed with pitch
+
+var listenerApSpeedWithPitchClambFunc = func {
+	if (getprop("/autopilot/locks/speed") == "speed-with-pitch-trim") {
+		#print ("-> listenerApSpeedWithPitchClambFunc -> installed");
+
+		var pitch = getprop("/orientation/pitch-deg");
+		setprop("/autopilot/internal/umin-for-speed-with-pitch-hold", (pitch < -5.0 ? -5.0 : pitch));
+		interpolate("/autopilot/internal/umin-for-speed-with-pitch-hold", -5.0, 5);
+		setprop("/autopilot/internal/umax-for-speed-with-pitch-hold", (pitch > 15.0 ? 15.0 : pitch));
+		interpolate("/autopilot/internal/umax-for-speed-with-pitch-hold", 15.0, 5);
+	}
+}
+var listenerApSpeedWithPitchSwitchFunc = func {
+	if (getprop("/autopilot/locks/speed") == "speed-with-pitch-trim") {
+		# disable pitch-/AoA-hold (makes no sence together with speed-with-pitch-hold)
+		if (	getprop("/autopilot/locks/altitude") == "pitch-hold" or
+			getprop("/autopilot/locks/altitude") == "aoa-hold") {
+			setprop("/autopilot/locks/altitude", "");
+		}
+	}
+}
+
+setlistener("/autopilot/locks/speed", listenerApSpeedWithPitchClambFunc);
+setlistener("/autopilot/settings/target-speed-kt", listenerApSpeedWithPitchClambFunc);
+setlistener("/autopilot/locks/speed", listenerApSpeedWithPitchSwitchFunc);
 

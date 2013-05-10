@@ -8,12 +8,22 @@
 ##                       'vertical-speed-hold', 'altitude-hold')            ##
 ##############################################################################
 
+var kpForHeadingDeg = -2.5;	# -1.0  full load, low speed < 300
+var kpForHeading = 0.22;
+var tiForHeading = 3.0;		# 10.0  full load, low speed < 300
 
 var listenerApRouteManagerInitFunc = func {
 	# do initializations of new properties
 
 	setprop("/autopilot/internal/route-manager-waypoint-near-by", 0);
 	setprop("autopilot/locks/passive-mode", 0);
+
+	setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
+	setprop("/autopilot/internal/target-kp-for-heading-hold", kpForHeading);
+	setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeading);
+	setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", 0.0);
+	setprop("/autopilot/internal/VOR-near-by", 0);
+	setprop("/autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
 }
 setlistener("/sim/signals/fdm-initialized", listenerApRouteManagerInitFunc);
 
@@ -82,7 +92,7 @@ var apHeadingWaypointSetVSpeed = func {
 			}
 			# clamb: limit vspeed to min., max. values
 			if (vspeed > 0) {
-				maxVSpeed = 3500.0;
+				maxVSpeed = 1500.0;
 			}
 			else {
 				vspeed = (vspeed < -1000.0) ? -1000.0 : vspeed;
@@ -90,8 +100,8 @@ var apHeadingWaypointSetVSpeed = func {
 			}
 
 			# clamp climbrate according to weigth, altitude etc.
-			var minClimpRate = -2500.0;
-			var maxClimpRate = 3500.0;
+			var minClimpRate = -1500.0;
+			var maxClimpRate = 1500.0;
 			vspeed = (vspeed < minClimpRate ? minClimpRate : vspeed);
 			vspeed = (vspeed > maxClimpRate ? maxClimpRate : vspeed);
 
@@ -334,6 +344,177 @@ var listenerApPassiveMode = func {
 	}
 }
 setlistener("autopilot/locks/passive-mode", listenerApPassiveMode);
+
+var getTotalLbs = func {
+	return( getprop("/consumables/fuel/tank[0]/level-lbs") +
+		getprop("/consumables/fuel/tank[1]/level-lbs") +
+		getprop("/consumables/fuel/tank[2]/level-lbs") +
+		getprop("/consumables/fuel/tank[3]/level-lbs") +
+		getprop("/consumables/fuel/tank[4]/level-lbs") +
+		getprop("/consumables/fuel/tank[5]/level-lbs") +
+		getprop("/consumables/fuel/tank[6]/level-lbs") +
+		getprop("/payload/weight[0]/weight-lb") +
+		getprop("/payload/weight[1]/weight-lb") +
+		getprop("/payload/weight[2]/weight-lb") +
+		getprop("/payload/weight[3]/weight-lb") +
+		getprop("/payload/weight[4]/weight-lb") +
+		getprop("/payload/weight[5]/weight-lb") +
+		getprop("/payload/weight[6]/weight-lb") );
+}
+
+# switch-functions
+var listenerApHeadingFunc = func {
+	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
+		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
+		getprop("/autopilot/locks/heading") == "true-heading-hold") {
+
+		#print ("-> listenerApHeadingFunc -> installed");
+
+		var airspeedKt = getprop("/velocities/airspeed-kt");
+		var totalLbs = getTotalLbs();
+
+		if (totalLbs > 100000 and airspeedKt < 300) {
+			# full load: 196000 lbs
+
+			# iterate to -1.0 at full load, low speed (< 300)
+			kpForHeadingDeg = -2.5 + ((totalLbs - 100000.0) * 0.000015625);
+
+			# iterate to 10.0 at full load, low (speed < 300)
+			tiForHeading = 3.0 + ((totalLbs - 100000.0) * 0.000072917);
+		}
+		else {
+			kpForHeadingDeg = -2.5;
+			tiForHeading = 3.0;
+		}
+
+		#print ("-> listenerApHeadingFunc -> kpForHeadingDeg=", kpForHeadingDeg, "  tiForHeading=", tiForHeading, "  totalLbs=", totalLbs);
+		setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
+		setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeading);
+
+		settimer(listenerApHeadingFunc, 0.2);
+	}
+}
+setlistener("/autopilot/locks/heading", listenerApHeadingFunc);
+
+# switch-functions
+var listenerApHeadingSwitchFunc = func {
+
+	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
+		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
+		getprop("/autopilot/locks/heading") == "true-heading-hold") {
+
+		#print ("-> listenerApHeadingSwitchFunc -> installed");
+		setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.1));
+		interpolate("/autopilot/internal/target-kp-for-heading-hold", kpForHeading, 4);
+	}
+}
+setlistener("/autopilot/settings/true-heading-deg", listenerApHeadingSwitchFunc);
+setlistener("/autopilot/settings/heading-bug-deg", listenerApHeadingSwitchFunc);
+setlistener("/instrumentation/nav[0]/radials/selected-deg", listenerApHeadingSwitchFunc);
+setlistener("/autopilot/locks/heading", listenerApHeadingSwitchFunc);
+
+
+var listenerApGsNearFarFunc = func {
+	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
+
+		#print ("-> listenerApGs1NearFarFunc -> installed");
+		#print ("-> listenerApGs1NearFarFunc -> gs-rate-of-climb=", getprop("/instrumentation/nav[0]/gs-rate-of-climb"));
+		var gsRateNearFarFiltered = getprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered");
+
+		# filter unrealistic values
+		if (gsRateNearFarFiltered > 5.0) {
+			gsRateNearFarFiltered = 5.0;
+		}
+		elsif (gsRateNearFarFiltered < -20.0) {
+			gsRateNearFarFiltered = -20.0;
+		}
+
+		if (getprop("/instrumentation/nav[0]/gs-in-range") == 1) {
+			var nav1GsRateOfClimp = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
+			if (nav1GsRateOfClimp < -2.0 and nav1GsRateOfClimp > -30.0) {	# in GS
+				if (getprop("/instrumentation/nav[0]/gs-rate-of-climb") != nil) {
+					gsRateNearFarFiltered = nav1GsRateOfClimp;
+					setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
+				}
+				else {
+					setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", 0.0);
+				}
+			}
+			else {
+				# iterate to 1.67 (100 fpm)
+				var gsRateNearFarFilteredIncrement = 0.2;
+				if (abs(gsRateNearFarFiltered - 1.67) > 1.0) {
+					gsRateNearFarFilteredIncrement = 1.0;
+				}
+				gsRateNearFarFiltered = (gsRateNearFarFiltered < 1.67 ? (gsRateNearFarFiltered + gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
+				gsRateNearFarFiltered = (gsRateNearFarFiltered > 1.67 ? (gsRateNearFarFiltered - gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
+				setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
+			}
+		}
+		else {
+			# iterate to 0.0
+			var gsRateNearFarFilteredIncrement = 0.2;
+			if (abs(gsRateNearFarFiltered) > 1.0) {
+				gsRateNearFarFilteredIncrement = 1.0;
+			}
+			gsRateNearFarFiltered = (gsRateNearFarFiltered < 0.0 ? (gsRateNearFarFiltered + gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
+			gsRateNearFarFiltered = (gsRateNearFarFiltered > 0.0 ? (gsRateNearFarFiltered - gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
+			setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
+		}
+
+		#print("listenerApGs1NearFarFunc: gs-rate-of-climb-near-far-filtered=", getprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered"));
+
+		settimer(listenerApGsNearFarFunc, 0.05);
+	}
+}
+setlistener("/autopilot/locks/altitude", listenerApGsNearFarFunc);
+
+var listenerApAltitudeClambFunc = func {
+	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
+
+		#print("listenerApAltitudeClambFunc -> triggered");
+
+		setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", getprop("/velocities/vertical-speed-fps"));
+	}
+}
+setlistener("/autopilot/locks/altitude", listenerApAltitudeClambFunc);
+
+
+var listenerApNav1NearFarFunc = func {
+	if (getprop("/autopilot/locks/heading") == "nav1-hold") {
+
+		#print ("-> listenerApNav1NearFarFunc -> installed");
+
+		var navDistance = getprop("instrumentation/nav[0]/nav-distance");
+
+		# 'smooth' VOR-transition
+		if (getprop("instrumentation/nav[0]/gs-in-range") == 0 and navDistance < 2000.0) {
+			if (getprop("/autopilot/internal/VOR-near-by") == 0) {
+				listenerApHeadingSwitchFunc();
+
+				var targetRollDeg = getprop("/autopilot/internal/target-roll-deg");
+				setprop("/autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
+
+				setprop("/autopilot/internal/VOR-near-by", 1);
+
+				interpolate("/autopilot/internal/target-roll-deg-for-VOR-near-by", targetRollDeg, 8.0);
+			}
+		}
+		else {
+			if (getprop("/autopilot/internal/VOR-near-by") == 1) {
+				listenerApHeadingSwitchFunc();
+
+				setprop("/autopilot/internal/VOR-near-by", 0);
+			}
+		}
+
+		settimer(listenerApNav1NearFarFunc, 0.05);
+	}
+	else {
+		setprop("/autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
+	}
+}
+setlistener("/autopilot/locks/heading", listenerApNav1NearFarFunc);
 
 
 

@@ -3,14 +3,29 @@
 <!-- This file is licenced under the terms of the GNU General Public Licence V2 or later -->
 <PropertyList>
  	<path>ohpanel.ac</path>
+ 	
+  <!-- internal light effect without rembrandt -->	
+	<animation>
+		<type>material</type>
+		<object-name>ohpanel</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.3</red>
+		  <green>0.3</green>
+		  <blue>0.3</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>
 
 	<model>
 		<name>light_panel</name>
-		<path>Aircraft/707/Models/Cockpit/Instruments/el_control/epanel.xml</path>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/light_switches/light_switches.xml</path>
 		<offsets>
-		  <x-m> 0.032</x-m>
-		  <y-m> 0.213</y-m>
-		  <z-m>-0.267</z-m>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m>-0.0</z-m>
 		</offsets>
 	</model>
 	

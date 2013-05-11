@@ -96,44 +96,5 @@
         </mod-up>
       </action>
     </animation>
-    
-<animation>
-  <type>pick</type>
-  <object-name>knob</object-name>		
-  <object-name>support</object-name>
-	<object-name>knobsup</object-name>
-  <action>
-    <button>3</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>/controls/lighting/cabin-dim</property>
-      <step>0.1</step>
-      <min>0</min>
-      <max>1</max>
-      <wrap>0</wrap>
-    </binding>
-    <binding>
-      <command>property-toggle</command>
-      <property>/sim/sound/switch3</property>
-    </binding>
-  </action>
-  <action>
-    <button>4</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>/controls/lighting/cabin-dim</property>
-      <step>-0.1</step>
-      <min>0</min>
-      <max>1</max>
-      <wrap>0</wrap>
-    </binding>
-    <binding>
-      <command>property-toggle</command>
-      <property>/sim/sound/switch3</property>
-    </binding>
-  </action>
-</animation>
 
 </PropertyList>

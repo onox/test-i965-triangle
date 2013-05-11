@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "lighthalo" rgb 1 1 1 amb 1 1 1 emis 1 1 1 spec 1 1 1 shi 128 trans 0.6
-MATERIAL "lightcone2" rgb 0 0 0 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 60 trans 0.97
+MATERIAL "lightcone2" rgb 0 0 0 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 60 trans 0.98
 MATERIAL "cabinWindows.001" rgb 0.03958 0.045376 0.076577 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 MATERIAL "LightGlow" rgb 1 1 1 amb 1 1 1 emis 1 1 1 spec 0.000515 0.000515 0.000515 shi 1 trans 0.2
 MATERIAL "exterior_light.007" rgb 0.8 0.8 0.8 amb 0.8 0.8 0.8 emis 0 0 0 spec 1 1 1 shi 64 trans 0

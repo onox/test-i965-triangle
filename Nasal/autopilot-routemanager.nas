@@ -27,6 +27,143 @@ var listenerApRouteManagerInitFunc = func {
 }
 setlistener("/sim/signals/fdm-initialized", listenerApRouteManagerInitFunc);
 
+var getTotalLbs = func {
+	return( getprop("/consumables/fuel/tank[0]/level-lbs") +
+		getprop("/consumables/fuel/tank[1]/level-lbs") +
+		getprop("/consumables/fuel/tank[2]/level-lbs") +
+		getprop("/consumables/fuel/tank[3]/level-lbs") +
+		getprop("/consumables/fuel/tank[4]/level-lbs") +
+		getprop("/consumables/fuel/tank[5]/level-lbs") +
+		getprop("/consumables/fuel/tank[6]/level-lbs") +
+		getprop("/payload/weight[0]/weight-lb") +
+		getprop("/payload/weight[1]/weight-lb") +
+		getprop("/payload/weight[2]/weight-lb") +
+		getprop("/payload/weight[3]/weight-lb") +
+		getprop("/payload/weight[4]/weight-lb") +
+		getprop("/payload/weight[5]/weight-lb") +
+		getprop("/payload/weight[6]/weight-lb") );
+}
+
+# switch-functions
+var listenerApHeadingSwitchFunc = func {
+
+	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
+		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
+		((getprop("/autopilot/locks/heading") == "true-heading-hold") and (getprop("/autopilot/route-manager/active") == 0))) {
+
+		#print ("-> listenerApHeadingSwitchFunc -> installed");
+		setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.05));
+		interpolate("/autopilot/internal/target-kp-for-heading-hold", kpForHeading, 6);
+	}
+}
+setlistener("/autopilot/settings/heading-bug-deg", listenerApHeadingSwitchFunc);
+setlistener("/instrumentation/nav[0]/radials/selected-deg", listenerApHeadingSwitchFunc);
+setlistener("/autopilot/locks/heading", listenerApHeadingSwitchFunc);
+
+var listenerApHeadingPassiveModeFunc = func {
+
+	if (	getprop("/autopilot/locks/heading") == "true-heading-hold" and
+		getprop("/autopilot/route-manager/active") == 1) {
+
+		#print ("-> listenerApHeadingPassiveModeFunc -> installed");
+		setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.05));
+		interpolate("/autopilot/internal/target-kp-for-heading-hold", kpForHeading, 6);
+	}
+}
+setlistener("autopilot/locks/passive-mode", listenerApHeadingSwitchFunc);
+
+# switch-functions
+var listenerApHeadingFunc = func {
+	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
+		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
+		getprop("/autopilot/locks/heading") == "true-heading-hold") {
+
+		#print ("-> listenerApHeadingFunc -> installed");
+
+		var airspeedKt = getprop("/velocities/airspeed-kt");
+		var totalLbs = getTotalLbs();
+
+		if (totalLbs > 100000 and airspeedKt < 300) {
+			# full load: 196000 lbs
+
+			# iterate to 10.0 at full load, low (speed < 300)
+			tiForHeading = 3.0 + ((totalLbs - 100000.0) * 0.000072917);
+
+			# iterate to -1.0 at full load, low speed (< 300)
+			kpForHeadingDeg = -2.5 + ((totalLbs - 100000.0) * 0.000015625);
+		}
+		else {
+			tiForHeading = 3.0;
+			kpForHeadingDeg = -2.5;
+		}
+
+		#print ("-> listenerApHeadingFunc -> kpForHeadingDeg=", kpForHeadingDeg, "  tiForHeading=", tiForHeading, "  totalLbs=", totalLbs);
+		setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
+		setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeading);
+
+		settimer(listenerApHeadingFunc, 0.2);
+	}
+}
+setlistener("/autopilot/locks/heading", listenerApHeadingFunc);
+
+var listenerApGsNearFarFunc = func {
+	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
+
+		#print ("-> listenerApGs1NearFarFunc -> installed");
+		#print ("-> listenerApGs1NearFarFunc -> gs-rate-of-climb=", getprop("/instrumentation/nav[0]/gs-rate-of-climb"));
+		var gsRateNearFarFiltered = getprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered");
+
+		# filter unrealistic values
+		if (gsRateNearFarFiltered > 5.0) {
+			gsRateNearFarFiltered = 5.0;
+		}
+		elsif (gsRateNearFarFiltered < -20.0) {
+			gsRateNearFarFiltered = -20.0;
+		}
+
+		if (getprop("/instrumentation/nav[0]/gs-in-range") == 1) {
+
+			var nav1GsRateOfClimp = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
+			if (nav1GsRateOfClimp < -2.0) {	# in GS
+
+				if (getprop("/instrumentation/nav[0]/gs-rate-of-climb") != nil) {
+					gsRateNearFarFiltered = nav1GsRateOfClimp;
+					setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
+				}
+				else {
+					setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", 0.0);
+				}
+			}
+			else {
+				# iterate to 1.67 (100 fpm)
+				var gsRateNearFarFilteredIncrement = 0.2;
+				if (abs(gsRateNearFarFiltered - 1.67) > 1.0) {
+					gsRateNearFarFilteredIncrement = 1.0;
+				}
+				gsRateNearFarFiltered = (gsRateNearFarFiltered < 1.67 ? (gsRateNearFarFiltered + gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
+				gsRateNearFarFiltered = (gsRateNearFarFiltered > 1.67 ? (gsRateNearFarFiltered - gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
+				setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
+			}
+		}
+		else {
+			# iterate to 0.0
+			var gsRateNearFarFilteredIncrement = 0.2;
+			if (abs(gsRateNearFarFiltered) > 1.0) {
+				gsRateNearFarFilteredIncrement = 1.0;
+			}
+			gsRateNearFarFiltered = (gsRateNearFarFiltered < 0.0 ? (gsRateNearFarFiltered + gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
+			gsRateNearFarFiltered = (gsRateNearFarFiltered > 0.0 ? (gsRateNearFarFiltered - gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
+			setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
+
+		}
+
+		#print("listenerApGs1NearFarFunc: gs-rate-of-climb-near-far-filtered=", getprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered"));
+
+		settimer(listenerApGsNearFarFunc, 0.05);
+	}
+}
+setlistener("/autopilot/locks/altitude", listenerApGsNearFarFunc);
+
 
 # notes:
 # if 'passive-mode' is switched on, the autopilot is controlled by the route-manager, that means the settings for 'true-heading-hold'
@@ -205,6 +342,11 @@ var listenerApPassiveMode = func {
 						waypointDistanceNmHold = 0.5 + (groundspeedKt * 0.001);
 					}
 					if (waypointDistanceNm < waypointDistanceNmHold)  {
+						if (getprop("autopilot/internal/route-manager-waypoint-near-by") == 0) {
+	
+							# smoothing: interpolate Kp for heading-hold
+							listenerApHeadingPassiveModeFunc();
+						}
 						routeManagerWaypointNearBy = 1;
 					}
 					# don't need to do this, the route manager does it already
@@ -344,131 +486,6 @@ var listenerApPassiveMode = func {
 	}
 }
 setlistener("autopilot/locks/passive-mode", listenerApPassiveMode);
-
-var getTotalLbs = func {
-	return( getprop("/consumables/fuel/tank[0]/level-lbs") +
-		getprop("/consumables/fuel/tank[1]/level-lbs") +
-		getprop("/consumables/fuel/tank[2]/level-lbs") +
-		getprop("/consumables/fuel/tank[3]/level-lbs") +
-		getprop("/consumables/fuel/tank[4]/level-lbs") +
-		getprop("/consumables/fuel/tank[5]/level-lbs") +
-		getprop("/consumables/fuel/tank[6]/level-lbs") +
-		getprop("/payload/weight[0]/weight-lb") +
-		getprop("/payload/weight[1]/weight-lb") +
-		getprop("/payload/weight[2]/weight-lb") +
-		getprop("/payload/weight[3]/weight-lb") +
-		getprop("/payload/weight[4]/weight-lb") +
-		getprop("/payload/weight[5]/weight-lb") +
-		getprop("/payload/weight[6]/weight-lb") );
-}
-
-# switch-functions
-var listenerApHeadingFunc = func {
-	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
-		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
-		getprop("/autopilot/locks/heading") == "true-heading-hold") {
-
-		#print ("-> listenerApHeadingFunc -> installed");
-
-		var airspeedKt = getprop("/velocities/airspeed-kt");
-		var totalLbs = getTotalLbs();
-
-		if (totalLbs > 100000 and airspeedKt < 300) {
-			# full load: 196000 lbs
-
-			# iterate to -1.0 at full load, low speed (< 300)
-			kpForHeadingDeg = -2.5 + ((totalLbs - 100000.0) * 0.000015625);
-
-			# iterate to 10.0 at full load, low (speed < 300)
-			tiForHeading = 3.0 + ((totalLbs - 100000.0) * 0.000072917);
-		}
-		else {
-			kpForHeadingDeg = -2.5;
-			tiForHeading = 3.0;
-		}
-
-		#print ("-> listenerApHeadingFunc -> kpForHeadingDeg=", kpForHeadingDeg, "  tiForHeading=", tiForHeading, "  totalLbs=", totalLbs);
-		setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
-		setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeading);
-
-		settimer(listenerApHeadingFunc, 0.2);
-	}
-}
-setlistener("/autopilot/locks/heading", listenerApHeadingFunc);
-
-# switch-functions
-var listenerApHeadingSwitchFunc = func {
-
-	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
-		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
-		getprop("/autopilot/locks/heading") == "true-heading-hold") {
-
-		#print ("-> listenerApHeadingSwitchFunc -> installed");
-		setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.1));
-		interpolate("/autopilot/internal/target-kp-for-heading-hold", kpForHeading, 4);
-	}
-}
-setlistener("/autopilot/settings/true-heading-deg", listenerApHeadingSwitchFunc);
-setlistener("/autopilot/settings/heading-bug-deg", listenerApHeadingSwitchFunc);
-setlistener("/instrumentation/nav[0]/radials/selected-deg", listenerApHeadingSwitchFunc);
-setlistener("/autopilot/locks/heading", listenerApHeadingSwitchFunc);
-
-
-var listenerApGsNearFarFunc = func {
-	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
-
-		#print ("-> listenerApGs1NearFarFunc -> installed");
-		#print ("-> listenerApGs1NearFarFunc -> gs-rate-of-climb=", getprop("/instrumentation/nav[0]/gs-rate-of-climb"));
-		var gsRateNearFarFiltered = getprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered");
-
-		# filter unrealistic values
-		if (gsRateNearFarFiltered > 5.0) {
-			gsRateNearFarFiltered = 5.0;
-		}
-		elsif (gsRateNearFarFiltered < -20.0) {
-			gsRateNearFarFiltered = -20.0;
-		}
-
-		if (getprop("/instrumentation/nav[0]/gs-in-range") == 1) {
-			var nav1GsRateOfClimp = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
-			if (nav1GsRateOfClimp < -2.0) {	# in GS
-
-				if (getprop("/instrumentation/nav[0]/gs-rate-of-climb") != nil) {
-					gsRateNearFarFiltered = nav1GsRateOfClimp;
-					setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
-				}
-				else {
-					setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", 0.0);
-				}
-			}
-			else {
-				# iterate to 1.67 (100 fpm)
-				var gsRateNearFarFilteredIncrement = 0.2;
-				if (abs(gsRateNearFarFiltered - 1.67) > 1.0) {
-					gsRateNearFarFilteredIncrement = 1.0;
-				}
-				gsRateNearFarFiltered = (gsRateNearFarFiltered < 1.67 ? (gsRateNearFarFiltered + gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
-				gsRateNearFarFiltered = (gsRateNearFarFiltered > 1.67 ? (gsRateNearFarFiltered - gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
-				setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
-			}
-		}
-		else {
-			# iterate to 0.0
-			var gsRateNearFarFilteredIncrement = 0.2;
-			if (abs(gsRateNearFarFiltered) > 1.0) {
-				gsRateNearFarFilteredIncrement = 1.0;
-			}
-			gsRateNearFarFiltered = (gsRateNearFarFiltered < 0.0 ? (gsRateNearFarFiltered + gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
-			gsRateNearFarFiltered = (gsRateNearFarFiltered > 0.0 ? (gsRateNearFarFiltered - gsRateNearFarFilteredIncrement) : gsRateNearFarFiltered);
-			setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", gsRateNearFarFiltered);
-		}
-
-		#print("listenerApGs1NearFarFunc: gs-rate-of-climb-near-far-filtered=", getprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered"));
-
-		settimer(listenerApGsNearFarFunc, 0.05);
-	}
-}
-setlistener("/autopilot/locks/altitude", listenerApGsNearFarFunc);
 
 var listenerApAltitudeClambFunc = func {
 	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {

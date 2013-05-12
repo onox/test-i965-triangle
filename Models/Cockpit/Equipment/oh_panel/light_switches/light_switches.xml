@@ -467,5 +467,97 @@
 		  </binding>
 		</action>
 	</animation>
+	
+	<!-- Wiper -->
+	<animation>
+		<type>rotate</type>
+		<object-name>turn.002</object-name>
+		<property>/controls/special/wiper-switch</property>
+		<interpolation>
+		  <entry><ind>0</ind><dep>   0</dep></entry>
+		  <entry><ind>1</ind><dep>  45</dep></entry>
+		  <entry><ind>2</ind><dep> 100</dep></entry>
+		  <entry><ind>3</ind><dep> 180</dep></entry>
+		  <entry><ind>4</ind><dep> 315</dep></entry>
+		</interpolation>
+		<center>
+		  <x-m> 0.0 </x-m>
+		  <y-m>-0.081</y-m>
+		  <z-m>-0.211</z-m>
+		</center>
+		<axis>
+		  <x>-1.0</x>
+		  <y> 0.0</y>
+		  <z> 0.0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>turn.002</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>/controls/special/wiper-switch</property>
+		    <step>1</step>
+		    <min>0</min>
+		    <max>5</max>
+		    <wrap>1</wrap>
+		  </binding>		  
+		  <binding>
+		    <command>property-toggle</command>
+		    <property>/sim/sound/switch2</property>
+		  </binding>
+		</action>
+		<action>
+		  <button>1</button>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>/controls/special/wiper-switch</property>
+		    <step>-1</step>
+		    <min>0</min>
+		    <max>5</max>
+		    <wrap>1</wrap>
+		  </binding>		  
+		  <binding>
+		    <command>property-toggle</command>
+		    <property>/sim/sound/switch2</property>
+		  </binding>
+		</action>
+		<action>
+		  <button>3</button>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>/controls/special/wiper-switch</property>
+		    <step>1</step>
+		    <min>0</min>
+		    <max>5</max>
+		    <wrap>1</wrap>
+		  </binding>		  
+		  <binding>
+		    <command>property-toggle</command>
+		    <property>/sim/sound/switch2</property>
+		  </binding>
+		</action>
+		<action>
+		  <button>4</button>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>/controls/special/wiper-switch</property>
+		    <step>-1</step>
+		    <min>0</min>
+		    <max>5</max>
+		    <wrap>1</wrap>
+		  </binding>		  
+		  <binding>
+		    <command>property-toggle</command>
+		    <property>/sim/sound/switch2</property>
+		  </binding>
+		</action>
+	</animation>
 
 </PropertyList>

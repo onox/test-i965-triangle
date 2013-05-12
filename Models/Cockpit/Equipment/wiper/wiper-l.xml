@@ -33,39 +33,6 @@
 				<factor-prop>/controls/lighting/cabin-dim</factor-prop>
 			</emission>
 		</animation>
-    
-		<animation>
-			<type>pick</type>
-      <object-name>wiperSup</object-name>
-      <object-name>wiperSup.001</object-name>
-      <object-name>wiper</object-name>
-      <object-name>wiper.001</object-name>
-      <object-name>wiperView</object-name>
-			<action>
-			<button>0</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>/controls/special/wiper-switch</property>
-				<step>1</step>
-				<min>0</min>
-				<max>5</max>
-				<wrap>1</wrap>
-			</binding>
-			</action>
-			<action>
-			<button>1</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>/controls/special/wiper-switch</property>
-				<step>-1</step>
-				<min>0</min>
-				<max>5</max>
-				<wrap>1</wrap>
-			</binding>
-			</action>
-		</animation>
 
 		<animation>
 		  <type>select</type>

@@ -13,7 +13,7 @@ var wiper_action = func(){
     
  		if(ws){
  								
- 		  if(ws == 1){
+ 		  if(ws == 4){
 				if (d > 108){        
 					interpolate("/controls/special/wiper-deg", 0, 2);  
 				}
@@ -24,7 +24,7 @@ var wiper_action = func(){
 				settimer(wiper_action, 6);
 			}
  		
- 		  if(ws == 2){
+ 		  if(ws == 1){
 				if (d > 108){        
 					interpolate("/controls/special/wiper-deg", 0, 2);  
 				}
@@ -35,7 +35,7 @@ var wiper_action = func(){
 				settimer(wiper_action, 2.5);
 			}
 			
- 		  if(ws == 3){
+ 		  if(ws == 2){
 				if (d > 108){        
 					interpolate("/controls/special/wiper-deg", 0, 1);  
 				}
@@ -46,7 +46,7 @@ var wiper_action = func(){
 				settimer(wiper_action, 1.1);
 			}
 					
- 		  if(ws == 4){
+ 		  if(ws == 3){
 				if (d > 108){        
 					interpolate("/controls/special/wiper-deg", 0, 0.6);  
 				}

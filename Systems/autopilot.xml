@@ -173,15 +173,14 @@
       <prop>/autopilot/internal/aileron-servo</prop>
     </output>
     <config>
-      <Kp>0.5</Kp>        <!-- proportional gain -->
-      <beta>1.0</beta>    <!-- input value weighing factor -->
-      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>       <!-- integrator time -->
-      <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>-1.0</u_min> <!-- minimum output clamp -->
-      <u_max>1.0</u_max>  <!-- maximum output clamp -->
+      <Kp>0.5</Kp>
+      <beta>1.0</beta>
+      <alpha>0.1</alpha>
+      <gamma>0.0</gamma>
+      <Ti>10.0</Ti>
+      <Td>0.00001</Td>
+      <u_min>-1.0</u_min>
+      <u_max>1.0</u_max>
     </config>
   </pid-controller>
 
@@ -239,8 +238,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-<!--      <Kp>/autopilot/internal/target-kp-for-heading-deg</Kp>-->
-      <Kp>-2.5</Kp>
+      <Kp>/autopilot/internal/target-kp-for-heading-deg</Kp>
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
@@ -273,8 +271,6 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <!--     <Kp>-1.0</Kp>        proportional gain -->
-      <!-- <Kp>-1.4</Kp> -->        <!-- proportional gain -->
       <Kp>-2.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
@@ -289,29 +285,29 @@
 
   <!-- Heading-Bug/True/Nav1 - Stage #2 drives the ailerons(-servo) to achieve the desired roll deg. -->
   <pid-controller>
-    <name>Heading Hold - Stage 2 - All heading modes</name>
-    <debug>false</debug>
-    <enable>
-	<condition>
-		<or>
-			<equals>
-				<property>/autopilot/locks/heading</property>
-				<value>dg-heading-hold</value>
-			</equals>
-			<equals>
-				<property>/autopilot/locks/heading</property>
-				<value>true-heading-hold</value>
-			</equals>
-			<equals>
-				<property>/autopilot/locks/heading</property>
-				<value>nav1-hold</value>
-			</equals>
-		</or>
-	</condition>
-    </enable>
-    <input>
-	<property>/orientation/roll-deg</property>
-    </input>
+	<name>Heading Hold - Stage 2 - All heading modes</name>
+	<debug>false</debug>
+	<enable>
+		<condition>
+			<or>
+				<equals>
+					<property>/autopilot/locks/heading</property>
+					<value>dg-heading-hold</value>
+				</equals>
+				<equals>
+					<property>/autopilot/locks/heading</property>
+					<value>true-heading-hold</value>
+				</equals>
+				<equals>
+					<property>/autopilot/locks/heading</property>
+					<value>nav1-hold</value>
+				</equals>
+			</or>
+		</condition>
+	</enable>
+	<input>
+		<property>/orientation/roll-deg</property>
+	</input>
 	<reference>
 		<!-- hold wing level ('smooting' behaviour at VOR-transition) -->
 		<condition>
@@ -331,20 +327,19 @@
 		</condition>
 		<property>/autopilot/internal/target-roll-deg</property>
 	</reference>
-    <output>
-      <property>/autopilot/internal/aileron-servo</property>
-    </output>
-    <config>
-      <Kp>/autopilot/internal/target-kp-for-heading-hold</Kp>
-      <beta>1.0</beta>    <!-- input value weighing factor -->
-      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <Ti>/autopilot/internal/target-ti-for-heading-hold</Ti>       <!-- integrator time -->
-      <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>-1.0</u_min> <!-- minimum output clamp -->
-      <u_max>1.0</u_max>  <!-- maximum output clamp -->
-    </config>
+	<output>
+		<property>/autopilot/internal/aileron-servo</property>
+	</output>
+	<config>
+		<Kp>/autopilot/internal/target-kp-for-heading-hold</Kp>
+		<beta>1.0</beta>    <!-- input value weighing factor -->
+		<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+		<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+		<Ti>/autopilot/internal/target-ti-for-heading-hold</Ti>       <!-- integrator time -->
+		<Td>0.00001</Td>    <!-- derivator time -->
+		<u_min>-1.0</u_min> <!-- minimum output clamp -->
+		<u_max>1.0</u_max>  <!-- maximum output clamp -->
+	</config>
   </pid-controller>
 
 

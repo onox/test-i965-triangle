@@ -31,6 +31,10 @@
   <model>
    <path>Aircraft/707/Models/707.xml</path>
   </model>
+  
+	<tutorials>
+		<tutorial include="Tutorials/707-preflight.xml"/>
+	</tutorials>
    
   <view>
    <internal archive="y">true</internal>
@@ -339,7 +343,7 @@
 	 <nasal>
 			<b707>
 				<file>Aircraft/707/Nasal/liveries.nas</file>
-				<file>Aircraft/707/Nasal/test_system.nas</file>
+				<file>Aircraft/707/Nasal/systems.nas</file>
 				<file>Aircraft/707/Nasal/electrical.nas</file>
 				<file>Aircraft/707/Nasal/mk-707.nas</file>
 				<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>

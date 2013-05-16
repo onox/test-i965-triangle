@@ -7,7 +7,8 @@
 		<type>material</type>
 		<object-name>sup</object-name>	
 		<object-name>sup.001</object-name>	
-		<object-name>sup.002</object-name>
+		<object-name>sup.002</object-name>	
+		<object-name>sup.003</object-name>
 		<object-name>switch</object-name>		
 		<object-name>switch.001</object-name>		
 		<object-name>switch.002</object-name>		
@@ -42,6 +43,7 @@
 		<object-name>sup</object-name>	
 		<object-name>sup.001</object-name>	
 		<object-name>sup.002</object-name>	
+		<object-name>sup.003</object-name>	
 		<object-name>switch</object-name>		
 		<object-name>switch.001</object-name>		
 		<object-name>switch.002</object-name>		

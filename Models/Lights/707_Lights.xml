@@ -143,10 +143,6 @@
 				</not>
 				<property>sim/multiplay/generic/int[0]</property>
 				<property>gear/gear[0]/position-norm</property>				
-				<less-than>
-					<property>position/altitude-agl-ft</property>
-					<value>40</value>
-				</less-than>
 			</and>
 		</condition>
 	</animation>
@@ -161,10 +157,7 @@
 					<property>/sim/rendering/rembrandt/enabled</property>
 				</not>
 				<property>sim/multiplay/generic/int[1]</property>				
-				<less-than>
-					<property>position/altitude-agl-ft</property>
-					<value>40</value>
-				</less-than>
+				<property>gear/gear[0]/position-norm</property>	
 			</and>
 		</condition>
 	</animation>

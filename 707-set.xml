@@ -21,16 +21,22 @@
 	<instrumentation>
     <path>Aircraft/707/Systems/instrumentation.xml</path>
   </instrumentation>
+  
+  <model>
+   	 <path>Aircraft/707/Models/707.xml</path>
+		 <pushback>
+			<kp type="double">500</kp>
+			<ki type="double">100</ki>
+			<kd type="double">0</kd>
+			<position-norm type="double">0</position-norm>
+		 </pushback>
+  </model>
 
   <sound>
       <path>Aircraft/707/Sounds/707-sound.xml</path>
       <switch type = "bool">0</switch>
       <stall-horn type="bool">0</stall-horn>
-  </sound>
-  
-  <model>
-   <path>Aircraft/707/Models/707.xml</path>
-  </model>
+  </sound> 
   
 	<tutorials>
 		<tutorial include="Tutorials/707-preflight.xml"/>
@@ -117,14 +123,22 @@
 				</binding>
 			</item>
 			<item>
-				<label>Select Livery</label>
+				<label>select livery</label>
 				<binding>
 					<command>nasal</command>
 					<script>aircraft.livery.dialog.open()</script>
 				</binding>
 			</item>
 			<item>
-				<label>Show/Hide Yokes</label>
+				<label>Pushback</label>
+				<name>pushback</name>
+				<binding>
+					 <command>dialog-show</command>
+					 <dialog-name>pushback</dialog-name>
+				</binding>
+			</item>
+			<item>
+				<label>show/hide yokes</label>
 				<binding>
 					<command>property-toggle</command>
       		<property>sim/yokes-visible</property>
@@ -291,6 +305,14 @@
 			<wiper-deg type="double">0.0</wiper-deg>
 			<slats-switch type="double">0.0</slats-switch>
 		</special>
+		<!-- only for tiller steering -->
+    <gear>
+        <brake-parking type="bool">1</brake-parking>
+        <tiller-cmd-norm type="double">0</tiller-cmd-norm>
+        <tiller-enabled type="bool" userarchive="y">true</tiller-enabled>
+        <nosegear-steering-cmd-norm type="double">0</nosegear-steering-cmd-norm>
+        <maingear-steering-cmd-norm type="double">0</maingear-steering-cmd-norm>
+    </gear>
  </controls>
  
 	<payload>
@@ -342,8 +364,8 @@
 	
 	 <nasal>
 			<b707>
-				<file>Aircraft/707/Nasal/liveries.nas</file>
 				<file>Aircraft/707/Nasal/systems.nas</file>
+				<file>Aircraft/707/Nasal/liveries.nas</file>
 				<file>Aircraft/707/Nasal/electrical.nas</file>
 				<file>Aircraft/707/Nasal/mk-707.nas</file>
 				<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
@@ -355,7 +377,8 @@
 				<file>Aircraft/707/Nasal/doors.nas</file>
 				<file>Aircraft/707/Nasal/tyresmoke.nas</file>
 				<file>Aircraft/707/Nasal/brakesystem.nas</file>
-				<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
+				<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>    
+				<file>Aircraft/707/Nasal/tiller.nas</file>
 			</b707>
 		</nasal>
 

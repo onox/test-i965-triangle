@@ -245,6 +245,7 @@ setlistener("sim/model/start-idling", func(idle)
   shutdown();
   }
  }, 0, 0);
+ 
 
 ## GEAR
 #######
@@ -258,3 +259,90 @@ setlistener("controls/gear/gear-down", func
   props.globals.getNode("controls/gear/gear-down").setBoolValue(1);
   }
  });
+ 
+## START PROCEDURE ON MAIN SWITCHES ###
+#######################################
+ 
+setlistener("controls/special/starter[0]", func
+ {
+ 	var n2 = props.globals.getNode("engines/engine[0]/n2").getValue();
+ 	var run = props.globals.getNode("engines/engine[0]/running").getBoolValue();
+ 	if(!run){
+	 starter(0);
+	}elsif(run and n2 > 35){
+	 #continue start procedure if switch mod up;
+	}else{
+	 short_stop(0);
+	}
+ }, 0, 0);
+ 
+setlistener("controls/special/starter[1]", func
+ {
+ 	var n2 = props.globals.getNode("engines/engine[1]/n2").getValue();
+ 	var run = props.globals.getNode("engines/engine[1]/running").getBoolValue();
+ 	if(!run){
+	 starter(1);
+	}elsif(run and n2 > 35){
+	 #continue start procedure if switch mod up;
+	}else{
+	 short_stop(1);
+	}
+ }, 0, 0);
+ 
+setlistener("controls/special/starter[2]", func
+ {
+ 	var n2 = props.globals.getNode("engines/engine[2]/n2").getValue();
+ 	var run = props.globals.getNode("engines/engine[2]/running").getBoolValue();
+ 	if(!run){
+	 starter(2);
+	}elsif(run and n2 > 35){
+	 #continue start procedure if switch mod up;
+	}else{
+	 short_stop(2);
+	}
+ }, 0, 0); 
+ 
+setlistener("controls/special/starter[3]", func
+ {
+ 	var n2 = props.globals.getNode("engines/engine[3]/n2").getValue();
+ 	var run = props.globals.getNode("engines/engine[3]/running").getBoolValue();
+ 	if(!run){
+	 starter(3);
+	}elsif(run and n2 > 35){
+	 #continue start procedure if switch mod up;
+	}else{
+	 short_stop(3);
+	}
+ }, 0, 0);
+ 
+ 
+var starter = func(nr)
+ {
+	setprop("controls/engines/engine["~nr~"]/throttle", 0);
+	setprop("controls/APU/off-start-run", 2);
+	setprop("engines/APU/rpm", 100);
+	setprop("controls/electric/battery-switch", 1);
+	setprop("controls/electric/APU-generator", 1);
+	setprop("controls/electric/external-power", 1);
+	setprop("controls/electric/engine["~nr~"]/generator", 1);
+	setprop("controls/engines/engine["~nr~"]/cutoff", 1);
+	setprop("consumables/fuel/tank[0]/selected", 1);
+	setprop("consumables/fuel/tank[2]/selected", 1);
+	setprop("consumables/fuel/tank[1]/selected", 1);
+	setprop("controls/engines/engine["~nr~"]/starter", 1);
+
+	settimer(func
+	{
+		setprop("controls/engines/engine["~nr~"]/cutoff", 0);
+	}, 1);
+		
+ };
+ 
+var short_stop = func(nr){
+	setprop("controls/electric/engine["~nr~"]/generator", 0);
+	setprop("controls/engines/engine["~nr~"]/cutoff", 1);
+	setprop("controls/engines/engine["~nr~"]/starter", 0);
+};
+
+ 
+ 

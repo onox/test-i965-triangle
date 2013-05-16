@@ -9,7 +9,7 @@
 ##############################################################################
 
 var kpForHeadingDeg = -2.5;	# -1.0  full load, low speed < 300
-var kpForHeading = 0.28;
+var kpForHeading = 0.18;
 var tiForHeading = 3.0;		# 10.0  full load, low speed < 300
 
 var listenerApRouteManagerInitFunc = func {

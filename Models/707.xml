@@ -349,9 +349,66 @@
    <y>0.0</y>
    <z>-0.11</z>
   </axis>
- </animation>   
+ </animation> 
+ 
+	<model>
+		<name>RightGearBase</name>
+		<path>Aircraft/707/Models/Maingears/mainwheels.xml</path>
+		<offsets>
+		  <x-m> 1.82</x-m>
+		  <y-m> 2.76</y-m>
+		  <z-m>-2.30</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>LeftGearBase</name>
+		<path>Aircraft/707/Models/Maingears/mainwheels.xml</path>
+		<offsets>
+		  <x-m> 1.82</x-m>
+		  <y-m>-2.76</y-m>
+		  <z-m>-2.30</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>RightGearSmoke</name>
+		<path>Aircraft/707/Models/Effects/tyre-smoke-right.xml</path>
+		<offsets>
+		  <x-m> 1.82</x-m>
+		  <y-m> 2.59</y-m>
+		  <z-m>-2.94</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>LeftGearSmoke</name>
+		<path>Aircraft/707/Models/Effects/tyre-smoke-left.xml</path>
+		<offsets>
+		  <x-m> 1.82</x-m>
+		  <y-m>-2.53</y-m>
+		  <z-m>-2.94</z-m>
+		</offsets>
+	</model>  
 
 <!--Left-->
+  <animation>
+    <type>translate</type>
+		<object-name>LeftGear</object-name>
+		<object-name>LeftGear.001</object-name>
+		<object-name>LeftGearBase</object-name>
+		<object-name>LeftGearSmoke</object-name>
+		<object-name>LeftGearCompressor</object-name>
+		<object-name>LeftGearCompressor1</object-name>
+  	<property>gear/gear[1]/position-norm</property>
+    <factor>-0.3</factor>
+    <axis>   
+		 <x>0</x>
+		 <y>1</y>
+		 <z>0</z>
+    </axis>
+  </animation>
 
  <animation>
   <type>rotate</type>   
@@ -403,13 +460,13 @@
 	<object-name>LeftGear.001</object-name>
   <property>gear/gear[1]/position-norm</property>
   <interpolation>
-    <entry><ind>0.0</ind><dep>-80.0</dep></entry>
-    <entry><ind>0.5</ind><dep>-80.0</dep></entry>
+    <entry><ind>0.0</ind><dep>-60.0</dep></entry>
+    <entry><ind>0.5</ind><dep>-60.0</dep></entry>
     <entry><ind>1.0</ind><dep>0.0</dep></entry>
   </interpolation>
   <center>
    <x-m> 0.0</x-m>
-   <y-m>-2.47</y-m>
+   <y-m>-2.74</y-m>
    <z-m>-1.77</z-m>
   </center>
   <axis>
@@ -419,10 +476,10 @@
   </axis>  
  </animation>
  
-  <animation>
+ <animation>
   <type>rotate</type>
   <object-name>mgdoora</object-name>  
-  <object-name>mgdoorb</object-name>            
+  <object-name>mgdoorb</object-name>           
   <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry><ind>0.0</ind><dep>  0.0</dep></entry>
@@ -431,8 +488,45 @@
   </interpolation>
   <center>
    <x-m> 1.48</x-m>
-   <y-m>-2.75</y-m>
-   <z-m>-1.02</z-m>
+   <y-m>-2.59</y-m>
+   <z-m>-1.0</z-m>
+  </center>	
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+ 
+  <animation>
+    <type>translate</type>
+		<object-name>mgdoora</object-name>  
+		<object-name>mgdoorb</object-name>   
+  	<property>gear/gear[1]/position-norm</property>
+    <factor>-0.7</factor>
+    <axis>   
+      <x1-m>  1.82</x1-m>
+			<y1-m>  2.47</y1-m>
+      <z1-m> -1.40</z1-m>
+      <x2-m>  1.82</x2-m>
+      <y2-m>  2.47</y2-m>
+      <z2-m> -0.92</z2-m>
+    </axis>
+  </animation>
+ 
+ <animation>
+  <type>rotate</type> 
+  <object-name>mgdoorc</object-name>            
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>  0.0</dep></entry>
+    <entry><ind>0.4</ind><dep>-82.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-82.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m> 1.48</x-m>
+   <y-m>-3.20</y-m>
+   <z-m>-0.85</z-m>
   </center>	
   <axis>
    <x>1</x>
@@ -447,8 +541,8 @@
   <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry><ind>0.0</ind><dep>   0.0</dep></entry>
-    <entry><ind>0.5</ind><dep> 180.0</dep></entry>
-    <entry><ind>1.0</ind><dep> 180.0</dep></entry>
+    <entry><ind>0.5</ind><dep> -90.0</dep></entry>
+    <entry><ind>1.0</ind><dep> -90.0</dep></entry>
   </interpolation>
   <axis>
 		<x1-m>  0.86</x1-m>
@@ -462,7 +556,23 @@
 
  
 <!-- Right-->
-
+  <animation>
+    <type>translate</type>
+		<object-name>RightGear</object-name>	
+		<object-name>RightGear.001</object-name>
+		<object-name>RightGearBase</object-name>
+		<object-name>RightGearSmoke</object-name>
+		<object-name>RightGearCompressor</object-name>
+		<object-name>RightGearCompressor1</object-name>
+  	<property>gear/gear[1]/position-norm</property>
+    <factor> 0.3</factor>
+    <axis>   
+		 <x>0</x>
+		 <y>1</y>
+		 <z>0</z>
+    </axis>
+  </animation>
+  
  <animation>
   <type>rotate</type>   
 	<object-name>RightGear</object-name>	
@@ -513,13 +623,13 @@
 	<object-name>RightGear.001</object-name>
   <property>gear/gear[2]/position-norm</property>
   <interpolation>
-    <entry><ind>0.0</ind><dep>80.0</dep></entry>
-    <entry><ind>0.5</ind><dep>80.0</dep></entry>
+    <entry><ind>0.0</ind><dep>60.0</dep></entry>
+    <entry><ind>0.5</ind><dep>60.0</dep></entry>
     <entry><ind>1.0</ind><dep>0.0</dep></entry>
   </interpolation>
   <center>
    <x-m> 0.0</x-m>
-   <y-m> 2.47</y-m>
+   <y-m> 2.74</y-m>
    <z-m>-1.77</z-m>
   </center>
   <axis>
@@ -529,10 +639,10 @@
   </axis>  
  </animation>
 
-  <animation>
+ <animation>
   <type>rotate</type>
   <object-name>rhmgdoora</object-name>  
-  <object-name>rhmgdoorb</object-name>            
+  <object-name>rhmgdoorb</object-name>           
   <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry><ind>0.0</ind><dep>  0.0</dep></entry>
@@ -541,8 +651,45 @@
   </interpolation>
   <center>
    <x-m> 1.48</x-m>
-   <y-m> 2.75</y-m>
-   <z-m>-1.02</z-m>
+   <y-m> 2.59</y-m>
+   <z-m>-1.0</z-m>
+  </center>	
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>  
+ </animation>
+ 
+  <animation>
+    <type>translate</type>
+		<object-name>rhmgdoora</object-name>  
+		<object-name>rhmgdoorb</object-name>   
+  	<property>gear/gear[1]/position-norm</property>
+    <factor>-0.7</factor>
+    <axis>   
+      <x1-m>  1.82</x1-m>
+			<y1-m> -2.47</y1-m>
+      <z1-m> -1.40</z1-m>
+      <x2-m>  1.82</x2-m>
+      <y2-m> -2.47</y2-m>
+      <z2-m> -0.92</z2-m>
+    </axis>
+  </animation>
+ 
+ <animation>
+  <type>rotate</type> 
+  <object-name>rhmgdoorc</object-name>            
+  <property>gear/gear[1]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>  0.0</dep></entry>
+    <entry><ind>0.4</ind><dep> 82.0</dep></entry>
+    <entry><ind>1.0</ind><dep> 82.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m> 1.48</x-m>
+   <y-m> 3.20</y-m>
+   <z-m>-0.85</z-m>
   </center>	
   <axis>
    <x>1</x>
@@ -557,8 +704,8 @@
   <property>gear/gear[1]/position-norm</property>
   <interpolation>
     <entry><ind>0.0</ind><dep>   0.0</dep></entry>
-    <entry><ind>0.5</ind><dep>-180.0</dep></entry>
-    <entry><ind>1.0</ind><dep>-180.0</dep></entry>
+    <entry><ind>0.5</ind><dep>  90.0</dep></entry>
+    <entry><ind>1.0</ind><dep>  90.0</dep></entry>
   </interpolation>
   <axis>
 		<x1-m>  0.86</x1-m>
@@ -707,47 +854,6 @@
    <z>0</z>
   </axis>
  </animation>
- 
-	<model>
-		<name>RightGearBase</name>
-		<path>Aircraft/707/Models/Maingears/mainwheels.xml</path>
-		<offsets>
-	    <x-m> 1.82</x-m>
-	    <y-m> 2.59</y-m>
-	    <z-m>-2.30</z-m>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>LeftGearBase</name>
-		<path>Aircraft/707/Models/Maingears/mainwheels.xml</path>
-		<offsets>
-	    <x-m> 1.82</x-m>
-	    <y-m>-2.53</y-m>
-	    <z-m>-2.30</z-m>
-		</offsets>
-	</model>
-	
-	
-	<model>
-		<name>RightGearSmoke</name>
-		<path>Aircraft/707/Models/Effects/tyre-smoke-right.xml</path>
-		<offsets>
-	    <x-m> 1.82</x-m>
-	    <y-m> 2.59</y-m>
-	    <z-m>-2.94</z-m>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>LeftGearSmoke</name>
-		<path>Aircraft/707/Models/Effects/tyre-smoke-left.xml</path>
-		<offsets>
-	    <x-m> 1.82</x-m>
-	    <y-m>-2.53</y-m>
-	    <z-m>-2.94</z-m>
-		</offsets>
-	</model>
  
 	 <animation>
 		<type>rotate</type>

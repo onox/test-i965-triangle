@@ -116,7 +116,7 @@
 			<label>Boeing 707</label>
 			<enabled type="bool">true</enabled>
 			<item>
-				<label>Autostart</label>
+				<label>autostart / shutdown</label>
 				<binding>
 					<command>property-toggle</command>
 					<property>sim/model/start-idling</property>
@@ -130,7 +130,7 @@
 				</binding>
 			</item>
 			<item>
-				<label>Pushback</label>
+				<label>pushback</label>
 				<name>pushback</name>
 				<binding>
 					 <command>dialog-show</command>
@@ -364,7 +364,7 @@
 	
 	 <nasal>
 			<b707>
-				<file>Aircraft/707/Nasal/systems.nas</file>
+				<file>Aircraft/707/Nasal/system.nas</file>
 				<file>Aircraft/707/Nasal/liveries.nas</file>
 				<file>Aircraft/707/Nasal/electrical.nas</file>
 				<file>Aircraft/707/Nasal/mk-707.nas</file>

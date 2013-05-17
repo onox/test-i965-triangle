@@ -1,16 +1,8 @@
 # Lake of Constance Hangar :: M.Kraus
-# Avril 2013
+# May 2013
 # This file is licenced under the terms of the GNU General Public Licence V2 or later
 ## ENGINES
 ##########
-
-# explanation of engine properties
-# controls/engines/engine[X]/throttle-lever	When the engine isn't running, this value is constantly set to 0; otherwise, we transfer the value of controls/engines/engine[X]/throttle to it
-# controls/engines/engine[X]/starter		Triggering it fires up the engine
-# engines/engine[X]/running			Set based on the engine state
-# engines/engine[X]/rpm				Used in place of the n1 value for the animations and set dynamically based on the engine state
-# engines/engine[X]/failed			When triggered the engine is "failed" and cannot be restarted
-# engines/engine[X]/on-fire			Self-explanatory
 
 # APU loop function
 
@@ -149,11 +141,6 @@ var startup = func
 	setprop("controls/engines/engine[1]/throttle", 0);
 	setprop("controls/engines/engine[2]/throttle", 0);
 	setprop("controls/engines/engine[3]/throttle", 0);
-	setprop("controls/engines/msg", 1);
-	setprop("controls/engines/engine[0]/msg", 0);
-	setprop("controls/engines/engine[1]/msg", 0);
-	setprop("controls/engines/engine[2]/msg", 0);
-	setprop("controls/engines/engine[3]/msg", 0);
 	setprop("controls/APU/off-start-run", 2);
 	setprop("engines/APU/rpm", 100);
 	setprop("controls/electric/battery-switch", 1);
@@ -163,19 +150,19 @@ var startup = func
 	setprop("controls/electric/engine[1]/generator", 1);
 	setprop("controls/electric/engine[2]/generator", 1);
 	setprop("controls/electric/engine[3]/generator", 1);
+	setprop("controls/engines/engine[0]/cutoff", 1);
+	setprop("controls/engines/engine[1]/cutoff", 1);
+	setprop("controls/engines/engine[2]/cutoff", 1);
+	setprop("controls/engines/engine[3]/cutoff", 1);
 	setprop("consumables/fuel/tank[0]/selected", 1);
 	setprop("consumables/fuel/tank[2]/selected", 1);
 	setprop("consumables/fuel/tank[1]/selected", 1);
-	#screen.log.write("APU, APU Generator, Battery, External Power and Engine Starters have been turned on.", 1, 1, 1);
-
-	settimer(func
-    {
-    setprop("controls/engines/msg", 0);
-	  setprop("controls/engines/engine[2]/msg", 1);
-		setprop("controls/engines/engine[2]/starter", 1);
-  	setprop("controls/engines/engine[2]/cutoff", 1);
-    }, 28);
-
+	setprop("controls/engines/engine[0]/starter", 1);
+	setprop("controls/engines/engine[1]/starter", 1);
+	setprop("controls/engines/engine[2]/starter", 1);
+	setprop("controls/engines/engine[3]/starter", 1);
+	screen.log.write("APU, APU Generator, Battery, External Power and Engine Starters have been turned on.", 1, 1, 1);
+	
 	 # lights on 
    if(getprop("sim/time/sun-angle-rad") > 1.55){
    		setprop("controls/lighting/beacon", 1);
@@ -191,145 +178,22 @@ var startup = func
    		setprop("controls/lighting/nav-lights", 1);    
    }
 
- var engine1listener = setlistener("engines/engine[2]/n2", func
-  {
-  if (getprop("engines/engine[2]/n2") >= 25.18)
-   {
    settimer(func
     {
-    setprop("controls/engines/engine[2]/cutoff", 0);
-		# Engine 3 is starting up"
+			setprop("controls/engines/engine[0]/cutoff", 0);
+			setprop("controls/engines/engine[1]/cutoff", 0);
+			setprop("controls/engines/engine[2]/cutoff", 0);
+			setprop("controls/engines/engine[3]/cutoff", 0);
+			setprop("autopilot/settings/heading-bug-deg",getprop("orientation/heading-deg"));
     }, 1);
-    removelistener(engine1listener);
-   }
-  }, 0, 0);
-
- var engine1listener2 = setlistener("engines/engine[2]/n2", func
-  {
-  if (getprop("engines/engine[2]/n2") >= 60)
-   {
-   settimer(func
-    {
-    setprop("controls/engines/engine[2]/starter", 0);
-		setprop("controls/engines/engine[2]/msg", 0);
-		setprop("controls/engines/engine[3]/msg", 1);
-		#screen.log.write("Engine 3 has been started and is now running.", 1, 1, 1);
-		#screen.log.write("Engine 3 Generator is now supplying power.", 1, 1, 1);
-		setprop("controls/engines/engine[3]/starter", 1);
-    setprop("controls/engines/engine[3]/cutoff", 1);
-    }, 1);
-    removelistener(engine1listener2);
-   }
-  }, 0, 0);
-
- var engine2listener = setlistener("engines/engine[3]/n2", func
-  {
-  if (getprop("engines/engine[3]/n2") >= 25.18)
-   {
-   settimer(func
-    {
-    setprop("controls/engines/engine[3]/cutoff", 0);
-		#screen.log.write("Engine 4 is starting up...", 1, 1, 1);
-    }, 1);
-    removelistener(engine2listener);
-   }
-  }, 0, 0);
-
- var engine2listener2 = setlistener("engines/engine[3]/n2", func
-  {
-  if (getprop("engines/engine[3]/n2") >= 60)
-   {
-   settimer(func
-    {
-    setprop("controls/engines/engine[3]/starter", 0);
-		setprop("controls/engines/engine[3]/msg", 0);
-		setprop("controls/engines/engine[1]/msg", 1);
-		#screen.log.write("Engine 4 has been started and is now running.", 1, 1, 1);
-		#screen.log.write("Engine 4 Generator is now supplying power.", 1, 1, 1);
-		setprop("controls/engines/engine[1]/starter", 1);
-    setprop("controls/engines/engine[1]/cutoff", 1);
-    }, 1);
-    removelistener(engine2listener2);
-   }
-  }, 0, 0);
-    
-  
- var engine3listener = setlistener("engines/engine[1]/n2", func
-  {
-  if (getprop("engines/engine[1]/n2") >= 25.18)
-   {
-   settimer(func
-    {
-    setprop("controls/engines/engine[1]/cutoff", 0);
-		#screen.log.write("Engine 2 is starting up...", 1, 1, 1);
-    }, 1);
-    removelistener(engine3listener);
-   }
-  }, 0, 0);
-
- var engine3listener2 = setlistener("engines/engine[1]/n2", func
-  {
-  if (getprop("engines/engine[1]/n2") >= 60)
-   {
-   settimer(func
-    {
-    setprop("controls/engines/engine[1]/starter", 0);
-		setprop("controls/engines/engine[1]/msg", 0);
-		setprop("controls/engines/engine[0]/msg", 1);
-		#screen.log.write("Engine 2 has been started and is now running.", 1, 1, 1);
-		#screen.log.write("Engine 2 Generator is now supplying power.", 1, 1, 1);
-		setprop("controls/engines/engine[0]/starter", 1);
-    setprop("controls/engines/engine[0]/cutoff", 1);
-    }, 1);
-    removelistener(engine3listener2);
-   }
-  }, 0, 0);
-  
-  
- var engine4listener = setlistener("engines/engine[0]/n2", func
-  {
-  if (getprop("engines/engine[0]/n2") >= 25.18)
-   {
-   settimer(func
-    {
-    setprop("controls/engines/engine[0]/cutoff", 0);
-		#screen.log.write("Engine 1 is starting up...", 1, 1, 1);
-    }, 1);
-    removelistener(engine4listener);
-   }
-  }, 0, 0);
-
- var engine4listener2 = setlistener("engines/engine[0]/n2", func
-  {
-  if (getprop("engines/engine[0]/n2") >= 60)
-   {
-
-   settimer(func
-    {
-    setprop("controls/engines/engine[0]/starter", 0);
-		setprop("controls/engines/engine[0]/msg", 0);
-		setprop("controls/engines/msg", 2);
-		setprop("autopilot/settings/heading-bug-deg",getprop("orientation/heading-deg"));
-		#screen.log.write("Engine 4 has been started and is now running.", 1, 1, 1);
-		#screen.log.write("Engine 4 Generator is now supplying power.", 1, 1, 1);
-		setprop("engines/APU/running", 0);
-		setprop("controls/electric/APU-generator", 0);
-		setprop("controls/electric/external-power", 0);
-		setprop("controls/APU/off-start-run", 0);
-		#screen.log.write("APU, APU Generator and External Power has been turned off.", 1, 1, 1);
-		#screen.log.write("The aircraft has been started up, you are ready to go :D", 1, 1, 1);
-    }, 1);
-    removelistener(engine4listener2);
-   }
-  }, 0, 0); 
-   
-	# switch on the FlightRallyeMode
-	var frwKnob = getprop("instrumentation/frw/btn-mode");
-	if (frwKnob == 0) {
-		setprop("instrumentation/frw/btn-mode",1);
-		b707.frw_mode();
-	}
-	
+		
+		# switch on the FlightRallyeMode
+		var frwKnob = getprop("instrumentation/frw/btn-mode");
+		if (frwKnob == 0) {
+		  setprop("instrumentation/frw/btn-mode",1);
+		  b707.frw_mode();
+		}
+		
  };
 
 var shutdown = func
@@ -362,10 +226,36 @@ setlistener("sim/model/start-idling", func(idle)
  if (autorun and !run1 and !run2 and !run3 and !run4)
   {
   startup();
+   settimer(func
+    {
+			setprop("controls/engines/engine[2]/msg", 1);
+    }, 1);
+   settimer(func
+    {
+			setprop("controls/engines/engine[3]/msg", 1);
+    }, 7);
+   settimer(func
+    {
+			setprop("controls/engines/engine[1]/msg", 1);
+    },12);
+   settimer(func
+    {
+			setprop("controls/engines/engine[0]/msg", 1);
+    },19);
+   settimer(func
+    {
+			setprop("controls/engines/msg", 2);
+    },28);
+
   }
  else
   {
   shutdown();
+  setprop("controls/engines/msg", 0);
+	setprop("controls/engines/engine[0]/msg", 0);
+	setprop("controls/engines/engine[1]/msg", 0);
+	setprop("controls/engines/engine[2]/msg", 0);
+	setprop("controls/engines/engine[3]/msg", 0);
   }
  }, 0, 0);
 
@@ -385,15 +275,27 @@ setlistener("controls/gear/gear-down", func
  
 ## START PROCEDURE ON MAIN SWITCHES ###
 #######################################
+setlistener("controls/special/startercover[2]", func(open)
+ {
+ 	var open = open.getBoolValue();
+ 	if(open){
+	 setprop("controls/engines/engine[2]/msg", 1);
+	}
+ }, 0, 0); 
+
  
 setlistener("controls/special/starter[0]", func
  {
  	var n2 = props.globals.getNode("engines/engine[0]/n2").getValue();
  	var run = props.globals.getNode("engines/engine[0]/running").getBoolValue();
+ 	var run2 = props.globals.getNode("engines/engine[1]/running").getBoolValue();
+ 	var run3 = props.globals.getNode("engines/engine[2]/running").getBoolValue();
+ 	var run4 = props.globals.getNode("engines/engine[3]/running").getBoolValue();
  	if(!run){
 	 starter(0);
 	}elsif(run and n2 > 35){
 	 #continue start procedure if switch mod up;
+	 if(run and run2 and run3 and run4) setprop("controls/engines/msg", 2);
 	}else{
 	 short_stop(0);
 	}
@@ -407,6 +309,7 @@ setlistener("controls/special/starter[1]", func
 	 starter(1);
 	}elsif(run and n2 > 35){
 	 #continue start procedure if switch mod up;
+	 setprop("controls/engines/engine[0]/msg", 1);
 	}else{
 	 short_stop(1);
 	}
@@ -420,6 +323,7 @@ setlistener("controls/special/starter[2]", func
 	 starter(2);
 	}elsif(run and n2 > 35){
 	 #continue start procedure if switch mod up;
+	 setprop("controls/engines/engine[3]/msg", 1);
 	}else{
 	 short_stop(2);
 	}
@@ -433,6 +337,7 @@ setlistener("controls/special/starter[3]", func
 	 starter(3);
 	}elsif(run and n2 > 35){
 	 #continue start procedure if switch mod up;
+	 setprop("controls/engines/engine[1]/msg", 1);
 	}else{
 	 short_stop(3);
 	}
@@ -465,4 +370,8 @@ var short_stop = func(nr){
 	setprop("controls/electric/engine["~nr~"]/generator", 0);
 	setprop("controls/engines/engine["~nr~"]/cutoff", 1);
 	setprop("controls/engines/engine["~nr~"]/starter", 0);
+	setprop("controls/engines/engine["~nr~"]/msg", 0);
 };
+
+ 
+ 

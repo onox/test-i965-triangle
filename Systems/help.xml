@@ -25,12 +25,24 @@
   </key>
 
   <text>
-  _________ Boeing 707-420/430 __________
+   _______________ Boeing 707-420/430 ___________________
 	
-	The first 707 for Flightgear was from Innis Cunningham. 
-	This version is a revamp of that original. Nearly 
-	everthing in 3D models is written and painted new.
-	Also the jsb fdm and the autopilot.
+	 Startup engines:
+	
+	 Open the cover from the start selector 3 in the Overhead-Panel
+	 and follow the instructions. 
+	 Hold starter knob until green light is out.
+	 Start allways engines 3 - 4 - 2 - 1
+	
+	 Shutdown engines:
+	
+	 with autostart / shutdown menu 
+	
+	 _______________________________________________________
+	 The first 707 for Flightgear was from Innis Cunningham. 
+	 This version is a revamp of that original. Nearly 
+	 everthing in 3D models is written and painted new.
+	 Also the jsb fdm and the autopilot.
 
   </text>
 

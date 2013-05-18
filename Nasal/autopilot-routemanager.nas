@@ -8,9 +8,9 @@
 ##                       'vertical-speed-hold', 'altitude-hold')            ##
 ##############################################################################
 
-var kpForHeadingDeg = -2.5;	# -1.0  full load, low speed < 300
+var kpForHeadingDeg = -2.5;
 var kpForHeading = 0.18;
-var tiForHeading = 3.0;		# 10.0  full load, low speed < 300
+var tiForHeading = 3.0;
 
 var listenerApRouteManagerInitFunc = func {
 	# do initializations of new properties
@@ -53,7 +53,6 @@ var listenerApHeadingSwitchFunc = func {
 
 		#print ("-> listenerApHeadingSwitchFunc -> installed");
 		setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.05));
-		interpolate("/autopilot/internal/target-kp-for-heading-hold", kpForHeading, 6);
 	}
 }
 setlistener("/autopilot/settings/heading-bug-deg", listenerApHeadingSwitchFunc);
@@ -67,7 +66,6 @@ var listenerApHeadingPassiveModeFunc = func {
 
 		#print ("-> listenerApHeadingPassiveModeFunc -> installed");
 		setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.05));
-		interpolate("/autopilot/internal/target-kp-for-heading-hold", kpForHeading, 6);
 	}
 }
 setlistener("autopilot/locks/passive-mode", listenerApHeadingSwitchFunc);
@@ -80,6 +78,8 @@ var listenerApHeadingFunc = func {
 
 		#print ("-> listenerApHeadingFunc -> installed");
 
+		var timerGap = 0.05;
+
 		var airspeedKt = getprop("/velocities/airspeed-kt");
 		var totalLbs = getTotalLbs();
 
@@ -89,7 +89,7 @@ var listenerApHeadingFunc = func {
 			# iterate to 10.0 at full load, low (speed < 300)
 			tiForHeading = 3.0 + ((totalLbs - 100000.0) * 0.000072917);
 
-			# iterate to -1.0 at full load, low speed (< 300)
+			# iterate to -1.5 at full load, low speed (< 300)
 			kpForHeadingDeg = -2.5 + ((totalLbs - 100000.0) * 0.000015625);
 		}
 		else {
@@ -101,7 +101,19 @@ var listenerApHeadingFunc = func {
 		setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
 		setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeading);
 
-		settimer(listenerApHeadingFunc, 0.2);
+		# interpolate 'kpForHeading'
+		var interpolationSeconds = 6;
+		var numInterpolations = (1 / timerGap) * interpolationSeconds;
+		var kpForHeadingInterpolationIncrement = kpForHeading / numInterpolations;
+		var kpForHeadingActual = getprop("/autopilot/internal/target-kp-for-heading-hold");
+		if (kpForHeadingActual < kpForHeading) {
+			kpForHeadingActual = kpForHeadingActual + kpForHeadingInterpolationIncrement;
+			kpForHeadingActual = (kpForHeadingActual > kpForHeading ? kpForHeading : kpForHeadingActual);
+
+		}
+		setprop("/autopilot/internal/target-kp-for-heading-hold", kpForHeadingActual);
+
+		settimer(listenerApHeadingFunc, timerGap);
 	}
 }
 setlistener("/autopilot/locks/heading", listenerApHeadingFunc);

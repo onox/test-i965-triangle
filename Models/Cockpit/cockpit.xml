@@ -275,7 +275,7 @@
 		<property>/controls/flight/elevator-trim</property>
 		<factor>-1080</factor>
 		<center>
-		  <x-m>-18.5756</x-m>
+		  <x-m>-18.636</x-m>
 		  <y-m>0.0</y-m>
 		  <z-m>0.646</z-m>
 		</center>
@@ -331,7 +331,7 @@
 		<property>/controls/flight/rudder-trim</property>
 		<factor>-4680</factor>
 		<center>
-		  <x-m>-18.2279</x-m>
+		  <x-m>-18.288</x-m>
 		  <y-m>-0.02424</y-m>
 		  <z-m> 0.0</z-m>
 		</center>

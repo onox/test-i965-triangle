@@ -157,7 +157,7 @@ setlistener("/autopilot/switches/appr", func (appr){
 
 
 # If trim wheels are not on 0 and you click the center of this wheel
-var trimBackTime = 2.0;
+var trimBackTime = 1.0;
 var applyTrimWheels = func(v, which = 0) {
     if (which == 0) { interpolate("/controls/flight/elevator-trim", v, trimBackTime); }
     if (which == 1) { interpolate("/controls/flight/rudder-trim", v, trimBackTime); }

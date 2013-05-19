@@ -35,10 +35,9 @@
 		<object-name>window.piop</object-name>
 		<object-name>window.coop</object-name>
 		<object-name>window.side</object-name> 
-		<object-name>pedestal</object-name> 
-		<object-name>AileronTab</object-name>  
-		<object-name>ElevatorTab</object-name>  
-		<object-name>RudderTab</object-name>  
+		<object-name>pedestal</object-name>
+		<object-name>PedalL</object-name>
+		<object-name>PedalR</object-name> 
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -82,6 +81,16 @@
 	</animation>
 	
 	<!-- equipment -->
+	<model>
+		<name>pedestal</name>
+		<path>Aircraft/707/Models/Cockpit/pedestal.xml</path>
+		<offsets>
+		  <x-m>0.0</x-m>
+		  <y-m>0.0</y-m>
+		  <z-m>0.0</z-m>
+		</offsets>
+	</model>
+	
 	<model>
 		<name>panel-equipment</name>
 		<path>Aircraft/707/Models/Cockpit/panel.xml</path>
@@ -210,175 +219,6 @@
 			<y>0.0</y>
 			<z>0.0</z>
 		</axis>
-	</animation>
-  
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>AileronTab</object-name>
-		<property>/controls/flight/aileron-trim</property>
-		<factor>-4680</factor>
-		<center>
-		  <x-m>0.0</x-m>
-		  <y-m>0.05414</y-m>
-		  <z-m>0.5449</z-m>
-		</center>
-		<axis>
-		  <x>1.0</x>
-		  <y>0.0</y>
-		  <z>0.0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>AileronTab</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		   <binding>
-		    <command>nasal</command>
-		    <script>b707.applyTrimWheels(0, 2)</script>
-		   </binding>
-		</action>
-		<action>
-		  <button>3</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/flight/aileron-trim</property>
-		    <step>0.01</step>
-		    <min>-1</min>
-		    <max>1</max>
-		    <wrap>false</wrap>
-		  </binding>
-		</action>
-		<action>
-		  <button>4</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/flight/aileron-trim</property>
-		    <step>-0.01</step>
-		    <min>-1</min>
-		    <max>1</max>
-		    <wrap>false</wrap>
-		  </binding>
-		</action>
-	</animation>
-
-	<animation>
-		<type>rotate</type>
-		<object-name>ElevatorTab</object-name>
-		<property>/controls/flight/elevator-trim</property>
-		<factor>-1080</factor>
-		<center>
-		  <x-m>-18.636</x-m>
-		  <y-m>0.0</y-m>
-		  <z-m>0.646</z-m>
-		</center>
-		<axis>
-		  <x>0.0</x>
-		  <y>1.0</y>
-		  <z>0.0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>ElevatorTab</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		   <binding>
-		    <command>nasal</command>
-		    <script>b707.applyTrimWheels(0, 0)</script>
-		   </binding>
-		</action>
-     <action>
-        <button>3</button>
-        <repeatable>true</repeatable>
-        <interval-sec>0.2</interval-sec>
-        <binding>
-		      <command>property-adjust</command>
-		      <property>/controls/flight/elevator-trim</property>
-		      <step>-0.01</step>
-		      <min>-1.0</min>
-		      <max> 1.0</max>
-		      <wrap>false</wrap>
-        </binding>    
-    </action>
-    <action>
-        <button>4</button>
-        <repeatable>true</repeatable>
-        <interval-sec>0.2</interval-sec>
-        <binding>
-		      <command>property-adjust</command>
-		      <property>/controls/flight/elevator-trim</property>
-		      <step> 0.01</step>
-		      <min>-1.0</min>
-		      <max> 1.0</max>
-		      <wrap>false</wrap>
-        </binding>                
-    </action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>RudderTab</object-name>
-		<property>/controls/flight/rudder-trim</property>
-		<factor>-4680</factor>
-		<center>
-		  <x-m>-18.288</x-m>
-		  <y-m>-0.02424</y-m>
-		  <z-m> 0.0</z-m>
-		</center>
-		<axis>
-		  <x>0.0</x>
-		  <y>0.0</y>
-		  <z>1.0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>RudderTab</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		   <binding>
-		    <command>nasal</command>
-		    <script>b707.applyTrimWheels(0, 1)</script>
-		   </binding>
-		</action>
-		<action>
-		  <button>3</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/flight/rudder-trim</property>
-		    <step>0.01</step>
-		    <min>-1</min>
-		    <max>1</max>
-		    <wrap>false</wrap>
-		  </binding>
-		</action>
-		<action>
-		  <button>4</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/flight/rudder-trim</property>
-		    <step>-0.01</step>
-		    <min>-1</min>
-		    <max>1</max>
-		    <wrap>false</wrap>
-		  </binding>
-		</action>
 	</animation>
 	
 	<!-- Window animations -->

@@ -90,6 +90,17 @@
 		  <z-m>0.0</z-m>
 		</offsets>
 	</model>
+
+  <!-- this light must be here, for lighting without pedestal shadow -->
+	<model>
+		<name>ap_and_brake_lamps</name>
+		<path>Aircraft/707/Models/Cockpit/Instruments/lamps/autopilot_and_brake.xml</path>
+		<offsets>
+		  <x-m>0.0</x-m>
+		  <y-m>0.0</y-m>
+		  <z-m>0.0</z-m>
+		</offsets>
+	</model>
 	
 	<model>
 		<name>panel-equipment</name>

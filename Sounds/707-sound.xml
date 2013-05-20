@@ -608,65 +608,26 @@
 			</equals>
 		</condition>
 	</gear>
-
-	<squeal>
-		<name>squeal</name>
-		<path>Sounds/squeal.wav</path>
-		<condition>
-			<or>
-				<property>/gear/gear[0]/wow</property>
-				<property>/gear/gear[1]/wow</property>
-				<property>/gear/gear[2]/wow</property>
-			</or>
-		</condition>
-		<volume>
-			<property>/velocities/speed-down-fps</property>
-			<factor>0.05</factor>
-		</volume>
-		<volume>
-			<property>/velocities/airspeed-kt</property>
-			<factor>0.01</factor>
-		</volume>
-		<volume>
-			<internal>dt_stop</internal>
-			<factor>0.05</factor>
-			<max>1.0</max>
-		</volume>
-		<pitch>
-			<property>/velocities/airspeed-kt</property>
-			<factor>0.0025</factor>
-			<offset>1.2</offset>
-		</pitch>
-	</squeal>
   
 	<squeal>
 		<name>squeal</name>
 		<path>Aircraft/707/Sounds/touchdown.wav</path>
-		<condition>
-			<or>
-				<property>/gear/gear[0]/wow</property>
-				<property>/gear/gear[1]/wow</property>
-				<property>/gear/gear[2]/wow</property>
-			</or>
-		</condition>
-		<volume>
-			<property>/velocities/speed-down-fps</property>
-			<factor>0.1</factor>
-		</volume>
-		<volume>
-			<property>/velocities/airspeed-kt</property>
-			<factor>0.01</factor>
-		</volume>
-		<volume>
-			<internal>dt_stop</internal>
-			<factor>0.1</factor>
-			<max>1.0</max>
-		</volume>
-		<pitch>
-			<property>/velocities/airspeed-kt</property>
-			<factor>0.0025</factor>
-			<offset>1.2</offset>
-		</pitch>
+      <condition>
+          <or>
+              <property>gear/gear[0]/wow</property>
+              <property>gear/gear[1]/wow</property>
+              <property>gear/gear[2]/wow</property>
+          </or>
+      </condition>
+      <volume>
+          <property>velocities/airspeed-kt</property>
+          <factor>0.02</factor>
+      </volume>
+      <pitch>
+          <property>velocities/airspeed-kt</property>
+          <factor>0.0025</factor>
+          <offset>1.0</offset>
+      </pitch>
 	</squeal>
  
 	<flap>
@@ -857,7 +818,7 @@
 		<volume>
 			<factor>1</factor>
 		</volume>
-	</mdawarning>	
+	</mdawarning>
 
     <rain>
       <name>rain</name>

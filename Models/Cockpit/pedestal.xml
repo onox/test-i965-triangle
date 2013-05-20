@@ -5,12 +5,16 @@
 	<animation>
 		<type>material</type>
 		<object-name>pedestal</object-name> 
-		<object-name>AileronTab</object-name>  
-		<object-name>ElevatorTab</object-name>   
+		<object-name>AileronTab</object-name> 
+		<object-name>AileronScale</object-name>
+		<object-name>AileronArrow</object-name> 
+		<object-name>ElevatorTab</object-name>    
 		<object-name>ElevatorHelpL</object-name>   
 		<object-name>ElevatorHelpR</object-name>  
 		<object-name>RudderTab</object-name>  
-		<object-name>RudderSup</object-name>   
+		<object-name>RudderSup</object-name>
+		<object-name>RudderScale</object-name>
+		<object-name>RudderArrow</object-name>  
 		<object-name>throttle.001</object-name>   
 		<object-name>throttle.002</object-name>   
 		<object-name>throttle.003</object-name>   
@@ -33,7 +37,6 @@
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
 	</animation>
-
 
 	<!-- Throttle lever -->
 	<animation>
@@ -432,6 +435,18 @@
 	
 	<!-- Trim wheels -->
 	<animation>
+		<type>translate</type>
+		<object-name>AileronArrow</object-name>
+		<property>/controls/flight/aileron-trim</property>
+		<factor>0.02</factor>
+		<axis>
+		  <x>0</x>
+		  <y>1</y>
+		  <z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>AileronTab</object-name>
 		<property>/controls/flight/aileron-trim</property>
@@ -530,7 +545,7 @@
         <binding>
 		      <command>property-adjust</command>
 		      <property>/controls/flight/elevator-trim</property>
-		      <step>-0.01</step>
+		      <step> 0.01</step>
 		      <min>-1.0</min>
 		      <max> 1.0</max>
 		      <wrap>false</wrap>
@@ -543,7 +558,7 @@
         <binding>
 		      <command>property-adjust</command>
 		      <property>/controls/flight/elevator-trim</property>
-		      <step> 0.01</step>
+		      <step>-0.01</step>
 		      <min>-1.0</min>
 		      <max> 1.0</max>
 		      <wrap>false</wrap>
@@ -582,6 +597,23 @@
 		  <x>1.0</x>
 		  <y>0.0</y>
 		  <z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RudderArrow</object-name>
+		<property>/controls/flight/rudder-trim</property>
+		<factor>-45</factor>
+		<center>
+		  <x-m>-18.288</x-m>
+		  <y-m>-0.02424</y-m>
+		  <z-m> 0.0</z-m>
+		</center>
+		<axis>
+		  <x>0.0</x>
+		  <y>0.0</y>
+		  <z>1.0</z>
 		</axis>
 	</animation>
 	

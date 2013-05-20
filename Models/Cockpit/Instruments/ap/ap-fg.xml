@@ -108,6 +108,7 @@
 		          <property>/systems/electrical/left-bus</property>
 		          <value>12</value>
           	</greater-than>
+      			<property>/controls/test/warn-knob</property>
           </or>
         </condition>
     </animation>
@@ -122,6 +123,7 @@
             <property>/autopilot/switches/ap</property>
             <value>0</value>
           </equals>
+      		<not><property>/controls/test/warn-knob</property></not>
         </condition>
     </animation>
 
@@ -183,6 +185,7 @@
             <property>/autopilot/switches/hdg</property>
             <value>0</value>
           </equals>
+      		<not><property>/controls/test/warn-knob</property></not>
         </condition>
     </animation>
 
@@ -243,6 +246,7 @@
             <property>/autopilot/switches/alt</property>
             <value>0</value>
           </equals>
+      		<not><property>/controls/test/warn-knob</property></not>
         </condition>
     </animation>
 
@@ -303,6 +307,7 @@
             <property>/autopilot/switches/ias</property>
             <value>0</value>
           </equals>
+      		<not><property>/controls/test/warn-knob</property></not>
         </condition>
     </animation>
 
@@ -363,6 +368,7 @@
             <property>/autopilot/switches/gps</property>
             <value>0</value>
           </equals>
+      		<not><property>/controls/test/warn-knob</property></not>
         </condition>
     </animation>
 
@@ -423,6 +429,7 @@
             <property>/autopilot/switches/pitch</property>
             <value>0</value>
           </equals>
+      		<not><property>/controls/test/warn-knob</property></not>
         </condition>
     </animation>
 
@@ -483,6 +490,7 @@
             <property>/autopilot/switches/nav</property>
             <value>0</value>
           </equals>
+      		<not><property>/controls/test/warn-knob</property></not>
         </condition>
     </animation>
 
@@ -543,6 +551,7 @@
             <property>/autopilot/switches/appr</property>
             <value>0</value>
           </equals>
+      		<not><property>/controls/test/warn-knob</property></not>
         </condition>
     </animation>
 

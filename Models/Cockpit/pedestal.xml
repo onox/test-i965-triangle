@@ -8,6 +8,8 @@
 		<object-name>AileronTab</object-name> 
 		<object-name>AileronScale</object-name>
 		<object-name>AileronArrow</object-name> 
+		<object-name>ElevatorScale</object-name>
+		<object-name>ElevatorArrow</object-name>
 		<object-name>ElevatorTab</object-name>    
 		<object-name>ElevatorHelpL</object-name>   
 		<object-name>ElevatorHelpR</object-name>  
@@ -27,6 +29,7 @@
 		<object-name>reverser.002</object-name>  
 		<object-name>reverser.003</object-name>  
 		<object-name>reverser.004</object-name>
+		<object-name>PBrakeLever</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -37,6 +40,49 @@
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
 	</animation>
+	
+    <!-- The parking brake -->
+		<animation>
+			<type>translate</type>
+			<object-name>PBrakeLever</object-name>
+      <property>/controls/gear/brake-parking</property>
+      <factor>0.02</factor>
+			<axis>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+			</axis>
+		</animation>
+
+    <animation>
+      <type>pick</type>
+      <object-name>PBrakeLever</object-name>
+      <visible>true</visible>
+      <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+          <command>property-toggle</command>
+          <property>/controls/gear/brake-parking</property>  
+        </binding>
+        <binding>
+          <command>nasal</command>
+          <script>
+          	var brakeR = getprop("/controls/gear/brake-right") or 0;
+          	var brakeL = getprop("/controls/gear/brake-left") or 0;
+          	var stop = getprop("/controls/gear/barke-parking") or 0;
+          	if (!stop and (brakeR or brakeL)){
+          		setprop("/controls/gear/brake-right", 0);
+          		setprop("/controls/gear/brake-left", 0);
+            }
+          </script>  
+        </binding>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/sound/switch1</property>
+        </binding>
+      </action>
+    </animation>
 
 	<!-- Throttle lever -->
 	<animation>
@@ -513,6 +559,22 @@
 		  <x-m>-18.636</x-m>
 		  <y-m>0.0</y-m>
 		  <z-m>0.646</z-m>
+		</center>
+		<axis>
+		  <x>0.0</x>
+		  <y>1.0</y>
+		  <z>0.0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ElevatorArrow</object-name>
+		<property>/controls/flight/elevator-trim</property>
+		<factor>-20</factor>
+		<center>
+		  <x-m>-18.6285</x-m>
+		  <y-m>0.0</y-m>
+		  <z-m>0.6411</z-m>
 		</center>
 		<axis>
 		  <x>0.0</x>

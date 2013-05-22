@@ -242,6 +242,13 @@ var operating_time_counter = func {
 
 operating_time_counter();
 
+####################################### speedbrake helper #######################################
+var stepSpeedbrakes = func(step) {
+    # Hard-coded speedbrakes movement in 6 equal steps:
+    var val = 0.166667 * step + getprop("/controls/flight/speedbrake");
+    setprop("/controls/flight/speedbrake", val > 1 ? 1 : val < 0 ? 0 : val);
+}
+
 
 
 

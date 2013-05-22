@@ -30,6 +30,9 @@
 		<object-name>reverser.003</object-name>  
 		<object-name>reverser.004</object-name>
 		<object-name>PBrakeLever</object-name>
+		<object-name>BrkLever</object-name>
+		<object-name>FlapSBrakeSup</object-name>
+		<object-name>FlapLever</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -83,6 +86,114 @@
         </binding>
       </action>
     </animation>
+    
+  <!-- speedbrake lever -->
+  <animation>
+		<type>rotate</type>
+		<object-name>BrkLever</object-name>
+		<property>/controls/flight/speedbrake</property>
+		<factor> 60</factor>
+		<center>
+		  <x-m>-18.6285</x-m>
+		  <y-m>0.0</y-m>
+		  <z-m>0.6411</z-m>
+		</center>
+		<axis>
+		  <x>0.0</x>
+		  <y>1.0</y>
+		  <z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>BrkLever</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>false</repeatable>
+		  <binding>
+		    <command>nasal</command>
+		    <script>b707.stepSpeedbrakes(1)</script>
+		  </binding>
+		  <mod-up>
+		  <binding>
+		    <command>nasal</command>
+		    <script>b707.stepSpeedbrakes(0)</script>
+		  </binding>
+		  </mod-up>
+		</action>
+		<action>
+		  <button>1</button>
+		  <repeatable>false</repeatable>
+		  <binding>
+		    <command>nasal</command>
+		    <script>b707.stepSpeedbrakes(-1)</script>
+		  </binding>
+		  <mod-up>
+		  <binding>
+		    <command>nasal</command>
+		    <script>b707.stepSpeedbrakes(0)</script>
+		  </binding>
+		  </mod-up>
+		</action>
+	</animation>
+	
+  <!-- flap lever -->
+  <animation>
+		<type>rotate</type>
+		<object-name>FlapLever</object-name>
+		<property>controls/flight/flaps</property>
+		<interpolation>
+		  <entry><ind>   0</ind><dep>  0</dep></entry>
+		  <entry><ind> 0.2</ind><dep>8.5</dep></entry>
+		  <entry><ind> 0.4</ind><dep> 15</dep></entry>
+		  <entry><ind> 0.6</ind><dep> 28</dep></entry>
+		  <entry><ind>   1</ind><dep> 36</dep></entry>
+		</interpolation>
+		<center>
+		  <x-m>-18.6285</x-m>
+		  <y-m>0.0</y-m>
+		  <z-m>0.6411</z-m>
+		</center>
+		<axis>
+		  <x>0.0</x>
+		  <y>1.0</y>
+		  <z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>FlapLever</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>false</repeatable>
+		  <binding>
+		    <command>nasal</command>
+		    <script>controls.flapsDown(1)</script>
+		  </binding>
+		  <mod-up>
+		  <binding>
+		    <command>nasal</command>
+		    <script>controls.flapsDown(0)</script>
+		  </binding>
+		  </mod-up>
+		</action>
+		<action>
+		  <button>1</button>
+		  <repeatable>false</repeatable>
+		  <binding>
+		    <command>nasal</command>
+		    <script>controls.flapsDown(-1)</script>
+		  </binding>
+		  <mod-up>
+		  <binding>
+		    <command>nasal</command>
+		    <script>controls.flapsDown(0)</script>
+		  </binding>
+		  </mod-up>
+		</action>
+	</animation>
 
 	<!-- Throttle lever -->
 	<animation>

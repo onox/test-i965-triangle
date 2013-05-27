@@ -8,9 +8,28 @@
 ##                       'vertical-speed-hold', 'altitude-hold')            ##
 ##############################################################################
 
-var kpForHeadingDeg = -2.5;
+var kpForHeadingDeg = -2.3;
 var kpForHeading = 0.18;
 var tiForHeading = 3.0;
+
+# 707 needs about 180 seconds (at speed 250 kts) fo a 180° turn, much more than a theoretical standard-turn
+var wpAircraftSpecificTurnFactor = 2.0;
+# passed distance (kts) per second per kt (707 needs 4 second to get into 20 deg. roll)
+var wpAircraftSpecificTurnInertiaFactor = 4.0 / 3600.0;
+
+# math.sin() seems not to be functional - this is a approximation for 0 < angle < 90 degrees
+var sinus = func(angle) {
+	var rad = 0.01745 * angle;
+	return (rad - ((rad * rad * rad) / 6) + ((rad * rad * rad * rad * rad) / 120));
+}
+var cosinus = func(angle) {
+	var rad = 0.01745 * angle;
+	return (rad - ((rad * rad) / 2) + ((rad * rad * rad * rad) / 24) - ((rad * rad * rad * rad * rad * rad) / 720));
+}
+var tangens = func(angle) {
+	var rad = 0.01745 * angle;
+	return (rad + ((rad * rad * rad) / 3) + ((rad * rad * rad * rad * rad) * 2 / 15) - ((rad * rad * rad * rad * rad * rad * rad) * 17 / 315));
+}
 
 var listenerApRouteManagerInitFunc = func {
 	# do initializations of new properties
@@ -88,13 +107,9 @@ var listenerApHeadingFunc = func {
 
 			# iterate to 10.0 at full load, low (speed < 300)
 			tiForHeading = 3.0 + ((totalLbs - 100000.0) * 0.000072917);
-
-			# iterate to -1.5 at full load, low speed (< 300)
-			kpForHeadingDeg = -2.5 + ((totalLbs - 100000.0) * 0.000015625);
 		}
 		else {
 			tiForHeading = 3.0;
-			kpForHeadingDeg = -2.5;
 		}
 
 		#print ("-> listenerApHeadingFunc -> kpForHeadingDeg=", kpForHeadingDeg, "  tiForHeading=", tiForHeading, "  totalLbs=", totalLbs);
@@ -407,7 +422,16 @@ var listenerApPassiveMode = func {
 				# switch to next waypoint on short distance in order to smooth the curve to fly (not for last waypoint)
 				if (waypointId == waypointIdPrev
 					and currentWaypointIndex < getprop("autopilot/route-manager/route/num") - 1) {
-					var bearingFactor = 0.5;		# initialize with something usefull
+
+					var groundspeedKt = getprop("velocities/groundspeed-kt");
+
+					# calculate the correct theoretical value (followed by standard-turn: 360° -> 120 seconds)
+					# with an aircraft-specific factor (experimental: flightgear-aircrafts doesn't fly ideal standard-turns)
+					var radiusMiles = groundspeedKt * 0.005306 * wpAircraftSpecificTurnFactor;
+					#print("radiusMiles=", radiusMiles);
+
+					var waypointDistanceNmSwitchToNext = radiusMiles;
+
 					if (currentWaypointIndex > 0) {
 
 						# calculate actual heading fault
@@ -427,34 +451,30 @@ var listenerApPassiveMode = func {
 						var wptBearingDiff = (abs(currentBearingReference
 							- getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/leg-bearing-true-deg")));
 						wptBearingDiff = ((wptBearingDiff > 180.0) ? (wptBearingDiff - 180.0) : wptBearingDiff);
-						# results in '1' at 30 deg.
-						bearingFactor = wptBearingDiff * 0.03333;
 
-						# if airspeedMach > 0.48 - encrease scaling-factor
-						var airspeedMach = getprop("/instrumentation/airspeed-indicator/indicated-mach");
-						var airspeedThresholdMach = 0.48;
-						if (airspeedMach > airspeedThresholdMach) {
-							bearingFactor += ((airspeedMach - airspeedThresholdMach) * 16.0);
+						#print("wptBearingDiff=", wptBearingDiff);
+
+						# calculate distance to switch (I'm not such a good mathematican, so this may not be all in all correct)
+						var absWptBearingDiff = abs(wptBearingDiff);
+						if (absWptBearingDiff < 90) {
+							waypointDistanceNmSwitchToNext = (radiusMiles * sinus(absWptBearingDiff)) -
+								(cosinus(absWptBearingDiff) * tangens(90 - absWptBearingDiff));
+						}
+						elsif (absWptBearingDiff > 90 and absWptBearingDiff < 180) {
+							absWptBearingDiff = absWptBearingDiff - 90;
+							absWptBearingDiff = (absWptBearingDiff < 120 ? absWptBearingDiff : 120);	# clamp to 120
+							waypointDistanceNmSwitchToNext = waypointDistanceNmSwitchToNext +
+								(radiusMiles * sinus(absWptBearingDiff));
 						}
 
-						# correction for bearing-angle
-						var bearingAngleFactor = 0.018;
-						if (wptBearingDiff > 30.0) {
-							bearingAngleFactor = 0.028;
-						}
-						elsif (wptBearingDiff > 20.0) {
-							bearingAngleFactor = 0.023;
-						}
-						elsif (wptBearingDiff > 10.0) {
-							bearingAngleFactor = 0.015;
-						}
-						bearingFactor += ((wptBearingDiff - 10.0) * bearingAngleFactor);
+						# add an inertial-turn offset (the aircraft needs some time to get into 20° turn)
+						waypointDistanceNmSwitchToNext = waypointDistanceNmSwitchToNext + (wpAircraftSpecificTurnInertiaFactor * groundspeedKt);
+
+						#print("waypointDistanceNmSwitchToNext=", waypointDistanceNmSwitchToNext);
 					}
 					#print("waypointDistanceNmHold=", waypointDistanceNmHold);
-					#print("bearingFactor=", bearingFactor);
 
 					# clamp to 6 nm max.
-					var waypointDistanceNmSwitchToNext = waypointDistanceNmHold * bearingFactor;
 					waypointDistanceNmSwitchToNext = ((waypointDistanceNmSwitchToNext > 6.0) ? 6.0
 										: waypointDistanceNmSwitchToNext);
 					#print("waypointDistanceNmSwitchToNext=", waypointDistanceNmSwitchToNext);

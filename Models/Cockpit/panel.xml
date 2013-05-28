@@ -571,7 +571,7 @@
 
 <model>
   <name>hsi_cp</name>
-  <path>Aircraft/707/Models/Cockpit/Instruments/hsi/hsi.xml</path>
+  <path>Aircraft/707/Models/Cockpit/Instruments/hsi/hsi-copilot.xml</path>
   <offsets>
     <x-m>-18.967</x-m>
     <y-m>  0.401</y-m>

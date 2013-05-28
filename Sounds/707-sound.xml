@@ -646,11 +646,11 @@
 		<path>Sounds/flaps.wav</path>
 		<property>/surface-positions/speedbrake-pos-norm</property>
 		<volume>
-			<factor>0.7</factor>
+			<factor>1.0</factor>
 		</volume>
 		<pitch>
 			<property>/surface-positions/speedbrake-pos-norm</property>
-			<factor>-0.4</factor>
+			<factor>0.4</factor>
 		</pitch>
 	</speedbrake>
 	

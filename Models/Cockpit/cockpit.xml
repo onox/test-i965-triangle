@@ -167,6 +167,18 @@
 		</offsets>
 	</model>
 	
+	<model>
+		<name>tiller</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/yokes/tiller.xml</path>
+		<offsets>
+		  <x-m>-18.816</x-m>
+		  <y-m> -0.701</y-m>
+		  <z-m>  0.746</z-m>
+			<pitch-deg> 50</pitch-deg>
+			<heading-deg> -40.5</heading-deg>
+		</offsets>
+	</model>
+	
 	<animation>
 		<type>select</type>
 		<object-name>yokes</object-name>

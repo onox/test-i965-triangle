@@ -157,30 +157,9 @@
   <object-name>ALT.Knob</object-name>
   <visible>true</visible>
       <action>
-        <name>calibrate fine dec</name>
-        <button>1</button>
-      <repeatable>true</repeatable>
-        <binding>
-          <command>property-adjust</command>
-          <property>/instrumentation/altimeter/setting-inhg</property>
-          <step>-0.1</step>
-          <min>27.9</min>
-          <max>31.4</max>
-          <wrap>false</wrap>
-        </binding>
-      </action>
-      <action>
-        <name>calibrate fine inc</name>
+        <name>show info</name>
         <button>0</button>
-      <repeatable>true</repeatable>
-        <binding>
-          <command>property-adjust</command>
-          <property>/instrumentation/altimeter/setting-inhg</property>
-          <step>0.1</step>
-          <min>27.9</min>
-          <max>31.4</max>
-          <wrap>false</wrap>
-        </binding>				
+      	<repeatable>true</repeatable>			
         <binding>
 				  <command>nasal</command>
 				  <script>b707.show_alti()</script>

@@ -211,7 +211,8 @@
 	
 	<animation>
 		<type>select</type>		
-			<object-name>yokes</object-name>
+			<object-name>yokes</object-name>		
+			<object-name>tiller</object-name>
 			<object-name>panel-equipment</object-name>
 			<object-name>overhead-panel-equipment</object-name>	
 			<condition>

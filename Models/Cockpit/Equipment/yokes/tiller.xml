@@ -50,7 +50,7 @@
 			<property>/controls/gear/gear-down</property>
 		</condition>
     <property>surface-positions/rudder-pos-norm</property>
-    <factor> -25 </factor>
+    <factor> -40 </factor>
     <center>
       <x-m>0.0</x-m>
       <y-m>0.0</y-m>

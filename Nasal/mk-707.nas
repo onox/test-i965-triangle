@@ -129,6 +129,12 @@ var h_course = func {
 	help_win.write(sprintf("Selected course is: %.0f ", press_course) );
 }
 
+var h_course_two = func {
+	var press_course_two = getprop("/instrumentation/nav[1]/radials/selected-deg");
+	if(  press_course_two == nil ) press_course_two = 0.0;
+	help_win.write(sprintf("Selected course on copilot HSI is: %.0f ", press_course_two) );
+}
+
 var h_tas = func {
 	var press_tas = getprop("/autopilot/settings/target-speed-kt");
 	if(  press_tas == nil ) press_tas = 0.0;
@@ -150,6 +156,7 @@ var h_mis = func {
 setlistener( "/instrumentation/altimeter/setting-inhg", h_altimeter );
 setlistener( "/autopilot/settings/heading-bug-deg", h_heading );
 setlistener( "/instrumentation/nav/radials/selected-deg", h_course );
+setlistener( "/instrumentation/nav[1]/radials/selected-deg", h_course_two );
 setlistener( "/autopilot/settings/target-speed-kt", h_tas );
 setlistener( "/autopilot/settings/vertical-speed-fpm", h_vs);
 setlistener( "/instrumentation/rmi/face-offset", h_mis);
@@ -248,6 +255,21 @@ var stepSpeedbrakes = func(step) {
     var val = 0.25 * step + getprop("/controls/flight/speedbrake");
     setprop("/controls/flight/speedbrake", val > 1 ? 1 : val < 0 ? 0 : val);
 }
+
+######################################## compass controll #######################################
+# if compass controll is set to MAG (directional gyro slaved to flux valve) and not DG (compass indicate directional gyro heading),
+# the offset will be set automatically
+
+var mag_controll = func {
+	var mag_selected = getprop("/instrumentation/compass-controll/mag");
+	if( mag_selected == nil ) mag_selected = 0.0;
+	if( mag_selected ) {
+		interpolate("/instrumentation/heading-indicator/offset-deg", 0, 0.25);
+		settimer( mag_controll, 82);
+	}
+}
+
+setlistener( "/instrumentation/compass-controll/mag", mag_controll);
 
 
 

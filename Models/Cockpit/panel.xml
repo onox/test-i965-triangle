@@ -678,59 +678,67 @@
   	<model>
       <path>Aircraft/707/Models/Cockpit/Instruments/radio/comm1.xml</path>
       <offsets>
-          <x-m>-18.9</x-m>
-          <y-m>-0.113</y-m>
-          <z-m>0.747</z-m>
-          <pitch-deg>-72</pitch-deg>
+          <x-m>-18.885</x-m>
+          <y-m>-0.12</y-m>
+          <z-m>0.746</z-m>
+          <pitch-deg>-70</pitch-deg>
       </offsets>
     </model>
   	<model>
       <path>Aircraft/707/Models/Cockpit/Instruments/radio/comm2.xml</path>
       <offsets>
-          <x-m>-18.9</x-m>
-          <y-m> 0.113</y-m>
-          <z-m>0.747</z-m>
-          <pitch-deg>-72</pitch-deg>
+          <x-m>-18.885</x-m>
+          <y-m> 0.12</y-m>
+          <z-m>0.746</z-m>
+          <pitch-deg>-70</pitch-deg>
       </offsets>
     </model>
   	<model>
       <path>Aircraft/707/Models/Cockpit/Instruments/radio/nav1.xml</path>
       <offsets>
-          <x-m>-18.844</x-m>
-          <y-m>-0.113</y-m>
-          <z-m>0.728</z-m>
-          <pitch-deg>-71</pitch-deg>
+          <x-m>-18.833</x-m>
+          <y-m>-0.12</y-m>
+          <z-m>0.727</z-m>
+          <pitch-deg>-70</pitch-deg>
       </offsets>
     </model>
   	<model>
       <path>Aircraft/707/Models/Cockpit/Instruments/radio/nav2.xml</path>
       <offsets>
-          <x-m>-18.844</x-m>
-          <y-m> 0.113</y-m>
-          <z-m>0.728</z-m>
-          <pitch-deg>-71</pitch-deg>
+          <x-m>-18.833</x-m>
+          <y-m> 0.12</y-m>
+          <z-m>0.727</z-m>
+          <pitch-deg>-70</pitch-deg>
       </offsets>
     </model>
     <model>
       <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf1.xml</path>
         <offsets>
-            <x-m>-18.788</x-m>
-          	<y-m>-0.113</y-m>
-            <z-m>0.709</z-m>
-            <pitch-deg>-71</pitch-deg>
+            <x-m>-18.782</x-m>
+          	<y-m>-0.12</y-m>
+            <z-m>0.708</z-m>
+            <pitch-deg>-70</pitch-deg>
         </offsets>
     </model>
     <model>
       <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf2.xml</path>
         <offsets>
-            <x-m>-18.788</x-m>
-          	<y-m> 0.113</y-m>
-            <z-m>0.709</z-m>
-            <pitch-deg>-71</pitch-deg>
+            <x-m>-18.782</x-m>
+          	<y-m> 0.12</y-m>
+            <z-m>0.708</z-m>
+            <pitch-deg>-70</pitch-deg>
         </offsets>
     </model>
-
-
+    
+		<model>
+			<path>Aircraft/707/Models/Cockpit/Instruments/radar/radar.xml</path>
+			<offsets>
+				<x-m>-18.85</x-m>
+				<y-m>-0.0</y-m>
+				<z-m>0.729</z-m>
+				<pitch-deg>-70</pitch-deg>
+			</offsets>
+		</model>
 
 </PropertyList>
 

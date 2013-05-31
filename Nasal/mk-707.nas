@@ -217,16 +217,16 @@ var show_mp_info = func (i){
 	var as  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/tas-kt") or 0;
 	var dis = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
 
-  help_win.write(sprintf(cs~"....: %.0fft / %.0fkts / %.1fnm", al, as, dis) ); 
+  help_win.write(sprintf(cs~" %.0fft / %.0fkts / %.2fnm", al, as, dis) ); 
 } 
 
 var show_ai_info = func (i){
-	var cs  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/callsign");
-	var al  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/altitude-ft");
-	var as  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt");
+	var cs  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
 	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
-	
-  help_win.write(sprintf(cs~"....: %.0fft / %.0fkts / %.1fnm", al, as, dis) ); 
+
+  help_win.write(sprintf(cs~" %.0fft / %.0fkts / %.2fnm", al, as, dis) );
 }
 
 #################################### helper for the standby ADI ############################################

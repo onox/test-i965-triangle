@@ -1,225 +1,109 @@
-    var tcas = {
-       init : func {
-            me.UPDATE_INTERVAL = 0.8;
-            me.loopid = 0;
-            
-            setprop("/instrumentation/mptcas/range", 32);
-            
-            me.reset();
-    },
-       update : func {
+# Lake of Constance Hangar :: M.Kraus
+# Avril 2013
+# This file is licenced under the terms of the GNU General Public Licence V2 or later
+################################ Reverser ####################################
+setlistener("/instrumentation/mptcas/on", func(state) {
+  var state = state.getBoolValue();  
+  if(state) tcas();
+}, 0, 1);
 
-	var altitude = getprop("/position/altitude-ft");
+var tcas = func {
 
-  var pos_lat = getprop("/position/latitude-deg");
-  var pos_lon = getprop("/position/longitude-deg");
+		var run = getprop("/instrumentation/mptcas/on") or 0;
 
-	var range = getprop("/instrumentation/mptcas/range");
-	
-	# Multiplayer TCAS
-	
-	for (var n = 0; n < 30; n += 1) {
-	
-		if (getprop("ai/models/multiplayer[" ~ n ~ "]/valid") and (getprop("ai/models/multiplayer[" ~ n ~ "]/callsign") != nil)) {
+		var pos_lat = getprop("/position/latitude-deg");
+		var pos_lon = getprop("/position/longitude-deg");
 		
-			var mp_lat = getprop("ai/models/multiplayer[" ~ n ~ "]/position/latitude-deg");
-			var mp_lon = getprop("ai/models/multiplayer[" ~ n ~ "]/position/longitude-deg");
-			var x_dist = (mp_lon - pos_lon) * 60;
-			var y_dist = (mp_lat - pos_lat) * 60;
-			
-			var distance =  math.sqrt((x_dist*x_dist) + (y_dist*y_dist));
-			
-			setprop("instrumentation/mptcas/mp[" ~ n ~ "]/distance-nm", distance);
-			
-			setprop("instrumentation/mptcas/mp[" ~ n ~ "]/bearing-defl",Deflection((57.2957795 * math.atan2(x_dist, y_dist)), 60));
-
-			setprop("instrumentation/mptcas/mp[" ~ n ~ "]/bearing-deg" ,(57.2957795 * math.atan2(x_dist, y_dist)));
-			
-			var vsfps = getprop("ai/models/multiplayer[" ~ n ~ "]/velocities/vertical-speed-fps");
-			
-			var altitudediff = getprop("ai/models/multiplayer[" ~ n ~ "]/position/altitude-ft") - altitude;
-			
-			## The new NDs only use planar calculations
-			
-			setprop("instrumentation/mptcas/mp[" ~ n ~ "]/xoffset", (mp_lon - pos_lon) * 60 / range);
-			setprop("instrumentation/mptcas/mp[" ~ n ~ "]/yoffset", (mp_lat - pos_lat) * 60 / range);
-			
-			setprop("instrumentation/mptcas/mp[" ~ n ~ "]/callsign", getprop("ai/models/multiplayer[" ~ n ~ "]/callsign"));
-			
-			setprop("instrumentation/mptcas/mp[" ~ n ~ "]/altitude-ft", getprop("ai/models/multiplayer[" ~ n ~ "]/position/altitude-ft"));
-			
-			setprop("instrumentation/mptcas/mp[" ~ n ~ "]/tas-kt", getprop("ai/models/multiplayer[" ~ n ~ "]/velocities/true-airspeed-kt"));
-			
-			
-			if (vsfps < -8)
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/phase", "descend");
-			elsif (vsfps >= 8)
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/phase", "climb");
-			else
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/phase", "level");
-				
-			if ((distance <= 3) and (altitudediff <= 1000))
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/color", "red");
-			elsif ((distance <= 5) and (altitudediff <= 2000))
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/color", "orange");
-			elsif ((distance <= 10) and (altitudediff <= 3000))
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/color", "yellow");
-			else
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/color", "cyan");
-			
-			if (distance <= 32)
-				setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show-half", 1);
-			else
-				setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show-half", 0);
-				
-			if ((math.abs((mp_lon - pos_lon) * 60) <= range) and (mp_lat - pos_lat <= range) and (pos_lat - mp_lat >= (range * -0.8)))
-				setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 1);
-			else
-				setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 0);
-				
-		} else
-			setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 0);
+		var our_pos = geo.aircraft_position();
+		var my_hdg = getprop("/orientation/heading-deg");
+		
+		var display_factor = getprop("/instrumentation/mptcas/display-factor"); # 0.0013 is a range for about 40 - 50 nm
 	
-	}
+		# Multiplayer TCAS
+	
+		for (var n = 0; n < 20; n += 1) {
+		
+			var callsign = getprop("ai/models/multiplayer[" ~ n ~ "]/callsign") or 0;
+	
+			if (getprop("ai/models/multiplayer[" ~ n ~ "]/valid") and callsign and run) {
+		
+				var mp_lat = getprop("ai/models/multiplayer[" ~ n ~ "]/position/latitude-deg");
+				var mp_lon = getprop("ai/models/multiplayer[" ~ n ~ "]/position/longitude-deg");
+
+				# What is our position to the mp?		
+				var mp_pos 	= geo.Coord.new();
+						mp_pos.set_latlon( mp_lat, mp_lon);
+				var hdg_to_mp = our_pos.course_to(mp_pos);
+				var distance = our_pos.distance_to(mp_pos) * 0.0005399568034557236;
+				var course_to_mp = 360 - geo.normdeg(my_hdg - hdg_to_mp);
+				
+				var display = distance * display_factor;
+			
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/callsign", callsign);
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/distance-nm", distance);
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/display-nm", display);		
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/course-to-mp",course_to_mp);
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/altitude-ft", getprop("ai/models/multiplayer[" ~ n ~ "]/position/altitude-ft"));
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/tas-kt", getprop("ai/models/multiplayer[" ~ n ~ "]/velocities/true-airspeed-kt"));
+				
+				if (display < 0.051){ 
+					setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 1);
+				}else{
+					setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 0);				
+				}
+				
+			}else{
+			
+				setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 0);		
+			}
+	
+		}
 	
 	# AI TCAS
 	
-	for (var n = 0; n < 30; n += 1) {
-	
-		if (getprop("ai/models/aircraft[" ~ n ~ "]/valid") and (getprop("ai/models/aircraft[" ~ n ~ "]/callsign") != nil)) {
+		for (var n = 0; n < 20; n += 1) {
 		
-			var ai_lat = getprop("ai/models/aircraft[" ~ n ~ "]/position/latitude-deg");
-			var ai_lon = getprop("ai/models/aircraft[" ~ n ~ "]/position/longitude-deg");
-			
-			var x_dist = (ai_lon - pos_lon) * 60;
-			var y_dist = (ai_lat - pos_lat) * 60;
-			
-			var distance =  math.sqrt((x_dist*x_dist) + (y_dist*y_dist));
-			
-			setprop("instrumentation/mptcas/ai[" ~ n ~ "]/distance-nm", distance);
-			
-			var vsfps = getprop("ai/models/aircraft[" ~ n ~ "]/velocities/vertical-speed-fps");
-			
-			setprop("instrumentation/mptcas/ai[" ~ n ~ "]/bearing-defl",Deflection((57.2957795 * math.atan2(x_dist, y_dist)), 60));
-
-			setprop("instrumentation/mptcas/ai[" ~ n ~ "]/bearing-deg" ,(57.2957795 * math.atan2(x_dist, y_dist)));
-			
-			var altitudediff = getprop("ai/models/aircraft[" ~ n ~ "]/position/altitude-ft") - altitude;
-			
-			## The new NDs only use planar calculations
-			
-			setprop("instrumentation/mptcas/ai[" ~ n ~ "]/xoffset", x_dist / range);
-			setprop("instrumentation/mptcas/ai[" ~ n ~ "]/yoffset", y_dist / range);
-			
-			if (vsfps < -8)
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/phase", "descend");
-			elsif (vsfps >= 8)
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/phase", "climb");
-			else
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/phase", "level");
-				
-			if ((distance <= 3) and (altitudediff <= 1000))
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/color", "red");
-			elsif ((distance <= 5) and (altitudediff <= 2000))
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/color", "orange");
-			elsif ((distance <= 10) and (altitudediff <= 3000))
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/color", "yellow");
-			else
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/color", "cyan");
-				
-			if ((math.abs((ai_lon - pos_lon) * 60) <= range) and (ai_lat - pos_lat <= range) and (pos_lat - ai_lat >= (range * -0.8)))
-				setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 1);
-			else
-				setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 0);
-				
-			if (distance <= 32)
-				setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show-half", 1);
-			else
-				setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show-half", 0);
-				
-			setprop("instrumentation/mptcas/ai[" ~ n ~ "]/callsign", getprop("ai/models/aircraft[" ~ n ~ "]/callsign"));
-			
-			setprop("instrumentation/mptcas/ai[" ~ n ~ "]/altitude-ft", getprop("ai/models/aircraft[" ~ n ~ "]/position/altitude-ft"));
-			
-			setprop("instrumentation/mptcas/ai[" ~ n ~ "]/tas-kt", getprop("ai/models/aircraft[" ~ n ~ "]/velocities/true-airspeed-kt"));
-				
-		} else
-			setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 0);
+			var callsign = getprop("ai/models/aircraft[" ~ n ~ "]/callsign") or 0;
 	
-	}
+			if (getprop("ai/models/multiplayer[" ~ n ~ "]/valid") and callsign and run13) {
+		
+				var ai_lat = getprop("ai/models/aircraft[" ~ n ~ "]/position/latitude-deg");
+				var ai_lon = getprop("ai/models/aircraft[" ~ n ~ "]/position/longitude-deg");
+
+				# What is our position to the mp?		
+				var mp_pos 	= geo.Coord.new();
+						mp_pos.set_latlon( ai_lat, ai_lon);
+				var hdg_to_mp = our_pos.course_to(mp_pos);
+				var distance = our_pos.distance_to(mp_pos) * 0.0005399568034557236;
+				var course_to_mp = 360 - geo.normdeg(my_hdg - hdg_to_mp);
+				
+				var display = distance * display_factor;
+			
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/callsign", callsign);
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/distance-nm", distance);
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/display-nm", display);		
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/course-to-mp",course_to_mp);
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/altitude-ft", getprop("ai/models/aircraft[" ~ n ~ "]/position/altitude-ft"));
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/tas-kt", getprop("ai/models/aircraft[" ~ n ~ "]/velocities/true-airspeed-kt"));
+				
+				
+				if (display < 0.051){ 
+					setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 1);
+				}else{
+					setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 0);				
+				}
+				
+			}else{
+			
+				setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 0);		
+			}
 	
-    },
-        reset : func {
-            me.loopid += 1;
-            me._loop_(me.loopid);
-        },
-        _loop_ : func(id) {
-            id == me.loopid or return;
-            me.update();
-            settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
-        }
+		}
+		
+	if (run) settimer(tcas, 0.7);
+	
+}
 
-    };
 
-setlistener("sim/signals/fdm-initialized", func
- {
- tcas.init();
- });
- 
- 
- 
-var Deflection = func(bug, limit) {
-      var heading = getprop("orientation/heading-magnetic-deg");
-      var bugDeg = 0;
-
-      while (bug < 0)
-       {
-       bug += 360;
-       }
-      while (bug > 360)
-       {
-       bug -= 360;
-       }
-      if (bug < limit)
-       {
-       bug += 360;
-       }
-      if (heading < limit)
-       {
-       heading += 360;
-       }
-      # bug is adjusted normally
-      if (math.abs(heading - bug) < limit)
-       {
-       bugDeg = heading - bug;
-       }
-      elsif (heading - bug < 0)
-       {
-       # bug is on the far right
-       if (math.abs(heading - bug + 360 >= 180))
-        {
-        bugDeg = -limit;
-        }
-       # bug is on the far left
-       elsif (math.abs(heading - bug + 360 < 180))
-        {
-        bugDeg = limit;
-        }
-       }
-      else
-       {
-       # bug is on the far right
-       if (math.abs(heading - bug >= 180))
-        {
-        bugDeg = -limit;
-        }
-       # bug is on the far left
-       elsif (math.abs(heading - bug < 180))
-        {
-        bugDeg = limit;
-        }
-       }
-
-      return bugDeg;
-    }    
+   
 

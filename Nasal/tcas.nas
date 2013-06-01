@@ -69,7 +69,7 @@ var tcas = func {
 		
 			var callsign = getprop("ai/models/aircraft[" ~ n ~ "]/callsign") or 0;
 	
-			if (getprop("ai/models/multiplayer[" ~ n ~ "]/valid") and callsign and run13) {
+			if (getprop("ai/models/multiplayer[" ~ n ~ "]/valid") and callsign and run) {
 		
 				var ai_lat = getprop("ai/models/aircraft[" ~ n ~ "]/position/latitude-deg");
 				var ai_lon = getprop("ai/models/aircraft[" ~ n ~ "]/position/longitude-deg");

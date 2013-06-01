@@ -38,13 +38,17 @@ var tcas = func {
 				var course_to_mp = 360 - geo.normdeg(my_hdg - hdg_to_mp);
 				
 				var display = distance * display_factor;
-			
+				
+				# openRadar have no altitude-ft and true-airspeed-kt
+				var alt_ft = getprop("ai/models/multiplayer[" ~ n ~ "]/position/altitude-ft") or 0;
+			  var tas_kt = getprop("ai/models/multiplayer[" ~ n ~ "]/velocities/true-airspeed-kt") or 0;
+			  
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/callsign", callsign);
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/distance-nm", distance);
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/display-nm", display);		
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/course-to-mp",course_to_mp);
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/altitude-ft", getprop("ai/models/multiplayer[" ~ n ~ "]/position/altitude-ft"));
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/tas-kt", getprop("ai/models/multiplayer[" ~ n ~ "]/velocities/true-airspeed-kt"));
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/altitude-ft", alt_ft);
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/tas-kt", tas_kt);
 				
 				if (display < 0.051){ 
 					setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 1);

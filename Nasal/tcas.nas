@@ -27,8 +27,8 @@ var tcas = func {
 	
 			if (getprop("ai/models/multiplayer[" ~ n ~ "]/valid") and callsign and run) {
 		
-				var mp_lat = getprop("ai/models/multiplayer[" ~ n ~ "]/position/latitude-deg");
-				var mp_lon = getprop("ai/models/multiplayer[" ~ n ~ "]/position/longitude-deg");
+				var mp_lat = getprop("ai/models/multiplayer[" ~ n ~ "]/position/latitude-deg") or 0;
+				var mp_lon = getprop("ai/models/multiplayer[" ~ n ~ "]/position/longitude-deg") or 0;
 
 				# What is our position to the mp?		
 				var mp_pos 	= geo.Coord.new();
@@ -71,8 +71,8 @@ var tcas = func {
 	
 			if (getprop("ai/models/multiplayer[" ~ n ~ "]/valid") and callsign and run) {
 		
-				var ai_lat = getprop("ai/models/aircraft[" ~ n ~ "]/position/latitude-deg");
-				var ai_lon = getprop("ai/models/aircraft[" ~ n ~ "]/position/longitude-deg");
+				var ai_lat = getprop("ai/models/aircraft[" ~ n ~ "]/position/latitude-deg") or 0;
+				var ai_lon = getprop("ai/models/aircraft[" ~ n ~ "]/position/longitude-deg") or 0;
 
 				# What is our position to the mp?		
 				var mp_pos 	= geo.Coord.new();

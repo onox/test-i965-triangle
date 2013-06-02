@@ -729,7 +729,7 @@
             <pitch-deg>-70</pitch-deg>
         </offsets>
     </model>
-    
+
 		<model>
 			<path>Aircraft/707/Models/Cockpit/Instruments/radar/radar.xml</path>
 			<offsets>

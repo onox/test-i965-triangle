@@ -181,7 +181,7 @@
 		<type>rotate</type>
 		<object-name>KnobRange</object-name>
 		<property>/instrumentation/mptcas/display-factor</property>
-		<factor>300</factor>
+		<factor>180</factor>
 		<center>
 			<x-m> 0.0</x-m>
 			<y-m>-0.0509</y-m>
@@ -205,8 +205,8 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor</property>
-				<step>-0.04</step>
-				<min>0.04</min>
+				<step>-0.01</step>
+				<min>0.03</min>
 				<max>0.64</max>
 				<wrap>false</wrap>
 			</binding>
@@ -222,8 +222,8 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor</property>
-				<step>0.04</step>
-				<min>0.04</min>
+				<step>0.01</step>
+				<min>0.03</min>
 				<max>0.64</max>
 				<wrap>false</wrap>
 			</binding>
@@ -239,8 +239,8 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor</property>
-				<step>-0.04</step>
-				<min>0.04</min>
+				<step>-0.01</step>
+				<min>0.03</min>
 				<max>0.64</max>
 				<wrap>false</wrap>
 			</binding>
@@ -256,8 +256,8 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor</property>
-				<step>0.04</step>
-				<min>0.04</min>
+				<step>0.01</step>
+				<min>0.03</min>
 				<max>0.64</max>
 				<wrap>false</wrap>
 			</binding>

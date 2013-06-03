@@ -796,11 +796,13 @@
     <!-- the LE flap -->
 		<function name="aero/coefficient/CDLEflap">
 			<description>Drag_due_to_leading_edge_flaps</description>
-				<product>
-						<property>fcs/wing-fold-pos-norm</property>
-						<value>0.06</value>
-				</product>
-		</function>
+         <product>
+           <property>aero/qbar-psf</property>
+           <property>metrics/Sw-sqft</property>
+ 						<property>fcs/wing-fold-pos-norm</property>
+						<value>0.16</value>
+         </product>
+    </function>
 
     <function name="aero/coefficient/CDbeta">
        <description>Drag_due_to_sideslip</description>

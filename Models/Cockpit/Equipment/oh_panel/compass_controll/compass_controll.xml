@@ -40,6 +40,21 @@
 		</emission>
 	</animation>
 	
+	<animation>
+		<type>pick</type>
+		<object-name>sup</object-name>
+		<visible>true</visible>
+		    <action>
+		      <name>show info</name>
+		      <button>0</button>
+		    	<repeatable>true</repeatable>			
+		      <binding>
+						<command>nasal</command>
+						<script>b707.show_lat_lon()</script>
+					</binding>
+		    </action>
+	</animation>
+	
   <!-- select latitude --> 
 	<animation>
 		<type>rotate</type>

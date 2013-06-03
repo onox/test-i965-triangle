@@ -177,6 +177,12 @@ var show_alti = func {
   }
 }
 
+var show_lat_lon = func {
+	var lat = getprop("/position/latitude-string");
+	var lon = getprop("/position/longitude-string");
+	help_win.write(sprintf("lat: "~lat~" lon: "~lon)); 
+}
+
 var show_dme = func {
   var dme = getprop("/controls/switches/dme") or 0;
   var tacan_miles = getprop("/instrumentation/tacan/indicated-distance-nm") or 0;

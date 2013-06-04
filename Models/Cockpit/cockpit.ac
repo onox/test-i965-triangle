@@ -1,8 +1,10 @@
 AC3Db
 MATERIAL "cockpit" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
+MATERIAL "panelEtop" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
+MATERIAL "panelBot" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 MATERIAL "Material" rgb 0.8 0.8 0.8 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 OBJECT world
-kids 16
+kids 19
 OBJECT poly
 name "LightVolume1"
 loc -17.809708 0.914283 0.003306
@@ -254,1761 +256,1761 @@ numvert 242
 0.409407 -0.992899 -0
 numsurf 256
 SURF 0x10
-mat 1
+mat 3
 refs 3
 241 0 0
 4 0 0
 5 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 240 0 0
 241 0 0
 5 0 0
 6 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 239 0 0
 240 0 0
 6 0 0
 7 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 238 0 0
 239 0 0
 7 0 0
 8 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 237 0 0
 238 0 0
 8 0 0
 9 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 236 0 0
 237 0 0
 9 0 0
 10 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 235 0 0
 236 0 0
 10 0 0
 11 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 234 0 0
 235 0 0
 11 0 0
 12 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 233 0 0
 234 0 0
 12 0 0
 13 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 232 0 0
 233 0 0
 13 0 0
 14 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 231 0 0
 232 0 0
 14 0 0
 15 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 230 0 0
 231 0 0
 15 0 0
 16 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 3 0 0
 230 0 0
 16 0 0
 17 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 2 0 0
 3 0 0
 17 0 0
 18 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 1 0 0
 2 0 0
 18 0 0
 19 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 1 0 0
 19 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 19 0 0
 20 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 19 0 0
 18 0 0
 21 0 0
 20 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 18 0 0
 17 0 0
 22 0 0
 21 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 17 0 0
 16 0 0
 23 0 0
 22 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 16 0 0
 15 0 0
 24 0 0
 23 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 15 0 0
 14 0 0
 25 0 0
 24 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 14 0 0
 13 0 0
 26 0 0
 25 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 13 0 0
 12 0 0
 27 0 0
 26 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 12 0 0
 11 0 0
 28 0 0
 27 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 11 0 0
 10 0 0
 29 0 0
 28 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 10 0 0
 9 0 0
 30 0 0
 29 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 9 0 0
 8 0 0
 31 0 0
 30 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 8 0 0
 7 0 0
 32 0 0
 31 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 7 0 0
 6 0 0
 33 0 0
 32 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 6 0 0
 5 0 0
 34 0 0
 33 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 5 0 0
 4 0 0
 34 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 34 0 0
 4 0 0
 35 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 33 0 0
 34 0 0
 35 0 0
 36 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 32 0 0
 33 0 0
 36 0 0
 37 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 31 0 0
 32 0 0
 37 0 0
 38 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 30 0 0
 31 0 0
 38 0 0
 39 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 29 0 0
 30 0 0
 39 0 0
 40 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 28 0 0
 29 0 0
 40 0 0
 41 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 27 0 0
 28 0 0
 41 0 0
 42 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 26 0 0
 27 0 0
 42 0 0
 43 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 25 0 0
 26 0 0
 43 0 0
 44 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 24 0 0
 25 0 0
 44 0 0
 45 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 23 0 0
 24 0 0
 45 0 0
 46 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 22 0 0
 23 0 0
 46 0 0
 47 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 21 0 0
 22 0 0
 47 0 0
 48 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 20 0 0
 21 0 0
 48 0 0
 49 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 20 0 0
 49 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 49 0 0
 50 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 49 0 0
 48 0 0
 51 0 0
 50 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 48 0 0
 47 0 0
 52 0 0
 51 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 47 0 0
 46 0 0
 53 0 0
 52 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 46 0 0
 45 0 0
 54 0 0
 53 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 45 0 0
 44 0 0
 55 0 0
 54 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 44 0 0
 43 0 0
 56 0 0
 55 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 43 0 0
 42 0 0
 57 0 0
 56 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 42 0 0
 41 0 0
 58 0 0
 57 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 41 0 0
 40 0 0
 59 0 0
 58 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 40 0 0
 39 0 0
 60 0 0
 59 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 39 0 0
 38 0 0
 61 0 0
 60 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 38 0 0
 37 0 0
 62 0 0
 61 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 37 0 0
 36 0 0
 63 0 0
 62 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 36 0 0
 35 0 0
 64 0 0
 63 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 35 0 0
 4 0 0
 64 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 64 0 0
 4 0 0
 65 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 63 0 0
 64 0 0
 65 0 0
 66 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 62 0 0
 63 0 0
 66 0 0
 67 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 61 0 0
 62 0 0
 67 0 0
 68 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 60 0 0
 61 0 0
 68 0 0
 69 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 59 0 0
 60 0 0
 69 0 0
 70 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 58 0 0
 59 0 0
 70 0 0
 71 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 57 0 0
 58 0 0
 71 0 0
 72 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 56 0 0
 57 0 0
 72 0 0
 73 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 55 0 0
 56 0 0
 73 0 0
 74 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 54 0 0
 55 0 0
 74 0 0
 75 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 53 0 0
 54 0 0
 75 0 0
 76 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 52 0 0
 53 0 0
 76 0 0
 77 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 51 0 0
 52 0 0
 77 0 0
 78 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 50 0 0
 51 0 0
 78 0 0
 79 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 50 0 0
 79 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 79 0 0
 80 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 79 0 0
 78 0 0
 81 0 0
 80 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 78 0 0
 77 0 0
 82 0 0
 81 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 77 0 0
 76 0 0
 83 0 0
 82 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 76 0 0
 75 0 0
 84 0 0
 83 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 75 0 0
 74 0 0
 85 0 0
 84 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 74 0 0
 73 0 0
 86 0 0
 85 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 73 0 0
 72 0 0
 87 0 0
 86 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 72 0 0
 71 0 0
 88 0 0
 87 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 71 0 0
 70 0 0
 89 0 0
 88 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 70 0 0
 69 0 0
 90 0 0
 89 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 69 0 0
 68 0 0
 91 0 0
 90 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 68 0 0
 67 0 0
 92 0 0
 91 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 67 0 0
 66 0 0
 93 0 0
 92 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 66 0 0
 65 0 0
 94 0 0
 93 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 65 0 0
 4 0 0
 94 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 94 0 0
 4 0 0
 95 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 93 0 0
 94 0 0
 95 0 0
 96 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 92 0 0
 93 0 0
 96 0 0
 97 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 91 0 0
 92 0 0
 97 0 0
 98 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 90 0 0
 91 0 0
 98 0 0
 99 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 89 0 0
 90 0 0
 99 0 0
 100 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 88 0 0
 89 0 0
 100 0 0
 101 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 87 0 0
 88 0 0
 101 0 0
 102 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 86 0 0
 87 0 0
 102 0 0
 103 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 85 0 0
 86 0 0
 103 0 0
 104 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 84 0 0
 85 0 0
 104 0 0
 105 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 83 0 0
 84 0 0
 105 0 0
 106 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 82 0 0
 83 0 0
 106 0 0
 107 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 81 0 0
 82 0 0
 107 0 0
 108 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 80 0 0
 81 0 0
 108 0 0
 109 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 80 0 0
 109 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 109 0 0
 110 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 109 0 0
 108 0 0
 111 0 0
 110 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 108 0 0
 107 0 0
 112 0 0
 111 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 107 0 0
 106 0 0
 113 0 0
 112 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 106 0 0
 105 0 0
 114 0 0
 113 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 105 0 0
 104 0 0
 115 0 0
 114 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 104 0 0
 103 0 0
 116 0 0
 115 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 103 0 0
 102 0 0
 117 0 0
 116 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 102 0 0
 101 0 0
 118 0 0
 117 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 101 0 0
 100 0 0
 119 0 0
 118 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 100 0 0
 99 0 0
 120 0 0
 119 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 99 0 0
 98 0 0
 121 0 0
 120 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 98 0 0
 97 0 0
 122 0 0
 121 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 97 0 0
 96 0 0
 123 0 0
 122 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 96 0 0
 95 0 0
 124 0 0
 123 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 95 0 0
 4 0 0
 124 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 124 0 0
 4 0 0
 125 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 123 0 0
 124 0 0
 125 0 0
 126 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 122 0 0
 123 0 0
 126 0 0
 127 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 121 0 0
 122 0 0
 127 0 0
 128 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 120 0 0
 121 0 0
 128 0 0
 129 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 119 0 0
 120 0 0
 129 0 0
 130 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 118 0 0
 119 0 0
 130 0 0
 131 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 117 0 0
 118 0 0
 131 0 0
 132 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 116 0 0
 117 0 0
 132 0 0
 133 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 115 0 0
 116 0 0
 133 0 0
 134 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 114 0 0
 115 0 0
 134 0 0
 135 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 113 0 0
 114 0 0
 135 0 0
 136 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 112 0 0
 113 0 0
 136 0 0
 137 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 111 0 0
 112 0 0
 137 0 0
 138 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 110 0 0
 111 0 0
 138 0 0
 139 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 110 0 0
 139 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 139 0 0
 140 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 139 0 0
 138 0 0
 141 0 0
 140 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 138 0 0
 137 0 0
 142 0 0
 141 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 137 0 0
 136 0 0
 143 0 0
 142 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 136 0 0
 135 0 0
 144 0 0
 143 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 135 0 0
 134 0 0
 145 0 0
 144 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 134 0 0
 133 0 0
 146 0 0
 145 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 133 0 0
 132 0 0
 147 0 0
 146 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 132 0 0
 131 0 0
 148 0 0
 147 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 131 0 0
 130 0 0
 149 0 0
 148 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 130 0 0
 129 0 0
 150 0 0
 149 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 129 0 0
 128 0 0
 151 0 0
 150 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 128 0 0
 127 0 0
 152 0 0
 151 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 127 0 0
 126 0 0
 153 0 0
 152 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 126 0 0
 125 0 0
 154 0 0
 153 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 125 0 0
 4 0 0
 154 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 154 0 0
 4 0 0
 155 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 153 0 0
 154 0 0
 155 0 0
 156 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 152 0 0
 153 0 0
 156 0 0
 157 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 151 0 0
 152 0 0
 157 0 0
 158 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 150 0 0
 151 0 0
 158 0 0
 159 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 149 0 0
 150 0 0
 159 0 0
 160 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 148 0 0
 149 0 0
 160 0 0
 161 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 147 0 0
 148 0 0
 161 0 0
 162 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 146 0 0
 147 0 0
 162 0 0
 163 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 145 0 0
 146 0 0
 163 0 0
 164 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 144 0 0
 145 0 0
 164 0 0
 165 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 143 0 0
 144 0 0
 165 0 0
 166 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 142 0 0
 143 0 0
 166 0 0
 167 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 141 0 0
 142 0 0
 167 0 0
 168 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 140 0 0
 141 0 0
 168 0 0
 169 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 140 0 0
 169 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 169 0 0
 170 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 169 0 0
 168 0 0
 171 0 0
 170 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 168 0 0
 167 0 0
 172 0 0
 171 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 167 0 0
 166 0 0
 173 0 0
 172 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 166 0 0
 165 0 0
 174 0 0
 173 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 165 0 0
 164 0 0
 175 0 0
 174 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 164 0 0
 163 0 0
 176 0 0
 175 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 163 0 0
 162 0 0
 177 0 0
 176 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 162 0 0
 161 0 0
 178 0 0
 177 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 161 0 0
 160 0 0
 179 0 0
 178 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 160 0 0
 159 0 0
 180 0 0
 179 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 159 0 0
 158 0 0
 181 0 0
 180 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 158 0 0
 157 0 0
 182 0 0
 181 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 157 0 0
 156 0 0
 183 0 0
 182 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 156 0 0
 155 0 0
 184 0 0
 183 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 155 0 0
 4 0 0
 184 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 184 0 0
 4 0 0
 185 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 183 0 0
 184 0 0
 185 0 0
 186 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 182 0 0
 183 0 0
 186 0 0
 187 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 181 0 0
 182 0 0
 187 0 0
 188 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 180 0 0
 181 0 0
 188 0 0
 189 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 179 0 0
 180 0 0
 189 0 0
 190 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 178 0 0
 179 0 0
 190 0 0
 191 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 177 0 0
 178 0 0
 191 0 0
 192 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 176 0 0
 177 0 0
 192 0 0
 193 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 175 0 0
 176 0 0
 193 0 0
 194 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 174 0 0
 175 0 0
 194 0 0
 195 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 173 0 0
 174 0 0
 195 0 0
 196 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 172 0 0
 173 0 0
 196 0 0
 197 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 171 0 0
 172 0 0
 197 0 0
 198 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 170 0 0
 171 0 0
 198 0 0
 199 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 170 0 0
 199 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 199 0 0
 200 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 199 0 0
 198 0 0
 201 0 0
 200 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 198 0 0
 197 0 0
 202 0 0
 201 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 197 0 0
 196 0 0
 203 0 0
 202 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 196 0 0
 195 0 0
 204 0 0
 203 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 195 0 0
 194 0 0
 205 0 0
 204 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 194 0 0
 193 0 0
 206 0 0
 205 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 193 0 0
 192 0 0
 207 0 0
 206 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 192 0 0
 191 0 0
 208 0 0
 207 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 191 0 0
 190 0 0
 209 0 0
 208 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 190 0 0
 189 0 0
 210 0 0
 209 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 189 0 0
 188 0 0
 211 0 0
 210 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 188 0 0
 187 0 0
 212 0 0
 211 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 187 0 0
 186 0 0
 213 0 0
 212 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 186 0 0
 185 0 0
 214 0 0
 213 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 185 0 0
 4 0 0
 214 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 214 0 0
 4 0 0
 215 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 213 0 0
 214 0 0
 215 0 0
 216 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 212 0 0
 213 0 0
 216 0 0
 217 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 211 0 0
 212 0 0
 217 0 0
 218 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 210 0 0
 211 0 0
 218 0 0
 219 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 209 0 0
 210 0 0
 219 0 0
 220 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 208 0 0
 209 0 0
 220 0 0
 221 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 207 0 0
 208 0 0
 221 0 0
 222 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 206 0 0
 207 0 0
 222 0 0
 223 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 205 0 0
 206 0 0
 223 0 0
 224 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 204 0 0
 205 0 0
 224 0 0
 225 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 203 0 0
 204 0 0
 225 0 0
 226 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 202 0 0
 203 0 0
 226 0 0
 227 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 201 0 0
 202 0 0
 227 0 0
 228 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 200 0 0
 201 0 0
 228 0 0
 229 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 200 0 0
 229 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 229 0 0
 1 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 229 0 0
 228 0 0
 2 0 0
 1 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 228 0 0
 227 0 0
 3 0 0
 2 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 227 0 0
 226 0 0
 230 0 0
 3 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 226 0 0
 225 0 0
 231 0 0
 230 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 225 0 0
 224 0 0
 232 0 0
 231 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 224 0 0
 223 0 0
 233 0 0
 232 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 223 0 0
 222 0 0
 234 0 0
 233 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 222 0 0
 221 0 0
 235 0 0
 234 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 221 0 0
 220 0 0
 236 0 0
 235 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 220 0 0
 219 0 0
 237 0 0
 236 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 219 0 0
 218 0 0
 238 0 0
 237 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 218 0 0
 217 0 0
 239 0 0
 238 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 217 0 0
 216 0 0
 240 0 0
 239 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 216 0 0
 215 0 0
 241 0 0
 240 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 215 0 0
 4 0 0
@@ -2265,1761 +2267,1761 @@ numvert 242
 0.409407 -0.992899 -0
 numsurf 256
 SURF 0x10
-mat 1
+mat 3
 refs 3
 241 0 0
 4 0 0
 5 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 240 0 0
 241 0 0
 5 0 0
 6 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 239 0 0
 240 0 0
 6 0 0
 7 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 238 0 0
 239 0 0
 7 0 0
 8 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 237 0 0
 238 0 0
 8 0 0
 9 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 236 0 0
 237 0 0
 9 0 0
 10 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 235 0 0
 236 0 0
 10 0 0
 11 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 234 0 0
 235 0 0
 11 0 0
 12 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 233 0 0
 234 0 0
 12 0 0
 13 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 232 0 0
 233 0 0
 13 0 0
 14 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 231 0 0
 232 0 0
 14 0 0
 15 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 230 0 0
 231 0 0
 15 0 0
 16 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 3 0 0
 230 0 0
 16 0 0
 17 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 2 0 0
 3 0 0
 17 0 0
 18 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 1 0 0
 2 0 0
 18 0 0
 19 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 1 0 0
 19 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 19 0 0
 20 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 19 0 0
 18 0 0
 21 0 0
 20 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 18 0 0
 17 0 0
 22 0 0
 21 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 17 0 0
 16 0 0
 23 0 0
 22 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 16 0 0
 15 0 0
 24 0 0
 23 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 15 0 0
 14 0 0
 25 0 0
 24 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 14 0 0
 13 0 0
 26 0 0
 25 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 13 0 0
 12 0 0
 27 0 0
 26 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 12 0 0
 11 0 0
 28 0 0
 27 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 11 0 0
 10 0 0
 29 0 0
 28 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 10 0 0
 9 0 0
 30 0 0
 29 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 9 0 0
 8 0 0
 31 0 0
 30 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 8 0 0
 7 0 0
 32 0 0
 31 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 7 0 0
 6 0 0
 33 0 0
 32 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 6 0 0
 5 0 0
 34 0 0
 33 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 5 0 0
 4 0 0
 34 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 34 0 0
 4 0 0
 35 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 33 0 0
 34 0 0
 35 0 0
 36 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 32 0 0
 33 0 0
 36 0 0
 37 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 31 0 0
 32 0 0
 37 0 0
 38 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 30 0 0
 31 0 0
 38 0 0
 39 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 29 0 0
 30 0 0
 39 0 0
 40 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 28 0 0
 29 0 0
 40 0 0
 41 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 27 0 0
 28 0 0
 41 0 0
 42 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 26 0 0
 27 0 0
 42 0 0
 43 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 25 0 0
 26 0 0
 43 0 0
 44 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 24 0 0
 25 0 0
 44 0 0
 45 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 23 0 0
 24 0 0
 45 0 0
 46 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 22 0 0
 23 0 0
 46 0 0
 47 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 21 0 0
 22 0 0
 47 0 0
 48 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 20 0 0
 21 0 0
 48 0 0
 49 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 20 0 0
 49 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 49 0 0
 50 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 49 0 0
 48 0 0
 51 0 0
 50 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 48 0 0
 47 0 0
 52 0 0
 51 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 47 0 0
 46 0 0
 53 0 0
 52 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 46 0 0
 45 0 0
 54 0 0
 53 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 45 0 0
 44 0 0
 55 0 0
 54 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 44 0 0
 43 0 0
 56 0 0
 55 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 43 0 0
 42 0 0
 57 0 0
 56 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 42 0 0
 41 0 0
 58 0 0
 57 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 41 0 0
 40 0 0
 59 0 0
 58 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 40 0 0
 39 0 0
 60 0 0
 59 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 39 0 0
 38 0 0
 61 0 0
 60 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 38 0 0
 37 0 0
 62 0 0
 61 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 37 0 0
 36 0 0
 63 0 0
 62 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 36 0 0
 35 0 0
 64 0 0
 63 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 35 0 0
 4 0 0
 64 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 64 0 0
 4 0 0
 65 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 63 0 0
 64 0 0
 65 0 0
 66 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 62 0 0
 63 0 0
 66 0 0
 67 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 61 0 0
 62 0 0
 67 0 0
 68 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 60 0 0
 61 0 0
 68 0 0
 69 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 59 0 0
 60 0 0
 69 0 0
 70 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 58 0 0
 59 0 0
 70 0 0
 71 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 57 0 0
 58 0 0
 71 0 0
 72 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 56 0 0
 57 0 0
 72 0 0
 73 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 55 0 0
 56 0 0
 73 0 0
 74 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 54 0 0
 55 0 0
 74 0 0
 75 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 53 0 0
 54 0 0
 75 0 0
 76 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 52 0 0
 53 0 0
 76 0 0
 77 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 51 0 0
 52 0 0
 77 0 0
 78 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 50 0 0
 51 0 0
 78 0 0
 79 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 50 0 0
 79 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 79 0 0
 80 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 79 0 0
 78 0 0
 81 0 0
 80 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 78 0 0
 77 0 0
 82 0 0
 81 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 77 0 0
 76 0 0
 83 0 0
 82 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 76 0 0
 75 0 0
 84 0 0
 83 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 75 0 0
 74 0 0
 85 0 0
 84 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 74 0 0
 73 0 0
 86 0 0
 85 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 73 0 0
 72 0 0
 87 0 0
 86 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 72 0 0
 71 0 0
 88 0 0
 87 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 71 0 0
 70 0 0
 89 0 0
 88 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 70 0 0
 69 0 0
 90 0 0
 89 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 69 0 0
 68 0 0
 91 0 0
 90 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 68 0 0
 67 0 0
 92 0 0
 91 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 67 0 0
 66 0 0
 93 0 0
 92 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 66 0 0
 65 0 0
 94 0 0
 93 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 65 0 0
 4 0 0
 94 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 94 0 0
 4 0 0
 95 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 93 0 0
 94 0 0
 95 0 0
 96 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 92 0 0
 93 0 0
 96 0 0
 97 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 91 0 0
 92 0 0
 97 0 0
 98 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 90 0 0
 91 0 0
 98 0 0
 99 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 89 0 0
 90 0 0
 99 0 0
 100 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 88 0 0
 89 0 0
 100 0 0
 101 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 87 0 0
 88 0 0
 101 0 0
 102 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 86 0 0
 87 0 0
 102 0 0
 103 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 85 0 0
 86 0 0
 103 0 0
 104 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 84 0 0
 85 0 0
 104 0 0
 105 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 83 0 0
 84 0 0
 105 0 0
 106 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 82 0 0
 83 0 0
 106 0 0
 107 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 81 0 0
 82 0 0
 107 0 0
 108 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 80 0 0
 81 0 0
 108 0 0
 109 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 80 0 0
 109 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 109 0 0
 110 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 109 0 0
 108 0 0
 111 0 0
 110 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 108 0 0
 107 0 0
 112 0 0
 111 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 107 0 0
 106 0 0
 113 0 0
 112 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 106 0 0
 105 0 0
 114 0 0
 113 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 105 0 0
 104 0 0
 115 0 0
 114 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 104 0 0
 103 0 0
 116 0 0
 115 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 103 0 0
 102 0 0
 117 0 0
 116 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 102 0 0
 101 0 0
 118 0 0
 117 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 101 0 0
 100 0 0
 119 0 0
 118 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 100 0 0
 99 0 0
 120 0 0
 119 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 99 0 0
 98 0 0
 121 0 0
 120 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 98 0 0
 97 0 0
 122 0 0
 121 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 97 0 0
 96 0 0
 123 0 0
 122 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 96 0 0
 95 0 0
 124 0 0
 123 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 95 0 0
 4 0 0
 124 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 124 0 0
 4 0 0
 125 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 123 0 0
 124 0 0
 125 0 0
 126 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 122 0 0
 123 0 0
 126 0 0
 127 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 121 0 0
 122 0 0
 127 0 0
 128 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 120 0 0
 121 0 0
 128 0 0
 129 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 119 0 0
 120 0 0
 129 0 0
 130 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 118 0 0
 119 0 0
 130 0 0
 131 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 117 0 0
 118 0 0
 131 0 0
 132 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 116 0 0
 117 0 0
 132 0 0
 133 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 115 0 0
 116 0 0
 133 0 0
 134 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 114 0 0
 115 0 0
 134 0 0
 135 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 113 0 0
 114 0 0
 135 0 0
 136 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 112 0 0
 113 0 0
 136 0 0
 137 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 111 0 0
 112 0 0
 137 0 0
 138 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 110 0 0
 111 0 0
 138 0 0
 139 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 110 0 0
 139 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 139 0 0
 140 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 139 0 0
 138 0 0
 141 0 0
 140 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 138 0 0
 137 0 0
 142 0 0
 141 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 137 0 0
 136 0 0
 143 0 0
 142 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 136 0 0
 135 0 0
 144 0 0
 143 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 135 0 0
 134 0 0
 145 0 0
 144 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 134 0 0
 133 0 0
 146 0 0
 145 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 133 0 0
 132 0 0
 147 0 0
 146 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 132 0 0
 131 0 0
 148 0 0
 147 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 131 0 0
 130 0 0
 149 0 0
 148 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 130 0 0
 129 0 0
 150 0 0
 149 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 129 0 0
 128 0 0
 151 0 0
 150 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 128 0 0
 127 0 0
 152 0 0
 151 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 127 0 0
 126 0 0
 153 0 0
 152 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 126 0 0
 125 0 0
 154 0 0
 153 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 125 0 0
 4 0 0
 154 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 154 0 0
 4 0 0
 155 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 153 0 0
 154 0 0
 155 0 0
 156 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 152 0 0
 153 0 0
 156 0 0
 157 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 151 0 0
 152 0 0
 157 0 0
 158 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 150 0 0
 151 0 0
 158 0 0
 159 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 149 0 0
 150 0 0
 159 0 0
 160 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 148 0 0
 149 0 0
 160 0 0
 161 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 147 0 0
 148 0 0
 161 0 0
 162 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 146 0 0
 147 0 0
 162 0 0
 163 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 145 0 0
 146 0 0
 163 0 0
 164 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 144 0 0
 145 0 0
 164 0 0
 165 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 143 0 0
 144 0 0
 165 0 0
 166 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 142 0 0
 143 0 0
 166 0 0
 167 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 141 0 0
 142 0 0
 167 0 0
 168 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 140 0 0
 141 0 0
 168 0 0
 169 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 140 0 0
 169 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 169 0 0
 170 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 169 0 0
 168 0 0
 171 0 0
 170 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 168 0 0
 167 0 0
 172 0 0
 171 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 167 0 0
 166 0 0
 173 0 0
 172 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 166 0 0
 165 0 0
 174 0 0
 173 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 165 0 0
 164 0 0
 175 0 0
 174 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 164 0 0
 163 0 0
 176 0 0
 175 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 163 0 0
 162 0 0
 177 0 0
 176 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 162 0 0
 161 0 0
 178 0 0
 177 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 161 0 0
 160 0 0
 179 0 0
 178 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 160 0 0
 159 0 0
 180 0 0
 179 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 159 0 0
 158 0 0
 181 0 0
 180 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 158 0 0
 157 0 0
 182 0 0
 181 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 157 0 0
 156 0 0
 183 0 0
 182 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 156 0 0
 155 0 0
 184 0 0
 183 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 155 0 0
 4 0 0
 184 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 184 0 0
 4 0 0
 185 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 183 0 0
 184 0 0
 185 0 0
 186 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 182 0 0
 183 0 0
 186 0 0
 187 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 181 0 0
 182 0 0
 187 0 0
 188 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 180 0 0
 181 0 0
 188 0 0
 189 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 179 0 0
 180 0 0
 189 0 0
 190 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 178 0 0
 179 0 0
 190 0 0
 191 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 177 0 0
 178 0 0
 191 0 0
 192 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 176 0 0
 177 0 0
 192 0 0
 193 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 175 0 0
 176 0 0
 193 0 0
 194 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 174 0 0
 175 0 0
 194 0 0
 195 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 173 0 0
 174 0 0
 195 0 0
 196 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 172 0 0
 173 0 0
 196 0 0
 197 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 171 0 0
 172 0 0
 197 0 0
 198 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 170 0 0
 171 0 0
 198 0 0
 199 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 170 0 0
 199 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 199 0 0
 200 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 199 0 0
 198 0 0
 201 0 0
 200 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 198 0 0
 197 0 0
 202 0 0
 201 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 197 0 0
 196 0 0
 203 0 0
 202 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 196 0 0
 195 0 0
 204 0 0
 203 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 195 0 0
 194 0 0
 205 0 0
 204 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 194 0 0
 193 0 0
 206 0 0
 205 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 193 0 0
 192 0 0
 207 0 0
 206 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 192 0 0
 191 0 0
 208 0 0
 207 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 191 0 0
 190 0 0
 209 0 0
 208 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 190 0 0
 189 0 0
 210 0 0
 209 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 189 0 0
 188 0 0
 211 0 0
 210 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 188 0 0
 187 0 0
 212 0 0
 211 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 187 0 0
 186 0 0
 213 0 0
 212 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 186 0 0
 185 0 0
 214 0 0
 213 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 185 0 0
 4 0 0
 214 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 214 0 0
 4 0 0
 215 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 213 0 0
 214 0 0
 215 0 0
 216 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 212 0 0
 213 0 0
 216 0 0
 217 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 211 0 0
 212 0 0
 217 0 0
 218 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 210 0 0
 211 0 0
 218 0 0
 219 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 209 0 0
 210 0 0
 219 0 0
 220 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 208 0 0
 209 0 0
 220 0 0
 221 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 207 0 0
 208 0 0
 221 0 0
 222 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 206 0 0
 207 0 0
 222 0 0
 223 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 205 0 0
 206 0 0
 223 0 0
 224 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 204 0 0
 205 0 0
 224 0 0
 225 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 203 0 0
 204 0 0
 225 0 0
 226 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 202 0 0
 203 0 0
 226 0 0
 227 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 201 0 0
 202 0 0
 227 0 0
 228 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 200 0 0
 201 0 0
 228 0 0
 229 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 200 0 0
 229 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 0 0 0
 229 0 0
 1 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 229 0 0
 228 0 0
 2 0 0
 1 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 228 0 0
 227 0 0
 3 0 0
 2 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 227 0 0
 226 0 0
 230 0 0
 3 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 226 0 0
 225 0 0
 231 0 0
 230 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 225 0 0
 224 0 0
 232 0 0
 231 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 224 0 0
 223 0 0
 233 0 0
 232 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 223 0 0
 222 0 0
 234 0 0
 233 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 222 0 0
 221 0 0
 235 0 0
 234 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 221 0 0
 220 0 0
 236 0 0
 235 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 220 0 0
 219 0 0
 237 0 0
 236 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 219 0 0
 218 0 0
 238 0 0
 237 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 218 0 0
 217 0 0
 239 0 0
 238 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 217 0 0
 216 0 0
 240 0 0
 239 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 4
 216 0 0
 215 0 0
 241 0 0
 240 0 0
 SURF 0x10
-mat 1
+mat 3
 refs 3
 215 0 0
 4 0 0
@@ -4027,7 +4029,7 @@ refs 3
 kids 0
 OBJECT poly
 name "PedalL"
-loc -17.071684 0.084079 -0.080475
+loc -17.107027 0.024079 -0.080475
 data 6
 PedalL
 texture "cockpit.png"
@@ -5442,7 +5444,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PedalR"
-loc -17.071684 0.084079 -0.381529
+loc -17.107027 0.024079 -0.381529
 data 6
 PedalR
 texture "cockpit.png"
@@ -10482,7 +10484,7 @@ interieur
 texture "cockpit.png"
 texrep 1 1
 crease 45.000001
-numvert 180
+numvert 186
 -17.051659 1.494259 1.063334
 -17.051659 1.494259 -1.063334
 -17.03422 1.71789 0.915927
@@ -10496,12 +10498,12 @@ numvert 180
 -17.03422 2.038378 -0
 -17.031832 1.272206 1.223476
 -17.031832 1.272206 -1.223476
--17.908781 1.0608 1.065753
--17.908781 1.0608 -1.065753
+-17.847584 1.0608 1.065753
+-17.847584 1.0608 -1.065753
 -17.882404 0.505289 1.155988
 -17.882404 0.505289 -1.155988
--17.943451 1.298526 0.954263
--17.943451 1.298526 -0.954263
+-17.882254 1.298526 0.954263
+-17.882254 1.298526 -0.954263
 -18.414009 0.505289 1.030145
 -18.414009 0.505289 -1.030145
 -18.389246 0.840382 1.005921
@@ -10523,24 +10525,24 @@ numvert 180
 -19.259693 1.001971 -0
 -19.096027 0.820718 0.708166
 -19.096027 0.820718 -0.708166
--18.753897 0.505289 0.936656
--18.753897 0.505289 -0.936656
+-18.700615 0.58425 0.882057
+-18.700615 0.58425 -0.882057
 -18.756792 0.939204 0.81876
 -18.756792 0.939204 -0.81876
--19.809038 0.326436 -0.002056
--19.809038 0.326436 0.002056
--19.809038 0.333814 -0.002056
--19.809038 0.333814 0.002056
--19.809038 0.333681 -0.002056
--19.809038 0.333681 0.002056
--19.809038 0.332974 -0.002056
--19.809038 0.332974 0.002056
--19.809038 0.323946 -0.002056
--19.809038 0.323946 0.002056
--19.809038 0.33161 -0.002056
--19.809038 0.33161 0.002056
--19.809038 0.329224 -0.002056
--19.809038 0.329224 0.002056
+-19.809038 0.245446 -0.002056
+-19.809038 0.245446 0.002056
+-19.809038 0.252824 -0.002056
+-19.809038 0.252824 0.002056
+-19.809038 0.252691 -0.002056
+-19.809038 0.252691 0.002056
+-19.809038 0.251984 -0.002056
+-19.809038 0.251984 0.002056
+-19.809038 0.242956 -0.002056
+-19.809038 0.242956 0.002056
+-19.809038 0.25062 -0.002056
+-19.809038 0.25062 0.002056
+-19.809038 0.248235 -0.002056
+-19.809038 0.248235 0.002056
 -18.868538 0.505289 0.894142
 -18.868538 0.505289 -0.894142
 -18.907024 0.98956 0.73096
@@ -10549,116 +10551,122 @@ numvert 180
 -17.032681 1.609297 -1.015705
 -19.03973 0.991516 0.496248
 -19.03973 0.991516 -0.496248
--19.809038 0.330451 -0.002056
--19.809038 0.330451 0.002056
+-19.809038 0.249462 -0.002056
+-19.809038 0.249462 0.002056
 -17.03422 1.81011 0.794935
 -17.03422 1.81011 -0.794935
 -17.03422 1.955854 0.5027
 -17.03422 1.955854 -0.5027
--18.868538 0.314876 0.849603
--18.868538 0.314876 -0.849603
--19.809038 0.314242 -0.007233
--19.809038 0.314242 0.007233
--18.753897 0.314876 0.892117
--18.753897 0.314876 -0.892117
--19.097036 0.314876 0.76729
--19.097036 0.314876 -0.76729
--18.956785 0.314876 0.81703
--18.956785 0.314876 -0.81703
--18.414009 0.314876 0.985606
--18.414009 0.314876 -0.985606
--17.929565 0.314876 1.111449
--17.929565 0.314876 -1.111449
--17.032757 0.314876 1.296966
--17.032757 0.314876 -1.296966
--17.032757 0.314876 -0.003412
--17.032757 0.314876 0.003412
--17.929565 0.314876 -0.003412
--17.929565 0.314876 0.003412
--18.414009 0.314876 -0.003412
--18.414009 0.314876 0.003412
--18.956785 0.314876 -0.003412
--18.956785 0.314876 0.003412
--19.097036 0.314876 -0.003412
--19.097036 0.314876 0.003412
--18.753897 0.314876 -0.003412
--18.753897 0.314876 0.003412
--18.868538 0.314876 -0.003412
--18.868538 0.314876 0.003412
--17.0333 0.251709 0.019826
--17.0333 0.251709 -0.019826
--17.033325 0.28126 0.006372
--17.033325 0.28126 -0.006372
--17.033325 0.278791 0.011322
--17.033325 0.278791 -0.011322
--17.033298 0.275389 0.015062
--17.033298 0.275389 -0.015062
--17.033285 0.26968 0.018803
--17.033285 0.26968 -0.018803
--17.033325 0.282658 -0.002143
--17.033325 0.282658 0.002143
--17.033325 0.282223 0.003228
--17.033325 0.282223 -0.003228
--17.033325 0.280088 0.008942
--17.033325 0.280088 -0.008942
--17.0333 0.256689 0.02058
--17.0333 0.256689 -0.02058
--17.033325 0.277229 0.013372
--17.033325 0.277229 -0.013372
--17.033272 0.273441 0.016852
--17.033272 0.273441 -0.016852
--17.656721 1.068787 0.940784
--17.656721 1.068787 -0.940784
+-18.868538 0.233887 0.849603
+-18.868538 0.233887 -0.849603
+-19.809038 0.233253 -0.007233
+-19.809038 0.233253 0.007233
+-18.753897 0.233887 0.892117
+-18.753897 0.233887 -0.892117
+-19.097036 0.233887 0.76729
+-19.097036 0.233887 -0.76729
+-18.956785 0.233887 0.81703
+-18.956785 0.233887 -0.81703
+-18.414009 0.233887 0.985606
+-18.414009 0.233887 -0.985606
+-17.929565 0.233887 1.111449
+-17.929565 0.233887 -1.111449
+-17.032757 0.233887 1.296966
+-17.032757 0.233887 -1.296966
+-17.032757 0.233887 -0.003412
+-17.032757 0.233887 0.003412
+-17.929565 0.233887 -0.003412
+-17.929565 0.233887 0.003412
+-18.414009 0.233887 -0.003412
+-18.414009 0.233887 0.003412
+-18.956785 0.233887 -0.003412
+-18.956785 0.233887 0.003412
+-19.097036 0.233887 -0.003412
+-19.097036 0.233887 0.003412
+-18.753897 0.233887 -0.003412
+-18.753897 0.233887 0.003412
+-18.868538 0.233887 -0.003412
+-18.868538 0.233887 0.003412
+-17.0333 0.170719 0.019826
+-17.0333 0.170719 -0.019826
+-17.033325 0.20027 0.006372
+-17.033325 0.20027 -0.006372
+-17.033325 0.197801 0.011322
+-17.033325 0.197801 -0.011322
+-17.033298 0.1944 0.015062
+-17.033298 0.1944 -0.015062
+-17.033285 0.18869 0.018803
+-17.033285 0.18869 -0.018803
+-17.033325 0.201668 -0.002143
+-17.033325 0.201668 0.002143
+-17.033325 0.201233 0.003228
+-17.033325 0.201233 -0.003228
+-17.033325 0.199098 0.008942
+-17.033325 0.199098 -0.008942
+-17.0333 0.175699 0.02058
+-17.0333 0.175699 -0.02058
+-17.033325 0.196239 0.013372
+-17.033325 0.196239 -0.013372
+-17.033272 0.192451 0.016852
+-17.033272 0.192451 -0.016852
+-17.753836 1.147748 0.988357
+-17.753836 1.147748 -0.988357
 -17.850304 0.539597 1.031575
 -17.850304 0.539597 -1.031575
 -17.690054 1.511598 0.824009
 -17.690054 1.511598 -0.824009
--17.897465 0.314876 0.987036
--17.897465 0.314876 -0.987036
--17.897465 0.314876 -0.003412
--17.897465 0.314876 0.003412
--17.64282 1.071398 0.937198
--17.64282 1.071398 -0.937198
+-17.897465 0.233887 0.987036
+-17.897465 0.233887 -0.987036
+-17.897465 0.233887 -0.003412
+-17.897465 0.233887 0.003412
+-17.739935 1.150359 0.984772
+-17.739935 1.150359 -0.984772
 -17.836739 0.539597 1.028171
 -17.836739 0.539597 -1.028171
 -17.675714 1.514016 0.820379
 -17.675714 1.514016 -0.820379
--17.8839 0.314876 0.983632
--17.8839 0.314876 -0.983632
--17.886969 0.314876 -0.003412
--17.886969 0.314876 0.003412
--17.908781 1.0608 1.065753
--17.908781 1.0608 -1.065753
+-17.8839 0.233887 0.983632
+-17.8839 0.233887 -0.983632
+-17.886969 0.233887 -0.003412
+-17.886969 0.233887 0.003412
+-17.847584 1.0608 1.065753
+-17.847584 1.0608 -1.065753
+-17.847584 1.0608 1.065753
+-17.847584 1.0608 -1.065753
+-17.753836 1.147748 0.988357
+-17.753836 1.147748 -0.988357
+-17.850304 0.539597 1.031575
+-17.850304 0.539597 -1.031575
+-17.897465 0.233887 0.987036
+-17.897465 0.233887 -0.987036
+-17.897465 0.233887 0.987036
+-17.897465 0.233887 -0.987036
+-17.929565 0.233887 1.111449
+-17.929565 0.233887 -1.111449
+-17.929565 0.233887 1.111449
+-17.929565 0.233887 -1.111449
 -17.882404 0.505289 1.155988
 -17.882404 0.505289 -1.155988
--17.929565 0.314876 1.111449
--17.929565 0.314876 -1.111449
--17.929565 0.314876 1.111449
--17.929565 0.314876 -1.111449
--18.414009 0.314876 0.985606
--18.414009 0.314876 -0.985606
--18.753897 0.314876 0.892117
--18.753897 0.314876 -0.892117
--18.868538 0.314876 0.849603
--18.868538 0.314876 -0.849603
--18.956785 0.314876 0.81703
--18.956785 0.314876 -0.81703
--19.097036 0.314876 0.76729
--19.097036 0.314876 -0.76729
--19.809038 0.314242 -0.007233
--19.809038 0.314242 0.007233
--17.897465 0.314876 0.987036
--17.897465 0.314876 -0.987036
--17.897465 0.314876 0.987036
--17.897465 0.314876 -0.987036
--17.8839 0.314876 0.983632
--17.8839 0.314876 -0.983632
--17.032757 0.314876 1.296966
--17.032757 0.314876 -1.296966
+-18.414009 0.233887 0.985606
+-18.414009 0.233887 -0.985606
+-18.753897 0.233887 0.892117
+-18.753897 0.233887 -0.892117
+-18.868538 0.233887 0.849603
+-18.868538 0.233887 -0.849603
+-18.956785 0.233887 0.81703
+-18.956785 0.233887 -0.81703
+-19.097036 0.233887 0.76729
+-19.097036 0.233887 -0.76729
+-19.809038 0.233253 -0.007233
+-19.809038 0.233253 0.007233
+-17.8839 0.233887 0.983632
+-17.8839 0.233887 -0.983632
+-17.032757 0.233887 1.296966
+-17.032757 0.233887 -1.296966
 -17.032757 0.505289 1.341505
 -17.032757 0.505289 -1.341505
--17.032757 0.314876 1.296966
--17.032757 0.314876 -1.296966
+-17.032757 0.233887 1.296966
+-17.032757 0.233887 -1.296966
 -17.031832 1.272206 1.223476
 -17.031832 1.272206 -1.223476
 -17.051659 1.494259 1.063334
@@ -10670,14 +10678,14 @@ refs 4
 15 0.042153775692 0.185780137777
 19 0.059511989355 0.185780137777
 21 0.058703392744 0.197651594877
-13 0.043015062809 0.203918904066
+146 0.043015062809 0.203918904066
 SURF 0x10
 mat 0
 refs 4
 22 0.058703392744 0.197651594877
 20 0.059511989355 0.185780137777
 16 0.042153775692 0.185780137777
-14 0.043015062809 0.203918904066
+147 0.043015062809 0.203918904066
 SURF 0x10
 mat 0
 refs 3
@@ -10931,84 +10939,84 @@ refs 4
 SURF 0x10
 mat 0
 refs 4
-156 0.074353426695 0.17618021369
-154 0.070610105991 0.17618021369
+166 0.074353426695 0.17618021369
+164 0.070610105991 0.17618021369
 98 0.070610105991 0.176180154085
 100 0.074353426695 0.176180154085
 SURF 0x10
 mat 0
 refs 4
 99 0.070610105991 0.176180154085
-155 0.070610105991 0.17618021369
-157 0.074353426695 0.17618021369
+165 0.070610105991 0.17618021369
+167 0.074353426695 0.17618021369
 101 0.074353426695 0.176180154085
 SURF 0x10
 mat 0
 refs 4
-160 0.081814438105 0.17618021369
-158 0.077234953642 0.17618021369
+170 0.081814438105 0.17618021369
+168 0.077234953642 0.17618021369
 94 0.077234953642 0.176180154085
 96 0.081814438105 0.176180154085
 SURF 0x10
 mat 0
 refs 4
 95 0.077234953642 0.176180154085
-159 0.077234953642 0.17618021369
-161 0.081814438105 0.17618021369
+169 0.077234953642 0.17618021369
+171 0.081814438105 0.17618021369
 97 0.081814438105 0.176180154085
 SURF 0x10
 mat 0
 refs 3
-162 0.105062991381 0.17618021369
-160 0.081814438105 0.17618021369
+172 0.105062991381 0.17618021369
+170 0.081814438105 0.17618021369
 96 0.081814438105 0.176180154085
 SURF 0x10
 mat 0
 refs 3
 97 0.081814438105 0.176180154085
-161 0.081814438105 0.17618021369
-163 0.105062991381 0.17618021369
+171 0.081814438105 0.17618021369
+173 0.105062991381 0.17618021369
 SURF 0x10
 mat 0
 refs 4
-154 0.070610105991 0.17618021369
-152 0.059511989355 0.17618021369
+164 0.070610105991 0.17618021369
+162 0.059511989355 0.17618021369
 92 0.059511989355 0.176180154085
 98 0.070610105991 0.176180154085
 SURF 0x10
 mat 0
 refs 4
 93 0.059511989355 0.176180154085
-153 0.059511989355 0.17618021369
-155 0.070610105991 0.17618021369
+163 0.059511989355 0.17618021369
+165 0.070610105991 0.17618021369
 99 0.070610105991 0.176180154085
 SURF 0x10
 mat 0
 refs 4
-158 0.077234953642 0.17618021369
-156 0.074353426695 0.17618021369
+168 0.077234953642 0.17618021369
+166 0.074353426695 0.17618021369
 100 0.074353426695 0.176180154085
 94 0.077234953642 0.176180154085
 SURF 0x10
 mat 0
 refs 4
 101 0.074353426695 0.176180154085
-157 0.074353426695 0.17618021369
-159 0.077234953642 0.17618021369
+167 0.074353426695 0.17618021369
+169 0.077234953642 0.17618021369
 95 0.077234953642 0.176180154085
 SURF 0x10
 mat 0
 refs 4
-152 0.059511989355 0.17618021369
-148 0.042153775692 0.17618021369
+162 0.059511989355 0.17618021369
+156 0.042153775692 0.17618021369
 90 0.042153775692 0.176180154085
 92 0.059511989355 0.176180154085
 SURF 0x10
 mat 0
 refs 4
 91 0.042153775692 0.176180154085
-149 0.042153775692 0.17618021369
-153 0.059511989355 0.17618021369
+157 0.042153775692 0.17618021369
+163 0.059511989355 0.17618021369
 93 0.059511989355 0.176180154085
 SURF 0x10
 mat 0
@@ -11154,14 +11162,14 @@ SURF 0x10
 mat 0
 refs 4
 126 0.079252563417 0.202564775944
-146 0.080300696194 0.202564775944
+160 0.080300696194 0.202564775944
 144 0.081161983311 0.220703542233
 124 0.080080166459 0.220964327455
 SURF 0x10
 mat 0
 refs 4
 145 0.081161983311 0.220703542233
-147 0.080300696194 0.202564775944
+161 0.080300696194 0.202564775944
 127 0.079252563417 0.202564775944
 125 0.080080166459 0.220964327455
 SURF 0x10
@@ -11169,69 +11177,69 @@ mat 0
 refs 4
 17 0.08295596391 0.22828233242
 128 0.081805408001 0.228530719876
-124 0.080080166459 0.220964327455
-144 0.081161983311 0.220703542233
+148 0.080080166459 0.220964327455
+13 0.081161983311 0.220703542233
 SURF 0x10
 mat 0
 refs 4
-125 0.080080166459 0.220964327455
+149 0.080080166459 0.220964327455
 129 0.081805408001 0.228530719876
 18 0.08295596391 0.22828233242
-145 0.081161983311 0.220703542233
+14 0.081161983311 0.220703542233
 SURF 0x10
 mat 0
 refs 4
-146 0.042153775692 0.185780137777
+160 0.042153775692 0.185780137777
 126 0.041105642915 0.185780137777
 130 0.041105642915 0.17618021369
-150 0.042153775692 0.17618021369
+158 0.042153775692 0.17618021369
 SURF 0x10
 mat 0
 refs 4
 131 0.041105642915 0.17618021369
 127 0.041105642915 0.185780137777
-147 0.042153775692 0.185780137777
-151 0.042153775692 0.17618021369
+161 0.042153775692 0.185780137777
+159 0.042153775692 0.17618021369
 SURF 0x10
 mat 0
 refs 4
-148 0.042153775692 0.17618021369
-164 0.041105642915 0.17618021369
+156 0.042153775692 0.17618021369
+152 0.041105642915 0.17618021369
 132 0.041105642915 0.176180154085
 90 0.042153775692 0.176180154085
 SURF 0x10
 mat 0
 refs 4
 133 0.041105642915 0.176180154085
-165 0.041105642915 0.17618021369
-149 0.042153775692 0.17618021369
+153 0.041105642915 0.17618021369
+157 0.042153775692 0.17618021369
 91 0.042153775692 0.176180154085
 SURF 0x10
 mat 0
 refs 4
-172 0.052557684481 0.202564775944
+178 0.052557684481 0.202564775944
 136 0.07890984416 0.202564775944
 134 0.079726435244 0.2210496068
-176 0.052527494729 0.227606475353
+182 0.052527494729 0.227606475353
 SURF 0x10
 mat 0
 refs 4
 135 0.079726435244 0.2210496068
 137 0.07890984416 0.202564775944
-173 0.052557684481 0.202564775944
-177 0.052527494729 0.227606475353
+179 0.052557684481 0.202564775944
+183 0.052527494729 0.227606475353
 SURF 0x10
 mat 0
 refs 4
 136 0.07890984416 0.202564775944
-126 0.079252563417 0.202564775944
-124 0.080080166459 0.220964327455
+150 0.079252563417 0.202564775944
+148 0.080080166459 0.220964327455
 134 0.079726435244 0.2210496068
 SURF 0x10
 mat 0
 refs 4
-125 0.080080166459 0.220964327455
-127 0.079252563417 0.202564775944
+149 0.080080166459 0.220964327455
+151 0.079252563417 0.202564775944
 137 0.07890984416 0.202564775944
 135 0.079726435244 0.2210496068
 SURF 0x10
@@ -11240,83 +11248,83 @@ refs 4
 128 0.081805408001 0.228530719876
 138 0.081429205835 0.228611931205
 134 0.079726435244 0.2210496068
-124 0.080080166459 0.220964327455
+148 0.080080166459 0.220964327455
 SURF 0x10
 mat 0
 refs 4
 135 0.079726435244 0.2210496068
 139 0.081429205835 0.228611931205
 129 0.081805408001 0.228530719876
-125 0.080080166459 0.220964327455
+149 0.080080166459 0.220964327455
 SURF 0x10
 mat 0
 refs 4
 138 0.081429205835 0.228611931205
-178 0.052502013743 0.234857022762
-176 0.052527494729 0.227606475353
+184 0.052502013743 0.234857022762
+182 0.052527494729 0.227606475353
 134 0.079726435244 0.2210496068
 SURF 0x10
 mat 0
 refs 4
-177 0.052527494729 0.227606475353
-179 0.052502013743 0.234857022762
+183 0.052527494729 0.227606475353
+185 0.052502013743 0.234857022762
 139 0.081429205835 0.228611931205
 135 0.079726435244 0.2210496068
 SURF 0x10
 mat 0
 refs 4
-126 0.041105642915 0.185780137777
+150 0.041105642915 0.185780137777
 136 0.040762927383 0.185780137777
 140 0.040762927383 0.17618021369
-166 0.041105642915 0.17618021369
+154 0.041105642915 0.17618021369
 SURF 0x10
 mat 0
 refs 4
 141 0.040762927383 0.17618021369
 137 0.040762927383 0.185780137777
-127 0.041105642915 0.185780137777
-167 0.041105642915 0.17618021369
+151 0.041105642915 0.185780137777
+155 0.041105642915 0.17618021369
 SURF 0x10
 mat 0
 refs 4
 136 0.040762927383 0.185780137777
-172 0.014410763979 0.185780137777
-174 0.014410763979 0.17618021369
+178 0.014410763979 0.185780137777
+180 0.014410763979 0.17618021369
 140 0.040762927383 0.17618021369
 SURF 0x10
 mat 0
 refs 4
-175 0.014410763979 0.17618021369
-173 0.014410763979 0.185780137777
+181 0.014410763979 0.17618021369
+179 0.014410763979 0.185780137777
 137 0.040762927383 0.185780137777
 141 0.040762927383 0.17618021369
 SURF 0x10
 mat 0
 refs 4
-164 0.041105642915 0.17618021369
-168 0.040762927383 0.17618021369
+152 0.041105642915 0.17618021369
+174 0.040762927383 0.17618021369
 142 0.040762927383 0.176180154085
 132 0.041105642915 0.176180154085
 SURF 0x10
 mat 0
 refs 4
 143 0.040762927383 0.176180154085
-169 0.040762927383 0.17618021369
-165 0.041105642915 0.17618021369
+175 0.040762927383 0.17618021369
+153 0.041105642915 0.17618021369
 133 0.041105642915 0.176180154085
 SURF 0x10
 mat 0
 refs 4
-168 0.040762927383 0.17618021369
-170 0.014410763979 0.17618021369
+174 0.040762927383 0.17618021369
+176 0.014410763979 0.17618021369
 88 0.014410763979 0.176180154085
 142 0.040762927383 0.176180154085
 SURF 0x10
 mat 0
 refs 4
 89 0.014410763979 0.176180154085
-171 0.014410763979 0.17618021369
-169 0.040762927383 0.17618021369
+177 0.014410763979 0.17618021369
+175 0.040762927383 0.17618021369
 143 0.040762927383 0.176180154085
 kids 0
 OBJECT poly
@@ -20338,6 +20346,766 @@ refs 4
 203 0.799882948399 0.904341042042
 kids 0
 OBJECT poly
+name "panelE"
+loc -17.360897 0.523079 -1.196026
+data 6
+panelE
+texture "cockpit.png"
+texrep 1 1
+numvert 106
+0.155394 0.2318 -0.044367
+0.155394 0.2318 0.450144
+-0.523727 0.2318 0.450144
+-0.523726 0.2318 0.079128
+0.155394 0.682132 0.018245
+0.155394 0.682132 0.449912
+-0.523727 0.682132 0.449912
+-0.4988 0.682132 0.181817
+-0.511587 1.078494 0.509378
+-0.523727 1.044365 0.679804
+0.155394 1.044365 0.679804
+0.155394 1.182957 0.357836
+0.170612 1.194492 0.357836
+0.170612 1.023108 0.680878
+-0.538944 1.023108 0.680877
+-0.52733 1.090029 0.535295
+-0.514465 1.12111 0.571047
+-0.538944 1.062021 0.706946
+0.170612 1.062021 0.706946
+0.170612 1.232352 0.377594
+0.109175 1.043487 0.723888
+-0.477509 1.043487 0.723888
+-0.477509 1.012152 0.706022
+0.109175 1.012152 0.706023
+-0.523726 0.2318 0.079128
+-0.523727 0.2318 0.625307
+0.155394 0.2318 0.625307
+0.155394 0.2318 -0.044367
+0.155394 0.218043 -0.044367
+0.155394 0.218043 0.625307
+-0.523727 0.218043 0.625307
+-0.523726 0.218043 0.079128
+-0.520433 0.218043 0.628307
+0.1521 0.218043 0.628307
+0.1521 0.2318 0.628307
+-0.520433 0.2318 0.628307
+-0.514303 0.2318 0.630746
+0.145971 0.2318 0.630746
+0.145971 0.218043 0.630746
+-0.514303 0.218043 0.630746
+0.145514 0.2318 0.450144
+-0.513845 0.2318 0.450144
+0.145512 0.682132 0.449912
+-0.513845 0.682132 0.449912
+-0.482452 1.078494 0.535295
+0.127234 1.182957 0.357836
+-0.513845 1.044365 0.679804
+0.145512 1.044365 0.679804
+0.132305 1.023108 0.680878
+-0.500639 1.023108 0.680878
+0.132307 1.194492 0.357836
+-0.487701 1.090029 0.535295
+-0.476948 1.132024 0.572181
+0.132307 1.232352 0.377594
+-0.500639 1.07737 0.706946
+0.132305 1.07737 0.706946
+0.111828 1.043487 0.723888
+-0.48016 1.043487 0.723888
+-0.48016 1.012152 0.706023
+0.111828 1.012152 0.706023
+-0.495565 0.2318 0.625307
+0.127234 0.2318 0.625307
+0.126135 0.2318 0.628307
+-0.494469 0.2318 0.628307
+-0.492426 0.2318 0.630746
+0.124092 0.2318 0.630746
+0.13579 0.218043 0.630746
+-0.502041 0.218043 0.630746
+-0.502041 0.218043 0.452448
+0.13579 0.218043 0.452448
+-0.514303 0.218043 0.452448
+0.145971 0.218043 0.452448
+0.1521 0.218043 0.451365
+-0.520433 0.218043 0.451365
+-0.523726 0.218043 0.073807
+-0.523727 0.218043 0.450034
+0.155394 0.218043 0.450034
+0.155394 0.218043 -0.05933
+0.155394 -0.595818 -0.079225
+0.155394 -0.595818 0.450034
+-0.523727 -0.595818 0.450034
+-0.523726 -0.595818 0.084347
+-0.520433 -0.595818 0.451365
+0.1521 -0.595818 0.451365
+0.145971 -0.595818 0.452448
+-0.514303 -0.595818 0.452448
+0.139038 -0.595818 0.450034
+-0.505291 -0.595818 0.450034
+-0.504156 -0.595818 0.451365
+0.137903 -0.595818 0.451365
+0.13579 -0.595818 0.452448
+-0.502041 -0.595818 0.452448
+-0.502041 -0.595818 0.114075
+0.13579 -0.595818 -0.049497
+0.137903 -0.595818 -0.05058
+-0.504156 -0.595818 0.112993
+-0.505291 -0.595818 0.111661
+0.139038 -0.595818 -0.051911
+0.13579 0.218043 -0.029603
+-0.502041 0.218043 0.093892
+0.145512 0.682132 0.435366
+0.145512 1.044365 0.665258
+-0.513845 0.682132 0.435366
+-0.513845 1.044365 0.665258
+-0.513845 0.2318 0.435598
+0.145514 0.2318 0.435598
+numsurf 86
+SURF 0x10
+mat 0
+refs 4
+0 0.530063152313 0.306649744511
+4 0.530063152313 0.384883701801
+5 0.530062496662 0.384883701801
+1 0.530063152313 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+2 0.405415058136 0.306649774313
+6 0.405415058136 0.384883701801
+7 0.405415058136 0.384883701801
+3 0.405415385962 0.306649744511
+SURF 0x10
+mat 0
+refs 4
+7 0.405415058136 0.384883701801
+6 0.405415058136 0.384883701801
+9 0.405415058136 0.445118963718
+8 0.402913451195 0.462616860867
+SURF 0x10
+mat 0
+refs 4
+5 0.530062496662 0.384883701801
+4 0.530063152313 0.384883701801
+11 0.530063152313 0.478986561298
+10 0.530062496662 0.445118963718
+SURF 0x10
+mat 0
+refs 4
+10 0.530062496662 0.445118963718
+11 0.530063152313 0.478986561298
+12 0.533313155174 0.481449961662
+13 0.533312559128 0.440579235554
+SURF 0x10
+mat 0
+refs 4
+8 0.402913451195 0.462616860867
+9 0.405415058136 0.445118963718
+14 0.40216511488 0.440579295158
+15 0.399663448334 0.465080320835
+SURF 0x10
+mat 0
+refs 4
+15 0.399663448334 0.465080320835
+14 0.40216511488 0.440579295158
+17 0.40216511488 0.448889553547
+16 0.402319014072 0.471717894077
+SURF 0x10
+mat 0
+refs 4
+13 0.533312559128 0.440579235554
+12 0.533313155174 0.481449961662
+19 0.533313155174 0.494622409344
+18 0.533312559128 0.448889493942
+SURF 0x10
+mat 0
+refs 4
+13 0.533312559128 0.440579235554
+18 0.533312559128 0.448889493942
+20 0.520192325115 0.444931447506
+23 0.520192325115 0.438239574432
+SURF 0x10
+mat 0
+refs 4
+17 0.40216511488 0.448889553547
+14 0.40216511488 0.440579295158
+22 0.415285289288 0.438239574432
+21 0.415285289288 0.444931507111
+SURF 0x10
+mat 0
+refs 4
+2 0.405415058136 0.306649774313
+3 0.405415385962 0.306649744511
+24 0.405415385962 0.306649744511
+25 0.405415058136 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+0 0.530063152313 0.306649744511
+1 0.530063152313 0.306649774313
+26 0.530063152313 0.306649774313
+27 0.530063152313 0.306649744511
+SURF 0x10
+mat 0
+refs 4
+27 0.530063152313 0.306649744511
+26 0.530063152313 0.306649774313
+29 0.530063152313 0.303711771965
+28 0.530063152313 0.303711742163
+SURF 0x10
+mat 0
+refs 4
+25 0.405415058136 0.306649774313
+24 0.405415385962 0.306649744511
+31 0.405415385962 0.303711742163
+30 0.405415058136 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+29 0.530063152313 0.303711771965
+26 0.530063152313 0.306649774313
+34 0.52935987711 0.306649774313
+33 0.52935987711 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+25 0.405415058136 0.306649774313
+30 0.405415058136 0.303711771965
+32 0.406118363142 0.303711771965
+35 0.406118363142 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+35 0.406118363142 0.306649774313
+32 0.406118363142 0.303711771965
+39 0.407427310944 0.303711771965
+36 0.407427310944 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+33 0.52935987711 0.303711771965
+34 0.52935987711 0.306649774313
+37 0.528050303459 0.306649774313
+38 0.528050303459 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+5 0.530062496662 0.384883701801
+42 0.524048805237 0.384883701801
+40 0.524048805237 0.306649774313
+1 0.530063152313 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+43 0.411429107189 0.384883701801
+6 0.405415058136 0.384883701801
+2 0.405415058136 0.306649774313
+41 0.411429107189 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+6 0.405415058136 0.384883701801
+43 0.411429107189 0.384883701801
+46 0.411429107189 0.445118963718
+9 0.405415058136 0.445118963718
+SURF 0x10
+mat 0
+refs 4
+42 0.524048805237 0.384883701801
+5 0.530062496662 0.384883701801
+10 0.530062496662 0.445118963718
+47 0.524048805237 0.445118963718
+SURF 0x10
+mat 0
+refs 4
+9 0.405415058136 0.445118963718
+46 0.411429107189 0.445118963718
+49 0.410345554352 0.440579235554
+14 0.40216511488 0.440579295158
+SURF 0x10
+mat 0
+refs 4
+46 0.411429107189 0.445118963718
+47 0.524048805237 0.445118963718
+48 0.525132060051 0.440579235554
+49 0.410345554352 0.440579235554
+SURF 0x10
+mat 0
+refs 4
+47 0.524048805237 0.445118963718
+10 0.530062496662 0.445118963718
+13 0.533312559128 0.440579235554
+48 0.525132060051 0.440579235554
+SURF 0x10
+mat 0
+refs 4
+11 0.530063152313 0.478986561298
+45 0.524048805237 0.478986561298
+50 0.525132656097 0.481449961662
+12 0.533313155174 0.481449961662
+SURF 0x10
+mat 0
+refs 4
+45 0.524048805237 0.478986561298
+44 0.40892714262 0.462616860867
+51 0.407843917608 0.465080320835
+50 0.525132656097 0.481449961662
+SURF 0x10
+mat 0
+refs 4
+44 0.40892714262 0.462616860867
+8 0.402913451195 0.462616860867
+15 0.399663448334 0.465080320835
+51 0.407843917608 0.465080320835
+SURF 0x10
+mat 0
+refs 4
+19 0.533313155174 0.494622409344
+53 0.525132656097 0.494622409344
+55 0.525132060051 0.452167451382
+18 0.533312559128 0.448889493942
+SURF 0x10
+mat 0
+refs 4
+53 0.525132656097 0.494622409344
+52 0.410063356161 0.474048614502
+54 0.410345554352 0.452167451382
+55 0.525132060051 0.452167451382
+SURF 0x10
+mat 0
+refs 4
+52 0.410063356161 0.474048614502
+16 0.402319014072 0.471717894077
+17 0.40216511488 0.448889553547
+54 0.410345554352 0.452167451382
+SURF 0x10
+mat 0
+refs 4
+18 0.533312559128 0.448889493942
+55 0.525132060051 0.452167451382
+56 0.520758926868 0.444931447506
+20 0.520192325115 0.444931447506
+SURF 0x10
+mat 0
+refs 4
+55 0.525132060051 0.452167451382
+54 0.410345554352 0.452167451382
+57 0.414719283581 0.444931447506
+56 0.520758926868 0.444931447506
+SURF 0x10
+mat 0
+refs 4
+54 0.410345554352 0.452167451382
+17 0.40216511488 0.448889553547
+21 0.415285289288 0.444931507111
+57 0.414719283581 0.444931447506
+SURF 0x10
+mat 0
+refs 4
+14 0.40216511488 0.440579295158
+49 0.410345554352 0.440579235554
+58 0.414719283581 0.438239574432
+22 0.415285289288 0.438239574432
+SURF 0x10
+mat 0
+refs 4
+49 0.410345554352 0.440579235554
+48 0.525132060051 0.440579235554
+59 0.520758926868 0.438239574432
+58 0.414719283581 0.438239574432
+SURF 0x10
+mat 0
+refs 4
+48 0.525132060051 0.440579235554
+13 0.533312559128 0.440579235554
+23 0.520192325115 0.438239574432
+59 0.520758926868 0.438239574432
+SURF 0x10
+mat 0
+refs 4
+22 0.415285289288 0.438239574432
+58 0.414719283581 0.438239574432
+57 0.414719283581 0.444931447506
+21 0.415285289288 0.444931507111
+SURF 0x10
+mat 0
+refs 4
+58 0.414719283581 0.438239574432
+59 0.520758926868 0.438239574432
+56 0.520758926868 0.444931447506
+57 0.414719283581 0.444931447506
+SURF 0x10
+mat 0
+refs 4
+59 0.520758926868 0.438239574432
+23 0.520192325115 0.438239574432
+20 0.520192325115 0.444931447506
+56 0.520758926868 0.444931447506
+SURF 0x10
+mat 0
+refs 4
+1 0.530063152313 0.306649774313
+40 0.524048805237 0.306649774313
+61 0.524048805237 0.306649774313
+26 0.530063152313 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+40 0.524048805237 0.306649774313
+41 0.411429107189 0.306649774313
+60 0.411429107189 0.306649774313
+61 0.524048805237 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+41 0.411429107189 0.306649774313
+2 0.405415058136 0.306649774313
+25 0.405415058136 0.306649774313
+60 0.411429107189 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+26 0.530063152313 0.306649774313
+61 0.524048805237 0.306649774313
+62 0.523814797401 0.306649774313
+34 0.52935987711 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+61 0.524048805237 0.306649774313
+60 0.411429107189 0.306649774313
+63 0.411663413048 0.306649774313
+62 0.523814797401 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+60 0.411429107189 0.306649774313
+25 0.405415058136 0.306649774313
+35 0.406118363142 0.306649774313
+63 0.411663413048 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+34 0.52935987711 0.306649774313
+62 0.523814797401 0.306649774313
+65 0.523378372192 0.306649774313
+37 0.528050303459 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+62 0.523814797401 0.306649774313
+63 0.411663413048 0.306649774313
+64 0.412099838257 0.306649774313
+65 0.523378372192 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+63 0.411663413048 0.306649774313
+35 0.406118363142 0.306649774313
+36 0.407427310944 0.306649774313
+64 0.412099838257 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+37 0.528050303459 0.306649774313
+65 0.523378372192 0.306649774313
+66 0.523378372192 0.303711771965
+38 0.528050303459 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+65 0.523378372192 0.306649774313
+64 0.412099838257 0.306649774313
+67 0.412099838257 0.303711771965
+66 0.523378372192 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+64 0.412099838257 0.306649774313
+36 0.407427310944 0.306649774313
+39 0.407427310944 0.303711771965
+67 0.412099838257 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+67 0.412099838257 0.303711771965
+39 0.407427310944 0.303711771965
+70 0.407427310944 0.303711771965
+68 0.412099838257 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+66 0.523378372192 0.303711771965
+67 0.412099838257 0.303711771965
+68 0.412099838257 0.303711771965
+69 0.523378372192 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+38 0.528050303459 0.303711771965
+66 0.523378372192 0.303711771965
+69 0.523378372192 0.303711771965
+71 0.528050303459 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+33 0.52935987711 0.303711771965
+38 0.528050303459 0.303711771965
+71 0.528050303459 0.303711771965
+72 0.52935987711 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+39 0.407427310944 0.303711771965
+32 0.406118363142 0.303711771965
+73 0.406118363142 0.303711771965
+70 0.407427310944 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+32 0.406118363142 0.303711771965
+30 0.405415058136 0.303711771965
+75 0.405415058136 0.303711771965
+73 0.406118363142 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+29 0.530063152313 0.303711771965
+33 0.52935987711 0.303711771965
+72 0.52935987711 0.303711771965
+76 0.530063152313 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+30 0.405415058136 0.303711771965
+31 0.405415385962 0.303711742163
+74 0.405415385962 0.303711742163
+75 0.405415058136 0.303711771965
+SURF 0x10
+mat 0
+refs 4
+28 0.530063152313 0.303711742163
+29 0.530063152313 0.303711771965
+76 0.530063152313 0.303711771965
+77 0.530063152313 0.303711742163
+SURF 0x10
+mat 0
+refs 4
+77 0.530063152313 0.303711742163
+76 0.530063152313 0.303711771965
+79 0.530063152313 0.129905343056
+78 0.530063152313 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+75 0.405415058136 0.303711771965
+74 0.405415385962 0.303711742163
+81 0.405415385962 0.129905343056
+80 0.405415058136 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+76 0.530063152313 0.303711771965
+72 0.52935987711 0.303711771965
+83 0.52935987711 0.129905343056
+79 0.530063152313 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+73 0.406118363142 0.303711771965
+75 0.405415058136 0.303711771965
+80 0.405415058136 0.129905343056
+82 0.406118363142 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+70 0.407427310944 0.303711771965
+73 0.406118363142 0.303711771965
+82 0.406118363142 0.129905343056
+85 0.407427310944 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+72 0.52935987711 0.303711771965
+71 0.528050303459 0.303711771965
+84 0.528050303459 0.129905343056
+83 0.52935987711 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+71 0.528050303459 0.303711771965
+69 0.523378372192 0.303711771965
+90 0.523378372192 0.129905343056
+84 0.528050303459 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+68 0.412099838257 0.303711771965
+70 0.407427310944 0.303711771965
+85 0.407427310944 0.129905343056
+91 0.412099838257 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+80 0.405415058136 0.129905343056
+87 0.411429107189 0.129905343056
+88 0.411663413048 0.129905343056
+82 0.406118363142 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+86 0.524048805237 0.129905343056
+79 0.530063152313 0.129905343056
+83 0.52935987711 0.129905343056
+89 0.523814797401 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+82 0.406118363142 0.129905343056
+88 0.411663413048 0.129905343056
+91 0.412099838257 0.129905343056
+85 0.407427310944 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+89 0.523814797401 0.129905343056
+83 0.52935987711 0.129905343056
+84 0.528050303459 0.129905343056
+90 0.523378372192 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+89 0.523814797401 0.129905343056
+90 0.523378372192 0.129905343056
+93 0.523378372192 0.129905343056
+94 0.523814797401 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+91 0.412099838257 0.129905343056
+88 0.411663413048 0.129905343056
+95 0.411663413048 0.129905343056
+92 0.412099838257 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+86 0.524048805237 0.129905343056
+89 0.523814797401 0.129905343056
+94 0.523814797401 0.129905343056
+97 0.524048805237 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+88 0.411663413048 0.129905343056
+87 0.411429107189 0.129905343056
+96 0.411429107189 0.129905343056
+95 0.411663413048 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+68 0.412099838257 0.303711771965
+91 0.412099838257 0.129905343056
+92 0.412099838257 0.129905343056
+99 0.412099838257 0.303711742163
+SURF 0x10
+mat 0
+refs 4
+90 0.523378372192 0.129905343056
+69 0.523378372192 0.303711771965
+98 0.523378372192 0.303711742163
+93 0.523378372192 0.129905343056
+SURF 0x10
+mat 0
+refs 4
+69 0.523378372192 0.303711771965
+68 0.412099838257 0.303711771965
+99 0.412099838257 0.303711742163
+98 0.523378372192 0.303711742163
+SURF 0x10
+mat 0
+refs 4
+42 0.411429107189 0.384883701801
+47 0.524048805237 0.384883701801
+101 0.524048805237 0.445118963718
+100 0.411429107189 0.445118963718
+SURF 0x10
+mat 0
+refs 4
+46 0.411429107189 0.384883701801
+43 0.524048805237 0.384883701801
+102 0.524048805237 0.445118963718
+103 0.411429107189 0.445118963718
+SURF 0x10
+mat 0
+refs 4
+43 0.524048805237 0.384883701801
+41 0.411429107189 0.384883701801
+104 0.411429107189 0.306649774313
+102 0.524048805237 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+40 0.524048805237 0.384883701801
+42 0.411429107189 0.384883701801
+100 0.411429107189 0.306649774313
+105 0.524048805237 0.306649774313
+SURF 0x10
+mat 0
+refs 4
+47 0.411429107189 0.384883701801
+46 0.524048805237 0.384883701801
+103 0.524048805237 0.445118963718
+101 0.411429107189 0.445118963718
+SURF 0x10
+mat 0
+refs 4
+41 0.524048805237 0.384883701801
+40 0.411429107189 0.384883701801
+105 0.411429107189 0.306649774313
+104 0.524048805237 0.306649774313
+kids 0
+OBJECT poly
+name "panelEbot"
+loc -17.360897 0.523079 -1.196026
+data 9
+panelEbot
+texture "epanelb.png"
+texrep 1 1
+numvert 4
+0.145512 0.682132 0.435366
+-0.513845 0.682132 0.435366
+-0.513845 0.2318 0.435598
+0.145514 0.2318 0.435598
+numsurf 1
+SURF 0x10
+mat 2
+refs 4
+0 0.988148093224 0.997165799141
+1 0.00434407685 0.997165799141
+2 0.004347086884 0.325243264437
+3 0.988148093224 0.325243264437
+kids 0
+OBJECT poly
+name "panelEtop"
+loc -17.360897 0.523079 -1.196026
+data 9
+panelEtop
+texture "epanelt.png"
+texrep 1 1
+numvert 4
+0.145512 0.682132 0.435366
+0.145512 1.044365 0.665258
+-0.513845 0.682132 0.435366
+-0.513845 1.044365 0.665258
+numsurf 1
+SURF 0x10
+mat 1
+refs 4
+2 0.00949216634 0.262537330389
+0 0.988960385323 0.262537330389
+1 0.988960385323 0.932800292969
+3 0.00949216634 0.93280005455
+kids 0
+OBJECT poly
 name "pedestal"
 loc -18.238588 1.032939 0.42603
 data 8
@@ -20357,78 +21125,78 @@ numvert 84
 -0.684858 -0.281099 -0.241154
 -0.50399 -0.341436 -0.245861
 -0.681644 -0.278449 -0.245861
--0.994982 -0.596869 -0.047308
--0.672905 -0.628151 -0.047308
--0.671227 -0.630161 -0.049408
--0.996662 -0.598254 -0.049407
--0.996662 -0.757214 -0.049407
--0.685633 -0.757214 -0.049408
--0.685633 -0.757214 0.103251
--0.671227 -0.630161 0.103251
--0.672905 -0.628151 0.101237
--0.996662 -0.757214 0.103251
--0.996662 -0.598254 0.103251
--0.994982 -0.596869 0.101237
--0.650606 -0.635099 0.101237
--0.648928 -0.637109 0.103251
--0.663334 -0.757214 0.103251
--0.648928 -0.637109 -0.049408
--0.663334 -0.757214 -0.049408
--0.650606 -0.635099 -0.047308
--0.625792 -0.652966 -0.047308
--0.624113 -0.654976 -0.049408
--0.638519 -0.757214 -0.049408
--0.638519 -0.757214 0.103251
--0.624113 -0.654976 0.103251
--0.625792 -0.652966 0.101237
--0.604946 -0.685721 0.101237
--0.617674 -0.757214 0.103251
--0.603268 -0.687732 0.103251
--0.603268 -0.687732 -0.049408
--0.604946 -0.685721 -0.047308
--0.617674 -0.757214 -0.049408
--0.593544 -0.725011 -0.047308
--0.591866 -0.757214 -0.049408
--0.591866 -0.727021 -0.049408
--0.591866 -0.757214 0.103251
--0.591866 -0.727021 0.103251
--0.593544 -0.725011 0.101237
--0.593544 -0.725011 -0.804555
--0.591866 -0.757214 -0.802541
--0.591866 -0.727021 -0.802541
--0.591866 -0.727021 -0.956631
--0.591866 -0.757214 -0.956631
--0.593544 -0.725011 -0.954531
--0.604946 -0.685721 -0.954531
--0.617674 -0.757214 -0.956631
--0.603268 -0.687732 -0.956631
--0.603268 -0.687732 -0.802541
--0.617674 -0.757214 -0.802541
--0.604946 -0.685721 -0.804555
--0.625792 -0.652966 -0.804555
--0.638519 -0.757214 -0.802541
--0.624113 -0.654976 -0.802541
--0.624113 -0.654976 -0.956631
--0.638519 -0.757214 -0.956631
--0.625792 -0.652966 -0.954531
--0.650606 -0.635099 -0.954531
--0.648928 -0.637109 -0.956631
--0.663334 -0.757214 -0.956631
--0.648928 -0.637109 -0.802541
--0.663334 -0.757214 -0.802541
--0.650606 -0.635099 -0.804555
--0.994982 -0.596869 -0.804555
--0.672905 -0.628151 -0.804555
--0.671227 -0.630161 -0.802541
--0.996662 -0.598254 -0.802541
--0.996662 -0.757214 -0.802541
--0.685633 -0.757214 -0.802541
--0.996662 -0.757214 -0.956631
--0.996662 -0.598254 -0.956631
--0.671227 -0.630161 -0.956631
--0.685633 -0.757214 -0.956631
--0.672905 -0.628151 -0.954531
--0.994982 -0.596869 -0.954531
+-0.994982 -0.645066 -0.047308
+-0.672905 -0.676347 -0.047308
+-0.671227 -0.678358 -0.049408
+-0.996662 -0.64645 -0.049407
+-0.996662 -0.805411 -0.049407
+-0.685633 -0.805411 -0.049408
+-0.685633 -0.805411 0.103251
+-0.671227 -0.678358 0.103251
+-0.672905 -0.676347 0.101237
+-0.996662 -0.805411 0.103251
+-0.996662 -0.64645 0.103251
+-0.994982 -0.645066 0.101237
+-0.650606 -0.683295 0.101237
+-0.648928 -0.685306 0.103251
+-0.663334 -0.805411 0.103251
+-0.648928 -0.685306 -0.049408
+-0.663334 -0.805411 -0.049408
+-0.650606 -0.683295 -0.047308
+-0.625792 -0.701162 -0.047308
+-0.624113 -0.703172 -0.049408
+-0.638519 -0.805411 -0.049408
+-0.638519 -0.805411 0.103251
+-0.624113 -0.703173 0.103251
+-0.625792 -0.701162 0.101237
+-0.604946 -0.733918 0.101237
+-0.617674 -0.805411 0.103251
+-0.603268 -0.735928 0.103251
+-0.603268 -0.735928 -0.049408
+-0.604946 -0.733918 -0.047308
+-0.617674 -0.805411 -0.049408
+-0.593544 -0.773207 -0.047308
+-0.591866 -0.805411 -0.049408
+-0.591866 -0.775218 -0.049408
+-0.591866 -0.805411 0.103251
+-0.591866 -0.775218 0.103251
+-0.593544 -0.773207 0.101237
+-0.593544 -0.773207 -0.804555
+-0.591866 -0.805411 -0.802541
+-0.591866 -0.775218 -0.802541
+-0.591866 -0.775218 -0.956631
+-0.591866 -0.805411 -0.956631
+-0.593544 -0.773207 -0.954531
+-0.604946 -0.733918 -0.954531
+-0.617674 -0.805411 -0.956631
+-0.603268 -0.735928 -0.956631
+-0.603268 -0.735928 -0.802541
+-0.617674 -0.805411 -0.802541
+-0.604946 -0.733918 -0.804555
+-0.625792 -0.701162 -0.804555
+-0.638519 -0.805411 -0.802541
+-0.624113 -0.703173 -0.802541
+-0.624113 -0.703173 -0.956631
+-0.638519 -0.805411 -0.956631
+-0.625792 -0.701162 -0.954531
+-0.650606 -0.683295 -0.954531
+-0.648928 -0.685306 -0.956631
+-0.663334 -0.805411 -0.956631
+-0.648928 -0.685306 -0.802541
+-0.663334 -0.805411 -0.802541
+-0.650606 -0.683295 -0.804555
+-0.994982 -0.645066 -0.804555
+-0.672905 -0.676347 -0.804555
+-0.671227 -0.678358 -0.802541
+-0.996662 -0.64645 -0.802541
+-0.996662 -0.805411 -0.802541
+-0.685633 -0.805411 -0.802541
+-0.996662 -0.805411 -0.956631
+-0.996662 -0.64645 -0.956631
+-0.671227 -0.678358 -0.956631
+-0.685633 -0.805411 -0.956631
+-0.672905 -0.676347 -0.954531
+-0.994982 -0.645066 -0.954531
 numsurf 64
 SURF 0x10
 mat 0
@@ -28829,7 +29597,7 @@ window.side
 texture "cockpit.png"
 texrep 1 1
 crease 45.000001
-numvert 751
+numvert 770
 -18.291 1.278699 0.838526
 -18.291 1.278699 -0.838526
 -18.28252 1.279454 0.841328
@@ -29396,22 +30164,22 @@ numvert 751
 -18.341133 0.749788 -0.862813
 -18.353144 0.753154 0.857864
 -18.353144 0.753154 -0.857864
--17.485443 1.080259 1.111588
--17.485443 1.080259 -1.111588
--17.491186 1.089622 1.131888
--17.491186 1.089622 -1.131888
--17.49328 1.088986 1.136899
--17.49328 1.088986 -1.136899
--17.497652 1.077156 1.141119
--17.497652 1.077156 -1.141119
--17.497377 1.072866 1.137866
--17.497377 1.072866 -1.137866
--17.491636 1.063503 1.117565
--17.491636 1.063503 -1.117565
--17.48967 1.064131 1.11288
--17.48967 1.064131 -1.11288
--17.485294 1.075961 1.108659
--17.485294 1.075961 -1.108659
+-17.757549 1.143308 1.01634
+-17.754885 1.141315 -1.012012
+-17.763292 1.152671 1.036641
+-17.760628 1.150678 -1.032313
+-17.765387 1.152035 1.041652
+-17.762722 1.150042 -1.037324
+-17.769758 1.140206 1.045872
+-17.767094 1.138212 -1.041544
+-17.769484 1.135916 1.042618
+-17.766819 1.133922 -1.03829
+-17.763742 1.126552 1.022318
+-17.761078 1.124558 -1.01799
+-17.761776 1.12718 1.017633
+-17.759111 1.125186 -1.013305
+-17.757401 1.13901 1.013412
+-17.754736 1.137017 -1.009084
 -18.252598 1.261636 0.779333
 -18.252598 1.261636 -0.779333
 -18.25996 1.271 0.799103
@@ -29444,22 +30212,22 @@ numvert 751
 -18.293707 1.284726 -0.800107
 -18.278852 1.265837 0.760226
 -18.278852 1.265837 -0.760226
--18.342581 1.280654 0.728027
--18.342581 1.280654 -0.728027
--18.357439 1.299543 0.767908
--18.357439 1.299543 -0.767908
--18.359934 1.298908 0.772732
--18.359934 1.298908 -0.772732
--18.36463 1.287077 0.776586
--18.36463 1.287077 -0.776586
--18.364088 1.282788 0.773365
--18.364088 1.282788 -0.773365
--18.349236 1.263899 0.733484
--18.349236 1.263899 -0.733484
--18.346893 1.264526 0.728973
--18.346893 1.264526 -0.728973
--18.342197 1.276357 0.725119
--18.342197 1.276357 -0.725119
+-18.342581 1.280654 0.737694
+-18.342581 1.280654 -0.738544
+-18.357439 1.299543 0.777575
+-18.357439 1.299543 -0.778425
+-18.359934 1.298908 0.782399
+-18.359934 1.298908 -0.783249
+-18.36463 1.287077 0.786253
+-18.36463 1.287077 -0.787103
+-18.364088 1.282788 0.783033
+-18.364088 1.282788 -0.783882
+-18.349236 1.263899 0.743152
+-18.349236 1.263899 -0.744001
+-18.346893 1.264526 0.73864
+-18.346893 1.264526 -0.73949
+-18.342197 1.276357 0.734787
+-18.342197 1.276357 -0.735636
 -18.643778 0.935525 0.869653
 -18.643778 0.935525 -0.869653
 -18.659708 0.906052 0.884005
@@ -29518,8 +30286,8 @@ numvert 751
 -18.486052 0.24657 -0.743497
 -18.498055 0.24686 0.739968
 -18.498055 0.24686 -0.739968
--17.911169 0.232708 0.974762
--17.911169 0.232708 -0.974762
+-17.896807 0.232708 0.974762
+-17.876959 0.232708 -0.974762
 -18.069014 0.236514 0.878975
 -18.069014 0.236514 -0.878975
 -18.095402 0.23715 0.87122
@@ -29530,22 +30298,22 @@ numvert 751
 -18.447414 0.245639 -0.754854
 -18.679911 0.252101 0.700121
 -18.76931 0.252101 -0.689281
--18.391031 1.291979 0.723527
--18.391031 1.291979 -0.723527
--18.394342 1.279551 0.726911
--18.394342 1.279551 -0.726911
--18.368353 1.285892 0.775639
--18.368353 1.285892 -0.775639
--18.365042 1.29832 0.772256
--18.365042 1.29832 -0.772256
--18.392977 1.277532 0.731415
--18.392977 1.277532 -0.731415
--18.371204 1.282843 0.772228
+-18.391031 1.291979 0.733195
+-18.391031 1.291979 -0.734044
+-18.394342 1.279551 0.736578
+-18.394342 1.279551 -0.737428
+-18.368353 1.285892 0.785306
+-18.368353 1.285892 -0.786156
+-18.365042 1.29832 0.781923
+-18.365042 1.29832 -0.782773
+-18.392977 1.277532 0.741083
+-18.392977 1.277532 -0.741932
+-18.371204 1.282843 0.781895
 -18.371204 1.282843 -0.772228
--18.366516 1.300445 0.767438
--18.366516 1.300445 -0.767438
--18.388287 1.295134 0.726622
--18.388287 1.295134 -0.726622
+-18.366516 1.300445 0.777106
+-18.366516 1.300445 -0.777955
+-18.388287 1.295134 0.736289
+-18.388287 1.295134 -0.737139
 -18.405632 0.749208 0.819238
 -18.656685 0.820413 0.717361
 -18.788979 0.851472 0.685346
@@ -29581,7 +30349,26 @@ numvert 751
 -18.679188 0.771745 0.740801
 -18.793186 0.744433 0.709969
 -18.758575 0.792999 0.721902
-numsurf 658
+-18.654997 0.716308 0.699642
+-18.662523 0.814906 0.713582
+-18.652662 0.772974 0.708588
+-18.65382 0.745271 0.70407
+-18.655308 0.79574 0.712248
+-18.786888 0.896292 0.687151
+-18.905041 0.934579 0.693278
+-18.727669 0.874005 0.701114
+-18.92112 0.943137 0.699275
+-18.9394 0.955298 0.71355
+-18.402948 0.784634 0.8628
+-18.391226 0.781679 0.867478
+-18.377956 0.777912 0.872969
+-18.011097 0.679782 0.997198
+-18.341574 0.768116 0.887776
+-18.35358 0.771482 0.882828
+-17.831528 0.635905 1.054927
+-17.985428 0.672585 1.005319
+-18.629675 0.843312 0.743444
+numsurf 677
 SURF 0x10
 mat 0
 refs 4
@@ -32749,24 +33536,10 @@ refs 4
 SURF 0x10
 mat 0
 refs 4
-534 0.331040501595 0.208726495504
-532 0.303003132343 0.204995959997
-546 0.303003132343 0.200646519661
-544 0.335992574692 0.20437708497
-SURF 0x10
-mat 0
-refs 4
 547 0.303003132343 0.200646519661
 533 0.303003132343 0.204995959997
 535 0.331040501595 0.208726495504
 545 0.335992574692 0.20437708497
-SURF 0x10
-mat 0
-refs 4
-532 0.303003132343 0.204995959997
-530 0.296432316303 0.203466624022
-548 0.296432316303 0.199117183685
-546 0.303003132343 0.200646519661
 SURF 0x10
 mat 0
 refs 4
@@ -32777,24 +33550,10 @@ refs 4
 SURF 0x10
 mat 0
 refs 4
-536 0.334734678268 0.209557771683
-534 0.331040501595 0.208726495504
-544 0.335992574692 0.20437708497
-542 0.339686155319 0.205208331347
-SURF 0x10
-mat 0
-refs 4
 545 0.335992574692 0.20437708497
 535 0.331040501595 0.208726495504
 537 0.334734678268 0.209557771683
 543 0.339686155319 0.205208331347
-SURF 0x10
-mat 0
-refs 4
-538 0.338194012642 0.210347592831
-536 0.334734678268 0.209557771683
-542 0.339686155319 0.205208331347
-540 0.343146026134 0.205998182297
 SURF 0x10
 mat 0
 refs 4
@@ -32805,24 +33564,10 @@ refs 4
 SURF 0x10
 mat 0
 refs 4
-524 0.177860945463 0.175668120384
-526 0.174285769463 0.174843400717
-552 0.174285769463 0.170493990183
-554 0.177860945463 0.171318739653
-SURF 0x10
-mat 0
-refs 4
 553 0.174285769463 0.170493990183
 527 0.174285769463 0.174843400717
 525 0.177860945463 0.175668120384
 555 0.177860945463 0.171318739653
-SURF 0x10
-mat 0
-refs 4
-526 0.174285769463 0.174843400717
-528 0.170220524073 0.173779428005
-550 0.170220524073 0.169430017471
-552 0.174285769463 0.170493990183
 SURF 0x10
 mat 0
 refs 4
@@ -32833,24 +33578,10 @@ refs 4
 SURF 0x10
 mat 0
 refs 4
-516 0.159098833799 0.171026587486
-518 0.057912349701 0.14488914609
-560 0.057912349701 0.140539735556
-562 0.159098833799 0.166677176952
-SURF 0x10
-mat 0
-refs 4
 561 0.057912349701 0.140539735556
 519 0.057912349701 0.14488914609
 517 0.159098833799 0.171026587486
 563 0.159098833799 0.166677176952
-SURF 0x10
-mat 0
-refs 4
-514 0.162775069475 0.17197611928
-516 0.159098833799 0.171026587486
-562 0.159098833799 0.166677176952
-564 0.162775069475 0.167626678944
 SURF 0x10
 mat 0
 refs 4
@@ -32861,13 +33592,6 @@ refs 4
 SURF 0x10
 mat 0
 refs 4
-520 0.050051867962 0.142858743668
-522 0.003031016095 0.131398975849
-556 0.003031016095 0.127049565315
-558 0.050051867962 0.138509333134
-SURF 0x10
-mat 0
-refs 4
 557 0.003031016095 0.127049565315
 523 0.003031016095 0.131398975849
 521 0.050051867962 0.142858743668
@@ -32875,24 +33599,10 @@ refs 4
 SURF 0x10
 mat 0
 refs 4
-518 0.057912349701 0.14488914609
-520 0.050051867962 0.142858743668
-558 0.050051867962 0.138509333134
-560 0.057912349701 0.140539735556
-SURF 0x10
-mat 0
-refs 4
 559 0.050051867962 0.138509333134
 521 0.050051867962 0.142858743668
 519 0.057912349701 0.14488914609
 561 0.057912349701 0.140539735556
-SURF 0x10
-mat 0
-refs 4
-528 0.170220524073 0.173779428005
-514 0.162775069475 0.17197611928
-564 0.162775069475 0.167626678944
-550 0.170220524073 0.169430017471
 SURF 0x10
 mat 0
 refs 4
@@ -33379,24 +34089,10 @@ refs 4
 SURF 0x10
 mat 0
 refs 4
-530 0.296432316303 0.203466624022
-640 0.235943675041 0.189285308123
-642 0.235943675041 0.184935897589
-548 0.296432316303 0.199117183685
-SURF 0x10
-mat 0
-refs 4
 643 0.235943675041 0.184935897589
 641 0.235943675041 0.189285308123
 531 0.296432316303 0.203466624022
 549 0.296432316303 0.199117183685
-SURF 0x10
-mat 0
-refs 4
-640 0.235943675041 0.189285308123
-524 0.177860945463 0.175668120384
-554 0.177860945463 0.171318739653
-642 0.235943675041 0.184935897589
 SURF 0x10
 mat 0
 refs 4
@@ -33981,193 +34677,415 @@ refs 3
 SURF 0x10
 mat 0
 refs 3
+644 0.26317948103 0.149938046932
+738 0.2578959167 0.156727984548
+656 0.176756262779 0.141965210438
+SURF 0x10
+mat 0
+refs 3
+738 0.2578959167 0.156727984548
+731 0.252611339092 0.163517892361
+656 0.176756262779 0.141965210438
+SURF 0x10
+mat 0
+refs 3
+731 0.252611339092 0.163517892361
+737 0.247326895595 0.170307859778
+716 0.1776137501 0.164744704962
+SURF 0x10
+mat 0
+refs 3
+737 0.247326895595 0.170307859778
+717 0.24204325676 0.177097767591
+716 0.1776137501 0.164744704962
+SURF 0x10
+mat 0
+refs 3
+741 0.257133692503 0.180313959718
+733 0.2722235322 0.183530181646
+642 0.235943675041 0.184935897589
+SURF 0x10
+mat 0
+refs 3
+733 0.2722235322 0.183530181646
+742 0.287313401699 0.186746403575
+548 0.296432316303 0.199117183685
+SURF 0x10
+mat 0
+refs 3
+742 0.287313401699 0.186746403575
+718 0.30240380764 0.189962595701
+548 0.296432316303 0.199117183685
+SURF 0x10
+mat 0
+refs 4
+747 0.275882780552 0.158979713917
+735 0.278158336878 0.152013853192
+730 0.293137222528 0.154089689255
+743 0.289895802736 0.161377042532
+SURF 0x10
+mat 0
+refs 4
+744 0.269633173943 0.166091144085
+747 0.275882780552 0.158979713917
+743 0.289895802736 0.161377042532
+734 0.286654353142 0.16866441071
+SURF 0x10
+mat 0
+refs 4
+748 0.263873577118 0.173184603453
+744 0.26963314414 0.166091144085
+734 0.286654353142 0.16866441071
+745 0.27943867445 0.176097333431
+SURF 0x10
+mat 0
+refs 4
+741 0.257133722305 0.180313959718
+748 0.263873577118 0.173184603453
+745 0.27943867445 0.176097333431
+733 0.2722235322 0.183530181646
+SURF 0x10
+mat 0
+refs 4
+743 0.289895802736 0.161377042532
+730 0.293137222528 0.154089689255
+736 0.308116465807 0.156165480614
+749 0.303909182549 0.163774341345
+SURF 0x10
+mat 0
+refs 4
+734 0.286654353142 0.16866441071
+743 0.289895802736 0.161377042532
+749 0.303909182549 0.163774341345
+746 0.299701839685 0.171383172274
+SURF 0x10
+mat 0
+refs 4
+749 0.303909182549 0.163774341345
+736 0.308116465807 0.156165480614
+662 0.32309538126 0.158241301775
+740 0.317922174931 0.166171640158
+SURF 0x10
+mat 0
+refs 4
+746 0.299701839685 0.171383172274
+749 0.303909182549 0.163774341345
+740 0.317922174931 0.166171640158
+732 0.312749385834 0.174101948738
+SURF 0x10
+mat 0
+refs 4
+745 0.279438644648 0.17609731853
+734 0.286654353142 0.16866441071
+746 0.299701869488 0.171383172274
+750 0.295494556427 0.178992033005
+SURF 0x10
+mat 0
+refs 4
+733 0.2722235322 0.183530181646
+745 0.279438644648 0.17609731853
+750 0.295494556427 0.178992033005
+742 0.287313401699 0.186746418476
+SURF 0x10
+mat 0
+refs 4
+750 0.295494556427 0.178992033005
+746 0.299701869488 0.171383172274
+732 0.312749385834 0.174101948738
+739 0.307576596737 0.18203227222
+SURF 0x10
+mat 0
+refs 4
+742 0.287313401699 0.186746418476
+750 0.295494556427 0.178992033005
+739 0.307576596737 0.18203227222
+718 0.30240380764 0.189962595701
+SURF 0x10
+mat 0
+refs 3
+718 0.30240380764 0.189962595701
+739 0.307576566935 0.182032287121
+729 0.308960825205 0.191351398826
+SURF 0x10
+mat 0
+refs 3
+739 0.307576566935 0.182032287121
+732 0.312749326229 0.17410197854
+729 0.308960825205 0.191351398826
+SURF 0x10
+mat 0
+refs 3
+732 0.312749326229 0.17410197854
+740 0.317922085524 0.166171684861
+664 0.32960408926 0.159143209457
+SURF 0x10
+mat 0
+refs 3
+740 0.317922085524 0.166171684861
+662 0.32309538126 0.158241301775
+664 0.32960408926 0.159143209457
+SURF 0x10
+mat 0
+refs 3
 735 0.278158336878 0.152013838291
+751 0.267127513885 0.150485157967
+698 0.26317948103 0.004715084098
+SURF 0x10
+mat 0
+refs 3
+751 0.267127513885 0.150485157967
 644 0.26317948103 0.149938046932
 698 0.26317948103 0.004715084098
 SURF 0x10
 mat 0
 refs 3
-644 0.26317948103 0.149938046932
-738 0.2578959167 0.156727984548
-656 0.176756262779 0.141965210438
-SURF 0x10
-mat 0
-refs 3
-738 0.2578959167 0.156727984548
-731 0.252611339092 0.163517892361
-656 0.176756262779 0.141965210438
-SURF 0x10
-mat 0
-refs 3
-731 0.252611339092 0.163517892361
-737 0.247326895595 0.170307859778
-716 0.1776137501 0.164744704962
-SURF 0x10
-mat 0
-refs 3
-737 0.247326895595 0.170307859778
 717 0.24204325676 0.177097767591
-716 0.1776137501 0.164744704962
-SURF 0x10
-mat 0
-refs 3
-717 0.24204325676 0.177097767591
-741 0.257133692503 0.180313959718
+752 0.246020704508 0.177945464849
 642 0.235943675041 0.184935897589
 SURF 0x10
 mat 0
 refs 3
+752 0.246020704508 0.177945464849
 741 0.257133692503 0.180313959718
-733 0.2722235322 0.183530181646
 642 0.235943675041 0.184935897589
 SURF 0x10
 mat 0
-refs 3
-733 0.2722235322 0.183530181646
-742 0.287313401699 0.186746403575
-548 0.296432316303 0.199117183685
-SURF 0x10
-mat 0
-refs 3
-742 0.287313401699 0.186746403575
-718 0.30240380764 0.189962595701
-548 0.296432316303 0.199117183685
-SURF 0x10
-mat 0
 refs 4
-738 0.257895737886 0.156727954745
 644 0.26317948103 0.149938046932
-735 0.278158336878 0.152013853192
-747 0.275882780552 0.158979713917
-SURF 0x10
-mat 0
-refs 4
-731 0.252611368895 0.163517907262
+751 0.267127513885 0.150485157967
+754 0.262636691332 0.157321453094
 738 0.257895737886 0.156727954745
-747 0.275882780552 0.158979713917
-744 0.269633173943 0.166091144085
 SURF 0x10
 mat 0
 refs 4
-747 0.275882780552 0.158979713917
+751 0.267127513885 0.150485157967
 735 0.278158336878 0.152013853192
-730 0.293137222528 0.154089689255
-743 0.289895802736 0.161377042532
-SURF 0x10
-mat 0
-refs 4
-744 0.269633173943 0.166091144085
 747 0.275882780552 0.158979713917
-743 0.289895802736 0.161377042532
-734 0.286654353142 0.16866441071
+754 0.262636691332 0.157321453094
 SURF 0x10
 mat 0
 refs 4
-737 0.2473269701 0.170307859778
+738 0.257895737886 0.156727954745
+754 0.262636691332 0.157321453094
+753 0.257097899914 0.164196133614
 731 0.252611368895 0.163517907262
-744 0.26963314414 0.166091144085
-748 0.263873577118 0.173184603453
 SURF 0x10
 mat 0
 refs 4
-717 0.24204325676 0.177097767591
+754 0.262636691332 0.157321453094
+747 0.275882780552 0.158979713917
+744 0.269633173943 0.166091144085
+753 0.257097899914 0.164196133614
+SURF 0x10
+mat 0
+refs 4
+731 0.252611368895 0.163517907262
+753 0.257097899914 0.164196133614
+755 0.251688241959 0.171066105366
 737 0.2473269701 0.170307859778
-748 0.263873577118 0.173184603453
-741 0.257133722305 0.180313959718
 SURF 0x10
 mat 0
 refs 4
-748 0.263873577118 0.173184603453
+753 0.257097899914 0.164196133614
 744 0.26963314414 0.166091144085
-734 0.286654353142 0.16866441071
-745 0.27943867445 0.176097333431
-SURF 0x10
-mat 0
-refs 4
-741 0.257133722305 0.180313959718
 748 0.263873577118 0.173184603453
-745 0.27943867445 0.176097333431
-733 0.2722235322 0.183530181646
+755 0.251688241959 0.171066105366
 SURF 0x10
 mat 0
 refs 4
-743 0.289895802736 0.161377042532
-730 0.293137222528 0.154089689255
-736 0.308116465807 0.156165480614
-749 0.303909182549 0.163774341345
+737 0.2473269701 0.170307859778
+755 0.251688241959 0.171066105366
+752 0.246020704508 0.177945464849
+717 0.24204325676 0.177097767591
 SURF 0x10
 mat 0
 refs 4
-734 0.286654353142 0.16866441071
-743 0.289895802736 0.161377042532
-749 0.303909182549 0.163774341345
-746 0.299701839685 0.171383172274
+755 0.251688241959 0.171066105366
+748 0.263873577118 0.173184603453
+741 0.257133722305 0.180313959718
+752 0.246020704508 0.177945464849
 SURF 0x10
 mat 0
 refs 4
-749 0.303909182549 0.163774341345
-736 0.308116465807 0.156165480614
-662 0.32309538126 0.158241301775
-740 0.317922174931 0.166171640158
+532 0.303003132343 0.204995959997
+756 0.303003132343 0.202538341284
+757 0.333838433027 0.206268936396
+534 0.331040501595 0.208726495504
 SURF 0x10
 mat 0
 refs 4
-746 0.299701839685 0.171383172274
-749 0.303909182549 0.163774341345
-740 0.317922174931 0.166171640158
-732 0.312749385834 0.174101948738
+756 0.303003132343 0.202538341284
+546 0.303003132343 0.200646519661
+544 0.335992574692 0.20437708497
+757 0.333838433027 0.206268936396
 SURF 0x10
 mat 0
 refs 4
-745 0.279438644648 0.17609731853
-734 0.286654353142 0.16866441071
-746 0.299701869488 0.171383172274
-750 0.295494556427 0.178992033005
+530 0.296432316303 0.203466624022
+758 0.296432197094 0.201009050012
+756 0.303003132343 0.202538341284
+532 0.303003132343 0.204995959997
 SURF 0x10
 mat 0
 refs 4
-733 0.2722235322 0.183530181646
-745 0.279438644648 0.17609731853
-750 0.295494556427 0.178992033005
-742 0.287313401699 0.186746418476
+758 0.296432197094 0.201009050012
+548 0.296432316303 0.199117183685
+546 0.303003132343 0.200646519661
+756 0.303003132343 0.202538341284
 SURF 0x10
 mat 0
 refs 4
-750 0.295494556427 0.178992033005
-746 0.299701869488 0.171383172274
-732 0.312749385834 0.174101948738
-739 0.307576596737 0.18203227222
+534 0.331040501595 0.208726495504
+757 0.333838433027 0.206268936396
+759 0.33753246069 0.207100152969
+536 0.334734678268 0.209557771683
 SURF 0x10
 mat 0
 refs 4
-742 0.287313401699 0.186746418476
-750 0.295494556427 0.178992033005
-739 0.307576596737 0.18203227222
-718 0.30240380764 0.189962595701
+757 0.333838433027 0.206268936396
+544 0.335992574692 0.20437708497
+542 0.339686155319 0.205208331347
+759 0.33753246069 0.207100152969
 SURF 0x10
 mat 0
-refs 3
-718 0.30240380764 0.189962595701
-739 0.307576566935 0.182032287121
-729 0.308960825205 0.191351398826
+refs 4
+536 0.334734678268 0.209557771683
+759 0.33753246069 0.207100152969
+760 0.34099188447 0.207890048623
+538 0.338194012642 0.210347592831
 SURF 0x10
 mat 0
-refs 3
-739 0.307576566935 0.182032287121
-732 0.312749326229 0.17410197854
-729 0.308960825205 0.191351398826
+refs 4
+759 0.33753246069 0.207100152969
+542 0.339686155319 0.205208331347
+540 0.343146026134 0.205998182297
+760 0.34099188447 0.207890048623
 SURF 0x10
 mat 0
-refs 3
-732 0.312749326229 0.17410197854
-740 0.317922085524 0.166171684861
-664 0.32960408926 0.159143209457
+refs 4
+526 0.174285769463 0.174843400717
+762 0.174285769463 0.172385811806
+761 0.177861198783 0.17321062088
+524 0.177860945463 0.175668120384
 SURF 0x10
 mat 0
-refs 3
-740 0.317922085524 0.166171684861
-662 0.32309538126 0.158241301775
-664 0.32960408926 0.159143209457
+refs 4
+762 0.174285769463 0.172385811806
+552 0.174285769463 0.170493990183
+554 0.177860945463 0.171318739653
+761 0.177861198783 0.17321062088
+SURF 0x10
+mat 0
+refs 4
+528 0.170220524073 0.173779428005
+763 0.170220777392 0.171321928501
+762 0.174285769463 0.172385811806
+526 0.174285769463 0.174843400717
+SURF 0x10
+mat 0
+refs 4
+763 0.170220777392 0.171321928501
+550 0.170220524073 0.169430017471
+552 0.174285769463 0.170493990183
+762 0.174285769463 0.172385811806
+SURF 0x10
+mat 0
+refs 4
+518 0.057912349701 0.14488914609
+764 0.057912349701 0.142431557178
+765 0.159098818898 0.168568968773
+516 0.159098833799 0.171026587486
+SURF 0x10
+mat 0
+refs 4
+764 0.057912349701 0.142431557178
+560 0.057912349701 0.140539735556
+562 0.159098833799 0.166677176952
+765 0.159098818898 0.168568968773
+SURF 0x10
+mat 0
+refs 4
+516 0.159098833799 0.171026587486
+765 0.159098818898 0.168568968773
+766 0.162775054574 0.169518515468
+514 0.162775069475 0.17197611928
+SURF 0x10
+mat 0
+refs 4
+765 0.159098818898 0.168568968773
+562 0.159098833799 0.166677176952
+564 0.162775069475 0.167626678944
+766 0.162775054574 0.169518515468
+SURF 0x10
+mat 0
+refs 4
+522 0.003031016095 0.131398975849
+767 0.003031015629 0.128941386938
+768 0.050051867962 0.140401154757
+520 0.050051867962 0.142858743668
+SURF 0x10
+mat 0
+refs 4
+767 0.003031015629 0.128941386938
+556 0.003031016095 0.127049565315
+558 0.050051867962 0.138509333134
+768 0.050051867962 0.140401154757
+SURF 0x10
+mat 0
+refs 4
+520 0.050051867962 0.142858743668
+768 0.050051867962 0.140401154757
+764 0.057912349701 0.142431557178
+518 0.057912349701 0.14488914609
+SURF 0x10
+mat 0
+refs 4
+768 0.050051867962 0.140401154757
+558 0.050051867962 0.138509333134
+560 0.057912349701 0.140539735556
+764 0.057912349701 0.142431557178
+SURF 0x10
+mat 0
+refs 4
+514 0.162775069475 0.17197611928
+766 0.162775054574 0.169518515468
+763 0.170220777392 0.171321928501
+528 0.170220524073 0.173779428005
+SURF 0x10
+mat 0
+refs 4
+766 0.162775054574 0.169518515468
+564 0.162775069475 0.167626678944
+550 0.170220524073 0.169430017471
+763 0.170220777392 0.171321928501
+SURF 0x10
+mat 0
+refs 4
+640 0.235943675041 0.189285308123
+769 0.235944062471 0.186827778816
+758 0.296432197094 0.201009050012
+530 0.296432316303 0.203466624022
+SURF 0x10
+mat 0
+refs 4
+769 0.235944062471 0.186827778816
+642 0.235943675041 0.184935897589
+548 0.296432316303 0.199117183685
+758 0.296432197094 0.201009050012
+SURF 0x10
+mat 0
+refs 4
+524 0.177860945463 0.175668120384
+761 0.177861198783 0.17321062088
+769 0.235944062471 0.186827778816
+640 0.235943675041 0.189285308123
+SURF 0x10
+mat 0
+refs 4
+761 0.177861198783 0.17321062088
+554 0.177860945463 0.171318739653
+642 0.235943675041 0.184935897589
+769 0.235944062471 0.186827778816
 kids 0
 OBJECT poly
 name "window.top"

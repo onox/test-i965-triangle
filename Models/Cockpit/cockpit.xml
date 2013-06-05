@@ -48,6 +48,38 @@
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
 	</animation>
+
+	<!-- delete following lines if engineer panel is developed -->
+	<animation>
+		<type>material</type>
+		<object-name>panelAuxbot</object-name> 
+		<object-name>panelAuxtop</object-name>
+		<object-name>panelEbot</object-name>
+		<object-name>panelEtop</object-name> 
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>panelE</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.15</red>
+		  <green>0.15</green>
+		  <blue>0.15</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+	<!-- end engineer panel -->
 	
 	<animation>
 		<type>material</type>

@@ -800,7 +800,7 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
  						<property>fcs/wing-fold-pos-norm</property>
-						<value>0.16</value>
+						<value>0.08</value>
          </product>
     </function>
 

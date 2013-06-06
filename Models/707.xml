@@ -71,7 +71,7 @@
     <object-name>slats</object-name>
 	</effect>
 
-<!-- Gear -->
+<!-- Externe -->
 	<model>
 	 <name>Pushback</name>
 	 <path>Models\Airport\Pushback\Goldhofert.xml</path>

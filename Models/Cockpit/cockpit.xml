@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <PropertyList>
  <path>cockpit.ac</path>
+ 
+	<!-- needed for tutorials -->
+	<model>
+		<path>Models/Aircraft/marker.xml</path>
+	</model>
 
 	<!-- No preview for fgrun-->
 	<animation>
@@ -49,23 +54,6 @@
 		</emission>
 	</animation>
 
-	<!-- delete following lines if engineer panel is developed -->
-	<animation>
-		<type>material</type>
-		<object-name>panelAuxbot</object-name> 
-		<object-name>panelAuxtop</object-name>
-		<object-name>panelEbot</object-name>
-		<object-name>panelEtop</object-name> 
-		<condition>
-			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-		</condition>
-		<emission>
-		  <red>0.2</red>
-		  <green>0.2</green>
-		  <blue>0.2</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
-		</emission>
-	</animation>
 	<animation>
 		<type>material</type>
 		<object-name>panelE</object-name>
@@ -79,7 +67,6 @@
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
 	</animation>
-	<!-- end engineer panel -->
 	
 	<animation>
 		<type>material</type>
@@ -153,7 +140,28 @@
 		  <z-m>  1.385</z-m>
 			<pitch-deg>69.5</pitch-deg>
 		</offsets>
-	</model>	
+	</model>
+	
+	<model>
+		<name>engineer-panel-top</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/top.xml</path>
+		<offsets>
+		  <x-m>-17.545</x-m>
+		  <y-m>  0.646</y-m>
+		  <z-m>  1.386</z-m>
+			<roll-deg>33.25</roll-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>engineer-panel-bottom</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/bottom.xml</path>
+		<offsets>
+		  <x-m>-17.545</x-m>
+		  <y-m>  0.761</y-m>
+		  <z-m>  0.980</z-m>
+		</offsets>
+	</model>
 	
 	<model>
 		<name>wiper_pilot</name>

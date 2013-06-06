@@ -1,0 +1,357 @@
+<PropertyList>
+	<name>Engines: Start-up</name>
+	<description>On this development version, you can startup the engines quick and dirty.</description>
+
+	<init>
+		<set>
+			<property>/sim/current-view/view-number</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/controls/gear/brake-parking</property>
+			<value>1</value>
+		</set>
+		<set>
+			<property>/controls/flight/flaps</property>
+			<value>0.0</value>
+		</set>
+		<set>
+			<property>/controls/electric/engine[0]/generator</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/controls/engines/engine[0]/cutoff</property>
+			<value>1</value>
+		</set>
+		<set>
+			<property>/controls/electric/engine[1]/generator</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/controls/engines/engine[1]/cutoff</property>
+			<value>1</value>
+		</set>
+		<set>
+			<property>/controls/electric/engine[2]/generator</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/controls/engines/engine[2]/cutoff</property>
+			<value>1</value>
+		</set>
+		<set>
+			<property>/controls/electric/engine[3]/generator</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/controls/engines/engine[3]/cutoff</property>
+			<value>1</value>
+		</set>
+	</init>
+
+	<step>
+		<message>
+			Open throttle to idle around 1/3rd
+		</message>
+		<view>
+			<heading-offset-deg>-50.0</heading-offset-deg>
+			<pitch-offset-deg>-35.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.46</x-offset-m>
+			<y-offset-m>1.19</y-offset-m>
+			<z-offset-m>-18.2</z-offset-m>
+			<field-of-view>44.3</field-of-view>
+		</view>
+
+		<error>
+			<message>Ensure the throttle idle open{|.}</message>
+			<condition>
+				<or>
+					<less-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.20</value>
+					</less-than>
+					<greater-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.40</value>
+					</greater-than>
+				</or>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<and>
+					<greater-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.20</value>
+					</greater-than>
+					<less-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.40</value>
+					</less-than>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Open cover engine starter 3</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<marker>
+		  <x-m> 0.0322</x-m>
+		  <y-m> 0.0393</y-m>
+		  <z-m> 0.1301</z-m>
+			<scale>3.0000</scale>
+		</marker>
+		<exit>
+			<condition>
+					<property>/controls/special/startercover[2]</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Press and hold the starter switch for engine 3 until green light is out</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<marker>
+				<x-m>-18.3301</x-m>
+				<y-m>0.0149</y-m>
+				<z-m>1.4176</z-m>
+				<scale>1.9107</scale>
+		</marker>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[2]/n2</property>
+					<value>35</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Close starter cover 3 - open starter cover 4</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[2]/n2</property>
+					<value>35</value>
+				</greater-than>
+				<not><property>/controls/special/startercover[2]</property></not>
+				<property>/controls/special/startercover[3]</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Press and hold the starter switch for engine 4 until green light is out</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<marker>
+				<x-m>-18.3301</x-m>
+				<y-m>0.0719</y-m>
+				<z-m>1.4176</z-m>
+				<scale>1.9107</scale>
+		</marker>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[3]/n2</property>
+					<value>35</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Close starter cover 4 - open starter cover 2</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[3]/n2</property>
+					<value>35</value>
+				</greater-than>
+				<not><property>/controls/special/startercover[3]</property></not>
+				<property>/controls/special/startercover[1]</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Press and hold the starter switch for engine 2 until green light is out</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<marker>
+				<x-m>-18.3301</x-m>
+				<y-m>-0.0565</y-m>
+				<z-m>1.4102</z-m>
+				<scale>1.9107</scale>
+		</marker>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[1]/n2</property>
+					<value>35</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Close starter cover 2 - open starter cover 1</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[1]/n2</property>
+					<value>35</value>
+				</greater-than>
+				<not><property>/controls/special/startercover[1]</property></not>
+				<property>/controls/special/startercover[0]</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Press and hold the starter switch for engine 1 until green light is out</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<marker>
+				<x-m>-18.3301</x-m>
+				<y-m>-0.1193</y-m>
+				<z-m>1.4102</z-m>
+				<scale>1.9107</scale>
+		</marker>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[0]/n2</property>
+					<value>35</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Close starter cover 1</message>
+		<view>
+			<heading-offset-deg>-75</heading-offset-deg>
+			<pitch-offset-deg>30.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.46</x-offset-m>
+			<y-offset-m>1.19</y-offset-m>
+			<z-offset-m>-18.2</z-offset-m>
+			<field-of-view>44.3</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<not><property>/controls/special/startercover[0]</property></not>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Controll the rpm N2 of all engines</message>
+		<view>
+			<heading-offset-deg>-40.0</heading-offset-deg>
+			<pitch-offset-deg>-20.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.46</x-offset-m>
+			<y-offset-m>1.19</y-offset-m>
+			<z-offset-m>-18.2</z-offset-m>
+			<field-of-view>44.3</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[0]/n2</property>
+					<value>50</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[1]/n2</property>
+					<value>50</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[2]/n2</property>
+					<value>50</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[3]/n2</property>
+					<value>50</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+
+	<end>
+		<message>The engines 3-4-2-1 should now be running. Have a nice trip.</message>
+		<view>
+			<heading-offset-deg>0</heading-offset-deg>
+			<pitch-offset-deg>-16</pitch-offset-deg>
+			<field-of-view>72</field-of-view>
+		</view>
+	</end>
+</PropertyList>

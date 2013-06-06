@@ -35,4 +35,13 @@
       <property>sim/yokes-visible</property>
   </binding>
 </key>
+
+<key n="94">
+    <name>up degree</name>
+    <desc>Open marker adjust dialog</desc>
+    <binding>
+        <command>dialog-show</command>
+        <dialog-name>marker-adjust</dialog-name>
+    </binding>
+</key>
 </PropertyList>

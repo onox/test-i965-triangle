@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <path>ground.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>LampGreen</object-name>
+		<object-name>LampBlue</object-name>
+		<object-name>sockle</object-name> 
+		<object-name>sockle.001</object-name>
+		<object-name>switch</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>noshadow</type>
+		<object-name>LampGreen</object-name>
+		<object-name>LampBlue</object-name>
+		<object-name>LampGreenON</object-name>
+		<object-name>LampBlueON</object-name>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>LampGreenON</object-name>
+		<emission>
+		  <red>   0 </red>
+		  <green> 1.0 </green>
+		  <blue>  0 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>LampBlueON</object-name>
+		<emission>
+		  <red>   0.5 </red>
+		  <green> 1.0 </green>
+		  <blue>  1.0 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampGreenON</object-name>
+		<condition>
+		  <or>
+		    <greater-than>
+		    	<property>/controls/special/load-volt-selector</property>
+		    	<value>0</value>
+		    </greater-than>
+		    <property>/controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>LampBlueON</object-name>
+		<condition>
+		  <or>
+		    <property>/controls/special/ground-connect</property>
+		    <property>/controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
+
+
+	
+  <!-- ground switch -->
+	<animation>
+		  <type>rotate</type>
+		  <object-name>switch</object-name>
+		  <property>/controls/special/ground-connect</property>
+      <factor>-60</factor>
+		  <axis>
+		   <x>1</x>
+		   <y>0</y>
+		   <z>0</z>
+		  </axis>
+		  <center>
+		  <x-m>0.0</x-m>
+		  <y-m>0.0</y-m>
+		  <z-m>0.0</z-m>
+		  </center>  
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>switch</object-name>
+		  <object-name>sockle</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+		  			<property>/controls/special/ground-connect</property>
+		    </binding>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation>
+
+</PropertyList>

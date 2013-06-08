@@ -144,7 +144,7 @@
 	
 	<model>
 		<name>engineer-panel-top</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/top.xml</path>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/epaneltop.xml</path>
 		<offsets>
 		  <x-m>-17.545</x-m>
 		  <y-m>  0.646</y-m>
@@ -155,7 +155,7 @@
 	
 	<model>
 		<name>engineer-panel-bottom</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/bottom.xml</path>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/epanelbot.xml</path>
 		<offsets>
 		  <x-m>-17.545</x-m>
 		  <y-m>  0.761</y-m>

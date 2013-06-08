@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <path>essPower.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>LampAmber</object-name>
+		<object-name>sockle</object-name>
+		<object-name>turn</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>noshadow</type>
+		<object-name>LampAmber</object-name>
+		<object-name>LampAmberON</object-name>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>LampAmberON</object-name>
+		<emission>
+		  <red>   1.0 </red>
+		  <green> 0.8 </green>
+		  <blue>  0.4 </blue>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON</object-name>
+		<condition>
+		  <or>
+		    <and>
+		    	<not><property>/controls/special/ess-power</property></not>
+					<greater-than>
+		    		<property>/controls/special/load-volt-selector</property>
+		    	<value>0</value>
+		    </greater-than>
+		    </and>
+		    <property>/controls/test/warn-knob</property>
+		  </or>
+		</condition>
+	</animation>
+
+  <!-- select essential power --> 
+	<animation>
+		<type>rotate</type>
+		<object-name>turn</object-name>
+		<property>/controls/special/ess-power</property>
+		<interpolation>
+		  <entry><ind> 0</ind><dep> 135</dep></entry>
+		  <entry><ind> 4</ind><dep>  90</dep></entry>
+		  <entry><ind> 3</ind><dep>  45</dep></entry>
+		  <entry><ind> 2</ind><dep>   0</dep></entry>
+		  <entry><ind> 1</ind><dep> -45</dep></entry>
+		</interpolation>
+		<axis>
+		 <x>0</x>
+		 <y>1</y>
+		 <z>0</z>
+		</axis>
+		<center>
+		<x-m> 0.0</x-m>
+		<y-m> 0.0</y-m>
+		<z-m> 0.0</z-m>
+		</center>  
+	</animation>
+     
+	<animation>
+		<type>pick</type>
+		<object-name>turn</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+				<property>/controls/special/ess-power</property>
+		    <step>1</step>
+		    <min>0</min>
+		    <max>5</max>
+		    <wrap>1</wrap>
+		  </binding>
+		  <binding>
+		    <command>property-toggle</command>
+		    <property>/sim/sound/switch3</property>
+		  </binding>
+		</action>
+		<action>
+		  <button>1</button>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+				<property>/controls/special/ess-power</property>
+		    <step>-1</step>
+		    <min>0</min>
+		    <max>5</max>
+		    <wrap>1</wrap>
+		  </binding>
+		  <binding>
+		    <command>property-toggle</command>
+		    <property>/sim/sound/switch3</property>
+		  </binding>
+		</action>
+	</animation>
+
+</PropertyList>

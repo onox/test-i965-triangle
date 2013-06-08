@@ -33,6 +33,7 @@
 		<object-name>BrkLever</object-name>
 		<object-name>FlapSBrakeSup</object-name>
 		<object-name>FlapLever</object-name>
+		<object-name>IdleSup</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>

@@ -19,7 +19,7 @@
   <object-name>LightTaxiGlowH.002</object-name>  
   <object-name>LightTailGlow</object-name>
   <object-name>LightNavGlowL</object-name>
-  <object-name>LightNavGlowR</object-name>	
+  <object-name>LightNavGlowR</object-name>
 	<object-name>LightVolume</object-name>
 	<object-name>LightVolume.001</object-name>
 	<object-name>LightVolume.002</object-name>
@@ -176,9 +176,9 @@
   <type>material</type>
   <object-name>CabinWindows</object-name>
   <emission>
-    <red>0.2</red>
-    <green>0.2</green>
-    <blue>0.05</blue>
+    <red>0.4</red>
+    <green>0.4</green>
+    <blue>0.3</blue>
     <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
   </emission>
 </animation>
@@ -259,34 +259,6 @@
 	    <property>sim/multiplay/generic/int[3]</property>
 	    <property>sim/multiplay/generic/int[5]</property>
     </and>
-  </condition>
-</animation>
-
-<!--  Rembrand - Tail -->
-<animation>
-	<type>select</type>
-	<object-name>NavLightBackVolume</object-name>
-	<condition>
-		<and>
-			<property>/sim/rendering/rembrandt/enabled</property>
-			<property>sim/multiplay/generic/int[2]</property>
-		</and>
-	</condition>
-</animation>
-
-<animation>
-  <type>select</type>
-  <object-name>TailLampLOn</object-name>
-  <condition>
-    <property>sim/multiplay/generic/int[2]</property>
-  </condition>
-</animation>
-
-<animation>
-  <type>select</type>
-  <object-name>TailLampL</object-name>
-  <condition>
-    <not><property>sim/multiplay/generic/int[2]</property></not>
   </condition>
 </animation>
 
@@ -392,7 +364,7 @@
 	<object-name>NavLightBackVolume</object-name>
 	<condition>
 		<and>
-			<property>/sim/rendering/rembrandt/enabled</property>
+			<property>sim/rendering/rembrandt/enabled</property>
 			<property>sim/multiplay/generic/int[2]</property>
 		</and>
 	</condition>
@@ -414,7 +386,7 @@
 	<object-name>LightBall</object-name>
 	<condition>
 		<and>
-			<property>/sim/rendering/rembrandt/enabled</property>
+			<property>sim/rendering/rembrandt/enabled</property>
 		  <property>sim/multiplay/generic/int[0]</property>
 		  <property>gear/gear[0]/position-norm</property>
 		</and>

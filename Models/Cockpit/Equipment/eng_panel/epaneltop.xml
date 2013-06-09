@@ -86,4 +86,44 @@
 		  <z-m>-0.0241</z-m>
 		</offsets>
 	</model>
+
+	<model>
+		<name>g1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/generator1.xml</path>
+		<offsets>
+		  <x-m>-0.264</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0069</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>g2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/generator2.xml</path>
+		<offsets>
+		  <x-m>-0.207</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0069</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>g3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/generator3.xml</path>
+		<offsets>
+		  <x-m>-0.1497</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0069</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>g4</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/generator4.xml</path>
+		<offsets>
+		  <x-m>-0.0915</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0069</z-m>
+		</offsets>
+	</model>
 </PropertyList>

@@ -98,6 +98,16 @@
 		<z-m>-2.9</z-m>
 	 </offsets>
 	</model>
+	
+<!-- Immatriculation -->
+  <model>
+    <path>Aircraft/707/Models/Immat/immat.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
 
 <!-- Front-->
 	<animation>

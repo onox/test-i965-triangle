@@ -160,6 +160,13 @@
 			<int n="4" alias="/controls/lighting/beacon-state/state"/>										<!-- beacon -->
 			<int n="5" alias="/controls/lighting/strobe-state/state"/>										<!-- Strobe -->
 			<int n="6" alias="/controls/special/tyresmoke"/>															<!-- tyresmoke -->
+			<int n="7" type="int">0</int>  <!-- 1 immat -->
+			<int n="8" type="int">0</int>  <!-- 2 immat -->
+			<int n="9" type="int">0</int>  <!-- 3 immat -->
+			<int n="10" type="int">0</int>  <!-- 4 immat -->
+			<int n="11" type="int">0</int>  <!-- 5 immat -->
+			<int n="12" type="int">0</int>  <!-- 6 immat -->
+			<int n="13" type="int">0</int>  <!-- 7 immat -->
 			<float n="0" alias="/controls/lighting/cabin-dim"/> 													<!-- cabin light dimmer -->
 			<float n="1" alias="/gear/gear[0]/compression-norm"/> 												<!-- multiplayer see the wheels turning -->
 			<float n="2" alias="/gear/gear[0]/rollspeed-ms"/> 												    <!-- multiplayer see the hanging backwheels -->
@@ -380,6 +387,7 @@
 				<file>Aircraft/707/Nasal/brakesystem.nas</file>
 				<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
 				<file>Aircraft/707/Nasal/tcas.nas</file>
+				<file>Aircraft/707/Nasal/immat.nas</file>
 			</b707>
 		</nasal>
 

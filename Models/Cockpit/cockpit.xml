@@ -254,7 +254,9 @@
 			<object-name>yokes</object-name>		
 			<object-name>tiller</object-name>
 			<object-name>panel-equipment</object-name>
-			<object-name>overhead-panel-equipment</object-name>	
+			<object-name>overhead-panel-equipment</object-name>
+			<object-name>engineer-panel-top</object-name>	
+			<object-name>engineer-panel-bottom</object-name>		
 			<object-name>pedestal</object-name>
 			<condition>
 		    <property>sim/current-view/internal</property>

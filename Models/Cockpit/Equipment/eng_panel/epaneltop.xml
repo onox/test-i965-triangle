@@ -69,7 +69,7 @@
 
 	<model>
 		<name>groundConnect</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/ground.xml</path>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/extPower.xml</path>
 		<offsets>
 		  <x-m>-0.0176</x-m>
 		  <y-m> 0.0</y-m>
@@ -84,6 +84,16 @@
 		  <x-m> 0.0026</x-m>
 		  <y-m> 0.0</y-m>
 		  <z-m>-0.0241</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>ACPower</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/acPower.xml</path>
+		<offsets>
+		  <x-m>-0.022</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m>-0.154</z-m>
 		</offsets>
 	</model>
 

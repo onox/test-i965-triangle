@@ -6,7 +6,8 @@
 		<type>material</type>
 		<object-name>cover</object-name>
 		<object-name>sockle</object-name> 
-		<object-name>switch</object-name>
+		<object-name>switch</object-name> 
+		<object-name>switch.001</object-name>
 		<object-name>turn</object-name>
 		<object-name>bezel</object-name>
 		<condition>
@@ -53,6 +54,42 @@
 		</emission>
 	</animation>
 	
+	<!-- galley switch -->
+	<animation>
+		  <type>rotate</type>
+		  <object-name>switch.001</object-name>
+		  <property>/controls/special/galley</property>
+      <factor>-60</factor>
+		  <axis>
+		   <x>1</x>
+		   <y>0</y>
+		   <z>0</z>
+		  </axis>
+		  <center>
+		  <x-m>0.0</x-m>
+		  <y-m>0.0038</y-m>
+		  <z-m>0.0727</z-m>
+		  </center>  
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>switch.001</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+		  			<property>/controls/special/galley</property>
+		    </binding>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation>
+	
+	<!-- battery and alternator -->
 	<animation>
 		<type>rotate</type>
 		<object-name>needle</object-name>

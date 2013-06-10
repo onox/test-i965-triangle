@@ -362,4 +362,14 @@ var gen_kw = func{
 #fire it up
 gen_kw();
 
+################################### AC Paralleling Selector ####################################
+setlistener("controls/special/ac/ac-power", func{
+	var bat = getprop("/controls/electric/battery-switch") or 0;
+	if(bat){
+		setprop("/controls/special/ac/sync1", 1);
+		setprop("/controls/special/ac/sync2", 1);
+		settimer( func { setprop("/controls/special/ac/sync1",0); }, 0.75);
+		settimer( func { setprop("/controls/special/ac/sync2",0); }, 1.1);
+	}
+},1,0);
 

@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <PropertyList>
- <path>ground.ac</path>
+ <path>extPower.ac</path>
 
 	<animation>
 		<type>material</type>
 		<object-name>LampGreen</object-name>
 		<object-name>LampBlue</object-name>
-		<object-name>sockle</object-name> 
-		<object-name>sockle.001</object-name>
+		<object-name>sockle</object-name>
 		<object-name>switch</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
@@ -83,8 +82,6 @@
 		</condition>
 	</animation>
 
-
-	
   <!-- ground switch -->
 	<animation>
 		  <type>rotate</type>
@@ -98,7 +95,7 @@
 		  </axis>
 		  <center>
 		  <x-m>0.0</x-m>
-		  <y-m>0.0</y-m>
+		  <y-m>0.004</y-m>
 		  <z-m>0.0</z-m>
 		  </center>  
 	</animation>
@@ -106,7 +103,6 @@
 	<animation>
 		  <type>pick</type>
 		  <object-name>switch</object-name>
-		  <object-name>sockle</object-name>
 		  <action>
 		    <button>0</button>
 		    <repeatable>false</repeatable>

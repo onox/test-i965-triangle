@@ -43,7 +43,7 @@
 		    	<property>/controls/special/ess-power</property>
 					<greater-than>
 		    		<property>/controls/special/load-volt-selector</property>
-				  	<value>0</value>
+				  	<value>4</value>
 				  </greater-than>
 				  <property>/controls/electric/battery-switch</property>
 		    </and>
@@ -58,7 +58,8 @@
 		<object-name>turn</object-name>
 		<property>/controls/special/ess-power</property>
 		<interpolation>
-		  <entry><ind> 0</ind><dep> 135</dep></entry>
+		  <entry><ind> 0</ind><dep> 180</dep></entry>
+		  <entry><ind> 5</ind><dep> 135</dep></entry>
 		  <entry><ind> 4</ind><dep>  90</dep></entry>
 		  <entry><ind> 3</ind><dep>  45</dep></entry>
 		  <entry><ind> 2</ind><dep>   0</dep></entry>
@@ -87,7 +88,7 @@
 				<property>/controls/special/ess-power</property>
 		    <step>1</step>
 		    <min>0</min>
-		    <max>5</max>
+		    <max>6</max>
 		    <wrap>1</wrap>
 		  </binding>
 		  <binding>
@@ -103,7 +104,7 @@
 				<property>/controls/special/ess-power</property>
 		    <step>-1</step>
 		    <min>0</min>
-		    <max>5</max>
+		    <max>6</max>
 		    <wrap>1</wrap>
 		  </binding>
 		  <binding>

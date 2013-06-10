@@ -275,7 +275,7 @@ setlistener("controls/gear/gear-down", func
  
 ## START PROCEDURE ON MAIN SWITCHES ###
 #######################################
-setlistener("controls/special/startercover[2]", func(open)
+setlistener("controls/special/start/startercover[2]", func(open)
  {
  	var open = open.getBoolValue();
  	if(open){
@@ -284,7 +284,7 @@ setlistener("controls/special/startercover[2]", func(open)
  }, 0, 0); 
 
  
-setlistener("controls/special/starter[0]", func
+setlistener("controls/special/start/starter[0]", func
  {
  	var n2 = props.globals.getNode("engines/engine[0]/n2").getValue();
  	var run = props.globals.getNode("engines/engine[0]/running").getBoolValue();
@@ -301,7 +301,7 @@ setlistener("controls/special/starter[0]", func
 	}
  }, 0, 0);
  
-setlistener("controls/special/starter[1]", func
+setlistener("controls/special/start/starter[1]", func
  {
  	var n2 = props.globals.getNode("engines/engine[1]/n2").getValue();
  	var run = props.globals.getNode("engines/engine[1]/running").getBoolValue();
@@ -315,7 +315,7 @@ setlistener("controls/special/starter[1]", func
 	}
  }, 0, 0);
  
-setlistener("controls/special/starter[2]", func
+setlistener("controls/special/start/starter[2]", func
  {
  	var n2 = props.globals.getNode("engines/engine[2]/n2").getValue();
  	var run = props.globals.getNode("engines/engine[2]/running").getBoolValue();
@@ -329,7 +329,7 @@ setlistener("controls/special/starter[2]", func
 	}
  }, 0, 0); 
  
-setlistener("controls/special/starter[3]", func
+setlistener("controls/special/start/starter[3]", func
  {
  	var n2 = props.globals.getNode("engines/engine[3]/n2").getValue();
  	var run = props.globals.getNode("engines/engine[3]/running").getBoolValue();

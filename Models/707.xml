@@ -71,17 +71,11 @@
 	
 	<effect>
 		<inherits-from>Effects/lightmap</inherits-from>
-		<condition>
-			<and>
-				<not><property>/sim/rendering/rembrandt/enabled</property></not>
-				<property>sim/multiplay/generic/int[2]</property>
-			</and>
-		</condition>
 		<parameters>
 			<texture n="1">
 				<image>Aircraft/707/Models/Lights/logolight.png</image>
 			</texture>
-			<condition><use>/controls/lighting/landing-light[2]</use></condition>
+			<condition><use>controls/lighting/landing-light[2]</use></condition>
 			<factor>1</factor>
 		</parameters>
     <object-name>vertstab</object-name>

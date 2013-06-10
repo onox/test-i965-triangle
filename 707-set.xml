@@ -207,6 +207,7 @@
 			<rpm type="double">0</rpm>
 			<started type="bool">false</started>
 			<failed type="bool">false</failed>
+			<kw type="double">0</kw>
 		</engine>
 		<engine n="1">
 			<on-fire type="bool">false</on-fire>
@@ -215,6 +216,7 @@
 			<rpm type="double">0</rpm>
 			<started type="bool">false</started>
 			<failed type="bool">false</failed>
+			<kw type="double">0</kw>
 		</engine>
 		<engine n="2">
 			<on-fire type="bool">false</on-fire>
@@ -223,6 +225,7 @@
 			<rpm type="double">0</rpm>
 			<started type="bool">false</started>
 			<failed type="bool">false</failed>
+			<kw type="double">0</kw>
 		</engine>
 		<engine n="3">
 			<on-fire type="bool">false</on-fire>
@@ -231,6 +234,7 @@
 			<rpm type="double">0</rpm>
 			<started type="bool">false</started>
 			<failed type="bool">false</failed>
+			<kw type="double">0</kw>
 		</engine>
 	</engines>
  
@@ -312,6 +316,12 @@
 			<wiper-switch type="int">0</wiper-switch>
 			<wiper-deg type="double">0.0</wiper-deg>
 			<slats-switch type="double">0.0</slats-switch>
+			<generator>
+				<gen-freq n="0" type="double">1.0</gen-freq>
+				<gen-freq n="1" type="double">1.0</gen-freq>
+				<gen-freq n="2" type="double">1.0</gen-freq>
+				<gen-freq n="3" type="double">1.0</gen-freq>
+			</generator>
 		</special>
 		<!-- only for tiller steering -->
     <gear>

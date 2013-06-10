@@ -297,7 +297,69 @@ var mag_controll = func {
 
 setlistener( "/instrumentation/compass-controll/mag", mag_controll);
 
+####################################### generator helper #######################################
+var gen_kw = func{
+		var p = "/controls/special/generator/";
+		var f1 = getprop("/controls/special/generator/gen-freq[0]") or 0;
+		var f2 = getprop("/controls/special/generator/gen-freq[1]") or 0;
+		var f3 = getprop("/controls/special/generator/gen-freq[2]") or 0;
+		var f4 = getprop("/controls/special/generator/gen-freq[3]") or 0;
 
+		var a1 = getprop("engines/engine[0]/oil-pressure-psi") or 0;
+		var a2 = getprop("engines/engine[1]/oil-pressure-psi") or 0;
+		var a3 = getprop("engines/engine[2]/oil-pressure-psi") or 0;
+		var a4 = getprop("engines/engine[3]/oil-pressure-psi") or 0;
+		
+		var gc1 = getprop("/controls/special/generator/gen-controll[0]") or 0;
+		var gc2 = getprop("/controls/special/generator/gen-controll[1]") or 0;
+		var gc3 = getprop("/controls/special/generator/gen-controll[2]") or 0;
+		var gc4 = getprop("/controls/special/generator/gen-controll[3]") or 0;
+		
+		var gb1 = getprop("/controls/special/generator/gen-breaker[0]") or 0;
+		var gb2 = getprop("/controls/special/generator/gen-breaker[1]") or 0;
+		var gb3 = getprop("/controls/special/generator/gen-breaker[2]") or 0;
+		var gb4 = getprop("/controls/special/generator/gen-breaker[3]") or 0;
+		
+		var gt1 = getprop("/controls/special/generator/gen-bus-tie[0]") or 0;
+		var gt2 = getprop("/controls/special/generator/gen-bus-tie[1]") or 0;
+		var gt3 = getprop("/controls/special/generator/gen-bus-tie[2]") or 0;
+		var gt4 = getprop("/controls/special/generator/gen-bus-tie[3]") or 0;
+		
+		var gc = getprop("/controls/special/ground-connect") or 0;
+		var lvs = getprop("/controls/special/load-volt-selector") or 0;
+		
+		if(lvs > 0 and gc and gc1 and gb1 and gt1){
+		  var k1 = a1*f1;
+		  interpolate("engines/engine[0]/kw", k1, 2.1);
+		}else{
+			interpolate("engines/engine[0]/kw", 0, 0.5);
+		}
+		
+		if(lvs > 0 and gc and gc2 and gb2 and gt2){
+		  var k2 = a2*f2;
+		  interpolate("engines/engine[1]/kw", k2, 2.1);
+		}else{
+			interpolate("engines/engine[1]/kw", 0, 0.5);
+		}	
+		
+		if(lvs > 0 and gc and gc3 and gb3 and gt3){
+		  var k3 = a3*f3;
+		  interpolate("engines/engine[2]/kw", k3, 2.1);
+		}else{
+			interpolate("engines/engine[2]/kw", 0, 0.5);
+		}	
+		
+		if(lvs > 0 and gc and gc4 and gb4 and gt4){
+		  var k4 = a4*f4;
+		  interpolate("engines/engine[3]/kw", k4, 2.1);
+		}else{
+			interpolate("engines/engine[3]/kw", 0, 0.5);
+		}
+		
+		settimer( gen_kw, 2);
+}
 
+#fire it up
+gen_kw();
 
 

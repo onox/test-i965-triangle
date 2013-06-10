@@ -53,10 +53,13 @@
 		<object-name>LampGreenON</object-name>
 		<condition>
 		  <or>
-		    <greater-than>
-		    	<property>/controls/special/load-volt-selector</property>
-		    	<value>0</value>
-		    </greater-than>
+		    <and>
+				  <greater-than>
+				  	<property>/controls/special/load-volt-selector</property>
+				  	<value>0</value>
+				  </greater-than>
+		    	<property>/controls/electric/battery-switch</property>
+				</and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -67,7 +70,14 @@
 		<object-name>LampBlueON</object-name>
 		<condition>
 		  <or>
-		    <property>/controls/special/ground-connect</property>
+		    <and>
+				  <greater-than>
+				  	<property>/controls/special/load-volt-selector</property>
+				  	<value>0</value>
+				  </greater-than>
+		    	<property>/controls/electric/battery-switch</property>		    
+		    	<property>/controls/special/ground-connect</property>
+				</and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>

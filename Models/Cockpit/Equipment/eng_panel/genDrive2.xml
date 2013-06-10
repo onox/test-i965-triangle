@@ -121,7 +121,7 @@
   <animation>
     <type>rotate</type>
     <object-name>cover</object-name>
-    <property>/controls/special/gen-drive-cover[1]</property>
+    <property>/controls/special/generator/gen-drive-cover[1]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -152,7 +152,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/gen-drive-cover[1]</property>
+		        <property>/controls/special/generator/gen-drive-cover[1]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -164,7 +164,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>/controls/special/gen-drive[1]</property>
+		  <property>/controls/special/generator/gen-drive[1]</property>
       <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
@@ -187,7 +187,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/gen-drive[1]</property>
+		        <property>/controls/special/generator/gen-drive[1]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>

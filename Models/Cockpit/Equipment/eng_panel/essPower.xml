@@ -29,8 +29,8 @@
 		<object-name>LampAmberON</object-name>
 		<emission>
 		  <red>   1.0 </red>
-		  <green> 0.8 </green>
-		  <blue>  0.4 </blue>
+		  <green> 0.0 </green>
+		  <blue>  0.0 </blue>
 		</emission>
 	</animation>
 
@@ -40,11 +40,12 @@
 		<condition>
 		  <or>
 		    <and>
-		    	<not><property>/controls/special/ess-power</property></not>
+		    	<property>/controls/special/ess-power</property>
 					<greater-than>
 		    		<property>/controls/special/load-volt-selector</property>
-		    	<value>0</value>
-		    </greater-than>
+				  	<value>0</value>
+				  </greater-than>
+				  <property>/controls/electric/battery-switch</property>
 		    </and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>

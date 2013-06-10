@@ -59,7 +59,7 @@
 		<condition>
 		  <or>
 		  	<and>
-		  	  <property>/controls/special/starter[2]</property>
+		  	  <property>/controls/special/start/starter[2]</property>
 				  <less-than>
 				  	<property>/engines/engine[2]/n2</property>
 				  	<value>35</value>
@@ -74,7 +74,7 @@
   <animation>
     <type>rotate</type>
     <object-name>cover</object-name>
-    <property>/controls/special/startercover[2]</property>
+    <property>/controls/special/start/startercover[2]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -105,7 +105,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/startercover[2]</property>
+		        <property>/controls/special/start/startercover[2]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -117,7 +117,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>/controls/special/starter[2]</property>
+		  <property>/controls/special/start/starter[2]</property>
       <factor>-50</factor>
 		  <axis>
 		   <x>0</x>
@@ -140,12 +140,12 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/starter[2]</property>
+		        <property>/controls/special/start/starter[2]</property>
 		    </binding>
 		    <mod-up>
           <binding>
 		      <command>property-toggle</command>
-		      <property>/controls/special/starter[2]</property>
+		      <property>/controls/special/start/starter[2]</property>
           </binding>
         </mod-up>
 		    <binding>

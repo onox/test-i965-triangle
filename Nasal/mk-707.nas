@@ -33,17 +33,10 @@ var togglereverser = func {
 	rv4 = "/engines/engine[3]/reverser-pos-norm"; 
 
 	val1 = getprop(rv1) or 0;
-	val2 = getprop(rv2) or 0;
-	val3 = getprop(rv3) or 0;
-	val4 = getprop(rv4) or 0;
 	
 	t1 = getprop("/controls/engines/engine[0]/throttle") or 0;
-	t2 = getprop("/controls/engines/engine[1]/throttle") or 0;
-	t3 = getprop("/controls/engines/engine[2]/throttle") or 0;
-	t4 = getprop("/controls/engines/engine[3]/throttle") or 0;
 
-	if (val1 == 0 and val2 == 0 and val3 == 0 and val4 == 0 and
-			t1 < 0.25 and t2 < 0.25 and t3 < 0.25 and t4 < 0.25 ) {
+	if ((val1 == 0 or val1 == nil) and t1 < 0.25) {
 		interpolate(rv1, 1.0, 1.4); 
 		interpolate(rv2, 1.0, 1.4);
 		interpolate(rv3, 1.0, 1.4); 
@@ -60,10 +53,8 @@ var togglereverser = func {
 		setprop(r5,"engine[1]", "true");
 		setprop(r5,"engine[2]", "true");
 		setprop(r5,"engine[3]", "true");
-	}
-	
-	if (val1 == 1.0 and val2 == 1.0 and val3 == 1.0 and val4 == 1.0 and
-			t1 == 0 and t2 == 0 and t3 == 0 and t4 == 0){
+	} else {
+		if (val1 == 1.0 and t1 == 0){
 		interpolate(rv1, 0.0, 1.4);
 		interpolate(rv2, 0.0, 1.4); 
 		interpolate(rv3, 0.0, 1.4);
@@ -80,7 +71,7 @@ var togglereverser = func {
 		setprop(r5,"engine[1]", "true");
 		setprop(r5,"engine[2]", "true");
 		setprop(r5,"engine[3]", "true");
-		
+		}
 	}
 }
 

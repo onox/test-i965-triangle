@@ -201,6 +201,9 @@
 		<type>rotate</type>
 		<object-name>throttle.001</object-name>
 		<object-name>reverser.001</object-name>
+		<condition>
+			<not><property>engines/engine[0]/reversed</property></not>
+		</condition>
 		<property>/controls/engines/engine[0]/throttle</property>
 		<factor>-50</factor>
 		<center>
@@ -248,6 +251,9 @@
 		<type>rotate</type>
 		<object-name>throttle.002</object-name>
 		<object-name>reverser.002</object-name>
+		<condition>
+			<not><property>engines/engine[1]/reversed</property></not>
+		</condition>
 		<property>/controls/engines/engine[1]/throttle</property>
 		<factor>-50</factor>
 		<center>
@@ -295,6 +301,9 @@
 		<type>rotate</type>
 		<object-name>throttle.003</object-name>
 		<object-name>reverser.003</object-name>
+		<condition>
+			<not><property>engines/engine[2]/reversed</property></not>
+		</condition>
 		<property>/controls/engines/engine[2]/throttle</property>
 		<factor>-50</factor>
 		<center>
@@ -342,6 +351,9 @@
 		<type>rotate</type>
 		<object-name>throttle.004</object-name>
 		<object-name>reverser.004</object-name>
+		<condition>
+			<not><property>engines/engine[3]/reversed</property></not>
+		</condition>
 		<property>/controls/engines/engine[3]/throttle</property>
 		<factor>-50</factor>
 		<center>
@@ -509,8 +521,11 @@
 	<!-- Reverser lever -->
 	<animation>
 		<type>rotate</type>
-		<object-name>reverser.001</object-name>
-		<property>/engines/engine[0]/reverser-pos-norm</property>
+		<object-name>reverser.001</object-name>		
+		<condition>
+			<property>engines/engine[0]/reversed</property>
+		</condition>
+		<property>/controls/engines/engine[0]/throttle</property>
 		<factor>140</factor>
 		<center>
 		  <x-m>-18.556</x-m>
@@ -526,8 +541,11 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>reverser.002</object-name>
-		<property>/engines/engine[1]/reverser-pos-norm</property>
+		<object-name>reverser.002</object-name>		
+		<condition>
+			<property>engines/engine[1]/reversed</property>
+		</condition>
+		<property>/controls/engines/engine[1]/throttle</property>
 		<factor>140</factor>
 		<center>
 		  <x-m>-18.556</x-m>
@@ -543,8 +561,11 @@
 
 	<animation>
 		<type>rotate</type>
-		<object-name>reverser.003</object-name>
-		<property>/engines/engine[2]/reverser-pos-norm</property>
+		<object-name>reverser.003</object-name>		
+		<condition>
+			<property>engines/engine[2]/reversed</property>
+		</condition>
+		<property>/controls/engines/engine[2]/throttle</property>
 		<factor>140</factor>
 		<center>
 		  <x-m>-18.556</x-m>
@@ -560,8 +581,11 @@
 
 	<animation>
 		<type>rotate</type>
-		<object-name>reverser.004</object-name>
-		<property>/engines/engine[3]/reverser-pos-norm</property>
+		<object-name>reverser.004</object-name>		
+		<condition>
+			<property>engines/engine[3]/reversed</property>
+		</condition>
+		<property>/controls/engines/engine[3]/throttle</property>
 		<factor>140</factor>
 		<center>
 		  <x-m>-18.556</x-m>

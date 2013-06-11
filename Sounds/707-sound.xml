@@ -668,7 +668,7 @@
 			<property>/engines/engine[0]/reversed</property>
 		</condition>
 		<volume>
-			<property>/engines/engine[0]/reverser-pos-norm</property>
+			<property>/controls/engines/engine[0]/throttle</property>
 			<factor>1</factor>
 		</volume>
 	</reverser>	

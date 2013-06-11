@@ -60,9 +60,10 @@ var togglereverser = func {
 		setprop(r5,"engine[1]", "true");
 		setprop(r5,"engine[2]", "true");
 		setprop(r5,"engine[3]", "true");
-	} else {
-		if (val1 == 1.0 and val2 == 1.0 and val3 == 1.0 and val4 == 1.0 and
-				t1 == 0 and t2 == 0 and t3 == 0 and t4 == 0){
+	}
+	
+	if (val1 == 1.0 and val2 == 1.0 and val3 == 1.0 and val4 == 1.0 and
+			t1 == 0 and t2 == 0 and t3 == 0 and t4 == 0){
 		interpolate(rv1, 0.0, 1.4);
 		interpolate(rv2, 0.0, 1.4); 
 		interpolate(rv3, 0.0, 1.4);
@@ -79,7 +80,7 @@ var togglereverser = func {
 		setprop(r5,"engine[1]", "true");
 		setprop(r5,"engine[2]", "true");
 		setprop(r5,"engine[3]", "true");
-		}
+		
 	}
 }
 

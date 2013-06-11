@@ -113,7 +113,7 @@
 		</marker>
 		<exit>
 			<condition>
-					<property>/controls/special/startercover[2]</property>
+					<property>/controls/special/start/startercover[2]</property>
 			</condition>
 		</exit>
 	</step>
@@ -162,8 +162,8 @@
 					<property>engines/engine[2]/n2</property>
 					<value>35</value>
 				</greater-than>
-				<not><property>/controls/special/startercover[2]</property></not>
-				<property>/controls/special/startercover[3]</property>
+				<not><property>/controls/special/start/startercover[2]</property></not>
+				<property>/controls/special/start/startercover[3]</property>
 			</condition>
 		</exit>
 	</step>
@@ -212,8 +212,8 @@
 					<property>engines/engine[3]/n2</property>
 					<value>35</value>
 				</greater-than>
-				<not><property>/controls/special/startercover[3]</property></not>
-				<property>/controls/special/startercover[1]</property>
+				<not><property>/controls/special/start/startercover[3]</property></not>
+				<property>/controls/special/start/startercover[1]</property>
 			</condition>
 		</exit>
 	</step>
@@ -262,8 +262,8 @@
 					<property>engines/engine[1]/n2</property>
 					<value>35</value>
 				</greater-than>
-				<not><property>/controls/special/startercover[1]</property></not>
-				<property>/controls/special/startercover[0]</property>
+				<not><property>/controls/special/start/startercover[1]</property></not>
+				<property>/controls/special/start/startercover[0]</property>
 			</condition>
 		</exit>
 	</step>
@@ -308,7 +308,7 @@
 		</view>
 		<exit>
 			<condition>
-				<not><property>/controls/special/startercover[0]</property></not>
+				<not><property>/controls/special/start/startercover[0]</property></not>
 			</condition>
 		</exit>
 	</step>

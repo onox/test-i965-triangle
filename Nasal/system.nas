@@ -22,12 +22,19 @@ var apuLoop = func
   if (setting == 1)
    {
    var rpm = getprop("engines/APU/rpm");
+   var amp = getprop("engines/APU/amp-v");
    rpm += getprop("sim/time/delta-realtime-sec") * 7;
+   amp += getprop("sim/time/delta-realtime-sec") * 12;
    if (rpm >= 100)
     {
     rpm = 100;
     }
+   if (amp >= 144)
+	  {
+	  amp = 144;
+	  }
    setprop("engines/APU/rpm", rpm);
+   setprop("engines/APU/amp-v", amp);
    }
   elsif (setting == 2 and getprop("engines/APU/rpm") >= 80)
    {
@@ -39,16 +46,29 @@ var apuLoop = func
   props.globals.getNode("engines/APU/running").setBoolValue(0);
 
   var rpm = getprop("engines/APU/rpm");
+  var amp = getprop("engines/APU/amp-v");
   rpm -= getprop("sim/time/delta-realtime-sec") * 5;
+  amp -= getprop("sim/time/delta-realtime-sec") * 9;
   if (rpm < 0)
    {
    rpm = 0;
    }
+ 	if (amp < 0)
+	 {
+	 amp = 0;
+	 }
   setprop("engines/APU/rpm", rpm);
+  setprop("engines/APU/amp-v", amp);
   }
 
  settimer(apuLoop, 0);
  };
+ 
+# switch  
+
+ 
+ 
+ 
 # main loop function
 var engineLoop = func(engine_no)
  {

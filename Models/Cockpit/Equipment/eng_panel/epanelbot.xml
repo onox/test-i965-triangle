@@ -18,4 +18,14 @@
 		</emission>
 	</animation>
 	
+	<model>
+		<name>apu</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/apu.xml</path>
+		<offsets>
+		  <x-m> 0.4366</x-m>
+		  <y-m>-0.0017</y-m>
+		  <z-m>-0.1507</z-m>
+		</offsets>
+	</model>
+	
 </PropertyList>

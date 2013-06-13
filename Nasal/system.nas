@@ -16,25 +16,25 @@ var apuLoop = func
 	}
 
  var setting = getprop("controls/APU/off-start-run");
+ var generator = getprop("controls/special/apu/apu-gen");
 
+ # rpm and running
  if (setting != 0)
   {
   if (setting == 1)
    {
    var rpm = getprop("engines/APU/rpm");
-   var amp = getprop("engines/APU/amp-v");
    rpm += getprop("sim/time/delta-realtime-sec") * 7;
-   amp += getprop("sim/time/delta-realtime-sec") * 12;
-   if (rpm >= 100)
-    {
-    rpm = 100;
+   if (rpm >= 100){
+    	rpm = 100;
+		  setprop("controls/APU/off-start-run",2); # automatic spring for the apu-master-switch
+		  if(getprop("/sim/sound/switch2") == 1){
+		  	 setprop("/sim/sound/switch2", 0); 
+		  }else{
+		  	 setprop("/sim/sound/switch2", 1);
+		  }
     }
-   if (amp >= 144)
-	  {
-	  amp = 144;
-	  }
    setprop("engines/APU/rpm", rpm);
-   setprop("engines/APU/amp-v", amp);
    }
   elsif (setting == 2 and getprop("engines/APU/rpm") >= 80)
    {
@@ -46,27 +46,61 @@ var apuLoop = func
   props.globals.getNode("engines/APU/running").setBoolValue(0);
 
   var rpm = getprop("engines/APU/rpm");
-  var amp = getprop("engines/APU/amp-v");
   rpm -= getprop("sim/time/delta-realtime-sec") * 5;
-  amp -= getprop("sim/time/delta-realtime-sec") * 9;
   if (rpm < 0)
    {
    rpm = 0;
    }
- 	if (amp < 0)
-	 {
-	 amp = 0;
-	 }
   setprop("engines/APU/rpm", rpm);
-  setprop("engines/APU/amp-v", amp);
+  }
+  
+  # the generator and amp-v
+  if (generator != 0 and getprop("engines/APU/rpm") >= 80){
+		if (generator == 1){
+		 var amp = getprop("engines/APU/amp-v");
+		 amp += getprop("sim/time/delta-realtime-sec") * 12;
+		 if (amp >= 144){
+			amp = 144;
+			}
+		 setprop("engines/APU/amp-v", amp);
+		 }
+  }else{
+		var amp = getprop("engines/APU/amp-v");
+		amp -= getprop("sim/time/delta-realtime-sec") * 9;
+	 	if (amp < 0){
+		 amp = 0;
+		}
+		setprop("engines/APU/amp-v", amp);
+  }
+  
+  # the apu temperature
+  if (getprop("engines/APU/rpm") >= 40){
+
+		 var temp = getprop("/engines/APU/temp");
+		 if(!generator){
+			 temp += getprop("sim/time/delta-realtime-sec") * 4;
+			 if (temp >= 510){
+				temp = 510;
+				}
+			}else{
+			 temp += getprop("sim/time/delta-realtime-sec") * 6;
+			 if (temp >= 610){
+				temp = 610;
+				}
+			}
+		 setprop("engines/APU/temp", temp);
+
+  }else{
+		var temp = getprop("engines/APU/temp") or 0;
+		temp -= getprop("sim/time/delta-realtime-sec") * 2;
+	 	if (temp < 0){
+		 temp = 0;
+		}
+		setprop("engines/APU/temp", temp);
   }
 
  settimer(apuLoop, 0);
  };
- 
-# switch  
-
- 
  
  
 # main loop function

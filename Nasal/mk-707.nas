@@ -13,7 +13,6 @@ if (volt.getValue() >= 25.18)
  }
 }, 0, 0);
 
-
 var togglereverser = func {
 	r1 = "/fdm/jsbsim/propulsion/engine";
 	r2 = "/fdm/jsbsim/propulsion/engine[1]";

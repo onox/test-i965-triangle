@@ -98,7 +98,7 @@
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
 		  <property>/controls/special/apu/apu-gen</property>
-      <factor>-60</factor>
+      <factor>-30</factor>
 		  <axis>
 		   <x>1</x>
 		   <y>0</y>
@@ -110,7 +110,7 @@
 		  <z-m>-0.0493</z-m>
 		  </center>  
 	</animation>
-
+	
 	<animation>
 		  <type>pick</type>
 		  <object-name>switch</object-name>
@@ -118,10 +118,30 @@
 		  <action>
 		    <button>0</button>
 		    <repeatable>false</repeatable>
-		    <binding>
-		        <command>property-toggle</command>
-		        <property>/controls/special/apu/apu-gen</property>
-		    </binding>
+        <binding>
+            <command>nasal</command>
+            <script>
+            	var bt = getprop("/controls/special/apu/apu-gen") or 0;
+            	if(bt > 0){
+            		setprop("/controls/special/apu/apu-gen", 0);
+            	}else{
+            		setprop("/controls/special/apu/apu-gen", 2);
+            	}
+            </script>
+        </binding>
+        <mod-up>
+          <binding>
+            <command>nasal</command>
+            <script>
+            	var bt = getprop("/controls/special/apu/apu-gen") or 0;
+            	if(bt == 2){
+            		setprop("/controls/special/apu/apu-gen", 1);
+            	}else{
+            		setprop("/controls/special/apu/apu-gen", 0);
+            	}
+            </script>
+          </binding>
+        </mod-up>
 		    <binding>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>
@@ -206,7 +226,11 @@
 		  <type>rotate</type>
 		  <object-name>switch.003</object-name>
 		  <property>controls/APU/off-start-run</property>
-      <factor>-30</factor>
+			<interpolation>
+				<entry><ind>  0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>  1.0</ind><dep> -60.0</dep></entry>
+				<entry><ind>  2.0</ind><dep> -30.0</dep></entry>
+			</interpolation>   
 		  <axis>
 		   <x>1</x>
 		   <y>0</y>
@@ -225,30 +249,17 @@
 		  <action>
 		    <button>0</button>
 		    <repeatable>false</repeatable>
-		    <binding>
-		      <command>property-adjust</command>
-		      <property>controls/APU/off-start-run</property>
-		      <step>1</step>
-		      <min>0</min>
-		      <max>2</max>
-		      <wrap>false</wrap>
-		    </binding>
-		    <binding>
-		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
-		    </binding>
-		  </action>
-		  <action>
-		    <button>1</button>
-		    <repeatable>false</repeatable>
-		    <binding>
-		      <command>property-adjust</command>
-		      <property>controls/APU/off-start-run</property>
-		      <step>-1</step>
-		      <min>0</min>
-		      <max>2</max>
-		      <wrap>false</wrap>
-		    </binding>
+        <binding>
+            <command>nasal</command>
+            <script>
+            	var bt = getprop("/controls/APU/off-start-run") or 0;
+            	if(bt > 0){
+            		setprop("/controls/APU/off-start-run", 0);
+            	}else{
+            		setprop("/controls/APU/off-start-run", 1);
+            	}
+            </script>
+        </binding>
 		    <binding>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>
@@ -373,11 +384,11 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>needle.003</object-name>
-		<property>/engines/APU/amp-v</property>
+		<property>/engines/APU/temp</property>
 		<interpolation>
 		  <entry><ind>   0.0</ind><dep>   0.0</dep></entry>
-		  <entry><ind> 200.0</ind><dep> 195.0</dep></entry>
-		  <entry><ind> 300.0</ind><dep> 195.0</dep></entry>
+		  <entry><ind> 510.0</ind><dep> 160.0</dep></entry>
+		  <entry><ind> 800.0</ind><dep> 190.0</dep></entry>
 		</interpolation>
 		<axis>
 		  <x>0</x>

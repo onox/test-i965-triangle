@@ -112,7 +112,7 @@
   <animation>
     <type>rotate</type>
     <object-name>off-flag</object-name>
-    <property>/systems/electrical/right-bus</property>
+    <property>b707/ess-bus</property>
 		<interpolation>
 		  <entry>
 		    <ind>0.0</ind>

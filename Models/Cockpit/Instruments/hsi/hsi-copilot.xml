@@ -108,7 +108,7 @@
 		<object-name>CrsNum.off</object-name>
 		<condition>
 			<less-than>
-				<property>/systems/electrical/right-bus</property>
+				<property>b707/ess-bus</property>
 				<value>12</value>
 			</less-than>
 		</condition>

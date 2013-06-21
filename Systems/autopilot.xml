@@ -240,7 +240,7 @@
     </config>
   </pid-controller>
 
-  <!-- Heading Bug Hold.  2 stage cascade controller. -->
+  <!-- Heading Bug Hold.  2 stage cascade controler. -->
 
   <!-- Stage #1 sets target roll based on diff between current heading -->
   <!-- and heading bug. -->
@@ -273,7 +273,7 @@
     </config>
   </pid-controller>
 
-  <!-- True Heading hold.  2 stage cascade controller. -->
+  <!-- True Heading hold.  2 stage cascade controler. -->
 
   <!-- Stage #1 sets target roll based on diff between current heading -->
   <!-- and target heading. -->
@@ -319,7 +319,7 @@
 	<max-rate-of-change>3.0</max-rate-of-change>
   </filter>
 
-  <!-- Nav1 hold.  2 stage cascade controller. -->
+  <!-- Nav1 hold.  2 stage cascade controler. -->
 
   <!-- Stage #1 sets target roll based on diff between current heading -->
   <!-- and target heading. -->
@@ -413,7 +413,7 @@
 
 
 	<!-- Stage #2b drives the rudder in order to the actual roll. -->
-  <pi-simple-controller>
+  <pi-simple-controler>
 	<name>Heading Bug Hold (DG based) Stage 3</name>
 	<debug>false</debug>
 	<enable>
@@ -451,7 +451,7 @@
 		<u_min>-0.4</u_min>
 		<u_max>0.4</u_max>
 	</config>
-  </pi-simple-controller>
+  </pi-simple-controler>
 
 
  <!-- =============================================================== -->
@@ -518,11 +518,11 @@
     </config>
   </pid-controller>
 
-  <!-- Altitude hold.  2 stage cascade controller. -->
+  <!-- Altitude hold.  2 stage cascade controler. -->
 
   <!-- Stage #1 sets target rate of climb based on diff between current alt -->
   <!-- and target altitude. -->
-  <pi-simple-controller>
+  <pi-simple-controler>
     <name>Altitude Hold (Altimeter based) Stage 1</name>
     <debug>false</debug>
     <enable>
@@ -546,13 +546,13 @@
       <u_min>-25.0</u_min> <!-- minimum output clamp -->
       <u_max>25.0</u_max>   <!-- maximum output clamp -->
     </config>
-  </pi-simple-controller>
+  </pi-simple-controler>
 
-  <!-- AGL hold.  2 stage cascade controller. -->
+  <!-- AGL hold.  2 stage cascade controler. -->
 
   <!-- Stage #1 sets target rate of climb based on diff between current agl -->
   <!-- and target agl. -->
-  <pi-simple-controller>
+  <pi-simple-controler>
     <name>AGL Hold (Altimeter based) Stage 1</name>
     <debug>false</debug>
     <enable>
@@ -574,7 +574,7 @@
       <u_min>-25.0</u_min> <!-- minimum output clamp -->
       <u_max>25.0</u_max>   <!-- maximum output clamp -->
     </config>
-  </pi-simple-controller>
+  </pi-simple-controler>
 
   <!-- Altitude/AGL Stage #2 drives the elevator-trim(-servo) to achieve the desired climb rate. -->
   <pid-controller>
@@ -886,7 +886,7 @@
 		<max-rate-of-change>0.5</max-rate-of-change>
 	</filter>
 
-	<!-- Step 2 - use pitch-hold-controller to operate the elevator-trim -->
+	<!-- Step 2 - use pitch-hold-controler to operate the elevator-trim -->
 	<pid-controller>
 		<name>Speed with pitch - Pitch hold</name>
 		<debug>false</debug>

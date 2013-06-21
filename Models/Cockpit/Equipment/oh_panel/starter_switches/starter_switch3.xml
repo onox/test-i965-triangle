@@ -41,7 +41,7 @@
 		  <blue>0.3</blue>
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
-	</animation>	
+	</animation>
 	
 	<animation>
 		<type>material</type>
@@ -52,21 +52,31 @@
 		  <blue>  0 </blue>
 		</emission>
 	</animation>
-
+	
 	<animation>
 		<type>select</type>
 		<object-name>LampGreenON</object-name>
 		<condition>
-		  <or>
-		  	<and>
-		  	  <property>/controls/special/start/starter[2]</property>
-				  <less-than>
-				  	<property>/engines/engine[2]/n2</property>
-				  	<value>35</value>
-				  </less-than>
+		<and>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+			<or>
+				<property>/controls/test/warn-knob</property>
+				<and>
+					<property>/b707/external-power-connected</property>
+					<property>/b707/ground-connect</property>	
+					<property>/b707/generator/gen-breaker[2]</property>
+					<not><property>/engines/engine[2]/running</property></not> 
 				</and>
-		    <property>/controls/test/warn-knob</property>
-		  </or>
+				<and>
+					<property>/b707/apu/off-start-run</property>	
+					<property>/b707/generator/gen-drive[4]</property>
+					<not><property>/engines/engine[2]/running</property></not> 
+				</and>
+			</or>
+		</and>
 		</condition>
 	</animation>
 	
@@ -74,7 +84,7 @@
   <animation>
     <type>rotate</type>
     <object-name>cover</object-name>
-    <property>/controls/special/start/startercover[2]</property>
+    <property>/b707/start/startercover[2]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -105,7 +115,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/start/startercover[2]</property>
+		        <property>/b707/start/startercover[2]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -117,7 +127,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>/controls/special/start/starter[2]</property>
+		  <property>/controls/engines/engine[2]/starter</property>
       <factor>-50</factor>
 		  <axis>
 		   <x>0</x>
@@ -140,12 +150,12 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/start/starter[2]</property>
+		        <property>/controls/engines/engine[2]/starter</property>
 		    </binding>
 		    <mod-up>
           <binding>
 		      <command>property-toggle</command>
-		      <property>/controls/special/start/starter[2]</property>
+		      <property>/controls/engines/engine[2]/starter</property>
           </binding>
         </mod-up>
 		    <binding>
@@ -153,6 +163,6 @@
 		      <property>/sim/sound/switch2</property>
 		    </binding>
 		  </action>
-	</animation>	
+	</animation>
 
 </PropertyList>

@@ -6,11 +6,15 @@
 		<type>material</type>
 		<object-name>LampAmber</object-name>
 		<object-name>sockle</object-name>
-		<object-name>sockle.001</object-name> 
+		<object-name>sockle.001</object-name>  
 		<object-name>switch</object-name>
 		<object-name>cover</object-name>
 		<object-name>bezel</object-name>
-		<condition>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
@@ -25,7 +29,11 @@
 		<type>material</type>
 		<object-name>face</object-name>
 		<object-name>needle</object-name>
-		<condition>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
@@ -40,7 +48,11 @@
 		<type>material</type>
 		<object-name>face</object-name>
 		<object-name>needle</object-name>
-		<condition>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/controls/lighting/cabin-dim</property>
 		</condition>
@@ -51,7 +63,7 @@
 		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
 		</emission>
 	</animation>
-
+	
 	<animation>
 		<type>noshadow</type>
 		<object-name>LampAmber</object-name>
@@ -66,18 +78,22 @@
 		  <green> 0.8 </green>
 		  <blue>  0.4 </blue>
 		</emission>
-	</animation>	
+	</animation>
 	
 	<animation>
 		<type>select</type>
 		<object-name>LampAmberON</object-name>
-		<condition>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
+		  	<not><property>/b707/generator/gen-drive[1]</property></not>
 		  	<less-than>
-		    	<property>/engines/engine[0]/oil-pressure-psi</property>
+		    	<property>/engines/engine[1]/oil-pressure-psi</property>
 		    	<value>12.1</value>
 		    </less-than>
-		    <not><property>/controls/special/generator/gen-drive[1]</property></not>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -87,6 +103,12 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>needle</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		</condition>
 		<property>/engines/engine[1]/epr</property>
 		<interpolation>
 		  <entry><ind>  0.0</ind><dep>  0.0</dep></entry>
@@ -109,7 +131,7 @@
   <animation>
     <type>rotate</type>
     <object-name>cover</object-name>
-    <property>/controls/special/generator/gen-drive-cover[1]</property>
+    <property>/b707/generator/gen-drive-cover[1]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -140,7 +162,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/generator/gen-drive-cover[1]</property>
+		        <property>/b707/generator/gen-drive-cover[1]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -152,7 +174,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>/controls/special/generator/gen-drive[1]</property>
+		  <property>/b707/generator/gen-drive[1]</property>
       <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
@@ -175,12 +197,17 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/generator/gen-drive[1]</property>
-		    </binding>
+		        <property>/b707/generator/gen-drive[1]</property>
+		    </binding>          
+		    <binding>
+          <command>nasal</command>
+          <script>b707.ac_sync();</script>
+        </binding>
 		    <binding>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>
 		    </binding>
 		  </action>
-	</animation> 
+	</animation>
+ 
 </PropertyList>

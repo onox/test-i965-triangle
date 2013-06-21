@@ -32,7 +32,6 @@
     <or>
 		  <property>/controls/test/warn-knob</property>
 		  <and>
-				<property>/controls/electric/APU-generator</property>
 				<or> 
 					<property>/controls/engines/engine[0]/cutoff</property>
 					<not><property>/engines/engine[0]/running</property></not>
@@ -54,7 +53,6 @@
     <or>
 		  <property>/controls/test/warn-knob</property>
 		  <and>
-				<property>/controls/electric/APU-generator</property>
 				<or> 
 					<property>/controls/engines/engine[1]/cutoff</property>
 					<not><property>/engines/engine[1]/running</property></not>
@@ -76,7 +74,6 @@
     <or>
 		  <property>/controls/test/warn-knob</property>
 		  <and>
-				<property>/controls/electric/APU-generator</property>
 				<or> 
 					<property>/controls/engines/engine[2]/cutoff</property>
 					<not><property>/engines/engine[2]/running</property></not>
@@ -98,7 +95,6 @@
     <or>
 		  <property>/controls/test/warn-knob</property>
 		  <and>
-				<property>/controls/electric/APU-generator</property>
 				<or> 
 					<property>/controls/engines/engine[3]/cutoff</property>
 					<not><property>/engines/engine[3]/running</property></not>

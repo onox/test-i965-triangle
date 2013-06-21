@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
 
-  <path>compass_controll.ac</path>
+  <path>compass_control.ac</path>
 
 	<animation>
 		<type>material</type>
@@ -59,7 +59,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>turn</object-name>
-		<property>/instrumentation/compass-controll/lat-turn</property>
+		<property>/instrumentation/compass-control/lat-turn</property>
 		<interpolation>
 		  <entry><ind>  0</ind><dep>   0</dep></entry>
 		  <entry><ind> 10</ind><dep>  25</dep></entry>
@@ -92,7 +92,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/instrumentation/compass-controll/lat-turn</property>
+		    <property>/instrumentation/compass-control/lat-turn</property>
 		    <step>10</step>
 		    <min>0</min>
 		    <max>90</max>
@@ -108,7 +108,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/instrumentation/compass-controll/lat-turn</property>
+		    <property>/instrumentation/compass-control/lat-turn</property>
 		    <step>-10</step>
 		    <min>0</min>
 		    <max>90</max>
@@ -124,7 +124,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/instrumentation/compass-controll/lat-turn</property>
+		    <property>/instrumentation/compass-control/lat-turn</property>
 		    <step>1</step>
 		    <min>0</min>
 		    <max>90</max>
@@ -140,7 +140,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/instrumentation/compass-controll/lat-turn</property>
+		    <property>/instrumentation/compass-control/lat-turn</property>
 		    <step>-1</step>
 		    <min>0</min>
 		    <max>90</max>
@@ -157,7 +157,7 @@
     <animation>
         <type>translate</type>
         <object-name>switch.001</object-name>
-        <property>/instrumentation/compass-controll/lat-knob</property>
+        <property>/instrumentation/compass-control/lat-knob</property>
         <factor>0.008</factor>
         <axis>
             <x> 0.0</x>
@@ -180,7 +180,7 @@
         <repeatable>false</repeatable>
           <binding>
             <command>property-toggle</command>
-            <property>/instrumentation/compass-controll/lat-knob</property>  
+            <property>/instrumentation/compass-control/lat-knob</property>  
           </binding>
 					<binding>
 						<command>property-toggle</command>
@@ -193,7 +193,7 @@
   <animation>
       <type>rotate</type>
       <object-name>switch</object-name>
-      <property>/instrumentation/compass-controll/mag</property>
+      <property>/instrumentation/compass-control/mag</property>
       <factor>60</factor>
       <axis>
        <x> 0</x>
@@ -216,7 +216,7 @@
           <repeatable>false</repeatable>
           <binding>
             <command>property-toggle</command>
-            <property>/instrumentation/compass-controll/mag</property>
+            <property>/instrumentation/compass-control/mag</property>
           </binding>		
           <binding>
             <command>property-toggle</command>

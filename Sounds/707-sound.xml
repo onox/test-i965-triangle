@@ -702,22 +702,28 @@
 		<name>stall or overspeed</name>
 		<path>Aircraft/707/Sounds/warning.wav</path>		
 		<condition>
-		  <or>
-				<and>
-					<less-than>
-						<property>/velocities/airspeed-kt</property>
-						<value>160.0</value>
-					</less-than>
-					<greater-than>
-						<property>/position/altitude-agl-ft</property>
-						<value>200.0</value>					
-					</greater-than>
-				</and>
+			<and>
 				<greater-than>
-					<property>/velocities/mach</property>
-					<value>0.81</value>
+					<property>/b707/ess-bus</property>
+					<value>20</value>
 				</greater-than>
-			</or>
+				<or>
+					<and>
+						<less-than>
+							<property>/velocities/airspeed-kt</property>
+							<value>160.0</value>
+						</less-than>
+						<greater-than>
+							<property>/position/altitude-agl-ft</property>
+							<value>200.0</value>					
+						</greater-than>
+					</and>
+					<greater-than>
+						<property>/velocities/mach</property>
+						<value>0.81</value>
+					</greater-than>
+				</or>
+			</and>
 		</condition>
 		<volume>
 			<factor>1</factor>
@@ -1093,6 +1099,49 @@
         <max>0.3</max>
       </volume>
     </pushback>
+    
+    <apu>
+			<name>APU-internal</name>
+			<path>Aircraft/707/Sounds/apu.wav</path>
+			<mode>looped</mode>
+			<condition>			
+				<property>/sim/current-view/internal</property>
+				<greater-than>
+					<property>/engines/APU/rpm</property>
+					<value>5</value>
+				</greater-than>
+			</condition>
+			<volume>
+				<property>/engines/APU/rpm</property>
+				<factor>0.0015</factor>
+			</volume>
+      <pitch>
+        <property>/engines/APU/rpm</property>
+        <factor>0.01</factor>
+        <offset>1.0</offset>
+      </pitch>
+		</apu>
+    <apu>
+			<name>APU-external</name>
+			<path>Aircraft/707/Sounds/apu.wav</path>
+			<mode>looped</mode>
+			<condition>			
+				<not><property>/sim/current-view/internal</property></not>
+				<greater-than>
+					<property>/engines/APU/rpm</property>
+					<value>5</value>
+				</greater-than>
+			</condition>
+			<volume>
+				<property>/engines/APU/rpm</property>
+				<factor>0.005</factor>
+			</volume>
+      <pitch>
+        <property>/engines/APU/rpm</property>
+        <factor>0.01</factor>
+        <offset>1.0</offset>
+      </pitch>
+		</apu>
 
 </fx>
 

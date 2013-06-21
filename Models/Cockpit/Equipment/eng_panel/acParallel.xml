@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <PropertyList>
- <path>acPower.ac</path>
+ <path>acParallel.ac</path>
 
 	<animation>
 		<type>material</type>
@@ -13,6 +13,10 @@
 		<object-name>turn</object-name>
 		<object-name>bezel</object-name>
 		<condition>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
@@ -29,6 +33,10 @@
 		<object-name>needle</object-name>
 		<object-name>needle.001</object-name>
 		<condition>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
@@ -45,6 +53,10 @@
 		<object-name>needle</object-name>
 		<object-name>needle.001</object-name>
 		<condition>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/controls/lighting/cabin-dim</property>
 		</condition>
@@ -66,6 +78,12 @@
 		<type>material</type>
 		<object-name>LampWhiteON</object-name>
 		<object-name>LampWhiteON.001</object-name>
+		<condition>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		</condition>
 		<emission>
 		  <red>   0.5 </red>
 		  <green> 0.4 </green>
@@ -77,7 +95,7 @@
   <animation>
       <type>translate</type>
       <object-name>knob.001</object-name>
-      <property>/controls/test/warn-knob</property>
+      <property>/b707/generator/residual-volts-knob</property>
       <factor>0.0028</factor>
       <axis>
           <x> 0.0</x>
@@ -101,13 +119,13 @@
       <repeatable>false</repeatable>
         <binding>
           <command>property-assign</command>
-          <property>/controls/test/warn-knob</property>  
+          <property>/b707/generator/residual-volts-knob</property>  
           <value>1.0</value>
         </binding>
       <mod-up>
         <binding>
           <command>property-assign</command>
-          <property>/controls/test/warn-knob</property>  
+          <property>/b707/generator/residual-volts-knob</property>  
           <value>0.0</value>
         </binding>
       </mod-up>
@@ -118,7 +136,7 @@
   <animation>
       <type>translate</type>
       <object-name>knob</object-name>
-      <property>/controls/test/warn-knob</property>
+      <property>/b707/generator/powermeter-knob</property>
       <factor>0.0028</factor>
       <axis>
           <x> 0.0</x>
@@ -142,13 +160,13 @@
       <repeatable>false</repeatable>
         <binding>
           <command>property-assign</command>
-          <property>/controls/test/warn-knob</property>  
+          <property>/b707/generator/powermeter-knob</property>  
           <value>1.0</value>
         </binding>
       <mod-up>
         <binding>
           <command>property-assign</command>
-          <property>/controls/test/warn-knob</property>  
+          <property>/b707/generator/powermeter-knob</property>  
           <value>0.0</value>
         </binding>
       </mod-up>
@@ -159,7 +177,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>turn</object-name>
-		<property>/controls/special/ac/ac-power</property>
+		<property>/b707/ac/ac-para-select</property>
 		<interpolation>
 		  <entry><ind> 0</ind><dep>   0</dep></entry>
 		  <entry><ind> 1</ind><dep>  90</dep></entry>
@@ -189,7 +207,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-				<property>/controls/special/ac/ac-power</property>
+				<property>/b707/ac/ac-para-select</property>
 		    <step>1</step>
 		    <min>0</min>
 		    <max>7</max>
@@ -205,7 +223,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-				<property>/controls/special/ac/ac-power</property>
+				<property>/b707/ac/ac-para-select</property>
 		    <step>-1</step>
 		    <min>0</min>
 		    <max>7</max>
@@ -225,7 +243,7 @@
 		<condition>
 		  <or>
 		    <and>
-				  <property>/controls/special/ac/sync1</property>
+				  <property>/b707/ac/sync1</property>
 		    	<property>/controls/electric/battery-switch</property>
 				</and>
 		    <property>/controls/test/warn-knob</property>
@@ -239,12 +257,58 @@
 		<condition>
 		  <or>
 		    <and>
-				  <property>/controls/special/ac/sync2</property>
+				  <property>/b707/ac/sync2</property>
 		    	<property>/controls/electric/battery-switch</property>		    
 				</and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
+	</animation>
+	
+	<!-- selected paralleling frequency -->
+	<animation>
+		<type>rotate</type>
+		<object-name>needle</object-name>
+		<property>/b707/ac-sel-para-freq</property>
+		<interpolation>
+		  <entry><ind> 300.0</ind><dep>   0.0</dep></entry>
+		  <entry><ind> 380.0</ind><dep>   0.0</dep></entry>
+		  <entry><ind> 400.0</ind><dep>  59.31</dep></entry>
+		  <entry><ind> 420.0</ind><dep> 118.14</dep></entry>
+		  <entry><ind> 500.0</ind><dep> 118.14</dep></entry>
+		</interpolation>
+    <center>
+        <x-m>-0.0278</x-m>
+        <y-m> 0.0</y-m>
+        <z-m> 0.0697</z-m>
+    </center>
+		<axis>
+		  <x>0</x>
+		  <y>1</y>
+		  <z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- selected paralleling ac volts and amp -->
+	<animation>
+		<type>rotate</type>
+		<object-name>needle.001</object-name>
+		<property>/b707/ac-sel-para-volts</property>	
+		<interpolation>
+		  <entry><ind>   0.0</ind><dep>   0.0</dep></entry>
+		  <entry><ind>  40.0</ind><dep> 115.56</dep></entry>
+		  <entry><ind> 100.0</ind><dep> 115.56</dep></entry>
+		</interpolation>
+    <center>
+        <x-m> 0.0247</x-m>
+        <y-m> 0.0</y-m>
+        <z-m> 0.07</z-m>
+    </center>
+		<axis>
+		  <x>0</x>
+		  <y>1</y>
+		  <z>0</z>
+		</axis>
 	</animation>
 	
 </PropertyList>

@@ -1,5 +1,5 @@
 AC3Db
-MATERIAL "compasscontroll" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
+MATERIAL "compasscontrol" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 OBJECT world
 kids 6
 OBJECT poly
@@ -7,7 +7,7 @@ name "screw"
 loc -0.556487 0.237674 -0.162631
 data 5
 screw
-texture "compass_controll.png"
+texture "compass_control.png"
 texrep 1 1
 crease 79.999998
 numvert 72
@@ -522,7 +522,7 @@ name "sockle"
 loc -0.581865 0.366783 0.267026
 data 6
 sockle
-texture "compass_controll.png"
+texture "compass_control.png"
 texrep 1 1
 crease 30.000001
 numvert 31
@@ -642,7 +642,7 @@ name "sup"
 loc -0.026517 0 -0
 data 3
 sup
-texture "compass_controll.png"
+texture "compass_control.png"
 texrep 1 1
 numvert 32
 0.025243 -0.013534 0.068013
@@ -880,7 +880,7 @@ name "switch"
 loc -0.190195 0.622959 0.213629
 data 6
 switch
-texture "compass_controll.png"
+texture "compass_control.png"
 texrep 1 1
 crease 79.999998
 numvert 274
@@ -3037,7 +3037,7 @@ name "switch.001"
 loc -0.536178 0.408379 0.213629
 data 10
 switch.001
-texture "compass_controll.png"
+texture "compass_control.png"
 texrep 1 1
 crease 79.999998
 numvert 129
@@ -4057,7 +4057,7 @@ name "turn"
 loc 0.020723 -0.004707 -0.00065
 data 4
 turn
-texture "compass_controll.png"
+texture "compass_control.png"
 texrep 1 1
 numvert 76
 -0.011467 -0.000692 -0.01584

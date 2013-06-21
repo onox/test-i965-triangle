@@ -156,11 +156,11 @@
 </stopwatch>
 
 <!-- B707 Compass Controll  -->
-<compass-controll>
+<compass-control>
   <mag type="bool">0</mag>
   <lat-knob type="bool">0</lat-knob>
   <lat-turn type="double">0</lat-turn>
-</compass-controll>
+</compass-control>
 
 <operating-time>
   <start-time>0.0</start-time>

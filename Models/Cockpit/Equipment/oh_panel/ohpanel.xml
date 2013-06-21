@@ -70,8 +70,8 @@
 	</model>
 		
 	<model>
-		<name>compass_controll_1</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/compass_controll/compass_controll.xml</path>
+		<name>compass_control_1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/compass_control/compass_control.xml</path>
 		<offsets>
 		  <x-m> 0.0283</x-m>
 		  <y-m>-0.2138</y-m>
@@ -80,8 +80,8 @@
 	</model>
 		
 	<model>
-		<name>compass_controll_2</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/compass_controll/compass_controll.xml</path>
+		<name>compass_control_2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/compass_control/compass_control.xml</path>
 		<offsets>
 		  <x-m> 0.0283</x-m>
 		  <y-m> 0.2134</y-m>

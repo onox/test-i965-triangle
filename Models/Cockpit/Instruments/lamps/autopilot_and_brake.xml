@@ -89,7 +89,7 @@
     <or>
 			<and>
         <greater-than>
-          <property>/systems/electrical/right-bus</property>
+          <property>b707/ess-bus</property>
           <value>12</value>
         </greater-than>
 		    <property>/autopilot/switches/ap</property>
@@ -106,7 +106,7 @@
       <or>     
 		  	<not><property>/autopilot/switches/ap</property></not>
 		  	<less-than>
-          <property>/systems/electrical/right-bus</property>
+          <property>b707/ess-bus</property>
           <value>12</value>
         </less-than>
 		  </or>

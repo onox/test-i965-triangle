@@ -6,7 +6,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>engineDisk</object-name>
-		<property>engines/engine[2]/rpm</property>
+		<property>engines/engine[2]/n1</property>
 		<factor>20</factor>   
 		<center>
 		 <x-m>0.0</x-m>
@@ -25,7 +25,7 @@
 	<object-name>exhaustHeat</object-name>
 		<condition>
 			<greater-than>
-				<property>engines/engine[2]/rpm</property>
+				<property>engines/engine[2]/n1</property>
 				<value>31</value>
 			</greater-than>
 		</condition>
@@ -38,7 +38,7 @@
 			<red>0.002</red>
 			<green>0.002</green>
 			<blue>0.000025</blue>
-			<factor-prop>engines/engine[2]/rpm</factor-prop>
+			<factor-prop>engines/engine[2]/n1</factor-prop>
 		</emission>
 	</animation>
 	

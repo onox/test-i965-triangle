@@ -193,7 +193,7 @@ setlistener("/autopilot/locks/altitude", listenerApGsNearFarFunc);
 
 
 # notes:
-# if 'passive-mode' is switched on, the autopilot is controlled by the route-manager, that means the settings for 'true-heading-hold'
+# if 'passive-mode' is switched on, the autopilot is controled by the route-manager, that means the settings for 'true-heading-hold'
 # and 'altitude-hold' come from the route-manager, additionally the route-manager activates 'true-heading-hold'.
 # This procedure calculates the appropriate vertical-speed and activates 'vertical-speed-hold', 'altitude-hold' as needed.
 # Also provides a 'smooting'-procedure on the transition of waypoints.

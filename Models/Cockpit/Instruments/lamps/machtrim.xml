@@ -65,19 +65,14 @@
   <object-name>LampBlueON</object-name>
   <condition>
     <or>
-      <property>/controls/special/mach-trim-switch</property>
+    	<and>
+      	<property>/controls/special/mach-trim-switch</property>
+      	<not><property>/controls/flight/aileron-trim</property></not>
+      	<not><property>/controls/flight/elevator-trim</property></not>
+      	<not><property>/controls/flight/rudder-trim</property></not>
+      </and>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampBlue</object-name>
-  <condition>
-    <and>
-      <not><property>/controls/special/mach-trim-switch</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 

@@ -18,7 +18,11 @@
 		<object-name>cover.001</object-name>
 		<object-name>bezel</object-name>
 		<object-name>freqKnob</object-name>
-		<condition>
+		<condition>	
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
@@ -34,6 +38,10 @@
 		<object-name>face</object-name>
 		<object-name>needle</object-name>
 		<condition>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
@@ -49,6 +57,10 @@
 		<object-name>face</object-name>
 		<object-name>needle</object-name>
 		<condition>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/controls/lighting/cabin-dim</property>
 		</condition>
@@ -86,10 +98,14 @@
   <animation>
 		<type>select</type>
 		<object-name>LampAmberON</object-name>
-		<condition>
+		<condition>			
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
 		  	<less-than>
-		    	<property>/controls/special/generator/gen-bus-tie[3]</property>
+		    	<property>/b707/generator/gen-bus-tie[3]</property>
 		    	<value>1</value>
 		    </less-than>
 		    <property>/controls/test/warn-knob</property>
@@ -100,20 +116,26 @@
 		<type>select</type>
 		<object-name>LampAmber</object-name>
 		<condition>
-		  <and>
-		    <greater-than>
-		    	<property>/controls/special/generator/gen-bus-tie[3]</property>
-		    	<value>0</value>
-		    </greater-than>
-		    <not><property>/controls/test/warn-knob</property></not>
-		  </and>
+		  <or>
+				<less-than>
+					<property>/b707/ess-bus</property>
+					<value>20</value>
+				</less-than>
+				<and>
+				  <greater-than>
+				  	<property>/b707/generator/gen-bus-tie[3]</property>
+				  	<value>0</value>
+				  </greater-than>
+				  <not><property>/controls/test/warn-knob</property></not>
+				</and>
+			</or>
 		</condition>
 	</animation>
 	
   <animation>
     <type>rotate</type>
     <object-name>cover</object-name>
-    <property>/controls/special/generator/gen-bus-tie-cover[3]</property>
+    <property>/b707/generator/gen-bus-tie-cover[3]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -144,7 +166,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/generator/gen-bus-tie-cover[3]</property>
+		        <property>/b707/generator/gen-bus-tie-cover[3]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -156,7 +178,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>/controls/special/generator/gen-bus-tie[3]</property>
+		  <property>/b707/generator/gen-bus-tie[3]</property>
       <factor>-40</factor>
 		  <axis>
 		   <x>1</x>
@@ -180,11 +202,11 @@
         <binding>
             <command>nasal</command>
             <script>
-            	var bt = getprop("/controls/special/generator/gen-bus-tie[3]") or 0;
+            	var bt = getprop("/b707/generator/gen-bus-tie[3]") or 0;
             	if(bt > 0){
-            		setprop("/controls/special/generator/gen-bus-tie[3]", 0);
+            		setprop("/b707/generator/gen-bus-tie[3]", 0);
             	}else{
-            		setprop("/controls/special/generator/gen-bus-tie[3]", 2);
+            		setprop("/b707/generator/gen-bus-tie[3]", 2);
             	}
             </script>
         </binding>
@@ -192,11 +214,11 @@
           <binding>
             <command>nasal</command>
             <script>
-            	var bt = getprop("/controls/special/generator/gen-bus-tie[3]") or 0;
+            	var bt = getprop("/b707/generator/gen-bus-tie[3]") or 0;
             	if(bt == 2){
-            		setprop("/controls/special/generator/gen-bus-tie[3]", 1);
+            		setprop("/b707/generator/gen-bus-tie[3]", 1);
             	}else{
-            		setprop("/controls/special/generator/gen-bus-tie[3]", 0);
+            		setprop("/b707/generator/gen-bus-tie[3]", 0);
             	}
             </script>
           </binding>
@@ -212,10 +234,14 @@
   <animation>
 		<type>select</type>
 		<object-name>LampAmberON.001</object-name>
-		<condition>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
 		  	<less-than>
-		    	<property>/controls/special/generator/gen-breaker[3]</property>
+		    	<property>/b707/generator/gen-breaker[3]</property>
 		    	<value>1</value>
 		    </less-than>
 		    <property>/controls/test/warn-knob</property>
@@ -225,21 +251,27 @@
 	<animation>
 		<type>select</type>
 		<object-name>LampAmber.001</object-name>
-		<condition>
-		  <and>
-		    <greater-than>
-		    	<property>/controls/special/generator/gen-breaker[3]</property>
-		    	<value>0</value>
-		    </greater-than>
-		    <not><property>/controls/test/warn-knob</property></not>
-		  </and>
+		<condition>		  
+			<or>
+				<less-than>
+					<property>/b707/ess-bus</property>
+					<value>20</value>
+				</less-than>
+				<and>
+				  <greater-than>
+				  	<property>/b707/generator/gen-breaker[3]</property>
+				  	<value>0</value>
+				  </greater-than>
+				  <not><property>/controls/test/warn-knob</property></not>
+				</and>
+			</or>
 		</condition>
 	</animation>
 
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.002</object-name>
-		  <property>/controls/special/generator/gen-breaker[3]</property>
+		  <property>/b707/generator/gen-breaker[3]</property>
       <factor>-40</factor>
 		  <axis>
 		   <x>1</x>
@@ -263,11 +295,11 @@
         <binding>
             <command>nasal</command>
             <script>
-            	var gb = getprop("/controls/special/generator/gen-breaker[3]") or 0;
+            	var gb = getprop("/b707/generator/gen-breaker[3]") or 0;
             	if(gb > 0){
-            		setprop("/controls/special/generator/gen-breaker[3]", 0);
+            		setprop("/b707/generator/gen-breaker[3]", 0);
             	}else{
-            		setprop("/controls/special/generator/gen-breaker[3]", 2);
+            		setprop("/b707/generator/gen-breaker[3]", 2);
             	}
             </script>
         </binding>
@@ -275,11 +307,11 @@
           <binding>
             <command>nasal</command>
             <script>
-            	var gb = getprop("/controls/special/generator/gen-breaker[3]") or 0;
+            	var gb = getprop("/b707/generator/gen-breaker[3]") or 0;
             	if(gb == 2){
-            		setprop("/controls/special/generator/gen-breaker[3]", 1);
+            		setprop("/b707/generator/gen-breaker[3]", 1);
             	}else{
-            		setprop("/controls/special/generator/gen-breaker[3]", 0);
+            		setprop("/b707/generator/gen-breaker[3]", 0);
             	}
             </script>
           </binding>
@@ -296,9 +328,13 @@
 		<type>select</type>
 		<object-name>LampAmberON.002</object-name>
 		<condition>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
 		  	<less-than>
-		    	<property>/controls/special/generator/gen-controll[3]</property>
+		    	<property>/b707/generator/gen-control[3]</property>
 		    	<value>1</value>
 		    </less-than>
 		    <property>/controls/test/warn-knob</property>
@@ -309,20 +345,26 @@
 		<type>select</type>
 		<object-name>LampAmber.002</object-name>
 		<condition>
-		  <and>
-		    <greater-than>
-		    	<property>/controls/special/generator/gen-controll[3]</property>
-		    	<value>0</value>
-		    </greater-than>
-		    <not><property>/controls/test/warn-knob</property></not>
-		  </and>
+			<or>
+				<less-than>
+					<property>/b707/ess-bus</property>
+					<value>20</value>
+				</less-than>
+				<and>
+				  <greater-than>
+				  	<property>/b707/generator/gen-control[3]</property>
+				  	<value>0</value>
+				  </greater-than>
+				  <not><property>/controls/test/warn-knob</property></not>
+				</and>
+			</or>
 		</condition>
 	</animation>
 	
   <animation>
     <type>rotate</type>
     <object-name>cover.001</object-name>
-    <property>/controls/special/generator/gen-controll-cover[3]</property>
+    <property>/b707/generator/gen-control-cover[3]</property>
     <interpolation> 
             <entry>
                 <ind>0</ind>
@@ -353,7 +395,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/generator/gen-controll-cover[3]</property>
+		        <property>/b707/generator/gen-control-cover[3]</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -365,7 +407,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.001</object-name>
-		  <property>/controls/special/generator/gen-controll[3]</property>
+		  <property>/b707/generator/gen-control[3]</property>
       <factor>-40</factor>
 		  <axis>
 		   <x>1</x>
@@ -389,11 +431,12 @@
         <binding>
             <command>nasal</command>
             <script>
-            	var gc = getprop("/controls/special/generator/gen-controll[3]") or 0;
+            	var gc = getprop("/b707/generator/gen-control[3]") or 0;
             	if(gc > 0){
-            		setprop("/controls/special/generator/gen-controll[3]", 0);
+            		setprop("/b707/generator/gen-control[3]", 0);
             	}else{
-            		setprop("/controls/special/generator/gen-controll[3]", 2);
+            		setprop("/b707/generator/gen-control[3]", 2);
+            		b707.ac_sync();
             	}
             </script>
         </binding>
@@ -401,11 +444,12 @@
           <binding>
             <command>nasal</command>
             <script>
-            	var gc = getprop("/controls/special/generator/gen-controll[3]") or 0;
+            	var gc = getprop("/b707/generator/gen-control[3]") or 0;
             	if(gc == 2){
-            		setprop("/controls/special/generator/gen-controll[3]", 1);
+            		setprop("/b707/generator/gen-control[3]", 1);
+            		b707.ac_sync();
             	}else{
-            		setprop("/controls/special/generator/gen-controll[3]", 0);
+            		setprop("/b707/generator/gen-control[3]", 0);
             	}
             </script>
           </binding>
@@ -423,10 +467,9 @@
 		<object-name>needle</object-name>
 		<property>/engines/engine[3]/kw</property>
 		<interpolation>
-		  <entry><ind>-10.0</ind><dep>  0.0</dep></entry>
+		  <entry><ind> -0.1</ind><dep>  0.0</dep></entry>
 		  <entry><ind>  0.0</ind><dep> 15.0</dep></entry>
-		  <entry><ind> 30.0</ind><dep> 61.2</dep></entry>
-		  <entry><ind> 80.0</ind><dep>115.0</dep></entry>
+		  <entry><ind> 50.0</ind><dep>115.0</dep></entry>
 		</interpolation>    
 		<center>
 		  <x-m>-0.0122</x-m>
@@ -444,10 +487,10 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>freqKnob</object-name>
-		  <property>/controls/special/generator/gen-freq[3]</property>
+		  <property>/b707/generator/gen-freq[3]</property>
 			<interpolation>
-				<entry><ind>  1.0</ind><dep> 0.0</dep></entry>
-				<entry><ind>  0.0</ind><dep> 180</dep></entry>
+				<entry><ind>  380</ind><dep> 0.0</dep></entry>
+				<entry><ind>  420</ind><dep> 180</dep></entry>
 			</interpolation> 
 		  <axis>
 		   <x>0</x>
@@ -471,9 +514,13 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		      <command>property-assign</command>
-		      <property>/controls/special/generator/gen-freq[3]</property>
-		      <value>1</value>
-		    </binding>            
+		      <property>/b707/generator/gen-freq[3]</property>
+		      <value>380</value>
+		    </binding>          
+		    <binding>
+          <command>nasal</command>
+          <script>b707.ac_sync();</script>
+        </binding>           
 		    <binding>
           <command>property-toggle</command>
           <property>/sim/sound/switch3</property>
@@ -485,12 +532,16 @@
 		    <repeatable>true</repeatable>
 		    <binding>
 		      <command>property-adjust</command>
-		      <property>/controls/special/generator/gen-freq[3]</property>
-		      <step>-0.1</step>
-		      <min>0</min>
-		      <max>1</max>
+		      <property>/b707/generator/gen-freq[3]</property>
+		      <step>1</step>
+		      <min>380</min>
+		      <max>420</max>
 		      <wrap>false</wrap>
-		    </binding>            
+		    </binding>          
+		    <binding>
+          <command>nasal</command>
+          <script>b707.ac_sync();</script>
+        </binding>            
 		    <binding>
           <command>property-toggle</command>
           <property>/sim/sound/switch3</property>
@@ -502,12 +553,16 @@
 		    <repeatable>true</repeatable>
 		    <binding>
 		      <command>property-adjust</command>
-		      <property>/controls/special/generator/gen-freq[3]</property>
-		      <step>0.1</step>
-		      <min>0</min>
-		      <max>1</max>
+		      <property>/b707/generator/gen-freq[3]</property>
+		      <step>-1</step>
+		      <min>380</min>
+		      <max>420</max>
 		      <wrap>false</wrap>
-		    </binding>            
+		    </binding>          
+		    <binding>
+          <command>nasal</command>
+          <script>b707.ac_sync();</script>
+        </binding>            
 		    <binding>
           <command>property-toggle</command>
           <property>/sim/sound/switch3</property>

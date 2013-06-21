@@ -16,7 +16,11 @@
 		<object-name>knob</object-name>
 		<object-name>knob.001</object-name>
 		<object-name>knobsup</object-name>
-		<condition>
+		<condition>			
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
@@ -34,7 +38,11 @@
 		<object-name>needle.001</object-name>
 		<object-name>needle.002</object-name>
 		<object-name>needle.003</object-name>
-		<condition>
+		<condition>			
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
@@ -52,7 +60,11 @@
 		<object-name>needle.001</object-name>
 		<object-name>needle.002</object-name>
 		<object-name>needle.003</object-name>
-		<condition>
+		<condition>			
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/controls/lighting/cabin-dim</property>
 		</condition>
@@ -83,11 +95,15 @@
   <animation>
 		<type>select</type>
 		<object-name>LampAmberON</object-name>
-		<condition>
+		<condition>			
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
-		    <property>/controls/special/apu/apu-fire-switch</property>
-		  	<property>/controls/special/apu/apu-fire-test</property>
-		  	<property>/controls/special/apu/on-fire</property>
+		    <property>/b707/apu/apu-fire-switch</property>
+		  	<property>/b707/apu/apu-fire-test</property>
+		  	<property>/b707/apu/on-fire</property>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -97,8 +113,8 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch</object-name>
-		  <property>/controls/special/apu/apu-gen</property>
-      <factor>-30</factor>
+		  <property>/b707/generator/gen-drive[4]</property>
+      <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
 		   <y>0</y>
@@ -120,28 +136,8 @@
 		    <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>
-            	var bt = getprop("/controls/special/apu/apu-gen") or 0;
-            	if(bt > 0){
-            		setprop("/controls/special/apu/apu-gen", 0);
-            	}else{
-            		setprop("/controls/special/apu/apu-gen", 2);
-            	}
-            </script>
+            <script>b707.apu_gen_switch();</script>
         </binding>
-        <mod-up>
-          <binding>
-            <command>nasal</command>
-            <script>
-            	var bt = getprop("/controls/special/apu/apu-gen") or 0;
-            	if(bt == 2){
-            		setprop("/controls/special/apu/apu-gen", 1);
-            	}else{
-            		setprop("/controls/special/apu/apu-gen", 0);
-            	}
-            </script>
-          </binding>
-        </mod-up>
 		    <binding>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>
@@ -153,7 +149,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.001</object-name>
-		  <property>/controls/special/apu/apu-bleed-valve</property>
+		  <property>/b707/apu/apu-bleed-valve</property>
       <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
@@ -176,7 +172,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		        <property>/controls/special/apu/apu-bleed-valve</property>
+		        <property>/b707/apu/apu-bleed-valve</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -189,7 +185,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.002</object-name>
-		  <property>/controls/special/apu/apu-fire-test</property>
+		  <property>/b707/apu/apu-fire-test</property>
       <factor>-60</factor>
 		  <axis>
 		   <x>1</x>
@@ -212,7 +208,7 @@
 		    <repeatable>false</repeatable>
 		    <binding>
 		        <command>property-toggle</command>
-		  			<property>/controls/special/apu/apu-fire-test</property>
+		  			<property>/b707/apu/apu-fire-test</property>
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
@@ -225,7 +221,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.003</object-name>
-		  <property>controls/APU/off-start-run</property>
+		  <property>b707/apu/off-start-run</property>
 			<interpolation>
 				<entry><ind>  0.0</ind><dep>   0.0</dep></entry>
 				<entry><ind>  1.0</ind><dep> -60.0</dep></entry>
@@ -252,11 +248,28 @@
         <binding>
             <command>nasal</command>
             <script>
-            	var bt = getprop("/controls/APU/off-start-run") or 0;
+            	var bt = getprop("/b707/apu/off-start-run") or 0;
             	if(bt > 0){
-            		setprop("/controls/APU/off-start-run", 0);
+            		setprop("/b707/apu/off-start-run", 0);
+            		setprop("/b707/generator/gen-drive[4]", 0);
             	}else{
-            		setprop("/controls/APU/off-start-run", 1);
+            		setprop("/b707/apu/off-start-run", 1);
+            		<!-- fall back, if external power source is connected or ess-bus to low -->
+            		var ext_con = getprop("b707/external-power-connected") or 0;
+            		
+            		if((getprop("/b707/ess-bus") != nil and getprop("/b707/ess-bus") &lt; 20.0) or ext_con){
+            			settimer(func{
+										setprop("/b707/apu/off-start-run", 0);
+            				setprop("/b707/generator/gen-drive[4]", 0);
+									}, 0.5);
+								 	if(getprop("/sim/sound/switch2") == 1){
+										 setprop("/sim/sound/switch2", 0); 
+									}else{
+										 setprop("/sim/sound/switch2", 1);
+									}
+            		}else{
+            			b707.apuLoop();
+            		}
             	}
             </script>
         </binding>
@@ -271,7 +284,7 @@
   <animation>
       <type>translate</type>
       <object-name>knob</object-name>
-      <property>/controls/special/apu/apu-fire-ext</property>
+      <property>/b707/apu/apu-fire-ext</property>
       <factor>0.0030</factor>
       <axis>
           <x> 0.0</x>
@@ -295,13 +308,13 @@
       <repeatable>false</repeatable>
         <binding>
           <command>property-assign</command>
-          <property>/controls/special/apu/apu-fire-ext</property>  
+          <property>/b707/apu/apu-fire-ext</property>  
           <value>1.0</value>
         </binding>
       <mod-up>
         <binding>
           <command>property-assign</command>
-          <property>/controls/special/apu/apu-fire-ext</property>  
+          <property>/b707/apu/apu-fire-ext</property>  
           <value>0.0</value>
         </binding>
       </mod-up>
@@ -313,7 +326,7 @@
       <type>translate</type>
       <object-name>knob.001</object-name>
 			<object-name>LampAmberON</object-name>
-      <property>/controls/special/apu/apu-fire-switch</property>
+      <property>/b707/apu/apu-fire-switch</property>
       <factor>0.01</factor>
       <axis>
           <x> 0.0</x>
@@ -337,13 +350,13 @@
       <repeatable>false</repeatable>
         <binding>
           <command>property-assign</command>
-          <property>/controls/special/apu/apu-fire-switch</property>  
+          <property>/b707/apu/apu-fire-switch</property>  
           <value>1.0</value>
         </binding>
       <mod-up>
         <binding>
           <command>property-assign</command>
-          <property>/controls/special/apu/apu-fire-switch</property>  
+          <property>/b707/apu/apu-fire-switch</property>  
           <value>0.0</value>
         </binding>
       </mod-up>
@@ -353,7 +366,7 @@
       <repeatable>false</repeatable>
         <binding>
           <command>property-assign</command>
-          <property>/controls/special/apu/apu-fire-switch</property>  
+          <property>/b707/apu/apu-fire-switch</property>  
           <value>-1.0</value>
         </binding>
     </action>
@@ -363,10 +376,10 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>needle</object-name>
-		<property>/engines/APU/amp-v</property>
+		<property>/engines/APU/amp-needle</property>
 		<interpolation>
 		  <entry><ind>   0.0</ind><dep>   0.0</dep></entry>
-		  <entry><ind> 200.0</ind><dep> 129.68</dep></entry>
+		  <entry><ind>  60.0</ind><dep> 129.68</dep></entry>
 		</interpolation>
     <center>
         <x-m>-0.0658</x-m>

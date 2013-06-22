@@ -43,7 +43,8 @@ var my_rand = func(min,max) {
 			while( r < min or r > max ){
 					r = rand() * max;
 			}
-		  return r;
+			
+		  return int(r);
 }
 
 # need for essential bus calculation
@@ -123,6 +124,8 @@ var Generator = {
         m.frequency.setDoubleValue(my_rand(380,420));
         m.gen_control = props.globals.getNode("b707/generator/gen-control["~num~"]",1);
         m.gen_control.setDoubleValue(0);
+        m.gen_breaker = props.globals.getNode("b707/generator/gen-breaker["~num~"]",1);
+        m.gen_breaker.setDoubleValue(0);
         return m;
     },
 
@@ -304,7 +307,7 @@ var update_virtual_bus = func( dt ) {
 					  generator3.gen_bus_tie.setValue(0);
 					  generator4.gen_bus_tie.setValue(0);
 					  
-				}elsif (EssPwr.getValue() == 4){
+				}elsif (EssPwr.getValue() == 4 and generator4.gen_bus_tie.getValue() and generator4.gen_breaker.getValue()){
 					  power_source = "Generator4";
 					  essdcbus_volts = generator4.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
@@ -312,7 +315,7 @@ var update_virtual_bus = func( dt ) {
 					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
-				}elsif (EssPwr.getValue() == 3){
+				}elsif (EssPwr.getValue() == 3 and generator3.gen_bus_tie.getValue() and generator3.gen_breaker.getValue()){
 					  power_source = "Generator3";
 					  essdcbus_volts = generator3.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
@@ -320,7 +323,7 @@ var update_virtual_bus = func( dt ) {
 					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
-				}elsif (EssPwr.getValue() == 2){
+				}elsif (EssPwr.getValue() == 2 and generator2.gen_bus_tie.getValue() and generator2.gen_breaker.getValue()){
 					  power_source = "Generator2";
 					  essdcbus_volts = generator2.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
@@ -328,7 +331,7 @@ var update_virtual_bus = func( dt ) {
 					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
-				}elsif (EssPwr.getValue() == 1){
+				}elsif (EssPwr.getValue() == 1 and generator1.gen_bus_tie.getValue() and generator1.gen_breaker.getValue()){
 					  power_source = "Generator1";
 					  essdcbus_volts = generator1.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
@@ -424,10 +427,10 @@ var update_electrical = func {
 
 ################################## more generator helpers #######################################
 var sync_lamp = func(ref, in){
-	if(in > (ref + 0.5)){
+	if(in > (ref)){
 		 syncLight1.setValue(1);
 		 syncLight2.setValue(0);
-	}elsif(in < (ref - 0.5)){
+	}elsif(in < (ref)){
 		 syncLight1.setValue(0);
 		 syncLight2.setValue(1);
 	}else{
@@ -526,11 +529,16 @@ var ac_sync = func{
 # the control
 setlistener("b707/ac/ac-para-select", func{
 	var bat = getprop("/b707/battery-switch") or 0;
-	if(bat){
+	var src_ext = getprop("b707/ess-power-switch") or 0;
+
+	if(bat and src_ext == 0){
 		ACSelFreq.setValue(0);
 		ACSelVolts.setValue(0);
 		settimer(ac_sync,0);
+	}else{
+		settimer(ac_sync,0);
 	}
+	
 },1,0);
 
 # knob is on the AC Paralleling instrument
@@ -645,22 +653,20 @@ var gen_kw = func{
 
 ################ the ground connect switch fall back ###################
 setlistener("b707/external-power-connected", func(state){
+
+	var src_ext = getprop("b707/ess-power-switch") or 0;
 	# if external power connected when apu is operating, apu shutdown
 	setprop("/b707/apu/off-start-run", 0);
 	generator5.gen_drive_switch.setValue(0);
 	
-	ACSelFreq.setValue(0);
-	ACSelVolts.setValue(0);
-	settimer(ac_sync,0);
-
-	if(!state.getValue()){
-		#all bus-tie and gen-control fall back
-		generator1.gen_bus_tie.setValue(0);
-		generator2.gen_bus_tie.setValue(0);
-		generator3.gen_bus_tie.setValue(0);
-		generator4.gen_bus_tie.setValue(0);
+	if(src_ext == 5){
+		ACSelFreq.setValue(0);
+		ACSelVolts.setValue(0);	
+		settimer(ac_sync,0);
+	}else{
+		settimer(ac_sync,0);
 	}
-	
+
  	setprop("/b707/ground-connect", 0);
  	
 	if(getprop("/sim/sound/switch2") == 1){

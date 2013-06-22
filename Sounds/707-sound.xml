@@ -1069,7 +1069,10 @@
 							<value>0.01</value>
 						</greater-than>
 					</or>
-		      <property>/sim/model/pushback/enabled</property>
+					<or>
+		      	<property>/sim/model/pushback/enabled</property>
+		      	<property>/b707/external-power-connected</property>
+					</or>
 		    </and>
       </condition>
       <volume>
@@ -1088,15 +1091,18 @@
       <condition>
       	<and>
 					<property>/sim/current-view/internal</property>
-		      <property>/sim/model/pushback/enabled</property>
+					<or>
+		      	<property>/sim/model/pushback/enabled</property>
+		      	<property>/b707/external-power-connected</property>
+					</or>
 		    </and>
       </condition>
       <volume>
         <property>/sim/model/pushback/position-norm</property>
         <factor>1.00</factor>
         <offset>0.00</offset>
-        <min>0.1</min>
-        <max>0.3</max>
+        <min>0.2</min>
+        <max>0.4</max>
       </volume>
     </pushback>
     

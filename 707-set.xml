@@ -45,7 +45,7 @@
   
 	<tutorials>
 		<!--<tutorial include="Tutorials/707-preflight.xml"/>-->
-		<tutorial include="Tutorials/707-startup.xml"/>
+		<!--<tutorial include="Tutorials/707-startup.xml"/>-->
 	</tutorials>
    
   <view>

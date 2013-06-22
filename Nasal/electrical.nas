@@ -445,18 +445,29 @@ var ac_sync = func{
 				# APU automatic sync if Ess Power is on APU and AC Paralleling Sel on APU
 				if(ACSelector.getValue() == 0 and EssPwr.getValue() == 0 and 
 					 generator5.gen_output.getValue() > 20 and generator5.gen_drive_switch.getBoolValue()){
-					 
-					 	ACSelFreq.setValue(generator5.frequency.getValue());
+
+						var apfreq = generator5.frequency.getValue();
+						
+						if(apfreq > 400){
+							apfreq -= 0.01;
+							settimer(ac_sync, 0); #loop
+						}elsif(apfreq < 400){
+							apfreq += 0.01;
+							settimer(ac_sync, 0); #loop
+						}else{
+							apfreq = 400;
+						}
+						
+						apfreq = int(apfreq);
+						
+		 				sync_lamp(EssFreq.getValue(),apfreq);
+						generator5.frequency.setValue(apfreq);
+
+					 	ACSelFreq.setValue(apfreq);
 					 	ACSelVolts.setValue(generator5.gen_output.getValue());
 
-						if(generator5.frequency.getValue() > EssFreq.getValue() + 0.1){
-							generator5.frequency.setValue(generator5.frequency.getValue() - 0.018);
-							settimer(ac_sync, 0); #loop
-						}elsif(generator5.frequency.getValue() < EssFreq.getValue() - 0.1){
-							generator5.frequency.setValue(generator5.frequency.getValue() + 0.018);
-							settimer(ac_sync, 0); #loop
-						}
-						sync_lamp(EssFreq.getValue(),generator5.frequency.getValue());
+						
+
 				# Generator 1
 				}elsif(ACSelector.getValue() == 1 and generator1.gen_output.getValue() > 20 and
 											 				 generator1.gen_drive_switch.getBoolValue() and 

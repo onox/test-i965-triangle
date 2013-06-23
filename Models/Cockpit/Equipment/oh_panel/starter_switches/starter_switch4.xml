@@ -68,6 +68,8 @@
 					<property>/b707/external-power-connected</property>
 					<property>/b707/ground-connect</property>	
 					<property>/b707/generator/gen-breaker[3]</property>
+					<property>/b707/generator/gen-bus-tie[3]</property>
+					<property>/b707/generator/gen-control[3]</property>
 					<not><property>/engines/engine[3]/running</property></not> 
 				</and>
 				<and>

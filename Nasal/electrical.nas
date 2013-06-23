@@ -121,11 +121,12 @@ var Generator = {
         m.ideal_amps = amp;
         m.condition = my_rand(0.01,0.6);
         m.frequency = props.globals.getNode("b707/generator/gen-freq["~num~"]",1);
-        m.frequency.setDoubleValue(my_rand(380,420));
+        m.frequency.setDoubleValue(my_rand(386,418));
         m.gen_control = props.globals.getNode("b707/generator/gen-control["~num~"]",1);
         m.gen_control.setDoubleValue(0);
         m.gen_breaker = props.globals.getNode("b707/generator/gen-breaker["~num~"]",1);
         m.gen_breaker.setDoubleValue(0);
+        m.gen_index = num;
         return m;
     },
 
@@ -146,7 +147,8 @@ var Generator = {
 
     get_output_volts : func {
         var out = 0;
-        if(me.gen_drive_switch.getBoolValue()){
+        if(me.gen_drive_switch.getBoolValue() and getprop("engines/engine["~me.gen_index~"]/running") or 
+          (me.gen_drive_switch.getBoolValue() and me.gen_index == 4)){
             var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
             if ( factor > 1.0 )factor = 1.0;
             var out = (me.ideal_volts * factor) + me.condition; #condition is only a random between 0.01 and 0.6
@@ -285,11 +287,12 @@ var load = 0.0;
 var power_source = nil;
 var essdcbus_volts = 0;
 
-var update_virtual_bus = func( dt ) {
+var update_virtual_bus = func {
 		  var PWR = getprop("systems/electrical/serviceable");
 		  load = 0.0;
 		  power_source = nil;
-		  
+		  EssSourceFailure.setBoolValue(1);
+
 		  if(getprop("velocities/groundspeed-kt") > 1) ExternalConnected.setBoolValue(0);
 		  
 		  if(battery.switch.getBoolValue()){		  
@@ -300,14 +303,23 @@ var update_virtual_bus = func( dt ) {
 					  #recharge
 					  if(essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
+					  }		  
+					  if(!getprop("b707/ground-connect")){
+							if(!generator1.get_output_volts()){
+								generator1.gen_bus_tie.setValue(0);		
+							}
+							if(!generator2.get_output_volts()){
+								generator2.gen_bus_tie.setValue(0);		
+							}
+							if(!generator3.get_output_volts()){
+								generator3.gen_bus_tie.setValue(0);		
+							}
+							if(!generator4.get_output_volts()){
+								generator4.gen_bus_tie.setValue(0);		
+							}					  
 					  }
-					  #all bus-tie fall back
-					  generator1.gen_bus_tie.setValue(0);
-					  generator2.gen_bus_tie.setValue(0);
-					  generator3.gen_bus_tie.setValue(0);
-					  generator4.gen_bus_tie.setValue(0);
 					  
-				}elsif (EssPwr.getValue() == 4 and generator4.gen_bus_tie.getValue() and generator4.gen_breaker.getValue()){
+				}elsif (EssPwr.getValue() == 4 and generator4.get_output_volts() and generator4.gen_bus_tie.getValue() and generator4.gen_breaker.getValue() and generator4.gen_control.getValue()){
 					  power_source = "Generator4";
 					  essdcbus_volts = generator4.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
@@ -315,7 +327,7 @@ var update_virtual_bus = func( dt ) {
 					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
-				}elsif (EssPwr.getValue() == 3 and generator3.gen_bus_tie.getValue() and generator3.gen_breaker.getValue()){
+				}elsif (EssPwr.getValue() == 3 and generator3.get_output_volts() and generator3.gen_bus_tie.getValue() and generator3.gen_breaker.getValue() and generator3.gen_control.getValue()){
 					  power_source = "Generator3";
 					  essdcbus_volts = generator3.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
@@ -323,7 +335,7 @@ var update_virtual_bus = func( dt ) {
 					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
-				}elsif (EssPwr.getValue() == 2 and generator2.gen_bus_tie.getValue() and generator2.gen_breaker.getValue()){
+				}elsif (EssPwr.getValue() == 2 and generator2.get_output_volts() and generator2.gen_bus_tie.getValue() and generator2.gen_breaker.getValue() and generator2.gen_control.getValue()){
 					  power_source = "Generator2";
 					  essdcbus_volts = generator2.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
@@ -331,7 +343,7 @@ var update_virtual_bus = func( dt ) {
 					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
-				}elsif (EssPwr.getValue() == 1 and generator1.gen_bus_tie.getValue() and generator1.gen_breaker.getValue()){
+				}elsif (EssPwr.getValue() == 1 and generator1.get_output_volts() and generator1.gen_bus_tie.getValue() and generator1.gen_breaker.getValue() and generator1.gen_control.getValue()){
 					  power_source = "Generator1";
 					  essdcbus_volts = generator1.get_output_volts();
 						EssSourceFailure.setBoolValue(0);
@@ -342,17 +354,68 @@ var update_virtual_bus = func( dt ) {
 				}else{
 					  power_source = "APU";
 					  essdcbus_volts = generator5.get_output_volts();
-						EssSourceFailure.setBoolValue(0);
+						if(generator5.get_output_volts()){
+							 EssSourceFailure.setBoolValue(0);
+						}else{
+							if(!generator1.get_output_volts()){
+								generator1.gen_bus_tie.setValue(0);		
+							}
+							if(!generator2.get_output_volts()){
+								generator2.gen_bus_tie.setValue(0);		
+							}
+							if(!generator3.get_output_volts()){
+								generator3.gen_bus_tie.setValue(0);		
+							}
+							if(!generator4.get_output_volts()){
+								generator4.gen_bus_tie.setValue(0);		
+							}					  
+					  }
 					  #recharge
 					  if(battery.switch.getBoolValue() and essdcbus_volts > battery.actual_volts.getValue()){
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
-					  #all bus-tie fall back
-					  generator1.gen_bus_tie.setValue(0);
-					  generator2.gen_bus_tie.setValue(0);
-					  generator3.gen_bus_tie.setValue(0);
-					  generator4.gen_bus_tie.setValue(0);
 				}
+				
+				# control the generator freq
+				# bus-tie and gen-breaker fall back on freq problems
+				if(generator1.get_output_volts() and EssFreq.getValue() != generator1.frequency.getValue()){
+					generator1.gen_bus_tie.setValue(0);		
+				}
+				if(generator2.get_output_volts() and EssFreq.getValue() != generator2.frequency.getValue()){
+					generator2.gen_bus_tie.setValue(0);		
+				}
+				if(generator3.get_output_volts() and EssFreq.getValue() != generator3.frequency.getValue()){
+					generator3.gen_bus_tie.setValue(0);		
+				}
+				if(generator4.get_output_volts() and EssFreq.getValue() != generator4.frequency.getValue()){
+					generator4.gen_bus_tie.setValue(0);		
+				}
+				
+				if (!generator1.gen_drive_switch.getBoolValue()){
+					generator1.gen_bus_tie.setValue(0); 
+					generator1.gen_breaker.setValue(0); 
+					generator1.gen_control.setValue(0); 
+					generator1.frequency.setValue(my_rand(384,418));
+				}
+				if (!generator2.gen_drive_switch.getBoolValue()){
+					generator2.gen_bus_tie.setValue(0); 
+					generator2.gen_breaker.setValue(0); 
+					generator2.gen_control.setValue(0); 
+					generator2.frequency.setValue(my_rand(384,418));
+				}				
+				if (!generator3.gen_drive_switch.getBoolValue()){
+					generator3.gen_bus_tie.setValue(0); 
+					generator3.gen_breaker.setValue(0); 
+					generator3.gen_control.setValue(0); 
+					generator3.frequency.setValue(my_rand(384,418));
+				}				
+				if (!generator4.gen_drive_switch.getBoolValue()){
+					generator4.gen_bus_tie.setValue(0); 
+					generator4.gen_breaker.setValue(0); 
+					generator4.gen_control.setValue(0); 
+					generator4.frequency.setValue(my_rand(384,418));
+				}				
+				
 			}else{
 				EssSourceFailure.setBoolValue(1);
 				essdcbus_volts = 0;
@@ -420,17 +483,16 @@ var update_virtual_bus = func( dt ) {
 #### END of update_electrical ####
 
 var update_electrical = func {
-  var scnd = getprop("sim/time/delta-sec");
-  update_virtual_bus( scnd );
+  update_virtual_bus();
 	settimer(update_electrical, 0);
 }
 
 ################################## more generator helpers #######################################
 var sync_lamp = func(ref, in){
-	if(in > (ref)){
+	if(in > ref){
 		 syncLight1.setValue(1);
 		 syncLight2.setValue(0);
-	}elsif(in < (ref)){
+	}elsif(in < ref){
 		 syncLight1.setValue(0);
 		 syncLight2.setValue(1);
 	}else{
@@ -442,6 +504,10 @@ var sync_lamp = func(ref, in){
 ######################## ac paralleling #########################
 var ac_sync = func{		  
 		  if (battery.switch.getBoolValue() and essdcbus_volts > 20){ 
+
+				syncLight1.setValue(1);
+				syncLight2.setValue(1);
+				
 				# APU automatic sync if Ess Power is on APU and AC Paralleling Sel on APU
 				if(ACSelector.getValue() == 0 and EssPwr.getValue() == 0 and 
 					 generator5.gen_output.getValue() > 20 and generator5.gen_drive_switch.getBoolValue()){
@@ -449,10 +515,10 @@ var ac_sync = func{
 						var apfreq = generator5.frequency.getValue();
 						
 						if(apfreq > 400){
-							apfreq -= 0.01;
+							apfreq -= 0.001;
 							settimer(ac_sync, 0); #loop
 						}elsif(apfreq < 400){
-							apfreq += 0.01;
+							apfreq += 0.001;
 							settimer(ac_sync, 0); #loop
 						}else{
 							apfreq = 400;
@@ -462,7 +528,6 @@ var ac_sync = func{
 						
 		 				sync_lamp(EssFreq.getValue(),apfreq);
 						generator5.frequency.setValue(apfreq);
-
 					 	ACSelFreq.setValue(apfreq);
 					 	ACSelVolts.setValue(generator5.gen_output.getValue());
 
@@ -471,26 +536,18 @@ var ac_sync = func{
 				# Generator 1
 				}elsif(ACSelector.getValue() == 1 and generator1.gen_output.getValue() > 20 and
 											 				 generator1.gen_drive_switch.getBoolValue() and 
-											 				 generator1.gen_control.getBoolValue()){
+											 				 generator1.gen_control.getBoolValue() and 
+											 				 generator1.gen_breaker.getBoolValue()){
 						ACSelFreq.setValue(generator1.frequency.getValue());
-					 	ACSelVolts.setValue(generator1.gen_output.getValue());
-					 	# bus-tie and gen-breaker fall back on freq problems
-						if(EssFreq.getValue() != generator1.frequency.getValue()){
-							generator1.gen_bus_tie.setValue(0);
-							setprop("/b707/generator/gen-breaker[0]", 0);			
-						} 
+					 	ACSelVolts.setValue(generator1.gen_output.getValue()); 
 						sync_lamp(EssFreq.getValue(),generator1.frequency.getValue());
 				# Generator 2		
 				}elsif(ACSelector.getValue() == 2 and generator2.gen_output.getValue() > 20 and
 											 				 generator2.gen_drive_switch.getBoolValue() and 
-											 				 generator2.gen_control.getBoolValue()){
+											 				 generator2.gen_control.getBoolValue() and 
+											 				 generator2.gen_breaker.getBoolValue()){
 						ACSelFreq.setValue(generator2.frequency.getValue());
 					 	ACSelVolts.setValue(generator2.gen_output.getValue());
-					 	# bus-tie and gen-breaker fall back on freq problems
-						if(EssFreq.getValue() != generator2.frequency.getValue()){
-							generator2.gen_bus_tie.setValue(0);
-							setprop("/b707/generator/gen-breaker[1]", 0);			
-						}
 						sync_lamp(EssFreq.getValue(),generator2.frequency.getValue());
 				# SYNC BUS		
 				}elsif(ACSelector.getValue() == 3){
@@ -500,26 +557,18 @@ var ac_sync = func{
 				# Generator 3		
 				}elsif(ACSelector.getValue() == 4 and generator3.gen_output.getValue() > 20 and
 											 				 generator3.gen_drive_switch.getBoolValue() and 
-											 				 generator3.gen_control.getBoolValue()){
+											 				 generator3.gen_control.getBoolValue() and 
+											 				 generator3.gen_breaker.getBoolValue()){
 						ACSelFreq.setValue(generator3.frequency.getValue());
 					 	ACSelVolts.setValue(generator3.gen_output.getValue());
-					 	# bus-tie and gen-breaker fall back on freq problems
-						if(EssFreq.getValue() != generator3.frequency.getValue()){
-							generator3.gen_bus_tie.setValue(0);
-							setprop("/b707/generator/gen-breaker[2]", 0);			
-						}
 						sync_lamp(EssFreq.getValue(),generator3.frequency.getValue());
 				# Generator 4		
 				}elsif(ACSelector.getValue() == 5 and generator4.gen_output.getValue() > 20 and
 											 				 generator4.gen_drive_switch.getBoolValue() and 
-											 				 generator4.gen_control.getBoolValue()){
+											 				 generator4.gen_control.getBoolValue() and 
+											 				 generator4.gen_breaker.getBoolValue()){
 						ACSelFreq.setValue(generator4.frequency.getValue());
 					 	ACSelVolts.setValue(generator4.gen_output.getValue());
-					 	# bus-tie and gen-breaker fall back on freq problems
-						if(EssFreq.getValue() != generator4.frequency.getValue()){
-							generator4.gen_bus_tie.setValue(0);
-							setprop("/b707/generator/gen-breaker[3]", 0);			
-						}
 						sync_lamp(EssFreq.getValue(),generator4.frequency.getValue());
 				# External Power		
 				}elsif(ACSelector.getValue() == 6 and EssPwr.getValue() == 5 ){
@@ -686,7 +735,7 @@ setlistener("b707/external-power-connected", func(state){
   	 setprop("/sim/sound/switch2", 1);
   }
 
-},1,0);
+},0,0);
 
 ################################# APU loop function #####################################
 # the APU helper for smooth view on Amperemeter
@@ -717,8 +766,8 @@ var apuLoop = func{
 		setprop("engines/APU/serviceable",0);
 	}
 
-	var setting = getprop("b707/apu/off-start-run");
-	var generator = getprop("b707/generator/gen-drive[4]");
+	var setting = getprop("b707/apu/off-start-run") or 0;
+	var generator = getprop("b707/generator/gen-drive[4]") or 0;
 
  	# rpm and running
  	if (setting != 0){

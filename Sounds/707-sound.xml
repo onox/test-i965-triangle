@@ -1071,7 +1071,6 @@
 					</or>
 					<or>
 		      	<property>/sim/model/pushback/enabled</property>
-		      	<property>/b707/external-power-connected</property>
 					</or>
 		    </and>
       </condition>
@@ -1093,7 +1092,6 @@
 					<property>/sim/current-view/internal</property>
 					<or>
 		      	<property>/sim/model/pushback/enabled</property>
-		      	<property>/b707/external-power-connected</property>
 					</or>
 		    </and>
       </condition>
@@ -1105,6 +1103,56 @@
         <max>0.4</max>
       </volume>
     </pushback>
+    
+    <extpowerunit>
+      <name>ExtPower_outside</name>
+      <mode>looped</mode>
+      <path>Aircraft/707/Sounds/external.wav</path>
+      <condition>
+      	<and>
+					<or>
+						<not>
+							<property>/sim/current-view/internal</property>
+						</not>
+						<greater-than>
+							<property>/instrumentation/doors/copilotwin/position-norm</property>
+							<value>0.01</value>
+						</greater-than>
+					</or>
+					<or>
+		      	<property>/b707/external-power-connected</property>
+					</or>
+		    </and>
+      </condition>
+      <volume>
+        <property>/sim/model/pushback/position-norm</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.3</min>
+        <max>1.0</max>
+      </volume>
+    </extpowerunit>
+
+    <extpowerunit>
+      <name>ExtPower_inside</name>
+      <mode>looped</mode>
+      <path>Aircraft/707/Sounds/external.wav</path>
+      <condition>
+      	<and>
+					<property>/sim/current-view/internal</property>
+					<or>
+		      	<property>/b707/external-power-connected</property>
+					</or>
+		    </and>
+      </condition>
+      <volume>
+        <property>/sim/model/pushback/position-norm</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.2</min>
+        <max>0.4</max>
+      </volume>
+    </extpowerunit>    
     
     <apu>
 			<name>APU-internal</name>

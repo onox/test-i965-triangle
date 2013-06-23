@@ -85,13 +85,32 @@
 <!-- Externe -->
 	<model>
 	 <name>Pushback</name>
-	 <path>Models\Airport\Pushback\Goldhofert.xml</path>
+	 <path>Models/Airport/Pushback/Goldhofert.xml</path>
 	 <offsets>
 		<x-m>-17.5</x-m>
 		<y-m>0</y-m>
 		<z-m>-2.9</z-m>
 	 </offsets>
 	</model>
+	
+	<model>
+	 <name>ExternalPowerUnit</name>
+	 <path>Aircraft/707/Models/epu.xml</path>
+		<offsets>
+      <x-m>-17.5</x-m>
+      <y-m>7.0</y-m>
+      <z-m>-2.10</z-m>
+      <heading-deg> 25 </heading-deg>
+		</offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ExternalPowerUnit</object-name>
+		<condition>
+		  <property>b707/external-power-connected</property>
+		</condition>
+	</animation>
 	
 <!-- Immatriculation -->
   <model>

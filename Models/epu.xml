@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <path>epu.ac</path>
+ 
+   <animation>
+    <type>material</type>
+		<object-name>blah.002</object-name> 
+		<object-name>blah.003</object-name>
+		<object-name>blah.004</object-name>
+		<object-name>blah.005</object-name>
+		<object-name>blah.006</object-name>
+		<object-name>blah.007</object-name>
+		<object-name>blah.008</object-name>
+		<object-name>blah.009</object-name>
+		<object-name>blah.010</object-name>
+		<object-name>blah.011</object-name>
+		<object-name>blah.012</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>707.png</texture>
+  </animation>
+ 
+	<animation>
+		<type>material</type>
+		<object-name>blah.002</object-name> 
+		<object-name>blah.003</object-name>
+		<object-name>blah.004</object-name>
+		<object-name>blah.005</object-name>
+		<object-name>blah.006</object-name>
+		<object-name>blah.007</object-name>
+		<object-name>blah.008</object-name>
+		<object-name>blah.009</object-name>
+		<object-name>blah.010</object-name>
+		<object-name>blah.011</object-name>
+		<object-name>blah.012</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.1</red>
+		  <green>0.1</green>
+		  <blue>0.1</blue>
+		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+</PropertyList>

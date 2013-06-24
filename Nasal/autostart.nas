@@ -924,6 +924,7 @@ var starter = func(nr)
 			setprop("controls/engines/engine["~nr~"]/starter", 0);
 			setprop("controls/engines/engine["~nr~"]/cutoff", 1);
 			setprop("controls/engines/engine["~nr~"]/starter", 1);
+			setprop("b707/generator/gen-freq["~nr~"]", b707.my_rand(384,418));
 			settimer(func
 			{
 				setprop("controls/engines/engine["~nr~"]/cutoff", 0);
@@ -938,7 +939,21 @@ var starter = func(nr)
 setlistener("b707/start/startercover[2]", func(open)
  {
  	var open = open.getBoolValue();
- 	if(open){
+ 	var s_bat = getprop("b707/battery-switch") or 0;
+	var s_ext_con = getprop("b707/external-power-connected") or 0;
+	var s_ess_pwr = getprop("b707/ess-power-switch") or 0;
+	var s_ess_bus = getprop("b707/ess-bus") or 0;
+	var s_ground_c = getprop("b707/ground-connect") or 0;
+	var s_par_sel = getprop("b707/ac/ac-para-select") or 0;
+	var s_apu_start = getprop("b707/apu/off-start-run") or 0;
+	var s_apu_gen = getprop("b707/generator/gen-drive[4]") or 0;			
+	var s_bus_tie = getprop("/b707/generator/gen-bus-tie[2]") or 0;
+	var s_gen_bre = getprop("/b707/generator/gen-breaker[2]") or 0;
+	
+	if(open and s_bat and s_ess_bus > 20 and s_gen_bre and s_bus_tie and 
+			((s_ext_con and s_ess_pwr == 5 and s_ground_c == 1) or
+		 	 ( s_ess_pwr == 0 and s_apu_start == 2 and s_apu_gen))
+		){
 	 setprop("controls/engines/engine[2]/msg", 1);
 	}
  }, 0, 0); 

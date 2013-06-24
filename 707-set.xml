@@ -45,7 +45,8 @@
   
 	<tutorials>
 		<!--<tutorial include="Tutorials/707-preflight.xml"/>-->
-		<!--<tutorial include="Tutorials/707-startup.xml"/>-->
+		<tutorial include="Tutorials/707-startup-german.xml"/>
+		<tutorial include="Tutorials/707-startup-english.xml"/>
 	</tutorials>
    
   <view>
@@ -179,7 +180,8 @@
 			<int n="11" type="int">0</int>  <!-- 5 immat -->
 			<int n="12" type="int">0</int>  <!-- 6 immat -->
 			<int n="13" type="int">0</int>  <!-- 7 immat -->
-			<float n="0" alias="/controls/lighting/cabin-dim"/> 													<!-- cabin light dimmer -->
+			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power Unit - VW Kombi -->
+			<float n="0" alias="/systems/electrical/outputs/cabin-dim"/> 									<!-- cabin light dimmer -->
 			<float n="1" alias="/gear/gear[0]/compression-norm"/> 												<!-- multiplayer see the wheels turning -->
 			<float n="2" alias="/gear/gear[0]/rollspeed-ms"/> 												    <!-- multiplayer see the hanging backwheels -->
 			<float n="3" alias="/gear/gear[1]/compression-norm"/>

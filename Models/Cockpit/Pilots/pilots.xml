@@ -8,13 +8,13 @@
 		<object-name>pilots</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/controls/lighting/cabin-dim</property>
+			<property>sim/multiplay/generic/float[0]</property>
 		</condition>
 		<emission>
 		  <red>0.4</red>
 		  <green>0.4</green>
 		  <blue>0.4</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>	
 

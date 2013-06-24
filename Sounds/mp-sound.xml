@@ -104,6 +104,29 @@
         <max-dist>2000.0</max-dist>
     </engine>
 
+    <extpowerunit>
+      <name>ExtPower_inside</name>
+      <mode>looped</mode>
+      <path>Aircraft/707/Sounds/external.wav</path>
+      <condition>
+      	<property>sim/multiplay/generic/int[14]</property>
+      </condition>
+      <volume>
+        <property>sim/multiplay/generic/int[14]</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.05</min>
+        <max>0.15</max>
+      </volume>
+        <position>
+            <x>0</x>
+            <y>-9.8</y>
+            <z>-3</z>
+        </position>
+        <reference-dist>400.0</reference-dist>
+        <max-dist>1000.0</max-dist>
+    </extpowerunit> 
+
 </fx>
 
 </PropertyList>

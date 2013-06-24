@@ -1125,11 +1125,11 @@
 		    </and>
       </condition>
       <volume>
-        <property>/sim/model/pushback/position-norm</property>
+        <property>sim/multiplay/generic/int[14]</property>
         <factor>1.00</factor>
         <offset>0.00</offset>
-        <min>0.3</min>
-        <max>1.0</max>
+        <min>0.1</min>
+        <max>0.5</max>
       </volume>
     </extpowerunit>
 
@@ -1146,11 +1146,11 @@
 		    </and>
       </condition>
       <volume>
-        <property>/sim/model/pushback/position-norm</property>
+        <property>sim/multiplay/generic/int[14]</property>
         <factor>1.00</factor>
         <offset>0.00</offset>
-        <min>0.2</min>
-        <max>0.4</max>
+        <min>0.05</min>
+        <max>0.2</max>
       </volume>
     </extpowerunit>    
     

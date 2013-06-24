@@ -26,7 +26,7 @@
 		  <red>0.4</red>
 		  <green>0.4</green>
 		  <blue>0.4</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>
 	
@@ -50,7 +50,7 @@
 		  <red>0.25</red>
 		  <green>0.25</green>
 		  <blue>0.25</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>
 
@@ -64,7 +64,7 @@
 		  <red>0.15</red>
 		  <green>0.15</green>
 		  <blue>0.15</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>
 	
@@ -78,7 +78,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>	
 		
@@ -507,7 +507,7 @@
 			<z>-0.7</z>
 		</direction>
     <dim-factor>
-      <property>/controls/lighting/cabin-dim</property>
+      <property>/systems/electrical/outputs/cabin-dim</property>
       <factor>1</factor>
       <offset>0</offset>
       <min>0</min>

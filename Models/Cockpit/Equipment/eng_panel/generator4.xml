@@ -19,17 +19,13 @@
 		<object-name>bezel</object-name>
 		<object-name>freqKnob</object-name>
 		<condition>	
-			<greater-than>
-				<property>/b707/ess-bus</property>
-				<value>20</value>
-			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -38,17 +34,13 @@
 		<object-name>face</object-name>
 		<object-name>needle</object-name>
 		<condition>
-			<greater-than>
-				<property>/b707/ess-bus</property>
-				<value>20</value>
-			</greater-than>
-			<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
+			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>/controls/lighting/panel-norm</factor-prop>
+			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -57,18 +49,14 @@
 		<object-name>face</object-name>
 		<object-name>needle</object-name>
 		<condition>
-			<greater-than>
-				<property>/b707/ess-bus</property>
-				<value>20</value>
-			</greater-than>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/controls/lighting/cabin-dim</property>
+			<property>/systems/electrical/outputs/cabin-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 	

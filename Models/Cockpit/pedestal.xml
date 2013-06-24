@@ -41,7 +41,7 @@
 		  <red>0.25</red>
 		  <green>0.25</green>
 		  <blue>0.25</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 	

@@ -16,13 +16,13 @@
 		  <object-name>switch.003</object-name>
       <object-name>nightHelp</object-name>
 		<condition>
-			<less-than><property>/controls/lighting/cabin-dim</property><value>0.8</value></less-than>
+			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>/controls/lighting/panel-norm</factor-prop>
+			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -41,13 +41,13 @@
       <object-name>nightHelp</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/controls/lighting/cabin-dim</property>
+			<property>/systems/electrical/outputs/cabin-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>/controls/lighting/cabin-dim</factor-prop>
+		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 
@@ -255,7 +255,7 @@
       <type>rotate</type>
       <object-name>KnobPanelLight</object-name>
       <object-name>nightHelp</object-name>
-      <!-- <property>/controls/lighting/panel-norm</property> -->
+      <!-- <property>/systems/electrical/outputs/panel-dim</property> -->
       <property>sim/multiplay/generic/float[3]</property>
       <interpolation>
         <entry><ind>0</ind><dep> 25</dep></entry>
@@ -286,12 +286,12 @@
           <binding>
               <condition>
                 <greater-than>
-                  <property>/controls/lighting/panel-norm</property>
+                  <property>/systems/electrical/outputs/panel-dim</property>
                   <value>0.0</value>
                 </greater-than>
               </condition>
               <command>property-adjust</command>
-              <property>/controls/lighting/panel-norm</property>
+              <property>/systems/electrical/outputs/panel-dim</property>
               <step>0.1</step>
               <min>0.01</min>
               <max>1</max>
@@ -299,7 +299,7 @@
           <binding>
             <condition>
               <greater-than>
-                <property>/controls/lighting/panel-norm</property>
+                <property>/systems/electrical/outputs/panel-dim</property>
                 <value>0.0</value>
               </greater-than>
             </condition>
@@ -315,12 +315,12 @@
           <binding>
               <condition>
                 <greater-than>
-                  <property>/controls/lighting/panel-norm</property>
+                  <property>/systems/electrical/outputs/panel-dim</property>
                   <value>0.0</value>
                 </greater-than>
               </condition>
               <command>property-adjust</command>
-              <property>/controls/lighting/panel-norm</property>
+              <property>/systems/electrical/outputs/panel-dim</property>
               <step>-0.1</step>
               <min>0.01</min>
               <max>1</max>
@@ -328,7 +328,7 @@
           <binding>
             <condition>
               <greater-than>
-                <property>/controls/lighting/panel-norm</property>
+                <property>/systems/electrical/outputs/panel-dim</property>
                 <value>0.0</value>
               </greater-than>
             </condition>
@@ -342,7 +342,7 @@
               <binding>
                   <condition>
                     <greater-than>
-                      <property>/controls/lighting/panel-norm</property>
+                      <property>/systems/electrical/outputs/panel-dim</property>
                       <value>0.0</value>
                     </greater-than>
                   </condition>
@@ -352,7 +352,7 @@
                       </not>
                   </condition>
                   <command>property-adjust</command>
-                  <property>/controls/lighting/panel-norm</property>
+                  <property>/systems/electrical/outputs/panel-dim</property>
                   <step>0.01</step>
                   <min>0.01</min>
                   <max>1</max>
@@ -360,7 +360,7 @@
               <binding>
                   <condition>
                     <greater-than>
-                      <property>/controls/lighting/panel-norm</property>
+                      <property>/systems/electrical/outputs/panel-dim</property>
                       <value>0.0</value>
                     </greater-than>
                   </condition>
@@ -368,7 +368,7 @@
                       <property>devices/status/keyboard/shift</property>
                   </condition>
                   <command>property-adjust</command>
-                  <property>/controls/lighting/panel-norm</property>
+                  <property>/systems/electrical/outputs/panel-dim</property>
                   <step>0.1</step>
                   <min>0.01</min>
                   <max>1</max>
@@ -376,7 +376,7 @@
           <binding>
             <condition>
               <greater-than>
-                <property>/controls/lighting/panel-norm</property>
+                <property>/systems/electrical/outputs/panel-dim</property>
                 <value>0.0</value>
               </greater-than>
             </condition>
@@ -390,7 +390,7 @@
               <binding>
                   <condition>
                     <greater-than>
-                      <property>/controls/lighting/panel-norm</property>
+                      <property>/systems/electrical/outputs/panel-dim</property>
                       <value>0.0</value>
                     </greater-than>
                   </condition>
@@ -400,7 +400,7 @@
                       </not>
                   </condition>
                   <command>property-adjust</command>
-                  <property>/controls/lighting/panel-norm</property>
+                  <property>/systems/electrical/outputs/panel-dim</property>
                   <step>-0.01</step>
                   <min>0.01</min>
                   <max>1</max>
@@ -408,7 +408,7 @@
               <binding>
                   <condition>
                     <greater-than>
-                      <property>/controls/lighting/panel-norm</property>
+                      <property>/systems/electrical/outputs/panel-dim</property>
                       <value>0.0</value>
                     </greater-than>
                   </condition>
@@ -416,7 +416,7 @@
                       <property>devices/status/keyboard/shift</property>
                   </condition>
                   <command>property-adjust</command>
-                  <property>/controls/lighting/panel-norm</property>
+                  <property>/systems/electrical/outputs/panel-dim</property>
                   <step>-0.1</step>
                   <min>0.01</min>
                   <max>1</max>
@@ -424,7 +424,7 @@
           <binding>
             <condition>
               <greater-than>
-                <property>/controls/lighting/panel-norm</property>
+                <property>/systems/electrical/outputs/panel-dim</property>
                 <value>0.09</value>
               </greater-than>
             </condition>

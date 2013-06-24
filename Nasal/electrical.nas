@@ -12,6 +12,8 @@ var EssDCbus = props.globals.initNode("b707/ess-bus",0,"DOUBLE");
 var EssFreq = props.globals.initNode("b707/ess-freq",400,"DOUBLE"); #400Hz is standard
 var EssPwr= props.globals.initNode("b707/ess-power-switch",0,"DOUBLE");
 var EssSourceFailure = props.globals.initNode("/b707/ess-source-failure",0,"BOOL");
+var CabinDim = props.globals.initNode("systems/electrical/outputs/cabin-dim",0,"DOUBLE");
+var PanelDim = props.globals.initNode("systems/electrical/outputs/panel-dim",0,"DOUBLE");
 
 var ExternalConnected = props.globals.initNode("b707/external-power-connected",0,"BOOL");
 
@@ -169,119 +171,11 @@ var generator5 = Generator.new(4,"b707/generator/gen-drive[4]","/engines/APU/amp
 #####################################
 
 var init_switches = func{
-    var AVswitch=props.globals.initNode("controls/electric/avionics-switch",1,"BOOL");
     setprop("controls/lighting/instruments-norm",0.8);
     props.globals.getNode("systems/electrical/serviceable",0,"BOOL");
-    setprop("controls/lighting/instrument-lights-norm",0.8);
-    setprop("controls/lighting/efis-norm",0.8);
     setprop("controls/lighting/panel-norm",0.8);
-
-    append(EssDCbus_input,props.globals.initNode("controls/electric/wiper-switch",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/wiper",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/engines/engine[0]/fuel-pump",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[0]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/engines/engine[1]/fuel-pump",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/engines/engine[2]/fuel-pump",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[2]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/engines/engine[3]/fuel-pump",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[3]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/engines/engine[0]/starter",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/starter",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/engines/engine[1]/starter",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/starter[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/engines/engine[2]/starter",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/starter[2]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/engines/engine[3]/starter",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/starter[3]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/KNS80",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/efis",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/adf",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/dme",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/gps",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch); 
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/DG",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/mk-viii",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/turn-coordinator",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/comm",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/comm[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/nav",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,AVswitch);
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/landing-light[1]",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/landing-light[1]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/landing-light[2]",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/landing-light[2]",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/nav-lights",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/nav-lights",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/cabin-lights",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/cabin-lights",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/map-lights",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/map-lights",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/wing-lights",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/wing-lights",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/recog-lights",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/recog-lights",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/logo-lights",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/logo-lights",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/taxi-lights",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/taxi-lights",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/beacon-state/state",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/beacon",0,"DOUBLE"));
-    append(EssDCbus_load,1);
-    append(EssDCbus_input,props.globals.initNode("controls/lighting/strobe-state/state",0,"BOOL"));
-    append(EssDCbus_output,props.globals.initNode("systems/electrical/outputs/strobe",0,"DOUBLE"));
-    append(EssDCbus_load,1);
+    setprop("controls/lighting/cabin-dim",0.6);
 }
-
 
 var load = 0.0;
 var power_source = nil;
@@ -376,8 +270,7 @@ var update_virtual_bus = func {
 					  }
 				}
 				
-				# control the generator freq
-				# bus-tie and gen-breaker fall back on freq problems
+				# bus-tie fall back on freq problems
 				if(generator1.get_output_volts() and EssFreq.getValue() != generator1.frequency.getValue()){
 					generator1.gen_bus_tie.setValue(0);		
 				}
@@ -395,25 +288,21 @@ var update_virtual_bus = func {
 					generator1.gen_bus_tie.setValue(0); 
 					generator1.gen_breaker.setValue(0); 
 					generator1.gen_control.setValue(0); 
-					generator1.frequency.setValue(my_rand(384,418));
 				}
 				if (!generator2.gen_drive_switch.getBoolValue()){
 					generator2.gen_bus_tie.setValue(0); 
 					generator2.gen_breaker.setValue(0); 
 					generator2.gen_control.setValue(0); 
-					generator2.frequency.setValue(my_rand(384,418));
 				}				
 				if (!generator3.gen_drive_switch.getBoolValue()){
 					generator3.gen_bus_tie.setValue(0); 
 					generator3.gen_breaker.setValue(0); 
 					generator3.gen_control.setValue(0); 
-					generator3.frequency.setValue(my_rand(384,418));
 				}				
 				if (!generator4.gen_drive_switch.getBoolValue()){
 					generator4.gen_bus_tie.setValue(0); 
 					generator4.gen_breaker.setValue(0); 
 					generator4.gen_control.setValue(0); 
-					generator4.frequency.setValue(my_rand(384,418));
 				}				
 				
 			}else{
@@ -457,7 +346,15 @@ var update_virtual_bus = func {
 		  essdcbus_volts *=PWR; # if system is not serviceable PWR is zero
 		  EssDCbus.setValue(essdcbus_volts);
 		  load += ess_bus(essdcbus_volts);
-		  
+
+		  var dim = getprop("controls/lighting/cabin-dim") or 0;
+		  dim = dim*essdcbus_volts/24;
+		  CabinDim.setValue(dim);
+
+		  var pdim = getprop("controls/lighting/panel-norm") or 0;
+		  pdim = pdim*essdcbus_volts/24;
+		  PanelDim.setValue(pdim);
+
 		  generator1.apply_load(load);
 		  generator2.apply_load(load);
 		  generator3.apply_load(load);

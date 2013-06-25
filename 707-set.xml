@@ -180,7 +180,7 @@
 			<int n="11" type="int">0</int>  <!-- 5 immat -->
 			<int n="12" type="int">0</int>  <!-- 6 immat -->
 			<int n="13" type="int">0</int>  <!-- 7 immat -->
-			<int n="14" type="int" alias="/b707/external-power-connected"/>													<!-- External Power Unit - VW Kombi -->
+			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power Unit - VW Kombi -->
 			<float n="0" alias="/systems/electrical/outputs/cabin-dim"/> 									<!-- cabin light dimmer -->
 			<float n="1" alias="/gear/gear[0]/compression-norm"/> 												<!-- multiplayer see the wheels turning -->
 			<float n="2" alias="/gear/gear[0]/rollspeed-ms"/> 												    <!-- multiplayer see the hanging backwheels -->

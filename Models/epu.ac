@@ -8,7 +8,7 @@ OBJECT world
 kids 12
 OBJECT poly
 name "blah.002"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.002
 texture "707.png"
@@ -5450,7 +5450,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.003"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.003
 texrep 1 1
@@ -5996,7 +5996,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.004"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.004
 texture "707.png"
@@ -7011,7 +7011,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.005"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.005
 texture "707.png"
@@ -12204,7 +12204,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.006"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.006
 texture "707.png"
@@ -17495,7 +17495,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.007"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.007
 texture "707.png"
@@ -30602,7 +30602,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.008"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.008
 texture "707.png"
@@ -30694,7 +30694,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.009"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.009
 texture "707.png"
@@ -40542,7 +40542,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.010"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.010
 texrep 1 1
@@ -41120,7 +41120,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.011"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.011
 texrep 1 1
@@ -42542,7 +42542,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.012"
-loc -3.45441 -0.030008 -0.979229
+loc -3.45441 0.080789 -0.979229
 data 8
 blah.012
 texrep 1 1
@@ -43204,7 +43204,7 @@ refs 3
 kids 0
 OBJECT poly
 name "blah.013"
-loc 2.675316 2.880688 -1.555849
+loc 2.675316 2.991484 -1.555849
 data 8
 blah.013
 texture "707.png"

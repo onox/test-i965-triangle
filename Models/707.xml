@@ -75,7 +75,7 @@
 			<texture n="1">
 				<image>Aircraft/707/Models/Lights/logolight.png</image>
 			</texture>
-			<condition><use>sim/multiplay/generic/int[2]</use></condition>
+			<condition><use>/controls/lighting/landing-light[2]</use></condition>
 			<factor>1</factor>
 		</parameters>
     <object-name>vertstab</object-name>

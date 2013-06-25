@@ -89,20 +89,14 @@
   <type>select</type>
   <object-name>LampBlueON</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
       <property>/instrumentation/marker-beacon/outer</property>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampBlue</object-name>
-  <condition>
-    <and>
-      <not><property>/instrumentation/marker-beacon/outer</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 
@@ -110,20 +104,14 @@
   <type>select</type>
   <object-name>LampAmberON</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
       <property>/instrumentation/marker-beacon/middle</property>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber</object-name>
-  <condition>
-    <and>
-      <not><property>/instrumentation/marker-beacon/middle</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 
@@ -131,20 +119,14 @@
   <type>select</type>
   <object-name>LampWhiteON</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
       <property>/instrumentation/marker-beacon/inner</property>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampWhite</object-name>
-  <condition>
-    <and>
-      <not><property>/instrumentation/marker-beacon/inner</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 

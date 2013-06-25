@@ -95,21 +95,14 @@
   <object-name>LampAmberON.003</object-name>
   <object-name>LampAmberON.004</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
     	<property>/engines/engine[3]/reversed</property>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber.003</object-name>
-  <object-name>LampAmber.004</object-name>
-  <condition>
-    <and>
-    	<not><property>/engines/engine[3]/reversed</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 
@@ -118,21 +111,14 @@
   <object-name>LampAmberON.002</object-name>
   <object-name>LampAmberON.005</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
     	<property>/engines/engine[2]/reversed</property>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber.002</object-name>
-  <object-name>LampAmber.005</object-name>
-  <condition>
-    <and>
-    	<not><property>/engines/engine[2]/reversed</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 
@@ -141,21 +127,14 @@
   <object-name>LampAmberON.001</object-name>
   <object-name>LampAmberON.006</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
     	<property>/engines/engine[1]/reversed</property>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber.001</object-name>
-  <object-name>LampAmber.006</object-name>
-  <condition>
-    <and>
-    	<not><property>/engines/engine[1]/reversed</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 
@@ -164,23 +143,17 @@
   <object-name>LampAmberON</object-name>
   <object-name>LampAmberON.007</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
     	<property>/engines/engine[0]/reversed</property>
       <property>/controls/test/warn-knob</property>
     </or>
   </condition>
 </animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber</object-name>
-  <object-name>LampAmber.007</object-name>
-  <condition>
-    <and>
-    	<not><property>/engines/engine[0]/reversed</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
-  </condition>
-</animation>
+
 
 </PropertyList>
 

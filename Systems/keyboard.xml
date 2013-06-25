@@ -36,12 +36,12 @@
   </binding>
 </key>
 
-<key n="94">
-    <name>up degree</name>
-    <desc>Open marker adjust dialog</desc>
-    <binding>
-        <command>dialog-show</command>
-        <dialog-name>marker-adjust</dialog-name>
-    </binding>
+<key n="109">
+    <name>short start</name>
+    <desc>Test startup</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.short_startup();</script>
+  </binding>
 </key>
 </PropertyList>

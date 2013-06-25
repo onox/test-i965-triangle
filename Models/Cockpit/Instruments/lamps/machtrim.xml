@@ -64,6 +64,10 @@
   <type>select</type>
   <object-name>LampBlueON</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
     	<and>
       	<property>/controls/special/mach-trim-switch</property>

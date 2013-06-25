@@ -80,6 +80,10 @@
   <type>select</type>
   <object-name>LampGreenON</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
       <greater-than>
       	<property>surface-positions/wing-fold-pos-norm</property>
@@ -89,24 +93,15 @@
     </or>
   </condition>
 </animation>
-<animation>
-  <type>select</type>
-  <object-name>LampGreen</object-name>
-  <condition>
-    <and>
-      <less-than>
-      	<property>surface-positions/wing-fold-pos-norm</property>
-      	<value>0.501</value>
-      </less-than>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
-  </condition>
-</animation>
 
 <animation>
   <type>select</type>
   <object-name>LampAmberON</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
     	<less-than>
       	<property>/engines/engine[2]/oil-pressure-psi</property>
@@ -116,25 +111,15 @@
     </or>
   </condition>
 </animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber</object-name>
-  <condition>
-    <and>
-      <greater-than>
-      	<property>/engines/engine[2]/oil-pressure-psi</property>
-      	<value>12.1</value>
-      </greater-than>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
-  </condition>
-</animation>
-
 
 <animation>
   <type>select</type>
   <object-name>LampAmberON.001</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
     	<less-than>
       	<property>/engines/engine[3]/oil-pressure-psi</property>
@@ -142,19 +127,6 @@
       </less-than>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber.001</object-name>
-  <condition>
-    <and>
-      <greater-than>
-      	<property>/engines/engine[3]/oil-pressure-psi</property>
-      	<value>12.1</value>
-      </greater-than>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 

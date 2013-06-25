@@ -124,21 +124,15 @@
 	<animation>
 		<type>select</type>
 		<object-name>LampBlueON</object-name>
-		<condition>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
 		    <property>/controls/special/slats-switch</property>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
-		</condition>
-	</animation>
-	<animation>
-		<type>select</type>
-		<object-name>LampBlue</object-name>
-		<condition>
-		  <and>
-		    <not><property>/controls/special/slats-switch</property></not>
-		    <not><property>/controls/test/warn-knob</property></not>
-		  </and>
 		</condition>
 	</animation>
 	
@@ -223,7 +217,11 @@
 	<animation>
 		<type>select</type>
 		<object-name>lamp.door.ON</object-name>
-		<condition>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
 		    <property>sim/multiplay/generic/float[4]</property>
 		    <property>sim/multiplay/generic/float[5]</property>
@@ -234,28 +232,12 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>lamp.gear.ON</object-name>
-		<condition>
-		  <or>
-		    <and>
-		    	<less-than>
-						<property>gear/gear[0]/position-norm</property>
-						<value>1</value>
-					</less-than>
-		    	<greater-than>
-						<property>gear/gear[0]/position-norm</property>
-						<value>0</value>
-					</greater-than>
-				</and>
-		    <property>/controls/test/warn-knob</property>
-		  </or>
-		</condition>
-	</animation>
-
-	<animation>
-		<type>select</type>
 		<object-name>lamp.warning.ON</object-name>
-		<condition>
+		<condition>	
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
 		    <property>sim/multiplay/generic/float[4]</property>
 		    <property>sim/multiplay/generic/float[5]</property>
@@ -277,7 +259,12 @@
 	<animation>
 		<type>select</type>
 		<object-name>lamps.gears.ON</object-name>
-		<condition>
+		<object-name>lamp.gear.ON</object-name>
+		<condition>	
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
 		  <or>
 				<equals>
 						<property>gear/gear[0]/position-norm</property>

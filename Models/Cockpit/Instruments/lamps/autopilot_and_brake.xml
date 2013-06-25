@@ -65,20 +65,14 @@
   <type>select</type>
   <object-name>LampAmberON</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
       <property>/controls/gear/brake-parking</property>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber</object-name>
-  <condition>
-    <and>
-      <not><property>/controls/gear/brake-parking</property></not>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 
@@ -86,6 +80,10 @@
   <type>select</type>
   <object-name>LampAmberON.001</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
 			<and>
         <greater-than>
@@ -96,22 +94,6 @@
 		  </and>
       <property>/controls/test/warn-knob</property>
     </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>LampAmber.001</object-name>
-  <condition>
-    <and>
-      <or>     
-		  	<not><property>/autopilot/switches/ap</property></not>
-		  	<less-than>
-          <property>b707/ess-bus</property>
-          <value>12</value>
-        </less-than>
-		  </or>
-      <not><property>/controls/test/warn-knob</property></not>
-    </and>
   </condition>
 </animation>
 

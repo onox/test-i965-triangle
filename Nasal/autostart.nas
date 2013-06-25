@@ -1071,4 +1071,74 @@ var toggle_switch3 = func{
   }
 
 }
+
+
+######################## short Startup for testflight #################################
+
+var short_startup = func
+ {
+	setprop("consumables/fuel/tank[0]/selected", 1);
+	setprop("consumables/fuel/tank[2]/selected", 1);
+	setprop("consumables/fuel/tank[1]/selected", 1);
+ 	setprop("b707/battery-switch", 1);
+ 	setprop("b707/apu/off-start-run", 0);
+	setprop("b707/generator/gen-drive[4]", 0);
+	setprop("b707/load-volt-selector", 1);
+	setprop("b707/external-power-connected", 1);
+	setprop("b707/ground-connect", 1);
+	setprop("b707/ess-power-switch", 5);
+	setprop("b707/ac/ac-para-select", 5);
+	setprop("b707/ess-bus", 28);
+	setprop("b707/generator/gen-drive[0]", 1);
+	setprop("b707/generator/gen-drive[1]", 1);
+	setprop("b707/generator/gen-drive[2]", 1);
+	setprop("b707/generator/gen-drive[3]", 1);
+ 	setprop("b707/generator/gen-bus-tie[0]", 1);
+	setprop("b707/generator/gen-bus-tie[1]", 1);
+	setprop("b707/generator/gen-bus-tie[2]", 1);
+	setprop("b707/generator/gen-bus-tie[3]", 1);
+	setprop("b707/generator/gen-breaker[0]", 1);
+	setprop("b707/generator/gen-breaker[1]", 1);
+	setprop("b707/generator/gen-breaker[2]", 1);
+	setprop("b707/generator/gen-breaker[3]", 1);
+	setprop("b707/generator/gen-control[0]", 1);
+	setprop("b707/generator/gen-control[1]", 1);
+	setprop("b707/generator/gen-control[2]", 1);
+	setprop("b707/generator/gen-control[3]", 1);
+
+	setprop("controls/engines/engine[0]/throttle", 0.25);
+	setprop("controls/engines/engine[1]/throttle", 0.25);
+	setprop("controls/engines/engine[2]/throttle", 0.25);
+	setprop("controls/engines/engine[3]/throttle", 0.25);
+	setprop("controls/engines/engine[0]/cutoff", 1);
+	setprop("controls/engines/engine[1]/cutoff", 1);
+	setprop("controls/engines/engine[2]/cutoff", 1);
+	setprop("controls/engines/engine[3]/cutoff", 1);
+	setprop("controls/engines/engine[0]/starter", 1);
+	setprop("controls/engines/engine[1]/starter", 1);
+	setprop("controls/engines/engine[2]/starter", 1);
+	setprop("controls/engines/engine[3]/starter", 1);
+
+   settimer(func
+    {
+			setprop("controls/engines/engine[0]/cutoff", 0);
+			setprop("controls/engines/engine[1]/cutoff", 0);
+			setprop("controls/engines/engine[2]/cutoff", 0);
+			setprop("controls/engines/engine[3]/cutoff", 0);
+			setprop("b707/generator/gen-freq[0]", 400);
+			setprop("b707/generator/gen-freq[1]", 400);
+			setprop("b707/generator/gen-freq[2]", 400);
+			setprop("b707/generator/gen-freq[3]", 400);
+    }, 1);
+    
+
+   settimer(func
+    {
+			setprop("b707/ess-power-switch", 1);
+			setprop("b707/ac/ac-para-select", 1);
+    }, 30);
+
+		
+ };
+
  

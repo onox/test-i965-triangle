@@ -393,7 +393,7 @@
 		</marker>
 		<error>
 			<message>
-				Connect all GEN - DRIVES!
+				Connect all GEN - DRIVES and close then all the covers.
 				Reconnect in flight is impossible.
 			</message>
 			<condition>
@@ -401,6 +401,10 @@
 				<not><property>/b707/generator/gen-drive[1]</property></not>
 				<not><property>/b707/generator/gen-drive[2]</property></not>
 				<not><property>/b707/generator/gen-drive[3]</property></not>
+				<property>/b707/generator/gen-drive-cover[0]</property>
+				<property>/b707/generator/gen-drive-cover[1]</property>
+				<property>/b707/generator/gen-drive-cover[2]</property>
+				<property>/b707/generator/gen-drive-cover[3]</property>
 			</condition>
 		</error>
 		<exit>
@@ -412,6 +416,53 @@
 			</condition>
 		</exit>
 	</step>
+	
+	<step>
+		<message>
+			BUS-TIE-BREAKER
+			Open all covers and set the BUS-TIE-BREAKER to sync bus.
+			Close cover then.
+		</message>
+		<view>
+				<heading-offset-deg>244.9</heading-offset-deg>
+				<pitch-offset-deg>9.7</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>16.7</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.8653</x-m>
+				<y-m>0.5992</y-m>
+				<z-m>1.3669</z-m>
+				<scale>1.6628</scale>
+		</marker>
+		<error>
+			<message>
+				Switch on all the busses and close the covers!
+			</message>
+			<condition>
+				<not><property>/b707/generator/gen-bus-tie[0]</property></not>
+				<not><property>/b707/generator/gen-bus-tie[1]</property></not>
+				<not><property>/b707/generator/gen-bus-tie[2]</property></not>
+				<not><property>/b707/generator/gen-bus-tie[3]</property></not>				
+				<property>/b707/generator/gen-bus-tie-cover[0]</property>
+				<property>/b707/generator/gen-bus-tie-cover[1]</property>
+				<property>/b707/generator/gen-bus-tie-cover[2]</property>
+				<property>/b707/generator/gen-bus-tie-cover[3]</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/generator/gen-bus-tie[0]</property>
+				<property>/b707/generator/gen-bus-tie[1]</property>
+				<property>/b707/generator/gen-bus-tie[2]</property>
+				<property>/b707/generator/gen-bus-tie[3]</property>
+			</condition>
+		</exit>
+	</step>	
 
 	<step>
 		<message>
@@ -437,13 +488,17 @@
 		</marker>
 		<error>
 			<message>
-				Switch on all controllers!
+				Switch on all controllers and close the covers!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-control[0]</property></not>
 				<not><property>/b707/generator/gen-control[1]</property></not>
 				<not><property>/b707/generator/gen-control[2]</property></not>
 				<not><property>/b707/generator/gen-control[3]</property></not>
+				<property>/b707/generator/gen-control-cover[0]</property>
+				<property>/b707/generator/gen-control-cover[1]</property>
+				<property>/b707/generator/gen-control-cover[2]</property>
+				<property>/b707/generator/gen-control-cover[3]</property>
 			</condition>
 		</error>
 		<exit>
@@ -479,7 +534,7 @@
 		</marker>
 		<error>
 			<message>
-				Colse all circuits GEN-BREAKER!
+				Colse all circuits GEN-BREAKER, now!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-breaker[0]</property></not>
@@ -497,49 +552,6 @@
 			</condition>
 		</exit>
 	</step>
-
-	<step>
-		<message>
-			BUS-TIE-BREAKER
-			Open all covers and set the BUS-TIE-BREAKER to sync bus.
-			Close cover then.
-		</message>
-		<view>
-				<heading-offset-deg>244.9</heading-offset-deg>
-				<pitch-offset-deg>9.7</pitch-offset-deg>
-				<roll-offset-deg>0.0</roll-offset-deg>
-				<x-offset-m>-0.4</x-offset-m>
-				<y-offset-m>1.2</y-offset-m>
-				<z-offset-m>-18.2</z-offset-m>
-				<field-of-view>16.7</field-of-view>
-		</view>
-
-		<marker>
-				<x-m>-17.8653</x-m>
-				<y-m>0.5992</y-m>
-				<z-m>1.3669</z-m>
-				<scale>1.6628</scale>
-		</marker>
-		<error>
-			<message>
-				Switch on all the busses!
-			</message>
-			<condition>
-				<not><property>/b707/generator/gen-bus-tie[0]</property></not>
-				<not><property>/b707/generator/gen-bus-tie[1]</property></not>
-				<not><property>/b707/generator/gen-bus-tie[2]</property></not>
-				<not><property>/b707/generator/gen-bus-tie[3]</property></not>
-			</condition>
-		</error>
-		<exit>
-			<condition>
-				<property>/b707/generator/gen-bus-tie[0]</property>
-				<property>/b707/generator/gen-bus-tie[1]</property>
-				<property>/b707/generator/gen-bus-tie[2]</property>
-				<property>/b707/generator/gen-bus-tie[3]</property>
-			</condition>
-		</exit>
-	</step>	
 
 	<step>
 		<message>
@@ -1033,9 +1045,9 @@
 		</view>
 
 		<marker>
-				<x-m>-17.6066</x-m>
+				<x-m>-17.5719</x-m>
 				<y-m>0.7000</y-m>
-				<z-m>1.2455</z-m>
+				<z-m>1.2695</z-m>
 				<scale>1.6612</scale>
 		</marker>
 
@@ -1124,9 +1136,9 @@
 		</view>
 
 		<marker>
-				<x-m>-17.6066</x-m>
+				<x-m>-17.5719</x-m>
 				<y-m>0.7000</y-m>
-				<z-m>1.2455</z-m>
+				<z-m>1.2695</z-m>
 				<scale>1.6612</scale>
 		</marker>
 

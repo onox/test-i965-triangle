@@ -357,7 +357,7 @@ var update_virtual_bus = func {
 				}else{
 					  power_source = "APU";
 					  essdcbus_volts = generator5.get_output_volts();
-						if(generator5.get_output_volts()){
+						if(generator5.get_output_volts() and EssPwr.getValue() == 0){
 							 EssSourceFailure.setBoolValue(0);
 						}else{
 							if(!generator1.get_output_volts()){
@@ -508,7 +508,8 @@ var sync_lamp = func(ref, in){
 }
 
 ######################## ac paralleling #########################
-var ac_sync = func{		  
+var ac_sync = func{	
+      print ("ac_sync laeuft");	  
 		  if (battery.switch.getBoolValue() and essdcbus_volts > 20){ 
 
 				syncLight1.setValue(1);
@@ -521,10 +522,10 @@ var ac_sync = func{
 						var apfreq = generator5.frequency.getValue();
 						
 						if(apfreq > 400){
-							apfreq -= 0.001;
+							apfreq -= 1;
 							settimer(ac_sync, 0); #loop
 						}elsif(apfreq < 400){
-							apfreq += 0.001;
+							apfreq += 1;
 							settimer(ac_sync, 0); #loop
 						}else{
 							apfreq = 400;

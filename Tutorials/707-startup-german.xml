@@ -395,105 +395,25 @@
 			<message>
 				Schalten Sie alle Getriebe zu!
 				Im Flug abgeschaltete Getriebe koennen nicht wieder zugeschaltet werden.
+				Abdeckungen anschliessend schliessen.
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-drive[0]</property></not>
 				<not><property>/b707/generator/gen-drive[1]</property></not>
 				<not><property>/b707/generator/gen-drive[2]</property></not>
 				<not><property>/b707/generator/gen-drive[3]</property></not>
+				<property>/b707/generator/gen-drive-cover[0]</property>
+				<property>/b707/generator/gen-drive-cover[1]</property>
+				<property>/b707/generator/gen-drive-cover[2]</property>
+				<property>/b707/generator/gen-drive-cover[3]</property>
 			</condition>
-		</error>
+		</error>		
 		<exit>
 			<condition>
 				<property>/b707/generator/gen-drive[0]</property>
 				<property>/b707/generator/gen-drive[1]</property>
 				<property>/b707/generator/gen-drive[2]</property>
 				<property>/b707/generator/gen-drive[3]</property>
-			</condition>
-		</exit>
-	</step>
-
-	<step>
-		<message>
-			Generator-Kontrolleinheit (GEN - CONTROL).
-			Oeffnen Sie alle Abdeckungen und schalten sie die Controller ein. 
-			Danach Abdeckungen schliessen.
-		</message>
-		<view>
-				<heading-offset-deg>246.5</heading-offset-deg>
-				<pitch-offset-deg>8.0</pitch-offset-deg>
-				<roll-offset-deg>0.0</roll-offset-deg>
-				<x-offset-m>-0.4</x-offset-m>
-				<y-offset-m>1.2</y-offset-m>
-				<z-offset-m>-18.2</z-offset-m>
-				<field-of-view>17.8</field-of-view>
-		</view>
-
-		<marker>
-				<x-m>-17.8620</x-m>
-				<y-m>0.6661</y-m>
-				<z-m>1.2860</z-m>
-				<scale>1.8430</scale>
-		</marker>
-		<error>
-			<message>
-				Schalten Sie alle Controller ein!
-			</message>
-			<condition>
-				<not><property>/b707/generator/gen-control[0]</property></not>
-				<not><property>/b707/generator/gen-control[1]</property></not>
-				<not><property>/b707/generator/gen-control[2]</property></not>
-				<not><property>/b707/generator/gen-control[3]</property></not>
-			</condition>
-		</error>
-		<exit>
-			<condition>
-				<property>/b707/generator/gen-control[0]</property>
-				<property>/b707/generator/gen-control[1]</property>
-				<property>/b707/generator/gen-control[2]</property>
-				<property>/b707/generator/gen-control[3]</property>
-			</condition>
-		</exit>
-	</step>
-
-	<step>
-		<message>
-			Generator-Trenneinheit (GEN - BREAKER).
-			Schalten sie alle Trenneinheiten ein. 
-		</message>
-		<view>
-				<heading-offset-deg>246.5</heading-offset-deg>
-				<pitch-offset-deg>8.0</pitch-offset-deg>
-				<roll-offset-deg>0.0</roll-offset-deg>
-				<x-offset-m>-0.4</x-offset-m>
-				<y-offset-m>1.2</y-offset-m>
-				<z-offset-m>-18.2</z-offset-m>
-				<field-of-view>17.8</field-of-view>
-		</view>
-
-		<marker>
-				<x-m>-17.8521</x-m>
-				<y-m>0.6661</y-m>
-				<z-m>1.3331</z-m>
-				<scale>1.8430</scale>
-		</marker>
-		<error>
-			<message>
-				Schalten Sie alle Trenneinheiten ein!
-			</message>
-			<condition>
-				<not><property>/b707/generator/gen-breaker[0]</property></not>
-				<not><property>/b707/generator/gen-breaker[1]</property></not>
-				<not><property>/b707/generator/gen-breaker[2]</property></not>
-				<not><property>/b707/generator/gen-breaker[3]</property></not>
-			</condition>
-		</error>
-		<exit>
-			<condition>
-				<property>/b707/generator/gen-breaker[0]</property>
-				<property>/b707/generator/gen-breaker[1]</property>
-				<property>/b707/generator/gen-breaker[2]</property>
-				<property>/b707/generator/gen-breaker[3]</property>
 			</condition>
 		</exit>
 	</step>
@@ -522,13 +442,17 @@
 		</marker>
 		<error>
 			<message>
-				Schalten Sie alle Busse auf!
+				Schalten Sie alle Busse auf und schliessen Sie die Abdeckungen wieder!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-bus-tie[0]</property></not>
 				<not><property>/b707/generator/gen-bus-tie[1]</property></not>
 				<not><property>/b707/generator/gen-bus-tie[2]</property></not>
 				<not><property>/b707/generator/gen-bus-tie[3]</property></not>
+				<property>/b707/generator/gen-bus-tie-cover[0]</property>
+				<property>/b707/generator/gen-bus-tie-cover[1]</property>
+				<property>/b707/generator/gen-bus-tie-cover[2]</property>
+				<property>/b707/generator/gen-bus-tie-cover[3]</property>
 			</condition>
 		</error>
 		<exit>
@@ -540,6 +464,95 @@
 			</condition>
 		</exit>
 	</step>	
+	
+	<step>
+		<message>
+			Generator-Kontrolleinheit (GEN - CONTROL).
+			Oeffnen Sie alle Abdeckungen und schalten sie die Controller ein. 
+			Danach Abdeckungen schliessen.
+		</message>
+		<view>
+				<heading-offset-deg>246.5</heading-offset-deg>
+				<pitch-offset-deg>8.0</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>17.8</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.8620</x-m>
+				<y-m>0.6661</y-m>
+				<z-m>1.2860</z-m>
+				<scale>1.8430</scale>
+		</marker>
+		<error>
+			<message>
+				Schalten Sie alle Controller ein und schliessen Sie anschliessend die Abdeckungen!
+			</message>
+			<condition>
+				<not><property>/b707/generator/gen-control[0]</property></not>
+				<not><property>/b707/generator/gen-control[1]</property></not>
+				<not><property>/b707/generator/gen-control[2]</property></not>
+				<not><property>/b707/generator/gen-control[3]</property></not>
+				<property>/b707/generator/gen-control-cover[0]</property>
+				<property>/b707/generator/gen-control-cover[1]</property>
+				<property>/b707/generator/gen-control-cover[2]</property>
+				<property>/b707/generator/gen-control-cover[3]</property>
+			</condition>
+		</error>	
+		<exit>
+			<condition>
+				<property>/b707/generator/gen-control[0]</property>
+				<property>/b707/generator/gen-control[1]</property>
+				<property>/b707/generator/gen-control[2]</property>
+				<property>/b707/generator/gen-control[3]</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			Generator-Trenneinheit (GEN - BREAKER).
+			Schalten sie nun alle Generatoren zu. 
+		</message>
+		<view>
+				<heading-offset-deg>246.5</heading-offset-deg>
+				<pitch-offset-deg>8.0</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>17.8</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.8521</x-m>
+				<y-m>0.6661</y-m>
+				<z-m>1.3331</z-m>
+				<scale>1.8430</scale>
+		</marker>
+		<error>
+			<message>
+				Schalten Sie alle Generatoren ein!
+			</message>
+			<condition>
+				<not><property>/b707/generator/gen-breaker[0]</property></not>
+				<not><property>/b707/generator/gen-breaker[1]</property></not>
+				<not><property>/b707/generator/gen-breaker[2]</property></not>
+				<not><property>/b707/generator/gen-breaker[3]</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/generator/gen-breaker[0]</property>
+				<property>/b707/generator/gen-breaker[1]</property>
+				<property>/b707/generator/gen-breaker[2]</property>
+				<property>/b707/generator/gen-breaker[3]</property>
+			</condition>
+		</exit>
+	</step>
 
 	<step>
 		<message>
@@ -1037,9 +1050,9 @@
 		</view>
 
 		<marker>
-				<x-m>-17.6066</x-m>
+				<x-m>-17.5719</x-m>
 				<y-m>0.7000</y-m>
-				<z-m>1.2455</z-m>
+				<z-m>1.2695</z-m>
 				<scale>1.6612</scale>
 		</marker>
 
@@ -1129,9 +1142,9 @@
 		</view>
 
 		<marker>
-				<x-m>-17.6066</x-m>
+				<x-m>-17.5719</x-m>
 				<y-m>0.7000</y-m>
-				<z-m>1.2455</z-m>
+				<z-m>1.2695</z-m>
 				<scale>1.6612</scale>
 		</marker>
 

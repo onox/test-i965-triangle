@@ -44,4 +44,14 @@
       <script>b707.short_startup();</script>
   </binding>
 </key>
+
+<key n="265">
+    <name>F9</name>
+    <desc>Pop up Fuel and Weight dialog</desc>
+    <binding>
+        <command>nasal</command>
+        <script>b707.WeightFuelDialog()</script>
+    </binding>
+</key>
+
 </PropertyList>

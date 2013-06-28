@@ -508,8 +508,7 @@ var sync_lamp = func(ref, in){
 }
 
 ######################## ac paralleling #########################
-var ac_sync = func{	
-      print ("ac_sync laeuft");	  
+var ac_sync = func{		  
 		  if (battery.switch.getBoolValue() and essdcbus_volts > 20){ 
 
 				syncLight1.setValue(1);

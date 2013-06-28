@@ -1,6 +1,6 @@
 <PropertyList>
 	<name>Engines: Start-up [english]</name>
-	<description>Startup of electrical system and engines</description>
+	<description>Startup of electrical system and engines with External Power Source</description>
 
 	<init>
 		<set>

@@ -1196,6 +1196,69 @@
         <offset>1.0</offset>
       </pitch>
 		</apu>
+		
+  <music>
+    <name>Big Band one</name>
+    <mode>looped</mode>
+    <path>Aircraft/707/Sounds/50.wav</path>
+     <condition>
+     		<and>
+		     <greater-than>
+		       <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+		       <value>132.98</value>
+		     </greater-than>
+		     <less-than>
+		       <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+		       <value>133.02</value>
+		     </less-than>
+		    </and>
+     </condition>
+		  <volume>
+		    <offset> 1 </offset>
+		  </volume>
+    </music> 		
+		
+  <music>
+    <name>Rock n Roll one</name>
+    <mode>looped</mode>
+    <path>Aircraft/707/Sounds/paul_anka.wav</path>
+     <condition>
+     		<and>
+		     <greater-than>
+		       <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+		       <value>133.98</value>
+		     </greater-than>
+		     <less-than>
+		       <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+		       <value>134.02</value>
+		     </less-than>
+		    </and>
+     </condition>
+		  <volume>
+		    <offset> 1 </offset>
+		  </volume>
+    </music> 
+
+  <music>
+    <name>Jack Sparrow Theme three</name>
+    <mode>looped</mode>
+    <path>Aircraft/707/Sounds/jack_sparrow.wav</path>
+     <condition>
+     		<and>
+		     <greater-than>
+		       <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+		       <value>134.98</value>
+		     </greater-than>
+		     <less-than>
+		       <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+		       <value>135.02</value>
+		     </less-than>
+		    </and>
+     </condition>
+		  <volume>
+		    <offset>0.3</offset>
+		  </volume>
+    </music>
 
 </fx>
 

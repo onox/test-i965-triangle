@@ -23,6 +23,10 @@
     <name>y</name>
     <desc>toggle yokes</desc>
   </key>
+  <key>
+    <name>F9</name>
+    <desc>toggle fuel &amp; weight menu</desc>
+  </key>
 
   <text>
    _______________ Boeing 707-420/430 ___________________

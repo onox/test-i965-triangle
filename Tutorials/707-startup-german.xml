@@ -1,6 +1,6 @@
 <PropertyList>
 	<name>Engines: Start-up [german]</name>
-	<description>Starten des elektrischen Systems und der Triebwerke</description>
+	<description>Starten des elektrischen Systems und der Triebwerke mit externer Stromversorgungseinheit.</description>
 
 	<init>
 		<set>

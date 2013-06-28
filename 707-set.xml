@@ -163,6 +163,7 @@
 	</menubar>
 	
 	<help include="Systems/help.xml"/>
+	<flight-recorder include="Systems/flightrecorder.xml"/>
 	
 	<multiplay>
     <generic>
@@ -342,53 +343,61 @@
 			<name type="string">Crew</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
 			<min-lb type="double"> 540.0</min-lb>
-			<max-lb type="double">1080.0</max-lb>
+			<max-lb type="double">1810.0</max-lb>
 		</weight>
 		<weight>
-			<name type="string">Passengers 1.class</name>
+			<name type="string">First-class</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
-			<min-lb type="double">    0.0</min-lb>
+			<min-lb type="double"> 0.0</min-lb>
 			<max-lb type="double"> 6000.0</max-lb>
 		</weight>
 		<weight>
-			<name type="string">Passengers 2.class/wing</name>
+			<name type="string">Second-class / wing</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
-			<min-lb type="double">    0.0</min-lb>
-			<max-lb type="double">15000.0</max-lb>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">9940.0</max-lb>
 		</weight>
 		<weight>
-			<name type="string">Passengers 2.Class/rear</name>
+			<name type="string">Second-class / rear</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
-			<min-lb type="double">    0.0</min-lb>
-			<max-lb type="double">15000.0</max-lb>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">13250.0</max-lb>
 		</weight>
 		<weight>
 			<name type="string">Luggage 1 - front</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
-			<min-lb type="double">    0.0</min-lb>
+			<min-lb type="double"> 0.0</min-lb>
 			<max-lb type="double"> 6000.0</max-lb>
 		</weight>
 		<weight>
 			<name type="string">Luggage 2 - center</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"/>
-			<min-lb type="double">    0.0</min-lb>
+			<min-lb type="double"> 0.0</min-lb>
 			<max-lb type="double">10000.0</max-lb>
 		</weight>
 		<weight>
 			<name type="string">Luggage 3 - rear</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]"/>
-			<min-lb type="double">    0.0</min-lb>
+			<min-lb type="double">  0.0</min-lb>
 			<max-lb type="double"> 10000.0</max-lb>
 		</weight>
 	</payload>
 	
 	<instrumentation include="Systems/instrumentation-init.xml"/>	
 	
+	<limits>
+		<mass-and-balance>
+			<maximum-takeoff-mass-lbs>311000</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>215000</maximum-landing-mass-lbs>
+		</mass-and-balance>
+	</limits>
+	
 	 <nasal>
 			<b707>
 				<file>Aircraft/707/Nasal/autostart.nas</file>
 				<file>Aircraft/707/Nasal/liveries.nas</file>
 				<file>Aircraft/707/Nasal/electrical.nas</file>
+				<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
 				<file>Aircraft/707/Nasal/mk-707.nas</file>
 				<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
 				<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>

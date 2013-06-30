@@ -19,6 +19,146 @@
 	</animation>
 	
 	<model>
+		<name>crossfeedSelectors</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuelPumps.xml</path>
+		<offsets>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>fuelReserve1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_reserve1.xml</path>
+		<offsets>
+		  <x-m>-0.281</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.122</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>fuelMain1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_main1.xml</path>
+		<offsets>
+		  <x-m>-0.265</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.013</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>fuelMain2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_main2.xml</path>
+		<offsets>
+		  <x-m>-0.1946</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0468</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>fuelCenter</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_main_center.xml</path>
+		<offsets>
+		  <x-m>-0.126</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.107</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>fuelMain3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_main3.xml</path>
+		<offsets>
+		  <x-m>-0.058</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.047</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>fuelMain4</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_main4.xml</path>
+		<offsets>
+		  <x-m> 0.014</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.013</z-m>
+		</offsets>
+	</model>	
+	
+	<model>
+		<name>fuelReserve4</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_reserve4.xml</path>
+		<offsets>
+		  <x-m> 0.0152</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.122</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>fuelTotal</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_total.xml</path>
+		<offsets>
+		  <x-m>-0.155</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.122</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>fuelTemp</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_temp.xml</path>
+		<offsets>
+		  <x-m>-0.102</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.122</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>heater1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/heater1.xml</path>
+		<offsets>
+		  <x-m>-0.2673</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.1828</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>heater2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/heater2.xml</path>
+		<offsets>
+		  <x-m>-0.2111</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.1828</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>heater3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/heater3.xml</path>
+		<offsets>
+		  <x-m>-0.1548</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.1828</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>heater4</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/heater4.xml</path>
+		<offsets>
+		  <x-m>-0.1005</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.1828</z-m>
+		</offsets>
+	</model>
+		
+	<model>
 		<name>apu</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/apu.xml</path>
 		<offsets>

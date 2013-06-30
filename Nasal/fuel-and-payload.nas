@@ -254,13 +254,12 @@ var WeightFuelDialog = func {
     kg.set("label", "kg");
     kg.set("halign", "left");
     
-    var tnames = ["Res 4", "Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1", ""];
+    var tnames = ["Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1", "Res 4"];
 
     var tanks = props.globals.getNode("/consumables/fuel").getChildren("tank");
     for(var i=0; i<size(tanks); i+=1) {
         var t = tanks[i];
-
-        var tname = tnames[i] ~ "";
+        var tname = tnames[i-1] ~ "";
         var tnode = t.getNode("name");
         if(tnode != nil) { tname = tnode.getValue(); }
 
@@ -579,5 +578,34 @@ setlistener("/fdm/jsbsim/inertia/weight-lbs", func(wlbs){
   wlbs = (wlbs > 0) ? wlbs*0.45359237 : 0;  # 0.45359237
   setprop("b707/weight-kg", wlbs);
 },1,0);
+
+################################# FUEL PANEL IN ENGINEER PANEL ###############################################
+var valve_pos = func(nr) {
+	setprop("b707/fuel/valves/valve-pos["~nr~"]", 0);
+	settimer( func { setprop("b707/fuel/valves/valve-pos["~nr~"]", 1) }, 1.8 );
+}
+var shutoff_pos = func(nr) {
+	setprop("b707/fuel/valves/fuel-shutoff-pos["~nr~"]", 0);
+	settimer( func { setprop("b707/fuel/valves/fuel-shutoff-pos["~nr~"]", 1) }, 1.8 );
+}
+
+var fuel_temp_selector = func{
+  setprop("b707/fuel/temperature", 0);
+	var temp = getprop("/environment/temperature-degc") or 0;
+	interpolate("b707/fuel/temperature", temp, 1.2);
+}
+
+#################################### Loop for fuel temperature ################################################
+
+var set_fuel_temp = func {
+	var airtemp = getprop("/environment/temperature-degc") or 0;
+	interpolate("b707/fuel/temperature", airtemp, 1.2);
+	settimer( set_fuel_temp, 5);
+}
+
+set_fuel_temp();
+
+
+
 
 

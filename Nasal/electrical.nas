@@ -844,6 +844,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     settimer(update_electrical,5);
     settimer(gen_kw,5);
     settimer(ac_sync,5);
+    interpolate("b707/fuel/temperature", getprop("/environment/temperature-degc"),2);
     
     print("Electrical System ... Initialized");
     

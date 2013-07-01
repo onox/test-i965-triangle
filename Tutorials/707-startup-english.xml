@@ -100,6 +100,82 @@
 			<value>1</value>
 		</set>
 		<set>
+			<property>/b707/fuel/valves/valve-pos[0]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/valve-pos[1]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/valve-pos[2]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/valve-pos[3]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/valve-pos[4]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/valve-pos[5]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[0]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[1]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[3]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[4]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[5]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[6]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[7]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[8]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/boost-pump[9]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/fuel-shutoff[0]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/fuel-shutoff[1]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/fuel-shutoff[2]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/fuel/valves/fuel-shutoff[3]</property>
+			<value>0</value>
+		</set>
+		<set>
 			<property>/b707/load-volt-selector</property>
 			<value>0</value>
 		</set>
@@ -549,6 +625,149 @@
 				<property>/b707/generator/gen-breaker[1]</property>
 				<property>/b707/generator/gen-breaker[2]</property>
 				<property>/b707/generator/gen-breaker[3]</property>
+			</condition>
+		</exit>
+	</step>
+
+	
+	<step>
+		<message>
+			Open and close every CROSSFEED (blue lights out) 
+		</message>
+		<view>
+				<heading-offset-deg>244.9</heading-offset-deg>
+				<pitch-offset-deg>-9.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.8157</x-m>
+				<y-m>0.7496</y-m>
+				<z-m>0.9017</z-m>
+				<scale>1.8595</scale>
+		</marker>
+
+		<error>
+			<message>
+				Open and close the Crossfeed - valves once!
+			</message>
+			<condition>
+				<not><property>/b707/fuel/valves/valve-pos[0]</property></not>
+				<not><property>/b707/fuel/valves/valve-pos[1]</property></not>
+				<not><property>/b707/fuel/valves/valve-pos[2]</property></not>
+				<not><property>/b707/fuel/valves/valve-pos[3]</property></not>
+				<not><property>/b707/fuel/valves/valve-pos[4]</property></not>
+				<not><property>/b707/fuel/valves/valve-pos[5]</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/fuel/valves/valve-pos[0]</property>
+				<property>/b707/fuel/valves/valve-pos[1]</property>
+				<property>/b707/fuel/valves/valve-pos[2]</property>
+				<property>/b707/fuel/valves/valve-pos[3]</property>
+				<property>/b707/fuel/valves/valve-pos[4]</property>
+				<property>/b707/fuel/valves/valve-pos[5]</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			Switch on the BOOST - PUMPS 
+		</message>
+		<view>
+				<heading-offset-deg>244.9</heading-offset-deg>
+				<pitch-offset-deg>-9.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.8074</x-m>
+				<y-m>0.7496</y-m>
+				<z-m>1.0231</z-m>
+				<scale>3.0496</scale>
+		</marker>
+
+		<error>
+			<message>
+				Set every Boost-pump to on!
+			</message>
+			<condition>
+				<not><property>/b707/fuel/valves/boost-pump[0]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[1]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[2]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[3]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[4]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[5]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[6]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[7]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[8]</property></not>
+				<not><property>/b707/fuel/valves/boost-pump[9]</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/fuel/valves/boost-pump[0]</property>
+				<property>/b707/fuel/valves/boost-pump[1]</property>
+				<property>/b707/fuel/valves/boost-pump[2]</property>
+				<property>/b707/fuel/valves/boost-pump[3]</property>
+				<property>/b707/fuel/valves/boost-pump[4]</property>
+				<property>/b707/fuel/valves/boost-pump[5]</property>
+				<property>/b707/fuel/valves/boost-pump[6]</property>
+				<property>/b707/fuel/valves/boost-pump[7]</property>
+				<property>/b707/fuel/valves/boost-pump[8]</property>
+				<property>/b707/fuel/valves/boost-pump[9]</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			Set every ENGINE SHUTOFF - VALVE to ON
+		</message>
+		<view>
+				<heading-offset-deg>244.9</heading-offset-deg>
+				<pitch-offset-deg>-9.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.8174</x-m>
+				<y-m>0.7496</y-m>
+				<z-m>1.1000</z-m>
+				<scale>3.0496</scale>
+		</marker>
+
+		<error>
+			<message>
+				ALL engine SHUTOFF-Valves must be set to on.
+			</message>
+			<condition>
+				<not><property>/b707/fuel/valves/fuel-shutoff[0]</property></not>
+				<not><property>/b707/fuel/valves/fuel-shutoff[1]</property></not>
+				<not><property>/b707/fuel/valves/fuel-shutoff[2]</property></not>
+				<not><property>/b707/fuel/valves/fuel-shutoff[3]</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/fuel/valves/fuel-shutoff[0]</property>
+				<property>/b707/fuel/valves/fuel-shutoff[1]</property>
+				<property>/b707/fuel/valves/fuel-shutoff[2]</property>
+				<property>/b707/fuel/valves/fuel-shutoff[3]</property>
 			</condition>
 		</exit>
 	</step>

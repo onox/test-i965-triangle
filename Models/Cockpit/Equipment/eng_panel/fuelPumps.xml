@@ -283,7 +283,7 @@
 		  <type>rotate</type>
 		  <object-name>cross.000</object-name>
 		  <property>/b707/fuel/valves/valve[0]</property>
-      <factor>85</factor>
+      <factor>95</factor>
 		  <axis>
 		   <x>0</x>
 		   <y>1</y>
@@ -478,7 +478,7 @@
 		  <type>rotate</type>
 		  <object-name>cross.005</object-name>
 		  <property>/b707/fuel/valves/valve[5]</property>
-      <factor>95</factor>
+      <factor>85</factor>
 		  <axis>
 		   <x>0</x>
 		   <y>1</y>

@@ -396,8 +396,8 @@
 			<b707>
 				<file>Aircraft/707/Nasal/autostart.nas</file>
 				<file>Aircraft/707/Nasal/liveries.nas</file>
-				<file>Aircraft/707/Nasal/electrical.nas</file>
 				<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
+				<file>Aircraft/707/Nasal/electrical.nas</file>
 				<file>Aircraft/707/Nasal/mk-707.nas</file>
 				<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
 				<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>

@@ -136,4 +136,15 @@
 		  <z-m> 0.0069</z-m>
 		</offsets>
 	</model>
+	
+  <!-- Fuel Dump in  auxilliary panel -->
+	<model>
+		<name>fuelDump</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuelDump.xml</path>
+		<offsets>
+		  <x-m> 0.3935</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m>-0.1669</z-m>
+		</offsets>
+	</model>
 </PropertyList>

@@ -642,6 +642,10 @@ var shutoff_pos = func(nr) {
 	setprop("b707/fuel/valves/fuel-shutoff-pos["~nr~"]", 0);
 	settimer( func { setprop("b707/fuel/valves/fuel-shutoff-pos["~nr~"]", 1) }, 1.8 );
 }
+var dump_pos = func(nr) {
+	setprop("b707/fuel/valves/dump-valve-pos["~nr~"]", 0);
+	settimer( func { setprop("b707/fuel/valves/dump-valve-pos["~nr~"]", 1) }, 1.8 );
+}
 
 var fuel_temp_selector = func{
   setprop("b707/fuel/temperature", 0);

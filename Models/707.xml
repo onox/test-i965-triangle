@@ -1489,6 +1489,392 @@
 			<z-m>0</z-m>
 		</offsets>
 	</model> 
+
+
+<!-- Fire , #1 -->
+<model>
+  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m>-14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+<model>
+  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m>-14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>145</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/707/Models/Effects/fire.xml</path>
+		<condition>
+			<and>
+				<less-than-equals>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</less-than-equals>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m>-14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+
+
+<!-- Fire, #2 -->
+<model>
+  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m>-10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+<model>
+  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m>-10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>145</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/707/Models/Effects/fire.xml</path>
+		<condition>
+			<and>
+				<less-than-equals>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</less-than-equals>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[17]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m>-10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+
+
+<!-- Fire, #3 -->
+<model>
+  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m> 10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+<model>
+  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m> 10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>145</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/707/Models/Effects/fire.xml</path>
+		<condition>
+			<and>
+				<less-than-equals>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</less-than-equals>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m> -1.25</x-m>
+		  <y-m> 10.077</y-m>
+		  <z-m> -1.10</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+
+<!-- Fire, #4 -->
+<model>
+  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m> 14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+<model>
+  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</greater-than>
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m> 14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>145</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <path>Aircraft/707/Models/Effects/fire.xml</path>
+		<condition>
+			<and>
+				<less-than-equals>
+					<property>sim/multiplay/generic/float[8]</property>
+					<value>11</value>
+				</less-than-equals>					
+				<or>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>sim/multiplay/generic/int[18]</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</condition>
+  <offsets>
+		  <x-m>  2.42</x-m>
+		  <y-m> 14.835</y-m>
+		  <z-m> -0.647</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+
+<!-- Jettison / Fuel dump, left -->
+<model>
+  <path>Aircraft/707/Models/Effects/fuel_dump.xml</path>
+		<condition>
+			<or>
+				<equals>
+					<property>sim/multiplay/generic/int[15]</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>sim/multiplay/generic/int[15]</property>
+					<value>3</value>
+				</equals>
+			</or>
+		</condition>
+  <offsets>
+    <x-m>1.524</x-m>
+    <y-m>-6.02</y-m>
+    <z-m>-0.369</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+
+<!-- Jettison / Fuel dump, right -->
+<model>
+  <path>Aircraft/707/Models/Effects/fuel_dump.xml</path>
+		<condition>
+			<or>
+				<equals>
+					<property>sim/multiplay/generic/int[15]</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>sim/multiplay/generic/int[15]</property>
+					<value>3</value>
+				</equals>
+			</or>
+		</condition>
+  <offsets>
+    <x-m>1.524</x-m>
+    <y-m> 6.02</y-m>
+    <z-m>-0.369</z-m>
+    <pitch-deg>-35</pitch-deg>
+  </offsets>
+</model>
+
   
 </PropertyList>
 

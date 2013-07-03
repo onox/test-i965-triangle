@@ -1316,17 +1316,17 @@ var short_startup = func
 	setprop("b707/generator/gen-control[2]", 1);
 	setprop("b707/generator/gen-control[3]", 1);
 	
-	setprop("/b707/fuel/valves/valve[0]", 1);
+	setprop("/b707/fuel/valves/valve[0]", 0);
 	b707.valve_pos(0);
-	setprop("/b707/fuel/valves/valve[1]", 1);
+	setprop("/b707/fuel/valves/valve[1]", 0);
 	b707.valve_pos(1);
-	setprop("/b707/fuel/valves/valve[2]", 1);
+	setprop("/b707/fuel/valves/valve[2]", 0);
 	b707.valve_pos(2);
-	setprop("/b707/fuel/valves/valve[3]", 1);
+	setprop("/b707/fuel/valves/valve[3]", 0);
 	b707.valve_pos(3);
-	setprop("/b707/fuel/valves/valve[4]", 1);
+	setprop("/b707/fuel/valves/valve[4]", 0);
 	b707.valve_pos(4);
-	setprop("/b707/fuel/valves/valve[5]", 1);
+	setprop("/b707/fuel/valves/valve[5]", 0);
 	b707.valve_pos(5);
 	
 	setprop("/b707/fuel/valves/boost-pump[0]", 1);

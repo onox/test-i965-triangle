@@ -62,6 +62,24 @@ var vp3 = props.globals.initNode("/b707/fuel/valves/valve-pos[3]",0,"BOOL");
 var vp4 = props.globals.initNode("/b707/fuel/valves/valve-pos[4]",0,"BOOL");
 var vp5 = props.globals.initNode("/b707/fuel/valves/valve-pos[5]",0,"BOOL");
 
+var dc0 = props.globals.initNode("b707/fuel/valves/dump-cover[0]",0,"DOUBLE");
+var dc1 = props.globals.initNode("b707/fuel/valves/dump-cover[1]",0,"DOUBLE");
+var drL = props.globals.initNode("b707/fuel/valves/dump-retract[0]",0,"DOUBLE");
+var drR = props.globals.initNode("b707/fuel/valves/dump-retract[1]",0,"DOUBLE");
+var dc1 = props.globals.initNode("b707/fuel/valves/dump-cover[1]",0,"DOUBLE");
+var dv0 = props.globals.initNode("b707/fuel/valves/dump-valve[0]",0,"BOOL"); #left center tank
+var dv1 = props.globals.initNode("b707/fuel/valves/dump-valve[1]",0,"BOOL"); #right center tank
+var dv2 = props.globals.initNode("b707/fuel/valves/dump-valve[2]",0,"BOOL"); #main tank 1
+var dv3 = props.globals.initNode("b707/fuel/valves/dump-valve[3]",0,"BOOL"); #main tank 2
+var dv4 = props.globals.initNode("b707/fuel/valves/dump-valve[4]",0,"BOOL"); #main tank 3
+var dv5 = props.globals.initNode("b707/fuel/valves/dump-valve[5]",0,"BOOL"); #main tank 4
+var dvp0 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[0]",0,"BOOL");
+var dvp1 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[1]",0,"BOOL");
+var dvp2 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[2]",0,"BOOL");
+var dvp3 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[3]",0,"BOOL");
+var dvp4 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[4]",0,"BOOL");
+var dvp5 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[5]",0,"BOOL");
+
 
 ########################################################################
 # Widgets & Layout Management
@@ -633,7 +651,7 @@ setlistener("/fdm/jsbsim/inertia/weight-lbs", func(wlbs){
   setprop("b707/weight-kg", wlbs);
 },1,0);
 
-################################# CROSSFEED VALVES IN ENGINEER PANEL ###############################################
+#################### CROSSFEED VALVES IN ENGINEER PANEL and FUEL DUMP valves #################################
 var valve_pos = func(nr) {
 	setprop("b707/fuel/valves/valve-pos["~nr~"]", 0);
 	settimer( func { setprop("b707/fuel/valves/valve-pos["~nr~"]", 1) }, 1.8 );
@@ -646,7 +664,26 @@ var dump_pos = func(nr) {
 	setprop("b707/fuel/valves/dump-valve-pos["~nr~"]", 0);
 	settimer( func { setprop("b707/fuel/valves/dump-valve-pos["~nr~"]", 1) }, 1.8 );
 }
-
+var dump_cover = func(nr) {
+	var state = getprop("b707/fuel/valves/dump-cover["~nr~"]") or 0;
+	if(!state){
+		interpolate("b707/fuel/valves/dump-cover["~nr~"]", 1, 0.4);
+	}else{
+		interpolate("b707/fuel/valves/dump-cover["~nr~"]", 0, 0.4);
+		setprop("/b707/fuel/valves/dump-retract[0]", 0);
+		setprop("/b707/fuel/valves/dump-retract[1]", 0);
+	}
+}
+var dump_chute_switch = func(nr){
+  	var bt = getprop("/b707/fuel/valves/dump-retract["~nr~"]") or 0;
+  	if(bt == 1){
+  		setprop("/b707/fuel/valves/dump-retract["~nr~"]", 2);
+  		settimer( func { setprop("/b707/fuel/valves/dump-retract["~nr~"]", 0 ) }, 2 );
+  	}else{
+  		setprop("/b707/fuel/valves/dump-retract["~nr~"]", 3);
+  		settimer( func { setprop("/b707/fuel/valves/dump-retract["~nr~"]", 1 ) }, 2 );
+  	}
+}
 var fuel_temp_selector = func{
   setprop("b707/fuel/temperature", 0);
 	var temp = getprop("/environment/temperature-degc") or 0;
@@ -677,7 +714,7 @@ var engines_alive = func {
 		  
 		  # if engine is running and shutoff valve is closed
 		  if(n2 >= 60 and !s) {
-		      print("Engine "~e.getIndex()~" without fuel - shutoff valve closed!");
+		      #print("Engine "~e.getIndex()~" without fuel - shutoff valve closed!");
 		      c.setValue(1);
 		  }
 		  
@@ -703,7 +740,7 @@ var engines_alive = func {
 		  
 		  # if engine is running and boost-pumps are both closed
 		  if(n2 >= 60 and !b1 and !b2) {
-		      print("Engine "~e.getIndex()~" without fuel - boost-pumps out!");
+		      #print("Engine "~e.getIndex()~" without fuel - boost-pumps out!");
 		      c.setValue(1);
 		  } 
 		   
@@ -727,10 +764,10 @@ var crossfeed_action = func {
 	  # R1 flow into M1
 	  diff = 15564 - tfM1.getValue(); #15564 is the capaticy of the Main Tank 1 and 4
 	  
-	  if(tfR1.getValue() >= 200 and diff >= 200){
-	  		var mNeu = tfM1.getValue() + 200;
-				var rNeu = tfR1.getValue() - 200;
-		}elsif(tfR1.getValue() >= 200 and diff <= 200){
+	  if(tfR1.getValue() >= 50 and diff >= 50){
+	  		var mNeu = tfM1.getValue() + 50;
+				var rNeu = tfR1.getValue() - 50;
+		}elsif(tfR1.getValue() >= 50 and diff <= 50){
 				var mNeu = tfM1.getValue() + diff;
 	    	var rNeu = tfR1.getValue() - diff;
 		}else{
@@ -857,10 +894,10 @@ var crossfeed_action = func {
 	  # R1 flow into M1
 	  diff = 15564 - tfM4.getValue(); #15564 is the capaticy of the Main Tank 1 and 4
 	  
-	  if(tfR4.getValue() >= 200 and diff >= 200){
-	  		var mNeu = tfM4.getValue() + 200;
-				var rNeu = tfR4.getValue() - 200;
-		}elsif(tfR4.getValue() >= 200 and diff <= 200){
+	  if(tfR4.getValue() >= 50 and diff >= 50){
+	  		var mNeu = tfM4.getValue() + 100;
+				var rNeu = tfR4.getValue() - 100;
+		}elsif(tfR4.getValue() >= 50 and diff <= 50){
 				var mNeu = tfM4.getValue() + diff;
 	    	var rNeu = tfR4.getValue() - diff;
 		}else{
@@ -874,20 +911,77 @@ var crossfeed_action = func {
 	settimer( crossfeed_action, 7);
 }
 
-var tfR4 = props.globals.getNode("/consumables/fuel/tank[0]/level-lbs");
-var tfM4 = props.globals.getNode("/consumables/fuel/tank[1]/level-lbs");
-var tfM3 = props.globals.getNode("/consumables/fuel/tank[2]/level-lbs");
-var tfC  = props.globals.getNode("/consumables/fuel/tank[3]/level-lbs");
-var tfM2 = props.globals.getNode("/consumables/fuel/tank[4]/level-lbs");
-var tfM1 = props.globals.getNode("/consumables/fuel/tank[5]/level-lbs");
-var tfR1 = props.globals.getNode("/consumables/fuel/tank[6]/level-lbs");
+################################ FUEL DUMP ANIMATION ####################################
+
+setlistener("/b707/fuel/valves/dump-retract[0]", func(pos){
+	var pos = pos.getValue();
+	if(pos) dump_loop_l();
+},1,0);
+
+setlistener("/b707/fuel/valves/dump-retract[1]", func(pos){
+	var pos = pos.getValue();
+	if(pos) dump_loop_r();
+},1,0);
+
+var dump_loop_l = func{
+  print("dump L laeuft");
+  var is  = getprop("sim/multiplay/generic/int[15]") or 0;
+	if(drL.getValue() and ((dv0.getBoolValue() and dvp0.getBoolValue()) or 
+						 						 (dv2.getBoolValue() and dvp2.getBoolValue()) or
+						 						 (dv3.getBoolValue() and dvp3.getBoolValue()))){
+						 
+				if(is == 0) setprop("sim/multiplay/generic/int[15]", 1);
+				if(is == 2) setprop("sim/multiplay/generic/int[15]", 3);				 
+	}else{
+				if(is == 1) setprop("sim/multiplay/generic/int[15]", 0);
+				if(is == 3) setprop("sim/multiplay/generic/int[15]", 2);	
+	}
+	if(drL.getValue()) settimer(dump_loop_l, 1.1);	
+}
+
+var dump_loop_r = func{
+  print("dump R laeuft");
+  var is  = getprop("sim/multiplay/generic/int[15]") or 0;
+	if(drR.getValue() and ((dv1.getBoolValue() and dvp1.getBoolValue()) or 
+						 						 (dv4.getBoolValue() and dvp4.getBoolValue()) or
+						 						 (dv5.getBoolValue() and dvp5.getBoolValue()))){	 
+				
+				if(is == 0) setprop("sim/multiplay/generic/int[15]", 2);
+				if(is == 1) setprop("sim/multiplay/generic/int[15]", 3);				 
+	}else{
+				if(is == 2) setprop("sim/multiplay/generic/int[15]", 0);
+				if(is == 3) setprop("sim/multiplay/generic/int[15]", 1);
+	}
+	if(drR.getValue()) settimer(dump_loop_r, 1.2);	
+}
 
 
+var dc0 = props.globals.initNode("b707/fuel/valves/dump-cover[0]",0,"DOUBLE");
+var dc1 = props.globals.initNode("b707/fuel/valves/dump-cover[1]",0,"DOUBLE");
+var drL = props.globals.initNode("b707/fuel/valves/dump-retract[0]",0,"DOUBLE");
+var drR = props.globals.initNode("b707/fuel/valves/dump-retract[1]",0,"DOUBLE");
+var dc1 = props.globals.initNode("b707/fuel/valves/dump-cover[1]",0,"DOUBLE");
+var dv0 = props.globals.initNode("b707/fuel/valves/dump-valve[0]",0,"BOOL"); #left center tank
+var dv1 = props.globals.initNode("b707/fuel/valves/dump-valve[1]",0,"BOOL"); #right center tank
+var dv2 = props.globals.initNode("b707/fuel/valves/dump-valve[2]",0,"BOOL"); #main tank 1
+var dv3 = props.globals.initNode("b707/fuel/valves/dump-valve[3]",0,"BOOL"); #main tank 2
+var dv4 = props.globals.initNode("b707/fuel/valves/dump-valve[4]",0,"BOOL"); #main tank 3
+var dv5 = props.globals.initNode("b707/fuel/valves/dump-valve[5]",0,"BOOL"); #main tank 4
+var dvp0 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[0]",0,"BOOL");
+var dvp1 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[1]",0,"BOOL");
+var dvp2 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[2]",0,"BOOL");
+var dvp3 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[3]",0,"BOOL");
+var dvp4 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[4]",0,"BOOL");
+var dvp5 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[5]",0,"BOOL");
 
 ############  Start up the loops ################
 settimer( func { engines_alive(); } , 6);
 settimer( func { crossfeed_action(); } , 7);
 settimer( func { set_fuel_temp(); } , 8);
+
+
+
+
 
 
 

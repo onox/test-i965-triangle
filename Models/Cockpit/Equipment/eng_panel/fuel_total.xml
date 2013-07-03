@@ -89,7 +89,7 @@
 			</greater-than>
 		</condition>
 		<property>/consumables/fuel/total-fuel-kg</property>
-		<factor>-100</factor>    
+		<factor>100</factor>    
 		<center>
 		  <x-m> 0.0</x-m>
 		  <y-m> 0.0</y-m>

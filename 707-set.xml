@@ -182,6 +182,9 @@
 			<int n="12" type="int">0</int>  <!-- 6 immat -->
 			<int n="13" type="int">0</int>  <!-- 7 immat -->
 			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power Unit - VW Kombi -->
+      <int n="15" type="int">0</int> <!-- jettison fuel 1 = left, 2 = right, 3 = both -->
+      <int n="17" type="int">0</int> <!-- fire 1 = eng 1, 2 = eng 2, 3 = both -->
+      <int n="18" type="int">0</int> <!-- fire 1 = eng 3, 2 = eng 4, 3 = both -->
 			<float n="0" alias="/systems/electrical/outputs/cabin-dim"/> 									<!-- cabin light dimmer -->
 			<float n="1" alias="/gear/gear[0]/compression-norm"/> 												<!-- multiplayer see the wheels turning -->
 			<float n="2" alias="/gear/gear[0]/rollspeed-ms"/> 												    <!-- multiplayer see the hanging backwheels -->
@@ -190,6 +193,7 @@
 			<float n="5" alias="/instrumentation/doors/copilotwin/position-norm"/>				<!-- Cockpit - right -->
 			<float n="6" alias="/instrumentation/doors/pasfront/position-norm"/>					<!-- Passenger - front -->
 			<float n="7" alias="/instrumentation/doors/pasrear/position-norm"/>						<!-- Passenger - back -->
+      <float n="8" alias="/position/altitude-agl-ft"/>    <!-- for the kind of fire or lights -->
     </generic>
   </multiplay>
 

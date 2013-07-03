@@ -29,6 +29,10 @@
 		<object-name>switch.005</object-name>
 		<object-name>switch.006</object-name>
 		<object-name>switch.007</object-name>
+		<object-name>cover</object-name>
+		<object-name>cover.001</object-name>
+		<object-name>scharnier</object-name>
+		<object-name>scharnier.001</object-name>
 		<condition>		
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -205,6 +209,98 @@
 		</condition>
 	</animation>
 	
+	<!-- Open cover -->
+	<animation>
+		  <type>rotate</type>
+		  <object-name>cover</object-name>
+		  <object-name>scharnier</object-name>
+		  <property>/b707/fuel/valves/dump-cover[0]</property>
+      <factor>140</factor>
+		  <axis>
+		   <x>1</x>
+		   <y>0</y>
+		   <z>0</z>
+		  </axis>
+		  <center>
+		  <x-m>0.0</x-m>
+		  <y-m>-0.013</y-m>
+		  <z-m>-0.052</z-m>
+		  </center>  
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>cover</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+            <command>nasal</command>
+            <script>b707.dump_cover(0);</script>
+        </binding>            
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation> 
+	
+	<!-- Turn cover for retract -->
+	<animation>
+		  <type>rotate</type>
+		  <object-name>cover.001</object-name>
+		  <property>/b707/fuel/valves/dump-cover[1]</property>
+      <factor>90</factor>
+		  <axis>
+		   <x>0</x>
+		   <y>1</y>
+		   <z>0</z>
+		  </axis>
+		  <center>
+		  <x-m>0.0</x-m>
+		  <y-m>0.0</y-m>
+		  <z-m>0.028</z-m>
+		  </center>  
+	</animation>
+
+  <animation>
+      <type>translate</type>
+      <object-name>cover.001</object-name>
+      <property>/b707/fuel/valves/dump-cover[1]</property>
+			<interpolation>
+				<entry><ind> 0.0</ind><dep> 0.0</dep></entry>
+				<entry><ind> 0.8</ind><dep> 0.0</dep></entry>
+				<entry><ind> 1.0</ind><dep> 0.008</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+      <center>
+				<x-m>0.0</x-m>
+				<y-m>0.0</y-m>
+				<z-m>0.023</z-m>
+      </center>
+  </animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>cover.001</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>       
+		    <binding>
+            <command>nasal</command>
+            <script>b707.dump_cover(1);</script>
+        </binding>            
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation> 
+	
 	<!-- Left Center Tank valve -->
 	<animation>
 		  <type>rotate</type>
@@ -248,9 +344,14 @@
 	<!-- Left Retract valve -->
 	<animation>
 		  <type>rotate</type>
-		  <object-name>switch.006</object-name>
+		  <object-name>switch.006</object-name>	
 		  <property>/b707/fuel/valves/dump-retract[0]</property>
-      <factor>-60</factor>
+			<interpolation>
+				<entry><ind> 0.0</ind><dep> 0.0</dep></entry>
+				<entry><ind> 1.0</ind><dep> 0.0</dep></entry>
+				<entry><ind> 2.0</ind><dep>-60.0</dep></entry>
+				<entry><ind> 3.0</ind><dep> 60.0</dep></entry>
+			</interpolation>
 		  <axis>
 		   <x>1</x>
 		   <y>0</y>
@@ -269,12 +370,20 @@
 		  <object-name>sockle.006</object-name>
 		  <action>
 		    <button>0</button>
-		    <repeatable>false</repeatable>
+		    <repeatable>false</repeatable>	
 		    <binding>
-		        <command>property-toggle</command>
-		        <property>/b707/fuel/valves/dump-retract[0]</property>
+						<condition>		
+							<property>/b707/fuel/valves/dump-cover[0]</property>
+							<property>/b707/fuel/valves/dump-cover[1]</property>
+						</condition>
+		        <command>nasal</command>
+		        <script>b707.dump_chute_switch(0);</script>
 		    </binding>           
 		    <binding>
+						<condition>		
+							<property>/b707/fuel/valves/dump-cover[0]</property>
+							<property>/b707/fuel/valves/dump-cover[1]</property>
+						</condition>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>
 		    </binding>
@@ -286,7 +395,12 @@
 		  <type>rotate</type>
 		  <object-name>switch.007</object-name>
 		  <property>/b707/fuel/valves/dump-retract[1]</property>
-      <factor>-60</factor>
+			<interpolation>
+				<entry><ind> 0.0</ind><dep> 0.0</dep></entry>
+				<entry><ind> 1.0</ind><dep> 0.0</dep></entry>
+				<entry><ind> 2.0</ind><dep>-60.0</dep></entry>
+				<entry><ind> 3.0</ind><dep> 60.0</dep></entry>
+			</interpolation>
 		  <axis>
 		   <x>1</x>
 		   <y>0</y>
@@ -306,11 +420,19 @@
 		  <action>
 		    <button>0</button>
 		    <repeatable>false</repeatable>
-		    <binding>
-		        <command>property-toggle</command>
-		        <property>/b707/fuel/valves/dump-retract[1]</property>
+		    <binding>	
+						<condition>		
+							<property>/b707/fuel/valves/dump-cover[0]</property>
+							<property>/b707/fuel/valves/dump-cover[1]</property>
+						</condition>
+		        <command>nasal</command>
+		        <script>b707.dump_chute_switch(1);</script>
 		    </binding>           
 		    <binding>
+						<condition>		
+							<property>/b707/fuel/valves/dump-cover[0]</property>
+							<property>/b707/fuel/valves/dump-cover[1]</property>
+						</condition>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>
 		    </binding>

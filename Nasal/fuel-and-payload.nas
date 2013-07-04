@@ -920,16 +920,19 @@ var crossfeed_action = func {
 
 setlistener("/b707/fuel/valves/dump-retract[0]", func(pos){
 	var pos = pos.getValue();
-	if(pos) dump_loop_l();
+	var pwr = getprop("/b707/ess-bus") or 0;
+	if(pos and pwr > 24) dump_loop_l();
 },1,0);
 
 setlistener("/b707/fuel/valves/dump-retract[1]", func(pos){
 	var pos = pos.getValue();
-	if(pos) dump_loop_r();
+	var pwr = getprop("/b707/ess-bus") or 0;
+	if(pos and pwr > 24) dump_loop_r();
 },1,0);
 
 var dump_loop_l = func{
   var is  = getprop("sim/multiplay/generic/int[15]") or 0;
+	var pwr = getprop("/b707/ess-bus") or 0;
 	if(drL.getValue() and ((dv0.getBoolValue() and dvp0.getBoolValue()) or 
 						 						 (dv2.getBoolValue() and dvp2.getBoolValue()) or
 						 						 (dv3.getBoolValue() and dvp3.getBoolValue()))){
@@ -938,13 +941,13 @@ var dump_loop_l = func{
 				if(is == 2) setprop("sim/multiplay/generic/int[15]", 3);
 				
 				if(is == 1){ # only this side is on
-						var tfCNeu = (tfC.getValue() > 0 ) ? tfC.getValue() - 100 : 0;
+						var tfCNeu = (tfC.getValue() > 1700 ) ? tfC.getValue() - 100 : 1600;
 				}else{
-						var tfCNeu = (tfC.getValue() > 0 ) ? tfC.getValue() - 200 : 0;			
+						var tfCNeu = (tfC.getValue() > 1800 ) ? tfC.getValue() - 200 : 1600;			
 				}		
 						
-				var tfM2Neu = (tfM2.getValue() > 0 ) ? tfM2.getValue() - 100 : 0;				
-				var tfM1Neu = (tfM1.getValue() > 0 ) ? tfM1.getValue() - 100 : 0;				
+				var tfM2Neu = (tfM2.getValue() > 4100 ) ? tfM2.getValue() - 100 : 4000;				
+				var tfM1Neu = (tfM1.getValue() > 4100 ) ? tfM1.getValue() - 100 : 4000;				
 				var tfR1Neu = (tfR1.getValue() > 0 ) ? tfR1.getValue() - 100 : 0;
 				if(dv0.getBoolValue() and dvp0.getBoolValue()) 
 									interpolate("/consumables/fuel/tank[3]/level-lbs", tfCNeu, 2.1); # Center
@@ -959,11 +962,16 @@ var dump_loop_l = func{
 				if(is == 1) setprop("sim/multiplay/generic/int[15]", 0);
 				if(is == 3) setprop("sim/multiplay/generic/int[15]", 2);	
 	}
-	if(drL.getValue()) settimer(dump_loop_l, 2.1);	
+	if(pwr > 24 and drL.getValue() and (tfC.getValue() > 1600 or tfM2.getValue() > 4000 or tfM1.getValue() > 4000)){
+			settimer(dump_loop_l, 2.1);
+	}else{
+			setprop("sim/multiplay/generic/int[15]", 0);
+	}	
 }
 
 var dump_loop_r = func{
   var is  = getprop("sim/multiplay/generic/int[15]") or 0;
+	var pwr = getprop("/b707/ess-bus") or 0;
 	if(drR.getValue() and ((dv1.getBoolValue() and dvp1.getBoolValue()) or 
 						 						 (dv4.getBoolValue() and dvp4.getBoolValue()) or
 						 						 (dv5.getBoolValue() and dvp5.getBoolValue()))){	
@@ -974,11 +982,11 @@ var dump_loop_r = func{
 				if(is == 1) setprop("sim/multiplay/generic/int[15]", 3);
 				
 				if(is == 2){ # only this side is on
-					 tfCNeu = (tfC.getValue() > 0 ) ? tfC.getValue() - 100 : 0;
+					 tfCNeu = (tfC.getValue() > 1700 ) ? tfC.getValue() - 100 : 1600;
 				}		
 						
-				var tfM4Neu = (tfM4.getValue() > 0 ) ? tfM4.getValue() - 100 : 0;				
-				var tfM3Neu = (tfM3.getValue() > 0 ) ? tfM3.getValue() - 100 : 0;				
+				var tfM4Neu = (tfM4.getValue() > 4100 ) ? tfM4.getValue() - 100 : 4000;				
+				var tfM3Neu = (tfM3.getValue() > 4100 ) ? tfM3.getValue() - 100 : 4000;				
 				var tfR4Neu = (tfR4.getValue() > 0 ) ? tfR4.getValue() - 100 : 0;
 				if(dv1.getBoolValue() and dvp1.getBoolValue() and tfCNeu) 
 									interpolate("/consumables/fuel/tank[3]/level-lbs", tfCNeu, 2.1); # Center
@@ -992,7 +1000,11 @@ var dump_loop_r = func{
 				if(is == 2) setprop("sim/multiplay/generic/int[15]", 0);
 				if(is == 3) setprop("sim/multiplay/generic/int[15]", 1);
 	}
-	if(drR.getValue()) settimer(dump_loop_r, 0.13);	
+	if(pwr > 24 and drR.getValue() and (tfC.getValue() > 1600 or tfM4.getValue() > 4000 or tfM3.getValue() > 4000)){
+			settimer(dump_loop_r, 0.13);
+	}else{
+			setprop("sim/multiplay/generic/int[15]", 0);
+	}		
 }
 
 

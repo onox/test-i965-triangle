@@ -73,12 +73,12 @@ var dv2 = props.globals.initNode("b707/fuel/valves/dump-valve[2]",0,"BOOL"); #ma
 var dv3 = props.globals.initNode("b707/fuel/valves/dump-valve[3]",0,"BOOL"); #main tank 2
 var dv4 = props.globals.initNode("b707/fuel/valves/dump-valve[4]",0,"BOOL"); #main tank 3
 var dv5 = props.globals.initNode("b707/fuel/valves/dump-valve[5]",0,"BOOL"); #main tank 4
-var dvp0 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[0]",0,"BOOL");
-var dvp1 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[1]",0,"BOOL");
-var dvp2 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[2]",0,"BOOL");
-var dvp3 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[3]",0,"BOOL");
-var dvp4 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[4]",0,"BOOL");
-var dvp5 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[5]",0,"BOOL");
+var dvp0 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[0]",1,"BOOL");
+var dvp1 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[1]",1,"BOOL");
+var dvp2 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[2]",1,"BOOL");
+var dvp3 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[3]",1,"BOOL");
+var dvp4 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[4]",1,"BOOL");
+var dvp5 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[5]",1,"BOOL");
 
 
 ########################################################################
@@ -709,8 +709,9 @@ var engines_alive = func {
 		  var n2 = e.getNode("n2").getValue() or 0;
 		  var c = props.globals.getNode("/controls/engines/engine["~e.getIndex()~"]/cutoff");
 		  var s = getprop("/b707/fuel/valves/fuel-shutoff["~e.getIndex()~"]") or 0;
-		  var b1 = 0;
-		  var b2 = 0;
+		  var b1  = 0;
+		  var b2  = 0;
+		  var cfv = 0; #simulate the crossfeed valve
 		  
 		  # if engine is running and shutoff valve is closed
 		  if(n2 >= 60 and !s) {
@@ -721,25 +722,29 @@ var engines_alive = func {
 		  if(e.getIndex() == 0){
 		      b1 = bp0.getBoolValue() or 0;
 		      b2 = bp1.getBoolValue() or 0;
+		     cfv = v1.getBoolValue() or 0;
 		  }
 
 		  if(e.getIndex() == 1){
 		      b1 = bp2.getBoolValue() or 0;
 		      b2 = bp3.getBoolValue() or 0;
+		     cfv = v2.getBoolValue() or 0;
 		  }		  
 
 		  if(e.getIndex() == 2){
 		      b1 = bp6.getBoolValue() or 0;
 		      b2 = bp7.getBoolValue() or 0;
+		     cfv = v3.getBoolValue() or 0;
 		  }	
 		  
 		  if(e.getIndex() == 3){
 		      b1 = bp8.getBoolValue() or 0;
 		      b2 = bp9.getBoolValue() or 0;
+		     cfv = v4.getBoolValue() or 0;
 		  }		  
 		  
-		  # if engine is running and boost-pumps are both closed
-		  if(n2 >= 60 and !b1 and !b2) {
+		  # if engine is running and boost-pumps are both closed and the crossfeed valve is closed too
+		  if(n2 >= 60 and !b1 and !b2 and !cfv) {
 		      #print("Engine "~e.getIndex()~" without fuel - boost-pumps out!");
 		      c.setValue(1);
 		  } 
@@ -924,55 +929,72 @@ setlistener("/b707/fuel/valves/dump-retract[1]", func(pos){
 },1,0);
 
 var dump_loop_l = func{
-  print("dump L laeuft");
   var is  = getprop("sim/multiplay/generic/int[15]") or 0;
 	if(drL.getValue() and ((dv0.getBoolValue() and dvp0.getBoolValue()) or 
 						 						 (dv2.getBoolValue() and dvp2.getBoolValue()) or
 						 						 (dv3.getBoolValue() and dvp3.getBoolValue()))){
 						 
 				if(is == 0) setprop("sim/multiplay/generic/int[15]", 1);
-				if(is == 2) setprop("sim/multiplay/generic/int[15]", 3);				 
+				if(is == 2) setprop("sim/multiplay/generic/int[15]", 3);
+				
+				if(is == 1){ # only this side is on
+						var tfCNeu = (tfC.getValue() > 0 ) ? tfC.getValue() - 100 : 0;
+				}else{
+						var tfCNeu = (tfC.getValue() > 0 ) ? tfC.getValue() - 200 : 0;			
+				}		
+						
+				var tfM2Neu = (tfM2.getValue() > 0 ) ? tfM2.getValue() - 100 : 0;				
+				var tfM1Neu = (tfM1.getValue() > 0 ) ? tfM1.getValue() - 100 : 0;				
+				var tfR1Neu = (tfR1.getValue() > 0 ) ? tfR1.getValue() - 100 : 0;
+				if(dv0.getBoolValue() and dvp0.getBoolValue()) 
+									interpolate("/consumables/fuel/tank[3]/level-lbs", tfCNeu, 2.1); # Center
+				if(dv3.getBoolValue() and dvp3.getBoolValue()) 				
+	  							interpolate("/consumables/fuel/tank[4]/level-lbs", tfM2Neu, 2.1); # Main 2
+				if(dv2.getBoolValue() and dvp2.getBoolValue()) 
+	  							interpolate("/consumables/fuel/tank[5]/level-lbs", tfM1Neu, 2.1); # Main 1
+	  							interpolate("/consumables/fuel/tank[6]/level-lbs", tfR1Neu, 2.1); # Reserve 1
+				
+								 
 	}else{
 				if(is == 1) setprop("sim/multiplay/generic/int[15]", 0);
 				if(is == 3) setprop("sim/multiplay/generic/int[15]", 2);	
 	}
-	if(drL.getValue()) settimer(dump_loop_l, 1.1);	
+	if(drL.getValue()) settimer(dump_loop_l, 2.1);	
 }
 
 var dump_loop_r = func{
-  print("dump R laeuft");
   var is  = getprop("sim/multiplay/generic/int[15]") or 0;
 	if(drR.getValue() and ((dv1.getBoolValue() and dvp1.getBoolValue()) or 
 						 						 (dv4.getBoolValue() and dvp4.getBoolValue()) or
-						 						 (dv5.getBoolValue() and dvp5.getBoolValue()))){	 
-				
+						 						 (dv5.getBoolValue() and dvp5.getBoolValue()))){	
+						 						 
+				var tfCNeu  = 0; 
+										 
 				if(is == 0) setprop("sim/multiplay/generic/int[15]", 2);
-				if(is == 1) setprop("sim/multiplay/generic/int[15]", 3);				 
+				if(is == 1) setprop("sim/multiplay/generic/int[15]", 3);
+				
+				if(is == 2){ # only this side is on
+					 tfCNeu = (tfC.getValue() > 0 ) ? tfC.getValue() - 100 : 0;
+				}		
+						
+				var tfM4Neu = (tfM4.getValue() > 0 ) ? tfM4.getValue() - 100 : 0;				
+				var tfM3Neu = (tfM3.getValue() > 0 ) ? tfM3.getValue() - 100 : 0;				
+				var tfR4Neu = (tfR4.getValue() > 0 ) ? tfR4.getValue() - 100 : 0;
+				if(dv1.getBoolValue() and dvp1.getBoolValue() and tfCNeu) 
+									interpolate("/consumables/fuel/tank[3]/level-lbs", tfCNeu, 2.1); # Center
+				if(dv4.getBoolValue() and dvp4.getBoolValue()) 				
+	  							interpolate("/consumables/fuel/tank[2]/level-lbs", tfM3Neu, 2.1); # Main 3
+				if(dv5.getBoolValue() and dvp5.getBoolValue()) 
+	  							interpolate("/consumables/fuel/tank[1]/level-lbs", tfM4Neu, 2.1); # Main 4
+	  							interpolate("/consumables/fuel/tank[0]/level-lbs", tfR4Neu, 2.1); # Reserve 1						 						 
+	  						 
 	}else{
 				if(is == 2) setprop("sim/multiplay/generic/int[15]", 0);
 				if(is == 3) setprop("sim/multiplay/generic/int[15]", 1);
 	}
-	if(drR.getValue()) settimer(dump_loop_r, 1.2);	
+	if(drR.getValue()) settimer(dump_loop_r, 0.13);	
 }
 
-
-var dc0 = props.globals.initNode("b707/fuel/valves/dump-cover[0]",0,"DOUBLE");
-var dc1 = props.globals.initNode("b707/fuel/valves/dump-cover[1]",0,"DOUBLE");
-var drL = props.globals.initNode("b707/fuel/valves/dump-retract[0]",0,"DOUBLE");
-var drR = props.globals.initNode("b707/fuel/valves/dump-retract[1]",0,"DOUBLE");
-var dc1 = props.globals.initNode("b707/fuel/valves/dump-cover[1]",0,"DOUBLE");
-var dv0 = props.globals.initNode("b707/fuel/valves/dump-valve[0]",0,"BOOL"); #left center tank
-var dv1 = props.globals.initNode("b707/fuel/valves/dump-valve[1]",0,"BOOL"); #right center tank
-var dv2 = props.globals.initNode("b707/fuel/valves/dump-valve[2]",0,"BOOL"); #main tank 1
-var dv3 = props.globals.initNode("b707/fuel/valves/dump-valve[3]",0,"BOOL"); #main tank 2
-var dv4 = props.globals.initNode("b707/fuel/valves/dump-valve[4]",0,"BOOL"); #main tank 3
-var dv5 = props.globals.initNode("b707/fuel/valves/dump-valve[5]",0,"BOOL"); #main tank 4
-var dvp0 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[0]",0,"BOOL");
-var dvp1 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[1]",0,"BOOL");
-var dvp2 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[2]",0,"BOOL");
-var dvp3 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[3]",0,"BOOL");
-var dvp4 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[4]",0,"BOOL");
-var dvp5 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[5]",0,"BOOL");
 
 ############  Start up the loops ################
 settimer( func { engines_alive(); } , 6);

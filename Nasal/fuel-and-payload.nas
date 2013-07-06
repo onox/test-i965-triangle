@@ -798,7 +798,7 @@ var crossfeed_action = func {
 		
 		if(bog > 600){ 
 			bog -= 20;
-			var m1Neu = tfM1.getValue() + 19.1; # the difference to the 20 is the consumption during interpolate
+			var m1Neu = tfM1.getValue() + 19.12; # the difference to the 20 is the consumption during interpolate
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
@@ -827,7 +827,7 @@ var crossfeed_action = func {
 		if(bog > 600){ 
 			bog -= 20;
 			var m1Neu = bog*p1;
-			var m2Neu = tfM2.getValue() + 19.1; # the difference to the 20 is the consumption during interpolate
+			var m2Neu = tfM2.getValue() + 19.12; # the difference to the 20 is the consumption during interpolate
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
 			var m4Neu = bog*p4;
@@ -857,7 +857,7 @@ var crossfeed_action = func {
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
-			var m3Neu = tfM3.getValue() + 19.1; # the difference to the 20 is the consumption during interpolate
+			var m3Neu = tfM3.getValue() + 19.12; # the difference to the 20 is the consumption during interpolate
 			var m4Neu = bog*p4;
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
@@ -886,7 +886,7 @@ var crossfeed_action = func {
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
-			var m4Neu = tfM4.getValue() + 19.1; # the difference to the 20 is the consumption during interpolate
+			var m4Neu = tfM4.getValue() + 19.12; # the difference to the 20 is the consumption during interpolate
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
 	  	interpolate("/consumables/fuel/tank[3]/level-lbs", cNeu, 7);

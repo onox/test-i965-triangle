@@ -110,7 +110,7 @@
 		  </axis>
 		  <center>
 		  <x-m> 0.0</x-m>
-		  <y-m>-0.0003</y-m>
+		  <y-m> 0.0</y-m>
 		  <z-m>-0.0493</z-m>
 		  </center>  
 	</animation>
@@ -146,7 +146,7 @@
 		  </axis>
 		  <center>
 		  <x-m> 0.0</x-m>
-		  <y-m>-0.0003</y-m>
+		  <y-m> 0.0</y-m>
 		  <z-m>-0.0493</z-m>
 		  </center>  
 	</animation>
@@ -388,8 +388,7 @@
 		<property>/engines/APU/temp</property>
 		<interpolation>
 		  <entry><ind>   0.0</ind><dep>   0.0</dep></entry>
-		  <entry><ind> 510.0</ind><dep> 160.0</dep></entry>
-		  <entry><ind> 800.0</ind><dep> 190.0</dep></entry>
+		  <entry><ind> 920.0</ind><dep> 255.0</dep></entry>
 		</interpolation>
 		<axis>
 		  <x>0</x>

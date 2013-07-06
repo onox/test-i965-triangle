@@ -707,7 +707,7 @@ var engines_alive = func {
   # control the engine dependens
   foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		  var n2 = e.getNode("n2").getValue() or 0;
-		  var c = props.globals.getNode("/controls/engines/engine["~e.getIndex()~"]/cutoff");
+		  var c = props.globals.getNode("/engines/engine["~e.getIndex()~"]/running");
 		  var s = getprop("/b707/fuel/valves/fuel-shutoff["~e.getIndex()~"]") or 0;
 		  var b1  = 0;
 		  var b2  = 0;
@@ -716,7 +716,7 @@ var engines_alive = func {
 		  # if engine is running and shutoff valve is closed
 		  if(n2 >= 60 and !s) {
 		      #print("Engine "~e.getIndex()~" without fuel - shutoff valve closed!");
-		      c.setValue(1);
+		      c.setValue(0);
 		  }
 		  
 		  if(e.getIndex() == 0){
@@ -746,12 +746,12 @@ var engines_alive = func {
 		  # if engine is running and boost-pumps are both closed and the crossfeed valve is closed too
 		  if(n2 >= 60 and !b1 and !b2 and !cfv) {
 		      #print("Engine "~e.getIndex()~" without fuel - boost-pumps out!");
-		      c.setValue(1);
+		      c.setValue(0);
 		  } 
 		   
 	}
 
-	settimer( engines_alive, 7);
+	settimer( engines_alive, 8);
 }
 
 
@@ -798,7 +798,7 @@ var crossfeed_action = func {
 		
 		if(bog > 600){ 
 			bog -= 20;
-			var m1Neu = tfM1.getValue() + 19.5; # the difference to the 20 is the consumption during interpolate
+			var m1Neu = tfM1.getValue() + 19.1; # the difference to the 20 is the consumption during interpolate
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
@@ -827,7 +827,7 @@ var crossfeed_action = func {
 		if(bog > 600){ 
 			bog -= 20;
 			var m1Neu = bog*p1;
-			var m2Neu = tfM2.getValue() + 19.5; # the difference to the 20 is the consumption during interpolate
+			var m2Neu = tfM2.getValue() + 19.1; # the difference to the 20 is the consumption during interpolate
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
 			var m4Neu = bog*p4;
@@ -857,7 +857,7 @@ var crossfeed_action = func {
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
-			var m3Neu = tfM3.getValue() + 19.5; # the difference to the 20 is the consumption during interpolate
+			var m3Neu = tfM3.getValue() + 19.1; # the difference to the 20 is the consumption during interpolate
 			var m4Neu = bog*p4;
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
@@ -886,7 +886,7 @@ var crossfeed_action = func {
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
-			var m4Neu = tfM4.getValue() + 19.5; # the difference to the 20 is the consumption during interpolate
+			var m4Neu = tfM4.getValue() + 19.1; # the difference to the 20 is the consumption during interpolate
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
 	  	interpolate("/consumables/fuel/tank[3]/level-lbs", cNeu, 7);
@@ -931,13 +931,13 @@ setlistener("/b707/fuel/valves/dump-retract[1]", func(pos){
 },1,0);
 
 var dump_loop_l = func{
-  var is  = getprop("sim/multiplay/generic/int[15]") or 0;
+  var is  = getprop("sim/multiplay/generic/int[15]") or 0; # the int[15] is the fuel dust on wings
 	var pwr = getprop("/b707/ess-bus") or 0;
 	if(drL.getValue() and ((dv0.getBoolValue() and dvp0.getBoolValue()) or 
 						 						 (dv2.getBoolValue() and dvp2.getBoolValue()) or
 						 						 (dv3.getBoolValue() and dvp3.getBoolValue()))){
 						 
-				if(is == 0) setprop("sim/multiplay/generic/int[15]", 1);
+				if(is == 0) setprop("sim/multiplay/generic/int[15]", 1); 
 				if(is == 2) setprop("sim/multiplay/generic/int[15]", 3);
 				
 				if(is == 1){ # only this side is on

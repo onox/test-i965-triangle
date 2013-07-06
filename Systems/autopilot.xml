@@ -543,8 +543,8 @@
       <!-- <Kp>0.1</Kp>       proportional gain -->
       <Kp>0.03</Kp>          <!-- proportional gain -->
       <Ki>0.0</Ki>          <!-- integral gain -->
-      <u_min>-25.0</u_min> <!-- minimum output clamp -->
-      <u_max>25.0</u_max>   <!-- maximum output clamp -->
+      <u_min>-45.0</u_min> <!-- minimum output clamp  change by mk-->
+      <u_max>45.0</u_max>   <!-- maximum output clamp change by mk-->
     </config>
   </pi-simple-controller>
 

@@ -72,6 +72,13 @@
 		    	<property>/controls/electric/battery-switch</property>		    
 		    	<property>/b707/ground-connect</property>
 				</and>
+		    <and>
+		      <equals>
+		    		<property>/b707/apu/off-start-run</property>
+		    		<value>2</value>
+		    	</equals>
+		    	<property>/b707/generator/gen-drive[4]</property>	
+				</and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>

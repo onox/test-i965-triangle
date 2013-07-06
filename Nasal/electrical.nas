@@ -810,15 +810,21 @@ var apuLoop = func{
   if (getprop("engines/APU/rpm") >= 40){
 
 		 var temp = getprop("/engines/APU/temp") or 0;
+		 var abv = getprop("/b707/apu/apu-bleed-valve") or 0;
 		 if(!generator){
 			 temp += getprop("sim/time/delta-realtime-sec") * 4;
-			 if (temp >= 510){
-				temp = 510;
+			 if (temp >= 410){
+				temp -= getprop("sim/time/delta-realtime-sec") * 6;
+				}
+			}elsif(abv){
+			 temp += getprop("sim/time/delta-realtime-sec") * 6;
+			 if (temp >= 590){
+				temp -= getprop("sim/time/delta-realtime-sec") * 8;
 				}
 			}else{
-			 temp += getprop("sim/time/delta-realtime-sec") * 6;
-			 if (temp >= 610){
-				temp = 610;
+			 temp += getprop("sim/time/delta-realtime-sec") * 8;
+			 if (temp >= 780){
+				temp -= getprop("sim/time/delta-realtime-sec") * 10;
 				}
 			}
 		 setprop("engines/APU/temp", temp);
@@ -850,4 +856,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     
     setprop("controls/engines/msg", 1);
 });
+
+##########  ATTENTION: The setlistener for the /engines/engine[x]/running you will find in the autostart.nas
+
 

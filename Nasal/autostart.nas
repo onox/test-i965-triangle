@@ -27,9 +27,6 @@ var startup = func
 		setprop("b707/generator/gen-bus-tie[1]", 0);
 		setprop("b707/generator/gen-bus-tie[2]", 0);
 		setprop("b707/generator/gen-bus-tie[3]", 0);
-		setprop("consumables/fuel/tank[0]/selected", 1);
-		setprop("consumables/fuel/tank[2]/selected", 1);
-		setprop("consumables/fuel/tank[1]/selected", 1);
 	 	toggle_switch2();
 	 	
 	 	t += 1.0;
@@ -1121,19 +1118,21 @@ var starter = func(nr)
 	var s_apu_gen = getprop("b707/generator/gen-drive[4]") or 0;			
 	var s_bus_tie = getprop("/b707/generator/gen-bus-tie["~nr~"]") or 0;
 	var s_gen_bre = getprop("/b707/generator/gen-breaker["~nr~"]") or 0;
+	var s_bus_con = getprop("/b707/generator/gen-control["~nr~"]") or 0;
 	
-	if(s_bat and s_ess_bus > 20 and s_gen_bre and s_bus_tie and 
+	if(s_bat and s_ess_bus > 20 and s_gen_bre and s_bus_tie and s_bus_con and
 			((s_ext_con and s_ess_pwr == 5 and s_ground_c == 1) or
-		 	 ( s_ess_pwr == 0 and s_apu_start == 2 and s_apu_gen))
-		){
+		 	 ( s_ess_pwr == 0 and s_apu_start == 2 and s_apu_gen) or
+		 	 ((run1.getBoolValue() and s_ess_pwr == 1) or 
+		 	  (run2.getBoolValue() and s_ess_pwr == 2) or 
+		 	  (run3.getBoolValue() and s_ess_pwr == 3) or 
+		 	  (run4.getBoolValue() and s_ess_pwr == 4) ))){
 	
 			# not supported the fuel system for the moment
-			setprop("consumables/fuel/tank[0]/selected", 1);
-			setprop("consumables/fuel/tank[2]/selected", 1);
-			setprop("consumables/fuel/tank[1]/selected", 1);
 			setprop("controls/engines/engine["~nr~"]/starter", 0);
 			setprop("controls/engines/engine["~nr~"]/cutoff", 1);
 			setprop("controls/engines/engine["~nr~"]/starter", 1);
+			setprop("controls/engines/engine["~nr~"]/started", 1);
 			setprop("b707/generator/gen-freq["~nr~"]", b707.my_rand(384,418));
 			settimer(func
 			{
@@ -1142,6 +1141,7 @@ var starter = func(nr)
 	
 	}else{
 		setprop("controls/engines/engine["~nr~"]/starter", 0);
+		setprop("b707/generator/gen-freq["~nr~"]",0);
 	}
 		
 };
@@ -1207,6 +1207,12 @@ setlistener("engines/engine[0]/running", func
 	 setprop("controls/engines/engine[2]/msg", 0);
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
+	 if(getprop("controls/engines/engine[0]/started")){  # started control engines stop after running
+    	 	setprop("b707/generator/gen-drive[0]", 0);
+    	 	setprop("b707/generator/gen-bus-tie[0]", 0);
+				setprop("b707/generator/gen-breaker[0]", 0);
+				setprop("b707/generator/gen-control[0]", 0);	 
+	 };
 	}
  }, 0, 0);
  
@@ -1220,6 +1226,12 @@ setlistener("engines/engine[1]/running", func
 	 setprop("controls/engines/engine[2]/msg", 0);
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
+	 if(getprop("controls/engines/engine[1]/started")){  # started control engines stop after running
+    	 	setprop("b707/generator/gen-drive[1]", 0);
+    	 	setprop("b707/generator/gen-bus-tie[1]", 0);
+				setprop("b707/generator/gen-breaker[1]", 0);
+				setprop("b707/generator/gen-control[1]", 0);	 
+	 };
 	}
  }, 0, 0);
  
@@ -1233,6 +1245,12 @@ setlistener("engines/engine[2]/running", func
 	 setprop("controls/engines/engine[2]/msg", 0);
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
+	 if(getprop("controls/engines/engine[2]/started")){  # started control engines stop after running
+    	 	setprop("b707/generator/gen-drive[2]", 0);
+    	 	setprop("b707/generator/gen-bus-tie[2]", 0);
+				setprop("b707/generator/gen-breaker[2]", 0);
+				setprop("b707/generator/gen-control[2]", 0);	 
+	 };
 	}
  }, 0, 0); 
  
@@ -1246,6 +1264,12 @@ setlistener("engines/engine[3]/running", func
 	 setprop("controls/engines/engine[2]/msg", 0);
 	 setprop("controls/engines/engine[3]/msg", 0);
 	 setprop("controls/engines/msg", 0);
+	 if(getprop("controls/engines/engine[3]/started")){  # started control engines stop after running
+    	 	setprop("b707/generator/gen-drive[3]", 0);
+    	 	setprop("b707/generator/gen-bus-tie[3]", 0);
+				setprop("b707/generator/gen-breaker[3]", 0);
+				setprop("b707/generator/gen-control[3]", 0);	 
+	 };
 	}
  }, 0, 0);
  
@@ -1287,9 +1311,6 @@ var toggle_switch3 = func{
 
 var short_startup = func
  {
-	setprop("consumables/fuel/tank[0]/selected", 1);
-	setprop("consumables/fuel/tank[2]/selected", 1);
-	setprop("consumables/fuel/tank[1]/selected", 1);
  	setprop("b707/battery-switch", 1);
  	setprop("b707/apu/off-start-run", 0);
 	setprop("b707/generator/gen-drive[4]", 0);

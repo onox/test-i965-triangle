@@ -7,12 +7,13 @@
 		<path>Models/Aircraft/marker.xml</path>
 	</model>
 
-	<!-- No preview for fgrun-->
+	<!-- No preview for fgrun
 	<animation>
 		<object-name>LightVolume1</object-name>
 		<object-name>LightVolume2</object-name>
 		<nopreview/>
 	</animation>
+	-->
 	
   <!-- internal light effect without rembrandt -->	
 	<animation>
@@ -82,14 +83,14 @@
 		</emission>
 	</animation>	
 		
-	<!-- Rembrand -  light -->
+	<!-- Rembrand -  light-->
 	<animation>
 		<type>select</type>
 		<object-name>LightVolume1</object-name>
 		<condition>
 			<property>/sim/rendering/rembrandt/enabled</property>
 		</condition>
-	</animation>
+	</animation> 
 	<animation>
 		<type>select</type>
 		<object-name>LightVolume2</object-name>
@@ -97,8 +98,228 @@
 				<property>/sim/rendering/rembrandt/enabled</property>
 				<property>/controls/test/warn-knob</property>
 		</condition>
-	</animation>
+	</animation>	 
 	
+		<!-- small lightcones for panel -->
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>capt_light_1</name>
+		<offsets>   
+		  <x-m>-18.6</x-m>
+		  <y-m> -0.125</y-m>
+		  <z-m>  1.2</z-m>
+		  <pitch-deg>45.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>capt_light_2</name>
+		<offsets>   
+		  <x-m>-18.6</x-m>
+		  <y-m> -0.360</y-m>
+		  <z-m>  1.15</z-m>
+		  <pitch-deg>45.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+		<name>capt_light_3</name>
+		<offsets>   
+		  <x-m>-18.4</x-m>
+		  <y-m> -0.545</y-m>
+		  <z-m>  1.17</z-m>
+		  <pitch-deg>50.0</pitch-deg>
+		  <roll-deg>-20.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>capt_light_4</name>
+		<offsets>   
+		  <x-m>-18.5</x-m>
+		  <y-m>  0.09</y-m>
+		  <z-m>  1.2</z-m>
+		  <pitch-deg>50.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>capt_light_5</name>
+		<offsets>   
+		  <x-m>-18.6</x-m>
+		  <y-m>  0.360</y-m>
+		  <z-m>  1.15</z-m>
+		  <pitch-deg>45.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+		<name>capt_light_6</name>
+		<offsets>   
+		  <x-m>-18.4</x-m>
+		  <y-m>  0.545</y-m>
+		  <z-m>  1.17</z-m>
+		  <pitch-deg>50.0</pitch-deg>
+		  <roll-deg> 20.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	<!-- pedestal light -->
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+		<name>capt_light_7</name>
+		<offsets>   
+		  <x-m>-18.8</x-m>
+		  <y-m>  0.0</y-m>
+		  <z-m>  1.1</z-m>
+		  <pitch-deg>-25.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	 </model>
+
+	<!-- overhead light -->
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+		<name>ov_light_1</name>
+		<offsets>   
+		  <x-m>-18.1</x-m>
+		  <y-m>  0.0</y-m>
+		  <z-m>  1.45</z-m>
+		  <pitch-deg>75.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	 </model>
+
+	<!-- engineer light -->
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>eng_light_1</name>
+		<offsets>   
+		  <x-m>-17.75</x-m>
+		  <y-m>  0.279</y-m>
+		  <z-m>  1.62</z-m>
+		  <pitch-deg>0.0</pitch-deg>
+		  <roll-deg> 60.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>eng_light_2</name>
+		<offsets>   
+		  <x-m>-17.55</x-m>
+		  <y-m>  0.279</y-m>
+		  <z-m>  1.62</z-m>
+		  <pitch-deg>0.0</pitch-deg>
+		  <roll-deg> 60.0</roll-deg>
+		</offsets>
+	 </model>	
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>eng_light_3</name>
+		<offsets>   
+		  <x-m>-17.35</x-m>
+		  <y-m>  0.279</y-m>
+		  <z-m>  1.62</z-m>
+		  <pitch-deg>0.0</pitch-deg>
+		  <roll-deg> 60.0</roll-deg>
+		</offsets>
+	 </model>	
+
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>eng_light_4</name>
+		<offsets>   
+		  <x-m>-17.15</x-m>
+		  <y-m>  0.279</y-m>
+		  <z-m>  1.62</z-m>
+		  <pitch-deg>0.0</pitch-deg>
+		  <roll-deg> 60.0</roll-deg>
+		</offsets>
+	 </model>	
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>eng_light_5</name>
+		<offsets>   
+		  <x-m>-17.75</x-m>
+		  <y-m>  0.68</y-m>
+		  <z-m>  1.37</z-m>
+		  <pitch-deg>0.0</pitch-deg>
+		  <roll-deg> 5.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>eng_light_6</name>
+		<offsets>   
+		  <x-m>-17.55</x-m>
+		  <y-m>  0.68</y-m>
+		  <z-m>  1.37</z-m>
+		  <pitch-deg>0.0</pitch-deg>
+		  <roll-deg> 5.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>eng_light_7</name>
+		<offsets>   
+		  <x-m>-17.35</x-m>
+		  <y-m>  0.68</y-m>
+		  <z-m>  1.37</z-m>
+		  <pitch-deg>0.0</pitch-deg>
+		  <roll-deg> 5.0</roll-deg>
+		</offsets>
+	 </model>	 
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<name>eng_light_8</name>
+		<offsets>   
+		  <x-m>-17.15</x-m>
+		  <y-m>  0.68</y-m>
+		  <z-m>  1.37</z-m>
+		  <pitch-deg>0.0</pitch-deg>
+		  <roll-deg> 5.0</roll-deg>
+		</offsets>
+	 </model>
+
+	<animation>
+		<type>select</type>
+		<object-name>capt_light_1</object-name>
+		<object-name>capt_light_2</object-name>
+		<object-name>capt_light_3</object-name>
+		<object-name>capt_light_4</object-name>
+		<object-name>capt_light_5</object-name>
+		<object-name>capt_light_6</object-name>
+		<object-name>capt_light_7</object-name>
+		<object-name>ov_light_1</object-name>
+		<object-name>eng_light_1</object-name>
+		<object-name>eng_light_2</object-name>
+		<object-name>eng_light_3</object-name>
+		<object-name>eng_light_4</object-name>
+		<object-name>eng_light_5</object-name>
+		<object-name>eng_light_6</object-name>
+		<object-name>eng_light_7</object-name>
+		<object-name>eng_light_8</object-name>
+		<condition>
+			<property>/sim/rendering/rembrandt/enabled</property>
+      <property>sim/current-view/internal</property>
+		</condition>
+	</animation>	 
+	 	  
 	<!-- equipment -->
 	<model>
 		<name>pedestal</name>
@@ -490,7 +711,7 @@
 		</action>
   </animation>
   
-	<!-- inner light -->
+	<!-- inner light-->
 	<animation>
 		<type>light</type>
 		<light-type>point</light-type>
@@ -535,7 +756,7 @@
 		<far-m>250</far-m>
 		<cutoff>40</cutoff>
 	</animation>
-	
+	 
 	<!-- the fire warning on engineer panel -->
 	<animation>
 		<type>light</type>

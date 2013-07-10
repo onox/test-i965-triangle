@@ -21,8 +21,12 @@
   </key>
   <key>
     <name>y</name>
-    <desc>toggle yokes</desc>
+    <desc>Toggle yokes</desc>
   </key>
+	<key>
+		<name>></name>
+		<desc>Toggle pilot - engineer view</desc>
+	</key>
   <key>
     <name>F9</name>
     <desc>toggle fuel &amp; weight menu</desc>

@@ -355,6 +355,7 @@ var update_virtual_bus = func {
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
 				}else{
+						settimer(func{ setprop("/b707/ground-connect", 0);}, 0.2);
 					  power_source = "APU";
 					  essdcbus_volts = generator5.get_output_volts();
 						if(generator5.get_output_volts() and EssPwr.getValue() == 0){
@@ -742,6 +743,7 @@ setlistener("b707/external-power-connected", func(state){
   }
 
 },0,0);
+
 
 ################################# APU loop function #####################################
 # the APU helper for smooth view on Amperemeter

@@ -12,11 +12,9 @@
   <object-name>lamptwo</object-name>
   <object-name>lampthree</object-name>
   <object-name>lampfour</object-name> 
-  <!--
   <condition>
 		<not><property>/sim/rendering/rembrandt/enabled</property></not>
   </condition>
-  -->
   <emission>
     <red>1.0</red>
     <green>0.2</green>
@@ -29,6 +27,10 @@
   <type>select</type>
   <object-name>lampone</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
 		  <property>/controls/test/warn-knob</property>
 		  <and>
@@ -50,6 +52,10 @@
   <type>select</type>
   <object-name>lamptwo</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
 		  <property>/controls/test/warn-knob</property>
 		  <and>
@@ -71,6 +77,10 @@
   <type>select</type>
   <object-name>lampthree</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
 		  <property>/controls/test/warn-knob</property>
 		  <and>
@@ -87,11 +97,14 @@
   </condition>
 </animation>
 
-
 <animation>
   <type>select</type>
   <object-name>lampfour</object-name>
   <condition>
+		<greater-than>
+			<property>/b707/ess-bus</property>
+			<value>20</value>
+		</greater-than>
     <or>
 		  <property>/controls/test/warn-knob</property>
 		  <and>

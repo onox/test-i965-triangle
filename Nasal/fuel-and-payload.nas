@@ -797,8 +797,8 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 20;
-			var m1Neu = tfM1.getValue() + 19.12; # the difference to the 20 is the consumption during interpolate
+			bog -= 40;
+			var m1Neu = tfM1.getValue() + 5; # the difference to the 40 is the consumption during interpolate
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
@@ -825,9 +825,9 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 20;
+			bog -= 40;
 			var m1Neu = bog*p1;
-			var m2Neu = tfM2.getValue() + 19.12; # the difference to the 20 is the consumption during interpolate
+			var m2Neu = tfM2.getValue() + 5; # the difference to the 40 is the consumption during interpolate
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
 			var m4Neu = bog*p4;
@@ -853,11 +853,11 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 20;
+			bog -= 40;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
-			var m3Neu = tfM3.getValue() + 19.12; # the difference to the 20 is the consumption during interpolate
+			var m3Neu = tfM3.getValue() + 5; # the difference to the 40 is the consumption during interpolate
 			var m4Neu = bog*p4;
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
@@ -881,12 +881,12 @@ var crossfeed_action = func {
 		var p3 = (tfM3.getValue() > 0) ? tfM3.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 20;
+			bog -= 40;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
-			var m4Neu = tfM4.getValue() + 19.12; # the difference to the 20 is the consumption during interpolate
+			var m4Neu = tfM4.getValue() + 5; # the difference to the 40 is the consumption during interpolate
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
 	  	interpolate("/consumables/fuel/tank[3]/level-lbs", cNeu, 7);

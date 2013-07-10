@@ -19,6 +19,14 @@
       <property>sim/model/start-idling</property>
   </binding>
 </key>
+<key n="60">
+  <name> > </name>
+  <desc>toggle pilot engineer view</desc>
+  <binding>
+		  <command>nasal</command>
+		  <script>b707.changeView(9);</script>
+  </binding>
+</key>
 <key n="108">
   <name>L</name>
   <desc>toggle landing lights</desc>
@@ -36,7 +44,7 @@
   </binding>
 </key>
 
-<key n="109">
+<key n="109"> <!-- m -->
     <name>short start</name>
     <desc>Test startup</desc>
   <binding>
@@ -53,5 +61,7 @@
         <script>b707.WeightFuelDialog()</script>
     </binding>
 </key>
+
+
 
 </PropertyList>

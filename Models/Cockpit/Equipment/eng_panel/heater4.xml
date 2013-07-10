@@ -69,7 +69,7 @@
             </entry>
             <entry>
                 <ind>1</ind>
-                <dep>-90.0</dep>
+                <dep>90.0</dep>
             </entry>		
         </interpolation>
     <axis>
@@ -80,7 +80,7 @@
     <center>
     <x-m> 0.0</x-m>
     <y-m>-0.0003</y-m>
-    <z-m> 0.0157</z-m>
+    <z-m>-0.0178</z-m>
     </center>  
   </animation>
 
@@ -114,7 +114,7 @@
 		  <center>
 		  <x-m>0.0</x-m>
 		  <y-m>0.0</y-m>
-		  <z-m>0.0</z-m>
+		  <z-m>-0.0048</z-m>
 		  </center>  
 	</animation>
 

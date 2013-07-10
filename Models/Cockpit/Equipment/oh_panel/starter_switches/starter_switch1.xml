@@ -104,7 +104,7 @@
             </entry>
             <entry>
                 <ind>1</ind>
-                <dep>-90.0</dep>
+                <dep>90.0</dep>
             </entry>		
         </interpolation>
     <axis>
@@ -115,7 +115,7 @@
     <center>
     <x-m> 0.0045</x-m>
     <y-m> 0.0</y-m>
-    <z-m> 0.013</z-m>
+    <z-m>-0.018</z-m>
     </center>  
   </animation>
 

@@ -288,7 +288,7 @@ var stepSpeedbrakes = func(step) {
 # the offset will be set automatically
 
 var mag_control = func {
-	var mag_selected = getprop("/instrumentation/compass-control/mag");
+	var mag_selected = getprop("/instrumentation/compass-control/mag") or 0;
 	if( mag_selected == nil ) mag_selected = 0.0;
 	if( mag_selected ) {
 		interpolate("/instrumentation/heading-indicator/offset-deg", 0, 0.25);
@@ -298,3 +298,74 @@ var mag_control = func {
 
 setlistener( "/instrumentation/compass-control/mag", mag_control);
 
+
+######################################## engine vibrations #######################################
+var my_mini_rand = func(min,max) {
+		  var min = min;
+		  var max = max;
+		  var r = 0;
+
+			while( r < min or r > max ){
+					r = rand();
+			}
+			
+		  return r;
+}
+
+var eng_vib = func {
+
+	var evib1 = getprop("/engines/engine[0]/n2") or 0;
+	var evib2 = getprop("/engines/engine[1]/n2") or 0;
+	var evib3 = getprop("/engines/engine[2]/n2") or 0;
+	var evib4 = getprop("/engines/engine[3]/n2") or 0;
+	var dc = getprop("/b707/ess-bus") or 0;
+	var vibte = getprop("/b707/vibrations/vib-test") or 0;	
+	var state = getprop("/b707/vibrations/vib-sel") or 0;
+	
+	var a1 = 0;
+	var a2 = 0;
+	var a3 = 0;
+	var a4 = 0;
+
+	if(state == 1 and !vibte) {
+		if(evib1 > 10 and dc > 20) a1 = my_mini_rand(0.46, 0.54);
+		if(evib2 > 10 and dc > 20) a2 = my_mini_rand(0.42, 0.58);
+		if(evib3 > 10 and dc > 20) a3 = my_mini_rand(0.43, 0.57);
+		if(evib4 > 10 and dc > 20) a4 = my_mini_rand(0.46, 0.54);
+		interpolate("/b707/vibrations/vib[0]", a1, 2.5);
+		interpolate("/b707/vibrations/vib[1]", a2, 2.5);
+		interpolate("/b707/vibrations/vib[2]", a3, 2.5);
+		interpolate("/b707/vibrations/vib[3]", a4, 3.5);
+		settimer( eng_vib, 2.5);
+		
+	}elsif(state == 2 and !vibte) {
+		if(evib1 > 10 and dc > 20) a1 = my_mini_rand(0.25, 0.35);
+		if(evib2 > 10 and dc > 20) a2 = my_mini_rand(0.25, 0.35);
+		if(evib3 > 10 and dc > 20) a3 = my_mini_rand(0.25, 0.35);
+		if(evib4 > 10 and dc > 20) a4 = my_mini_rand(0.25, 0.35);
+		interpolate("/b707/vibrations/vib[0]", a1, 2.5);
+		interpolate("/b707/vibrations/vib[1]", a2, 2.5);
+		interpolate("/b707/vibrations/vib[2]", a3, 2.5);
+		interpolate("/b707/vibrations/vib[3]", a4, 2.5);
+		settimer( eng_vib, 2.5);
+		
+	}else{
+		interpolate("/b707/vibrations/vib[0]", a1, 0.5);
+		interpolate("/b707/vibrations/vib[1]", a2, 0.5);
+		interpolate("/b707/vibrations/vib[2]", a3, 0.5);
+		interpolate("/b707/vibrations/vib[3]", a4, 0.5);
+	}
+
+}
+
+setlistener("/b707/vibrations/vib-sel", eng_vib,1,0);
+
+############################## view helper ###############################
+var changeView = func (n){
+  var actualView = props.globals.getNode("/sim/current-view/view-number", 1);
+  if (actualView.getValue() == n){
+    actualView.setValue(0);
+  }else{
+    actualView.setValue(n);
+  }
+}

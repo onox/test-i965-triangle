@@ -157,6 +157,86 @@
 		  <z-m>-0.1828</z-m>
 		</offsets>
 	</model>
+
+	<model>
+		<name>hyd reservoir</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/hydQuantity.xml</path>
+		<offsets>
+		  <x-m> 0.0718</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.122</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>hyd rudder</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/hydRudder.xml</path>
+		<offsets>
+		  <x-m> 0.0152</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.19</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>hyd system</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/hydSystem.xml</path>
+		<offsets>
+		  <x-m> 0.0718</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.19</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>aux pump</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/auxPump.xml</path>
+		<offsets>
+		  <x-m> 0.2529</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.1992</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<name>amplitude engine 1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/amplitude1.xml</path>
+		<offsets>
+		  <x-m> 0.1331</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.106</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>amplitude engine 2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/amplitude2.xml</path>
+		<offsets>
+		  <x-m> 0.1884</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.106</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>amplitude engine 3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/amplitude3.xml</path>
+		<offsets>
+		  <x-m> 0.2419</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.106</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>amplitude engine 4</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/amplitude4.xml</path>
+		<offsets>
+		  <x-m> 0.2961</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.106</z-m>
+		</offsets>
+	</model>
 		
 	<model>
 		<name>apu</name>
@@ -165,6 +245,46 @@
 		  <x-m> 0.4366</x-m>
 		  <y-m>-0.0017</y-m>
 		  <z-m>-0.1507</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>n21e</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/n21e.xml</path>
+		<offsets>
+		  <x-m> 0.1331</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.02</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n22e</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/n22e.xml</path>
+		<offsets>
+		  <x-m> 0.1884</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.02</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n23e</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/n23e.xml</path>
+		<offsets>
+		  <x-m> 0.2419</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.02</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>n24e</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/n24e.xml</path>
+		<offsets>
+		  <x-m> 0.2961</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.02</z-m>
 		</offsets>
 	</model>
 	

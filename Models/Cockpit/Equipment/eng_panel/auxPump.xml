@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <path>auxPump.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>sockle</object-name>
+		<object-name>sockle.001</object-name> 
+		<object-name>sockle.002</object-name>
+		<object-name>sockle.004</object-name>
+		<object-name>sockle.005</object-name>
+		<object-name>sockle.006</object-name>
+		<object-name>sockle.007</object-name> 
+		<object-name>switch</object-name>
+		<object-name>switch.001</object-name>
+		<object-name>switch.002</object-name>
+		<object-name>switch.003</object-name>
+		<object-name>switch.004</object-name>
+		<object-name>switch.005</object-name>
+		<object-name>switch.006</object-name>
+		<object-name>switch.007</object-name>
+		<object-name>cover</object-name>
+		<object-name>cover.001</object-name>
+		<object-name>turn</object-name>
+		<condition>		
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Vibration Test -->
+	<animation>
+		  <type>rotate</type>
+		  <object-name>switch</object-name>
+		  <property>/b707/vibrations/vib-test</property>
+      <factor>-60</factor>
+		  <axis>
+		   <x>0</x>
+		   <y>0</y>
+		   <z>1</z>
+		  </axis>
+		  <center>
+		  <x-m> 0.0417</x-m>
+		  <y-m>-0.0025</y-m>
+		  <z-m> 0.0434</z-m>
+		  </center>  
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>switch</object-name>
+		  <object-name>sockle</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+		  			<property>/b707/vibrations/vib-test</property>
+		    </binding>
+        <mod-up>
+          <binding>
+		        <command>property-toggle</command>
+		  			<property>/b707/vibrations/vib-test</property>
+          </binding>
+          <binding>
+		        <command>nasal</command>
+		  			<script>b707.eng_vib();</script>
+          </binding>
+        </mod-up>         
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation>
+	
+  <!-- Cover -->
+  <animation>
+    <type>rotate</type>
+    <object-name>cover</object-name>
+    <property>/b707/hydraulic/hyd-fluid-shutoff-cover[0]</property>
+    <interpolation> 
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>90.0</dep>
+            </entry>		
+        </interpolation>
+    <axis>
+     <x> 1</x>
+     <y> 0</y>
+     <z> 0</z>
+    </axis>
+    <center>
+    <x-m> 0.0</x-m>
+    <y-m>-0.0003</y-m>
+    <z-m>-0.0084</z-m>
+    </center>  
+  </animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>cover</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+    				<property>/b707/hydraulic/hyd-fluid-shutoff-cover[0]</property>
+		    </binding>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch3</property>
+		    </binding>
+		  </action>
+	</animation>
+
+	<animation>
+		  <type>rotate</type>
+		  <object-name>switch.006</object-name>
+		  <property>/b707/hydraulic/hyd-fluid-shutoff[0]</property>
+      <factor>-60</factor>
+		  <axis>
+		   <x>1</x>
+		   <y>0</y>
+		   <z>0</z>
+		  </axis>
+		  <center>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0058</z-m>
+		  </center>  
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>switch.006</object-name>
+		  <object-name>sockle.006</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+		        <property>/b707/hydraulic/hyd-fluid-shutoff[0]</property>
+		    </binding>          
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation>
+	
+  <!-- Cover.001 -->
+  <animation>
+    <type>rotate</type>
+    <object-name>cover.001</object-name>
+    <property>/b707/hydraulic/hyd-fluid-shutoff-cover[1]</property>
+    <interpolation> 
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>90.0</dep>
+            </entry>		
+        </interpolation>
+    <axis>
+     <x> 1</x>
+     <y> 0</y>
+     <z> 0</z>
+    </axis>
+    <center>
+    <x-m> 0.0</x-m>
+    <y-m>-0.0003</y-m>
+    <z-m>-0.0084</z-m>
+    </center>  
+  </animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>cover.001</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+    				<property>/b707/hydraulic/hyd-fluid-shutoff-cover[1]</property>
+		    </binding>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch3</property>
+		    </binding>
+		  </action>
+	</animation>
+
+	<animation>
+		  <type>rotate</type>
+		  <object-name>switch.007</object-name>
+		  <property>/b707/hydraulic/hyd-fluid-shutoff[1]</property>
+      <factor>-60</factor>
+		  <axis>
+		   <x>1</x>
+		   <y>0</y>
+		   <z>0</z>
+		  </axis>
+		  <center>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0058</z-m>
+		  </center>  
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>switch.007</object-name>
+		  <object-name>sockle.007</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+		        <property>/b707/hydraulic/hyd-fluid-shutoff[1]</property>
+		    </binding>          
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation>
+	
+  <!-- engine vibration selector --> 
+	<animation>
+		<type>rotate</type>
+		<object-name>turn</object-name>
+		<property>/b707/vibrations/vib-sel</property>
+		<interpolation>
+		  <entry><ind> 0</ind><dep>   0</dep></entry>
+		  <entry><ind> 1</ind><dep>  45</dep></entry>
+		  <entry><ind> 2</ind><dep>  90</dep></entry>
+		</interpolation>
+		<axis>
+		 <x>0</x>
+		 <y>1</y>
+		 <z>0</z>
+		</axis>
+		<center>
+		<x-m> 0.0402</x-m>
+		<y-m> 0.0</y-m>
+		<z-m> 0.0</z-m>
+		</center>  
+	</animation>
+     
+	<animation>
+		<type>pick</type>
+		<object-name>turn</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+				<property>/b707/vibrations/vib-sel</property>
+		    <step>1</step>
+		    <min>0</min>
+		    <max>3</max>
+		    <wrap>1</wrap>
+		  </binding>
+		  <binding>
+		    <command>property-toggle</command>
+		    <property>/sim/sound/switch3</property>
+		  </binding>
+		</action>
+		<action>
+		  <button>1</button>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+				<property>/b707/vibrations/vib-sel</property>
+		    <step>-1</step>
+		    <min>0</min>
+		    <max>3</max>
+		    <wrap>1</wrap>
+		  </binding>
+		  <binding>
+		    <command>property-toggle</command>
+		    <property>/sim/sound/switch3</property>
+		  </binding>
+		</action>
+	</animation>
+ 
+</PropertyList>

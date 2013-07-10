@@ -1,8 +1,9 @@
 Innis Cunningham build this aircraft for Flightgear times ago
 using the program AC3D. In Blender I have no change any longer to open this files.
 The texture was very dark since FG 2.9 and there are no other features inside and 
-outside the model. So I write a new plane with lot of stolen details from other
+outside the model. So I write a new plane with lot of scripts and details from other
 aircrafts. Also there are a lot of liveries from Presets Hangar.
+All instruments are written by myself, also the textures.
 Next step was to change the jsbsim fdm but it works now very smooth.
 
 Ctrl+B activates and deactivates the speed brakes

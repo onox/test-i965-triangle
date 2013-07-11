@@ -55,8 +55,8 @@
 		<object-name>needle</object-name>		
 		<property>/b707/hydraulic/rudder</property>
 		<interpolation>
-		  <entry><ind>    0.0</ind><dep>   0.0</dep></entry>
-		  <entry><ind>    4.0</ind><dep> 250.0</dep></entry>
+		  <entry><ind>   0.0</ind><dep>  0.0</dep></entry>
+		  <entry><ind>4000.0</ind><dep>250.0</dep></entry>
 		</interpolation>
 		<axis>
 		  <x>0</x>

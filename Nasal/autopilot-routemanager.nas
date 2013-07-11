@@ -233,17 +233,17 @@ var apHeadingWaypointSetVSpeed = func {
 			var currentWaypointIndex = getprop("autopilot/route-manager/current-wp");
 			#print("apHeadingWaypointSetVSpeed: currentWaypointIndex=", currentWaypointIndex);
 			var altitudeFt = getprop("position/altitude-ft");
-			var autopilotSettingAltitudeFt = getprop("autopilot/settings/target-altitude-ft") or 0; # mk
-			var waypointAlt = getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft") or autopilotSettingAltitudeFt; # mk
+			var autopilotSettingAltitudeFt = getprop("autopilot/settings/target-altitude-ft");
+			var waypointAlt = getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft");
 
-			#if (autopilotSettingAltitudeFt == nil or autopilotSettingAltitudeFt < 0) { # mk
-			#	if (waypointAlt != nil) {
-			#		autopilotSettingAltitudeFt = waypointAlt;
-			#	}
-			#	else {
-			#		autopilotSettingAltitudeFt = 0.0;
-			#	}
-			#} # mk
+			if (autopilotSettingAltitudeFt == nil or autopilotSettingAltitudeFt < 0) {
+				if (waypointAlt != nil) {
+					autopilotSettingAltitudeFt = waypointAlt;
+				}
+				else {
+					autopilotSettingAltitudeFt = 0.0;
+				}
+			}
 			var altitudeDistFt = autopilotSettingAltitudeFt - altitudeFt;
 			#print("apHeadingWaypointSetVSpeed: altitudeDistFt=", altitudeDistFt);
 
@@ -256,16 +256,16 @@ var apHeadingWaypointSetVSpeed = func {
 			}
 			# clamb: limit vspeed to min., max. values
 			if (vspeed > 0) {
-				maxVSpeed = 3000.0;  # mk
+				maxVSpeed = 1500.0;
 			}
 			else {
-				vspeed = (vspeed < -3000.0) ? -3000.0 : vspeed; # mk
-				vspeed = (vspeed > -200.0) ? -200.0 : vspeed; # mk
+				vspeed = (vspeed < -1000.0) ? -1000.0 : vspeed;
+				vspeed = (vspeed > -200.0) ? -200.0 : vspeed;
 			}
 
 			# clamp climbrate according to weigth, altitude etc.
-			var minClimpRate = -3000.0; # mk
-			var maxClimpRate = 3000.0; # mk
+			var minClimpRate = -1500.0;
+			var maxClimpRate = 1500.0;
 			vspeed = (vspeed < minClimpRate ? minClimpRate : vspeed);
 			vspeed = (vspeed > maxClimpRate ? maxClimpRate : vspeed);
 
@@ -286,14 +286,12 @@ var apHeadingWaypointSetVSpeed = func {
 				waypointVspeedPrev = vspeed;
 			}
 
-			#if (	getprop("autopilot/locks/altitude") != "vertical-speed-hold" and
-			#	getprop("autopilot/locks/altitude") != "altitude-hold") {
-			#	setprop("autopilot/locks/altitude", "vertical-speed-hold");
-			#}
-			if (getprop("autopilot/locks/altitude") != "altitude-hold") {
-				setprop("autopilot/locks/altitude", "altitude-hold");
+			if (	getprop("autopilot/locks/altitude") != "vertical-speed-hold" and
+				getprop("autopilot/locks/altitude") != "altitude-hold") {
+				setprop("autopilot/locks/altitude", "vertical-speed-hold");
 			}
-			setprop("autopilot/settings/altitude-ft", autopilotSettingAltitudeFt); # mk
+
+			setprop("autopilot/settings/altitude-ft", autopilotSettingAltitudeFt);
 		}
 	}
 }
@@ -396,20 +394,16 @@ var listenerApPassiveMode = func {
 				}
 
 				var altitudeFt = getprop("instrumentation/altimeter/indicated-altitude-ft");
-				
-				
-				
-				var autopilotSettingAltitudeFt = getprop("autopilot/settings/target-altitude-ft") or 0; # mk
-				var waypointAlt = getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft") or autopilotSettingAltitudeFt; # mk
-				
-				#if (autopilotSettingAltitudeFt == nil or autopilotSettingAltitudeFt < 0) { # mk
-				#	if (waypointAlt != nil) {
-				#		autopilotSettingAltitudeFt = waypointAlt;
-				#	}
-				#	else {
-				#		autopilotSettingAltitudeFt = 0.0;
-				#	}
-				#}  # mk
+				var autopilotSettingAltitudeFt = getprop("autopilot/settings/target-altitude-ft");
+				var waypointAlt = getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft");
+				if (autopilotSettingAltitudeFt == nil or autopilotSettingAltitudeFt < 0) {
+					if (waypointAlt != nil) {
+						autopilotSettingAltitudeFt = waypointAlt;
+					}
+					else {
+						autopilotSettingAltitudeFt = 0.0;
+					}
+				}
 
 				var altitudeDistFt = autopilotSettingAltitudeFt - altitudeFt;
 				var altitudeDistFtSwitch = 350.0;

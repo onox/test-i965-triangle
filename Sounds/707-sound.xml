@@ -1188,7 +1188,7 @@
 			</condition>
 			<volume>
 				<property>/engines/APU/rpm</property>
-				<factor>0.005</factor>
+				<factor>0.01</factor>
 			</volume>
       <pitch>
         <property>/engines/APU/rpm</property>
@@ -1259,6 +1259,58 @@
 		    <offset>0.3</offset>
 		  </volume>
     </music>
+
+  <aux-pump>
+    <name>Auxilliary Pumps</name>
+    <mode>looped</mode>
+    <path>Aircraft/707/Sounds/pump.wav</path>
+     <condition>			
+     	<and>
+				<greater-than>
+					<property>/b707/hydraulic/rudder</property>
+					<value>0.1</value>
+				</greater-than>
+				<less-than>
+					<property>/b707/hydraulic/rudder</property>
+					<value>3009</value>
+				</less-than>
+		   </and>
+     </condition>
+			<volume>
+				<factor>0.03</factor>
+			</volume>
+      <pitch>
+        <property>/b707/hydraulic/rudder</property>
+        <factor>0.5</factor>
+        <offset>3009</offset>
+      </pitch>
+    </aux-pump>
+    
+  <hyd-pump>
+    <name>System Pumps</name>
+    <mode>looped</mode>
+    <path>Aircraft/707/Sounds/pump.wav</path>
+     <condition>			
+     	<and>
+				<greater-than>
+					<property>/b707/hydraulic/system</property>
+					<value>0.1</value>
+				</greater-than>
+				<less-than>
+					<property>/b707/hydraulic/system</property>
+					<value>2205</value>
+				</less-than>
+		   </and>
+     </condition>
+			<volume>
+				<factor>0.03</factor>
+			</volume>
+      <pitch>
+        <property>/b707/hydraulic/system</property>
+        <factor>0.5</factor>
+        <offset>2000</offset>
+      </pitch>
+    </hyd-pump>
 
 </fx>
 

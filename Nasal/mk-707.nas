@@ -103,7 +103,7 @@ var toggleLandingLights = func {
 
 ################## Little Help Window on bottom of screen #################
 var help_win = screen.window.new( 0, 0, 1, 3 );
-help_win.fg = [1,1,1,1];
+help_win.fg = [0.8,0.8,0.0,1];
 
 var messenger = func{
 help_win.write(arg[0]);
@@ -369,3 +369,118 @@ var changeView = func (n){
     actualView.setValue(n);
   }
 }
+
+################## hydraulic system and auxilliary pumps #################
+var HydQuant = props.globals.initNode("b707/hydraulic/quantity",5400,"DOUBLE");
+var rud = props.globals.initNode("/b707/hydraulic/rudder",0,"DOUBLE");
+var sys = props.globals.initNode("/b707/hydraulic/system",0,"DOUBLE");
+var shut1 = props.globals.getNode("/b707/hydraulic/hyd-fluid-shutoff[0]", 1);
+var shut2 = props.globals.getNode("/b707/hydraulic/hyd-fluid-shutoff[1]", 1);
+var pump1 = props.globals.getNode("/b707/hydraulic/hyd-fluid-pump[0]", 1);
+var pump2 = props.globals.getNode("/b707/hydraulic/hyd-fluid-pump[1]", 1);
+var acAux1 = props.globals.getNode("/b707/hydraulic/ac-aux-pump[0]", 1);
+var acAux2 = props.globals.getNode("/b707/hydraulic/ac-aux-pump[1]", 1);
+var eb = props.globals.getNode("/b707/ess-bus", 1);
+
+setlistener("/b707/hydraulic/hyd-fluid-shutoff[0]", func{
+	if(shut1.getBoolValue() and eb.getValue() > 23){
+		 if (sys.getValue() <= 1 and pump1.getBoolValue()){ 
+		 		interpolate("/b707/hydraulic/system", 2210, 12); # <=1 interpolation did not started before
+		 		var q = (HydQuant.getValue() >= 5400) ? 4400 : HydQuant.getValue() - 1000;
+		 		interpolate("/b707/hydraulic/quantity", q, 12);
+		 }
+	}else{
+		 pump1.setBoolValue(0);
+		 if (!shut2.getBoolValue() or !pump2.getBoolValue(0) or eb.getValue() < 23) { 
+		 		interpolate("/b707/hydraulic/system", 0, 7);
+		 		var q = (HydQuant.getValue() >= 4400) ? 5400 : HydQuant.getValue() + 1000;
+		 		interpolate("/b707/hydraulic/quantity", q, 7);
+		 }	
+	}
+},0,0);
+
+setlistener("/b707/hydraulic/hyd-fluid-shutoff[1]", func{
+	if(shut2.getBoolValue() and eb.getValue() > 23){
+		 if (sys.getValue() <= 1 and pump2.getBoolValue()){ 
+		 		interpolate("/b707/hydraulic/system", 2210, 12); # <=1 interpolation did not started before
+		 		var q = (HydQuant.getValue() >= 5400) ? 4400 : HydQuant.getValue() - 1000;
+		 		interpolate("/b707/hydraulic/quantity", q, 12);
+		 }
+	}else{
+		 pump2.setBoolValue(0);
+		 if (!shut1.getBoolValue() or !pump1.getBoolValue(0) or eb.getValue() < 23) { 
+		 		interpolate("/b707/hydraulic/system", 0, 7);
+		 		var q = (HydQuant.getValue() >= 4400) ? 5400 : HydQuant.getValue() + 1000;
+		 		interpolate("/b707/hydraulic/quantity", q, 7);
+		 }	
+	}
+},0,0);
+
+setlistener("/b707/hydraulic/hyd-fluid-pump[0]", func{
+	if(pump1.getBoolValue() and eb.getValue() > 23){
+		 if (sys.getValue() <= 1 and shut1.getBoolValue()){ 
+		 		interpolate("/b707/hydraulic/system", 2210, 12); # <=1 interpolation did not started before
+		 		var q = (HydQuant.getValue() >= 5400) ? 4400 : HydQuant.getValue() - 1000;
+		 		interpolate("/b707/hydraulic/quantity", q, 12);
+		 }
+	}else{
+		 if (!shut2.getBoolValue() or !pump2.getBoolValue()) { 
+		 		interpolate("/b707/hydraulic/system", 0, 7);
+		 		var q = (HydQuant.getValue() >= 4400) ? 5400 : HydQuant.getValue() + 1000;
+		 		interpolate("/b707/hydraulic/quantity", q, 7);
+		 }	
+	}
+},0,0);
+
+setlistener("/b707/hydraulic/hyd-fluid-pump[1]", func{
+	if(pump2.getBoolValue() and eb.getValue() > 23){
+		 if (sys.getValue() <= 1 and shut2.getBoolValue()) { 
+		 		interpolate("/b707/hydraulic/system", 2210, 12); # <=1 interpolation did not started before
+		 		var q = (HydQuant.getValue() >= 5400) ? 4400 : HydQuant.getValue() - 1000;
+		 		interpolate("/b707/hydraulic/quantity", q, 12);
+		 }
+	}else{
+		 if (!shut1.getBoolValue() or !pump1.getBoolValue()) { 
+		 		interpolate("/b707/hydraulic/system", 0, 7);
+		 		var q = (HydQuant.getValue() >= 4400) ? 5400 : HydQuant.getValue() + 1000;
+		 		interpolate("/b707/hydraulic/quantity", q, 7);
+		 }	
+	}
+},0,0);
+
+setlistener("/b707/hydraulic/ac-aux-pump[0]", func{
+	if(acAux1.getBoolValue() and eb.getValue() > 23){
+		 if (rud.getValue() <= 1){ 
+		 		interpolate("/b707/hydraulic/rudder", 3010, 14); # <=1 interpolation did not started before
+		 		var q = (HydQuant.getValue() >= 5400) ? 4200 : HydQuant.getValue() - 1200;
+		 		interpolate("/b707/hydraulic/quantity", q, 14);
+		 }
+	}else{
+		 if (!acAux2.getBoolValue()) { 
+		 		 	interpolate("/b707/hydraulic/rudder", 0, 8);
+		 			var q = (HydQuant.getValue() >= 4200) ? 5400 : HydQuant.getValue() + 1200;
+			 		interpolate("/b707/hydraulic/quantity", q, 8);
+		 }	
+	}
+},0,0);
+
+setlistener("/b707/hydraulic/ac-aux-pump[1]", func{
+	if(acAux2.getBoolValue() and eb.getValue() > 23){
+		 if (rud.getValue() <= 1){ 
+		 		interpolate("/b707/hydraulic/rudder", 3010, 14); # <=1 interpolation did not started before
+		 		var q = (HydQuant.getValue() >= 5400) ? 4200 : HydQuant.getValue() - 1200;
+		 		interpolate("/b707/hydraulic/quantity", q, 14);
+		 }
+	}else{
+		 if (!acAux1.getBoolValue()) { 
+		 		 	interpolate("/b707/hydraulic/rudder", 0, 8);
+		 			var q = (HydQuant.getValue() >= 4200) ? 5400 : HydQuant.getValue() + 1200;
+			 		interpolate("/b707/hydraulic/quantity", q, 8);
+		 }	
+	}
+},0,0);
+
+
+
+
+

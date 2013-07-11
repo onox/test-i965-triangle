@@ -217,7 +217,7 @@
 				<property>/instrumentation/mptcas/display-factor</property>
 				<step>-0.01</step>
 				<min>0.03</min>
-				<max>0.64</max>
+				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
 		  <binding>
@@ -234,7 +234,7 @@
 				<property>/instrumentation/mptcas/display-factor</property>
 				<step>0.01</step>
 				<min>0.03</min>
-				<max>0.64</max>
+				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
 		  <binding>
@@ -251,7 +251,7 @@
 				<property>/instrumentation/mptcas/display-factor</property>
 				<step>-0.01</step>
 				<min>0.03</min>
-				<max>0.64</max>
+				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
 		  <binding>
@@ -268,7 +268,7 @@
 				<property>/instrumentation/mptcas/display-factor</property>
 				<step>0.01</step>
 				<min>0.03</min>
-				<max>0.64</max>
+				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
 		  <binding>

@@ -783,7 +783,7 @@ var crossfeed_action = func {
 	  interpolate("/consumables/fuel/tank[5]/level-lbs", mNeu, 7);
 	}
 	
-	if(pow > 20 and v1.getBoolValue() and vp1.getBoolValue() and tfM1.getValue() < 100){
+	if(pow > 20 and v1.getBoolValue() and vp1.getBoolValue() and tfM1.getValue() < 250){
 		# M1 ask the other tanks
 		bog = tfM2.getValue() + tfM3.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -797,8 +797,8 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 40;
-			var m1Neu = tfM1.getValue() + 5; # the difference to the 40 is the consumption during interpolate
+			bog -= 84;
+			var m1Neu = tfM1.getValue() + 10; # the difference to the 84 is the consumption during interpolation
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
@@ -811,7 +811,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v2.getBoolValue() and vp2.getBoolValue() and tfM2.getValue() < 100){
+	if(pow > 20 and v2.getBoolValue() and vp2.getBoolValue() and tfM2.getValue() < 250){
 		# M2 ask the other tanks
 		bog = tfM1.getValue() + tfM3.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -825,9 +825,9 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 40;
+			bog -= 84;
 			var m1Neu = bog*p1;
-			var m2Neu = tfM2.getValue() + 5; # the difference to the 40 is the consumption during interpolate
+			var m2Neu = tfM2.getValue() + 10; # the difference to the 84 is the consumption during interpolation
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
 			var m4Neu = bog*p4;
@@ -839,7 +839,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v3.getBoolValue() and vp3.getBoolValue() and tfM3.getValue() < 100){
+	if(pow > 20 and v3.getBoolValue() and vp3.getBoolValue() and tfM3.getValue() < 250){
 		# M3 ask the other tanks
 		bog = tfM1.getValue() + tfM2.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -853,11 +853,11 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 40;
+			bog -= 84;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
-			var m3Neu = tfM3.getValue() + 5; # the difference to the 40 is the consumption during interpolate
+			var m3Neu = tfM3.getValue() + 10; # the difference to the 84 is the consumption during interpolation
 			var m4Neu = bog*p4;
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
@@ -867,7 +867,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v4.getBoolValue() and vp4.getBoolValue() and tfM4.getValue() < 100){
+	if(pow > 20 and v4.getBoolValue() and vp4.getBoolValue() and tfM4.getValue() < 250){
 		# M4 ask the other tanks
 		bog = tfM1.getValue() + tfM2.getValue() + tfM3.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -881,12 +881,12 @@ var crossfeed_action = func {
 		var p3 = (tfM3.getValue() > 0) ? tfM3.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 40;
+			bog -= 84;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
-			var m4Neu = tfM4.getValue() + 5; # the difference to the 40 is the consumption during interpolate
+			var m4Neu = tfM4.getValue() + 10; # the difference to the 84 is the consumption during interpolation
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
 	  	interpolate("/consumables/fuel/tank[3]/level-lbs", cNeu, 7);
@@ -900,8 +900,8 @@ var crossfeed_action = func {
 	  diff = 15564 - tfM4.getValue(); #15564 is the capaticy of the Main Tank 1 and 4
 	  
 	  if(tfR4.getValue() >= 50 and diff >= 50){
-	  		var mNeu = tfM4.getValue() + 100;
-				var rNeu = tfR4.getValue() - 100;
+	  		var mNeu = tfM4.getValue() + 50;
+				var rNeu = tfR4.getValue() - 50;
 		}elsif(tfR4.getValue() >= 50 and diff <= 50){
 				var mNeu = tfM4.getValue() + diff;
 	    	var rNeu = tfR4.getValue() - diff;

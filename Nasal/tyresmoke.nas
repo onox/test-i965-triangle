@@ -15,6 +15,7 @@ setlistener("gear/brake-smoke", func (brakesmoke){
 },1,0);
 
 setlistener("gear/gear[0]/wow", func (wow_0){
+	setprop("/autopilot/switches/ap", 0);
 	var wow_0 = wow_0.getValue() or 0;
 	var state = props.globals.getNode("/controls/special/tyresmoke");
 	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") or 0;
@@ -25,6 +26,7 @@ setlistener("gear/gear[0]/wow", func (wow_0){
 },1,0);
 
 setlistener("gear/gear[1]/wow", func (wow_1){
+	setprop("/autopilot/switches/ap", 0);
 	var wow_1 = wow_1.getValue() or 0;
 	var state = props.globals.getNode("/controls/special/tyresmoke");
 	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") or 0;

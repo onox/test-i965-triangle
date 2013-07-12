@@ -365,6 +365,23 @@
     </gear>
  </controls>
  
+ <!-- the b707 folder most properties set in other files. These we need for the tutorial-->
+ <b707>
+ 		<hydraulic>
+				<rudder type="double">0</rudder>
+				<system type="double">0</system>
+				<brake-valve type="double">0</brake-valve>
+				<ac-aux-pump n="0" type="bool">0</ac-aux-pump>
+				<ac-aux-pump n="1" type="bool">0</ac-aux-pump>
+				<hyd-fluid-shutoff-cover n="0" type="bool">0</hyd-fluid-shutoff-cover>
+				<hyd-fluid-shutoff-cover n="1" type="bool">0</hyd-fluid-shutoff-cover>
+				<hyd-fluid-shutoff n="0" type="bool">0</hyd-fluid-shutoff>
+				<hyd-fluid-shutoff n="1" type="bool">0</hyd-fluid-shutoff>
+				<hyd-fluid-pump n="0" type="bool">0</hyd-fluid-pump>
+				<hyd-fluid-pump n="1" type="bool">0</hyd-fluid-pump>
+		</hydraulic>
+  </b707>
+  
 	<payload>
 		<weight>
 			<name type="string">Crew</name>

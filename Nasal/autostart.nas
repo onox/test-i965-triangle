@@ -72,13 +72,125 @@ var startup = func
 				setprop("b707/apu/off-start-run", 0);
 				setprop("b707/generator/gen-drive[4]", 0);
 				toggle_switch3();
-				step = 5;
+				step = 4;
 			}else{
 				step = 0;
 				screen.log.write(" Battery switch INOP - startup interrupted ", 1, 0, 0);
 			}
 		}, t); t += 0.5;
+		
+		# Auxilliary Pumps and Hydraulic Pumps Engine 2 and 3
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/ac-aux-pump[0]", 1);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Auxilliary 1 Pump INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 4;
+		
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/ac-aux-pump[1]", 1);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Auxilliary 2 Pump INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 10;
+		
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/brake-valve", 2);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Auxilliary Connect Valve INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 0.5;
 
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/hyd-fluid-shutoff-cover[0]", 1);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Hydraulic Shutoff Cover INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 0.2;
+
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/hyd-fluid-shutoff-cover[1]", 1);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Hydraulic Shutoff Cover INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 0.2;
+		
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/hyd-fluid-shutoff[0]", 1);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Hydraulic Shutoff INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 0.2;
+		
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/hyd-fluid-shutoff[1]", 1);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Hydraulic Shutoff INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 0.2;
+
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/hyd-fluid-shutoff-cover[0]", 0);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Hydraulic Shutoff Cover INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 0.2;
+
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/hyd-fluid-shutoff-cover[1]", 0);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Hydraulic Shutoff Cover INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 0.2;
+		
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/hyd-fluid-pump[0]", 1);
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Hydraulic Pump for Engine 2 INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 4;
+		
+		settimer( func{
+			if(step == 4 and auto_procedure.getValue()){
+				setprop("/b707/hydraulic/hyd-fluid-pump[1]", 1);
+				step = 5;
+				toggle_switch3();
+			}else{
+				step = 0;
+				screen.log.write(" Hydraulic Pump for Engine 3 INOP - startup interrupted ", 1, 0, 0);
+			}
+		}, t); t += 8;
+		
 		# Volt-Loads-Selector
 	 	settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
@@ -847,48 +959,22 @@ var startup = func
 		}, t); t += 1.0;
 		
 	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
+		 	if(step == 13 and auto_procedure.getValue()) {
 		 		setprop("b707/ac/ac-para-select", 6);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		
 	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
+		 	if(step == 13 and auto_procedure.getValue()) {
 		 		setprop("b707/ac/ac-para-select", 0);
 				toggle_switch3();
 			}
 		}, t); t += 0.2;
 		
 	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
+		 	if(step == 13 and auto_procedure.getValue()) {
 		 		setprop("b707/ac/ac-para-select", 1);
-				toggle_switch3();
-			}
-		}, t); t += 0.5;
-	
-		# Essential-Power-Selector
-	 	settimer( func{
-	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("b707/ess-power-switch", 4);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("b707/ess-power-switch", 3);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("b707/ess-power-switch", 2);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-	 		if(step == 13 and auto_procedure.getValue()){
-		 		setprop("b707/ess-power-switch", 1);
 				toggle_switch3();
 			}
 		}, t); t += 0.5;
@@ -967,9 +1053,35 @@ var startup = func
 	 		if(step == 13 and auto_procedure.getValue()){
 				setprop("b707/generator/gen-bus-tie-cover[3]", 0);
 				toggle_switch3();
-				step = 14;
 			}	
-		}, t); t += 1.0;		
+		}, t); t += 1.0;
+	
+		# Essential-Power-Selector
+	 	settimer( func{
+	 		if(step == 13 and auto_procedure.getValue()){
+		 		setprop("b707/ess-power-switch", 4);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+	 		if(step == 13 and auto_procedure.getValue()){
+		 		setprop("b707/ess-power-switch", 3);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+	 		if(step == 13 and auto_procedure.getValue()){
+		 		setprop("b707/ess-power-switch", 2);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+	 		if(step == 13 and auto_procedure.getValue()){
+		 		setprop("b707/ess-power-switch", 1);
+				step = 14;
+				toggle_switch3();
+			}
+		}, t); t += 0.5;		
 
 		# external power disconnected Power Bus Tie (sync bus)
 		settimer( func{ 		
@@ -983,10 +1095,10 @@ var startup = func
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("b707/external-power-connected", 0);
+				setprop("/b707/hydraulic/brake-valve", 0);
 				toggle_switch3();
 			}
 		}, t); t += 1.5;
-	
 
 		 # lights on 
 		 if(getprop("sim/time/sun-angle-rad") > 1.55){
@@ -1134,10 +1246,20 @@ var starter = func(nr)
 			setprop("controls/engines/engine["~nr~"]/starter", 1);
 			setprop("controls/engines/engine["~nr~"]/started", 1);
 			setprop("b707/generator/gen-freq["~nr~"]", b707.my_rand(384,418));
+			
 			settimer(func
 			{
 				setprop("controls/engines/engine["~nr~"]/cutoff", 0);
 			}, 1.2);
+			
+			# fake highpressure and crossfeed pressure startup - instrument in engineer panel
+			if(nr == 2 or nr == 3) interpolate("b707/start-air-bottle-press[0]",0, 15);
+			if(nr == 1 or nr == 0) interpolate("b707/start-air-bottle-press[1]",0, 15);
+			settimer(func
+			{
+				if(nr == 2 or nr == 3) interpolate("b707/start-air-bottle-press[0]",2870,7);
+				if(nr == 1 or nr == 0) interpolate("b707/start-air-bottle-press[1]",2930,8);
+			}, 22);
 	
 	}else{
 		setprop("controls/engines/engine["~nr~"]/starter", 0);
@@ -1320,6 +1442,14 @@ var short_startup = func
 	setprop("b707/ess-power-switch", 5);
 	setprop("b707/ac/ac-para-select", 5);
 	setprop("b707/ess-bus", 28);
+
+	setprop("/b707/hydraulic/ac-aux-pump[0]", 1);
+	setprop("/b707/hydraulic/ac-aux-pump[1]", 1);
+	setprop("/b707/hydraulic/hyd-fluid-shutoff[0]", 1);
+	setprop("/b707/hydraulic/hyd-fluid-shutoff[1]", 1);
+	setprop("/b707/hydraulic/hyd-fluid-pump[0]", 1);
+	setprop("/b707/hydraulic/hyd-fluid-pump[1]", 1);
+	
 	setprop("b707/generator/gen-drive[0]", 1);
 	setprop("b707/generator/gen-drive[1]", 1);
 	setprop("b707/generator/gen-drive[2]", 1);
@@ -1406,6 +1536,7 @@ var short_startup = func
 			setprop("b707/ac/ac-para-select", 1);				
 			setprop("b707/ground-connect", 0);
 			setprop("b707/external-power-connected", 0);
+			setprop("b707/hydraulic/quantity", 3050);
     }, 30);
 
 		

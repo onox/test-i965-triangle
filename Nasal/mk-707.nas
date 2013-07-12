@@ -1,6 +1,12 @@
 # Lake of Constance Hangar :: M.Kraus
 # Avril 2013
 # This file is licenced under the terms of the GNU General Public Licence V2 or later
+
+############################ init ENGINE START AIR PRESSURE ##################################
+var stAirRight = props.globals.initNode("b707/start-air-bottle-press[0]",2810,"DOUBLE");
+var stAirLeft  = props.globals.initNode("b707/start-air-bottle-press[1]",2960,"DOUBLE");
+
+
 ################################ Reverser ####################################
 
 # The heading offset to 0
@@ -479,8 +485,6 @@ setlistener("/b707/hydraulic/ac-aux-pump[1]", func{
 		 }	
 	}
 },0,0);
-
-
 
 
 

@@ -748,6 +748,9 @@ var engines_alive = func {
 		      #print("Engine "~e.getIndex()~" without fuel - boost-pumps out!");
 		      c.setValue(0);
 		  } 
+		   		  
+		  # fake for the hydraulic system pressure. Look inside the mk-707.nas for more
+		  if(e.getIndex() == 1 and c.getBoolValue() and getprop("/b707/hydraulic/system") <= 2210) interpolate("/b707/hydraulic/system", 3018, 5);
 		   
 	}
 
@@ -783,7 +786,7 @@ var crossfeed_action = func {
 	  interpolate("/consumables/fuel/tank[5]/level-lbs", mNeu, 7);
 	}
 	
-	if(pow > 20 and v1.getBoolValue() and vp1.getBoolValue() and tfM1.getValue() < 250){
+	if(pow > 20 and v1.getBoolValue() and vp1.getBoolValue() and tfM1.getValue() < 100){
 		# M1 ask the other tanks
 		bog = tfM2.getValue() + tfM3.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -797,8 +800,8 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 84;
-			var m1Neu = tfM1.getValue() + 10; # the difference to the 84 is the consumption during interpolation
+			bog -= 28;
+			var m1Neu = tfM1.getValue() + 10; # the difference to the 28 is the consumption during interpolation
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
@@ -811,7 +814,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v2.getBoolValue() and vp2.getBoolValue() and tfM2.getValue() < 250){
+	if(pow > 20 and v2.getBoolValue() and vp2.getBoolValue() and tfM2.getValue() < 100){
 		# M2 ask the other tanks
 		bog = tfM1.getValue() + tfM3.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -825,9 +828,9 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 84;
+			bog -= 28;
 			var m1Neu = bog*p1;
-			var m2Neu = tfM2.getValue() + 10; # the difference to the 84 is the consumption during interpolation
+			var m2Neu = tfM2.getValue() + 10; # the difference to the 28 is the consumption during interpolation
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
 			var m4Neu = bog*p4;
@@ -839,7 +842,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v3.getBoolValue() and vp3.getBoolValue() and tfM3.getValue() < 250){
+	if(pow > 20 and v3.getBoolValue() and vp3.getBoolValue() and tfM3.getValue() < 100){
 		# M3 ask the other tanks
 		bog = tfM1.getValue() + tfM2.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -853,11 +856,11 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 84;
+			bog -= 28;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
-			var m3Neu = tfM3.getValue() + 10; # the difference to the 84 is the consumption during interpolation
+			var m3Neu = tfM3.getValue() + 10; # the difference to the 28 is the consumption during interpolation
 			var m4Neu = bog*p4;
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
@@ -867,7 +870,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v4.getBoolValue() and vp4.getBoolValue() and tfM4.getValue() < 250){
+	if(pow > 20 and v4.getBoolValue() and vp4.getBoolValue() and tfM4.getValue() < 100){
 		# M4 ask the other tanks
 		bog = tfM1.getValue() + tfM2.getValue() + tfM3.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -881,12 +884,12 @@ var crossfeed_action = func {
 		var p3 = (tfM3.getValue() > 0) ? tfM3.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 84;
+			bog -= 28;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
-			var m4Neu = tfM4.getValue() + 10; # the difference to the 84 is the consumption during interpolation
+			var m4Neu = tfM4.getValue() + 10; # the difference to the 28 is the consumption during interpolation
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
 	  	interpolate("/consumables/fuel/tank[3]/level-lbs", cNeu, 7);

@@ -187,6 +187,50 @@
 			<property>/b707/battery-switch</property>
 			<value>0</value>
 		</set>
+		<set>
+			<property>/b707/hydraulic/rudder</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/system</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/brake-valve</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/ac-aux-pump[0]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/ac-aux-pump[1]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/hyd-fluid-shutoff-cover[0]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/hyd-fluid-shutoff-cover[1]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/hyd-fluid-shutoff[0]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/hyd-fluid-shutoff[1]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/hyd-fluid-pump[0]</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>/b707/hydraulic/hyd-fluid-pump[1]</property>
+			<value>0</value>
+		</set>
 
 	</init>
 
@@ -224,14 +268,14 @@
 			External Power Unit closed.
 		</message>
 		<view>
-			<view-number>1</view-number>
-			<heading-offset-deg>182.1</heading-offset-deg>
-			<pitch-offset-deg>-4.6</pitch-offset-deg>
-			<roll-offset-deg>0.0</roll-offset-deg>
-			<x-offset-m>0.3</x-offset-m>
-			<y-offset-m>1.8</y-offset-m>
-			<z-offset-m>-32.0</z-offset-m>
-			<field-of-view>70</field-of-view>
+		    <view-number>1</view-number>
+				<heading-offset-deg>195.9</heading-offset-deg>
+				<pitch-offset-deg>-3.7</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>25.0</x-offset-m>
+				<y-offset-m>2.0</y-offset-m>
+				<z-offset-m>-45.0</z-offset-m>
+				<field-of-view>21.6</field-of-view>
 		</view>
 		<exit>
 			<condition>
@@ -409,7 +453,180 @@
 			</condition>
 		</exit>
 	</step>
+
+	<step>
+		<message>
+			AUXILLIARY PUMPS on.
+			Auxilliary system pressure is used for the rudder and as an alternate source for brakes.
+		</message>
+		<view>
+				<heading-offset-deg>230.5</heading-offset-deg>
+				<pitch-offset-deg>-17.6</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.3</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>17.7</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.4422</x-m>
+				<y-m>0.7289</y-m>
+				<z-m>0.7942</z-m>
+				<scale>1.4959</scale>
+		</marker>
+
+		<error>
+			<message>Switch on both pumps and wait until 3000 PSI RUD HYD PRESS.</message>
+			<condition>
+				<or>
+					<not><property>/b707/hydraulic/ac-aux-pump[0]</property></not>
+					<not><property>/b707/hydraulic/ac-aux-pump[1]</property></not>
+				</or>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+			 <and>
+				<property>/b707/hydraulic/ac-aux-pump[0]</property>
+				<property>/b707/hydraulic/ac-aux-pump[1]</property>
+				<greater-than>
+					<property>/b707/hydraulic/rudder</property>
+					<value>2900</value>
+				</greater-than>
+			 </and>
+			</condition>
+		</exit>
+	</step>
 	
+	<step>
+		<message>
+			INTERCONNECT VALVE to system.
+			AC AUXILLIARY PUMPS supplies also the system pressure.
+		</message>
+		<view>
+				<heading-offset-deg>230.5</heading-offset-deg>
+				<pitch-offset-deg>-17.6</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.3</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>17.7</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.4066</x-m>
+				<y-m>0.7289</y-m>
+				<z-m>0.7942</z-m>
+				<scale>1.4959</scale>
+		</marker>
+		
+		<error>
+			<message>switch knob to system</message>
+			<condition>
+				<not>
+					<equals>
+						<property>b707/hydraulic/brake-valve</property>
+						<value>2</value>
+					</equals>
+				</not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<equals>
+					<property>b707/hydraulic/brake-valve</property>
+					<value>2</value>
+				</equals>
+			</condition>
+		</exit>
+	</step>		
+	
+	<step>
+		<message>
+			HYD FLUID SHUTOFFs on.
+		</message>
+		<view>
+				<heading-offset-deg>230.5</heading-offset-deg>
+				<pitch-offset-deg>-17.6</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.3</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>17.7</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.3207</x-m>
+				<y-m>0.7289</y-m>
+				<z-m>0.7942</z-m>
+				<scale>2.7686</scale>
+		</marker>
+
+		<error>
+			<message>Open the cover and switch on both shutoff knobs.</message>
+			<condition>
+				<or>
+					<not><property>/b707/hydraulic/hyd-fluid-shutoff[0]</property></not>
+					<not><property>/b707/hydraulic/hyd-fluid-shutoff[1]</property></not>
+				</or>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<and>
+					<property>/b707/hydraulic/hyd-fluid-shutoff[0]</property>
+					<property>/b707/hydraulic/hyd-fluid-shutoff[1]</property>
+				</and>
+			</condition>
+		</exit>
+	</step>	
+	
+	<step>
+		<message>
+			ENGINE PUMPS on.
+			The main hydraulic system.
+		</message>
+		<view>
+				<heading-offset-deg>230.5</heading-offset-deg>
+				<pitch-offset-deg>-17.6</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.3</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>17.7</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.3744</x-m>
+				<y-m>0.7289</y-m>
+				<z-m>0.7918</z-m>
+				<scale>1.5124</scale>
+		</marker>
+
+		<error>
+			<message>Switch on both pumps and wait until 2200 PSI HYD SYS PRESS.</message>
+			<condition>
+				<or>
+					<not><property>/b707/hydraulic/hyd-fluid-pump[0]</property></not>
+					<not><property>/b707/hydraulic/hyd-fluid-pump[1]</property></not>
+				</or>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<and>
+					<property>/b707/hydraulic/hyd-fluid-pump[0]</property>
+					<property>/b707/hydraulic/hyd-fluid-pump[1]</property>
+					<greater-than>
+						<property>/b707/hydraulic/system</property>
+						<value>2000</value>
+					</greater-than>
+				</and>
+			</condition>
+		</exit>
+	</step>	
+		
 	<step>
 		<message>
 			Connect EXTERNAL POWER UNIT and SYNC BUS.
@@ -1524,21 +1741,22 @@
 			Turn knob to GEN I
 		</message>
 		<view>
-				<heading-offset-deg>238.1</heading-offset-deg>
-				<pitch-offset-deg>7.5</pitch-offset-deg>
+				<heading-offset-deg>237.8</heading-offset-deg>
+				<pitch-offset-deg>8.2</pitch-offset-deg>
 				<roll-offset-deg>0.0</roll-offset-deg>
 				<x-offset-m>-0.3</x-offset-m>
 				<y-offset-m>1.2</y-offset-m>
 				<z-offset-m>-18.2</z-offset-m>
-				<field-of-view>14.5</field-of-view>
+				<field-of-view>15.9</field-of-view>
 		</view>
 
 		<marker>
-				<x-m>-17.5620</x-m>
+				<x-m>-17.6033</x-m>
 				<y-m>0.6000</y-m>
-				<z-m>1.3686</z-m>
-				<scale>1.3967</scale>
+				<z-m>1.3455</z-m>
+				<scale>1.4959</scale>
 		</marker>
+
 		<error>
 			<message>Turn to generator 1</message>
 			<condition>

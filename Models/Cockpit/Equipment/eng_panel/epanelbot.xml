@@ -157,6 +157,16 @@
 		  <z-m>-0.1828</z-m>
 		</offsets>
 	</model>
+	
+	<model>
+		<name>start air</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/startAir.xml</path>
+		<offsets>
+		  <x-m> 0.0718</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m>-0.063</z-m>
+		</offsets>
+	</model>
 
 	<model>
 		<name>hyd reservoir</name>

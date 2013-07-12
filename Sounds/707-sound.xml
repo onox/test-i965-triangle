@@ -1277,7 +1277,7 @@
 		   </and>
      </condition>
 			<volume>
-				<factor>0.03</factor>
+				<factor>0.06</factor>
 			</volume>
       <pitch>
         <property>/b707/hydraulic/rudder</property>
@@ -1303,7 +1303,7 @@
 		   </and>
      </condition>
 			<volume>
-				<factor>0.03</factor>
+				<factor>0.06</factor>
 			</volume>
       <pitch>
         <property>/b707/hydraulic/system</property>

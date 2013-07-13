@@ -97,7 +97,6 @@
 			<z-offset-m archive="y">-17.5</z-offset-m>
 			<heading-offset-deg type="double">-91.0</heading-offset-deg>
 			<pitch-offset-deg type="double">-12.0</pitch-offset-deg>
-			<from-model-idx type="int">0</from-model-idx>
 			<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
 			<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
 			<default-pitch-deg type="double">-12.0</default-pitch-deg>
@@ -456,9 +455,6 @@
 				<file>Aircraft/707/Nasal/tcas.nas</file>
 				<file>Aircraft/707/Nasal/immat.nas</file>
 			</b707>        
-			<view>
-        <file>Aircraft/707/Nasal/view.nas</file>
-      </view>
 		</nasal>
 
 </PropertyList>

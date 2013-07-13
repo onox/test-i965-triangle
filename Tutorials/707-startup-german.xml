@@ -482,6 +482,10 @@
 				<or>
 					<not><property>/b707/hydraulic/ac-aux-pump[0]</property></not>
 					<not><property>/b707/hydraulic/ac-aux-pump[1]</property></not>
+					<less-than>
+						<property>/b707/hydraulic/rudder</property>
+						<value>2900</value>
+					</less-than>
 				</or>
 			</condition>
 		</error>
@@ -610,6 +614,10 @@
 				<or>
 					<not><property>/b707/hydraulic/hyd-fluid-pump[0]</property></not>
 					<not><property>/b707/hydraulic/hyd-fluid-pump[1]</property></not>
+					<less-than>
+						<property>/b707/hydraulic/system</property>
+						<value>2000</value>
+					</less-than>
 				</or>
 			</condition>
 		</error>
@@ -861,7 +869,6 @@
 				<z-offset-m>-18.2</z-offset-m>
 				<field-of-view>31.1</field-of-view>
 		</view>
-
 		<marker>
 				<x-m>-17.8157</x-m>
 				<y-m>0.7496</y-m>
@@ -908,14 +915,12 @@
 				<z-offset-m>-18.2</z-offset-m>
 				<field-of-view>31.1</field-of-view>
 		</view>
-
 		<marker>
 				<x-m>-17.8074</x-m>
 				<y-m>0.7496</y-m>
 				<z-m>1.0231</z-m>
 				<scale>3.0496</scale>
 		</marker>
-
 		<error>
 			<message>
 				ALLE Pumpen einschalten!
@@ -963,7 +968,7 @@
 				<z-offset-m>-18.2</z-offset-m>
 				<field-of-view>31.1</field-of-view>
 		</view>
-
+		
 		<marker>
 				<x-m>-17.8174</x-m>
 				<y-m>0.7496</y-m>
@@ -991,51 +996,10 @@
 			</condition>
 		</exit>
 	</step>
-
-	<step>
-		<message>
-			Abschalter zuruecksetzen (CUTOFF).
-			Alle Hebel nach oben ziehen. 
-		</message>
-		<view>
-				<heading-offset-deg>293.8</heading-offset-deg>
-				<pitch-offset-deg>-27.2</pitch-offset-deg>
-				<roll-offset-deg>0.0</roll-offset-deg>
-				<x-offset-m>-0.5</x-offset-m>
-				<y-offset-m>1.2</y-offset-m>
-				<z-offset-m>-18.2</z-offset-m>
-				<field-of-view>77.2</field-of-view>
-		</view>
-
-		<marker>
-				<x-m>-18.5140</x-m>
-				<y-m>0.0074</y-m>
-				<z-m>0.6669</z-m>
-				<scale>3.6628</scale>
-		</marker>
-		<error>
-			<message>
-				Ziehen Sie durch anklicken alle Hebel nach oben!
-			</message>
-			<condition>
-				<property>controls/engines/engine[0]/cutoff</property>
-				<property>controls/engines/engine[1]/cutoff</property>
-				<property>controls/engines/engine[2]/cutoff</property>
-				<property>controls/engines/engine[3]/cutoff</property>
-			</condition>
-		</error>
-		<exit>
-			<condition>
-				<not><property>controls/engines/engine[0]/cutoff</property></not>
-				<not><property>controls/engines/engine[1]/cutoff</property></not>
-				<not><property>controls/engines/engine[2]/cutoff</property></not>
-				<not><property>controls/engines/engine[3]/cutoff</property></not>
-			</condition>
-		</exit>
-	</step>	
+		
 		
 	<step>
-		<message>Oeffnen Sie die Abdeckung fuer Starter 3</message>
+		<message>Starter 3 Klappe oeffnen</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1059,7 +1023,7 @@
 	</step>
 
 	<step>
-		<message>Starter 3 schalten und warten, bis die gruene Lampe erlischt (ca. 30sec)</message>
+		<message>Starter 3 einschalten</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1077,13 +1041,103 @@
 		</marker>
 		<exit>
 			<condition>
+				<property>engines/engine[2]/starter</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			CUTOFF 3 einschalten
+		</message>
+		<view>
+				<heading-offset-deg>300.2</heading-offset-deg>
+				<pitch-offset-deg>-38.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.5140</x-m>
+				<y-m>0.0074</y-m>
+				<z-m>0.6669</z-m>
+				<scale>3.6628</scale>
+		</marker>
+
+		<error>
+			<message>
+				Klicken Sie CUTOFF 3 an
+			</message>
+			<condition>
+				<property>controls/engines/engine[2]/cutoff</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<not><property>controls/engines/engine[2]/cutoff</property></not>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>N2 fuer dieses Triebwerk ueberpruefen</message>
+		<view>
+				<heading-offset-deg>319.3</heading-offset-deg>
+				<pitch-offset-deg>-28.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>52.9</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.9037</x-m>
+				<y-m>-0.0017</y-m>
+				<z-m>0.8449</z-m>
+				<scale>1.9107</scale>
+		</marker>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[2]/n2</property>
+					<value>35</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Starter 3 - warten bis gruenes Licht erlischt</message>
+		<view>
+				<heading-offset-deg>315.9</heading-offset-deg>
+				<pitch-offset-deg>-29.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>39.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.3301</x-m>
+				<y-m>0.0149</y-m>
+				<z-m>1.4176</z-m>
+				<scale>1.9107</scale>
+		</marker>
+
+		<exit>
+			<condition>
 				<property>engines/engine[2]/running</property>
 			</condition>
 		</exit>
 	</step>
 	
 	<step>
-		<message>Schliessen Sie die Abdeckung 3, oeffnen Sie Abdeckung 4</message>
+		<message>Abdeckung 3 schliessen und 4 oeffnen</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1102,7 +1156,7 @@
 	</step>
 
 	<step>
-		<message>Starter 4 schalten und warten, bis die gruene Lampe erlischt (ca. 30sec)</message>
+		<message>Starter 4 einschalten</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1120,13 +1174,96 @@
 		</marker>
 		<exit>
 			<condition>
+				<property>engines/engine[3]/starter</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			CUTOFF 4 einschalten
+		</message>
+		<view>
+				<heading-offset-deg>300.2</heading-offset-deg>
+				<pitch-offset-deg>-38.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.5140</x-m>
+				<y-m>0.0074</y-m>
+				<z-m>0.6669</z-m>
+				<scale>3.6628</scale>
+		</marker>
+
+		<error>
+			<message>
+				CUTOFF 4 anklicken
+			</message>
+			<condition>
+				<property>controls/engines/engine[3]/cutoff</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<not><property>controls/engines/engine[3]/cutoff</property></not>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>N2 fuer dieses Triebwerk ueberpruefen</message>
+		<view>
+				<heading-offset-deg>319.3</heading-offset-deg>
+				<pitch-offset-deg>-28.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>52.9</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.9037</x-m>
+				<y-m>0.0380</y-m>
+				<z-m>0.8449</z-m>
+				<scale>1.9107</scale>
+		</marker>
+
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[3]/n2</property>
+					<value>40</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Starter 4 - warten, bis gruenes Licht erlischt</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<exit>
+			<condition>
 				<property>engines/engine[3]/running</property>
 			</condition>
 		</exit>
 	</step>
 	
 	<step>
-		<message>Schliessen Sie die Abdeckung 4, oeffnen Sie Abdeckung 2</message>
+		<message>Abdeckung 4 schliessen und 2 oeffnen</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1145,7 +1282,7 @@
 	</step>
 
 	<step>
-		<message>Starter 2 schalten und warten, bis die gruene Lampe erlischt (ca. 30sec)</message>
+		<message>Starter 2 einschalten</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1163,13 +1300,96 @@
 		</marker>
 		<exit>
 			<condition>
-				<property>engines/engine[1]/running</property>
+				<property>engines/engine[1]/starter</property>
+			</condition>
+		</exit>
+	</step>
+		
+	<step>
+		<message>
+			CUTOFF 2 einschalten
+		</message>
+		<view>
+				<heading-offset-deg>300.2</heading-offset-deg>
+				<pitch-offset-deg>-38.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.5140</x-m>
+				<y-m>0.0074</y-m>
+				<z-m>0.6669</z-m>
+				<scale>3.6628</scale>
+		</marker>
+
+		<error>
+			<message>
+				CUTOFF 2 anklicken
+			</message>
+			<condition>
+				<property>controls/engines/engine[1]/cutoff</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<not><property>controls/engines/engine[1]/cutoff</property></not>
 			</condition>
 		</exit>
 	</step>
 	
 	<step>
-		<message>Schliessen Sie die Abdeckung 2, oeffnen Sie Abdeckung 1</message>
+		<message>N2 fuer dieses Triebwerk ueberpruefen</message>
+		<view>
+				<heading-offset-deg>319.3</heading-offset-deg>
+				<pitch-offset-deg>-28.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>52.9</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.9037</x-m>
+				<y-m>-0.0430</y-m>
+				<z-m>0.8449</z-m>
+				<scale>1.9107</scale>
+		</marker>
+
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[1]/n2</property>
+					<value>40</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Starter 2 - warten, bis gruene Lampe erlischt</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<property>engines/engine[1]/running</property>
+			</condition>
+		</exit>
+	</step>	
+	
+	<step>
+		<message>Abdeckung 2 schliessen und 1 oeffnen</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1188,7 +1408,7 @@
 	</step>
 
 	<step>
-		<message>Starter 1 schalten und warten, bis die gruene Lampe erlischt (ca. 30sec)</message>
+		<message>Starter 1 einschalten</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1206,13 +1426,96 @@
 		</marker>
 		<exit>
 			<condition>
-				<property>engines/engine[0]/running</property>
+				<property>engines/engine[0]/starter</property>
 			</condition>
 		</exit>
 	</step>
 	
 	<step>
-		<message>Schliessen Sie die Abdeckung 1</message>
+		<message>
+			CUTOFF 1 einschalten.
+		</message>
+		<view>
+				<heading-offset-deg>300.2</heading-offset-deg>
+				<pitch-offset-deg>-38.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.5140</x-m>
+				<y-m>0.0074</y-m>
+				<z-m>0.6669</z-m>
+				<scale>3.6628</scale>
+		</marker>
+
+		<error>
+			<message>
+				Ziehen Sie CUTOFF 1 nach oben!
+			</message>
+			<condition>
+				<property>controls/engines/engine[0]/cutoff</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<not><property>controls/engines/engine[0]/cutoff</property></not>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>N2 fuer dieses Triebwerk ueberpruefen</message>
+		<view>
+				<heading-offset-deg>319.3</heading-offset-deg>
+				<pitch-offset-deg>-28.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>52.9</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.9037</x-m>
+				<y-m>-0.0843</y-m>
+				<z-m>0.8449</z-m>
+				<scale>1.9107</scale>
+		</marker>
+
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[1]/n2</property>
+					<value>35</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Starter 1 - warten bis gruenes Licht erlischt</message>
+		<view>
+			<heading-offset-deg>-75</heading-offset-deg>
+			<pitch-offset-deg>30.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.46</x-offset-m>
+			<y-offset-m>1.19</y-offset-m>
+			<z-offset-m>-18.2</z-offset-m>
+			<field-of-view>44.3</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<property>engines/engine[0]/running</property>
+			</condition>
+		</exit>
+	</step>	
+
+	<step>
+		<message>Klappe 1 schliessen</message>
 		<view>
 			<heading-offset-deg>-75</heading-offset-deg>
 			<pitch-offset-deg>30.0</pitch-offset-deg>
@@ -1230,7 +1533,40 @@
 	</step>
 	
 	<step>
-		<message>Kontrollieren Sie die Umdrehungszahlen N2 der Triebwerke.</message>
+		<message>Alle N2 Drehzahlen sollten im gruenen Bereich liegen.</message>
+		<view>
+			<heading-offset-deg>-40.0</heading-offset-deg>
+			<pitch-offset-deg>-20.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.46</x-offset-m>
+			<y-offset-m>1.19</y-offset-m>
+			<z-offset-m>-18.2</z-offset-m>
+			<field-of-view>44.3</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[0]/n2</property>
+					<value>50</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[1]/n2</property>
+					<value>50</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[2]/n2</property>
+					<value>50</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[3]/n2</property>
+					<value>50</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>N2 der Triebwerke im gruenen Bereich?</message>
 		<view>
 			<heading-offset-deg>-40.0</heading-offset-deg>
 			<pitch-offset-deg>-20.0</pitch-offset-deg>
@@ -1353,7 +1689,7 @@
 				<scale>1.7934</scale>
 		</marker>
 		<error>
-			<message>Synchronisieren Sie den ersten Generator.</message>
+			<message>Synchronisieren Sie den ersten Generator (achten Sie auf die weissen Leuchten)</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1426,7 +1762,7 @@
 	
 	<step>
 		<message>
-			Synchronisation durch Frequenzverschiebung an Generator 2.
+			Synchronisation durch Frequenzverschiebung an Generator 2 (achten Sie auf die weissen Leuchten)
 		</message>
 		<view>
 				<heading-offset-deg>247.7</heading-offset-deg>
@@ -1655,28 +1991,27 @@
 	
 	<step>
 		<message>
-			SELECTOR AC PARALLELING auf GEN 1 drehen.
-			Er wird nun unsere Hauptversorgung uebernehmen.
+			SELECTOR AC PARALLELING auf GEN I drehen.
 		</message>
 		<view>
-				<heading-offset-deg>237.8</heading-offset-deg>
-				<pitch-offset-deg>8.2</pitch-offset-deg>
+				<heading-offset-deg>244.2</heading-offset-deg>
+				<pitch-offset-deg>4.8</pitch-offset-deg>
 				<roll-offset-deg>0.0</roll-offset-deg>
-				<x-offset-m>-0.3</x-offset-m>
+				<x-offset-m>-0.4</x-offset-m>
 				<y-offset-m>1.2</y-offset-m>
 				<z-offset-m>-18.2</z-offset-m>
-				<field-of-view>15.9</field-of-view>
+				<field-of-view>20.3</field-of-view>
 		</view>
 
 		<marker>
-				<x-m>-17.6033</x-m>
-				<y-m>0.6000</y-m>
-				<z-m>1.3455</z-m>
-				<scale>1.4959</scale>
+				<x-m>-17.6066</x-m>
+				<y-m>0.7000</y-m>
+				<z-m>1.2455</z-m>
+				<scale>1.6612</scale>
 		</marker>
 
 		<error>
-			<message>Drehen Sie bis zur Stellung GEN 1.</message>
+			<message>Drehen Sie bis zur Stellung GEN I.</message>
 			<condition>
 				<or>
 					<less-than>

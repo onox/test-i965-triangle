@@ -1247,10 +1247,12 @@ var starter = func(nr)
 			setprop("controls/engines/engine["~nr~"]/started", 1);
 			setprop("b707/generator/gen-freq["~nr~"]", b707.my_rand(384,418));
 			
-			settimer(func
-			{
-				setprop("controls/engines/engine["~nr~"]/cutoff", 0);
-			}, 1.2);
+			if(auto_procedure.getValue()){
+				settimer(func
+				{
+					setprop("controls/engines/engine["~nr~"]/cutoff", 0);
+				}, 1.2);
+			}
 			
 			# fake highpressure and crossfeed pressure startup - instrument in engineer panel
 			if(nr == 2 or nr == 3) interpolate("b707/start-air-bottle-press[0]",0, 15);

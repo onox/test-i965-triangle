@@ -1,6 +1,6 @@
 <PropertyList>
 	<name>Engines: Start-up [english]</name>
-	<description>Startup of electrical system and engines with External Power Source</description>
+	<description>Startup engines with external power unit.</description>
 
 	<init>
 		<set>
@@ -186,7 +186,7 @@
 		<set>
 			<property>/b707/battery-switch</property>
 			<value>0</value>
-		</set>
+		</set>		
 		<set>
 			<property>/b707/hydraulic/rudder</property>
 			<value>0</value>
@@ -236,8 +236,8 @@
 
 	<step>
 		<message>
-			Plug in the External Power Unit first.
-			Select in the main menu: Boeing 707/ External Power Unit
+			Connect to External Power Unit.
+			In main menu B707/External Power Unit
 		</message>
 		<view>
 				<heading-offset-deg>240.8</heading-offset-deg>
@@ -265,7 +265,7 @@
 	
 	<step>
 		<message>
-			External Power Unit closed.
+			The External Power Unit was pluged in.
 		</message>
 		<view>
 		    <view-number>1</view-number>
@@ -286,7 +286,7 @@
 	
 	<step>
 		<message>
-			Set battery main switch.
+			Switch on the battery.
 		</message>
 		<view>
 				<heading-offset-deg>235.4</heading-offset-deg>
@@ -306,7 +306,7 @@
 		</marker>
 
 		<error>
-			<message>Open battery switch cover.</message>
+			<message>Open the cover and switch on the battery.</message>
 			<condition>
 				<not><property>/b707/battery-switch</property></not>
 			</condition>
@@ -320,7 +320,7 @@
 	
 	<step>
 		<message>
-			SELECTOR LOAD &amp; VOLTS set to BUS-TIE.
+			SELECTOR LOAD &amp; VOLTS turn to BUS-TIE.
 		</message>
 		<view>
 				<heading-offset-deg>234.0</heading-offset-deg>
@@ -339,7 +339,7 @@
 				<scale>3.0000</scale>
 		</marker>
 		<error>
-			<message>Use setting BUS TIE.</message>
+			<message>Use only BUS TIE for the moment.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -365,7 +365,7 @@
 	
 	<step>
 		<message>
-			ESSENTIAL POWER set to EXT PWR.
+			ESSENTIAL POWER turn to EXT PWR.
 		</message>
 		<view>
 				<heading-offset-deg>238.1</heading-offset-deg>
@@ -457,7 +457,7 @@
 	<step>
 		<message>
 			AUXILLIARY PUMPS on.
-			Auxilliary system pressure is used for the rudder and as an alternate source for brakes.
+			Hydraulic pressure for rudder, gear and system support.
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -477,11 +477,15 @@
 		</marker>
 
 		<error>
-			<message>Switch on both pumps and wait until 3000 PSI RUD HYD PRESS.</message>
+			<message>Switch both to on and wait until 3000 PSI RUD HYD PRESS.</message>
 			<condition>
 				<or>
 					<not><property>/b707/hydraulic/ac-aux-pump[0]</property></not>
 					<not><property>/b707/hydraulic/ac-aux-pump[1]</property></not>
+					<less-than>
+						<property>/b707/hydraulic/rudder</property>
+						<value>2900</value>
+					</less-than>
 				</or>
 			</condition>
 		</error>
@@ -501,8 +505,8 @@
 	
 	<step>
 		<message>
-			INTERCONNECT VALVE to system.
-			AC AUXILLIARY PUMPS supplies also the system pressure.
+			INTERCONNECT VALVE on.
+			AC AUXILLIARY PUMPS support system.
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -522,7 +526,7 @@
 		</marker>
 		
 		<error>
-			<message>switch knob to system</message>
+			<message>Switch down this knob</message>
 			<condition>
 				<not>
 					<equals>
@@ -564,7 +568,7 @@
 		</marker>
 
 		<error>
-			<message>Open the cover and switch on both shutoff knobs.</message>
+			<message>Open covers and switch on the knobs.</message>
 			<condition>
 				<or>
 					<not><property>/b707/hydraulic/hyd-fluid-shutoff[0]</property></not>
@@ -585,7 +589,7 @@
 	<step>
 		<message>
 			ENGINE PUMPS on.
-			The main hydraulic system.
+			Hydraulic support for all the residual systems.
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -605,11 +609,15 @@
 		</marker>
 
 		<error>
-			<message>Switch on both pumps and wait until 2200 PSI HYD SYS PRESS.</message>
+			<message>Switch both to on and wait until 2200 PSI HYD SYS PRESS.</message>
 			<condition>
 				<or>
 					<not><property>/b707/hydraulic/hyd-fluid-pump[0]</property></not>
-					<not><property>/b707/hydraulic/hyd-fluid-pump[1]</property></not>
+					<not><property>/b707/hydraulic/hyd-fluid-pump[1]</property></not>					
+					<less-than>
+						<property>/b707/hydraulic/system</property>
+						<value>2000</value>
+					</less-than>
 				</or>
 			</condition>
 		</error>
@@ -626,10 +634,10 @@
 			</condition>
 		</exit>
 	</step>	
-		
+	
 	<step>
 		<message>
-			Connect EXTERNAL POWER UNIT and SYNC BUS.
+			Connect External Power Unit to the SYNC BUS.
 		</message>
 		<view>
 				<heading-offset-deg>237.8</heading-offset-deg>
@@ -649,7 +657,7 @@
 		</marker>
 		<error>
 			<message>
-				Set switch to ON.
+				Switch to ON.
 			</message>
 			<condition>
 				<not><property>/b707/ground-connect</property></not>
@@ -699,7 +707,7 @@
 				<property>/b707/generator/gen-drive-cover[2]</property>
 				<property>/b707/generator/gen-drive-cover[3]</property>
 			</condition>
-		</error>
+		</error>		
 		<exit>
 			<condition>
 				<property>/b707/generator/gen-drive[0]</property>
@@ -709,7 +717,7 @@
 			</condition>
 		</exit>
 	</step>
-	
+
 	<step>
 		<message>
 			BUS-TIE-BREAKER
@@ -740,7 +748,7 @@
 				<not><property>/b707/generator/gen-bus-tie[0]</property></not>
 				<not><property>/b707/generator/gen-bus-tie[1]</property></not>
 				<not><property>/b707/generator/gen-bus-tie[2]</property></not>
-				<not><property>/b707/generator/gen-bus-tie[3]</property></not>				
+				<not><property>/b707/generator/gen-bus-tie[3]</property></not>
 				<property>/b707/generator/gen-bus-tie-cover[0]</property>
 				<property>/b707/generator/gen-bus-tie-cover[1]</property>
 				<property>/b707/generator/gen-bus-tie-cover[2]</property>
@@ -756,7 +764,7 @@
 			</condition>
 		</exit>
 	</step>	
-
+	
 	<step>
 		<message>
 			GEN - CONTROL
@@ -793,7 +801,7 @@
 				<property>/b707/generator/gen-control-cover[2]</property>
 				<property>/b707/generator/gen-control-cover[3]</property>
 			</condition>
-		</error>
+		</error>	
 		<exit>
 			<condition>
 				<property>/b707/generator/gen-control[0]</property>
@@ -803,11 +811,11 @@
 			</condition>
 		</exit>
 	</step>
-
+	
 	<step>
 		<message>
 			GEN - BREAKER
-			Close all circuits 
+			Close all circuits  
 		</message>
 		<view>
 				<heading-offset-deg>246.5</heading-offset-deg>
@@ -845,11 +853,11 @@
 			</condition>
 		</exit>
 	</step>
-
 	
 	<step>
 		<message>
-			Open and close every CROSSFEED (blue lights out) 
+			Sync every CROSSFEED VALVE to his shut (blue lights out) 
+			Turn on and off all valves for sec. 
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -949,7 +957,7 @@
 	
 	<step>
 		<message>
-			Set every ENGINE SHUTOFF - VALVE to ON
+			Set every ENGINE SHUTOFF - VALVE to ON 
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -988,47 +996,6 @@
 			</condition>
 		</exit>
 	</step>
-
-	<step>
-		<message>
-			CUTOFF, pull every lever 
-		</message>
-		<view>
-				<heading-offset-deg>293.8</heading-offset-deg>
-				<pitch-offset-deg>-27.2</pitch-offset-deg>
-				<roll-offset-deg>0.0</roll-offset-deg>
-				<x-offset-m>-0.5</x-offset-m>
-				<y-offset-m>1.2</y-offset-m>
-				<z-offset-m>-18.2</z-offset-m>
-				<field-of-view>77.2</field-of-view>
-		</view>
-
-		<marker>
-				<x-m>-18.5140</x-m>
-				<y-m>0.0074</y-m>
-				<z-m>0.6669</z-m>
-				<scale>3.6628</scale>
-		</marker>
-		<error>
-			<message>
-				click to pull the levers!
-			</message>
-			<condition>
-				<property>controls/engines/engine[0]/cutoff</property>
-				<property>controls/engines/engine[1]/cutoff</property>
-				<property>controls/engines/engine[2]/cutoff</property>
-				<property>controls/engines/engine[3]/cutoff</property>
-			</condition>
-		</error>
-		<exit>
-			<condition>
-				<not><property>controls/engines/engine[0]/cutoff</property></not>
-				<not><property>controls/engines/engine[1]/cutoff</property></not>
-				<not><property>controls/engines/engine[2]/cutoff</property></not>
-				<not><property>controls/engines/engine[3]/cutoff</property></not>
-			</condition>
-		</exit>
-	</step>	
 		
 	<step>
 		<message>Open cover Starter 3</message>
@@ -1055,7 +1022,7 @@
 	</step>
 
 	<step>
-		<message>Push once Starter 3 and wait until green light is out (about 30sec)</message>
+		<message>Push Starter 3 and then pull cutoff.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1071,6 +1038,96 @@
 				<z-m>1.4176</z-m>
 				<scale>1.9107</scale>
 		</marker>
+		<exit>
+			<condition>
+				<property>engines/engine[2]/starter</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			Pull CUTOFF 3.
+		</message>
+		<view>
+				<heading-offset-deg>300.2</heading-offset-deg>
+				<pitch-offset-deg>-38.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.5140</x-m>
+				<y-m>0.0074</y-m>
+				<z-m>0.6669</z-m>
+				<scale>3.6628</scale>
+		</marker>
+
+		<error>
+			<message>
+				pull lever 3!
+			</message>
+			<condition>
+				<property>controls/engines/engine[2]/cutoff</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<not><property>controls/engines/engine[2]/cutoff</property></not>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Control N2 and the other instrument for this engine</message>
+		<view>
+				<heading-offset-deg>319.3</heading-offset-deg>
+				<pitch-offset-deg>-28.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>52.9</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.9037</x-m>
+				<y-m>-0.0017</y-m>
+				<z-m>0.8449</z-m>
+				<scale>1.9107</scale>
+		</marker>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[2]/n2</property>
+					<value>35</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Starter 3 - green light is out?</message>
+		<view>
+				<heading-offset-deg>315.9</heading-offset-deg>
+				<pitch-offset-deg>-29.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>39.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.3301</x-m>
+				<y-m>0.0149</y-m>
+				<z-m>1.4176</z-m>
+				<scale>1.9107</scale>
+		</marker>
+
 		<exit>
 			<condition>
 				<property>engines/engine[2]/running</property>
@@ -1092,14 +1149,13 @@
 		<exit>
 			<condition>
 				<property>engines/engine[2]/running</property>
-				<not><property>/b707/start/startercover[2]</property></not>
 				<property>/b707/start/startercover[3]</property>
 			</condition>
 		</exit>
 	</step>
 
 	<step>
-		<message>Push once Starter 4 and wait until green light is out (about 30sec)</message>
+		<message>Push Starter 4 and then pull cutoff.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1115,6 +1171,89 @@
 				<z-m>1.4176</z-m>
 				<scale>1.9107</scale>
 		</marker>
+		<exit>
+			<condition>
+				<property>engines/engine[3]/starter</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			Pull CUTOFF 4.
+		</message>
+		<view>
+				<heading-offset-deg>300.2</heading-offset-deg>
+				<pitch-offset-deg>-38.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.5140</x-m>
+				<y-m>0.0074</y-m>
+				<z-m>0.6669</z-m>
+				<scale>3.6628</scale>
+		</marker>
+
+		<error>
+			<message>
+				pull lever 4!
+			</message>
+			<condition>
+				<property>controls/engines/engine[3]/cutoff</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<not><property>controls/engines/engine[3]/cutoff</property></not>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Control N2 and the other instrument for this engine</message>
+		<view>
+				<heading-offset-deg>319.3</heading-offset-deg>
+				<pitch-offset-deg>-28.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>52.9</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.9037</x-m>
+				<y-m>0.0380</y-m>
+				<z-m>0.8449</z-m>
+				<scale>1.9107</scale>
+		</marker>
+
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[3]/n2</property>
+					<value>40</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Starter 4 - wait until green light is out</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
 		<exit>
 			<condition>
 				<property>engines/engine[3]/running</property>
@@ -1136,14 +1275,13 @@
 		<exit>
 			<condition>
 				<property>engines/engine[3]/running</property>
-				<not><property>/b707/start/startercover[3]</property></not>
 				<property>/b707/start/startercover[1]</property>
 			</condition>
 		</exit>
 	</step>
 
 	<step>
-		<message>Push once Starter 2 and wait until green light is out (about 30sec)</message>
+		<message>Push Starter 2 and then pull cutoff.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1161,10 +1299,93 @@
 		</marker>
 		<exit>
 			<condition>
-				<property>engines/engine[1]/running</property>
+				<property>engines/engine[1]/starter</property>
 			</condition>
 		</exit>
 	</step>
+		
+	<step>
+		<message>
+			Pull CUTOFF 2.
+		</message>
+		<view>
+				<heading-offset-deg>300.2</heading-offset-deg>
+				<pitch-offset-deg>-38.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.5140</x-m>
+				<y-m>0.0074</y-m>
+				<z-m>0.6669</z-m>
+				<scale>3.6628</scale>
+		</marker>
+
+		<error>
+			<message>
+				pull lever 2!
+			</message>
+			<condition>
+				<property>controls/engines/engine[1]/cutoff</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<not><property>controls/engines/engine[1]/cutoff</property></not>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Control N2 and the other instrument for this engine</message>
+		<view>
+				<heading-offset-deg>319.3</heading-offset-deg>
+				<pitch-offset-deg>-28.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>52.9</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.9037</x-m>
+				<y-m>-0.0430</y-m>
+				<z-m>0.8449</z-m>
+				<scale>1.9107</scale>
+		</marker>
+
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[1]/n2</property>
+					<value>40</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Starter 2 - wait until green light is out</message>
+		<view>
+				<heading-offset-deg>292.9</heading-offset-deg>
+				<pitch-offset-deg>27.5</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>47.4</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<property>engines/engine[1]/running</property>
+			</condition>
+		</exit>
+	</step>	
 	
 	<step>
 		<message>Close cover 2, open cover 1</message>
@@ -1180,14 +1401,13 @@
 		<exit>
 			<condition>
 				<property>engines/engine[1]/running</property>
-				<not><property>/b707/start/startercover[1]</property></not>
 				<property>/b707/start/startercover[0]</property>
 			</condition>
 		</exit>
 	</step>
 
 	<step>
-		<message>Push once Starter 1 and wait until green light is out (about 30sec)</message>
+		<message>Push Starter 1 and then pull cutoff.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1205,11 +1425,94 @@
 		</marker>
 		<exit>
 			<condition>
-				<property>engines/engine[0]/running</property>
+				<property>engines/engine[0]/starter</property>
 			</condition>
 		</exit>
 	</step>
 	
+	<step>
+		<message>
+			Pull CUTOFF 1.
+		</message>
+		<view>
+				<heading-offset-deg>300.2</heading-offset-deg>
+				<pitch-offset-deg>-38.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>31.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.5140</x-m>
+				<y-m>0.0074</y-m>
+				<z-m>0.6669</z-m>
+				<scale>3.6628</scale>
+		</marker>
+
+		<error>
+			<message>
+				pull lever 1!
+			</message>
+			<condition>
+				<property>controls/engines/engine[0]/cutoff</property>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<not><property>controls/engines/engine[0]/cutoff</property></not>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Control N2 and the other instrument for this engine</message>
+		<view>
+				<heading-offset-deg>319.3</heading-offset-deg>
+				<pitch-offset-deg>-28.3</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.5</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>52.9</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-18.9037</x-m>
+				<y-m>-0.0843</y-m>
+				<z-m>0.8449</z-m>
+				<scale>1.9107</scale>
+		</marker>
+
+		<exit>
+			<condition>
+				<greater-than>
+					<property>engines/engine[1]/n2</property>
+					<value>35</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>Starter 1 - wait until green light is out</message>
+		<view>
+			<heading-offset-deg>-75</heading-offset-deg>
+			<pitch-offset-deg>30.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.46</x-offset-m>
+			<y-offset-m>1.19</y-offset-m>
+			<z-offset-m>-18.2</z-offset-m>
+			<field-of-view>44.3</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<property>engines/engine[0]/running</property>
+			</condition>
+		</exit>
+	</step>	
+
 	<step>
 		<message>Close cover 1</message>
 		<view>
@@ -1229,7 +1532,7 @@
 	</step>
 	
 	<step>
-		<message>Controll the rpm N2 of all engines</message>
+		<message>control N2 in green range.</message>
 		<view>
 			<heading-offset-deg>-40.0</heading-offset-deg>
 			<pitch-offset-deg>-20.0</pitch-offset-deg>
@@ -1741,22 +2044,21 @@
 			Turn knob to GEN I
 		</message>
 		<view>
-				<heading-offset-deg>237.8</heading-offset-deg>
-				<pitch-offset-deg>8.2</pitch-offset-deg>
+				<heading-offset-deg>238.1</heading-offset-deg>
+				<pitch-offset-deg>7.5</pitch-offset-deg>
 				<roll-offset-deg>0.0</roll-offset-deg>
 				<x-offset-m>-0.3</x-offset-m>
 				<y-offset-m>1.2</y-offset-m>
 				<z-offset-m>-18.2</z-offset-m>
-				<field-of-view>15.9</field-of-view>
+				<field-of-view>14.5</field-of-view>
 		</view>
 
 		<marker>
-				<x-m>-17.6033</x-m>
+				<x-m>-17.5620</x-m>
 				<y-m>0.6000</y-m>
-				<z-m>1.3455</z-m>
-				<scale>1.4959</scale>
+				<z-m>1.3686</z-m>
+				<scale>1.3967</scale>
 		</marker>
-
 		<error>
 			<message>Turn to generator 1</message>
 			<condition>
@@ -1875,4 +2177,5 @@
 			<field-of-view>72</field-of-view>
 		</view>
 	</end>
+
 </PropertyList>

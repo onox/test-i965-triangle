@@ -5,11 +5,11 @@
 
   <key>
     <name>s</name>
-    <desc>autostart / shutdown</desc>
+    <desc>Autostart / Shutdown</desc>
   </key>
   <key>
     <name>L</name>
-    <desc>toggle landing lights</desc>
+    <desc>toggle Landing Lights</desc>
   </key>
   <key>
     <name>Ctrl + B</name>
@@ -17,19 +17,19 @@
   </key>
   <key>
     <name>Del</name>
-    <desc>Toggle reverser</desc>
+    <desc>toggle Reverser</desc>
   </key>
   <key>
     <name>y</name>
-    <desc>Toggle yokes</desc>
+    <desc>toggle Yokes</desc>
   </key>
 	<key>
 		<name>></name>
-		<desc>Toggle pilot - engineer view</desc>
+		<desc>toggle Pilot - Engineer view</desc>
 	</key>
   <key>
     <name>F9</name>
-    <desc>toggle fuel &amp; weight menu</desc>
+    <desc>open Fuel &amp; Weight Menu</desc>
   </key>
 
   <text>
@@ -37,10 +37,7 @@
 	
 	 Startup engines:
 	
-	 Open the cover from the start selector 3 in the Overhead-Panel
-	 and follow the instructions. 
-	 Hold starter knob until green light is out.
-	 Start allways engines 3 - 4 - 2 - 1
+	 follow the tutorials or use Autostart
 	
 	 Shutdown engines:
 	
@@ -51,6 +48,8 @@
 	 This version is a revamp of that original. Nearly 
 	 everthing in 3D models is written and painted new.
 	 Also the jsb fdm and the autopilot.
+	 For development I have used the BOEING 707 document 
+	 no. D6-3071-00
 
   </text>
 

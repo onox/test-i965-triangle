@@ -4,7 +4,6 @@
 
 <path>firewarning.ac</path>
 
-
 <!-- the four lamps in the center are beeing indicator for engines off or fire -->
 <animation>
   <type>material</type>
@@ -12,14 +11,10 @@
   <object-name>lamptwo</object-name>
   <object-name>lampthree</object-name>
   <object-name>lampfour</object-name> 
-  <condition>
-		<not><property>/sim/rendering/rembrandt/enabled</property></not>
-  </condition>
   <emission>
-    <red>1.0</red>
+    <red>0.8</red>
     <green>0.2</green>
     <blue>0.0</blue>
-    <factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
   </emission>
 </animation>
 
@@ -33,20 +28,10 @@
 		</greater-than>
     <or>
 		  <property>/controls/test/warn-knob</property>
-		  <and>
-				<or> 
-					<property>/controls/engines/engine[0]/cutoff</property>
-					<not><property>/engines/engine[0]/running</property></not>
-					<less-than>
-						<property>/engines/engine[0]/n2</property>
-						<value>59.5</value>
-					</less-than>
-				</or>
-			</and>
-		 </or>
+		  <property>/controls/engines/engine[0]/fire</property>
+		</or>
   </condition>
 </animation>
-
 
 <animation>
   <type>select</type>
@@ -58,20 +43,10 @@
 		</greater-than>
     <or>
 		  <property>/controls/test/warn-knob</property>
-		  <and>
-				<or> 
-					<property>/controls/engines/engine[1]/cutoff</property>
-					<not><property>/engines/engine[1]/running</property></not>
-					<less-than>
-						<property>/engines/engine[1]/n2</property>
-						<value>59.5</value>
-					</less-than>
-				</or>
-			</and>
-		 </or>
+		  <property>/controls/engines/engine[1]/fire</property>
+		</or>
   </condition>
 </animation>
-
 
 <animation>
   <type>select</type>
@@ -83,17 +58,8 @@
 		</greater-than>
     <or>
 		  <property>/controls/test/warn-knob</property>
-		  <and>
-				<or> 
-					<property>/controls/engines/engine[2]/cutoff</property>
-					<not><property>/engines/engine[2]/running</property></not>
-					<less-than>
-						<property>/engines/engine[2]/n2</property>
-						<value>59.5</value>
-					</less-than>
-				</or>
-			</and>
-		 </or>
+		  <property>/controls/engines/engine[2]/fire</property>
+		</or>
   </condition>
 </animation>
 
@@ -107,20 +73,145 @@
 		</greater-than>
     <or>
 		  <property>/controls/test/warn-knob</property>
-		  <and>
-				<or> 
-					<property>/controls/engines/engine[3]/cutoff</property>
-					<not><property>/engines/engine[3]/running</property></not>
-					<less-than>
-						<property>/engines/engine[3]/n2</property>
-						<value>59.5</value>
-					</less-than>
-				</or>
-			</and>
-		 </or>
+		  <property>/controls/engines/engine[3]/fire</property>
+		</or>
   </condition>
 </animation>
 
+    <!-- The warn button 1 -->
+    <animation>
+        <type>rotate</type>
+        <object-name>button.001</object-name>
+        <object-name>lampone</object-name>
+        <property>/b707/warning/fire-button[0]</property>
+        <factor>90</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m> 0.0635</x-m>
+            <y-m>-0.0663</y-m>
+            <z-m> 0.0</z-m>
+        </center>
+    </animation>
 
+    <animation>
+      <type>pick</type>
+      <object-name>button.001</object-name>
+      <object-name>lampone</object-name>
+      <visible>true</visible>
+      <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+          <command>property-toggle</command>
+          <property>/b707/warning/fire-button[0]</property>  
+        </binding>
+      </action>
+    </animation>
 
+    <!-- The warn button 2 -->
+    <animation>
+        <type>rotate</type>
+        <object-name>button.002</object-name>
+        <object-name>lamptwo</object-name>
+        <property>/b707/warning/fire-button[1]</property>
+        <factor>90</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m> 0.0635</x-m>
+            <y-m>-0.0219</y-m>
+            <z-m> 0.0</z-m>
+        </center>
+    </animation>
+
+    <animation>
+      <type>pick</type>
+        <object-name>button.002</object-name>
+        <object-name>lamptwo</object-name>
+      <visible>true</visible>
+      <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+          <command>property-toggle</command>
+          <property>/b707/warning/fire-button[1]</property>  
+        </binding>
+      </action>
+    </animation>
+
+    <!-- The warn button 3 -->
+    <animation>
+        <type>rotate</type>
+        <object-name>button.003</object-name>
+        <object-name>lampthree</object-name>
+        <property>/b707/warning/fire-button[2]</property>
+        <factor>90</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m> 0.0635</x-m>
+            <y-m> 0.0221</y-m>
+            <z-m> 0.0</z-m>
+        </center>
+    </animation>
+
+    <animation>
+      <type>pick</type>
+        <object-name>button.003</object-name>
+        <object-name>lampthree</object-name>
+      <visible>true</visible>
+      <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+          <command>property-toggle</command>
+          <property>/b707/warning/fire-button[2]</property>  
+        </binding>
+      </action>
+    </animation>
+
+    <!-- The warn button 4 -->
+    <animation>
+        <type>rotate</type>
+        <object-name>button.004</object-name>
+        <object-name>lampfour</object-name>
+        <property>/b707/warning/fire-button[3]</property>
+        <factor>90</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m> 0.0635</x-m>
+            <y-m> 0.0667</y-m>
+            <z-m> 0.0</z-m>
+        </center>
+    </animation>
+
+    <animation>
+      <type>pick</type>
+        <object-name>button.004</object-name>
+        <object-name>lampfour</object-name>
+      <visible>true</visible>
+      <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+          <command>property-toggle</command>
+          <property>/b707/warning/fire-button[3]</property>  
+        </binding>
+      </action>
+    </animation>
+    
 </PropertyList>

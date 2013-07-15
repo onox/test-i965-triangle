@@ -1521,7 +1521,12 @@ var short_startup = func
 			setprop("controls/engines/engine[1]/cutoff", 0);
 			setprop("controls/engines/engine[2]/cutoff", 0);
 			setprop("controls/engines/engine[3]/cutoff", 0);
-			setprop("b707/generator/gen-freq[0]", 400);
+    }, 1);
+    
+
+   settimer(func
+    {
+    	setprop("b707/generator/gen-freq[0]", 400);
 			setprop("b707/generator/gen-freq[1]", 400);
 			setprop("b707/generator/gen-freq[2]", 400);
 			setprop("b707/generator/gen-freq[3]", 400);
@@ -1529,11 +1534,6 @@ var short_startup = func
 			setprop("b707/generator/gen-bus-tie[1]", 1);
 			setprop("b707/generator/gen-bus-tie[2]", 1);
 			setprop("b707/generator/gen-bus-tie[3]", 1);
-    }, 1);
-    
-
-   settimer(func
-    {
 			setprop("b707/ess-power-switch", 1);
 			setprop("b707/ac/ac-para-select", 1);				
 			setprop("b707/ground-connect", 0);

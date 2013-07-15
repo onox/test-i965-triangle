@@ -3,8 +3,19 @@
 # This file is licenced under the terms of the GNU General Public Licence V2 or later
 
 ############################ init ENGINE START AIR PRESSURE ##################################
+# used in the autostarts.nas  var starter()
 var stAirRight = props.globals.initNode("b707/start-air-bottle-press[0]",2810,"DOUBLE");
 var stAirLeft  = props.globals.initNode("b707/start-air-bottle-press[1]",2960,"DOUBLE");
+
+var oT1 = props.globals.initNode("b707/oil/oil-temp[0]",0,"DOUBLE");
+var oT2 = props.globals.initNode("b707/oil/oil-temp[1]",0,"DOUBLE");
+var oT3 = props.globals.initNode("b707/oil/oil-temp[2]",0,"DOUBLE");
+var oT4 = props.globals.initNode("b707/oil/oil-temp[3]",0,"DOUBLE");
+
+var oil1 = props.globals.initNode("b707/oil/quantity[0]",6400,"DOUBLE");
+var oil2 = props.globals.initNode("b707/oil/quantity[1]",6400,"DOUBLE");
+var oil3 = props.globals.initNode("b707/oil/quantity[2]",6400,"DOUBLE");
+var oil4 = props.globals.initNode("b707/oil/quantity[3]",6400,"DOUBLE");
 
 
 ################################ Reverser ####################################
@@ -486,5 +497,79 @@ setlistener("/b707/hydraulic/ac-aux-pump[1]", func{
 	}
 },0,0);
 
+############################################ Fire #####################################################
+# see in fuel-and-payload.nas engines_alive();
 
+setlistener("/b707/warning/fire-button[0]", func(state){
+	var state = state.getValue() or 0;
+	if(state){
+		 settimer( func { setprop("/controls/engines/engine[0]/fire", 0); }, 3);
+	}
+},0,0);
+setlistener("/b707/warning/fire-button[1]", func(state){
+	var state = state.getValue() or 0;
+	if(state){
+		 settimer( func { setprop("/controls/engines/engine[1]/fire", 0); }, 3);
+	}
+},0,0);
+setlistener("/b707/warning/fire-button[2]", func(state){
+	var state = state.getValue() or 0;
+	if(state){
+		 settimer( func { setprop("/controls/engines/engine[2]/fire", 0); }, 3);
+	}
+},0,0);
+setlistener("/b707/warning/fire-button[3]", func(state){
+	var state = state.getValue() or 0;
+	if(state){
+		 settimer( func { setprop("/controls/engines/engine[3]/fire", 0); }, 3);
+	}
+},0,0);
+
+# if gen-drive is set to on in flight, engines crashed
+setlistener("/b707/generator/gen-drive[0]", func(state){
+	var state = state.getBoolValue() or 0;
+	var a = getprop("/position/altitude-agl-ft") or 0;
+	if(a > 20 and state){
+		 settimer( func { setprop("/controls/engines/engine[0]/fire", 1); }, 2);
+	}
+},0,0);
+setlistener("/b707/generator/gen-drive[1]", func(state){
+	var state = state.getBoolValue() or 0;
+	var a = getprop("/position/altitude-agl-ft") or 0;
+	if(a > 20 and state){
+		 settimer( func { setprop("/controls/engines/engine[1]/fire", 1); }, 2);
+	}
+},0,0);setlistener("/b707/generator/gen-drive[2]", func(state){
+	var state = state.getBoolValue() or 0;
+	var a = getprop("/position/altitude-agl-ft") or 0;
+	if(a > 20 and state){
+		 settimer( func { setprop("/controls/engines/engine[2]/fire", 1); }, 2);
+	}
+},0,0);setlistener("/b707/generator/gen-drive[3]", func(state){
+	var state = state.getBoolValue() or 0;
+	var a = getprop("/position/altitude-agl-ft") or 0;
+	if(a > 20 and state){
+		 settimer( func { setprop("/controls/engines/engine[3]/fire", 1); }, 2);
+	}
+},0,0);
+
+################################# OIL Sysstem ###################################
+var calc_oil_temp = func{
+	var atemp  =  getprop("/environment/temperature-degc") or 0;
+	
+	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
+		var n = e.getNode("oil-pressure-psi").getValue() or 0;
+		var r = e.getNode("running").getValue() or 0;
+		var t = n * 2.148;
+		if(r){
+			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", t, 32);
+		}else{
+			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", atemp, 32);
+		}
+	}
+
+	settimer( calc_oil_temp, 32);
+}
+
+calc_oil_temp();
 

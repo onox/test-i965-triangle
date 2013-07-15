@@ -80,6 +80,7 @@ var dvp3 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[3]",1,"BOOL")
 var dvp4 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[4]",1,"BOOL");
 var dvp5 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[5]",1,"BOOL");
 
+var hydSup = props.globals.initNode("b707/hydraulic/hyd-supported-by-engine-index",0,"DOUBLE");
 
 ########################################################################
 # Widgets & Layout Management
@@ -698,7 +699,9 @@ var set_fuel_temp = func {
 	settimer( set_fuel_temp, 5);
 }
 
-################################ Loop for Boost Pumps and Shutoff Switches ####################################
+###############################################################################################################
+########################################### LOOP ENGINES ######################################################
+###############################################################################################################
 # engines feed only on the main tank. Engine 1 to main 1 etc.
 # if valves are open, the tank is levelling to other tanks
 
@@ -707,16 +710,19 @@ var engines_alive = func {
   # control the engine dependens
   foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		  var n2 = e.getNode("n2").getValue() or 0;
-		  var c = props.globals.getNode("/engines/engine["~e.getIndex()~"]/running");
+		  var oil = props.globals.getNode("/b707/oil/quantity["~e.getIndex()~"]");
 		  var s = getprop("/b707/fuel/valves/fuel-shutoff["~e.getIndex()~"]") or 0;
+		  var c = props.globals.getNode("/controls/engines/engine["~e.getIndex()~"]/cutoff");
+		  var f = props.globals.initNode("/controls/engines/engine["~e.getIndex()~"]/fire",0,"BOOL");
+		  var w = props.globals.getNode("/b707/warning/enabled");
 		  var b1  = 0;
 		  var b2  = 0;
 		  var cfv = 0; #simulate the crossfeed valve
 		  
-		  # if engine is running and shutoff valve is closed
-		  if(n2 >= 60 and !s) {
+		  ## SHUTOFF VALVE ## 
+		  if(n2 >= 50 and !s) {
 		      #print("Engine "~e.getIndex()~" without fuel - shutoff valve closed!");
-		      c.setValue(0);
+		      c.setBoolValue(1);
 		  }
 		  
 		  if(e.getIndex() == 0){
@@ -743,21 +749,119 @@ var engines_alive = func {
 		     cfv = v4.getBoolValue() or 0;
 		  }		  
 		  
-		  # if engine is running and boost-pumps are both closed and the crossfeed valve is closed too
-		  if(n2 >= 60 and !b1 and !b2 and !cfv) {
+		  ## BOOST-PUMPS ## are both closed and the crossfeed valve is closed too
+		  if(n2 >= 50 and !b1 and !b2 and !cfv) {
 		      #print("Engine "~e.getIndex()~" without fuel - boost-pumps out!");
-		      c.setValue(0);
+		      c.setBoolValue(1);
 		  } 
 		   		  
-		  # fake for the hydraulic system pressure. Look inside the mk-707.nas for more
-		  if(e.getIndex() == 1 and c.getBoolValue() and getprop("/b707/hydraulic/system") <= 2210) interpolate("/b707/hydraulic/system", 3018, 5);
-		   
+		  ## HYDRAULIC ## fake system pressure. Look inside the mk-707.nas for more
+		  # at engine 2 and 3 was the pumps for the residual hydraulic system
+		  if(e.getIndex() == 1 or e.getIndex() == 2){
+
+		 		var r2  =  getprop("/engines/engine[1]/running") or 0;
+		 		var r3  =  getprop("/engines/engine[2]/running") or 0;
+		 		var psi =getprop("/b707/hydraulic/system") or 0;
+		 		
+		 		var s1 = getprop("/b707/hydraulic/hyd-fluid-shutoff[0]") or 0;
+				var s2 = getprop("/b707/hydraulic/hyd-fluid-shutoff[1]") or 0;
+				var p1 = getprop("/b707/hydraulic/hyd-fluid-pump[0]") or 0;
+				var p2 = getprop("/b707/hydraulic/hyd-fluid-pump[1]") or 0;
+		  
+		  	# first running engine 2 or 3 supports the hydraulic system pressure
+		  	if (r2 or r3){
+		  		if(!hydSup.getValue()){
+		  		  if(psi > 2000 and psi <= 2500){
+		  		  	interpolate("/b707/hydraulic/system", 3018, 5);
+							hydSup.setValue(e.getIndex());
+		  		  } 	  	
+		  		}
+		  	}else{
+		  		hydSup.setValue(0);
+		  		# if hydraulic system is already started increase the pressure back to min
+		  		if(((s1 and p1) or (s2 and p2)) and psi > 3010){
+						interpolate("/b707/hydraulic/system", 2210, 3);
+		  		}
+		  	}	  	
+		  } 
+		  
+		  ## FIRE ## action
+		  var isL = props.globals.getNode("sim/multiplay/generic/int[17]");
+		  var isR = props.globals.getNode("sim/multiplay/generic/int[18]");
+		  
+		  if(f.getBoolValue()){
+		  	c.setBoolValue(1);
+		  	w.setValue(1);
+		  	# fill the property for multiplay fire
+		  	if(e.getIndex() == 0){
+					if(isL.getValue() == 0) isL.setValue(1); 
+					if(isL.getValue() == 2) isL.setValue(3);
+				}
+		  	if(e.getIndex() == 1){
+					if(isL.getValue() == 0) isL.setValue(2); 
+					if(isL.getValue() == 1) isL.setValue(3);
+				}
+		  	if(e.getIndex() == 2){
+					if(isR.getValue() == 0) isR.setValue(1); 
+					if(isR.getValue() == 2) isR.setValue(3);
+				}
+		  	if(e.getIndex() == 3){
+					if(isR.getValue() == 0) isR.setValue(2); 
+					if(isR.getValue() == 1) isR.setValue(3);
+				}
+		  }else{
+		  	if(e.getIndex() == 0){
+					if(isL.getValue() == 1) isL.setValue(0); 
+					if(isL.getValue() == 3) isL.setValue(2);
+				}
+		  	if(e.getIndex() == 1){
+					if(isL.getValue() == 2) isL.setValue(0); 
+					if(isL.getValue() == 3) isL.setValue(1);
+				}
+		  	if(e.getIndex() == 2){
+					if(isR.getValue() == 1) isR.setValue(0); 
+					if(isR.getValue() == 3) isR.setValue(2);
+				}
+		  	if(e.getIndex() == 3){
+					if(isR.getValue() == 2) isR.setValue(0); 
+					if(isR.getValue() == 3) isR.setValue(1);
+				}	  
+		  } 
+		  
+		if(n2 > 15){
+			if(e.getIndex() == 1 or e.getIndex() == 2){
+				var oilNeu = (oil.getValue() > 2600 ) ? oil.getValue() - 950 : 2600;
+				interpolate("/b707/oil/quantity["~e.getIndex()~"]", oilNeu, 8);
+			}else{
+				var oilNeu = (oil.getValue() > 2800 ) ? oil.getValue() - 900 : 2800;
+				interpolate("/b707/oil/quantity["~e.getIndex()~"]", oilNeu, 8);
+			}
+		}else{
+			var oilNeu = (oil.getValue() < 6400 ) ? oil.getValue() + 100 : 6400;
+			interpolate("/b707/oil/quantity["~e.getIndex()~"]", oilNeu, 8);
+		}
 	}
 
 	settimer( engines_alive, 8);
 }
+###################################################################################################
+###################################################################################################
 
-
+setlistener("/b707/oil/oil-test", func(pos){
+	var pos = pos.getValue();
+	var pwr = getprop("/b707/ess-bus") or 0;
+	if(pos and pwr > 24) {
+		interpolate("/b707/oil/quantity[0]", 0, 1);
+		interpolate("/b707/oil/quantity[1]", 0, 1);
+		interpolate("/b707/oil/quantity[2]", 0, 1);
+		interpolate("/b707/oil/quantity[3]", 0, 1);
+	}else{
+		interpolate("/b707/oil/quantity[0]", 6400, 1);
+		interpolate("/b707/oil/quantity[1]", 6400, 1);
+		interpolate("/b707/oil/quantity[2]", 6400, 1);
+		interpolate("/b707/oil/quantity[3]", 6400, 1);	
+	}
+},1,0);
 
 ############################################# CROSSFEED ANIMATION ##############################
 

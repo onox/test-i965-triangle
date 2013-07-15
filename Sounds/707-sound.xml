@@ -805,11 +805,43 @@
 		<name>test warning</name>
 		<mode>looped</mode>
 		<path>Aircraft/707/Sounds/warning.wav</path>
-		<property>/controls/test/warn-knob</property>
+      <condition>
+        <and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
+					<property>/controls/test/warn-knob</property>
+				</and>
+      </condition>
 		<volume>
 			<factor>1</factor>
 		</volume>
 	</testwarning>
+
+	<firewarning>
+		<name>fire warning</name>
+		<mode>looped</mode>
+		<path>Aircraft/707/Sounds/fire.wav</path>
+      <condition>
+      	<and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
+		    	<or>
+						<property>/controls/test/warn-knob</property>
+						<property>/controls/engines/engine[0]/fire</property>
+						<property>/controls/engines/engine[1]/fire</property>
+						<property>/controls/engines/engine[2]/fire</property>
+						<property>/controls/engines/engine[3]/fire</property>
+					</or>
+				</and>
+      </condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</firewarning>
 	
 	<mdawarning>
 		<name>mda warning</name>
@@ -817,6 +849,10 @@
 		<path>Aircraft/707/Sounds/warning.wav</path>
       <condition>
         <and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
 				  <property>/instrumentation/aglradar/power-btn</property>
 				  <property>/instrumentation/aglradar/mda-lamp</property>
 				</and>

@@ -298,4 +298,134 @@
 		</offsets>
 	</model>
 	
+	<model>
+		<name>oilPress1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilPress1.xml</path>
+		<offsets>
+		  <x-m> 0.1331</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0373</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilPress2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilPress2.xml</path>
+		<offsets>
+		  <x-m> 0.1884</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0373</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>oilPress3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilPress3.xml</path>
+		<offsets>
+		  <x-m> 0.2419</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0373</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>oilPress4</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilPress4.xml</path>
+		<offsets>
+		  <x-m> 0.2961</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0373</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilTemp1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilTemp1.xml</path>
+		<offsets>
+		  <x-m> 0.1331</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0942</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilTemp2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilTemp2.xml</path>
+		<offsets>
+		  <x-m> 0.1884</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0942</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilTemp3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilTemp3.xml</path>
+		<offsets>
+		  <x-m> 0.2419</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0942</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilTemp4</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilTemp4.xml</path>
+		<offsets>
+		  <x-m> 0.2961</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.0942</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilQuantity1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilQuantity1.xml</path>
+		<offsets>
+		  <x-m> 0.1331</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.1487</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilQuantity2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilQuantity2.xml</path>
+		<offsets>
+		  <x-m> 0.1884</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.1487</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilQuantity3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilQuantity3.xml</path>
+		<offsets>
+		  <x-m> 0.2419</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.1487</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oilQuantity4</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oilQuantity4.xml</path>
+		<offsets>
+		  <x-m> 0.2961</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.1487</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>lowPressStarter</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/lowPressStart.xml</path>
+		<offsets>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
+		</offsets>
+	</model>
+	
 </PropertyList>

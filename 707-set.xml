@@ -12,9 +12,9 @@
 	</startup>
   <rating>
       <FDM type="int">4</FDM>
-      <systems type="int">2</systems>
-      <cockpit type="int">3</cockpit>
-      <model type="int">3</model>
+      <systems type="int">4</systems>
+      <cockpit type="int">4</cockpit>
+      <model type="int">4</model>
   </rating>
   
   <systems n="0">
@@ -95,11 +95,12 @@
 			<x-offset-m archive="y"> 0.17</x-offset-m>
 			<y-offset-m archive="y"> 1.21</y-offset-m>
 			<z-offset-m archive="y">-17.5</z-offset-m>
-			<heading-offset-deg type="double">-91.0</heading-offset-deg>
-			<pitch-offset-deg type="double">-12.0</pitch-offset-deg>
+			<heading-offset-deg type="double">-90.0</heading-offset-deg>
+			<pitch-offset-deg type="double">-2.0</pitch-offset-deg>
+			<from-model-idx type="int">0</from-model-idx>
 			<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-			<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
-			<default-pitch-deg type="double">-12.0</default-pitch-deg>
+			<default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
+			<default-pitch-deg type="double">-2.0</default-pitch-deg>
 			<default-heading-deg type="double">0</default-heading-deg>
 			<front-direction-deg type="double">0</front-direction-deg>
 			<front-left-direction-deg type="double">45</front-left-direction-deg>
@@ -136,8 +137,6 @@
 	</view>
 	
   <chase-distance-m>-45</chase-distance-m>
-  
-  <!--Menu 707-320-->
 
 	<menubar>
 		<default>
@@ -454,7 +453,10 @@
 				<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
 				<file>Aircraft/707/Nasal/tcas.nas</file>
 				<file>Aircraft/707/Nasal/immat.nas</file>
-			</b707>        
+			</b707> 
+			<view>
+        <file>Aircraft/707/Nasal/view.nas</file>
+      </view>       
 		</nasal>
 
 </PropertyList>

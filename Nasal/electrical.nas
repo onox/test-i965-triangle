@@ -32,7 +32,7 @@ var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
 aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
 var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
 aircraft.light.new("controls/lighting/beacon-state", [0.05, 2.0], beacon_switch);
-aircraft.light.new("controls/special/warning", [1.0, 1.0]);
+aircraft.light.new("b707/warning", [1.0, 0.8]);
 
 
 ############## Helper ################
@@ -173,8 +173,8 @@ var generator5 = Generator.new(4,"b707/generator/gen-drive[4]","/engines/APU/amp
 var init_switches = func{
     setprop("controls/lighting/instruments-norm",0.8);
     props.globals.getNode("systems/electrical/serviceable",0,"BOOL");
-    setprop("controls/lighting/panel-norm",0.8);
-    setprop("controls/lighting/cabin-dim",0.6);
+    setprop("controls/lighting/panel-norm",0.0);
+    setprop("controls/lighting/cabin-dim",0.0);
     
     var AVswitch=props.globals.initNode("controls/electric/avionics-switch",1,"BOOL");
     setprop("controls/lighting/instrument-lights-norm",0.8);

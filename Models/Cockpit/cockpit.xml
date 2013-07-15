@@ -7,13 +7,11 @@
 		<path>Models/Aircraft/marker.xml</path>
 	</model>
 
-	<!-- No preview for fgrun
 	<animation>
 		<object-name>LightVolume1</object-name>
 		<object-name>LightVolume2</object-name>
 		<nopreview/>
 	</animation>
-	-->
 	
   <!-- internal light effect without rembrandt -->	
 	<animation>
@@ -95,8 +93,30 @@
 		<type>select</type>
 		<object-name>LightVolume2</object-name>
 		<condition>
+				<greater-than>
+					<property>/b707/ess-bus</property>
+					<value>20</value>
+				</greater-than>
 				<property>/sim/rendering/rembrandt/enabled</property>
-				<property>/controls/test/warn-knob</property>
+				<or>
+					<property>/controls/test/warn-knob</property>
+					<and>
+						<property>/b707/warning/state</property>
+						<property>/controls/engines/engine[0]/fire</property>
+					</and>
+					<and>
+						<property>/b707/warning/state</property>
+						<property>/controls/engines/engine[1]/fire</property>
+					</and>
+					<and>
+						<property>/b707/warning/state</property>
+						<property>/controls/engines/engine[2]/fire</property>
+					</and>
+					<and>
+						<property>/b707/warning/state</property>
+						<property>/controls/engines/engine[3]/fire</property>
+					</and>
+				</or>
 		</condition>
 	</animation>	 
 	

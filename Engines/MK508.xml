@@ -10,11 +10,10 @@
     augmented?      no
     injected?       no
 -->
-
 <turbine_engine name="MK508">
   <milthrust> 17500.0 </milthrust>
   <bypassratio>     0.3 </bypassratio>
-  <tsfc>            0.67 </tsfc> <!-- regular its 0.82 but flightgear can't calculate this correct -->
+  <tsfc>            0.80 </tsfc> <!-- regular its 0.82 -->
   <bleed>           0.04</bleed>
   <idlen1>         30.0 </idlen1>
   <idlen2>         60.0 </idlen2>

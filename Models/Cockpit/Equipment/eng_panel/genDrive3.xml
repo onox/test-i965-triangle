@@ -80,7 +80,7 @@
 		  	<not><property>/b707/generator/gen-drive[2]</property></not>
 		  	<less-than>
 		    	<property>/engines/engine[2]/oil-pressure-psi</property>
-		    	<value>12.1</value>
+		    	<value>37</value>
 		    </less-than>
 		    <property>/controls/test/warn-knob</property>
 		  </or>

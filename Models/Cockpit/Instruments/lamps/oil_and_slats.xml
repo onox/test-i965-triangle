@@ -131,7 +131,7 @@
     <or>
     	<less-than>
       	<property>/engines/engine[0]/oil-pressure-psi</property>
-      	<value>12.1</value>
+      	<value>37</value>
       </less-than>
       <property>/controls/test/warn-knob</property>
     </or>
@@ -149,7 +149,7 @@
     <or>
     	<less-than>
       	<property>/engines/engine[1]/oil-pressure-psi</property>
-      	<value>12.1</value>
+      	<value>37</value>
       </less-than>
       <property>/controls/test/warn-knob</property>
     </or>

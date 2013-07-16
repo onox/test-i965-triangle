@@ -82,6 +82,10 @@ var dvp5 = props.globals.initNode("b707/fuel/valves/dump-valve-pos[5]",1,"BOOL")
 
 var hydSup = props.globals.initNode("b707/hydraulic/hyd-supported-by-engine-index",0,"DOUBLE");
 
+var flo = props.globals.initNode("b707/fuel/fuel-level-old-lbs",0,"DOUBLE"); # we need only for consumption calc
+var fph = props.globals.initNode("b707/fuel/fuel-per-hour-lbs",0,"DOUBLE"); # we need only for consumption calc
+var fct = props.globals.initNode("b707/fuel/fuel-calc-time",0,"DOUBLE"); # we need only for consumption calc
+
 ########################################################################
 # Widgets & Layout Management
 ########################################################################
@@ -841,7 +845,18 @@ var engines_alive = func {
 			interpolate("/b707/oil/quantity["~e.getIndex()~"]", oilNeu, 8);
 		}
 	}
-
+	
+	# fuel consumption calculation 8 sec for on loop
+	var new = getprop("/consumables/fuel/total-fuel-lbs") or 0;
+	var tc = getprop("/sim/time/elapsed-sec") or 0;
+	var co = 0;
+	if(flo.getValue() and fct.getValue()){
+		co = 3600 * (flo.getValue() - new) / (tc - fct.getValue());
+	}
+	flo.setValue(new); 
+	fph.setValue(co); 
+	fct.setValue(tc);
+	
 	settimer( engines_alive, 8);
 }
 ###################################################################################################
@@ -904,8 +919,8 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 28;
-			var m1Neu = tfM1.getValue() + 10; # the difference to the 28 is the consumption during interpolation
+			bog -= 36;
+			var m1Neu = tfM1.getValue() + 10; # the difference to the 36 is the consumption during interpolation
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
@@ -932,9 +947,9 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 28;
+			bog -= 36;
 			var m1Neu = bog*p1;
-			var m2Neu = tfM2.getValue() + 10; # the difference to the 28 is the consumption during interpolation
+			var m2Neu = tfM2.getValue() + 10; # the difference to the 36 is the consumption during interpolation
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
 			var m4Neu = bog*p4;
@@ -960,11 +975,11 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 28;
+			bog -= 36;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
-			var m3Neu = tfM3.getValue() + 10; # the difference to the 28 is the consumption during interpolation
+			var m3Neu = tfM3.getValue() + 10; # the difference to the 36 is the consumption during interpolation
 			var m4Neu = bog*p4;
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
@@ -988,12 +1003,12 @@ var crossfeed_action = func {
 		var p3 = (tfM3.getValue() > 0) ? tfM3.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 28;
+			bog -= 36;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
-			var m4Neu = tfM4.getValue() + 10; # the difference to the 28 is the consumption during interpolation
+			var m4Neu = tfM4.getValue() + 10; # the difference to the 36< is the consumption during interpolation
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
 	  	interpolate("/consumables/fuel/tank[3]/level-lbs", cNeu, 7);

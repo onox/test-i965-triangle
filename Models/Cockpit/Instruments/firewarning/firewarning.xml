@@ -4,6 +4,23 @@
 
 <path>firewarning.ac</path>
 
+	<animation>
+		<type>material</type>
+		<object-name>button.001</object-name>
+		<object-name>button.002</object-name>
+		<object-name>button.003</object-name>
+		<object-name>button.004</object-name>
+		<condition>		
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
 <!-- the four lamps in the center are beeing indicator for engines off or fire -->
 <animation>
   <type>material</type>

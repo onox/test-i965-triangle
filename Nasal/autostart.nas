@@ -759,25 +759,25 @@ var startup = func
 	
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[0]/cutoff", 0);
+				setprop("controls/engines/engine[0]/cutoff", 1);
 				toggle_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[1]/cutoff", 0);
+				setprop("controls/engines/engine[1]/cutoff", 1);
 				toggle_switch2();
 			}
 		}, t); t += 0.5;
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[2]/cutoff", 0);
+				setprop("controls/engines/engine[2]/cutoff", 1);
 				toggle_switch2();
 			}
 		}, t); t += 0.5;	
 		settimer( func{
 			if(step == 8 and auto_procedure.getValue()){
-				setprop("controls/engines/engine[3]/cutoff", 0);
+				setprop("controls/engines/engine[3]/cutoff", 1);
 				toggle_switch2();
 				screen.log.write("We continue at the overhead panel.", 1, 1, 1);
 				step = 9;
@@ -794,12 +794,11 @@ var startup = func
 		settimer( func{
 			if(step == 9 and auto_procedure.getValue()){
 			setprop("controls/engines/engine[2]/starter", 1);
-			setprop("controls/engines/engine[2]/cutoff", 1);
 			toggle_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted before ENGINE 3 ", 1, 0, 0);
 			}
-		}, t); t += 0.5;
+		}, t); t += 6.0;
 		settimer(func{
 			if(step == 9 and auto_procedure.getValue()){
 				setprop("controls/engines/engine[2]/cutoff", 0);
@@ -822,12 +821,11 @@ var startup = func
 		settimer( func{
 			if(step == 10 and auto_procedure.getValue() and run3.getBoolValue()){
 				setprop("controls/engines/engine[3]/starter", 1);
-				setprop("controls/engines/engine[3]/cutoff", 1);
 				toggle_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 3 ", 1, 0, 0);
 			}
-		}, t); t += 0.5;
+		}, t); t += 6.0;
 		settimer(func{
 			if(step == 10 and auto_procedure.getValue()){
 				setprop("controls/engines/engine[3]/cutoff", 0);
@@ -850,12 +848,11 @@ var startup = func
 		settimer( func{
 			if(step == 11 and auto_procedure.getValue() and run3.getBoolValue() and run4.getBoolValue()){
 				setprop("controls/engines/engine[1]/starter", 1);
-				setprop("controls/engines/engine[1]/cutoff", 1);
 				toggle_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 4 ", 1, 0, 0);
 			}
-		}, t); t += 0.5;
+		}, t); t += 6.0;
 		settimer(func{
 			if(step == 11 and auto_procedure.getValue()){
 				setprop("controls/engines/engine[1]/cutoff", 0);
@@ -878,12 +875,11 @@ var startup = func
 		settimer( func{
 			if(step == 12 and auto_procedure.getValue() and run2.getBoolValue() and run3.getBoolValue() and run4.getBoolValue()){
 				setprop("controls/engines/engine[0]/starter", 1);
-				setprop("controls/engines/engine[0]/cutoff", 1);
 				toggle_switch2();
 			}else{
 				screen.log.write("WARNING: startup interrupted at ENGINE 2 ", 1, 0, 0);
 			}
-		}, t); t += 0.5;
+		}, t); t += 6.0;
 		settimer(func{
 			if(step == 12 and auto_procedure.getValue()){
 				setprop("controls/engines/engine[0]/cutoff", 0);
@@ -1436,13 +1432,16 @@ var toggle_switch3 = func{
 var short_startup = func
  {
  	setprop("b707/battery-switch", 1);
- 	setprop("b707/apu/off-start-run", 0);
-	setprop("b707/generator/gen-drive[4]", 0);
+ 	setprop("b707/apu/off-start-run", 1);
+ 	setprop("engines/APU/rpm", 101);
+ 	setprop("b707/apu/off-start-run", 2);
+	setprop("b707/generator/gen-drive[4]", 1);
 	setprop("b707/load-volt-selector", 1);
-	setprop("b707/external-power-connected", 1);
-	setprop("b707/ground-connect", 1);
-	setprop("b707/ess-power-switch", 5);
-	setprop("b707/ac/ac-para-select", 5);
+	setprop("b707/external-power-connected", 0);
+	setprop("b707/ground-connect", 0);
+	setprop("b707/generator/gen-freq[4]", 400);
+	setprop("b707/ess-power-switch", 0);
+	setprop("b707/ac/ac-para-select", 0);
 	setprop("b707/ess-bus", 28);
 
 	setprop("/b707/hydraulic/ac-aux-pump[0]", 1);
@@ -1538,6 +1537,7 @@ var short_startup = func
 			setprop("b707/ac/ac-para-select", 1);				
 			setprop("b707/ground-connect", 0);
 			setprop("b707/external-power-connected", 0);
+ 			setprop("b707/apu/off-start-run", 0);
 			setprop("b707/hydraulic/quantity", 3050);
     }, 30);
 

@@ -120,7 +120,7 @@ var toggleLandingLights = func {
 
 ################## Little Help Window on bottom of screen #################
 var help_win = screen.window.new( 0, 0, 1, 3 );
-help_win.fg = [0.8,0.8,0.0,1];
+help_win.fg = [1,1,1,1];
 
 var messenger = func{
 help_win.write(arg[0]);
@@ -231,6 +231,27 @@ var show_dme = func {
     var id = getprop("/instrumentation/nav/nav-id") or 0.0;             
     help_win.write(sprintf("Distance to VOR-DME \""~id~"\" %.2f nm", x) );
   }
+}
+
+var show_fuel_consumption = func {
+	var used = getprop("/b707/fuel/fuel-per-hour-lbs") or 0;
+	var fueltotal = getprop("/consumables/fuel/total-fuel-lbs") or 0;
+	var kg =  used * 0.45359237;
+	var totalkg = fueltotal * 0.45359237;
+	var rt = 0;
+	
+	# how long we can fly
+	if(used){
+		var rt = fueltotal / used * 3600;
+	  var hours = int(rt/3600);
+		var minutes = int(math.mod(rt / 60, 60));
+	}
+	
+	if(kg > 0){
+		help_win.write(sprintf("Total Fuel: %.2fkg - fuel consumption/hour: %.2fkg expected flighttime %3dh %02dmin", fueltotal, kg, hours, minutes));
+	}else{
+		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", fueltotal));
+	}
 }
    
 # show the mp or ai aircraft information on the radar

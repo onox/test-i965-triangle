@@ -560,13 +560,15 @@ setlistener("/b707/generator/gen-drive[1]", func(state){
 	if(a > 20 and state){
 		 settimer( func { setprop("/controls/engines/engine[1]/fire", 1); }, 2);
 	}
-},0,0);setlistener("/b707/generator/gen-drive[2]", func(state){
+},0,0);
+setlistener("/b707/generator/gen-drive[2]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
 		 settimer( func { setprop("/controls/engines/engine[2]/fire", 1); }, 2);
 	}
-},0,0);setlistener("/b707/generator/gen-drive[3]", func(state){
+},0,0);
+setlistener("/b707/generator/gen-drive[3]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
@@ -574,23 +576,50 @@ setlistener("/b707/generator/gen-drive[1]", func(state){
 	}
 },0,0);
 
-################################# OIL Sysstem ###################################
+################ OIL Sysstem  and helper for PRESSURIZATION ####################
 var calc_oil_temp = func{
 	var atemp  =  getprop("/environment/temperature-degc") or 0;
+	var e_run = 0;
 	
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		var n = e.getNode("oil-pressure-psi").getValue() or 0;
 		var r = e.getNode("running").getValue() or 0;
 		var t = n * 2.148;
 		if(r){
+			e_run = 1;
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", t, 32);
 		}else{
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", atemp, 32);
 		}
 	}
-
+	
+	# if pressurization is on automatic and safety-valve is closed
+	var atp = getprop("/b707/pressurization/safety-valve") or 0;
+	var ms  = getprop("/b707/pressurization/manual-mode-switch") or 0;
+	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0;
+	if(atp and ms and alt > 0){
+		var calt = alt/6.36; # Boeing 707 cabin altitude to 5500ft at 35000 altitude
+		interpolate("/b707/pressurization/cabin-altitude", calt, 32);
+	}else{
+		setprop("/b707/pressurization/cabin-altitude", alt);
+		var ra = getprop("position/altitude-agl-ft") or 0;
+		if(e_run and ra > 1000) screen.log.write(sprintf("ATTENTION! No pressurization!"), 1.0, 0.0, 0.0);
+	}
+	
 	settimer( calc_oil_temp, 32);
 }
 
-calc_oil_temp();
+settimer( calc_oil_temp, 10); # start first after 10 sec.
+
+######################### COOLING AND PRESSURIZATION ###########################
+var safety_valv_pos = func {
+	setprop("b707/pressurization/safety-valve-pos", 0);
+	setprop("/b707/pressurization/manual-mode-switch", 0);
+	if(getprop("b707/pressurization/safety-valve")){ 
+		settimer( func { setprop("b707/pressurization/safety-valve-pos", 1) }, 2.1 );
+	}else{
+		interpolate("/b707/pressurization/cabin-altitude", getprop("/instrumentation/altimeter/indicated-altitude-ft"), 15);
+	}
+}
+
 

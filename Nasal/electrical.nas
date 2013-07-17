@@ -846,6 +846,35 @@ var apuLoop = func{
 	 }
  };
  
+setlistener("/b707/apu/starter", func (state){
+    var state = state.getValue() or 0;
+  	if(state == 1){
+  		setprop("/b707/apu/off-start-run", 1);
+  		# fall back, if external power source is connected or ess-bus to low
+  		var ext_con = getprop("b707/external-power-connected") or 0;
+  		
+  		if(ext_con){
+  			settimer(func{
+					setprop("/b707/apu/off-start-run", 0);
+  				setprop("/b707/generator/gen-drive[4]", 0);
+				}, 0.5);  		
+			}else{
+  			b707.apuLoop();
+  		}
+
+  	}else{
+  		
+  		setprop("/b707/apu/off-start-run", 0);
+  		setprop("/b707/generator/gen-drive[4]", 0);
+  	}
+  	
+		if(getprop("/sim/sound/switch2") == 1){
+			setprop("/sim/sound/switch2", 0); 
+		}else{
+			setprop("/sim/sound/switch2", 1);
+		} 
+}); 
+ 
 ##############################################################################################
 setlistener("/sim/signals/fdm-initialized", func {
     init_switches();

@@ -1095,6 +1095,55 @@ var startup = func
 				toggle_switch3();
 			}
 		}, t); t += 1.5;
+		
+		# equipment cooling
+	 	settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/generator/hertz-converter", 1);
+				toggle_switch2();
+			}
+		}, t); t += 0.2;		
+	 	settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/equipment/blower", 1);
+				toggle_switch2();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/equipment/ovbd-dump", 1);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;
+		
+		# safety-valve switch
+	 	settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/pressurization/safety-valve-cover", 1);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/pressurization/safety-valve", 1);
+				b707.safety_valv_pos();
+				toggle_switch2();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/pressurization/safety-valve-cover", 0);
+				toggle_switch3();
+			}
+		}, t); t += 0.5;	
+				
+		# cabin pressurization to AUTO
+	 	settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/pressurization/manual-mode-switch", 1);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;		
 
 		 # lights on 
 		 if(getprop("sim/time/sun-angle-rad") > 1.55){
@@ -1431,88 +1480,93 @@ var toggle_switch3 = func{
 
 var short_startup = func
  {
- 	setprop("b707/battery-switch", 1);
- 	setprop("b707/apu/off-start-run", 1);
- 	setprop("engines/APU/rpm", 101);
- 	setprop("b707/apu/off-start-run", 2);
-	setprop("b707/generator/gen-drive[4]", 1);
-	setprop("b707/load-volt-selector", 1);
-	setprop("b707/external-power-connected", 0);
+ 	setprop("b707/battery-switch", 1);		
+ 	setprop("b707/external-power-connected", 0);
 	setprop("b707/ground-connect", 0);
-	setprop("b707/generator/gen-freq[4]", 400);
 	setprop("b707/ess-power-switch", 0);
 	setprop("b707/ac/ac-para-select", 0);
-	setprop("b707/ess-bus", 28);
+ 	setprop("b707/apu/starter", 1);
+	setprop("b707/load-volt-selector", 1);
+	
+   settimer(func
+    {	
+			setprop("engines/APU/rpm", 95);
+    }, 0.5);
+	
+   settimer(func
+    {	
+		b707.apu_gen_switch();
 
-	setprop("/b707/hydraulic/ac-aux-pump[0]", 1);
-	setprop("/b707/hydraulic/ac-aux-pump[1]", 1);
-	setprop("/b707/hydraulic/hyd-fluid-shutoff[0]", 1);
-	setprop("/b707/hydraulic/hyd-fluid-shutoff[1]", 1);
-	setprop("/b707/hydraulic/hyd-fluid-pump[0]", 1);
-	setprop("/b707/hydraulic/hyd-fluid-pump[1]", 1);
+		setprop("/b707/hydraulic/ac-aux-pump[0]", 1);
+		setprop("/b707/hydraulic/ac-aux-pump[1]", 1);
+		setprop("/b707/hydraulic/hyd-fluid-shutoff[0]", 1);
+		setprop("/b707/hydraulic/hyd-fluid-shutoff[1]", 1);
+		setprop("/b707/hydraulic/hyd-fluid-pump[0]", 1);
+		setprop("/b707/hydraulic/hyd-fluid-pump[1]", 1);
 	
-	setprop("b707/generator/gen-drive[0]", 1);
-	setprop("b707/generator/gen-drive[1]", 1);
-	setprop("b707/generator/gen-drive[2]", 1);
-	setprop("b707/generator/gen-drive[3]", 1);
- 	setprop("b707/generator/gen-bus-tie[0]", 1);
-	setprop("b707/generator/gen-bus-tie[1]", 1);
-	setprop("b707/generator/gen-bus-tie[2]", 1);
-	setprop("b707/generator/gen-bus-tie[3]", 1);
-	setprop("b707/generator/gen-breaker[0]", 1);
-	setprop("b707/generator/gen-breaker[1]", 1);
-	setprop("b707/generator/gen-breaker[2]", 1);
-	setprop("b707/generator/gen-breaker[3]", 1);
-	setprop("b707/generator/gen-control[0]", 1);
-	setprop("b707/generator/gen-control[1]", 1);
-	setprop("b707/generator/gen-control[2]", 1);
-	setprop("b707/generator/gen-control[3]", 1);
+		setprop("b707/generator/gen-drive[0]", 1);
+		setprop("b707/generator/gen-drive[1]", 1);
+		setprop("b707/generator/gen-drive[2]", 1);
+		setprop("b707/generator/gen-drive[3]", 1);
+	 	setprop("b707/generator/gen-bus-tie[0]", 1);
+		setprop("b707/generator/gen-bus-tie[1]", 1);
+		setprop("b707/generator/gen-bus-tie[2]", 1);
+		setprop("b707/generator/gen-bus-tie[3]", 1);
+		setprop("b707/generator/gen-breaker[0]", 1);
+		setprop("b707/generator/gen-breaker[1]", 1);
+		setprop("b707/generator/gen-breaker[2]", 1);
+		setprop("b707/generator/gen-breaker[3]", 1);
+		setprop("b707/generator/gen-control[0]", 1);
+		setprop("b707/generator/gen-control[1]", 1);
+		setprop("b707/generator/gen-control[2]", 1);
+		setprop("b707/generator/gen-control[3]", 1);
 	
-	setprop("/b707/fuel/valves/valve[0]", 0);
-	b707.valve_pos(0);
-	setprop("/b707/fuel/valves/valve[1]", 0);
-	b707.valve_pos(1);
-	setprop("/b707/fuel/valves/valve[2]", 0);
-	b707.valve_pos(2);
-	setprop("/b707/fuel/valves/valve[3]", 0);
-	b707.valve_pos(3);
-	setprop("/b707/fuel/valves/valve[4]", 0);
-	b707.valve_pos(4);
-	setprop("/b707/fuel/valves/valve[5]", 0);
-	b707.valve_pos(5);
+		setprop("/b707/fuel/valves/valve[0]", 0);
+		b707.valve_pos(0);
+		setprop("/b707/fuel/valves/valve[1]", 0);
+		b707.valve_pos(1);
+		setprop("/b707/fuel/valves/valve[2]", 0);
+		b707.valve_pos(2);
+		setprop("/b707/fuel/valves/valve[3]", 0);
+		b707.valve_pos(3);
+		setprop("/b707/fuel/valves/valve[4]", 0);
+		b707.valve_pos(4);
+		setprop("/b707/fuel/valves/valve[5]", 0);
+		b707.valve_pos(5);
 	
-	setprop("/b707/fuel/valves/boost-pump[0]", 1);
-	setprop("/b707/fuel/valves/boost-pump[1]", 1);
-	setprop("/b707/fuel/valves/boost-pump[2]", 1);
-	setprop("/b707/fuel/valves/boost-pump[3]", 1);
-	setprop("/b707/fuel/valves/boost-pump[4]", 1);
-	setprop("/b707/fuel/valves/boost-pump[5]", 1);
-	setprop("/b707/fuel/valves/boost-pump[6]", 1);
-	setprop("/b707/fuel/valves/boost-pump[7]", 1);
-	setprop("/b707/fuel/valves/boost-pump[8]", 1);
-	setprop("/b707/fuel/valves/boost-pump[9]", 1);
+		setprop("/b707/fuel/valves/boost-pump[0]", 1);
+		setprop("/b707/fuel/valves/boost-pump[1]", 1);
+		setprop("/b707/fuel/valves/boost-pump[2]", 1);
+		setprop("/b707/fuel/valves/boost-pump[3]", 1);
+		setprop("/b707/fuel/valves/boost-pump[4]", 1);
+		setprop("/b707/fuel/valves/boost-pump[5]", 1);
+		setprop("/b707/fuel/valves/boost-pump[6]", 1);
+		setprop("/b707/fuel/valves/boost-pump[7]", 1);
+		setprop("/b707/fuel/valves/boost-pump[8]", 1);
+		setprop("/b707/fuel/valves/boost-pump[9]", 1);
 	
-	setprop("/b707/fuel/valves/fuel-shutoff[0]", 1);
-	b707.shutoff_pos(0);
-	setprop("/b707/fuel/valves/fuel-shutoff[1]", 1);
-	b707.shutoff_pos(1);
-	setprop("/b707/fuel/valves/fuel-shutoff[2]", 1);
-	b707.shutoff_pos(2);
-	setprop("/b707/fuel/valves/fuel-shutoff[3]", 1);
-	b707.shutoff_pos(3);
+		setprop("/b707/fuel/valves/fuel-shutoff[0]", 1);
+		b707.shutoff_pos(0);
+		setprop("/b707/fuel/valves/fuel-shutoff[1]", 1);
+		b707.shutoff_pos(1);
+		setprop("/b707/fuel/valves/fuel-shutoff[2]", 1);
+		b707.shutoff_pos(2);
+		setprop("/b707/fuel/valves/fuel-shutoff[3]", 1);
+		b707.shutoff_pos(3);
 	
-	setprop("controls/engines/engine[0]/throttle", 0.25);
-	setprop("controls/engines/engine[1]/throttle", 0.25);
-	setprop("controls/engines/engine[2]/throttle", 0.25);
-	setprop("controls/engines/engine[3]/throttle", 0.25);
-	setprop("controls/engines/engine[0]/cutoff", 1);
-	setprop("controls/engines/engine[1]/cutoff", 1);
-	setprop("controls/engines/engine[2]/cutoff", 1);
-	setprop("controls/engines/engine[3]/cutoff", 1);
-	setprop("controls/engines/engine[0]/starter", 1);
-	setprop("controls/engines/engine[1]/starter", 1);
-	setprop("controls/engines/engine[2]/starter", 1);
-	setprop("controls/engines/engine[3]/starter", 1);
+		setprop("controls/engines/engine[0]/throttle", 0.25);
+		setprop("controls/engines/engine[1]/throttle", 0.25);
+		setprop("controls/engines/engine[2]/throttle", 0.25);
+		setprop("controls/engines/engine[3]/throttle", 0.25);
+		setprop("controls/engines/engine[0]/cutoff", 1);
+		setprop("controls/engines/engine[1]/cutoff", 1);
+		setprop("controls/engines/engine[2]/cutoff", 1);
+		setprop("controls/engines/engine[3]/cutoff", 1);
+		setprop("controls/engines/engine[0]/starter", 1);
+		setprop("controls/engines/engine[1]/starter", 1);
+		setprop("controls/engines/engine[2]/starter", 1);
+		setprop("controls/engines/engine[3]/starter", 1);
+    }, 4);
 
    settimer(func
     {
@@ -1520,7 +1574,7 @@ var short_startup = func
 			setprop("controls/engines/engine[1]/cutoff", 0);
 			setprop("controls/engines/engine[2]/cutoff", 0);
 			setprop("controls/engines/engine[3]/cutoff", 0);
-    }, 1);
+    }, 14);
     
 
    settimer(func
@@ -1534,12 +1588,17 @@ var short_startup = func
 			setprop("b707/generator/gen-bus-tie[2]", 1);
 			setprop("b707/generator/gen-bus-tie[3]", 1);
 			setprop("b707/ess-power-switch", 1);
-			setprop("b707/ac/ac-para-select", 1);				
-			setprop("b707/ground-connect", 0);
-			setprop("b707/external-power-connected", 0);
- 			setprop("b707/apu/off-start-run", 0);
+			setprop("b707/ac/ac-para-select", 1);
+			setprop("b707/generator/gen-drive[4]", 0);				
+			setprop("b707/apu/starter", 0);
 			setprop("b707/hydraulic/quantity", 3050);
-    }, 30);
+			setprop("/b707/generator/hertz-converter", 0);
+			setprop("/b707/equipment/blower", 0);
+			setprop("/b707/equipment/ovbd-dump", 0);
+			setprop("/b707/pressurization/safety-valve", 1);
+			b707.safety_valv_pos();
+			setprop("/b707/pressurization/manual-mode-switch",1);
+    }, 34);
 
 		
  };

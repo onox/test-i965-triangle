@@ -33,11 +33,20 @@
 	<animation>
 		<type>material</type>
 		<object-name>LampAmberON</object-name>
-		<object-name>LampAmberON.001</object-name>
 		<emission>
 		  <red>   1.0 </red>
 		  <green> 0.8 </green>
 		  <blue>  0.4 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>LampAmberON.001</object-name> <!-- ups green light not amber -->
+		<emission>
+		  <red>   0 </red>
+		  <green> 1.0 </green>
+		  <blue>  0 </blue>
 		</emission>
 	</animation>
 	

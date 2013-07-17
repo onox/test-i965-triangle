@@ -2168,6 +2168,152 @@
 			</condition>
 		</exit>
 	</step>
+	
+	
+	<step>
+		<message>
+			40 Hertz Converter - Controls 115Volt 60 cycle power to the stateroom and the number two galley areas.
+		</message>
+		<view>
+			<heading-offset-deg>239.9</heading-offset-deg>
+			<pitch-offset-deg>-4.9</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.4</x-offset-m>
+			<y-offset-m>1.2</y-offset-m>
+			<z-offset-m>-18.2</z-offset-m>
+			<field-of-view>28.6</field-of-view>
+		</view>
+
+		<marker>
+			<x-m>-17.5876</x-m>
+			<y-m>0.5711</y-m>
+			<z-m>1.0636</z-m>
+			<scale>1.6612</scale>
+		</marker>
+		<error>
+			<message>
+				Switch to ON.
+			</message>
+			<condition>
+				<not><property>/b707/generator/hertz-converter</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/generator/hertz-converter</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			Set the Equipment Cooling pumps to ON.
+		</message>
+		<view>
+				<heading-offset-deg>239.9</heading-offset-deg>
+				<pitch-offset-deg>-4.9</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>28.6</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.5876</x-m>
+				<y-m>0.5711</y-m>
+				<z-m>1.1157</z-m>
+				<scale>1.6612</scale>
+		</marker>
+
+		<error>
+			<message>
+				Both switch to ON.
+			</message>
+			<condition>
+				<not><property>/b707/equipment/ovbd-dump</property></not>
+				<not><property>/b707/equipment/blower</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/equipment/ovbd-dump</property>
+				<property>/b707/equipment/blower</property>
+			</condition>
+		</exit>
+	</step>	
+
+	<step>
+		<message>
+			Open the cover of the Safety-Air-valve.
+			Switch the knob to the bottom. 
+		</message>
+		<view>
+				<heading-offset-deg>227.6</heading-offset-deg>
+				<pitch-offset-deg>3.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>23.5</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.1619</x-m>
+				<y-m>0.5711</y-m>
+				<z-m>1.3967</z-m>
+				<scale>2.3224</scale>
+		</marker>
+
+		<error>
+			<message>
+				Switch down the knob, the amber light extinguished.
+			</message>
+			<condition>
+				<not><property>/b707/pressurization/safety-valve</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/pressurization/safety-valve</property>
+			</condition>
+		</exit>
+	</step>		
+	
+	<step>
+		<message>
+			Now switch on the Pressurization Auto Mode. 
+		</message>
+		<view>
+				<heading-offset-deg>227.6</heading-offset-deg>
+				<pitch-offset-deg>3.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>23.5</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.4264</x-m>
+				<y-m>0.5711</y-m>
+				<z-m>1.2380</z-m>
+				<scale>1.8100</scale>
+		</marker>
+		<error>
+			<message>
+				Set switch to ON.
+			</message>
+			<condition>
+				<not><property>/b707/pressurization/manual-mode-switch</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/pressurization/manual-mode-switch</property>
+			</condition>
+		</exit>
+	</step>	
 		
 	<end>
 		<message>All engines started. Generators closed. Have a nice trip!</message>

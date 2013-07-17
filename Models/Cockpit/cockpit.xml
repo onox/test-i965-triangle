@@ -116,6 +116,20 @@
 						<property>/b707/warning/state</property>
 						<property>/controls/engines/engine[3]/fire</property>
 					</and>
+					<greater-than>
+						<property>/b707/pressurization/cabin-altitude</property>
+						<value>8500</value>
+					</greater-than>
+					<and>
+						<greater-than>
+							<property>/b707/pressurization/cabin-altitude</property>
+							<value>4000</value>
+						</greater-than>
+						<or>
+							<not><property>/b707/pressurization/safety-valve</property></not>
+							<not><property>/b707/pressurization/manual-mode-switch</property></not>
+						</or>
+					</and>
 				</or>
 		</condition>
 	</animation>	 

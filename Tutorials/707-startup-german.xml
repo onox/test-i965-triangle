@@ -2208,6 +2208,151 @@
 			</condition>
 		</exit>
 	</step>
+	
+	<step>
+		<message>
+			Schalten Sie den 40Hertz Converter fuer die zusaetzlichen Verbraucher ein.
+		</message>
+		<view>
+			<heading-offset-deg>239.9</heading-offset-deg>
+			<pitch-offset-deg>-4.9</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.4</x-offset-m>
+			<y-offset-m>1.2</y-offset-m>
+			<z-offset-m>-18.2</z-offset-m>
+			<field-of-view>28.6</field-of-view>
+		</view>
+
+		<marker>
+			<x-m>-17.5876</x-m>
+			<y-m>0.5711</y-m>
+			<z-m>1.0636</z-m>
+			<scale>1.6612</scale>
+		</marker>
+		<error>
+			<message>
+				Schalterstellung auf ON.
+			</message>
+			<condition>
+				<not><property>/b707/generator/hertz-converter</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/generator/hertz-converter</property>
+			</condition>
+		</exit>
+	</step>
+	
+	<step>
+		<message>
+			Schalten Sie das Kuehlsystem fuer die Elektronik ein.
+		</message>
+		<view>
+				<heading-offset-deg>239.9</heading-offset-deg>
+				<pitch-offset-deg>-4.9</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>28.6</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.5876</x-m>
+				<y-m>0.5711</y-m>
+				<z-m>1.1157</z-m>
+				<scale>1.6612</scale>
+		</marker>
+
+		<error>
+			<message>
+				Beide Schalter auf ON.
+			</message>
+			<condition>
+				<not><property>/b707/equipment/ovbd-dump</property></not>
+				<not><property>/b707/equipment/blower</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/equipment/ovbd-dump</property>
+				<property>/b707/equipment/blower</property>
+			</condition>
+		</exit>
+	</step>	
+
+	<step>
+		<message>
+			Oeffnen Sie nun die Abdeckung fuer das Sicherheitsluftventil.
+			Schalten Sie den Kippschalten nach unten. 
+		</message>
+		<view>
+				<heading-offset-deg>227.6</heading-offset-deg>
+				<pitch-offset-deg>3.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>23.5</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.1619</x-m>
+				<y-m>0.5711</y-m>
+				<z-m>1.3967</z-m>
+				<scale>2.3224</scale>
+		</marker>
+
+		<error>
+			<message>
+				Schalter nach unten, die orange Kontrollleuchte unten links erlischt.
+			</message>
+			<condition>
+				<not><property>/b707/pressurization/safety-valve</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/pressurization/safety-valve</property>
+			</condition>
+		</exit>
+	</step>		
+	
+	<step>
+		<message>
+			Schalten Sie die Automatik fuer den Kabinendruckausgleich ein. 
+		</message>
+		<view>
+				<heading-offset-deg>227.6</heading-offset-deg>
+				<pitch-offset-deg>3.8</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>23.5</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.4264</x-m>
+				<y-m>0.5711</y-m>
+				<z-m>1.2380</z-m>
+				<scale>1.8100</scale>
+		</marker>
+		<error>
+			<message>
+				Kippschalter nach oben.
+			</message>
+			<condition>
+				<not><property>/b707/pressurization/manual-mode-switch</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/pressurization/manual-mode-switch</property>
+			</condition>
+		</exit>
+	</step>		
 		
 	<end>
 		<message>Alle Triebwerke sind gestartet. Have a nice trip!</message>

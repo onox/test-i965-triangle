@@ -135,6 +135,17 @@
 		  <y-m> 0.0</y-m>
 		  <z-m> 0.0069</z-m>
 		</offsets>
+	</model>	
+	
+  <!-- Pressurization switches and knobs -->
+	<model>
+		<name>pressurizationSwitches</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/pressurization.xml</path>
+		<offsets>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
+		</offsets>
 	</model>
 	
   <!-- Fuel Dump in  auxilliary panel -->

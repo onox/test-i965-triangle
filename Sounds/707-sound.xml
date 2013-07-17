@@ -697,38 +697,6 @@
 			<offset>1.25</offset>
 		</pitch>
 	</wind>
- 
-	<stall>
-		<name>stall or overspeed</name>
-		<path>Aircraft/707/Sounds/warning.wav</path>		
-		<condition>
-			<and>
-				<greater-than>
-					<property>/b707/ess-bus</property>
-					<value>20</value>
-				</greater-than>
-				<or>
-					<and>
-						<less-than>
-							<property>/velocities/airspeed-kt</property>
-							<value>160.0</value>
-						</less-than>
-						<greater-than>
-							<property>/position/altitude-agl-ft</property>
-							<value>200.0</value>					
-						</greater-than>
-					</and>
-					<greater-than>
-						<property>/velocities/mach</property>
-						<value>0.81</value>
-					</greater-than>
-				</or>
-			</and>
-		</condition>
-		<volume>
-			<factor>1</factor>
-		</volume>
-	</stall>
 	
 	<!-- sound in the cockpit at autostart procedure -->
 	<enginesmsg>
@@ -800,6 +768,38 @@
 			<factor>1</factor>
 		</volume>
 	</enginesmsg>
+	
+	<stall>
+		<name>stall or overspeed</name>
+		<path>Aircraft/707/Sounds/warning.wav</path>		
+		<condition>
+			<and>
+				<greater-than>
+					<property>/b707/ess-bus</property>
+					<value>20</value>
+				</greater-than>
+				<or>
+					<and>
+						<less-than>
+							<property>/velocities/airspeed-kt</property>
+							<value>160.0</value>
+						</less-than>
+						<greater-than>
+							<property>/position/altitude-agl-ft</property>
+							<value>200.0</value>					
+						</greater-than>
+					</and>
+					<greater-than>
+						<property>/velocities/mach</property>
+						<value>0.81</value>
+					</greater-than>
+				</or>
+			</and>
+		</condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</stall>
 
 	<testwarning>
 		<name>test warning</name>
@@ -811,7 +811,20 @@
 						<property>/b707/ess-bus</property>
 						<value>20</value>
 					</greater-than>
-					<property>/controls/test/warn-knob</property>
+					<or>
+						<greater-than>
+							<property>/b707/pressurization/cabin-altitude</property>
+							<value>8500</value>
+						</greater-than>
+						<and>
+							<greater-than>
+								<property>/b707/pressurization/cabin-altitude</property>
+								<value>4000</value>
+							</greater-than>
+							<not><property>/b707/pressurization/safety-valve</property></not>
+						</and>
+						<property>/controls/test/warn-knob</property>
+					</or>
 				</and>
       </condition>
 		<volume>

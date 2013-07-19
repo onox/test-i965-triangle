@@ -88,7 +88,8 @@
 		<condition>
 			<property>/sim/rendering/rembrandt/enabled</property>
 		</condition>
-	</animation> 
+	</animation>
+	
 	<animation>
 		<type>select</type>
 		<object-name>LightVolume2</object-name>
@@ -125,10 +126,7 @@
 							<property>/b707/pressurization/cabin-altitude</property>
 							<value>4000</value>
 						</greater-than>
-						<or>
-							<not><property>/b707/pressurization/safety-valve</property></not>
-							<not><property>/b707/pressurization/manual-mode-switch</property></not>
-						</or>
+						<not><property>/b707/pressurization/safety-valve</property></not>
 					</and>
 				</or>
 		</condition>

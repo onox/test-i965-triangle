@@ -158,4 +158,38 @@
 		  <z-m>-0.1669</z-m>
 		</offsets>
 	</model>
+		
+  <!-- Cabin rate of climb -->
+	<model>
+		<name>cabinClimb</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/cabinClimb/cabinClimb.xml</path>
+		<offsets>
+		  <x-m> 0.0682</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m>-0.1123</z-m>
+		</offsets>
+	</model>
+		
+  <!-- Cabin altitude -->
+	<model>
+		<name>cabinAlt</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/cabinAlt/alt.xml</path>
+		<offsets>
+		  <x-m> 0.127</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m>-0.106</z-m>
+		</offsets>
+	</model>
+	
+  <!-- Cabin differential pressure -->
+	<model>
+		<name>cabinPress</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/cabinPress/cabinPress.xml</path>
+		<offsets>
+		  <x-m> 0.1866</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m>-0.1123</z-m>
+		</offsets>
+	</model>
+	
 </PropertyList>

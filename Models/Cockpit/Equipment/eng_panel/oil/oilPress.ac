@@ -7,7 +7,7 @@ name "bezel"
 loc 0.000059 0.001915 0.001453
 data 5
 bezel
-texture "amplitudeface.png"
+texture "oilPress.png"
 texrep 1 1
 crease 30.000001
 numvert 144

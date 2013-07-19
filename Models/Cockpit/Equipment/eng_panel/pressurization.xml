@@ -365,7 +365,11 @@
 		<type>rotate</type>
 		<object-name>knob.004</object-name>
 		<property>/b707/pressurization/manual-control-selector</property>
-		<factor>155</factor>
+		<interpolation>
+		  <entry><ind>-1900</ind><dep> -155</dep></entry>
+		  <entry><ind> 0</ind><dep>   0</dep></entry>
+		  <entry><ind> 1900</ind><dep>  155</dep></entry>
+		</interpolation>
 		<axis>
 		 <x>0</x>
 		 <y>1</y>
@@ -385,11 +389,6 @@
 		  <button>0</button>
 		  <repeatable>true</repeatable>
 		  <binding>
-        <condition>
-          <not>
-              <property>/b707/pressurization/manual-mode-switch</property>
-          </not>
-        </condition>
 		    <command>property-assign</command>
 				<property>/b707/pressurization/manual-control-selector</property>
 		    <value>0</value>
@@ -403,16 +402,11 @@
 		  <button>3</button>
 		  <repeatable>true</repeatable>
 		  <binding>
-        <condition>
-          <not>
-              <property>/b707/pressurization/manual-mode-switch</property>
-          </not>
-        </condition>
 		    <command>property-adjust</command>
 				<property>/b707/pressurization/manual-control-selector</property>
-		    <step>0.02</step>
-		    <min>-1</min>
-		    <max>1</max>
+		    <step>100</step>
+		    <min>-1900</min>
+		    <max> 1900</max>
 		    <wrap>0</wrap>
 		  </binding>
 		  <binding>
@@ -424,16 +418,12 @@
 		  <button>4</button>
 		  <repeatable>true</repeatable>
 		  <binding>
-        <condition>
-          <not>
-              <property>/b707/pressurization/manual-mode-switch</property>
-          </not>
-        </condition>
 		    <command>property-adjust</command>
 				<property>/b707/pressurization/manual-control-selector</property>
-		    <step>-0.02</step>
-		    <min>-1</min>
-		    <max>1</max>
+		    <step>-100</step>
+		    <min>-1900</min>
+		    <max> 1900</max>
+		    <wrap>0</wrap>
 		    <wrap>0</wrap>
 		  </binding>
 		  <binding>
@@ -663,7 +653,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>face_psi</object-name>
-		<property>/b707/pressurization/cabin-altitude</property>
+		<property>/b707/pressurization/cabin-max</property>
 		<interpolation>
 		  <entry><ind> -200.0</ind><dep> -2.0</dep></entry>
 		  <entry><ind>    0.0</ind><dep>  0.0</dep></entry>
@@ -687,7 +677,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.001</object-name>
-		<property>/b707/pressurization/cabin-altitude</property>
+		<property>/b707/pressurization/cabin-max</property>
 		<factor>-0.001</factor>
 		<axis>
 		 <x>0</x>
@@ -710,46 +700,59 @@
 	      <button>0</button>
 	    	<repeatable>true</repeatable>			
 	      <binding>
-		      <condition>
-		        <not>
-		            <property>/b707/pressurization/manual-mode-switch</property>
-		        </not>
-		      </condition>
           <command>property-assign</command>
-          <property>/b707/pressurization/cabin-altitude</property>
+          <property>/b707/pressurization/cabin-max</property>
           <value>0</value>
 				</binding>
 	    </action>
       <action>
           <button>3</button>
           <binding>
-		      <condition>
-		        <not>
-		            <property>/b707/pressurization/manual-mode-switch</property>
-		        </not>
-		      </condition>
-          <command>property-adjust</command>
-          <property>/b707/pressurization/cabin-altitude</property>
-          <step>100</step>
-          <min>-200.0</min>
-          <max>8100.0</max>
-          <wrap>false</wrap>
+            <condition>
+                 <not><property>devices/status/keyboard/shift</property></not>
+            </condition>
+		        <command>property-adjust</command>
+		        <property>/b707/pressurization/cabin-max</property>
+		        <step>10</step>
+		        <min> 0.0</min>
+		        <max>10000.0</max>
+		        <wrap>true</wrap>
+          </binding>
+          <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+		        <command>property-adjust</command>
+		        <property>/b707/pressurization/cabin-max</property>
+		        <step>100</step>
+		        <min> 0.0</min>
+		        <max>10000.0</max>
+		        <wrap>true</wrap>
           </binding>
       </action>
       <action>
           <button>4</button>
           <binding>
-		      <condition>
-		        <not>
-		            <property>/b707/pressurization/manual-mode-switch</property>
-		        </not>
-		      </condition>
-          <command>property-adjust</command>
-          <property>/b707/pressurization/cabin-altitude</property>
-          <step>-100</step>
-          <min>-200.0</min>
-          <max>8100.0</max>
-          <wrap>false</wrap>
+            <condition>
+                 <not><property>devices/status/keyboard/shift</property></not>
+            </condition>
+		        <command>property-adjust</command>
+		        <property>/b707/pressurization/cabin-max</property>
+		        <step>-10</step>
+		        <min> 0.0</min>
+		        <max>10000.0</max>
+		        <wrap>true</wrap>
+          </binding>
+          <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+		        <command>property-adjust</command>
+		        <property>/b707/pressurization/cabin-max</property>
+		        <step>-100</step>
+		        <min> 0.0</min>
+		        <max>10000.0</max>
+		        <wrap>true</wrap>
           </binding>
       </action>
   </animation>		
@@ -759,7 +762,7 @@
 		<type>rotate</type>
 		<object-name>knob</object-name>
 		<property>/b707/pressurization/incr-decr-rate</property>
-		<factor>125</factor>
+		<factor>0.1</factor>
 		<axis>
 		 <x>0</x>
 		 <y>1</y>
@@ -794,9 +797,9 @@
 		  <binding>
 		    <command>property-adjust</command>
 				<property>/b707/pressurization/incr-decr-rate</property>
-		    <step>0.05</step>
-		    <min>0</min>
-		    <max>1</max>
+		    <step>100</step>
+		    <min>-1900</min>
+		    <max> 1900</max>
 		    <wrap>0</wrap>
 		  </binding>
 		  <binding>
@@ -810,9 +813,9 @@
 		  <binding>
 		    <command>property-adjust</command>
 				<property>/b707/pressurization/incr-decr-rate</property>
-		    <step>-0.05</step>
-		    <min>0</min>
-		    <max>1</max>
+		    <step>-100</step>
+		    <min>-1900</min>
+		    <max> 1900</max>
 		    <wrap>0</wrap>
 		  </binding>
 		  <binding>

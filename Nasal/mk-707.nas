@@ -576,34 +576,19 @@ setlistener("/b707/generator/gen-drive[3]", func(state){
 	}
 },0,0);
 
-################ OIL Sysstem  and helper for PRESSURIZATION ####################
+########################### OIL Sysstem  ######################################
 var calc_oil_temp = func{
 	var atemp  =  getprop("/environment/temperature-degc") or 0;
-	var e_run = 0;
 	
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		var n = e.getNode("oil-pressure-psi").getValue() or 0;
 		var r = e.getNode("running").getValue() or 0;
 		var t = n * 2.148;
 		if(r){
-			e_run = 1;
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", t, 32);
 		}else{
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", atemp, 32);
 		}
-	}
-	
-	# if pressurization is on automatic and safety-valve is closed
-	var atp = getprop("/b707/pressurization/safety-valve") or 0;
-	var ms  = getprop("/b707/pressurization/manual-mode-switch") or 0;
-	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0;
-	if(atp and ms and alt > 0){
-		var calt = alt/6.36; # Boeing 707 cabin altitude to 5500ft at 35000 altitude
-		interpolate("/b707/pressurization/cabin-altitude", calt, 32);
-	}else{
-		setprop("/b707/pressurization/cabin-altitude", alt);
-		var ra = getprop("position/altitude-agl-ft") or 0;
-		if(e_run and ra > 1000) screen.log.write(sprintf("ATTENTION! No pressurization!"), 1.0, 0.0, 0.0);
 	}
 	
 	settimer( calc_oil_temp, 32);
@@ -611,15 +596,78 @@ var calc_oil_temp = func{
 
 settimer( calc_oil_temp, 10); # start first after 10 sec.
 
-######################### COOLING AND PRESSURIZATION ###########################
+####################### COOLING AND PRESSURIZATION LOOP ###########################
 var safety_valv_pos = func {
 	setprop("b707/pressurization/safety-valve-pos", 0);
 	setprop("/b707/pressurization/manual-mode-switch", 0);
 	if(getprop("b707/pressurization/safety-valve")){ 
 		settimer( func { setprop("b707/pressurization/safety-valve-pos", 1) }, 2.1 );
-	}else{
-		interpolate("/b707/pressurization/cabin-altitude", getprop("/instrumentation/altimeter/indicated-altitude-ft"), 15);
 	}
 }
 
+var calc_pressurization	= func{
+	# loop time
+	var t = 3;
+	# if pressurization is on automatic and safety-valve is closed
+	var svp = getprop("/b707/pressurization/safety-valve-pos") or 0;
+	var ms  = getprop("/b707/pressurization/manual-mode-switch") or 0;
+	var rate = getprop("/b707/pressurization/incr-decr-rate") or 0.1; # never divide to zero
+	var mcs = getprop("/b707/pressurization/manual-control-selector") or 0; # never divide to zero
+	var vs = getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm") or 0;
+	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0.1; # never divide to zero
+	var calt = getprop("/b707/pressurization/cabin-altitude") or 0;
+	var max = getprop("/b707/pressurization/cabin-max") or 0;
+	
+	if(svp){
+	
+		if(ms){
+			var norm = alt/6.36;
+			if((norm - 1000) > calt){
+				rate = (rate <= 250) ? 250 : rate;
+			}elsif((norm + 1000) < calt){
+				rate = (rate >= -250) ? -250 : rate;
+			}else{
+			  rate = 0;
+			}
+		  
+			calt = calt + (t*rate/60);
+			calt = (calt > norm) ? norm : calt;
+			
+			interpolate("/b707/pressurization/cabin-max", norm, t);  # the white scale is set automatically
+			interpolate("/b707/pressurization/cabin-altitude", calt, t); # the alt needles 
+			interpolate("/b707/pressurization/climb-rate", rate, t); # the climb rate
+			#print("calc_pressurization is running in auto mode");
+		}else{
+			
+			if((mcs > 0 and calt < max) or (mcs < 0 and calt > max)){
+				calt = calt + (t*mcs/60);
+			}else{
+				calt = calt;
+				mcs = 0;
+			}	
+			
+			interpolate("/b707/pressurization/cabin-altitude", calt, t); # the alt needles as result of white scale and manual control 
+			interpolate("/b707/pressurization/climb-rate", mcs, t);		# the climb rate as result of manual control
+			#print("calc_pressurization is working on manual mode");
+		}
+		
+	}else{
+		calt = alt;
+		#print("calc_pressurization is not working");
+		interpolate("/b707/pressurization/cabin-altitude", alt, t);
+		interpolate("/b707/pressurization/climb-rate", vs, t);
+		var ra = getprop("position/altitude-agl-ft") or 0;
+		if(ra > 2000) screen.log.write(sprintf("ATTENTION! No pressurization!"), 1.0, 0.0, 0.0);
+	}
+	
+	# cabin differential pressure
+	var diff = alt - calt;
+	var psi = diff * 8.6/30000;
+	interpolate("/b707/pressurization/cabin-differential-pressure", psi, t);
+	
+	settimer(calc_pressurization, t);
+	
+}
+
+settimer( calc_pressurization, 9); # start first after 10 sec.
 

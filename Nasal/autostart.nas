@@ -1592,9 +1592,9 @@ var short_startup = func
 			setprop("b707/generator/gen-drive[4]", 0);				
 			setprop("b707/apu/starter", 0);
 			setprop("b707/hydraulic/quantity", 3050);
-			setprop("/b707/generator/hertz-converter", 0);
-			setprop("/b707/equipment/blower", 0);
-			setprop("/b707/equipment/ovbd-dump", 0);
+			setprop("/b707/generator/hertz-converter", 1);
+			setprop("/b707/equipment/blower", 1);
+			setprop("/b707/equipment/ovbd-dump", 1);
 			setprop("/b707/pressurization/safety-valve", 1);
 			b707.safety_valv_pos();
 			setprop("/b707/pressurization/manual-mode-switch",1);

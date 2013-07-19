@@ -617,21 +617,23 @@ var calc_pressurization	= func{
 	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0.1; # never divide to zero
 	var calt = getprop("/b707/pressurization/cabin-altitude") or 0;
 	var max = getprop("/b707/pressurization/cabin-max") or 0;
+	var mode = getprop("/b707/pressurization/mode-switch") or 0; # true is take off / false for landing
 	
 	if(svp){
 	
 		if(ms){
 			var norm = alt/6.36;
-			if((norm - 1000) > calt){
-				rate = (rate <= 250) ? 250 : rate;
-			}elsif((norm + 1000) < calt){
-				rate = (rate >= -250) ? -250 : rate;
+			if(norm - 0.5 > calt){
+				rate = (rate <= 250 and mode) ? 250 : rate;
+			}elsif(norm + 0.5 < calt){
+				rate = (rate >= -250 and !mode) ? -250 : rate;
 			}else{
 			  rate = 0;
 			}
-		  
+
 			calt = calt + (t*rate/60);
-			calt = (calt > norm) ? norm : calt;
+			calt = (calt > norm and mode) ? norm : calt;		# in takeoff or flight mode
+			calt = (calt < norm and !mode) ? norm : calt;   # in landinng mode
 			
 			interpolate("/b707/pressurization/cabin-max", norm, t);  # the white scale is set automatically
 			interpolate("/b707/pressurization/cabin-altitude", calt, t); # the alt needles 

@@ -1143,6 +1143,12 @@ var startup = func
 		 		setprop("/b707/pressurization/manual-mode-switch", 1);
 				toggle_switch3();
 			}
+		}, t); t += 0.2;	
+	 	settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/pressurization/mode-switch", 1);
+				toggle_switch3();
+			}
 		}, t); t += 0.2;		
 
 		 # lights on 
@@ -1598,6 +1604,7 @@ var short_startup = func
 			setprop("/b707/pressurization/safety-valve", 1);
 			b707.safety_valv_pos();
 			setprop("/b707/pressurization/manual-mode-switch",1);
+			setprop("/b707/pressurization/mode-switch",1);
     }, 34);
 
 		

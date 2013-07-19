@@ -611,10 +611,11 @@ var calc_pressurization	= func{
 	# if pressurization is on automatic and safety-valve is closed
 	var svp = getprop("/b707/pressurization/safety-valve-pos") or 0;
 	var ms  = getprop("/b707/pressurization/manual-mode-switch") or 0;
-	var rate = getprop("/b707/pressurization/incr-decr-rate") or 0.1; # never divide to zero
+	var rate = getprop("/b707/pressurization/incr-decr-rate") or 0; # never divide to zero
 	var mcs = getprop("/b707/pressurization/manual-control-selector") or 0; # never divide to zero
 	var vs = getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm") or 0;
-	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0.1; # never divide to zero
+	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0; # never divide to zero
+	var agl = getprop("/position/altitude-agl-ft") or 0;
 	var calt = getprop("/b707/pressurization/cabin-altitude") or 0;
 	var max = getprop("/b707/pressurization/cabin-max") or 0;
 	var mode = getprop("/b707/pressurization/mode-switch") or 0; # true is take off / false for landing
@@ -622,20 +623,31 @@ var calc_pressurization	= func{
 	if(svp){
 	
 		if(ms){
-			var norm = alt/6.36;
-			if(norm - 0.5 > calt){
-				rate = (rate <= 250 and mode) ? 250 : rate;
-			}elsif(norm + 0.5 < calt){
-				rate = (rate >= -250 and !mode) ? -250 : rate;
-			}else{
-			  rate = 0;
-			}
+		
+			var autorate = vs/6.32;
 
-			calt = calt + (t*rate/60);
-			calt = (calt > norm and mode) ? norm : calt;		# in takeoff or flight mode
-			calt = (calt < norm and !mode) ? norm : calt;   # in landinng mode
+			if(mode){ 					# in takeoff or flight mode
+				if(calt < max){
+					rate = (rate > 0) ? rate : autorate;
+					calt = calt + (t*rate/60);
+				}else{
+					rate = 0;
+				}
+
+			}else{							# in landing mode
+				if(calt > max){
+					rate = (rate < 0) ? rate : autorate;
+					calt = calt + (t*rate/60);
+				}else{
+					rate = 0;
+				}
+
+			}
 			
-			interpolate("/b707/pressurization/cabin-max", norm, t);  # the white scale is set automatically
+			max = alt/6.3;
+			max = (agl < 100) ? alt - 200 : max;
+			
+			interpolate("/b707/pressurization/cabin-max", max, t);  # the white scale is set automatically
 			interpolate("/b707/pressurization/cabin-altitude", calt, t); # the alt needles 
 			interpolate("/b707/pressurization/climb-rate", rate, t); # the climb rate
 			#print("calc_pressurization is running in auto mode");
@@ -664,7 +676,8 @@ var calc_pressurization	= func{
 	
 	# cabin differential pressure
 	var diff = alt - calt;
-	var psi = diff * 8.6/30000;
+	var psi = diff * 8.6/40000;
+	psi = (psi > 10) ? 10 : psi;
 	interpolate("/b707/pressurization/cabin-differential-pressure", psi, t);
 	
 	settimer(calc_pressurization, t);

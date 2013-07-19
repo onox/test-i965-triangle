@@ -2353,7 +2353,42 @@
 			</condition>
 		</exit>
 	</step>		
-		
+
+	<step>
+		<message>
+			Waehlen Sie die Take off Stellung. 
+		</message>
+		<view>
+				<heading-offset-deg>235.3</heading-offset-deg>
+				<pitch-offset-deg>1.4</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>14.3</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.5785</x-m>
+				<y-m>0.5711</y-m>
+				<z-m>1.2380</z-m>
+				<scale>1.1488</scale>
+		</marker>
+		<error>
+			<message>
+				Kippschalter nach oben.
+			</message>
+			<condition>
+				<not><property>/b707/pressurization/mode-switch</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/pressurization/mode-switch</property>
+			</condition>
+		</exit>
+	</step>	
+	
 	<end>
 		<message>Alle Triebwerke sind gestartet. Have a nice trip!</message>
 		<view>

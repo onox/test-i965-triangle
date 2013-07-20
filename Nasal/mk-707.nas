@@ -678,6 +678,7 @@ var calc_pressurization	= func{
 	var diff = alt - calt;
 	var psi = diff * 8.6/40000;
 	psi = (psi > 10) ? 10 : psi;
+	psi = (psi < 0) ? 0 : psi;
 	interpolate("/b707/pressurization/cabin-differential-pressure", psi, t);
 	
 	settimer(calc_pressurization, t);

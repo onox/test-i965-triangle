@@ -6,7 +6,6 @@
 	<animation>
 		<type>material</type>
 		<object-name>arrow</object-name>
-		<object-name>mda-needle</object-name>
 		<object-name>off-flag</object-name>
 		<object-name>altnum100</object-name>
 		<object-name>altnum1000</object-name>
@@ -24,7 +23,9 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>face</object-name>
+		<object-name>newFace</object-name>
+		<object-name>face3000</object-name>
+		<object-name>faceOut</object-name>
 		<condition>
 			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -54,13 +55,13 @@
 	<animation>
 		<type>material</type>
 		<object-name>arrow</object-name>
-		<object-name>mda-needle</object-name>
 		<object-name>off-flag</object-name>
 		<object-name>altnum100</object-name>
 		<object-name>altnum1000</object-name>
 		<object-name>altnum10000</object-name>
 		<object-name>shadow</object-name>
-		<object-name>face</object-name>
+		<object-name>newFace</object-name>
+		<object-name>face3000</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/systems/electrical/outputs/cabin-dim</property>
@@ -78,6 +79,7 @@
 		<object-name>agl-knob</object-name>
 		<object-name>frame</object-name>
 		<object-name>lampOff</object-name>
+		<object-name>faceOut</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/systems/electrical/outputs/cabin-dim</property>
@@ -132,7 +134,13 @@
 		<type>select</type>
 		<object-name>off-flag</object-name>
 		<condition>
-		   <not><property>/instrumentation/aglradar/power-btn</property></not>
+			<or>
+				<less-than>
+					<property>/b707/ess-bus</property>
+					<value>22</value>
+				</less-than>
+		   	<not><property>/instrumentation/aglradar/power-btn</property></not>
+		  </or>
 		</condition>
 	</animation>
 	
@@ -140,46 +148,69 @@
 		<type>select</type>
 		<object-name>altnum.off</object-name>
 		<condition>
-		  	<not><property>/instrumentation/aglradar/power-btn</property></not>
+			<or>
+				<less-than>
+					<property>/b707/ess-bus</property>
+					<value>22</value>
+				</less-than>
+		   	<not><property>/instrumentation/aglradar/power-btn</property></not>
+		  </or>
 		</condition>
 	</animation>
 	
-	<!-- the alt arrow -->
-  
-  <animation>
-		<type>translate</type>
-		<object-name>arrow</object-name>
-		<property>/instrumentation/aglradar/alt-ft</property>
+	<animation>
+		<type>select</type>
+		<object-name>face3000</object-name>
 		<condition>
-		   <property>/instrumentation/aglradar/power-btn</property>
+			<and>
+				<greater-than>
+					<property>/b707/ess-bus</property>
+					<value>22</value>
+				</greater-than>
+		   	<property>/instrumentation/aglradar/power-btn</property>			
+		   	<greater-than>
+					<property>/instrumentation/aglradar/alt-ft</property>
+					<value>3100</value>
+				</greater-than>
+		  </and>
 		</condition>
-		<interpolation>
-			<entry><ind>-350</ind><dep> -0.03586</dep></entry>
-		  <entry><ind>   0</ind><dep>  0.0		 </dep></entry>
-		  <entry><ind> 350</ind><dep>  0.03586</dep></entry>
-		</interpolation>
-		<axis>
-		  <x>0</x>
-		  <y>0</y>
-		  <z>1</z>
-		</axis>
 	</animation>
-
+	
+	<animation>
+		<type>select</type>
+		<object-name>faceOut</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>/b707/ess-bus</property>
+					<value>22</value>
+				</less-than>
+		   	<not><property>/instrumentation/aglradar/power-btn</property></not>				
+		  </or>
+		</condition>
+	</animation>
+	
   <animation>
-		<type>translate</type>
-		<object-name>mda-needle</object-name>
-		<property>/instrumentation/aglradar/alt-offset-ft</property>
-		<interpolation>
-			<entry><ind>-350</ind><dep> -0.03586</dep></entry>
-		  <entry><ind>   0</ind><dep>  0.0		 </dep></entry>
-		  <entry><ind> 350</ind><dep>  0.03586</dep></entry>
-		</interpolation>
-		<axis>
-		  <x>0</x>
-		  <y>0</y>
-		  <z>1</z>
-		</axis>
-	</animation>
+      <type>textranslate</type>
+      <object-name>newFace</object-name>
+      <condition>
+				<or>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>22</value>
+					</greater-than>
+				 	<property>/instrumentation/aglradar/power-btn</property>
+				</or>
+			</condition>
+      <property>/instrumentation/aglradar/alt-ft</property>
+      <bias>0.00001</bias>
+      <factor>0.000248</factor>
+      <max>3000</max>
+      <axis>
+          <x>0</x>
+          <y>1</y>
+      </axis>
+  </animation>
 	
   <!-- the Flightlevel digits -->	
   <animation>
@@ -270,7 +301,7 @@
 						  <property>/instrumentation/aglradar/alt-offset-ft</property>
 						  <step>5</step>
 						  <min>0</min>
-						  <max>400</max>
+						  <max>995</max>
 						  <wrap>false</wrap>
 		      </binding>
 		      <binding>
@@ -281,7 +312,7 @@
 						  <property>/instrumentation/aglradar/alt-offset-ft</property>
 						  <step>100</step>
 						  <min>0</min>
-						  <max>400</max>
+						  <max>995</max>
 						  <wrap>false</wrap>
 		      </binding>
 					<binding>
@@ -301,7 +332,7 @@
 						  <property>/instrumentation/aglradar/alt-offset-ft</property>
 						  <step>-5</step>
 						  <min>0</min>
-						  <max>400</max>
+						  <max>995</max>
 						  <wrap>false</wrap>
 		      </binding>
 		      <binding>
@@ -312,7 +343,7 @@
 						  <property>/instrumentation/aglradar/alt-offset-ft</property>
 						  <step>-100</step>
 						  <min>0</min>
-						  <max>400</max>
+						  <max>995</max>
 						  <wrap>false</wrap>
 		      </binding>
 					<binding>
@@ -324,7 +355,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>face</object-name>
+		<object-name>newFace</object-name>
 		<visible>true</visible>
 		  <action>
 		    <name>show alt</name>

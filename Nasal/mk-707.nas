@@ -17,6 +17,12 @@ var oil2 = props.globals.initNode("b707/oil/quantity[1]",6400,"DOUBLE");
 var oil3 = props.globals.initNode("b707/oil/quantity[2]",6400,"DOUBLE");
 var oil4 = props.globals.initNode("b707/oil/quantity[3]",6400,"DOUBLE");
 
+var acc = props.globals.initNode("/b707/air-conditioning/air-cond-unit-cover",0,"DOUBLE");
+var comrpm1 = props.globals.initNode("/b707/air-conditioning/compressor-rpm[0]",0,"DOUBLE");
+var comrpm2 = props.globals.initNode("/b707/air-conditioning/compressor-rpm[1]",0,"DOUBLE");
+var comrpm3 = props.globals.initNode("/b707/air-conditioning/compressor-rpm[2]",0,"DOUBLE");
+
+var inchWater = props.globals.initNode("/b707/air-conditioning/inches-water",11.7,"DOUBLE");
 
 ################################ Reverser ####################################
 
@@ -620,7 +626,16 @@ var calc_pressurization	= func{
 	var max = getprop("/b707/pressurization/cabin-max") or 0;
 	var mode = getprop("/b707/pressurization/mode-switch") or 0; # true is take off / false for landing
 	
-	if(svp){
+	# this is a fake calculation for psi in air supply and the control for the overheat of the compressors
+	if(comrpm1.getValue() > 115) settimer(air_compressor(0), 0);
+	if(comrpm2.getValue() > 115) settimer(air_compressor(1), 0);
+	if(comrpm3.getValue() > 115) settimer(air_compressor(2), 0);
+	
+	var airSupplyDuct = (comrpm1.getValue() + comrpm2.getValue() + comrpm3.getValue()) / 30 * 6;
+	airSupplyDuct = (airSupplyDuct >= 0) ? airSupplyDuct : 0;
+	interpolate("/b707/air-conditioning/air-supply-psi", airSupplyDuct, t);
+	
+	if(svp and airSupplyDuct > 10){
 	
 		if(ms){
 		
@@ -686,4 +701,56 @@ var calc_pressurization	= func{
 }
 
 settimer( calc_pressurization, 9); # start first after 10 sec.
+
+########################################## Air Conditioning and Temperature #######################################
+var air_cond_cover = func {
+	var state = getprop("/b707/air-conditioning/air-cond-unit-cover") or 0;
+	if(!state){
+		interpolate("/b707/air-conditioning/air-cond-unit-cover", 1, 0.4);
+	}else{
+		interpolate("/b707/air-conditioning/air-cond-unit-cover", 0, 0.4);
+	}
+}
+
+var air_compressor = func(nr){
+  	var bt = getprop("/b707/air-conditioning/compressor-start["~nr~"]") or 0;
+  	var ram = getprop("/b707/air-conditioning/ram-air-switch") or 0;
+  	var pwr = getprop("/b707/ess-bus") or 0;
+
+  	if(ram and pwr){
+			if(bt > 0){
+				setprop("/b707/air-conditioning/compressor-start["~nr~"]", 0);
+				interpolate("/b707/air-conditioning/compressor-rpm["~nr~"]", 0, 5);
+			}else{
+				setprop("/b707/air-conditioning/compressor-start["~nr~"]", 2);
+				settimer( func { setprop("/b707/air-conditioning/compressor-start["~nr~"]", 1) }, 8);
+				var rpm = my_mini_rand(0.8,1.0) * 120;
+				interpolate("/b707/air-conditioning/compressor-rpm["~nr~"]", rpm, 7.8);
+			}
+		}else{
+			setprop("/b707/air-conditioning/compressor-start["~nr~"]", 2);
+			settimer( func { setprop("/b707/air-conditioning/compressor-start["~nr~"]", 0) }, 0.5);
+			
+			if(getprop("/sim/sound/switch2") == 1){
+				 setprop("/sim/sound/switch2", 0); 
+			}else{
+				 setprop("/sim/sound/switch2", 1);
+			}
+		}
+}
+
+setlistener("/b707/pressurization/cabin-air-temp-selector", func(state){
+	var state = state.getValue() or 0;
+	if(state == 1){
+		 interpolate("/b707/air-conditioning/cabin-temp", 19, 2);
+	}elsif(state == 2){
+		 interpolate("/b707/air-conditioning/cabin-temp", 22, 2);
+	}elsif(state == 3){
+		 interpolate("/b707/air-conditioning/cabin-temp", 18, 2);
+	}else{
+		 interpolate("/b707/air-conditioning/cabin-temp", getprop("/environment/temperature-degc"), 2);
+	}
+},1,0);
+
+
 

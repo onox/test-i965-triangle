@@ -264,11 +264,11 @@
     </action>
   </animation>
   
-  <!-- cabin air source selector --> 
+  <!-- cabin air temperature source selector --> 
 	<animation>
 		<type>rotate</type>
 		<object-name>turn</object-name>
-		<property>/b707/pressurization/cabin-air-source-selector</property>
+		<property>/b707/pressurization/cabin-air-temp-selector</property>
 		<interpolation>
 		  <entry><ind> 0</ind><dep>   0</dep></entry>
 		  <entry><ind> 1</ind><dep>  41</dep></entry>
@@ -295,7 +295,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-				<property>/b707/pressurization/cabin-air-source-selector</property>
+				<property>/b707/pressurization/cabin-air-temp-selector</property>
 		    <step>1</step>
 		    <min>0</min>
 		    <max>4</max>
@@ -311,7 +311,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-				<property>/b707/pressurization/cabin-air-source-selector</property>
+				<property>/b707/pressurization/cabin-air-temp-selector</property>
 		    <step>-1</step>
 		    <min>0</min>
 		    <max>4</max>

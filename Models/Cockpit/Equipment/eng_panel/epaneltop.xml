@@ -192,4 +192,79 @@
 		</offsets>
 	</model>
 	
+  <!-- Air Conditioning -->
+	<model>
+		<name>airCond</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/airConditioning.xml</path>
+		<offsets>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
+		</offsets>
+	</model>
+	
+  <!-- Air Compressor -->
+	<model>
+		<name>airComp1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/airCompressor/airCompressor1.xml</path>
+		<offsets>
+		  <x-m> 0.067</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m> 0.154</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>airComp2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/airCompressor/airCompressor2.xml</path>
+		<offsets>
+		  <x-m> 0.123</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m> 0.154</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>airComp3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/airCompressor/airCompressor3.xml</path>
+		<offsets>
+		  <x-m> 0.179</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m> 0.154</z-m>
+		</offsets>
+	</model>
+		
+  <!-- Air Supply -->
+	<model>
+		<name>airSupply</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/airSupply/airSupply.xml</path>
+		<offsets>
+		  <x-m> 0.0682</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m>-0.0548</z-m>
+		</offsets>
+	</model>
+		
+  <!-- cabin comnditioned air in inches of water -->
+	<model>
+		<name>cabinTemperature</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/inchesWater/inchesWater.xml</path>
+		<offsets>
+		  <x-m> 0.1841</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m>-0.0564</z-m>
+		</offsets>
+	</model>
+		
+  <!-- Cabin Temperature -->
+	<model>
+		<name>cabinTemperature</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/cabinTemp/cabinTemp.xml</path>
+		<offsets>
+		  <x-m> 0.2364</x-m>
+		  <y-m>-0.0005</y-m>
+		  <z-m>-0.0929</z-m>
+		</offsets>
+	</model>
+	
 </PropertyList>

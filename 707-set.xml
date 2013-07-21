@@ -3,7 +3,7 @@
  <sim>
   <description>Boeing 707</description>
   <author>707 revamp by the Lake of Constance Hangar [Original from Innis Cunningham]</author>
-  <status>1.1.0</status>
+  <status>1.1.1</status>
   <flight-model>jsb</flight-model>
   <aero>707</aero>
   <virtual-cockpit archive="y">false</virtual-cockpit> 
@@ -44,7 +44,6 @@
   </sound> 
   
 	<tutorials>
-		<!--<tutorial include="Tutorials/707-preflight.xml"/>-->
 		<tutorial include="Tutorials/707-startup-german.xml"/>
 		<tutorial include="Tutorials/707-startup-english.xml"/>
 	</tutorials>

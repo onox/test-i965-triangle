@@ -79,6 +79,120 @@ var startup = func
 			}
 		}, t); t += 0.5;
 		
+		# Volt-Loads-Selector
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/load-volt-selector", 1);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/load-volt-selector", 2);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/load-volt-selector", 3);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/load-volt-selector", 4);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/load-volt-selector", 5);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()){ 
+		 		setprop("b707/load-volt-selector", 0);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/load-volt-selector", 1);
+				toggle_switch3();
+			}
+		}, t); t += 0.5;
+	
+		# Essential-Power-Selector
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ess-power-switch", 1);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ess-power-switch", 2);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ess-power-switch", 3);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ess-power-switch", 4);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ess-power-switch", 5);
+				toggle_switch3();
+			}
+		}, t); t += 0.5;
+
+		# AC-Paralleling-Selector
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ac/ac-para-select", 1);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ac/ac-para-select", 2);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ac/ac-para-select", 3);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ac/ac-para-select", 4);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ac/ac-para-select", 5);
+				toggle_switch3();
+			}
+		}, t); t += 0.2;
+	 	settimer( func{
+		 	if(step == 4 and auto_procedure.getValue()) {
+		 		setprop("b707/ac/ac-para-select", 6);
+				toggle_switch3();
+			}
+		}, t); t += 0.5;
+		
 		# Auxilliary Pumps and Hydraulic Pumps Engine 2 and 3
 		settimer( func{
 			if(step == 4 and auto_procedure.getValue()){
@@ -191,120 +305,6 @@ var startup = func
 			}
 		}, t); t += 8;
 		
-		# Volt-Loads-Selector
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/load-volt-selector", 1);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/load-volt-selector", 2);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/load-volt-selector", 3);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/load-volt-selector", 4);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/load-volt-selector", 5);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()){ 
-		 		setprop("b707/load-volt-selector", 0);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/load-volt-selector", 1);
-				toggle_switch3();
-			}
-		}, t); t += 0.5;
-	
-		# Essential-Power-Selector
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ess-power-switch", 1);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ess-power-switch", 2);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ess-power-switch", 3);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ess-power-switch", 4);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ess-power-switch", 5);
-				toggle_switch3();
-			}
-		}, t); t += 0.5;
-
-		# AC-Paralleling-Selector
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ac/ac-para-select", 1);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ac/ac-para-select", 2);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ac/ac-para-select", 3);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ac/ac-para-select", 4);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ac/ac-para-select", 5);
-				toggle_switch3();
-			}
-		}, t); t += 0.2;
-	 	settimer( func{
-		 	if(step == 5 and auto_procedure.getValue()) {
-		 		setprop("b707/ac/ac-para-select", 6);
-				toggle_switch3();
-			}
-		}, t); t += 0.5;
-
 		# Gen Drive
 		settimer( func{
 		 	if(step == 5 and auto_procedure.getValue()) {
@@ -1115,7 +1115,34 @@ var startup = func
 				toggle_switch2();
 			}
 		}, t); t += 0.5;
-		
+	
+	  # compressors
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		setprop("/b707/air-conditioning/ram-air-switch", 1);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;	  
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		b707.air_compressor(0);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;	
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		b707.air_compressor(1);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;		
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+		 		b707.air_compressor(2);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;
+
+	
 		# safety-valve switch
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
@@ -1585,6 +1612,10 @@ var short_startup = func
 
    settimer(func
     {
+      setprop("/b707/air-conditioning/ram-air-switch",1);
+      setprop("/b707/air-conditioning/compressor-rpm[0]",110);
+      setprop("/b707/air-conditioning/compressor-rpm[1]",105);
+      setprop("/b707/air-conditioning/compressor-rpm[2]",108);
     	setprop("b707/generator/gen-freq[0]", 400);
 			setprop("b707/generator/gen-freq[1]", 400);
 			setprop("b707/generator/gen-freq[2]", 400);
@@ -1605,6 +1636,8 @@ var short_startup = func
 			b707.safety_valv_pos();
 			setprop("/b707/pressurization/manual-mode-switch",1);
 			setprop("/b707/pressurization/mode-switch",1);
+			setprop("/b707/air-conditioning/air-cond-unit-left-start",1);
+			setprop("/b707/air-conditioning/air-cond-unit-right-start",1);
     }, 34);
 
 		

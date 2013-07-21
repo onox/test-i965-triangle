@@ -2281,6 +2281,278 @@
 			</condition>
 		</exit>
 	</step>	
+	
+	<step>
+		<message>
+			Oeffnen Sie nun die Abdeckung fuer das Aussenluftventil.
+			Schalten Sie den Kippschalter nach oben. 
+		</message>
+		<view>
+				<heading-offset-deg>229.9</heading-offset-deg>
+				<pitch-offset-deg>8.2</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>30.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.3264</x-m>
+				<y-m>0.5356</y-m>
+				<z-m>1.4959</z-m>
+				<scale>2.3224</scale>
+		</marker>
+
+		<error>
+			<message>
+				Schalter nach oben.
+			</message>
+			<condition>
+				<not><property>/b707/air-conditioning/ram-air-switch</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/air-conditioning/ram-air-switch</property>
+			</condition>
+		</exit>
+	</step>	
+
+	<step>
+		<message>
+			Schalten Sie den Kompressor an Triebwerk 2 ein.
+		</message>
+		<view>
+				<heading-offset-deg>229.9</heading-offset-deg>
+				<pitch-offset-deg>8.2</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>30.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.5041</x-m>
+				<y-m>0.5356</y-m>
+				<z-m>1.4579</z-m>
+				<scale>2.3224</scale>
+		</marker>
+		<error>
+			<message>
+				Schalter nach oben. Wenn die RPM bei 115% liegt starten Sie den Kompressor erneut.
+			</message>
+			<condition>
+				<not><property>/b707/air-conditioning/compressor-start[0]</property></not>
+				<greater-than>
+					<property>/b707/air-conditioning/compressor-rpm[0]</property>
+					<value>115</value>
+				</greater-than>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/air-conditioning/compressor-start[0]</property>
+				<less-than>
+					<property>/b707/air-conditioning/compressor-rpm[0]</property>
+					<value>115</value>
+				</less-than>
+				<greater-than>
+					<property>/b707/air-conditioning/compressor-rpm[0]</property>
+					<value>90</value>
+				</greater-than>	
+			</condition>
+		</exit>
+	</step>	
+
+	<step>
+		<message>
+			Schalten Sie den Kompressor an Triebwerk 3 ein.
+		</message>
+		<view>
+				<heading-offset-deg>229.9</heading-offset-deg>
+				<pitch-offset-deg>8.2</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>30.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.4537</x-m>
+				<y-m>0.5356</y-m>
+				<z-m>1.4579</z-m>
+				<scale>2.3224</scale>
+		</marker>
+		<error>
+			<message>
+				Schalter nach oben. Wenn die RPM bei 115% liegt starten Sie den Kompressor erneut.
+				Achten Sie auch auf den bereits geschalteten Kompressor. Starten Sie diesen erneut,
+				wenn die OVER SPEED TRIP Leuchte angegangen ist.
+			</message>
+			<condition>
+				<not><property>/b707/air-conditioning/compressor-start[1]</property></not>
+				<or>			
+					<greater-than>
+						<property>/b707/air-conditioning/compressor-rpm[1]</property>
+						<value>115</value>
+					</greater-than>				
+					<greater-than>
+						<property>/b707/air-conditioning/compressor-rpm[0]</property>
+						<value>115</value>
+					</greater-than>
+				</or>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/air-conditioning/compressor-start[1]</property>
+				<less-than>
+					<property>/b707/air-conditioning/compressor-rpm[1]</property>
+					<value>115</value>
+				</less-than>
+				<greater-than>
+					<property>/b707/air-conditioning/compressor-rpm[1]</property>
+					<value>90</value>
+				</greater-than>	
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>
+			Schalten Sie den Kompressor an Triebwerk 4 ein.
+		</message>
+		<view>
+				<heading-offset-deg>229.9</heading-offset-deg>
+				<pitch-offset-deg>8.2</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>30.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.4041</x-m>
+				<y-m>0.5356</y-m>
+				<z-m>1.4579</z-m>
+				<scale>2.3224</scale>
+		</marker>
+		<error>
+			<message>
+				Schalter nach oben. Wenn die RPM bei 115% liegt starten Sie den Kompressor erneut.
+				Achten Sie auch auf die bereits geschalteten Kompressoren. Starten Sie diese erneut,
+				wenn deren OVER SPEED TRIP Leuchten angegangen sind.
+			</message>
+			<condition>
+				<not><property>/b707/air-conditioning/compressor-start[2]</property></not>
+				<or>
+					<greater-than>
+						<property>/b707/air-conditioning/compressor-rpm[2]</property>
+						<value>115</value>
+					</greater-than>				
+					<greater-than>
+						<property>/b707/air-conditioning/compressor-rpm[1]</property>
+						<value>115</value>
+					</greater-than>				
+					<greater-than>
+						<property>/b707/air-conditioning/compressor-rpm[0]</property>
+						<value>115</value>
+					</greater-than>
+				</or>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/air-conditioning/compressor-start[2]</property>
+				<less-than>
+					<property>/b707/air-conditioning/compressor-rpm[2]</property>
+					<value>115</value>
+				</less-than>
+				<greater-than>
+					<property>/b707/air-conditioning/compressor-rpm[2]</property>
+					<value>90</value>
+				</greater-than>	
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>
+			Schalten Sie die Luftzufuhr ein.
+		</message>
+		<view>
+				<heading-offset-deg>229.9</heading-offset-deg>
+				<pitch-offset-deg>8.2</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>30.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.4801</x-m>
+				<y-m>0.5356</y-m>
+				<z-m>1.4166</z-m>
+				<scale>2.3224</scale>
+		</marker>
+		<error>
+			<message>
+				Schalter nach oben. Luftzufuhr aus linker und rechter Tragflaeche oeffnen.
+			</message>
+			<condition>
+				<not><property>/b707/air-conditioning/wing-valve[0]</property></not>
+				<not><property>/b707/air-conditioning/wing-valve[1]</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/air-conditioning/wing-valve[0]</property>
+				<property>/b707/air-conditioning/wing-valve[1]</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>
+			Oeffnen Sie die Abdeckung fuer die Klimaanlagen-Einheiten und schalten Sie beide an.
+		</message>
+		<view>
+				<heading-offset-deg>229.9</heading-offset-deg>
+				<pitch-offset-deg>8.2</pitch-offset-deg>
+				<roll-offset-deg>0.0</roll-offset-deg>
+				<x-offset-m>-0.4</x-offset-m>
+				<y-offset-m>1.2</y-offset-m>
+				<z-offset-m>-18.2</z-offset-m>
+				<field-of-view>30.1</field-of-view>
+		</view>
+
+		<marker>
+				<x-m>-17.4933</x-m>
+				<y-m>0.5356</y-m>
+				<z-m>1.3620</z-m>
+				<scale>3.2811</scale>
+		</marker>
+		<error>
+			<message>
+				Oeffnen Sie die Abdeckung und schalten Sie die Einheiten an.
+			</message>
+			<condition>
+				<not><property>/b707/air-conditioning/air-cond-unit-left-start</property></not>
+				<not><property>/b707/air-conditioning/air-cond-unit-right-start</property></not>
+			</condition>
+		</error>
+		<exit>
+			<condition>
+				<property>/b707/air-conditioning/air-cond-unit-left-start</property>
+				<property>/b707/air-conditioning/air-cond-unit-right-start</property>
+			</condition>
+		</exit>
+	</step>
 
 	<step>
 		<message>

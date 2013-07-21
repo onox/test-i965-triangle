@@ -112,21 +112,6 @@
     <z> 0</z>
   </axis>
 </animation>
-    
-<animation>
-  <type>pick</type>
-  <object-name>ALT.Face</object-name>
-  <visible>true</visible>
-  <action>
-    <name>show info</name>
-    <button>0</button>
-  	<repeatable>true</repeatable>			
-    <binding>
-		  <command>nasal</command>
-		  <script>b707.show_alti()</script>
-		</binding>
-  </action>
-</animation>
 
 <animation>
     <type>pick</type>

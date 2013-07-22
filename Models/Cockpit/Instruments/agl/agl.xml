@@ -170,7 +170,7 @@
 		   	<property>/instrumentation/aglradar/power-btn</property>			
 		   	<greater-than>
 					<property>/instrumentation/aglradar/alt-ft</property>
-					<value>3100</value>
+					<value>3000</value>
 				</greater-than>
 		  </and>
 		</condition>
@@ -204,14 +204,43 @@
 			</condition>
       <property>/instrumentation/aglradar/alt-ft</property>
       <bias>0.00001</bias>
-      <factor>0.000248</factor>
+      <factor>0.000242</factor>
       <max>3000</max>
       <axis>
           <x>0</x>
           <y>1</y>
       </axis>
   </animation>
-	
+  
+  
+  <!-- over 3000 ft the arrow continue -->
+  <animation>
+		<type>translate</type>
+		<object-name>arrow</object-name>
+		<property>/instrumentation/aglradar/alt-ft</property>
+			<and>
+				<greater-than>
+					<property>/b707/ess-bus</property>
+					<value>22</value>
+				</greater-than>
+		   	<property>/instrumentation/aglradar/power-btn</property>			
+		   	<greater-than>
+					<property>/instrumentation/aglradar/alt-ft</property>
+					<value>3000</value>
+				</greater-than>
+		  </and>
+		<interpolation>
+			<entry><ind> 3000</ind><dep>  0.0</dep></entry>
+		  <entry><ind>10000</ind><dep>  0.0375</dep></entry>
+		  <entry><ind>40000</ind><dep>  0.0375</dep></entry>
+		</interpolation>
+		<axis>
+		  <x>0</x>
+		  <y>0</y>
+		  <z>1</z>
+		</axis>
+	</animation>
+  
   <!-- the Flightlevel digits -->	
   <animation>
       <type>textranslate</type>

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
  <path>epanelbot.ac</path>
- 
-	<!-- delete following lines if engineer panel is developed -->
+
 	<animation>
 		<type>material</type>
 		<object-name>panelAuxbot</object-name>
@@ -22,7 +21,7 @@
 		<name>crossfeedSelectors</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuelPumps.xml</path>
 		<offsets>
-		  <x-m> 0.0</x-m>
+		  <x-m>-0.005</x-m>
 		  <y-m> 0.0</y-m>
 		  <z-m> 0.0</z-m>
 		</offsets>
@@ -32,7 +31,7 @@
 		<name>fuelReserve1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel/fuel_reserve1.xml</path>
 		<offsets>
-		  <x-m>-0.281</x-m>
+		  <x-m>-0.286</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.122</z-m>
 		</offsets>
@@ -42,7 +41,7 @@
 		<name>fuelMain1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel/fuel_main1.xml</path>
 		<offsets>
-		  <x-m>-0.265</x-m>
+		  <x-m>-0.27</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.013</z-m>
 		</offsets>
@@ -52,7 +51,7 @@
 		<name>fuelMain2</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel/fuel_main2.xml</path>
 		<offsets>
-		  <x-m>-0.1946</x-m>
+		  <x-m>-0.1996</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0468</z-m>
 		</offsets>
@@ -62,7 +61,7 @@
 		<name>fuelCenter</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel/fuel_main_center.xml</path>
 		<offsets>
-		  <x-m>-0.126</x-m>
+		  <x-m>-0.131</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.107</z-m>
 		</offsets>
@@ -72,7 +71,7 @@
 		<name>fuelMain3</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel/fuel_main3.xml</path>
 		<offsets>
-		  <x-m>-0.058</x-m>
+		  <x-m>-0.063</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.047</z-m>
 		</offsets>
@@ -82,7 +81,7 @@
 		<name>fuelMain4</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel/fuel_main4.xml</path>
 		<offsets>
-		  <x-m> 0.014</x-m>
+		  <x-m> 0.007</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.013</z-m>
 		</offsets>
@@ -92,7 +91,7 @@
 		<name>fuelReserve4</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel/fuel_reserve4.xml</path>
 		<offsets>
-		  <x-m> 0.0152</x-m>
+		  <x-m> 0.0098</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.122</z-m>
 		</offsets>
@@ -102,7 +101,7 @@
 		<name>fuelTotal</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel/fuel_total.xml</path>
 		<offsets>
-		  <x-m>-0.155</x-m>
+		  <x-m>-0.16</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.122</z-m>
 		</offsets>
@@ -112,7 +111,7 @@
 		<name>fuelTemp</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuel_temp.xml</path>
 		<offsets>
-		  <x-m>-0.102</x-m>
+		  <x-m>-0.107</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.122</z-m>
 		</offsets>
@@ -122,7 +121,7 @@
 		<name>heater1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/heater1.xml</path>
 		<offsets>
-		  <x-m>-0.2673</x-m>
+		  <x-m>-0.2723</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.1828</z-m>
 		</offsets>
@@ -132,7 +131,7 @@
 		<name>heater2</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/heater2.xml</path>
 		<offsets>
-		  <x-m>-0.2111</x-m>
+		  <x-m>-0.2161</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.1828</z-m>
 		</offsets>
@@ -142,7 +141,7 @@
 		<name>heater3</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/heater3.xml</path>
 		<offsets>
-		  <x-m>-0.1548</x-m>
+		  <x-m>-0.1598</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.1828</z-m>
 		</offsets>
@@ -152,7 +151,7 @@
 		<name>heater4</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/heater4.xml</path>
 		<offsets>
-		  <x-m>-0.1005</x-m>
+		  <x-m>-0.1055</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.1828</z-m>
 		</offsets>
@@ -162,7 +161,7 @@
 		<name>start air</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/startAir/startAir.xml</path>
 		<offsets>
-		  <x-m> 0.0718</x-m>
+		  <x-m> 0.0668</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.063</z-m>
 		</offsets>
@@ -172,7 +171,7 @@
 		<name>hyd reservoir</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/hydraulic/hydQuantity.xml</path>
 		<offsets>
-		  <x-m> 0.0718</x-m>
+		  <x-m> 0.0668</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.122</z-m>
 		</offsets>
@@ -182,7 +181,7 @@
 		<name>hyd rudder</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/hydraulic/hydRudder.xml</path>
 		<offsets>
-		  <x-m> 0.0152</x-m>
+		  <x-m> 0.0102</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.19</z-m>
 		</offsets>
@@ -192,7 +191,7 @@
 		<name>hyd system</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/hydraulic/hydSystem.xml</path>
 		<offsets>
-		  <x-m> 0.0718</x-m>
+		  <x-m> 0.0668</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.19</z-m>
 		</offsets>
@@ -202,7 +201,7 @@
 		<name>aux pump</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/auxPump.xml</path>
 		<offsets>
-		  <x-m> 0.2529</x-m>
+		  <x-m> 0.2479</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.1992</z-m>
 		</offsets>
@@ -212,7 +211,7 @@
 		<name>amplitude engine 1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/amplitude/amplitude1.xml</path>
 		<offsets>
-		  <x-m> 0.1331</x-m>
+		  <x-m> 0.1281</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.106</z-m>
 		</offsets>
@@ -222,7 +221,7 @@
 		<name>amplitude engine 2</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/amplitude/amplitude2.xml</path>
 		<offsets>
-		  <x-m> 0.1884</x-m>
+		  <x-m> 0.1834</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.106</z-m>
 		</offsets>
@@ -232,7 +231,7 @@
 		<name>amplitude engine 3</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/amplitude/amplitude3.xml</path>
 		<offsets>
-		  <x-m> 0.2419</x-m>
+		  <x-m> 0.2369</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.106</z-m>
 		</offsets>
@@ -242,7 +241,7 @@
 		<name>amplitude engine 4</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/amplitude/amplitude4.xml</path>
 		<offsets>
-		  <x-m> 0.2961</x-m>
+		  <x-m> 0.2911</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.106</z-m>
 		</offsets>
@@ -252,7 +251,7 @@
 		<name>apu</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/apu.xml</path>
 		<offsets>
-		  <x-m> 0.4366</x-m>
+		  <x-m> 0.4316</x-m>
 		  <y-m>-0.0017</y-m>
 		  <z-m>-0.1507</z-m>
 		</offsets>
@@ -262,7 +261,7 @@
 		<name>n21e</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/n2/n21e.xml</path>
 		<offsets>
-		  <x-m> 0.1331</x-m>
+		  <x-m> 0.1281</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.02</z-m>
 		</offsets>
@@ -272,7 +271,7 @@
 		<name>n22e</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/n2/n22e.xml</path>
 		<offsets>
-		  <x-m> 0.1884</x-m>
+		  <x-m> 0.1834</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.02</z-m>
 		</offsets>
@@ -282,7 +281,7 @@
 		<name>n23e</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/n2/n23e.xml</path>
 		<offsets>
-		  <x-m> 0.2419</x-m>
+		  <x-m> 0.2369</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.02</z-m>
 		</offsets>
@@ -292,7 +291,7 @@
 		<name>n24e</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/n2/n24e.xml</path>
 		<offsets>
-		  <x-m> 0.2961</x-m>
+		  <x-m> 0.2911</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m>-0.02</z-m>
 		</offsets>
@@ -302,7 +301,7 @@
 		<name>oilPress1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilPress1.xml</path>
 		<offsets>
-		  <x-m> 0.1331</x-m>
+		  <x-m> 0.1281</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0373</z-m>
 		</offsets>
@@ -312,7 +311,7 @@
 		<name>oilPress2</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilPress2.xml</path>
 		<offsets>
-		  <x-m> 0.1884</x-m>
+		  <x-m> 0.1834</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0373</z-m>
 		</offsets>
@@ -322,7 +321,7 @@
 		<name>oilPress3</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilPress3.xml</path>
 		<offsets>
-		  <x-m> 0.2419</x-m>
+		  <x-m> 0.2369</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0373</z-m>
 		</offsets>
@@ -332,7 +331,7 @@
 		<name>oilPress4</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilPress4.xml</path>
 		<offsets>
-		  <x-m> 0.2961</x-m>
+		  <x-m> 0.2911</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0373</z-m>
 		</offsets>
@@ -342,7 +341,7 @@
 		<name>oilTemp1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilTemp1.xml</path>
 		<offsets>
-		  <x-m> 0.1331</x-m>
+		  <x-m> 0.1281</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0942</z-m>
 		</offsets>
@@ -352,7 +351,7 @@
 		<name>oilTemp2</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilTemp2.xml</path>
 		<offsets>
-		  <x-m> 0.1884</x-m>
+		  <x-m> 0.1834</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0942</z-m>
 		</offsets>
@@ -362,7 +361,7 @@
 		<name>oilTemp3</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilTemp3.xml</path>
 		<offsets>
-		  <x-m> 0.2419</x-m>
+		  <x-m> 0.2369</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0942</z-m>
 		</offsets>
@@ -372,7 +371,7 @@
 		<name>oilTemp4</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilTemp4.xml</path>
 		<offsets>
-		  <x-m> 0.2961</x-m>
+		  <x-m> 0.2911</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.0942</z-m>
 		</offsets>
@@ -382,7 +381,7 @@
 		<name>oilQuantity1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilQuantity1.xml</path>
 		<offsets>
-		  <x-m> 0.1331</x-m>
+		  <x-m> 0.1281</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.1487</z-m>
 		</offsets>
@@ -392,7 +391,7 @@
 		<name>oilQuantity2</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilQuantity2.xml</path>
 		<offsets>
-		  <x-m> 0.1884</x-m>
+		  <x-m> 0.1834</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.1487</z-m>
 		</offsets>
@@ -402,7 +401,7 @@
 		<name>oilQuantity3</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilQuantity3.xml</path>
 		<offsets>
-		  <x-m> 0.2419</x-m>
+		  <x-m> 0.2369</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.1487</z-m>
 		</offsets>
@@ -412,7 +411,7 @@
 		<name>oilQuantity4</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/oil/oilQuantity4.xml</path>
 		<offsets>
-		  <x-m> 0.2961</x-m>
+		  <x-m> 0.2911</x-m>
 		  <y-m>-0.002</y-m>
 		  <z-m> 0.1487</z-m>
 		</offsets>
@@ -422,10 +421,49 @@
 		<name>lowPressStarter</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/lowPressStart.xml</path>
 		<offsets>
-		  <x-m> 0.0</x-m>
+		  <x-m>-0.005</x-m>
 		  <y-m> 0.0</y-m>
 		  <z-m> 0.0</z-m>
 		</offsets>
 	</model>
+
+	<model>
+		<name>fuelPress1</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuelPress/fuelPress1.xml</path>
+		<offsets>
+		  <x-m>-0.272</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.1717</z-m>
+		</offsets>
+	</model>
 	
+	<model>
+		<name>fuelPress2</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuelPress/fuelPress2.xml</path>
+		<offsets>
+		  <x-m>-0.16</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.1717</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>fuelPress3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuelPress/fuelPress3.xml</path>
+		<offsets>
+		  <x-m>-0.105</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.1717</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>fuelPress3</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/fuelPress/fuelPress3.xml</path>
+		<offsets>
+		  <x-m> 0.01</x-m>
+		  <y-m>-0.002</y-m>
+		  <z-m> 0.1717</z-m>
+		</offsets>
+	</model>	
 </PropertyList>

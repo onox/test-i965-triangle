@@ -329,7 +329,7 @@
 		   <z>0</z>
 		  </axis>
 		  <center>
-		  <x-m>-0.2295</x-m>
+		  <x-m>-0.2306</x-m>
 		  <y-m> 0.0</y-m>
 		  <z-m>-0.0518</z-m>
 		  </center>  
@@ -368,7 +368,7 @@
 		   <z>0</z>
 		  </axis>
 		  <center>
-		  <x-m>-0.1598</x-m>
+		  <x-m>-0.1619</x-m>
 		  <y-m> 0.0</y-m>
 		  <z-m>-0.0518</z-m>
 		  </center>  
@@ -407,7 +407,7 @@
 		   <z>0</z>
 		  </axis>
 		  <center>
-		  <x-m>-0.0907</x-m>
+		  <x-m>-0.0928</x-m>
 		  <y-m> 0.0</y-m>
 		  <z-m>-0.0518</z-m>
 		  </center>  
@@ -446,7 +446,7 @@
 		   <z>0</z>
 		  </axis>
 		  <center>
-		  <x-m>-0.0219	</x-m>
+		  <x-m>-0.0226	</x-m>
 		  <y-m> 0.0</y-m>
 		  <z-m>-0.0518</z-m>
 		  </center>  
@@ -1207,13 +1207,7 @@
 		    <binding>
 		        <command>property-toggle</command>
 		        <property>/b707/fuel/quantity-test</property>
-		    </binding>
-        <mod-up>
-          <binding>
-		        <command>property-toggle</command>
-		        <property>/b707/fuel/quantity-test</property>
-          </binding>
-        </mod-up>         
+		    </binding>        
 		    <binding>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>

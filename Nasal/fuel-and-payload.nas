@@ -856,7 +856,7 @@ var engines_alive = func {
 	flo.setValue(new); 
 	fph.setValue(co); 
 	fct.setValue(tc);
-	
+
 	settimer( engines_alive, 8);
 }
 ###################################################################################################
@@ -1033,6 +1033,38 @@ var crossfeed_action = func {
 		}	
 		interpolate("/consumables/fuel/tank[0]/level-lbs", rNeu, 7);
 	  interpolate("/consumables/fuel/tank[1]/level-lbs", mNeu, 7);
+	}
+	
+		
+	# the test knob
+	var testKnob = getprop("/b707/fuel/quantity-test") or 0;
+	if(testKnob){
+			# the actual tank level
+			var ttempR4 = tfR4.getValue();
+			var ttempM4 = tfM4.getValue();
+			var ttempM3 = tfM3.getValue();
+			var ttempC  = tfC.getValue();
+			var ttempM2 = tfM2.getValue();
+			var ttempM1 = tfM1.getValue();
+			var ttempR1 = tfR1.getValue();
+			
+			setprop("/consumables/fuel/tank[6]/level-lbs", 0);
+			setprop("/consumables/fuel/tank[5]/level-lbs", 0);
+	  	setprop("/consumables/fuel/tank[4]/level-lbs", 0);		
+	  	setprop("/consumables/fuel/tank[3]/level-lbs", 0);
+	  	setprop("/consumables/fuel/tank[2]/level-lbs", 0);
+	  	setprop("/consumables/fuel/tank[1]/level-lbs", 0);
+	  	setprop("/consumables/fuel/total-fuel-lbs",0);
+
+			interpolate("/consumables/fuel/tank[6]/level-lbs", ttempR1, 1);
+			interpolate("/consumables/fuel/tank[5]/level-lbs", ttempM1, 1);
+	  	interpolate("/consumables/fuel/tank[4]/level-lbs", ttempM2, 1);		
+	  	interpolate("/consumables/fuel/tank[3]/level-lbs", ttempC, 1);
+	  	interpolate("/consumables/fuel/tank[2]/level-lbs", ttempM3, 1);
+	  	interpolate("/consumables/fuel/tank[1]/level-lbs", ttempM4, 1);
+	  	interpolate("/consumables/fuel/tank[0]/level-lbs", ttempR4, 1);
+	  	
+	  	settimer(func{ setprop("/b707/fuel/quantity-test",0) }, 0);			
 	}
 
 	settimer( crossfeed_action, 7);

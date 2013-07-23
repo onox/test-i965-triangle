@@ -3827,7 +3827,7 @@ name "bezel"
 loc -0.011963 -0.163853 0.002152
 data 5
 bezel
-texture "bezel.png"
+texture "bezel2.png"
 texrep 1 1
 crease 30.000001
 numvert 148

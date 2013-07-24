@@ -265,7 +265,7 @@
 	
 	<step>
 		<message>
-			The External Power Unit was pluged in.
+			The External Power Unit was plugged in.
 		</message>
 		<view>
 		    <view-number>1</view-number>
@@ -411,7 +411,7 @@
 	<step>
 		<message>
 			SELECTOR AC PARALLELING set to External Power.
-			The AC source will be synchrosized to 400Hz.
+			The AC source will be synchronized to 400Hz.
 		</message>
 		<view>
 				<heading-offset-deg>241.4</heading-offset-deg>
@@ -742,7 +742,7 @@
 		</marker>
 		<error>
 			<message>
-				Switch on all the busses and close the covers!
+				Switch on all the buses and close the covers!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-bus-tie[0]</property></not>
@@ -769,7 +769,7 @@
 		<message>
 			GEN - CONTROL
 			Open all covers and switch on the generator controllers.
-			Close cover then.
+			Close covers then.
 		</message>
 		<view>
 				<heading-offset-deg>246.5</heading-offset-deg>
@@ -835,7 +835,7 @@
 		</marker>
 		<error>
 			<message>
-				Colse all circuits GEN-BREAKER, now!
+				Close all circuits GEN-BREAKER, now!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-breaker[0]</property></not>

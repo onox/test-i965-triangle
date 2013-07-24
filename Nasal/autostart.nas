@@ -1613,7 +1613,9 @@ var short_startup = func
    settimer(func
     {
       setprop("/b707/air-conditioning/ram-air-switch",1);
-      setprop("/b707/air-conditioning/compressor-rpm[0]",110);
+      b707.air_compressor(0);
+      b707.air_compressor(1);
+      b707.air_compressor(2);
       setprop("/b707/air-conditioning/compressor-rpm[1]",105);
       setprop("/b707/air-conditioning/compressor-rpm[2]",108);
     	setprop("b707/generator/gen-freq[0]", 400);

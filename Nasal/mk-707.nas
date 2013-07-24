@@ -627,9 +627,9 @@ var calc_pressurization	= func{
 	var mode = getprop("/b707/pressurization/mode-switch") or 0; # true is take off / false for landing
 	
 	# this is a fake calculation for psi in air supply and the control for the overheat of the compressors
-	if(comrpm1.getValue() > 115) settimer(air_compressor(0), 0);
-	if(comrpm2.getValue() > 115) settimer(air_compressor(1), 0);
-	if(comrpm3.getValue() > 115) settimer(air_compressor(2), 0);
+	if(comrpm1.getValue() > 115) settimer(func{air_compressor(0)}, 0);
+	if(comrpm2.getValue() > 115) settimer(func{air_compressor(1)}, 0);
+	if(comrpm3.getValue() > 115) settimer(func{air_compressor(2)}, 0);
 	
 	var airSupplyDuct = (comrpm1.getValue() + comrpm2.getValue() + comrpm3.getValue()) / 30 * 6;
 	airSupplyDuct = (airSupplyDuct >= 0) ? airSupplyDuct : 0;
@@ -729,7 +729,7 @@ var air_compressor = func(nr){
 			}
 		}else{
 			setprop("/b707/air-conditioning/compressor-start["~nr~"]", 2);
-			settimer( func { setprop("/b707/air-conditioning/compressor-start["~nr~"]", 0) }, 0.5);
+			settimer( func { setprop("/b707/air-conditioning/compressor-start["~nr~"]", 0) }, 0.2);
 			
 			if(getprop("/sim/sound/switch2") == 1){
 				 setprop("/sim/sound/switch2", 0); 

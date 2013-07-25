@@ -651,7 +651,7 @@
                       2.0000	0.040	
                       4.0000	0.150	
                       6.0000	0.200	
-                     10.0000	0.300	
+                     10.0000	0.400	
                   </tableData>
               </table>
         </product>
@@ -664,8 +664,19 @@
            <property>metrics/Sw-sqft</property>
            <property>fcs/speedbrake-pos-norm</property>
            <!--<value>-0.08</value>-->
-           <value>-0.15</value>
+           <value>-0.2</value>
        </product>
+    </function>
+    
+    <!-- the LE flap -->
+		<function name="aero/coefficient/CDLEflap">
+			<description>Lift_due_to_leading_edge_flaps</description>
+         <product>
+           <property>aero/qbar-psf</property>
+           <property>metrics/Sw-sqft</property>
+ 						<property>fcs/wing-fold-pos-norm</property>
+						<value>0.2</value>
+         </product>
     </function>
 
     <function name="aero/coefficient/CLde">
@@ -677,7 +688,6 @@
            <value>0.2</value>
        </product>
     </function>
-
   </axis>
 
   <axis name="DRAG">
@@ -766,17 +776,7 @@
            <value>0.05</value>
          </product>
     </function>
-    
-    <!-- the LE flap -->
-		<function name="aero/coefficient/CDLEflap">
-			<description>Drag_due_to_leading_edge_flaps</description>
-         <product>
-           <property>aero/qbar-psf</property>
-           <property>metrics/Sw-sqft</property>
- 						<property>fcs/wing-fold-pos-norm</property>
-						<value>0.08</value>
-         </product>
-    </function>
+   
 
     <function name="aero/coefficient/CDbeta">
        <description>Drag_due_to_sideslip</description>

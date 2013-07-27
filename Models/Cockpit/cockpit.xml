@@ -60,9 +60,9 @@
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
-		  <red>0.15</red>
-		  <green>0.15</green>
-		  <blue>0.15</blue>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
 		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>
@@ -220,20 +220,32 @@
 
 	<!-- overhead light -->
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-small-overhead.xml</path>
 		<name>ov_light_1</name>
 		<offsets>   
 		  <x-m>-18.1</x-m>
 		  <y-m>  0.0</y-m>
-		  <z-m>  1.45</z-m>
-		  <pitch-deg>75.0</pitch-deg>
+		  <z-m>  0.8</z-m>
+		  <pitch-deg>130.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-small-overhead.xml</path>
+		<name>ov_light_2</name>
+		<offsets>   
+		  <x-m>-18.1</x-m>
+		  <y-m>  0.0</y-m>
+		  <z-m>  0.8</z-m>
+		  <pitch-deg>150.0</pitch-deg>
 		  <roll-deg> 0.0</roll-deg>
 		</offsets>
 	 </model>
 
 	<!-- engineer light -->
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_1</name>
 		<offsets>   
 		  <x-m>-17.75</x-m>
@@ -245,7 +257,7 @@
 	 </model>
 	 
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_2</name>
 		<offsets>   
 		  <x-m>-17.55</x-m>
@@ -257,7 +269,7 @@
 	 </model>	
 	 
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_3</name>
 		<offsets>   
 		  <x-m>-17.35</x-m>
@@ -269,7 +281,7 @@
 	 </model>	
 
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_4</name>
 		<offsets>   
 		  <x-m>-17.15</x-m>
@@ -281,7 +293,7 @@
 	 </model>	
 	 
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_5</name>
 		<offsets>   
 		  <x-m>-17.75</x-m>
@@ -293,7 +305,7 @@
 	 </model>
 	 
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_6</name>
 		<offsets>   
 		  <x-m>-17.55</x-m>
@@ -305,7 +317,7 @@
 	 </model>
 	 
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_7</name>
 		<offsets>   
 		  <x-m>-17.35</x-m>
@@ -317,7 +329,7 @@
 	 </model>	 
 	 
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+		<path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
 		<name>eng_light_8</name>
 		<offsets>   
 		  <x-m>-17.15</x-m>
@@ -338,6 +350,7 @@
 		<object-name>capt_light_6</object-name>
 		<object-name>capt_light_7</object-name>
 		<object-name>ov_light_1</object-name>
+		<object-name>ov_light_2</object-name>
 		<object-name>eng_light_1</object-name>
 		<object-name>eng_light_2</object-name>
 		<object-name>eng_light_3</object-name>
@@ -388,9 +401,9 @@
 		<name>overhead-panel-equipment</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/ohpanel.xml</path>
 		<offsets>
-		  <x-m>-18.56</x-m>
+		  <x-m>-18.55</x-m>
 		  <y-m>  0.0</y-m>
-		  <z-m>  1.385</z-m>
+		  <z-m>  1.35</z-m>
 			<pitch-deg>69.5</pitch-deg>
 		</offsets>
 	</model>

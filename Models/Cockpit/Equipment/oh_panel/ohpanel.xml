@@ -4,24 +4,179 @@
 <PropertyList>
  	<path>ohpanel.ac</path>
  	
-  <!-- internal light effect without rembrandt -->	
 	<animation>
 		<type>material</type>
+		<object-name>grdSockle</object-name>  
+		<object-name>grdCover</object-name>
 		<object-name>ohpanel</object-name>
-		<condition>
+		<condition>	
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
 		  <red>0.3</red>
 		  <green>0.3</green>
 		  <blue>0.3</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>/systems/electrical/outputs/overhead-dim</factor-prop>
 		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>grdSwitch</object-name>  
+		<condition>	
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>/systems/electrical/outputs/overhead-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<!-- Ground Start COVER High or Low Pressure -->
+  <animation>
+    <type>rotate</type>
+    <object-name>grdCover</object-name>
+    <property>/b707/start/ground-start-cover</property>
+    <interpolation> 
+            <entry>
+                <ind>0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>70.0</dep>
+            </entry>		
+        </interpolation>
+    <axis>
+     <x> 0</x>
+     <y> 1</y>
+     <z> 0</z>
+    </axis>
+    <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.060</z-m>
+    </center>  
+  </animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>grdCover</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+		        <command>property-toggle</command>
+		        <property>/b707/start/ground-start-cover</property>
+		    </binding>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch3</property>
+		    </binding>
+		  </action>
+	</animation>
+	
+  <!-- Ground Start SWITCH High or Low Pressure -->
+	<animation>
+		  <type>rotate</type>
+		  <object-name>grdSwitch</object-name>
+		  <property>/b707/start/ground-start</property>
+		 	<interpolation>
+				<entry><ind>  1.0</ind><dep> -50.0</dep></entry>
+				<entry><ind>  0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>  2.0</ind><dep>  50.0</dep></entry>
+			</interpolation> 
+		  <axis>
+		   <x>0</x>
+		   <y>1</y>
+		   <z>0</z>
+		  </axis>
+		  <center>
+		  <x-m>0.0</x-m>
+		  <y-m>0.0</y-m>
+		  <z-m>0.0776</z-m>
+		  </center>  
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>grdLow</object-name>
+		  <visible>false</visible>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+        <binding>
+            <command>nasal</command>
+            <script>
+            	var bt = getprop("/b707/start/ground-start") or 0;
+            	if(bt > 0){
+            		setprop("/b707/start/ground-start", 0);
+            	}else{
+            		setprop("/b707/start/ground-start", 1);
+            		<!-- fall back, if ess-bus to low -->
+            		
+            		if(getprop("/b707/ess-bus") != nil and getprop("/b707/ess-bus") &lt; 20.0){
+            			settimer(func{
+            				setprop("/b707/start/ground-start", 0);
+									}, 0.5);
+								 	if(getprop("/sim/sound/switch2") == 1){
+										 setprop("/sim/sound/switch2", 0); 
+									}else{
+										 setprop("/sim/sound/switch2", 1);
+									}
+            		}
+            	}
+            </script>
+        </binding>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>grdHigh</object-name>
+		  <visible>false</visible>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+        <binding>
+            <command>nasal</command>
+            <script>
+            	var bt = getprop("/b707/start/ground-start") or 0;
+            	if(bt > 0){
+            		setprop("/b707/start/ground-start", 0);
+            	}else{
+            		setprop("/b707/start/ground-start", 2);
+            		<!-- fall back, if ess-bus to low -->
+            		
+            		if(getprop("/b707/ess-bus") != nil and getprop("/b707/ess-bus") &lt; 20.0){
+            			settimer(func{
+            				setprop("/b707/start/ground-start", 0);
+									}, 0.5);
+								 	if(getprop("/sim/sound/switch2") == 1){
+										 setprop("/sim/sound/switch2", 0); 
+									}else{
+										 setprop("/sim/sound/switch2", 1);
+									}
+            		}
+            	}
+            </script>
+        </binding>
+		    <binding>
+		      <command>property-toggle</command>
+		      <property>/sim/sound/switch2</property>
+		    </binding>
+		  </action>
 	</animation>
 
 	<model>
-		<name>light_panel</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/light_switches/light_switches.xml</path>
+		<name>light_and_wiper</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/lightAndWiper.xml</path>
 		<offsets>
 		  <x-m> 0.0</x-m>
 		  <y-m> 0.0</y-m>
@@ -33,7 +188,7 @@
 		<name>starter_switch_1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/starter_switches/starter_switch1.xml</path>
 		<offsets>
-		  <x-m> 0.0322</x-m>
+		  <x-m> 0.0</x-m>
 		  <y-m>-0.0885</y-m>
 		  <z-m> 0.2301</z-m>
 		</offsets>
@@ -43,7 +198,7 @@
 		<name>starter_switch_2</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/starter_switches/starter_switch2.xml</path>
 		<offsets>
-		  <x-m> 0.0322</x-m>
+		  <x-m> 0.0</x-m>
 		  <y-m>-0.0222</y-m>
 		  <z-m> 0.2301</z-m>
 		</offsets>
@@ -53,7 +208,7 @@
 		<name>starter_switch_3</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/starter_switches/starter_switch3.xml</path>
 		<offsets>
-		  <x-m> 0.0322</x-m>
+		  <x-m> 0.0</x-m>
 		  <y-m> 0.0393</y-m>
 		  <z-m> 0.2301</z-m>
 		</offsets>
@@ -63,7 +218,7 @@
 		<name>starter_switch_4</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/starter_switches/starter_switch4.xml</path>
 		<offsets>
-		  <x-m> 0.0322</x-m>
+		  <x-m> 0.0</x-m>
 		  <y-m> 0.1033</y-m>
 		  <z-m> 0.2301</z-m>
 		</offsets>
@@ -73,19 +228,10 @@
 		<name>compass_control_1</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/compass_control/compass_control.xml</path>
 		<offsets>
-		  <x-m> 0.0283</x-m>
-		  <y-m>-0.2138</y-m>
-		  <z-m>-0.1458</z-m>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
 		</offsets>
 	</model>
-		
-	<model>
-		<name>compass_control_2</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/compass_control/compass_control.xml</path>
-		<offsets>
-		  <x-m> 0.0283</x-m>
-		  <y-m> 0.2134</y-m>
-		  <z-m>-0.1458</z-m>
-		</offsets>
-	</model>	
+
 </PropertyList>

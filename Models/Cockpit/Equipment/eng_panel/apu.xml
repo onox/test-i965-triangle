@@ -23,7 +23,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 
@@ -41,7 +41,7 @@
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
+			<factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -54,13 +54,13 @@
 		<object-name>needle.003</object-name>
 		<condition>			
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/systems/electrical/outputs/cabin-dim</property>
+			<property>/systems/electrical/outputs/engineer-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -110,8 +110,8 @@
 		  </axis>
 		  <center>
 		  <x-m> 0.0</x-m>
-		  <y-m> 0.0</y-m>
-		  <z-m>-0.0493</z-m>
+		  <y-m>-0.0038</y-m>
+		  <z-m>-0.1979</z-m>
 		  </center>  
 	</animation>
 	
@@ -146,8 +146,8 @@
 		  </axis>
 		  <center>
 		  <x-m> 0.0</x-m>
-		  <y-m> 0.0</y-m>
-		  <z-m>-0.0493</z-m>
+		  <y-m>-0.0038</y-m>
+		  <z-m>-0.1979</z-m>
 		  </center>  
 	</animation>
 
@@ -182,8 +182,8 @@
 		  </axis>
 		  <center>
 		  <x-m> 0.0</x-m>
-		  <y-m>-0.0005</y-m>
-		  <z-m> 0.094</z-m>
+		  <y-m>-0.0038</y-m>
+		  <z-m>-0.0708</z-m>
 		  </center>  
 	</animation>
 
@@ -221,9 +221,9 @@
 		   <z>0</z>
 		  </axis>
 		  <center>
-		  <x-m>0.0</x-m>
-		  <y-m>0.0041</y-m>
-		  <z-m>0.0412</z-m>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0004</y-m>
+		  <z-m>-0.118</z-m>
 		  </center>  
 	</animation>
 
@@ -343,12 +343,13 @@
 		<property>/engines/APU/amp-needle</property>
 		<interpolation>
 		  <entry><ind>   0.0</ind><dep>   0.0</dep></entry>
-		  <entry><ind>  60.0</ind><dep> 129.68</dep></entry>
+		  <entry><ind>  60.0</ind><dep> 100.0</dep></entry>
+		  <entry><ind> 200.0</ind><dep> 118.0</dep></entry>
 		</interpolation>
     <center>
-        <x-m>-0.0658</x-m>
+        <x-m> 0.3746</x-m>
         <y-m> 0.0</y-m>
-        <z-m>-0.0167</z-m>
+        <z-m>-0.1673</z-m>
     </center>
 		<axis>
 		  <x>0</x>
@@ -365,7 +366,12 @@
 		<interpolation>
 		  <entry><ind>   0.0</ind><dep>   0.0</dep></entry>
 		  <entry><ind> 920.0</ind><dep> 255.0</dep></entry>
-		</interpolation>
+		</interpolation>    
+		<center>
+        <x-m> 0.43</x-m>
+        <y-m> 0.0</y-m>
+        <z-m>-0.1597</z-m>
+    </center>
 		<axis>
 		  <x>0</x>
 		  <y>1</y>
@@ -385,9 +391,9 @@
 		  <entry><ind> 200.0</ind><dep> 308.0</dep></entry>
 		</interpolation>
     <center>
-        <x-m>-0.0024</x-m>
+        <x-m> 0.4274</x-m>
         <y-m> 0.0</y-m>
-        <z-m> 0.0501</z-m>
+        <z-m>-0.1123</z-m>
     </center>
 		<axis>
 		  <x>0</x>
@@ -402,9 +408,9 @@
 		<property>/engines/APU/rpm</property>
     <factor>36.0</factor>
 		<center>   
-		  <x-m>-0.0053 </x-m> 
+		  <x-m> 0.4246 </x-m> 
 		  <y-m> 0.0 </y-m>
-			<z-m> 0.0616 </z-m>
+			<z-m>-0.1008 </z-m>
 		</center>
 		<axis> 
 		  <x>0</x>

@@ -13,7 +13,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -251,9 +251,19 @@
 		<name>apu</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/apu.xml</path>
 		<offsets>
-		  <x-m> 0.4316</x-m>
-		  <y-m>-0.0017</y-m>
-		  <z-m>-0.1507</z-m>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>lightSwitch</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/lightSwitches.xml</path>
+		<offsets>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
 		</offsets>
 	</model>
 	

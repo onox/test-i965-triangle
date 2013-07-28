@@ -582,9 +582,15 @@ setlistener("/b707/generator/gen-drive[3]", func(state){
 	}
 },0,0);
 
-########################### OIL Sysstem  ######################################
+################# OIL System  AND Temperature for ANTI ICE SYSTEM ################
 var calc_oil_temp = func{
 	var atemp  =  getprop("/environment/temperature-degc") or 0;
+	# without any engine and no support
+  var wingTempOutL = atemp;  
+  var wingTempOutR = atemp;  
+  var wingTempInL = atemp;  
+  var wingTempInR = atemp;
+  var wingAntiIce = getprop("/b707/anti-ice/switch") or 0;
 	
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		var n = e.getNode("oil-pressure-psi").getValue() or 0;
@@ -592,10 +598,27 @@ var calc_oil_temp = func{
 		var t = n * 2.148;
 		if(r){
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", t, 32);
+			if(e.getIndex() == 0 and wingAntiIce){
+			  var wingTempOutL = 99.0;  # fake temperature
+			}
+			if(e.getIndex() == 1 and wingAntiIce){
+			  var wingTempInL = 124.4;  # fake temperature
+			}
+			if(e.getIndex() == 2 and wingAntiIce){
+			  var wingTempOutR = 95.4;  # fake temperature
+			}
+			if(e.getIndex() == 3 and wingAntiIce){
+			  var wingTempInR = 118.1;  # fake temperature
+			}			
 		}else{
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", atemp, 32);
 		}
 	}
+	# turn the needles in the wing anti ice instruments
+	interpolate("/b707/anti-ice/temp-out-l", wingTempOutL, 10);
+	interpolate("/b707/anti-ice/temp-in-l", wingTempInL, 11);
+	interpolate("/b707/anti-ice/temp-out-r", wingTempOutR, 12);
+	interpolate("/b707/anti-ice/temp-in-r", wingTempInR, 10);
 	
 	settimer( calc_oil_temp, 32);
 }

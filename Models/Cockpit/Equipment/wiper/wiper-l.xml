@@ -38,17 +38,20 @@
 		  <type>select</type>
 		  <object-name>wiperView</object-name>
 		  <condition>
-		  	<and>
-		     <property>/controls/special/wiper-switch</property>
-			   	<greater-than>
-			   		<property>/controls/special/wiper-deg</property>
-			   		<value>2</value>
-			    </greater-than>
-			   	<less-than>
-			   		<property>/controls/special/wiper-deg</property>
-			   		<value>108</value>
-			    </less-than>
-		    </and>
+		    <or>
+					<and>
+				   <property>/controls/special/wiper-switch</property>
+					 	<greater-than>
+					 		<property>/controls/special/wiper-deg</property>
+					 		<value>2</value>
+					  </greater-than>
+					 	<less-than>
+					 		<property>/controls/special/wiper-deg</property>
+					 		<value>108</value>
+					  </less-than>
+				  </and>
+				  <property>/b707/rain/rain-repellent-captain</property>
+				</or>
 		  </condition>
 		</animation>
 

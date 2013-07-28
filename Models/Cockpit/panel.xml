@@ -490,12 +490,22 @@
 </model>
 
 <model>
+  <name>total_air_temperature_indicator</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/tat/tat.xml</path>
+  <offsets>
+    <x-m>-18.919</x-m>
+    <y-m> 0.23</y-m>
+    <z-m>0.886</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>operating_time_indicator</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/operating_time/opt.xml</path>
   <offsets>
     <x-m>-18.919</x-m>
-    <y-m> 0.226</y-m>
-    <z-m>0.874</z-m>
+    <y-m> 0.22</y-m>
+    <z-m>0.84</z-m>
   </offsets>
 </model>
 

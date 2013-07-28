@@ -19,6 +19,16 @@
 	</animation>
 	
 	<model>
+		<name>window_heat</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/windowHeat.xml</path>
+		<offsets>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>wing_anti_ice</name>
 		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/wingAntiIce.xml</path>
 		<offsets>

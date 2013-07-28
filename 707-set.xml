@@ -352,6 +352,9 @@
 			<wiper-deg type="double">0.0</wiper-deg>
 			<slats-switch type="double">0.0</slats-switch>
 		</special>
+		<switches>
+			<dme type="bool">0</dme>
+		</switches>
 		<!-- only for tiller steering -->
     <gear>
         <brake-parking type="bool">1</brake-parking>

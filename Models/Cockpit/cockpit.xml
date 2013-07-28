@@ -364,6 +364,17 @@
       <property>sim/current-view/internal</property>
 		</condition>
 	</animation>	 
+	
+	<!-- small lightcones for panel -->
+	 <model>
+		<path>Aircraft/707/Models/Cockpit/windowIce.xml</path>
+		<name>window_ice</name>
+		<offsets>   
+		  <x-m>0</x-m>
+		  <y-m>0</y-m>
+		  <z-m>0</z-m>
+		</offsets>
+	 </model>
 	 	  
 	<!-- equipment -->
 	<model>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <path>windowIce.ac</path>
+
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>windowIceCapt</object-name>
+		<object-name>windowIceFO</object-name>
+  </effect>
+  
+	<animation>
+		<type>select</type>
+		<object-name>windowIceCapt</object-name>
+		<condition>		
+			<less-than>
+				<property>/b707/anti-ice/window-alpha-capt</property>
+				<value>0.9</value>
+			</less-than>
+		</condition>
+	</animation>
+  
+	<animation>
+		<type>select</type>
+		<object-name>windowIceFO</object-name>
+		<condition>		
+			<less-than>
+				<property>/b707/anti-ice/window-alpha-fo</property>
+				<value>0.9</value>
+			</less-than>
+		</condition>
+	</animation>
+	 
+	<!-- the ice effect -->
+	<animation>
+		<type>blend</type>
+		<object-name>windowIceCapt</object-name>
+		<property>/b707/anti-ice/window-alpha-capt</property>
+		<factor>1</factor>
+	</animation> 
+
+	<animation>
+		<type>blend</type>
+		<object-name>windowIceFO</object-name>
+		<property>/b707/anti-ice/window-alpha-fo</property>
+		<factor>1</factor>
+	</animation>  
+ 
+ </PropertyList>

@@ -24,6 +24,8 @@ var comrpm3 = props.globals.initNode("/b707/air-conditioning/compressor-rpm[2]",
 
 var inchWater = props.globals.initNode("/b707/air-conditioning/inches-water",11.7,"DOUBLE");
 
+var windowHeatAlphaCapt = props.globals.initNode("/b707/anti-ice/window-alpha-capt",1.0,"DOUBLE");
+var windowHeatAlphaFO = props.globals.initNode("/b707/anti-ice/window-alpha-fo",1.0,"DOUBLE");
 ################################ Reverser ####################################
 
 # The heading offset to 0
@@ -582,22 +584,67 @@ setlistener("/b707/generator/gen-drive[3]", func(state){
 	}
 },0,0);
 
-################# OIL System  AND Temperature for ANTI ICE SYSTEM ################
+################# OIL System  AND Temperature for ANTI ICE SYSTEM Loop 32sec ################
 var calc_oil_temp = func{
+
 	var atemp  =  getprop("/environment/temperature-degc") or 0;
-	# without any engine and no support
-  var wingTempOutL = atemp;  
-  var wingTempOutR = atemp;  
-  var wingTempInL = atemp;  
-  var wingTempInR = atemp;
-  var wingAntiIce = getprop("/b707/anti-ice/switch") or 0;
 	
+	# without any engine and no support what happens to the wingTemperature
+  # windowHeatAlphaCapt = props.globals.initNode("/b707/anti-ice/window-alpha-capt",1.0,"DOUBLE");
+  # windowHeatAlphaFO = props.globals.initNode("/b707/anti-ice/window-alpha-fo",1.0,"DOUBLE");
+  # Calculate TAT Value (TAT = static temp (1 +((1.4 - 1) / 2) Mach^2) )
+	var tat = atemp * (1 + (0.2 * getprop("/velocities/mach") * getprop("/velocities/mach")));
+	interpolate("/b707/anti-ice/total-air-temperature", tat, 32); # show it on instrument
+	var digittat = abs(tat);
+	interpolate("/b707/anti-ice/total-air-temperature-digit", digittat, 32); # show it on instrument
+	# print("TAT ist: "~tat);
+	
+	# calculate the windows alpha for ice effect
+	var capH = getprop("/b707/anti-ice/window-heat-cap-switch") or 0;
+	var FoH = getprop("/b707/anti-ice/window-heat-fo-switch") or 0;
+	if(tat < 1){
+		var newAlpha = 1 - (abs(tat)/10); # total icing at -10 tat
+		newAlpha = (newAlpha > 1) ? 1 : (newAlpha < 0) ? 0 : newAlpha;
+		if(capH){
+			var newAlpha = windowHeatAlphaCapt.getValue() + (0.2 * capH);
+			newAlpha = (newAlpha > 1) ? 1 : (newAlpha < 0) ? 0 : newAlpha;
+			interpolate("/b707/anti-ice/window-alpha-capt", newAlpha, 20);
+		}else{
+			interpolate("/b707/anti-ice/window-alpha-capt", newAlpha, 30);
+		}
+		if(FoH){
+			var newAlpha = windowHeatAlphaFO.getValue() + (0.2 * FoH);
+			newAlpha = (newAlpha > 1) ? 1 : (newAlpha < 0) ? 0 : newAlpha;
+			interpolate("/b707/anti-ice/window-alpha-fo", newAlpha, 20);
+		}else{
+			interpolate("/b707/anti-ice/window-alpha-fo", newAlpha, 30);
+		}	
+	
+	}else{
+		if(windowHeatAlphaCapt.getValue() < 1.0){
+			interpolate("/b707/anti-ice/window-alpha-capt", 1.0, 15);
+		}
+		if(windowHeatAlphaFO.getValue() < 1.0){
+			interpolate("/b707/anti-ice/window-alpha-fo", 1.0, 15);
+		}
+	}
+	
+	# calculate the wing temp for instruments in ovhd panel
+  var wingTempOutL = tat;  
+  var wingTempOutR = tat;  
+  var wingTempInL = tat;  
+  var wingTempInR = tat;
+  var wingAntiIce = getprop("/b707/anti-ice/switch") or 0;
+
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		var n = e.getNode("oil-pressure-psi").getValue() or 0;
 		var r = e.getNode("running").getValue() or 0;
 		var t = n * 2.148;
 		if(r){
+			# the oil temp calculation
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", t, 32);
+			
+			# the wing Ice
 			if(e.getIndex() == 0 and wingAntiIce){
 			  var wingTempOutL = 99.0;  # fake temperature
 			}
@@ -609,11 +656,13 @@ var calc_oil_temp = func{
 			}
 			if(e.getIndex() == 3 and wingAntiIce){
 			  var wingTempInR = 118.1;  # fake temperature
-			}			
+			}	
+					
 		}else{
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", atemp, 32);
 		}
 	}
+	
 	# turn the needles in the wing anti ice instruments
 	interpolate("/b707/anti-ice/temp-out-l", wingTempOutL, 10);
 	interpolate("/b707/anti-ice/temp-in-l", wingTempInL, 11);

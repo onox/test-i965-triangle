@@ -33,6 +33,9 @@
 		<type>material</type>
 		<object-name>cover</object-name>
 		<object-name>interieur</object-name>
+		<object-name>door</object-name>
+		<object-name>floor</object-name>
+		<object-name>exit</object-name>
 		<object-name>internal.sky</object-name>
 		<object-name>window.pilot</object-name>
 		<object-name>window.copilot</object-name>
@@ -52,6 +55,25 @@
 		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>exitON</object-name>
+		<emission>
+		  <red>1</red>
+		  <green>0.8</green>
+		  <blue>0.8</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>exitON</object-name>
+		<condition>
+			<property>/b707/emergency/exit-lights</property>
+		</condition>
+	</animation>	
+		  
 
 	<animation>
 		<type>material</type>
@@ -416,6 +438,17 @@
 		  <y-m>  0.0</y-m>
 		  <z-m>  1.35</z-m>
 			<pitch-deg>69.5</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>circuit-breaker-panel</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/circuitBreaker.xml</path>
+		<offsets>
+		  <x-m>-18.04</x-m>
+		  <y-m>  0.0</y-m>
+		  <z-m>  1.52</z-m>
+			<pitch-deg>75</pitch-deg>
 		</offsets>
 	</model>
 	

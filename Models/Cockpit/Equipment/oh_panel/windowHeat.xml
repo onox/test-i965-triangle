@@ -41,9 +41,9 @@
 		<object-name>LampAmberON</object-name>
 		<object-name>LampAmberON.001</object-name>
 		<emission>
-		  <red>   5.0 </red>
-		  <green> 0.0 </green>
-		  <blue>  0.0 </blue>
+		  <red>   1.0 </red>
+		  <green> 0.8 </green>
+		  <blue>  0.4 </blue>
 		</emission>
 	</animation>
 

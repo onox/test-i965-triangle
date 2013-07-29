@@ -136,7 +136,11 @@
 					<value>2</value>
 					</equals>
 					<property>/b707/anti-ice/engine-inlet[0]</property>
-				</and>
+				</and>				
+				<equals>
+					<property>/b707/anti-ice/switch</property>
+					<value>1</value>
+				</equals>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -164,7 +168,11 @@
 					<value>2</value>
 					</equals>
 					<property>/b707/anti-ice/engine-inlet[1]</property>
-				</and>
+				</and>				
+				<equals>
+					<property>/b707/anti-ice/switch</property>
+					<value>1</value>
+				</equals>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -192,7 +200,11 @@
 					<value>2</value>
 					</equals>
 					<property>/b707/anti-ice/engine-inlet[2]</property>
-				</and>
+				</and>				
+				<equals>
+					<property>/b707/anti-ice/switch</property>
+					<value>1</value>
+				</equals>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -220,7 +232,11 @@
 					<value>2</value>
 					</equals>
 					<property>/b707/anti-ice/engine-inlet[3]</property>
-				</and>
+				</and>				
+				<equals>
+					<property>/b707/anti-ice/switch</property>
+					<value>1</value>
+				</equals>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -239,6 +255,10 @@
 				<property>/controls/engines/engine[1]/fire</property>
 				<property>/controls/engines/engine[2]/fire</property>
 				<property>/controls/engines/engine[3]/fire</property>
+				<equals>
+					<property>/b707/anti-ice/switch</property>
+					<value>1</value>
+				</equals>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -397,20 +417,21 @@
 		    <button>0</button>
 		    <repeatable>false</repeatable>
         <binding>
-            <command>nasal</command>
-            <script>
-            	var bt = getprop("/b707/anti-ice/switch") or 0;
-            	if(bt == 1){
-            		setprop("/b707/anti-ice/switch", 0);
-            	}else{
-            		setprop("/b707/anti-ice/switch", 1);
-            	}
-            </script>
+          <command>property-assign</command>
+          <property>/b707/anti-ice/switch</property>  
+          <value type="double">1</value>
         </binding>
 		    <binding>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>
 		    </binding>
+		    <mod-up>
+		      <binding>
+		        <command>property-assign</command>
+		        <property>/b707/anti-ice/switch</property>  
+		        <value type="double">0</value>
+		      </binding>
+		    </mod-up>
 		  </action>
 	</animation>
 

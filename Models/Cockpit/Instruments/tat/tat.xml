@@ -165,8 +165,8 @@
       <type>textranslate</type>
       <object-name>dec10</object-name>
               <property>/b707/anti-ice/total-air-temperature</property>
-      <step>10</step>
-      <factor>0.01</factor>
+      <step>0.1</step>
+      <factor>1</factor>
       <axis>
           <x>0</x>
           <y>1</y>

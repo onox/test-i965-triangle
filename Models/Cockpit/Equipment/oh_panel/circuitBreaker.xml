@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Boeing 707 by the Lake of Constance Hangar :: M.Kraus Avril 2013 -->
+<!-- This file is licenced under the terms of the GNU General Public Licence V2 or later -->
+<PropertyList>
+ 	<path>circuitBreaker.ac</path>
+ 	
+	<animation>
+		<type>material</type>
+		<object-name>breakerPanel</object-name>
+		<condition>	
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.3</red>
+		  <green>0.3</green>
+		  <blue>0.3</blue>
+		  <factor-prop>/systems/electrical/outputs/overhead-dim</factor-prop>
+		</emission>
+	</animation>
+	
+</PropertyList>

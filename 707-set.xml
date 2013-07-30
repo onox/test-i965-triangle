@@ -193,9 +193,6 @@
 		</default>
 	</menubar>
 	
-	<help include="Systems/help.xml"/>
-	<flight-recorder include="Systems/flightrecorder.xml"/>
-	
 	<multiplay>
     <generic>
 			<int n="0" alias="/controls/lighting/landing-light"/> 												<!-- landing light nose wheel -->
@@ -230,6 +227,9 @@
       <float n="11" alias="/b707/anti-ice/window-alpha-capt"/> <!-- the icing on the windshield -->
     </generic>
   </multiplay>
+	
+	<help include="Systems/help.xml"/>  
+	<flight-recorder include="Systems/flightrecorder.xml"/>
 
   <flaps>
     <setting>0.0</setting>

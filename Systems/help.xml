@@ -4,10 +4,6 @@
   <title>Boeing 707</title>
 
   <key>
-    <name>s</name>
-    <desc>Autostart / Shutdown</desc>
-  </key>
-  <key>
     <name>L</name>
     <desc>toggle Landing Lights</desc>
   </key>

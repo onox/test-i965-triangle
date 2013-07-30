@@ -586,6 +586,29 @@
 		</pitch>
 	</rumble>
 
+	<rumble>
+		<name>rumbleOnGround</name>
+		<mode>looped</mode>
+		<path>Aircraft/707/Sounds/rumblingOnGround.wav</path>
+		<condition>
+			<property>/sim/current-view/internal</property>
+			<or>
+				<property>/gear/gear[0]/wow</property>
+				<property>/gear/gear[1]/wow</property>
+				<property>/gear/gear[2]/wow</property>
+			</or>
+		</condition>
+		<volume>
+			<property>/velocities/groundspeed-kt</property>
+			<factor>1.0</factor>
+		</volume>
+		<pitch>
+			<property>/velocities/groundspeed-kt</property>
+			<factor>0.001</factor>
+			<offset>0.5</offset>
+		</pitch>
+	</rumble>
+	
 	<gear>
 		<name>gear</name>
 		<mode>in-transit</mode>

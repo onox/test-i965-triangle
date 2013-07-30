@@ -875,6 +875,24 @@
 		</volume>
 	</mdawarning>
 	
+	<icewarning>
+		<name>ice warning</name>
+		<mode>once</mode>
+		<path>Aircraft/707/Sounds/warning.wav</path>
+      <condition>
+        <and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
+				  <property>/b707/warning/ice</property>
+				</and>
+      </condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</icewarning>
+		
 	<call>
 		<name>nosmoking</name>
 		<mode>once</mode>
@@ -885,10 +903,7 @@
 						<property>/b707/ess-bus</property>
 						<value>20</value>
 					</greater-than>
-					<or>
-				  	<property>/b707/call/no-smoking</property>
-				  	<property>/b707/call/seat-belts</property>
-				  </or>
+				 	<property>/b707/call/no-smoking</property>
 				</and>
       </condition>
 		<volume>
@@ -896,6 +911,24 @@
 		</volume>
 	</call>
 	
+	<call>
+		<name>seatbelts</name>
+		<mode>once</mode>
+		<path>Aircraft/707/Sounds/cabinalert.wav</path>
+      <condition>
+        <and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
+				  <property>/b707/call/seat-belts</property>
+				</and>
+      </condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</call>
+		
 	<call>
 		<name>grdcall</name>
 		<mode>once</mode>
@@ -906,15 +939,47 @@
 						<property>/b707/ess-bus</property>
 						<value>20</value>
 					</greater-than>
-					<or>
-						<property>/b707/call/crew-call</property>
-						<property>/b707/call/cabin-attend</property>
-						<property>/b707/call/pers-accom</property>
-				  </or>
+					<property>/b707/call/crew-call</property>
 				</and>
       </condition>
 		<volume>
 			<factor>1</factor>
+		</volume>
+	</call>
+		
+	<call>
+		<name>cabinAtten</name>
+		<mode>once</mode>
+		<path>Aircraft/707/Sounds/groundcall.wav</path>
+      <condition>
+        <and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
+					<property>/b707/call/cabin-attend</property>
+				</and>
+      </condition>
+		<volume>
+			<factor>3</factor>
+		</volume>
+	</call>
+		
+	<call>
+		<name>persAccom</name>
+		<mode>once</mode>
+		<path>Aircraft/707/Sounds/groundcall.wav</path>
+      <condition>
+        <and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
+					<property>/b707/call/pers-accom</property>
+				</and>
+      </condition>
+		<volume>
+			<factor>3</factor>
 		</volume>
 	</call>
 

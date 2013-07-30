@@ -99,6 +99,7 @@
 		<animation>
 	    <type>translate</type>
 	    <object-name>button.001</object-name>
+  		<object-name>lampone</object-name>
 	    <property>/b707/warning/fire-button[0]</property>
 	    <factor>0.015</factor>
 	    <axis>
@@ -127,6 +128,7 @@
 		<animation>
 	    <type>translate</type>
 	    <object-name>button.002</object-name>
+  		<object-name>lamptwo</object-name>
 	    <property>/b707/warning/fire-button[1]</property>
 	    <factor>0.015</factor>
 	    <axis>
@@ -155,6 +157,7 @@
 		<animation>
 	    <type>translate</type>
 	    <object-name>button.003</object-name>
+  		<object-name>lampthree</object-name>
 	    <property>/b707/warning/fire-button[2]</property>
 	    <factor>0.015</factor>
 	    <axis>
@@ -183,6 +186,7 @@
 		<animation>
 	    <type>translate</type>
 	    <object-name>button.004</object-name>
+  		<object-name>lampfour</object-name>
 	    <property>/b707/warning/fire-button[3]</property>
 	    <factor>0.015</factor>
 	    <axis>

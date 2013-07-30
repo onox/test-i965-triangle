@@ -173,6 +173,21 @@
           <z>0</z>
       </axis>
   </animation>
+  
+	<animation>
+			<type>pick</type>
+			<object-name>face</object-name>
+			<visible>true</visible>
+      <action>
+        <name>show tat info</name>
+        <button>0</button>
+      	<repeatable>true</repeatable>			
+        <binding>
+				  <command>nasal</command>
+				  <script>b707.show_tat()</script>
+				</binding>
+      </action>
+  </animation>
 
 
 </PropertyList>

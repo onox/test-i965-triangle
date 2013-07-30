@@ -210,6 +210,11 @@ var show_lat_lon = func {
 	help_win.write(sprintf("lat: "~lat~" lon: "~lon)); 
 }
 
+var show_tat = func {
+	var tat = getprop("/b707/anti-ice/total-air-temperature");
+	help_win.write(sprintf("TAT: %.2f Celsius", tat)); 
+}
+
 var show_dme = func {
   var dme = getprop("/controls/switches/dme") or 0;
   var tacan_miles = getprop("/instrumentation/tacan/indicated-distance-nm") or 0;
@@ -532,25 +537,25 @@ setlistener("/b707/hydraulic/ac-aux-pump[1]", func{
 
 setlistener("/b707/warning/fire-button[0]", func(state){
 	var state = state.getValue() or 0;
-	if(state){
+	if(!state){
 		 settimer( func { setprop("/controls/engines/engine[0]/fire", 0); }, 3);
 	}
 },0,0);
 setlistener("/b707/warning/fire-button[1]", func(state){
 	var state = state.getValue() or 0;
-	if(state){
+	if(!state){
 		 settimer( func { setprop("/controls/engines/engine[1]/fire", 0); }, 3);
 	}
 },0,0);
 setlistener("/b707/warning/fire-button[2]", func(state){
 	var state = state.getValue() or 0;
-	if(state){
+	if(!state){
 		 settimer( func { setprop("/controls/engines/engine[2]/fire", 0); }, 3);
 	}
 },0,0);
 setlistener("/b707/warning/fire-button[3]", func(state){
 	var state = state.getValue() or 0;
-	if(state){
+	if(!state){
 		 settimer( func { setprop("/controls/engines/engine[3]/fire", 0); }, 3);
 	}
 },0,0);
@@ -560,28 +565,28 @@ setlistener("/b707/generator/gen-drive[0]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
-		 settimer( func { setprop("/controls/engines/engine[0]/fire", 1); }, 2);
+		 settimer( func { setprop("/controls/engines/engine[0]/fire", 1); setprop("/b707/warning/fire-button[0]", 1) }, 2);
 	}
 },0,0);
 setlistener("/b707/generator/gen-drive[1]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
-		 settimer( func { setprop("/controls/engines/engine[1]/fire", 1); }, 2);
+		 settimer( func { setprop("/controls/engines/engine[1]/fire", 1); setprop("/b707/warning/fire-button[1]", 1) }, 2);
 	}
 },0,0);
 setlistener("/b707/generator/gen-drive[2]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
-		 settimer( func { setprop("/controls/engines/engine[2]/fire", 1); }, 2);
+		 settimer( func { setprop("/controls/engines/engine[2]/fire", 1); setprop("/b707/warning/fire-button[2]", 1) }, 2);
 	}
 },0,0);
 setlistener("/b707/generator/gen-drive[3]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
-		 settimer( func { setprop("/controls/engines/engine[3]/fire", 1); }, 2);
+		 settimer( func { setprop("/controls/engines/engine[3]/fire", 1); setprop("/b707/warning/fire-button[3]", 1) }, 2);
 	}
 },0,0);
 
@@ -605,16 +610,16 @@ var calc_oil_temp = func{
 		var newAlpha = 1 - (abs(tat)/10); # total icing at -10 tat
 		newAlpha = (newAlpha > 1) ? 1 : (newAlpha < 0) ? 0 : newAlpha;
 		if(capH){
-			var newAlpha = windowHeatAlphaCapt.getValue() + (0.2 * capH);
-			newAlpha = (newAlpha > 1) ? 1 : (newAlpha < 0) ? 0 : newAlpha;
-			interpolate("/b707/anti-ice/window-alpha-capt", newAlpha, 20);
+			var newAlphaC = windowHeatAlphaCapt.getValue() + (0.2 * capH);
+			newAlphaC = (newAlphaC > 1) ? 1 : (newAlphaC < 0) ? 0 : newAlphaC;
+			interpolate("/b707/anti-ice/window-alpha-capt", newAlphaC, 20);
 		}else{
 			interpolate("/b707/anti-ice/window-alpha-capt", newAlpha, 30);
 		}
 		if(FoH){
-			var newAlpha = windowHeatAlphaFO.getValue() + (0.2 * FoH);
-			newAlpha = (newAlpha > 1) ? 1 : (newAlpha < 0) ? 0 : newAlpha;
-			interpolate("/b707/anti-ice/window-alpha-fo", newAlpha, 20);
+			var newAlphaF = windowHeatAlphaFO.getValue() + (0.2 * FoH);
+			newAlphaF = (newAlphaF > 1) ? 1 : (newAlphaF < 0) ? 0 : newAlphaF;
+			interpolate("/b707/anti-ice/window-alpha-fo", newAlphaF, 20);
 		}else{
 			interpolate("/b707/anti-ice/window-alpha-fo", newAlpha, 30);
 		}	
@@ -759,14 +764,20 @@ var nacelle_deicing = func {
 	if(iceAlertWings) {
 		screen.log.write("WINGS - ICE ALERT: Switch on the WING ANTI-ICE System", 1, 0, 0);
 		iceAlertWings = 0;
+		setprop("/b707/warning/ice", 1);
+		settimer(func{ setprop("/b707/warning/ice", 0)}, 14.5);
 	}
 	if(iceAlertEngines) {
 		screen.log.write("ENGINES - ICE ALERT: Switch on the NACELLE ANTI-ICE System", 1, 0, 0);
 		iceAlertEngines = 0;
+		setprop("/b707/warning/ice", 1);
+		settimer(func{ setprop("/b707/warning/ice", 0)}, 14.5);
 	}
 	if(iceAlertFuel) {
 		screen.log.write("FUEL - ICE ALERT: Switch on the FUEL HEATER System", 1, 0, 0);
 		iceAlertFuel = 0;
+		setprop("/b707/warning/ice", 1);
+		settimer(func{ setprop("/b707/warning/ice", 0)}, 14.5);
 	}
 
 	settimer( nacelle_deicing, 15);

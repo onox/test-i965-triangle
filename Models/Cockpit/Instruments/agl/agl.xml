@@ -105,11 +105,13 @@
 	<animation>
 		<type>noshadow</type>
 		<object-name>shadow</object-name>
+		<object-name>shadowArrow</object-name>
 	</animation>
 
 	<effect>
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>shadow</object-name>
+		<object-name>shadowArrow</object-name>
   </effect>
   
 	<animation>
@@ -217,6 +219,7 @@
   <animation>
 		<type>translate</type>
 		<object-name>arrow</object-name>
+		<object-name>shadowArrow</object-name>
 		<property>/instrumentation/aglradar/alt-ft</property>
       <condition>
 				<and>

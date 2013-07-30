@@ -13,7 +13,7 @@
 		<object-name>windowIceCapt</object-name>
 		<condition>		
 			<less-than>
-				<property>/b707/anti-ice/window-alpha-capt</property>
+				<property>sim/multiplay/generic/float[11]</property>
 				<value>0.9</value>
 			</less-than>
 		</condition>
@@ -24,7 +24,7 @@
 		<object-name>windowIceFO</object-name>
 		<condition>		
 			<less-than>
-				<property>/b707/anti-ice/window-alpha-fo</property>
+				<property>sim/multiplay/generic/float[10]</property>
 				<value>0.9</value>
 			</less-than>
 		</condition>
@@ -34,14 +34,14 @@
 	<animation>
 		<type>blend</type>
 		<object-name>windowIceCapt</object-name>
-		<property>/b707/anti-ice/window-alpha-capt</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<factor>1</factor>
 	</animation> 
 
 	<animation>
 		<type>blend</type>
 		<object-name>windowIceFO</object-name>
-		<property>/b707/anti-ice/window-alpha-fo</property>
+		<property>sim/multiplay/generic/float[10]</property>
 		<factor>1</factor>
 	</animation>  
  

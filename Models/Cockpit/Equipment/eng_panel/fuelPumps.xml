@@ -1254,10 +1254,6 @@
 		    <wrap>1</wrap>
 		  </binding>		  
 		  <binding>
-		      <command>nasal</command>
-		      <script>b707.fuel_temp_selector();</script>
-		  </binding>	
-		  <binding>
 		    <command>property-toggle</command>
 		    <property>/sim/sound/switch3</property>
 		  </binding>
@@ -1272,11 +1268,7 @@
 		    <min>0</min>
 		    <max>5</max>
 		    <wrap>1</wrap>
-		  </binding>
-		  <binding>
-		      <command>nasal</command>
-		      <script>b707.fuel_temp_selector();</script>
-		  </binding>		  
+		  </binding>	  
 		  <binding>
 		    <command>property-toggle</command>
 		    <property>/sim/sound/switch3</property>

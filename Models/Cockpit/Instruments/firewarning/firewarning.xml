@@ -96,23 +96,17 @@
 </animation>
 
     <!-- The warn button 1 -->
-    <animation>
-        <type>rotate</type>
-        <object-name>button.001</object-name>
-        <object-name>lampone</object-name>
-        <property>/b707/warning/fire-button[0]</property>
-        <factor>90</factor>
-        <axis>
-            <x>1.0</x>
-            <y>0.0</y>
-            <z>0.0</z>
-        </axis>
-        <center>
-            <x-m> 0.0635</x-m>
-            <y-m>-0.0663</y-m>
-            <z-m> 0.0</z-m>
-        </center>
-    </animation>
+		<animation>
+	    <type>translate</type>
+	    <object-name>button.001</object-name>
+	    <property>/b707/warning/fire-button[0]</property>
+	    <factor>0.015</factor>
+	    <axis>
+	        <x> 1.0</x>
+	        <y> 0.0</y>
+	        <z> 0.0</z>
+	    </axis>
+		</animation>
 
     <animation>
       <type>pick</type>
@@ -130,23 +124,17 @@
     </animation>
 
     <!-- The warn button 2 -->
-    <animation>
-        <type>rotate</type>
-        <object-name>button.002</object-name>
-        <object-name>lamptwo</object-name>
-        <property>/b707/warning/fire-button[1]</property>
-        <factor>90</factor>
-        <axis>
-            <x>1.0</x>
-            <y>0.0</y>
-            <z>0.0</z>
-        </axis>
-        <center>
-            <x-m> 0.0635</x-m>
-            <y-m>-0.0219</y-m>
-            <z-m> 0.0</z-m>
-        </center>
-    </animation>
+		<animation>
+	    <type>translate</type>
+	    <object-name>button.002</object-name>
+	    <property>/b707/warning/fire-button[1]</property>
+	    <factor>0.015</factor>
+	    <axis>
+	        <x> 1.0</x>
+	        <y> 0.0</y>
+	        <z> 0.0</z>
+	    </axis>
+		</animation>
 
     <animation>
       <type>pick</type>
@@ -164,23 +152,17 @@
     </animation>
 
     <!-- The warn button 3 -->
-    <animation>
-        <type>rotate</type>
-        <object-name>button.003</object-name>
-        <object-name>lampthree</object-name>
-        <property>/b707/warning/fire-button[2]</property>
-        <factor>90</factor>
-        <axis>
-            <x>1.0</x>
-            <y>0.0</y>
-            <z>0.0</z>
-        </axis>
-        <center>
-            <x-m> 0.0635</x-m>
-            <y-m> 0.0221</y-m>
-            <z-m> 0.0</z-m>
-        </center>
-    </animation>
+		<animation>
+	    <type>translate</type>
+	    <object-name>button.003</object-name>
+	    <property>/b707/warning/fire-button[2]</property>
+	    <factor>0.015</factor>
+	    <axis>
+	        <x> 1.0</x>
+	        <y> 0.0</y>
+	        <z> 0.0</z>
+	    </axis>
+		</animation>
 
     <animation>
       <type>pick</type>
@@ -198,23 +180,17 @@
     </animation>
 
     <!-- The warn button 4 -->
-    <animation>
-        <type>rotate</type>
-        <object-name>button.004</object-name>
-        <object-name>lampfour</object-name>
-        <property>/b707/warning/fire-button[3]</property>
-        <factor>90</factor>
-        <axis>
-            <x>1.0</x>
-            <y>0.0</y>
-            <z>0.0</z>
-        </axis>
-        <center>
-            <x-m> 0.0635</x-m>
-            <y-m> 0.0667</y-m>
-            <z-m> 0.0</z-m>
-        </center>
-    </animation>
+		<animation>
+	    <type>translate</type>
+	    <object-name>button.004</object-name>
+	    <property>/b707/warning/fire-button[3]</property>
+	    <factor>0.015</factor>
+	    <axis>
+	        <x> 1.0</x>
+	        <y> 0.0</y>
+	        <z> 0.0</z>
+	    </axis>
+		</animation>
 
     <animation>
       <type>pick</type>

@@ -143,44 +143,52 @@
 	<menubar>
 		<default>
 			<menu n="100">
-			<label>Boeing 707</label>
-			<enabled type="bool">true</enabled>
-			<item>
-				<label>Autostart / shutdown</label>
-				<binding>
-					<command>property-toggle</command>
-					<property>sim/model/start-idling</property>
-				</binding>
-			</item>
-			<item>
-				<label>External Power Unit</label>
-				<binding>
-					<command>property-toggle</command>
-      		<property>b707/external-power-connected</property>
-				</binding>
-			</item>
-			<item>
-				<label>Pushback</label>
-				<name>pushback</name>
-				<binding>
-					 <command>dialog-show</command>
-					 <dialog-name>pushback</dialog-name>
-				</binding>
-			</item>
-			<item>
-				<label>Show/hide yokes</label>
-				<binding>
-					<command>property-toggle</command>
-      		<property>sim/yokes-visible</property>
-				</binding>
-			</item>
-			<item>
-				<label>Select livery</label>
-				<binding>
-					<command>nasal</command>
-					<script>aircraft.livery.dialog.open()</script>
-				</binding>
-			</item>
+				<label>Boeing 707</label>
+				<enabled type="bool">true</enabled>
+				<item>
+					<label>Autostart / shutdown</label>
+					<binding>
+						<command>property-toggle</command>
+						<property>sim/model/start-idling</property>
+					</binding>
+				</item>
+				<item>
+					<label>--- Selection ---</label>
+					<enabled>false</enabled>
+				</item>
+				<item>
+					<label>Select livery</label>
+					<binding>
+						<command>nasal</command>
+						<script>aircraft.livery.dialog.open()</script>
+					</binding>
+				</item>
+				<item>
+					<label>Show/hide yokes</label>
+					<binding>
+						<command>property-toggle</command>
+		    		<property>sim/yokes-visible</property>
+					</binding>
+				</item>
+				<item>
+					<label>--- Equipment ---</label>
+					<enabled>false</enabled>
+				</item>
+				<item>
+					<label>Pushback</label>
+					<name>pushback</name>
+					<binding>
+						 <command>dialog-show</command>
+						 <dialog-name>pushback</dialog-name>
+					</binding>
+				</item>
+				<item>
+					<label>External Power Unit</label>
+					<binding>
+						<command>property-toggle</command>
+		    		<property>b707/external-power-connected</property>
+					</binding>
+				</item>
 			</menu>
 		</default>
 	</menubar>
@@ -217,6 +225,9 @@
 			<float n="6" alias="/instrumentation/doors/pasfront/position-norm"/>					<!-- Passenger - front -->
 			<float n="7" alias="/instrumentation/doors/pasrear/position-norm"/>						<!-- Passenger - back -->
       <float n="8" alias="/position/altitude-agl-ft"/>    <!-- for the kind of fire or lights -->
+      <float n="9" alias="/controls/special/wiper-deg"/>
+      <float n="10" alias="/b707/anti-ice/window-alpha-fo"/> <!-- the icing on the windshield -->
+      <float n="11" alias="/b707/anti-ice/window-alpha-capt"/> <!-- the icing on the windshield -->
     </generic>
   </multiplay>
 
@@ -383,6 +394,9 @@
 				<hyd-fluid-pump n="0" type="bool">0</hyd-fluid-pump>
 				<hyd-fluid-pump n="1" type="bool">0</hyd-fluid-pump>
 		</hydraulic>
+		<anti-ice>
+		    <drag-coefficient type="double">1.0</drag-coefficient>
+		</anti-ice>
   </b707>
   
 	<payload>

@@ -62,8 +62,13 @@
 						<property>/b707/anti-ice/window-alpha-capt</property>
 						<value>1</value>
 					</equals>
+					<greater-than>
+						<property>/b707/anti-ice/total-air-temperature</property>
+						<value>0</value>
+					</greater-than>
 				</and>
 		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/anti-ice/window-cap-control</property>
 		  </or>
 		</condition>
 	</animation>
@@ -83,8 +88,13 @@
 						<property>/b707/anti-ice/window-alpha-fo</property>
 						<value>1</value>
 					</equals>
+					<greater-than>
+						<property>/b707/anti-ice/total-air-temperature</property>
+						<value>0</value>
+					</greater-than>
 				</and>
 		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/anti-ice/window-fo-control</property>
 		  </or>
 		</condition>
 	</animation>
@@ -126,6 +136,8 @@
             		setprop("/b707/anti-ice/window-heat-cap-switch", 0);
             	}else{
             		setprop("/b707/anti-ice/window-heat-cap-switch", 2);
+		    				setprop("/b707/anti-ice/window-cap-control", 1);
+		    				settimer(func{setprop("/b707/anti-ice/window-cap-control", 0)}, 0.5);
             	}
             </script>
         </binding>
@@ -151,6 +163,8 @@
             		setprop("/b707/anti-ice/window-heat-cap-switch", 0);
             	}else{
             		setprop("/b707/anti-ice/window-heat-cap-switch", 1);
+		    				setprop("/b707/anti-ice/window-cap-control", 1);
+		    				settimer(func{setprop("/b707/anti-ice/window-cap-control", 0)}, 0.5);
             	}
             </script>
         </binding>
@@ -198,6 +212,8 @@
             		setprop("/b707/anti-ice/window-heat-fo-switch", 0);
             	}else{
             		setprop("/b707/anti-ice/window-heat-fo-switch", 2);
+		    				setprop("/b707/anti-ice/window-fo-control", 1);
+		    				settimer(func{setprop("/b707/anti-ice/window-fo-control", 0)}, 0.5);
             	}
             </script>
         </binding>
@@ -223,6 +239,8 @@
             		setprop("/b707/anti-ice/window-heat-fo-switch", 0);
             	}else{
             		setprop("/b707/anti-ice/window-heat-fo-switch", 1);
+		    				setprop("/b707/anti-ice/window-fo-control", 1);
+		    				settimer(func{setprop("/b707/anti-ice/window-fo-control", 0)}, 0.5);
             	}
             </script>
         </binding>

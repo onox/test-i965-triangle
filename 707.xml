@@ -697,6 +697,7 @@
        <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
+	  			<property>/b707/anti-ice/drag-coefficient</property>
           <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
@@ -716,6 +717,7 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>aero/cl-squared</property>
+	  			 <property>/b707/anti-ice/drag-coefficient</property>
            <value>0.042</value>
          </product>
     </function>
@@ -725,6 +727,7 @@
         <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
+	  			<property>/b707/anti-ice/drag-coefficient</property>
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>

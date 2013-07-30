@@ -874,6 +874,49 @@
 			<factor>1</factor>
 		</volume>
 	</mdawarning>
+	
+	<call>
+		<name>nosmoking</name>
+		<mode>once</mode>
+		<path>Aircraft/707/Sounds/cabinalert.wav</path>
+      <condition>
+        <and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
+					<or>
+				  	<property>/b707/call/no-smoking</property>
+				  	<property>/b707/call/seat-belts</property>
+				  </or>
+				</and>
+      </condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</call>
+	
+	<call>
+		<name>grdcall</name>
+		<mode>once</mode>
+		<path>Aircraft/707/Sounds/groundcall.wav</path>
+      <condition>
+        <and>
+					<greater-than>
+						<property>/b707/ess-bus</property>
+						<value>20</value>
+					</greater-than>
+					<or>
+						<property>/b707/call/crew-call</property>
+						<property>/b707/call/cabin-attend</property>
+						<property>/b707/call/pers-accom</property>
+				  </or>
+				</and>
+      </condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</call>
 
     <rain>
       <name>rain</name>

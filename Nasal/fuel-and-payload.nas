@@ -689,19 +689,17 @@ var dump_chute_switch = func(nr){
   		settimer( func { setprop("/b707/fuel/valves/dump-retract["~nr~"]", 1 ) }, 2 );
   	}
 }
-var fuel_temp_selector = func{
+
+setlistener("/b707/fuel/temperatur-selector", func(nr){
+  # 0 = Main Tank 1, 1 = Engine 1, 2 = Engine 2 ...
+  var nr = nr.getValue() or 0;
+  temp = getprop("/b707/fuel/temp["~nr~"]") or 0;
   setprop("b707/fuel/temperature", 0);
-	var temp = getprop("/environment/temperature-degc") or 0;
 	interpolate("b707/fuel/temperature", temp, 1.2);
-}
+},1,0); 
+######### Loop for fuel temperature you will find in the mk-707.nas in the nacelle_deicing() ###########
 
-#################################### Loop for fuel temperature ################################################
 
-var set_fuel_temp = func {
-	var airtemp = getprop("/environment/temperature-degc") or 0;
-	interpolate("b707/fuel/temperature", airtemp, 1.2);
-	settimer( set_fuel_temp, 5);
-}
 
 ###############################################################################################################
 ########################################### LOOP ENGINES ######################################################
@@ -1165,7 +1163,6 @@ var dump_loop_r = func{
 ############  Start up the loops ################
 settimer( func { engines_alive(); } , 6);
 settimer( func { crossfeed_action(); } , 7);
-settimer( func { set_fuel_temp(); } , 8);
 
 
 

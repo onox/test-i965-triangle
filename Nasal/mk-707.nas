@@ -26,6 +26,7 @@ var inchWater = props.globals.initNode("/b707/air-conditioning/inches-water",11.
 
 var windowHeatAlphaCapt = props.globals.initNode("/b707/anti-ice/window-alpha-capt",1.0,"DOUBLE");
 var windowHeatAlphaFO = props.globals.initNode("/b707/anti-ice/window-alpha-fo",1.0,"DOUBLE");
+
 ################################ Reverser ####################################
 
 # The heading offset to 0
@@ -584,14 +585,12 @@ setlistener("/b707/generator/gen-drive[3]", func(state){
 	}
 },0,0);
 
-################# OIL System  AND Temperature for ANTI ICE SYSTEM Loop 32sec ################
+################# OIL System  AND WINDSHIELD EFFECT also TAT independence Loop 32sec ################
 var calc_oil_temp = func{
 
 	var atemp  =  getprop("/environment/temperature-degc") or 0;
 	
 	# without any engine and no support what happens to the wingTemperature
-  # windowHeatAlphaCapt = props.globals.initNode("/b707/anti-ice/window-alpha-capt",1.0,"DOUBLE");
-  # windowHeatAlphaFO = props.globals.initNode("/b707/anti-ice/window-alpha-fo",1.0,"DOUBLE");
   # Calculate TAT Value (TAT = static temp (1 +((1.4 - 1) / 2) Mach^2) )
 	var tat = atemp * (1 + (0.2 * getprop("/velocities/mach") * getprop("/velocities/mach")));
 	interpolate("/b707/anti-ice/total-air-temperature", tat, 32); # show it on instrument
@@ -599,10 +598,10 @@ var calc_oil_temp = func{
 	interpolate("/b707/anti-ice/total-air-temperature-digit", digittat, 32); # show it on instrument
 	# print("TAT ist: "~tat);
 	
-	# calculate the windows alpha for ice effect
+	# calculate the windows alpha for ice effect - use this loop only for the 32 sec
 	var capH = getprop("/b707/anti-ice/window-heat-cap-switch") or 0;
 	var FoH = getprop("/b707/anti-ice/window-heat-fo-switch") or 0;
-	if(tat < 1){
+	if(tat < 1){    # temperature lower than 1 degree Celsius
 		var newAlpha = 1 - (abs(tat)/10); # total icing at -10 tat
 		newAlpha = (newAlpha > 1) ? 1 : (newAlpha < 0) ? 0 : newAlpha;
 		if(capH){
@@ -628,13 +627,6 @@ var calc_oil_temp = func{
 			interpolate("/b707/anti-ice/window-alpha-fo", 1.0, 15);
 		}
 	}
-	
-	# calculate the wing temp for instruments in ovhd panel
-  var wingTempOutL = tat;  
-  var wingTempOutR = tat;  
-  var wingTempInL = tat;  
-  var wingTempInR = tat;
-  var wingAntiIce = getprop("/b707/anti-ice/switch") or 0;
 
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		var n = e.getNode("oil-pressure-psi").getValue() or 0;
@@ -642,37 +634,145 @@ var calc_oil_temp = func{
 		var t = n * 2.148;
 		if(r){
 			# the oil temp calculation
-			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", t, 32);
-			
-			# the wing Ice
-			if(e.getIndex() == 0 and wingAntiIce){
-			  var wingTempOutL = 99.0;  # fake temperature
-			}
-			if(e.getIndex() == 1 and wingAntiIce){
-			  var wingTempInL = 124.4;  # fake temperature
-			}
-			if(e.getIndex() == 2 and wingAntiIce){
-			  var wingTempOutR = 95.4;  # fake temperature
-			}
-			if(e.getIndex() == 3 and wingAntiIce){
-			  var wingTempInR = 118.1;  # fake temperature
-			}	
-					
+			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", t, 32);				
 		}else{
 			interpolate("/b707/oil/oil-temp["~e.getIndex()~"]", atemp, 32);
 		}
 	}
 	
-	# turn the needles in the wing anti ice instruments
-	interpolate("/b707/anti-ice/temp-out-l", wingTempOutL, 10);
-	interpolate("/b707/anti-ice/temp-in-l", wingTempInL, 11);
-	interpolate("/b707/anti-ice/temp-out-r", wingTempOutR, 12);
-	interpolate("/b707/anti-ice/temp-in-r", wingTempInR, 10);
-	
 	settimer( calc_oil_temp, 32);
 }
 
-settimer( calc_oil_temp, 10); # start first after 10 sec.
+settimer( calc_oil_temp, 10); # start first after 10 sec
+
+
+############ diff loop for the DEICING of WINGS and ENGINES Loop 15 sec #############
+
+var nacelle_deicing = func {
+
+	var atemp  =  getprop("/environment/temperature-degc") or 0;
+	var tat = getprop("/b707/anti-ice/total-air-temperature") or 0;
+	var coef = getprop("/b707/anti-ice/drag-coefficient") or 0; # standard is 1, worst case is wc
+	var wc = 7; # the max Drag factor for our aircraft - over this value, the behavior in simulation is unrealistic
+	
+	# without any engine and no support what happens to the wingTemperature
+  var wingTempOutL = tat;  
+  var wingTempOutR = tat;  
+  var wingTempInL = tat;  
+  var wingTempInR = tat;
+  var wingAntiIce = getprop("/b707/anti-ice/switch") or 0;
+  var iceAlertEngines = 0;
+  var iceAlertWings = 0;
+  var iceAlertFuel = 0;
+  
+	# if engines running show me the temperature near the wing anti ice valve
+	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
+		var r = e.getNode("running").getValue() or 0;
+		var deg = e.getNode("egt-degf").getValue() or 0;
+		var engineInlet = getprop("/b707/anti-ice/engine-inlet["~e.getIndex()~"]") or 0;
+		
+		if (!engineInlet) {
+		  var n = e.getIndex() + 1;
+		  if(tat <= -10) iceAlertEngines = 1;
+		  if(tat <= -30) setprop("/controls/engines/engine["~e.getIndex()~"]/cutoff", 1);
+		}
+		
+		var temperature = deg * 110/1400; # engines have 1400 degree f max temperature
+		
+		if(r){
+			# the wing Ice
+			if(e.getIndex() == 0 and wingAntiIce){
+				var wingTempOutL = temperature + 5;  # + 5 only for difference on instruments :-)
+			}
+			if(e.getIndex() == 1 and wingAntiIce){
+				var wingTempInL = temperature - 4; 
+			}
+			if(e.getIndex() == 2 and wingAntiIce){
+				var wingTempInR = temperature - 6; 
+			}
+			if(e.getIndex() == 3 and wingAntiIce){
+				var wingTempOutR = temperature + 7; 
+			}		
+		}
+		
+	}
+	
+	# and turn the needles in the wing anti ice instruments (overhead panel)
+	interpolate("/b707/anti-ice/temp-out-l", wingTempOutL, 15);
+	interpolate("/b707/anti-ice/temp-in-l", wingTempInL, 15);
+	interpolate("/b707/anti-ice/temp-out-r", wingTempOutR, 15);
+	interpolate("/b707/anti-ice/temp-in-r", wingTempInR, 15);
+	
+	# calculate the drag-coefficient of our aircraft with ice - no ice/  1 is perfect, wc is the worst case
+	if(tat < 1){
+	    # overwrite the variable from real temperature to factor 1 to wc for coefficent calc
+			wingTempOutL = (wingTempOutL < -4) ? abs(wingTempOutL)/4 : 1;
+			wingTempInL = (wingTempInL < -4) ? abs(wingTempInL)/4 : 1;
+			wingTempOutR = (wingTempOutR < -4) ? abs(wingTempOutR)/4 : 1;
+			wingTempInR = (wingTempInR < -4) ? abs(wingTempInR)/4 : 1;
+
+			var newcoef = (wingTempOutL + wingTempInL + wingTempInR + wingTempOutR)/4;
+			# print("Coeff: " ~newcoef);
+			newcoef = (newcoef > wc) ? wc : newcoef;
+			newcoef = ((coef - newcoef) > 1) ? newcoef + 1 : newcoef;   # go back after switch on heating max 1 point/15 sec
+			
+			if(coef != newcoef) interpolate("/b707/anti-ice/drag-coefficient", newcoef, 15);
+			
+			if(coef < newcoef) iceAlertWings = 1; # only message, if value rise up
+			
+	}else{
+		if(coef > 1){
+			interpolate("/b707/anti-ice/drag-coefficient", 1, 15);
+		}
+	}
+	
+	### Fuel temperature
+	var sel = getprop("/b707/fuel/temperatur-selector") or 0; 
+  # 0 = Main Tank 1, 1 = Engine 1, 2 = Engine 2 ... Main Tank has no heater
+  var fuelTempMain = (tat < -10) ? -10 : tat;
+  setprop("/b707/fuel/temp[0]", fuelTempMain);
+  
+  if (sel == 0) setprop("/b707/fuel/temperature", fuelTempMain);
+  
+	foreach(var h; props.globals.getNode("/b707/fuel").getChildren("heater")) {
+	  var state = h.getValue();
+	  var hnr = h.getIndex();
+	  var tnr = hnr + 1;
+	  var oldfuelTemp = getprop("/b707/fuel/temp["~tnr~"]") or 0;
+	  var newfuelTemp = tat;
+	  
+	  if(state){
+	  		newfuelTemp = oldfuelTemp + 5;
+	  		newfuelTemp = (newfuelTemp > 20) ? 20 : newfuelTemp;
+	  }
+	  
+	  if(newfuelTemp <  -8)  iceAlertFuel = 1;
+	  if(newfuelTemp < -20)  setprop("/controls/engines/engine["~hnr~"]/cutoff", 1);
+	  
+		setprop("/b707/fuel/temp["~tnr~"]", newfuelTemp);
+  	if (sel == tnr) interpolate("/b707/fuel/temperature", newfuelTemp, 15);
+	}
+	
+	
+		
+	
+	if(iceAlertWings) {
+		screen.log.write("WINGS - ICE ALERT: Switch on the WING ANTI-ICE System", 1, 0, 0);
+		iceAlertWings = 0;
+	}
+	if(iceAlertEngines) {
+		screen.log.write("ENGINES - ICE ALERT: Switch on the NACELLE ANTI-ICE System", 1, 0, 0);
+		iceAlertEngines = 0;
+	}
+	if(iceAlertFuel) {
+		screen.log.write("FUEL - ICE ALERT: Switch on the FUEL HEATER System", 1, 0, 0);
+		iceAlertFuel = 0;
+	}
+
+	settimer( nacelle_deicing, 15);
+}
+
+settimer( nacelle_deicing, 12); # start first after 12 sec
 
 ####################### COOLING AND PRESSURIZATION LOOP ###########################
 var safety_valv_pos = func {

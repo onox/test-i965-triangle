@@ -240,7 +240,31 @@
           <z-m>-0.154</z-m>
       </center>
   </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>switch.003</object-name>
+    <object-name>sockle.003</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/test/warn-knob</property>  
+          <value>1.0</value>
+        </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/test/warn-knob</property>  
+          <value>0.0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
 
+  <!--
   <animation>
     <type>pick</type>
       <object-name>switch.003</object-name>
@@ -263,6 +287,7 @@
       </mod-up>
     </action>
   </animation>
+  -->
   
   <!-- cabin air temperature source selector --> 
 	<animation>

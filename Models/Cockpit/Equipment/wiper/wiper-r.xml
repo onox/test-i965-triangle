@@ -73,7 +73,7 @@
       <object-name>wiperSup.001</object-name>
       <object-name>wiper</object-name>
       <object-name>wiper.001</object-name>
-      <property>/controls/special/wiper-deg</property>
+      <property>sim/multiplay/generic/float[9]</property>
         <factor>1.1</factor>
       <center>
       <x-m> 0.0 </x-m>
@@ -92,7 +92,7 @@
 			<object-name>wiper</object-name>
       <object-name>wiper.001</object-name>
       <object-name>wiperSup.001</object-name>
-			<property>/controls/special/wiper-deg</property>
+			<property>sim/multiplay/generic/float[9]</property>
 			<interpolation>
 				<entry><ind>0 </ind><dep>  0.0</dep></entry>
 				<entry><ind>25</ind><dep> -0.08</dep></entry>
@@ -122,7 +122,7 @@
       <type>rotate</type>
       <object-name>wiper</object-name>
       <object-name>wiper.001</object-name>
-      <property>/controls/special/wiper-deg</property>
+      <property>sim/multiplay/generic/float[9]</property>
 			<interpolation>
 				<entry><ind>0.0</ind><dep> 0.0</dep></entry>
 				<entry><ind>10</ind><dep>  0.0</dep></entry>

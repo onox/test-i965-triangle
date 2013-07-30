@@ -374,7 +374,7 @@
   <type>select</type>
   <object-name>LightTailGlow</object-name>
   <condition>
-    <property>sim/multiplay/generic/int[1]</property>
+    <property>sim/multiplay/generic/int[2]</property>
   </condition>
 </animation>
 

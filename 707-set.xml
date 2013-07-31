@@ -393,10 +393,17 @@
 				<hyd-fluid-shutoff n="1" type="bool">0</hyd-fluid-shutoff>
 				<hyd-fluid-pump n="0" type="bool">0</hyd-fluid-pump>
 				<hyd-fluid-pump n="1" type="bool">0</hyd-fluid-pump>
+				<spoiler-switch n="0" type="bool">1</spoiler-switch>
+				<spoiler-switch n="1" type="bool">1</spoiler-switch>
+				<rudder-switch type="bool">1</rudder-switch>
 		</hydraulic>
 		<anti-ice>
 		    <drag-coefficient type="double">1.0</drag-coefficient>
 		</anti-ice>
+		<trim>
+			<spoiler-nose-down type="double">0.0</spoiler-nose-down>
+			<spoiler-nose-up type="double">0.0</spoiler-nose-up>
+		</trim>
   </b707>
   
 	<payload>

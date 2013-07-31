@@ -182,12 +182,20 @@ var h_mis = func {
 	help_win.write(sprintf("%.0f degrees", press_mis) );
 }
 
+var h_set_target_alt = func{
+	var set_alt = getprop("/autopilot/settings/target-altitude-ft");
+	if(  set_alt == nil ) set_alt = 0.0;
+	help_win.write(sprintf("Target altitude: %.0f ", set_alt) );
+
+}
+
 setlistener( "/instrumentation/altimeter/setting-inhg", h_altimeter );
 setlistener( "/autopilot/settings/heading-bug-deg", h_heading );
 setlistener( "/instrumentation/nav/radials/selected-deg", h_course );
 setlistener( "/instrumentation/nav[1]/radials/selected-deg", h_course_two );
 setlistener( "/autopilot/settings/target-speed-kt", h_tas );
 setlistener( "/autopilot/settings/vertical-speed-fpm", h_vs);
+setlistener( "/autopilot/settings/target-altitude-ft", h_set_target_alt );
 setlistener( "/instrumentation/rmi/face-offset", h_mis);
 
 
@@ -969,5 +977,83 @@ var trim_loop = func{
 
 trim_loop();  # fire it up
 
+##################### rudder and spoiler hydraulic switches in overhead panel ###################
+
+setlistener("/b707/hydraulic/spoiler-switch[0]", func(state){
+	var state = state.getValue() or 0;
+	if(!state){
+		 interpolate("/b707/trim/spoiler-nose-up", 1, 3);
+	}else{
+		 interpolate("/b707/trim/spoiler-nose-up", 0, 3);
+	}
+},0,0);
+
+
+setlistener("/b707/hydraulic/spoiler-switch[1]", func(state){
+	var state = state.getValue() or 0;
+	if(!state){
+		 interpolate("/b707/trim/spoiler-nose-down", 1, 3);
+	}else{
+		 interpolate("/b707/trim/spoiler-nose-down", 0, 3);
+	}
+},0,0);
+
+##############################  Emergency flaps #################################################
+
+var emerMain  = props.globals.getNode("/b707/emergency/emer-flap-switch");
+var emerInbd  = props.globals.getNode("/b707/emergency/emer-flap-inbd");
+var emerOutbd = props.globals.getNode("/b707/emergency/emer-flap-outbd");
+ 
+setlistener("/b707/emergency/emer-flap-switch", func(state){
+	var state = state.getValue() or 0;
+	if(state){
+		if(emerInbd.getValue()) controls.flapsDown(2);
+		if(emerOutbd.getValue()) controls.flapsDown(2);
+	}else{
+		 controls.flapsDown(-4);
+		 emerInbd.setValue(0);
+		 emerOutbd.setValue(0);
+	}
+},0,1);
+
+setlistener("/b707/emergency/emer-flap-inbd", func(state){
+	var state = state.getValue() or 0;
+	if(state == 1 and emerMain.getValue()){
+		 controls.flapsDown(2);
+		 settimer(func{emerInbd.setValue(0)},6);
+	}elsif(state == 2 and emerMain.getValue()){
+		 controls.flapsDown(-2);
+		 settimer(func{emerInbd.setValue(0)},6);
+	}
+},0,1);
+
+setlistener("/b707/emergency/emer-flap-outbd", func(state){
+	var state = state.getValue() or 0;
+	if(state == 1 and emerMain.getValue()){
+		 controls.flapsDown(2);
+		 settimer(func{emerOutbd.setValue(0)},6);
+	}elsif(state == 2 and emerMain.getValue()){
+		 controls.flapsDown(-2);
+		 settimer(func{emerOutbd.setValue(0)},6);
+	}
+},0,1);
+
+######################### very bad control to the rudder ############################################
+
+var rudder_hyd_negativ_control = func{
+	#overwrite the rudder control since I will found a better solution
+	var control = getprop("/b707/hydraulic/rudder-switch") or 0;
+	if(!control){
+	  setprop("/controls/flight/rudder", 0);
+		settimer(rudder_hyd_negativ_control, 0);
+	}
+}
+
+setlistener("/b707/hydraulic/rudder-switch", func(state){
+	var state = state.getValue() or 0;
+	if(!state){
+		 rudder_hyd_negativ_control();
+	}
+},1,0);
 
 

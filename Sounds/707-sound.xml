@@ -600,7 +600,7 @@
 		</condition>
 		<volume>
 			<property>/velocities/groundspeed-kt</property>
-			<factor>1.0</factor>
+			<factor>2.0</factor>
 		</volume>
 		<pitch>
 			<property>/velocities/groundspeed-kt</property>

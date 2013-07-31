@@ -214,7 +214,7 @@ var show_lat_lon = func {
 
 var show_tat = func {
 	var tat = getprop("/b707/anti-ice/total-air-temperature");
-	help_win.write(sprintf("TAT: %.2f Celsius", tat)); 
+	help_win.write(sprintf("Total-Air-Temperature: %.2f Celsius", tat)); 
 }
 
 var show_dme = func {
@@ -951,9 +951,16 @@ setlistener("/controls/flight/elevator-trim", func(et){
 var trim_loop = func{
 	var et = getprop("/controls/flight/elevator-trim") or 0;
 	var ap = getprop("/autopilot/switches/ap") or 0;
-
-	if(ap and abs(lastTrimValue.getValue() - et) > 0.001){
-			interpolate("/b707/trim/elevator-trim-turn", et, 2); # 0.235 looks better for the wheel truning
+	var diff = abs(lastTrimValue.getValue() - et);
+	#print("Differenz: "~diff);
+	if(ap and diff > 0.002){
+			if(diff < 0.05 ){
+				interpolate("/b707/trim/elevator-trim-turn", et, 2); 
+			}elsif(diff >= 0.05 and diff < 0.3){
+				interpolate("/b707/trim/elevator-trim-turn", et, 4); 			
+			}else{
+				interpolate("/b707/trim/elevator-trim-turn", et, 6); 			
+			}
 			lastTrimValue.setValue(et); # but we need the correct value
 	}
 	

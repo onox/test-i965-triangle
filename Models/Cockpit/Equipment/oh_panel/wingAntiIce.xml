@@ -260,10 +260,20 @@
 					<value>1</value>
 				</equals>
 		    <property>/controls/test/warn-knob</property>
+		    <and>
+					<equals>
+						<property>/b707/anti-ice/switch</property>
+						<value>2</value>
+					</equals>		    
+					<greater-than>
+						<property>/b707/anti-ice/total-air-temperature</property>
+						<value>0</value>
+					</greater-than>		    
+		    </and>
 		  </or>
 		</condition>
 	</animation>
-	
+
 	<!-- temperature instruments -->
 	<animation>
 		<type>select</type>

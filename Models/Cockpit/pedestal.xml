@@ -632,7 +632,7 @@
 		<type>rotate</type>
 		<object-name>AileronTab</object-name>
 		<property>/controls/flight/aileron-trim</property>
-		<factor>-4680</factor>
+		<factor>-8680</factor>
 		<center>
 		  <x-m>0.0</x-m>
 		  <y-m>0.05414</y-m>
@@ -661,6 +661,22 @@
 		  <repeatable>true</repeatable>
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
+        <condition>
+            <not>
+                <property>devices/status/keyboard/shift</property>
+            </not>
+        </condition>
+		    <command>property-adjust</command>
+		    <property>/controls/flight/aileron-trim</property>
+		    <step>0.001</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <binding>
+        <condition>
+            <property>devices/status/keyboard/shift</property>
+        </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/aileron-trim</property>
 		    <step>0.01</step>
@@ -674,6 +690,22 @@
 		  <repeatable>true</repeatable>
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
+        <condition>
+            <not>
+                <property>devices/status/keyboard/shift</property>
+            </not>
+        </condition>
+		    <command>property-adjust</command>
+		    <property>/controls/flight/aileron-trim</property>
+		    <step>-0.001</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <binding>
+        <condition>
+            <property>devices/status/keyboard/shift</property>
+        </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/aileron-trim</property>
 		    <step>-0.01</step>
@@ -689,8 +721,8 @@
 		<object-name>ElevatorTab</object-name>   
 		<object-name>ElevatorHelpL</object-name>   
 		<object-name>ElevatorHelpR</object-name>
-		<property>/controls/flight/elevator-trim</property>
-		<factor>-1080</factor>
+		<property>/b707/trim/elevator-trim-turn</property>
+		<factor>-5040</factor>
 		<center>
 		  <x-m>-18.636</x-m>
 		  <y-m>0.0</y-m>
@@ -705,7 +737,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElevatorArrow</object-name>
-		<property>/controls/flight/elevator-trim</property>
+		<property>/b707/trim/elevator-trim-turn</property>
 		<factor>-20</factor>
 		<center>
 		  <x-m>-18.6285</x-m>
@@ -736,31 +768,63 @@
 			  <property>/controls/special/elev-trim-help</property>
 			</binding>
 		</action>
-     <action>
-        <button>3</button>
-        <repeatable>true</repeatable>
-        <interval-sec>0.2</interval-sec>
-        <binding>
-		      <command>property-adjust</command>
-		      <property>/controls/flight/elevator-trim</property>
-		      <step> 0.01</step>
-		      <min>-1.0</min>
-		      <max> 1.0</max>
-		      <wrap>false</wrap>
-        </binding>    
+		<action>
+		  <button>3</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+        <condition>
+            <not>
+                <property>devices/status/keyboard/shift</property>
+            </not>
+        </condition>
+		    <command>property-adjust</command>
+		    <property>/controls/flight/elevator-trim</property>
+		    <step>0.001</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <binding>
+        <condition>
+            <property>devices/status/keyboard/shift</property>
+        </condition>
+		    <command>property-adjust</command>
+		    <property>/controls/flight/elevator-trim</property>
+		    <step>0.01</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>   
     </action>
     <action>
         <button>4</button>
         <repeatable>true</repeatable>
         <interval-sec>0.2</interval-sec>
-        <binding>
-		      <command>property-adjust</command>
-		      <property>/controls/flight/elevator-trim</property>
-		      <step>-0.01</step>
-		      <min>-1.0</min>
-		      <max> 1.0</max>
-		      <wrap>false</wrap>
-        </binding>                
+		  <binding>
+        <condition>
+            <not>
+                <property>devices/status/keyboard/shift</property>
+            </not>
+        </condition>
+		    <command>property-adjust</command>
+		    <property>/controls/flight/elevator-trim</property>
+		    <step>-0.001</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <binding>
+        <condition>
+            <property>devices/status/keyboard/shift</property>
+        </condition>
+		    <command>property-adjust</command>
+		    <property>/controls/flight/elevator-trim</property>
+		    <step>-0.01</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>                 
     </action>
 	</animation>
 	
@@ -849,19 +913,51 @@
 		  <repeatable>true</repeatable>
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
+        <condition>
+            <not>
+                <property>devices/status/keyboard/shift</property>
+            </not>
+        </condition>
+		    <command>property-adjust</command>
+		    <property>/controls/flight/rudder-trim</property>
+		    <step>0.001</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <binding>
+        <condition>
+            <property>devices/status/keyboard/shift</property>
+        </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/rudder-trim</property>
 		    <step>0.01</step>
 		    <min>-1</min>
 		    <max>1</max>
 		    <wrap>false</wrap>
-		  </binding>
+		  </binding>  
 		</action>
 		<action>
 		  <button>4</button>
 		  <repeatable>true</repeatable>
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
+        <condition>
+            <not>
+                <property>devices/status/keyboard/shift</property>
+            </not>
+        </condition>
+		    <command>property-adjust</command>
+		    <property>/controls/flight/rudder-trim</property>
+		    <step>-0.001</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <binding>
+        <condition>
+            <property>devices/status/keyboard/shift</property>
+        </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/rudder-trim</property>
 		    <step>-0.01</step>

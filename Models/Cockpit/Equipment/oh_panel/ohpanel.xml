@@ -20,7 +20,7 @@
 
 	<model>
 		<name>emer_lights</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/emerLightsAndCall.xml</path>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/emerYawAndMore.xml</path>
 		<offsets>
 		  <x-m> 0.0</x-m>
 		  <y-m> 0.0</y-m>

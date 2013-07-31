@@ -2150,7 +2150,7 @@
 	
 	<step>
 		<message>
-			External power unit is gone
+			External power unit is switch off
 		</message>
 		<view>
 			<view-number>1</view-number>

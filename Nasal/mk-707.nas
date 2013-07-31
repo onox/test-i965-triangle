@@ -27,6 +27,8 @@ var inchWater = props.globals.initNode("/b707/air-conditioning/inches-water",11.
 var windowHeatAlphaCapt = props.globals.initNode("/b707/anti-ice/window-alpha-capt",1.0,"DOUBLE");
 var windowHeatAlphaFO = props.globals.initNode("/b707/anti-ice/window-alpha-fo",1.0,"DOUBLE");
 
+var lastTrimValue  = props.globals.initNode("/b707/trim/last-elev-trim-turn", 0,"DOUBLE");
+
 ################################ Reverser ####################################
 
 # The heading offset to 0
@@ -537,25 +539,25 @@ setlistener("/b707/hydraulic/ac-aux-pump[1]", func{
 
 setlistener("/b707/warning/fire-button[0]", func(state){
 	var state = state.getValue() or 0;
-	if(!state){
+	if(state){
 		 settimer( func { setprop("/controls/engines/engine[0]/fire", 0); }, 3);
 	}
 },0,0);
 setlistener("/b707/warning/fire-button[1]", func(state){
 	var state = state.getValue() or 0;
-	if(!state){
+	if(state){
 		 settimer( func { setprop("/controls/engines/engine[1]/fire", 0); }, 3);
 	}
 },0,0);
 setlistener("/b707/warning/fire-button[2]", func(state){
 	var state = state.getValue() or 0;
-	if(!state){
+	if(state){
 		 settimer( func { setprop("/controls/engines/engine[2]/fire", 0); }, 3);
 	}
 },0,0);
 setlistener("/b707/warning/fire-button[3]", func(state){
 	var state = state.getValue() or 0;
-	if(!state){
+	if(state){
 		 settimer( func { setprop("/controls/engines/engine[3]/fire", 0); }, 3);
 	}
 },0,0);
@@ -565,28 +567,28 @@ setlistener("/b707/generator/gen-drive[0]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
-		 settimer( func { setprop("/controls/engines/engine[0]/fire", 1); setprop("/b707/warning/fire-button[0]", 1) }, 2);
+		 settimer( func { setprop("/controls/engines/engine[0]/fire", 1) }, 2);
 	}
 },0,0);
 setlistener("/b707/generator/gen-drive[1]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
-		 settimer( func { setprop("/controls/engines/engine[1]/fire", 1); setprop("/b707/warning/fire-button[1]", 1) }, 2);
+		 settimer( func { setprop("/controls/engines/engine[1]/fire", 1) }, 2);
 	}
 },0,0);
 setlistener("/b707/generator/gen-drive[2]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
-		 settimer( func { setprop("/controls/engines/engine[2]/fire", 1); setprop("/b707/warning/fire-button[2]", 1) }, 2);
+		 settimer( func { setprop("/controls/engines/engine[2]/fire", 1) }, 2);
 	}
 },0,0);
 setlistener("/b707/generator/gen-drive[3]", func(state){
 	var state = state.getBoolValue() or 0;
 	var a = getprop("/position/altitude-agl-ft") or 0;
 	if(a > 20 and state){
-		 settimer( func { setprop("/controls/engines/engine[3]/fire", 1); setprop("/b707/warning/fire-button[3]", 1) }, 2);
+		 settimer( func { setprop("/controls/engines/engine[3]/fire", 1) }, 2);
 	}
 },0,0);
 
@@ -934,6 +936,31 @@ setlistener("/b707/pressurization/cabin-air-temp-selector", func(state){
 		 interpolate("/b707/air-conditioning/cabin-temp", getprop("/environment/temperature-degc"), 2);
 	}
 },1,0);
+
+################################  funny sound action for the old elevator trim wheel #################### 
+
+setlistener("/controls/flight/elevator-trim", func(et){
+	var et = et.getValue();
+	var ap = getprop("/autopilot/switches/ap") or 0;
+	if (!ap) {
+		setprop("/b707/trim/elevator-trim-turn", et);
+		lastTrimValue.setValue(et);
+	}
+},0,0);
+
+var trim_loop = func{
+	var et = getprop("/controls/flight/elevator-trim") or 0;
+	var ap = getprop("/autopilot/switches/ap") or 0;
+
+	if(ap and abs(lastTrimValue.getValue() - et) > 0.001){
+			interpolate("/b707/trim/elevator-trim-turn", et, 2); # 0.235 looks better for the wheel truning
+			lastTrimValue.setValue(et); # but we need the correct value
+	}
+	
+	settimer(trim_loop, 8.2);
+}
+
+trim_loop();  # fire it up
 
 
 

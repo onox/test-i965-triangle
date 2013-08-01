@@ -1013,7 +1013,7 @@
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
-           <value>-0.05</value>
+           <value>-0.04</value>
        </product>
     </function>
 

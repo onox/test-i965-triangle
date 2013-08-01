@@ -722,7 +722,7 @@
 		<object-name>ElevatorHelpL</object-name>   
 		<object-name>ElevatorHelpR</object-name>
 		<property>/b707/trim/elevator-trim-turn</property>
-		<factor>-5040</factor>
+		<factor>-10500</factor>
 		<center>
 		  <x-m>-18.636</x-m>
 		  <y-m>0.0</y-m>

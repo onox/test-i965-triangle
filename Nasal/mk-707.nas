@@ -1020,10 +1020,10 @@ setlistener("/b707/emergency/emer-flap-inbd", func(state){
 	var state = state.getValue() or 0;
 	if(state == 1 and emerMain.getValue()){
 		 controls.flapsDown(2);
-		 settimer(func{emerInbd.setValue(0)},6);
+		 settimer(func{emerInbd.setValue(0)},8);
 	}elsif(state == 2 and emerMain.getValue()){
 		 controls.flapsDown(-2);
-		 settimer(func{emerInbd.setValue(0)},6);
+		 settimer(func{emerInbd.setValue(0)},8);
 	}
 },0,1);
 
@@ -1031,10 +1031,10 @@ setlistener("/b707/emergency/emer-flap-outbd", func(state){
 	var state = state.getValue() or 0;
 	if(state == 1 and emerMain.getValue()){
 		 controls.flapsDown(2);
-		 settimer(func{emerOutbd.setValue(0)},6);
+		 settimer(func{emerOutbd.setValue(0)},8);
 	}elsif(state == 2 and emerMain.getValue()){
 		 controls.flapsDown(-2);
-		 settimer(func{emerOutbd.setValue(0)},6);
+		 settimer(func{emerOutbd.setValue(0)},8);
 	}
 },0,1);
 

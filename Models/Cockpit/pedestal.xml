@@ -45,6 +45,17 @@
 		</emission>
 	</animation>
 	
+	 <!-- Autopilot controller
+	 <model>
+		<path>Aircraft/707/Models/Cockpit/Instruments/ap/autopilot.xml</path>
+		<name>ap_controller</name>
+		<offsets>   
+		  <x-m>-18.48</x-m>
+		  <y-m>  0.0</y-m>
+		  <z-m>  0.626</z-m>
+		</offsets>
+	 </model>
+	 -->
     <!-- The parking brake -->
 		<animation>
 			<type>translate</type>

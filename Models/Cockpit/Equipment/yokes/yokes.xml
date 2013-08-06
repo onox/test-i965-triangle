@@ -133,7 +133,7 @@
     </axis>
   </animation>
   
-  <!-- Rudder Foot Pedal Animations -->
+  <!-- AP out -->
 
 	<animation>
 		<type>translate</type>

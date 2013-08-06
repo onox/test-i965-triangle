@@ -46,6 +46,7 @@
 	<tutorials>
 		<tutorial include="Tutorials/707-startup-german.xml"/>
 		<tutorial include="Tutorials/707-startup-english.xml"/>
+		<tutorial include="Tutorials/707-startup-spanish.xml"/>
 	</tutorials>
    
   <view>
@@ -137,7 +138,29 @@
 			<dynamic-view type="bool">true</dynamic-view>
     </config>
 	</view>
-	
+	<view n="104">
+    <name>Autopilot View</name>
+    <enabled type="bool">true</enabled>
+    <type>lookfrom</type>
+    <internal type="bool">true</internal>
+    <config>
+			<from-model type="bool">true</from-model>
+			<from-model-idx type="int">true</from-model-idx>
+			<!-- x/y/z == right/up/back -->
+			<x-offset-m archive="y"> 0.0</x-offset-m>
+			<y-offset-m archive="y"> 0.9</y-offset-m>
+			<z-offset-m archive="y">-18.45</z-offset-m>
+			<heading-offset-deg type="double"> 0.0</heading-offset-deg>
+			<pitch-offset-deg type="double">-75.0</pitch-offset-deg>
+			<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+			<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
+			<default-pitch-deg type="double">-5.0</default-pitch-deg>
+			<default-heading-deg type="double">0</default-heading-deg>
+			<front-direction-deg type="double">0</front-direction-deg>
+			<dynamic-view type="bool">true</dynamic-view>
+    </config>
+	</view>
+		
   <chase-distance-m>-45</chase-distance-m>
 
 	<menubar>
@@ -320,7 +343,13 @@
 			<descent-profile-high-rate type="double">-0.00096774</descent-profile-high-rate>
 			<descent-profile-low-base type="double">0.13</descent-profile-low-base>
 			<descent-profile-low-rate type="double">-0.00029032</descent-profile-low-rate>
-		</constant>  
+		</constant> 
+		<Bendix-PB-20>
+			<controls>
+				<mode-selector type="int">2</mode-selector>	  <!-- 2 is manual control-->
+				<active type="bool">0</active>	  						<!-- the AP engage switch -->	
+			</controls>	
+		</Bendix-PB-20> 
 	</autopilot>
 
  <controls>
@@ -404,6 +433,7 @@
 			<spoiler-nose-down type="double">0.0</spoiler-nose-down>
 			<spoiler-nose-up type="double">0.0</spoiler-nose-up>
 		</trim>
+		<ap-loop type="bool">0</ap-loop>
   </b707>
   
 	<payload>
@@ -479,6 +509,7 @@
 				<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
 				<file>Aircraft/707/Nasal/tcas.nas</file>
 				<file>Aircraft/707/Nasal/immat.nas</file>
+		    <!-- <script><![CDATA[ gui.menuEnable("autopilot",0); ]]></script> -->
 			</b707> 
 			<view>
         <file>Aircraft/707/Nasal/view.nas</file>

@@ -128,7 +128,7 @@
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
 		<object-name>needle</object-name>
-		<property>instrumentation/heading-indicator/indicated-heading-deg</property>
+		<property>instrumentation/heading-indicator[1]/indicated-heading-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x>-1</x>
@@ -230,7 +230,7 @@
                <property>devices/status/keyboard/ctrl</property>
             </condition>
             <command>property-adjust</command>
-            <property>instrumentation/heading-indicator/offset-deg</property>
+            <property>instrumentation/heading-indicator[1]/offset-deg</property>
             <step>1</step>
             <min>-45</min>
             <max>45</max>
@@ -276,7 +276,7 @@
                <property>devices/status/keyboard/ctrl</property>
             </condition>
             <command>property-adjust</command>
-            <property>instrumentation/heading-indicator/offset-deg</property>
+            <property>instrumentation/heading-indicator[1]/offset-deg</property>
             <step>-1</step>
             <min>-45</min>
             <max>45</max>
@@ -322,7 +322,7 @@
                <property>devices/status/keyboard/ctrl</property>
             </condition>
             <command>property-adjust</command>
-            <property>instrumentation/heading-indicator/offset-deg</property>
+            <property>instrumentation/heading-indicator[1]/offset-deg</property>
             <step>1</step>
             <min>-45</min>
             <max>45</max>
@@ -368,7 +368,7 @@
                <property>devices/status/keyboard/ctrl</property>
             </condition>
             <command>property-adjust</command>
-            <property>instrumentation/heading-indicator/offset-deg</property>
+            <property>instrumentation/heading-indicator[1]/offset-deg</property>
             <step>-1</step>
             <min>-45</min>
             <max>45</max>

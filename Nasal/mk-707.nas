@@ -34,9 +34,10 @@ var lastTrimValue  = props.globals.initNode("/b707/trim/last-elev-trim-turn", 0,
 # The heading offset to 0
 var turn_offset_deg = setlistener("b707/ess-bus", func(volt)
 {
-if (volt.getValue() >= 25.18)
+if (volt.getValue() >= 23.0)
  {
-  interpolate("/instrumentation/heading-indicator/offset-deg", 0, 2);
+  interpolate("/instrumentation/heading-indicator/offset-deg", 0, 2.4);
+  interpolate("/instrumentation/heading-indicator[1]/offset-deg", 0, 3.2);
   removelistener(turn_offset_deg);
  }
 }, 0, 0);
@@ -351,14 +352,22 @@ var stepSpeedbrakes = func(step) {
 
 var mag_control = func {
 	var mag_selected = getprop("/instrumentation/compass-control/mag") or 0;
-	if( mag_selected == nil ) mag_selected = 0.0;
 	if( mag_selected ) {
 		interpolate("/instrumentation/heading-indicator/offset-deg", 0, 0.25);
-		settimer( mag_control, 82);
+		settimer( mag_control, 82.5);
+	}
+}
+
+var mag_control2 = func {
+	var mag_selected2 = getprop("/instrumentation/compass-control[1]/mag") or 0;
+	if( mag_selected2 ) {
+		interpolate("/instrumentation/heading-indicator[1]/offset-deg", 0, 0.20);
+		settimer( mag_control2, 81.5);
 	}
 }
 
 setlistener( "/instrumentation/compass-control/mag", mag_control);
+setlistener( "/instrumentation/compass-control[1]/mag", mag_control2);
 
 
 ######################################## engine vibrations #######################################
@@ -1055,5 +1064,13 @@ setlistener("/b707/hydraulic/rudder-switch", func(state){
 		 rudder_hyd_negativ_control();
 	}
 },1,0);
+
+#################### If trim wheels are not on 0 and you click the center of this wheel #############
+var trimBackTime = 1.0;
+var applyTrimWheels = func(v, which = 0) {
+    if (which == 0) { interpolate("/controls/flight/elevator-trim", v, trimBackTime); }
+    if (which == 1) { interpolate("/controls/flight/rudder-trim", v, trimBackTime); }
+    if (which == 2) { interpolate("/controls/flight/aileron-trim", v, trimBackTime); }
+}
 
 

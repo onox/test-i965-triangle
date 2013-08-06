@@ -4,7 +4,6 @@
 # ============================================
 #  Simple electrical for the Boeing 707 - 420 
 # ============================================
-
 var count = 0;
 var wait = 0;
 var PowermeterKnob = props.globals.initNode("b707/generator/powermeter-knob",0,"BOOL");

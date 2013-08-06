@@ -67,9 +67,17 @@ The only reason it's here is to specify a second ADF.
         <number>0</number>
     </clock> 
     
+    <!-- Pilot -->
 		<heading-indicator-dg>
 		  <name>heading-indicator</name>
 		  <number>0</number>
+		  <suction>/systems/vacuum/suction-inhg</suction>
+		</heading-indicator-dg>
+
+		<!-- Copilot -->
+		<heading-indicator-dg>
+		  <name>heading-indicator</name>
+		  <number>1</number>
 		  <suction>/systems/vacuum/suction-inhg</suction>
 		</heading-indicator-dg>
 

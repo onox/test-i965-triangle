@@ -387,7 +387,7 @@
 		</condition>
 	</animation>	 
 	
-	<!-- small lightcones for panel -->
+	<!-- Ice on the windshield -->
 	 <model>
 		<path>Aircraft/707/Models/Cockpit/windowIce.xml</path>
 		<name>window_ice</name>
@@ -395,6 +395,17 @@
 		  <x-m>0</x-m>
 		  <y-m>0</y-m>
 		  <z-m>0</z-m>
+		</offsets>
+	 </model>
+	 
+	<!-- The magnetic compass -->
+	 <model>
+		<path>Aircraft/707/Models/Cockpit/Instruments/mag_compass/mag_compass.xml</path>
+		<name>window_ice</name>
+		<offsets>
+		  <x-m>-18.849</x-m>
+		  <y-m>  0.0</y-m>
+		  <z-m>  1.205</z-m>
 		</offsets>
 	 </model>
 	 	  

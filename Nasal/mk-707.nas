@@ -278,7 +278,13 @@ var show_fuel_consumption = func {
 		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", fueltotal));
 	}
 }
-   
+
+# real cabin altitude in pressurisatiion cabin alt instrument
+var show_cabin_alt = func {
+	var calt = getprop("/b707/pressurization/cabin-altitude") or 0;
+	help_win.write(sprintf("Cabin Altitude: %.0fft", calt)); 
+}
+ 
 # show the mp or ai aircraft information on the radar
 
 var show_mp_info = func (i){
@@ -366,8 +372,29 @@ var mag_control2 = func {
 	}
 }
 
-setlistener( "/instrumentation/compass-control/mag", mag_control);
-setlistener( "/instrumentation/compass-control[1]/mag", mag_control2);
+setlistener( "/instrumentation/compass-control/mag", func(state){ 
+		var compos = getprop("/b707/compass-pos") or 0;
+		var state = state.getValue();
+		mag_control(); 
+		if (state and compos) {toggle_switch2(); interpolate("/b707/compass-pos", 0, 0.8);} # 0 is out
+});
+setlistener( "/instrumentation/compass-control[1]/mag", func(state){ 
+		var compos = getprop("/b707/compass-pos") or 0;
+		var state = state.getValue();
+		mag_control2(); 
+		if (state and compos) {b707.toggle_switch2(); interpolate("/b707/compass-pos", 0, 0.8);} # 0 is out
+});
+
+############################## the magnetic compass up or down #####################################
+
+var compass_swing = func{
+	var state = getprop("/b707/compass-pos") or 0;
+	if(!state){
+		interpolate("/b707/compass-pos", 1, 0.8);
+	}else{
+		interpolate("/b707/compass-pos", 0, 0.8);
+	}
+}
 
 
 ######################################## engine vibrations #######################################
@@ -777,9 +804,6 @@ var nacelle_deicing = func {
   	if (sel == tnr) interpolate("/b707/fuel/temperature", newfuelTemp, 15);
 	}
 	
-	
-		
-	
 	if(iceAlertWings) {
 		screen.log.write("WINGS - ICE ALERT: Switch on the WING ANTI-ICE System", 1, 0, 0);
 		iceAlertWings = 0;
@@ -898,13 +922,15 @@ var calc_pressurization	= func{
 	psi = (psi < 0) ? 0 : psi;
 	interpolate("/b707/pressurization/cabin-differential-pressure", psi, t);
 	
+	if(calt > 8000) screen.log.write(sprintf("ATTENTION! Increase cabin pressure expressly!"), 1.0, 0.0, 0.0);
+	
 	settimer(calc_pressurization, t);
 	
 }
 
 settimer( calc_pressurization, 9); # start first after 10 sec.
 
-########################################## Air Conditioning and Temperature #######################################
+############################### Air Conditioning and Temperature #######################################
 var air_cond_cover = func {
 	var state = getprop("/b707/air-conditioning/air-cond-unit-cover") or 0;
 	if(!state){
@@ -1072,5 +1098,4 @@ var applyTrimWheels = func(v, which = 0) {
     if (which == 1) { interpolate("/controls/flight/rudder-trim", v, trimBackTime); }
     if (which == 2) { interpolate("/controls/flight/aileron-trim", v, trimBackTime); }
 }
-
 

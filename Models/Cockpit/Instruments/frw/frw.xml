@@ -46,12 +46,50 @@
     <object-name>needle2</object-name>
     <object-name>needle3</object-name>
     <object-name>vitre</object-name>
+		<condition>
+			<property>/b707/compass-pos</property>
+		</condition>
     <property>/orientation/roll-deg</property>
-    <min> -70 </min>
-    <max> 50</max>
     <interpolation>
-      <entry><ind>-90.0</ind><dep>-90.0</dep></entry>
-      <entry><ind> 90.0</ind><dep> 90.0</dep></entry>
+      <entry><ind> -50.0</ind><dep>-50.0</dep></entry>
+      <entry><ind>  00.0</ind><dep>  0.0</dep></entry>
+      <entry><ind>  50.0</ind><dep> 50.0</dep></entry>
+    </interpolation>
+    <center> 
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>fond</object-name>
+    <object-name>visses</object-name>
+    <object-name>btnStartStop</object-name>
+    <object-name>btnReset</object-name>
+    <object-name>btnStartStopOut</object-name>
+    <object-name>btnResetOut</object-name>
+    <object-name>btnMode</object-name>
+    <object-name>activeMode</object-name>
+    <object-name>face</object-name>
+    <object-name>needle1</object-name>
+    <object-name>needle2</object-name>
+    <object-name>needle3</object-name>
+    <object-name>vitre</object-name>
+		<condition>
+			<not><property>/b707/compass-pos</property></not>
+		</condition>
+    <property>/orientation/roll-deg</property>
+    <interpolation>
+      <entry><ind> -60.0</ind><dep>-60.0</dep></entry>
+      <entry><ind>   0.0</ind><dep>  0.0</dep></entry>
+      <entry><ind>   3.2</ind><dep>  3.2</dep></entry>
     </interpolation>
     <center> 
       <x-m> 0 </x-m>
@@ -81,11 +119,10 @@
     <object-name>needle3</object-name>
     <object-name>vitre</object-name>
     <property>/orientation/pitch-deg</property>
-    <min> 5 </min>
-    <max> 85 </max>    
     <interpolation>
-      <entry><ind>-90.0</ind><dep>-90.0</dep></entry>
-      <entry><ind> 90.0</ind><dep> 90.0</dep></entry>
+      <entry><ind> -10.0</ind><dep>  -10.0</dep></entry>
+      <entry><ind>   0.0</ind><dep>    0.0</dep></entry>
+      <entry><ind>  35.0</ind><dep>   35.0</dep></entry>
     </interpolation>
     <center> 
       <x-m> 0 </x-m>

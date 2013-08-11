@@ -192,6 +192,11 @@ var h_set_target_alt = func{
 
 }
 
+setlistener( "/instrumentation/aglradar/alt-offset-ft", func(v){
+	var v = v.getValue() or 0;
+	help_win.write(sprintf("Preselected offset altitude: %.0f ft", v) );
+},0,1);
+
 setlistener( "/instrumentation/altimeter/setting-inhg", h_altimeter );
 setlistener( "/autopilot/settings/heading-bug-deg", h_heading );
 setlistener( "/instrumentation/nav/radials/selected-deg", h_course );
@@ -279,7 +284,7 @@ var show_fuel_consumption = func {
 	}else{
 		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", fueltotal));
 	}
-}
+} 
 
 # real cabin altitude in pressurisatiion cabin alt instrument
 var show_cabin_alt = func {
@@ -294,8 +299,9 @@ var show_mp_info = func (i){
 	var al  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
 	var as  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/tas-kt") or 0;
 	var dis = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
+	var code = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
 
-  help_win.write(sprintf(cs~" %.0fft / %.0fkts / %.2fnm", al, as, dis) ); 
+  help_win.write(sprintf(cs~" %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", al, as, dis) ); 
 } 
 
 var show_ai_info = func (i){

@@ -44,6 +44,7 @@ var tcas = func {
 				
 				var alt_ft = getprop("ai/models/multiplayer[" ~ n ~ "]/position/altitude-ft") or 0;
 			  var tas_kt = getprop("ai/models/multiplayer[" ~ n ~ "]/velocities/true-airspeed-kt") or 0;
+			  var t_code = getprop("ai/models/multiplayer[" ~ n ~ "]/instrumentation/transponder/transmitted-id") or "----";
 			  
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-x", x);										# for the radar pos
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-y", y);										# for the radar pos
@@ -52,6 +53,7 @@ var tcas = func {
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/course-to-mp",course_to_mp);	# only info
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/altitude-ft", alt_ft);				# only info
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/tas-kt", tas_kt);							# only info
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/id-code", t_code);						# only info
 				
 				# select object if in range of radar / 3.24 found by trial and error depends on range select knob
 				if (display < 3.24){ 

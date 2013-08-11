@@ -29,6 +29,8 @@ var windowHeatAlphaFO = props.globals.initNode("/b707/anti-ice/window-alpha-fo",
 
 var lastTrimValue  = props.globals.initNode("/b707/trim/last-elev-trim-turn", 0,"DOUBLE");
 
+var airplaneCrashed  = props.globals.initNode("/b707/crashed", 0,"BOOL");
+
 ################################ Reverser ####################################
 
 # The heading offset to 0
@@ -1098,4 +1100,31 @@ var applyTrimWheels = func(v, which = 0) {
     if (which == 1) { interpolate("/controls/flight/rudder-trim", v, trimBackTime); }
     if (which == 2) { interpolate("/controls/flight/aileron-trim", v, trimBackTime); }
 }
+
+setlistener("/fdm/jsbsim/systems/crash-detect/crash-on-ground", func(state){
+	var state = state.getValue() or 0;
+	if(state == 1){
+		 setprop("/b707/crashed", 1);
+  	 props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
+  	 setprop("/controls/gear/bake-parking", 0);
+	}
+},0,1);
+
+## GEAR
+#######
+
+# prevent retraction of the landing gear when any of the wheels are compressed
+setlistener("controls/gear/gear-down", func
+ {
+ var down = props.globals.getNode("controls/gear/gear-down").getBoolValue();
+ var crashed = getprop("/b707/crashed") or 0;
+ if (!down and (getprop("gear/gear[0]/wow") or getprop("gear/gear[1]/wow") or getprop("gear/gear[2]/wow")))
+  {
+    if(!crashed){
+  		props.globals.getNode("controls/gear/gear-down").setBoolValue(1);
+    }else{
+  		props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
+    }
+  }
+ });
 

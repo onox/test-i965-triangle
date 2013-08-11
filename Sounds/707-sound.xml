@@ -629,8 +629,33 @@
 				<property>/gear/gear[0]/position-norm</property>
 				<value>0</value>
 			</equals>
+			<not><property>/b707/crashed</property></not>
 		</condition>
 	</gear>
+	
+  <crashed>
+    <name>AirplaneCrashed</name>
+    <mode>looped</mode>
+    <path>Aircraft/707/Sounds/crash_ground.wav</path>
+     <condition>			
+     	<and>
+				<greater-than>
+					<property>/velocities/groundspeed-kt</property>
+					<value>2</value>
+				</greater-than>
+				<property>/b707/crashed</property>
+		   </and>
+     </condition>
+			<volume>
+				<property>/velocities/groundspeed-kt</property>
+				<factor>2.0</factor>
+			</volume>
+			<pitch>
+				<property>/velocities/groundspeed-kt</property>
+				<factor>0.001</factor>
+				<offset>0.5</offset>
+			</pitch>
+    </crashed>
   
 	<squeal>
 		<name>squeal</name>
@@ -1501,7 +1526,7 @@
 				<factor>0.5</factor>
 			</volume>
 		</trim-wheels>
-
+		
 </fx>
 
 </PropertyList>

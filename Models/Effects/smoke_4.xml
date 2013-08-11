@@ -13,6 +13,7 @@
 		<texture>smoke.png</texture>
 		<condition>
 			<or>
+      	<property>sim/multiplay/generic/int[19]</property>
 				<greater-than>
 					<property>engines/engine[3]/n1</property>
 					<value>98</value>

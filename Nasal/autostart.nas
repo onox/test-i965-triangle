@@ -1475,18 +1475,6 @@ setlistener("engines/engine[3]/running", func
 	}
  }, 0, 0);
  
-## GEAR
-#######
-
-# prevent retraction of the landing gear when any of the wheels are compressed
-setlistener("controls/gear/gear-down", func
- {
- var down = props.globals.getNode("controls/gear/gear-down").getBoolValue();
- if (!down and (getprop("gear/gear[0]/wow") or getprop("gear/gear[1]/wow") or getprop("gear/gear[2]/wow")))
-  {
-  props.globals.getNode("controls/gear/gear-down").setBoolValue(1);
-  }
- });
 
 var toggle_switch2 = func{
 

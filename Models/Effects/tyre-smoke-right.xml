@@ -15,10 +15,13 @@
         </offsets>
 
         <condition>
-        	<greater-than>
-            <property>sim/multiplay/generic/int[6]</property>
-            <value>1.0</value>
-          </greater-than>
+          <or>
+						<property>sim/multiplay/generic/int[19]</property>
+		      	<greater-than>
+		          <property>sim/multiplay/generic/int[6]</property>
+		          <value>0.0</value>
+		        </greater-than>
+		      </or>
         </condition>
 
         <attach>world</attach>

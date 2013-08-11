@@ -17,6 +17,16 @@
 		  <factor-prop>/systems/electrical/outputs/overhead-dim</factor-prop>
 		</emission>
 	</animation>
+	
+	<model>
+		<name>transponder</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/transponder.xml</path>
+		<offsets>
+		  <x-m> 0.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m> 0.0</z-m>
+		</offsets>
+	</model>
 
 	<model>
 		<name>emer_lights</name>

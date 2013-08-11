@@ -12,23 +12,7 @@
 		</offsets>
 		<texture>smoke.png</texture>
 		<condition>
-			<or>
-      	<property>sim/multiplay/generic/int[19]</property>
-				<greater-than>
-					<property>engines/engine[1]/n1</property>
-					<value>98</value>
-				</greater-than>
-				<and>
-					<greater-than>
-						<property>engines/engine[1]/n1</property>
-						<value>0.5</value>
-					</greater-than>
-					<less-than>
-						<property>engines/engine[1]/n1</property>
-						<value>5</value>
-					</less-than>
-				</and>
-			</or>
+      <property>sim/multiplay/generic/int[19]</property>
 		</condition>
 		<emissive>false</emissive>
 		<lighting>false</lighting>
@@ -92,7 +76,7 @@
 		</particle>
 		<program>
 			<fluid>air</fluid>
-			<gravity>true</gravity>
+			<gravity>false</gravity>
 			<wind>true</wind>
 		</program>
 	</particlesystem>

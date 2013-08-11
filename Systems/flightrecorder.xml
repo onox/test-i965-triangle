@@ -34,6 +34,9 @@
                     <type>bool</type><property type="string">/engines/engine[%i]/reversed</property>
                 </signal>
                 <signal>
+                    <type>bool</type><property type="string">/controls/engines/engine[%i]/fire</property>
+                </signal>
+                <signal>
                     <type>double</type><property type="string">/b707/generator/gen-breaker[%i]</property>
                 </signal>
                 <signal>
@@ -64,7 +67,9 @@
                     <type>bool</type><property type="string">/b707/start/startercover[%i]</property>
                 </signal>
             </signals>
-
+            <signal>
+                <type>bool</type><property type="string">/b707/crashed</property>
+            </signal>
             <signal>
                 <type>double</type><property type="string">/b707/apu/apu-bleed-valve</property>
             </signal>

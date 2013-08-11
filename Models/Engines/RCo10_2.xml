@@ -52,4 +52,13 @@
 		</offsets>
 	</model>
 	
+	<model>
+		<path>Aircraft/707/Models/Effects/smoke_2_crash.xml</path>
+		<offsets>
+			<x-m> 2.1</x-m>
+			<y-m> 0.0</y-m>
+			<z-m> 0.0</z-m>
+		</offsets>
+	</model>
+	
 </PropertyList>

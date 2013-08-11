@@ -121,6 +121,19 @@
       <z-m> 0 </z-m>
     </offsets>
   </model>
+  
+  <!-- if crashed -->
+	<animation>
+		<type>select</type>
+		<object-name>engineOne</object-name>
+		<object-name>engineThree</object-name>  
+		<object-name>rhfiletflap</object-name>
+  	<object-name>rhibflap</object-name>
+  	<object-name>lhobflap</object-name>
+		<condition>
+			<not><property>sim/multiplay/generic/int[19]</property></not>
+		</condition>	
+	</animation>
 
 <!-- Front-->
 	<animation>
@@ -259,6 +272,9 @@
   <type>rotate</type>
   <object-name>lhngdoor</object-name>   
   <property>gear/gear[0]/position-norm</property>
+	<condition>
+		<not><property>sim/multiplay/generic/int[19]</property></not>
+	</condition>			
   <interpolation>
     <entry>
       <ind>0.0</ind>
@@ -292,7 +308,10 @@
  <animation>
   <type>rotate</type>
   <object-name>lhngdooraft</object-name>   
-  <property>gear/gear[0]/position-norm</property>
+  <property>gear/gear[0]/position-norm</property>	
+  <condition>
+		<not><property>sim/multiplay/generic/int[19]</property></not>
+	</condition>	
   <interpolation>
     <entry>
       <ind>0.0</ind>

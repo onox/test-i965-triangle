@@ -1084,6 +1084,11 @@
 		              position/h-agl-ft lt 5.0
 		              simulation/sim-time-sec gt 1.0
 		        </test>
+		   		  <test logic="AND" value="1">
+		              position/h-agl-ft lt 6.0
+		              /b707/over-water != 0
+		              simulation/sim-time-sec gt 1.0
+		        </test>
 		        <output>systems/crash-detect/crash-on-ground</output>
 		   </switch>
 

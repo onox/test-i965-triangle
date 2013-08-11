@@ -436,6 +436,7 @@
 		</trim>
 		<ap-loop type="bool">0</ap-loop>
 		<compass-pos type="double">1.0</compass-pos> <!-- compass is closed -->
+		<over-water type="bool">0</over-water>
   </b707>
   
 	<payload>

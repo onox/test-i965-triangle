@@ -432,6 +432,21 @@ var update_virtual_bus = func {
 			#	count = 0;
 			#}
 			#############################################################################
+			
+			# ground control - we are on water 
+			var lat = getprop("/position/latitude-deg");
+			var lon = getprop("/position/longitude-deg");
+			var swim = props.globals.getNode("/b707/over-water");
+			var info = geodinfo(lat, lon);
+			if (info != nil) {
+				if (info[1] != nil and info[1].solid !=nil){
+					if (!info[1].solid){
+					  swim.setBoolValue(1);
+					}else{
+					  swim.setBoolValue(0);
+					}
+				}     
+			}
 
 	return load;
 }

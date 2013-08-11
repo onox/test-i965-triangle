@@ -44,7 +44,8 @@ var tcas = func {
 				
 				var alt_ft = getprop("ai/models/multiplayer[" ~ n ~ "]/position/altitude-ft") or 0;
 			  var tas_kt = getprop("ai/models/multiplayer[" ~ n ~ "]/velocities/true-airspeed-kt") or 0;
-			  var t_code = getprop("ai/models/multiplayer[" ~ n ~ "]/instrumentation/transponder/transmitted-id") or "----";
+			  var t_code = getprop("ai/models/multiplayer[" ~ n ~ "]/instrumentation/transponder/transmitted-id") or 0;
+			  var t_code = abs(t_code);
 			  
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-x", x);										# for the radar pos
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-y", y);										# for the radar pos

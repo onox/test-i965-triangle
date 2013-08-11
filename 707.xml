@@ -1085,7 +1085,7 @@
 		              simulation/sim-time-sec gt 1.0
 		        </test>
 		   		  <test logic="AND" value="1">
-		              position/h-agl-ft lt 6.0
+		              position/h-agl-ft lt 6.5
 		              /b707/over-water != 0
 		              simulation/sim-time-sec gt 1.0
 		        </test>

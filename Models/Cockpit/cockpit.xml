@@ -264,6 +264,18 @@
 		  <roll-deg> 0.0</roll-deg>
 		</offsets>
 	 </model>
+	 
+	 <model>
+		<path>Aircraft/707/Models/Lights/lightcone-small-overhead.xml</path>
+		<name>ov_light_3</name>
+		<offsets>   
+		  <x-m>-18.1</x-m>
+		  <y-m>  0.0</y-m>
+		  <z-m>  0.8</z-m>
+		  <pitch-deg>190.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	 </model>
 
 	<!-- engineer light -->
 	 <model>
@@ -373,6 +385,7 @@
 		<object-name>capt_light_7</object-name>
 		<object-name>ov_light_1</object-name>
 		<object-name>ov_light_2</object-name>
+		<object-name>ov_light_3</object-name>
 		<object-name>eng_light_1</object-name>
 		<object-name>eng_light_2</object-name>
 		<object-name>eng_light_3</object-name>
@@ -576,6 +589,7 @@
 			<object-name>tiller</object-name>
 			<object-name>panel-equipment</object-name>
 			<object-name>overhead-panel-equipment</object-name>
+			<object-name>circuit-breaker-panel</object-name>
 			<object-name>engineer-panel-top</object-name>	
 			<object-name>engineer-panel-bottom</object-name>		
 			<object-name>pedestal</object-name>		
@@ -819,32 +833,32 @@
 		<name>InnerLight</name>
 		<object-name>LightVolume1</object-name>
 		<position>
-			<x>-17.97</x>
+			<x>-17.0</x>
 			<y> 0.0</y>
-			<z> 1.48</z>
+			<z> 1.5</z>
 		</position>
 		<direction>
-			<x>-0.3</x>
+			<x>-18.41</x>
 			<y> 0.0</y>
-			<z>-0.7</z>
+			<z>0.33</z>
 		</direction>
     <dim-factor>
       <property>/systems/electrical/outputs/cabin-dim</property>
-      <factor>1</factor>
+      <factor>1.0</factor>
       <offset>0</offset>
       <min>0</min>
-      <max>1</max>
+      <max>1.0</max>
     </dim-factor>
 		<diffuse>
-			<r>1.0</r>
-			<g>1.0</g>
-			<b>1.0</b>
+			<r>0.9</r>
+			<g>0.9</g>
+			<b>0.9</b>
 			<a>1.0</a>
 		</diffuse>
 		<specular>
-			<r>1.0</r>
-			<g>1.0</g>
-			<b>1.0</b>
+			<r>0.2</r>
+			<g>0.2</g>
+			<b>0.2</b>
 			<a>1.0</a>
 		</specular>
 		<attenuation>
@@ -858,22 +872,17 @@
 		<cutoff>40</cutoff>
 	</animation>
 	 
-	<!-- the fire warning on engineer panel -->
+	<!-- the fire warning -->
 	<animation>
 		<type>light</type>
 		<light-type>point</light-type>
 		<name>FireWarningLight</name>
 		<object-name>LightVolume2</object-name>
 		<position>
-			<x>-17.90</x>
+			<x>-17.0</x>
 			<y> 0.0</y>
-			<z> 0.88</z>
+			<z> 1.5</z>
 		</position>
-		<direction>
-			<x>-0.3</x>
-			<y> 0.0</y>
-			<z>-0.7</z>
-		</direction>
 		<ambient>
 			<r>0.99</r>
 			<g>0.0</g>

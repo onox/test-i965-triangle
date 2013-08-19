@@ -4,6 +4,70 @@
 
 <path>autopilot.ac</path>
 
+	<animation>
+		<type>material</type>
+		<object-name>turn.001</object-name>
+		<object-name>turn.002</object-name>
+		<object-name>sockle</object-name>
+		<object-name>switch</object-name>
+		<condition>
+			<not><property>/systems/electrical/outputs/cabin-dim</property></not>
+		</condition>
+		<emission>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>	
+
+	<animation>
+		<type>material</type>
+		<object-name>sup</object-name>
+		<object-name>screws</object-name>
+		<condition>
+			<not><property>/systems/electrical/outputs/cabin-dim</property></not>
+		</condition>
+		<emission>
+			<red>0.05</red>
+			<green>0.05</green>
+			<blue>0.05</blue>
+			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>noshadow</type>
+		<object-name>shadow</object-name>
+	</animation>
+
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>shadow</object-name>
+	</effect>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sup</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>		 
+			<binding>
+				<command>property-assign</command>
+				<property>sim/panel/path</property>
+				<value>Aircraft/707/Models/Cockpit/Intstruments/ap/autopilotAsPanel.xml</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>sim/panel/visibility</property>
+				<value>true</value>
+			</binding>
+			<binding>
+				<command>panel-load</command>
+			</binding>
+		</action>
+	</animation>
+
 <!-- Autopilot Mode Selector -->
 <animation>
   <type>rotate</type>
@@ -126,9 +190,9 @@
     <binding>
       <command>property-adjust</command>
       <property>/autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
-      <step type="double">-0.5</step>
-      <min>-10.0</min>
-      <max>10.0</max>
+      <step type="double">-0.25</step>
+      <min>-30.0</min>
+      <max>30.0</max>
     </binding>
   </action>
   <action>
@@ -138,9 +202,9 @@
     <binding>
       <command>property-adjust</command>
       <property>/autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
-      <step type="double">0.5</step>
-      <min>-10.0</min>
-      <max>10.0</max>
+      <step type="double">0.25</step>
+      <min>-30.0</min>
+      <max>30.0</max>
     </binding>
   </action>
   <action>
@@ -199,8 +263,8 @@
             <command>property-adjust</command>
             <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 		        <step type="double">0.5</step>
-		        <min>-30.0</min>
-		        <max>30.0</max>
+		        <min>-35.0</min>
+		        <max>35.0</max>
         </binding>
         <binding>
             <condition>
@@ -209,8 +273,8 @@
             <command>property-adjust</command>
             <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 		        <step type="double">1.0</step>
-		        <min>-30.0</min>
-		        <max>30.0</max>
+		        <min>-35.0</min>
+		        <max>35.0</max>
         </binding>
     </action>
     <action>
@@ -225,8 +289,8 @@
             <command>property-adjust</command>
             <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 		        <step type="double">-0.5</step>
-		        <min>-30.0</min>
-		        <max>30.0</max>
+		        <min>-35.0</min>
+		        <max>35.0</max>
         </binding>
         <binding>
             <condition>
@@ -235,8 +299,8 @@
             <command>property-adjust</command>
             <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 		        <step type="double">-1.0</step>
-		        <min>-30.0</min>
-		        <max>30.0</max>
+		        <min>-35.0</min>
+		        <max>35.0</max>
         </binding>
     </action>
 </animation>
@@ -266,10 +330,19 @@
   <object-name>sockle.001</object-name>
   <action>
       <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>/autopilot/Bendix-PB-20/controls/active</property>
-      </binding>
+        <binding>
+            <command>nasal</command>
+            <script>
+            	var bt = getprop("/autopilot/Bendix-PB-20/controls/active") or 0;
+            	var bat = getprop("/b707/ess-bus") or 0;
+            	if(bt or bat &lt; 20){
+            		setprop("/autopilot/Bendix-PB-20/controls/active", 0);
+            		setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);
+            	}else{
+            		setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+            	}
+            </script>
+        </binding>
       <binding>
         <command>property-toggle</command>
         <property>/sim/sound/switch2</property>
@@ -305,7 +378,16 @@
       <binding>
         <command>property-toggle</command>
         <property>/autopilot/Bendix-PB-20/controls/alt-active</property>
-      </binding>     
+      </binding> 
+      <binding>
+          <command>nasal</command>
+          <script>
+          	var apa = getprop("/autopilot/Bendix-PB-20/controls/active") or 0;
+          	if(!apa){
+          		settimer(func{ setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);}, 0.2);
+          	}
+          </script>
+      </binding>    
       <binding>
         <command>property-toggle</command>
         <property>/sim/sound/switch1</property>

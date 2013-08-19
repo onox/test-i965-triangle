@@ -361,7 +361,8 @@ var stepSpeedbrakes = func(step) {
 }
 
 ######################################## compass control #######################################
-# if compass control is set to MAG (directional gyro slaved to flux valve) and not DG (compass indicate directional gyro heading),
+# if compass control is set to MAG (directional gyro slaved to flux valve) and not DG (compass indicate directional gyro heading)
+
 # the offset will be set automatically
 
 var mag_control = func {
@@ -655,7 +656,8 @@ var calc_oil_temp = func{
 	interpolate("/b707/anti-ice/total-air-temperature", tat, 32); # show it on instrument
 	var digittat = abs(tat);
 	interpolate("/b707/anti-ice/total-air-temperature-digit", digittat, 32); # show it on instrument
-	# print("TAT ist: "~tat);
+	#print("TAT ist: "~tat);
+	#print("TAT ist: "~digittat);
 	
 	# calculate the windows alpha for ice effect - use this loop only for the 32 sec
 	var capH = getprop("/b707/anti-ice/window-heat-cap-switch") or 0;
@@ -992,7 +994,7 @@ setlistener("/b707/pressurization/cabin-air-temp-selector", func(state){
 
 setlistener("/controls/flight/elevator-trim", func(et){
 	var et = et.getValue();
-	var ap = getprop("/autopilot/switches/ap") or 0;
+	var ap = getprop("/autopilot/Bendix-PB-20/controls/active") or 0;
 	if (!ap) {
 		setprop("/b707/trim/elevator-trim-turn", et);
 		lastTrimValue.setValue(et);
@@ -1001,7 +1003,7 @@ setlistener("/controls/flight/elevator-trim", func(et){
 
 var trim_loop = func{
 	var et = getprop("/controls/flight/elevator-trim") or 0;
-	var ap = getprop("/autopilot/switches/ap") or 0;
+	var ap = getprop("/autopilot/Bendix-PB-20/controls/active") or 0;
 	var diff = abs(lastTrimValue.getValue() - et);
 	#print("Differenz: "~diff);
 	if(ap and diff > 0.002){
@@ -1111,6 +1113,7 @@ setlistener("/fdm/jsbsim/systems/crash-detect/crash-on-ground", func(state){
 	var state = state.getValue() or 0;
 	if(state == 1){
 		 setprop("/b707/crashed", 1);
+		 setprop("/controls/engines/engine[1]/fire", 1);
   	 props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
   	 setprop("/controls/gear/bake-parking", 0);
 	}

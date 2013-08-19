@@ -3,7 +3,34 @@ MATERIAL "Gaugelight.001" rgb 1 1 1 amb 1 1 1 emis 0.1 0.1 0.1 spec 0 0 0 shi 32
 MATERIAL "DefaultWhite.001" rgb 1 1 1 amb 1 1 1 emis 0.15 0.15 0.15 spec 0.5 0.5 0.5 shi 64 trans 0
 MATERIAL "illum.003" rgb 0.9 0.9 0.9 amb 1 1 1 emis 0 0 0 spec 0.5 0.5 0.5 shi 32 trans 0
 OBJECT world
-kids 8
+kids 9
+OBJECT poly
+name "dec-10"
+loc 0.005084 -0.008508 -0.015461
+data 6
+dec-10
+texture "digits.png"
+texrep 1 1
+crease 30.000001
+numvert 4
+0.001167 0.005527 0.0094
+0.001167 0.005527 0.005329
+0.00117 0.011178 0.005329
+0.00117 0.011178 0.0094
+numsurf 2
+SURF 0x10
+mat 0
+refs 3
+3 0.351616322994 0.086249999702
+0 0.351616322994 0.014218749478
+1 0.406303822994 0.014218749478
+SURF 0x10
+mat 0
+refs 3
+3 0.351616322994 0.086249999702
+1 0.406303822994 0.014218749478
+2 0.406303822994 0.086249999702
+kids 0
 OBJECT poly
 name "dec10"
 loc 0.005084 -0.008508 -0.015461

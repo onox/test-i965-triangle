@@ -86,11 +86,23 @@
 	<animation>
 		<type>select</type>
 		<object-name>minus</object-name>
+		<object-name>dec-10</object-name>
 		<condition>		
-			<less-than>
+			<less-than-equals>
 				<property>/b707/anti-ice/total-air-temperature</property>
 				<value>0</value>
-			</less-than>
+			</less-than-equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>dec10</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/anti-ice/total-air-temperature</property>
+				<value>0</value>
+			</greater-than>
 		</condition>
 	</animation>
 	
@@ -164,6 +176,19 @@
   <animation>
       <type>textranslate</type>
       <object-name>dec10</object-name>
+              <property>/b707/anti-ice/total-air-temperature</property>
+      <step>0.1</step>
+      <factor>1</factor>
+      <axis>
+          <x>0</x>
+          <y>1</y>
+          <z>0</z>
+      </axis>
+  </animation>
+
+  <animation>
+      <type>textranslate</type>
+      <object-name>dec-10</object-name>
               <property>/b707/anti-ice/total-air-temperature</property>
       <step>0.1</step>
       <factor>1</factor>

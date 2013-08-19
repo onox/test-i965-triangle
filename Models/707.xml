@@ -19,6 +19,11 @@
   <animation>
     <type>material</type>
     <object-name>fuselage</object-name>
+    <object-name>fuselage.inner</object-name>
+    <object-name>doorFL</object-name>
+    <object-name>doorRL</object-name>
+    <object-name>nose</object-name>
+    <object-name>fuselage</object-name>
     <object-name>vertstab</object-name>
     <object-name>rudder</object-name>
     <object-name>nonones</object-name>
@@ -81,6 +86,17 @@
     <object-name>vertstab</object-name>
     <object-name>rudder</object-name>
 	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>fuselage.inner</object-name>
+		<emission>
+		  <red>0.4</red>
+		  <green>0.4</green>
+		  <blue>0.4</blue>
+		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
+		</emission>
+	</animation>	
 
 <!-- Externe -->
 	<model>
@@ -130,8 +146,124 @@
 		<object-name>rhfiletflap</object-name>
   	<object-name>rhibflap</object-name>
   	<object-name>lhobflap</object-name>
+  	<object-name>nose</object-name>
+  	<object-name>doorFL</object-name>
+  	<object-name>doorRL</object-name>
 		<condition>
 			<not><property>sim/multiplay/generic/int[19]</property></not>
+		</condition>	
+	</animation>
+
+	<!-- animate the doors and the nose -->
+	<animation>
+      <type>rotate</type>
+      <object-name>nose</object-name>
+      <property>sim/multiplay/generic/float[12]</property>
+      <factor>120</factor>
+      <center>
+          <x-m>-19.962</x-m>
+          <y-m> -0.538</y-m>
+          <z-m>  0.0</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>1.0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>
+		<object-name>nose</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.noseexport();</script>
+		  </binding>
+		</action>
+  </animation>
+
+	<animation>
+      <type>rotate</type>
+      <object-name>doorFL</object-name>
+      <property>sim/multiplay/generic/float[6]</property>
+      <factor>180</factor>
+      <center>
+          <x-m>-15.346</x-m>
+          <y-m> -1.617</y-m>
+          <z-m>  0.0</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>-1.0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>
+		<object-name>doorFL</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.pasfrontexport();</script>
+		  </binding>
+		</action>
+  </animation>
+  
+	<animation>
+      <type>rotate</type>
+      <object-name>doorRL</object-name>
+      <property>sim/multiplay/generic/float[7]</property>
+      <factor>180</factor>
+      <center>
+          <x-m> 14.158</x-m>
+          <y-m> -1.617</y-m>
+          <z-m>  0.0</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>-1.0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>
+		<object-name>doorRL</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.pasrearexport();</script>
+		  </binding>
+		</action>
+  </animation>	
+  
+<!-- Emergency slide-->
+	<model>
+		<name>EmergencySlide</name>
+		<path>Aircraft/707/Models/Cockpit/Equipment/emer_slide/emer_slide.xml</path>
+		<offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+		</offsets>
+	</model>
+	
+ 	<animation>
+		<type>select</type>
+		<object-name>EmergencySlide</object-name>
+		<condition>
+			<property>sim/multiplay/generic/int[19]</property>
 		</condition>	
 	</animation>
 

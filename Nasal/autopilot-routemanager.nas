@@ -1,4 +1,4 @@
-####    autopilot/route-manager help-functions                                                 ####
+####    autopilot/route-manager help-functions adapted for 707                                 ####
 ####    Author: Markus Bulik                                                                   ####
 ####    This file is licenced under the terms of the GNU General Public Licence V2 or later    ####
 
@@ -11,6 +11,8 @@
 var kpForHeadingDeg = -2.3;
 var kpForHeading = 0.18;
 var tiForHeading = 3.0;
+
+var kpForGSHold = -0.018;
 
 # 707 needs about 180 seconds (at speed 250 kts) fo a 180° turn, much more than a theoretical standard-turn
 var wpAircraftSpecificTurnFactor = 2.0;
@@ -43,6 +45,8 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", 0.0);
 	setprop("/autopilot/internal/VOR-near-by", 0);
 	setprop("/autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
+	setprop("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold);
+	setprop("/autopilot/internal/gs-in-range", 0);
 }
 setlistener("/sim/signals/fdm-initialized", listenerApRouteManagerInitFunc);
 
@@ -136,8 +140,8 @@ setlistener("/autopilot/locks/heading", listenerApHeadingFunc);
 var listenerApGsNearFarFunc = func {
 	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
 
-		#print ("-> listenerApGs1NearFarFunc -> installed");
-		#print ("-> listenerApGs1NearFarFunc -> gs-rate-of-climb=", getprop("/instrumentation/nav[0]/gs-rate-of-climb"));
+		#print ("-> listenerApGsNearFarFunc -> installed");
+		#print ("-> listenerApGsNearFarFunc -> gs-rate-of-climb=", getprop("/instrumentation/nav[0]/gs-rate-of-climb"));
 		var gsRateNearFarFiltered = getprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered");
 
 		# filter unrealistic values
@@ -190,6 +194,33 @@ var listenerApGsNearFarFunc = func {
 	}
 }
 setlistener("/autopilot/locks/altitude", listenerApGsNearFarFunc);
+
+
+# avoid flipping on 'gs-in-range'
+
+# create own 'gs-in-range' property ("/instrumentation/nav[0]/gs-in-range" seems to be set permanently), cannot be used
+var gsInRangePrev = 0;
+var listenerApGSHasChangedFunc = func {
+	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
+		if (gsInRangePrev != getprop("/instrumentation/nav[0]/gs-in-range")) {
+			setprop("/autopilot/internal/gs-in-range", getprop("/instrumentation/nav[0]/gs-in-range"));
+			gsInRangePrev = getprop("/instrumentation/nav[0]/gs-in-range");
+		}
+
+		settimer(listenerApGSHasChangedFunc, 0.01);
+	}
+}
+# cannot trigger on "/instrumentation/nav[0]/gs-in-range", because it seems to be set permanently -> so use "/autopilot/locks/altitude" instead
+setlistener("/autopilot/locks/altitude", listenerApGSHasChangedFunc);
+var listenerApGSClambFunc = func {
+	if (getprop("/autopilot/locks/altitude") == "gs1-hold" and getprop("/autopilot/internal/gs-in-range") == 1) {
+		setprop("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold * 0.05);
+		print ("-> listenerApGSClambFunc -> triggert: gs-in-range=", getprop("/autopilot/internal/gs-in-range"));
+		interpolate("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold, 6);
+	}
+}
+# cannot trigger on "/instrumentation/nav[0]/gs-in-range", because it seems to be set permanently -> so use own property "/autopilot/internal/gs-in-range" instead
+setlistener("/autopilot/internal/gs-in-range", listenerApGSClambFunc);
 
 
 # notes:

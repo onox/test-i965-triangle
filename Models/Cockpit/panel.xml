@@ -677,8 +677,8 @@
   <path>Aircraft/707/Models/Cockpit/Instruments/ap/ap-fg.xml</path>
   <offsets>
       <x-m>-18.812</x-m>
-      <y-m>-0.125</y-m>
-      <z-m> 1.045</z-m>
+      <y-m>-0.126</y-m>
+      <z-m> 1.043</z-m>
   </offsets>
 </model>
 

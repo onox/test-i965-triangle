@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+  <name>Autopilot Panel</name>
+  <background>Aircraft/707/Models/Cockpit/Instruments/ap/autopilot.xml</background>
+  <w>320</w>
+  <h>320</h>
+  <x-offset>300</x-offset>
+  <y-offset>300</y-offset>
+  <view-height>768</view-height>
+  <autohide>false</autohide>
+
+<PropertyList>

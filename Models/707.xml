@@ -174,11 +174,11 @@
 
   <animation>
 		<type>pick</type>
-		<object-name>nose</object-name>
+		<object-name>nose</object-name>		
 		<action>
 		  <button>0</button>
 		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
+		  <interval-sec>0.2</interval-sec>		
 		  <binding>
 		   <command>nasal</command>
 		   <script>b707.doorsystem.noseexport();</script>

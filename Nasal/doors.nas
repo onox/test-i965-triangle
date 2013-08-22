@@ -32,7 +32,12 @@ Doors.pasrearexport = func {
 }
 
 Doors.noseexport = func {
-   me.nose.toggle();
+	var alt = getprop("/position/altitude-agl-ft") or 0;
+	if(alt < 7.0){
+   	me.nose.toggle();
+  }else{
+  	setprop("/instrumentation/doors/nose/position-norm", 0);
+  }
 }
 
 # ==============

@@ -87,16 +87,18 @@
     <object-name>rudder</object-name>
 	</effect>
 	
+	<!-- Passengers Cabin door front and rear -->
 	<animation>
 		<type>material</type>
 		<object-name>fuselage.inner</object-name>
 		<emission>
-		  <red>0.4</red>
-		  <green>0.4</green>
-		  <blue>0.4</blue>
+		  <red>0.1</red>
+		  <green>0.1</green>
+		  <blue>0.1</blue>
 		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>	
+	
 
 <!-- Externe -->
 	<model>
@@ -127,6 +129,127 @@
 		  <property>sim/multiplay/generic/int[14]</property>
 		</condition>
 	</animation>
+	
+  <animation>
+		<type>pick</type>
+		<object-name>ExternalPowerUnit</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+				<command>property-toggle</command>
+    		<property>b707/external-power-connected</property>
+		  </binding>
+		</action>
+  </animation>	
+	
+	<!-- Stairways -->
+	<model>
+		<name>frontStair</name>
+		<path>Aircraft/707/Models/stairs.xml</path>
+		<offsets>
+			<x-m>-14.42</x-m>
+			<y-m>-5.1</y-m>
+      <z-m>-2.92</z-m>
+			<heading-deg>-6</heading-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>rearStair</name>
+		<path>Aircraft/707/Models/stairs.xml</path>
+		<offsets>
+			<x-m>14.72</x-m>
+			<y-m>-4.2</y-m>
+      <z-m>-2.92</z-m>
+			<heading-deg>10</heading-deg>
+		</offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>frontStair</object-name>
+		<condition>
+		  <or>
+      	<property>sim/multiplay/generic/float[6]</property>
+      	<property>sim/multiplay/generic/float[7]</property>
+      	<property>sim/multiplay/generic/float[12]</property>
+      </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>rearStair</object-name>
+		<condition>
+		  <or>
+      	<property>sim/multiplay/generic/float[6]</property>
+      	<property>sim/multiplay/generic/float[7]</property>
+      	<property>sim/multiplay/generic/float[12]</property>
+      </or>
+		</condition>
+	</animation>
+	
+  <animation>
+      <type>translate</type>
+      <object-name>frontStair</object-name>
+      <property>sim/multiplay/generic/float[6]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep>   4.55</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+      <type>translate</type>
+      <object-name>rearStair</object-name>
+      <property>sim/multiplay/generic/float[7]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep>   4.0</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+		<type>pick</type>
+		<object-name>frontStair</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.pasfrontexport();</script>
+		  </binding>
+		</action>
+  </animation>
+
+  <animation>
+		<type>pick</type>
+		<object-name>rearStair</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.pasrearexport();</script>
+		  </binding>
+		</action>
+  </animation>	
 	
 <!-- Immatriculation -->
   <model>
@@ -190,7 +313,11 @@
       <type>rotate</type>
       <object-name>doorFL</object-name>
       <property>sim/multiplay/generic/float[6]</property>
-      <factor>180</factor>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep> 178.0</dep></entry>
+				<entry><ind>    1.0</ind><dep> 178.0</dep></entry>
+			</interpolation>
       <center>
           <x-m>-15.346</x-m>
           <y-m> -1.617</y-m>
@@ -221,7 +348,11 @@
       <type>rotate</type>
       <object-name>doorRL</object-name>
       <property>sim/multiplay/generic/float[7]</property>
-      <factor>180</factor>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    0.2</ind><dep> 178.0</dep></entry>
+				<entry><ind>    1.0</ind><dep> 178.0</dep></entry>
+			</interpolation>
       <center>
           <x-m> 14.158</x-m>
           <y-m> -1.617</y-m>
@@ -2025,7 +2156,6 @@
     <pitch-deg>-35</pitch-deg>
   </offsets>
 </model>
-
   
 </PropertyList>
 

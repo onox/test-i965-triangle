@@ -45,28 +45,6 @@
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>shadow</object-name>
 	</effect>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>sup</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>true</repeatable>		 
-			<binding>
-				<command>property-assign</command>
-				<property>sim/panel/path</property>
-				<value>Aircraft/707/Models/Cockpit/Intstruments/ap/autopilotAsPanel.xml</value>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>sim/panel/visibility</property>
-				<value>true</value>
-			</binding>
-			<binding>
-				<command>panel-load</command>
-			</binding>
-		</action>
-	</animation>
 
 <!-- Autopilot Mode Selector -->
 <animation>

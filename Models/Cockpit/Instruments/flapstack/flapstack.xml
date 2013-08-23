@@ -225,6 +225,9 @@
 		  <or>
 		    <property>sim/multiplay/generic/float[4]</property>
 		    <property>sim/multiplay/generic/float[5]</property>
+		    <property>sim/multiplay/generic/float[6]</property>
+		    <property>sim/multiplay/generic/float[7]</property>
+		    <property>sim/multiplay/generic/float[12]</property>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -241,6 +244,9 @@
 		  <or>
 		    <property>sim/multiplay/generic/float[4]</property>
 		    <property>sim/multiplay/generic/float[5]</property>
+		    <property>sim/multiplay/generic/float[6]</property>
+		    <property>sim/multiplay/generic/float[7]</property>
+		    <property>sim/multiplay/generic/float[12]</property>
 		    <and>
 		    	<less-than>
 						<property>gear/gear[0]/position-norm</property>

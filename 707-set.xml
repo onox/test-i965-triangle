@@ -6,7 +6,8 @@
   <status>1.1.4</status>
   <flight-model>jsb</flight-model>
   <aero>707</aero>
-  <virtual-cockpit archive="y">false</virtual-cockpit> 
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+  <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 	<startup>
 		<splash-texture>Aircraft/707/splash.png</splash-texture>
 	</startup>

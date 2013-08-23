@@ -1078,7 +1078,49 @@
 			<factor>1</factor>
 		</volume>
 	</pneumatic>		
- 
+	
+  <door>
+   <name>Passengers door</name>
+   <path>Sounds/door_close.wav</path>
+   <condition>
+      <equals>
+       <property>/instrumentation/doors/pasfront/position-norm</property>
+       <value>0.0</value>
+      </equals>
+   </condition>
+   <volume>
+    <factor>0.6</factor>
+   </volume>
+  </door>
+ 	
+  <door>
+   <name>Passengers door rear</name>
+   <path>Sounds/door_close.wav</path>
+   <condition>
+      <equals>
+       <property>/instrumentation/doors/pasrear/position-norm</property>
+       <value>0.0</value>
+      </equals>
+   </condition>
+   <volume>
+    <factor>0.3</factor>
+   </volume>
+  </door>
+  
+  <door>
+   <name>Nose door</name>
+   <path>Sounds/door_close.wav</path>
+   <condition>
+      <equals>
+       <property>/instrumentation/doors/nose/position-norm</property>
+       <value>0.0</value>
+      </equals>
+   </condition>
+   <volume>
+    <factor>0.3</factor>
+   </volume>
+  </door>
+  
    <click>
    <name>click on</name>
    <path>Aircraft/707/Sounds/click.wav</path>
@@ -1331,7 +1373,7 @@
       </condition>
       <volume>
         <property>sim/multiplay/generic/int[14]</property>
-        <factor>1.00</factor>
+        <factor>0.80</factor>
         <offset>0.00</offset>
         <min>0.1</min>
         <max>0.5</max>

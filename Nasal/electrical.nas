@@ -233,7 +233,12 @@ var update_virtual_bus = func {
 		  power_source = nil;
 		  EssSourceFailure.setBoolValue(1);
 
-		  if(getprop("velocities/groundspeed-kt") > 1) ExternalConnected.setBoolValue(0);
+		  if(getprop("velocities/groundspeed-kt") > 1){
+		  		ExternalConnected.setBoolValue(0);
+		    	setprop("/instrumentation/doors/pasfront/position-norm", 0);
+		    	setprop("/instrumentation/doors/pasrear/position-norm", 0);
+		    	setprop("/instrumentation/doors/nose/position-norm", 0);
+		  }
 		  
 		  if(battery.switch.getBoolValue()){		  
 				if (EssPwr.getValue() == 5 and ExternalConnected.getBoolValue()){

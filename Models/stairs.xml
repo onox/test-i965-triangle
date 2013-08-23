@@ -1,7 +1,10 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8" ?>
+
 <PropertyList>
- <path>epu.ac</path>
- 
+
+	<name>VW-Bus-Stairs</name>
+	<path>stairs.ac</path>
+
    <animation>
     <type>material</type>
 		<object-name>blah.002</object-name> 
@@ -14,6 +17,11 @@
 		<object-name>blah.009</object-name>
 		<object-name>blah.010</object-name>
 		<object-name>blah.012</object-name>
+		<object-name>rubber</object-name>
+		<object-name>stair</object-name>
+		<object-name>stairsPaint</object-name>
+		<object-name>stairsTop</object-name>
+		<object-name>stairsblock</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>707.png</texture>
@@ -31,6 +39,11 @@
 		<object-name>blah.009</object-name>
 		<object-name>blah.010</object-name>
 		<object-name>blah.012</object-name>
+		<object-name>rubber</object-name>
+		<object-name>stair</object-name>
+		<object-name>stairsPaint</object-name>
+		<object-name>stairsTop</object-name>
+		<object-name>stairsblock</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -41,5 +54,5 @@
 		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>
-
+		
 </PropertyList>

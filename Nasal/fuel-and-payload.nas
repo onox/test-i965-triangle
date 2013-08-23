@@ -712,7 +712,7 @@ var engines_alive = func {
   # control the engine dependens
   foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		  var n2 = e.getNode("n2").getValue() or 0;
-		  var oil = props.globals.getNode("/b707/oil/quantity["~e.getIndex()~"]");
+		  var oil = getprop("/b707/oil/quantity["~e.getIndex()~"]") or 0;
 		  var s = getprop("/b707/fuel/valves/fuel-shutoff["~e.getIndex()~"]") or 0;
 		  var c = props.globals.getNode("/controls/engines/engine["~e.getIndex()~"]/cutoff");
 		  var f = props.globals.initNode("/controls/engines/engine["~e.getIndex()~"]/fire",0,"BOOL");
@@ -832,14 +832,14 @@ var engines_alive = func {
 		  
 		if(n2 > 15){
 			if(e.getIndex() == 1 or e.getIndex() == 2){
-				var oilNeu = (oil.getValue() > 2600 ) ? oil.getValue() - 950 : 2600;
+				var oilNeu = (oil > 2600 ) ? oil - 950 : 2600;
 				interpolate("/b707/oil/quantity["~e.getIndex()~"]", oilNeu, 8);
 			}else{
-				var oilNeu = (oil.getValue() > 2800 ) ? oil.getValue() - 900 : 2800;
+				var oilNeu = (oil > 2800 ) ? oil - 900 : 2800;
 				interpolate("/b707/oil/quantity["~e.getIndex()~"]", oilNeu, 8);
 			}
 		}else{
-			var oilNeu = (oil.getValue() < 6400 ) ? oil.getValue() + 100 : 6400;
+			var oilNeu = (oil < 6400 ) ? oil + 100 : 6400;
 			interpolate("/b707/oil/quantity["~e.getIndex()~"]", oilNeu, 8);
 		}
 	}

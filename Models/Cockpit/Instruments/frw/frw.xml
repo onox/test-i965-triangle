@@ -30,7 +30,7 @@
     <object-name>vitre</object-name>
   </animation>
 
-  <!-- START the swing-effect -->
+  <!-- START the swing-effect -->  <!-- START the swing-effect -->
   <animation>
     <type>rotate</type>
     <object-name>fond</object-name>
@@ -46,11 +46,50 @@
     <object-name>needle2</object-name>
     <object-name>needle3</object-name>
     <object-name>vitre</object-name>
-    <property>/orientation/roll-deg</property>
+		<condition>
+			<property>/b707/compass-pos</property>
+		</condition>
+		<property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
     <interpolation>
-      <entry><ind> -3.0</ind><dep>-3.0</dep></entry>
-      <entry><ind>  0.0</ind><dep> 0.0</dep></entry>
-      <entry><ind>  3.0</ind><dep> 3.0</dep></entry>
+      <entry><ind>  4.0</ind><dep>-50.0</dep></entry>
+      <entry><ind>  0.0</ind><dep>  0.0</dep></entry>
+      <entry><ind> -4.0</ind><dep> 50.0</dep></entry>
+    </interpolation>
+    <center> 
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>fond</object-name>
+    <object-name>visses</object-name>
+    <object-name>btnStartStop</object-name>
+    <object-name>btnReset</object-name>
+    <object-name>btnStartStopOut</object-name>
+    <object-name>btnResetOut</object-name>
+    <object-name>btnMode</object-name>
+    <object-name>activeMode</object-name>
+    <object-name>face</object-name>
+    <object-name>needle1</object-name>
+    <object-name>needle2</object-name>
+    <object-name>needle3</object-name>
+    <object-name>vitre</object-name>
+		<condition>
+			<not><property>/b707/compass-pos</property></not>
+		</condition>
+		<property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
+    <interpolation>
+      <entry><ind> 	 4.0</ind><dep>-50.0</dep></entry>
+      <entry><ind>   0.0</ind><dep>  0.0</dep></entry>
+      <entry><ind>  -4.0</ind><dep> 10.0</dep></entry>
     </interpolation>
     <center> 
       <x-m> 0 </x-m>

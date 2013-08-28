@@ -34,6 +34,7 @@ aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch
 var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
 aircraft.light.new("controls/lighting/beacon-state", [0.05, 2.0], beacon_switch);
 aircraft.light.new("b707/warning", [1.0, 0.8]);
+aircraft.light.new("b707/ground-service", [1.0, 0.8]);
 
 
 ############## Helper ################
@@ -233,11 +234,12 @@ var update_virtual_bus = func {
 		  power_source = nil;
 		  EssSourceFailure.setBoolValue(1);
 
-		  if(getprop("velocities/groundspeed-kt") > 1){
+		  if(getprop("velocities/groundspeed-kt") > 15){
 		  		ExternalConnected.setBoolValue(0);
 		    	setprop("/instrumentation/doors/pasfront/position-norm", 0);
 		    	setprop("/instrumentation/doors/pasrear/position-norm", 0);
 		    	setprop("/instrumentation/doors/nose/position-norm", 0);
+   				setprop("/b707/ground-service/enabled", 0);
 		  }
 		  
 		  if(battery.switch.getBoolValue()){		  
@@ -688,7 +690,8 @@ var gen_kw = func{
 
 ################ the ground connect switch fall back ###################
 setlistener("b707/external-power-connected", func(state){
-
+  var state = state.getBoolValue();
+  if(state)	setprop("/b707/ground-service/enabled", 1); #iluminate the lights of VW Bus
 	var src_ext = getprop("b707/ess-power-switch") or 0;
 	# if external power connected when apu is operating, apu shutdown
 	setprop("/b707/apu/off-start-run", 0);

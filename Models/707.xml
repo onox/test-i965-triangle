@@ -40,6 +40,11 @@
     <object-name>engineThree</object-name>
     <object-name>engineFour</object-name>
     <object-name>slats</object-name>
+    <object-name>lhngdoor</object-name>
+    <object-name>lhngdoorafter</object-name>
+    <object-name>rhngdoor</object-name>
+    <object-name>rhngdoorafter</object-name>
+    <object-name>wing</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>707.png</texture>
@@ -250,17 +255,7 @@
 		  </binding>
 		</action>
   </animation>	
-	
-<!-- Immatriculation -->
-  <model>
-    <path>Aircraft/707/Models/Immat/immat.xml</path>
-    <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-    </offsets>
-  </model>
-  
+
   <!-- if crashed -->
 	<animation>
 		<type>select</type>
@@ -301,7 +296,7 @@
 		<action>
 		  <button>0</button>
 		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>		
+		  <interval-sec>0.2</interval-sec>	
 		  <binding>
 		   <command>nasal</command>
 		   <script>b707.doorsystem.noseexport();</script>
@@ -675,7 +670,7 @@
  
 	<model>
 		<name>RightGearBase</name>
-		<path>Aircraft/707/Models/Maingears/mainwheels.xml</path>
+		<path>Aircraft/707/Models/wheels.xml</path>
 		<offsets>
 		  <x-m> 1.82</x-m>
 		  <y-m> 2.76</y-m>
@@ -685,7 +680,7 @@
 
 	<model>
 		<name>LeftGearBase</name>
-		<path>Aircraft/707/Models/Maingears/mainwheels.xml</path>
+		<path>Aircraft/707/Models/wheels.xml</path>
 		<offsets>
 		  <x-m> 1.82</x-m>
 		  <y-m>-2.76</y-m>
@@ -1652,15 +1647,14 @@
   <factor>59</factor>
   <offset-deg>0</offset-deg>   
   <axis>
-		<x1-m>  4.69</x1-m>
-		<y1-m>-11.34</y1-m>
+		<x1-m>  4.87</x1-m>
+		<y1-m>-11.26</y1-m>
 		<z1-m>  0.22</z1-m>
-    <x2-m>  6.12</x2-m>
-    <y2-m>-14.15</y2-m>
+    <x2-m>  6.30</x2-m>
+    <y2-m>-14.09</y2-m>
     <z2-m>  0.46</z2-m>
   </axis>
  </animation>  
-
 
   <animation>
   <type>rotate</type>
@@ -1685,15 +1679,15 @@
   <factor>-59</factor>
   <offset-deg>0</offset-deg>   
   <axis>
-		<x1-m>  4.69</x1-m>
-		<y1-m> 11.34</y1-m>
+		<x1-m>  4.87</x1-m>
+		<y1-m> 11.26</y1-m>
 		<z1-m>  0.22</z1-m>
-    <x2-m>  6.12</x2-m>
-    <y2-m> 14.15</y2-m>
+    <x2-m>  6.30</x2-m>
+    <y2-m> 14.09</y2-m>
     <z2-m>  0.46</z2-m>
   </axis>
  </animation>  
-
+a
  <animation>
   <type>rotate</type>
   <object-name>rhsp3</object-name>   
@@ -1724,7 +1718,7 @@
  <!--Conway RCo.10 engines -->
 	<model>
 		<name>engineOne</name>
-		<path>Aircraft/707/Models/Engines/RCo10_1.xml</path>
+		<path>Aircraft/707/Models/RCo10_1.xml</path>
 		<offsets>
 		  <x-m>  2.42</x-m>
 		  <y-m>-14.835</y-m>
@@ -1734,7 +1728,7 @@
 	
 	<model>
 		<name>engineTwo</name>
-		<path>Aircraft/707/Models/Engines/RCo10_2.xml</path>
+		<path>Aircraft/707/Models/RCo10_2.xml</path>
 		<offsets>
 		  <x-m> -1.25</x-m>
 		  <y-m>-10.077</y-m>
@@ -1744,7 +1738,7 @@
 	
 	<model>
 		<name>engineThree</name>
-		<path>Aircraft/707/Models/Engines/RCo10_3.xml</path>
+		<path>Aircraft/707/Models/RCo10_3.xml</path>
 		<offsets>
 		  <x-m> -1.25</x-m>
 		  <y-m> 10.077</y-m>
@@ -1754,7 +1748,7 @@
 	
 	<model>
 		<name>engineFour</name>
-		<path>Aircraft/707/Models/Engines/RCo10_4.xml</path>
+		<path>Aircraft/707/Models/RCo10_4.xml</path>
 		<offsets>
 		  <x-m>  2.42</x-m>
 		  <y-m> 14.835</y-m>
@@ -2156,6 +2150,138 @@
     <pitch-deg>-35</pitch-deg>
   </offsets>
 </model>
+
+<!-- Registration -->
+<model>
+	<name>registrationRudderRight</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>20.39</x-m>
+    <y-m>0.18</y-m>
+    <z-m>3.5</z-m>
+    <heading-deg>-2.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.7</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<model>
+	<name>registrationRudderLeft</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>20.39</x-m>
+    <y-m>-0.18</y-m>
+    <z-m>3.5</z-m>
+    <heading-deg>182.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.7</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<!-- Registration (wingTop)-->
+<model>
+	<name>registrationWingTop</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>7.72</x-m>
+    <y-m>17.34</y-m>
+    <z-m>0.78</z-m>
+    <roll-deg>175</roll-deg>
+    <pitch-deg>-4.0</pitch-deg>
+    <heading-deg>-126</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>1.5</size>
+      <alignment>reversed-xy-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<!-- Registration (wingBottom) --> 
+<model>
+	<name>registrationWingBottom</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>  7.72</x-m>
+    <y-m>-17.34</y-m>
+    <z-m>  0.52</z-m>
+    <roll-deg>2</roll-deg>
+    <pitch-deg>5.5</pitch-deg>
+    <heading-deg> 126</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>1.5</size>
+      <alignment>reversed-xy-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<!-- Registration fuselage -->
+<model>
+	<name>registrationFuselageRight</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>-15.0</x-m>
+    <y-m>1.73</y-m>
+    <z-m> 0.0</z-m>
+    <roll-deg>-10</roll-deg>
+    <heading-deg>0.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<model>
+	<name>registrationFuselageLeft</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>-12.6</x-m>
+    <y-m>-1.73</y-m>
+    <z-m> 0.0</z-m>
+    <roll-deg>-10</roll-deg>
+    <heading-deg>180.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<animation>
+	<type>select</type>
+	<object-name>registrationRudderRight</object-name>
+	<object-name>registrationRudderLeft</object-name>
+	<object-name>registrationWingTop</object-name>
+	<object-name>registrationWingBottom</object-name>
+	<condition>
+		<property>sim/multiplay/generic/int[16]</property>
+	</condition>	
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>registrationFuselageRight</object-name>
+	<object-name>registrationFuselageLeft</object-name>
+	<condition>
+		<not><property>sim/multiplay/generic/int[16]</property></not>
+	</condition>	
+</animation>
   
 </PropertyList>
 

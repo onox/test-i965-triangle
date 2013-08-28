@@ -27,6 +27,7 @@ Doors.pasfrontexport = func {
 	var alt = getprop("/position/altitude-agl-ft") or 0;
 	if(alt < 7.0){
    	me.pasfront.toggle();
+   	setprop("/b707/ground-service/enabled", 1);
   }else{
   	setprop("/instrumentation/doors/pasfront/position-norm", 0);
   }
@@ -36,6 +37,7 @@ Doors.pasrearexport = func {
 	var alt = getprop("/position/altitude-agl-ft") or 0;
 	if(alt < 7.0){
    	me.pasrear.toggle();
+   	setprop("/b707/ground-service/enabled", 1);
   }else{
   	setprop("/instrumentation/doors/pasrear/position-norm", 0);
   }
@@ -43,8 +45,10 @@ Doors.pasrearexport = func {
 
 Doors.noseexport = func {
 	var alt = getprop("/position/altitude-agl-ft") or 0;
-	if(alt < 7.0){
+	var inside = getprop("sim/current-view/internal") or 0;
+	if(alt < 7.0 and !inside){
    	me.nose.toggle();
+   	setprop("/b707/ground-service/enabled", 1);
   }else{
   	setprop("/instrumentation/doors/nose/position-norm", 0);
   }

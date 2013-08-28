@@ -2,10 +2,12 @@
 
 <PropertyList>
  <path>conwayRCo10.ac</path>	
-  
+ 
 	<animation>
 		<type>spin</type>
+		<object-name>engineCone</object-name>
 		<object-name>engineDisk</object-name>
+		<object-name>engineDiskFast</object-name>
 		<property>engines/engine[3]/n1</property>
 		<factor>20</factor>   
 		<center>
@@ -18,6 +20,17 @@
 		 <y>0</y>
 		 <z>0</z>
 		</axis>
+	</animation>
+	
+	<animation>
+	<type>select</type>
+	<object-name>engineDisk</object-name>
+		<condition>
+			<less-than>
+				<property>engines/engine[3]/n1</property>
+				<value>25</value>
+			</less-than>
+		</condition>
 	</animation>
 	
 	<animation>

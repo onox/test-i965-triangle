@@ -39,6 +39,7 @@
     <object-name>engineTwo</object-name>
     <object-name>engineThree</object-name>
     <object-name>engineFour</object-name>
+    <object-name>engineSupport</object-name>
     <object-name>slats</object-name>
     <object-name>lhngdoor</object-name>
     <object-name>lhngdoorafter</object-name>

@@ -26,14 +26,49 @@ var listenerApPB20InitFunc = func {
 	setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
 	setprop("/autopilot/Bendix-PB-20/settings/roll-knob-deg", 0);
 	setprop("/autopilot/Bendix-PB-20/settings/pitch-wheel-deg", 0);
+	setprop("/autopilot/Bendix-PB-20/mutex", "");
 }
 setlistener("/sim/signals/fdm-initialized", listenerApPB20InitFunc);
+
+# Mutex - for synchronization of the listener-events
+var bendixPB20MutexSet = func(value) {
+	setprop("/autopilot/Bendix-PB-20/mutex", value);
+}
+var bendixPB20MutexReset = func {
+	setprop("/autopilot/Bendix-PB-20/mutex", "");
+}
+var bendixPB20MutexResetFunc = func {
+	if (getprop("/autopilot/Bendix-PB-20/mutex") != "") {
+		settimer(bendixPB20MutexReset, 0.2);
+	}
+}
+setlistener("/autopilot/Bendix-PB-20/mutex", bendixPB20MutexResetFunc);
+
+# Active-switch
+var bendixPB20ActivePrev = 0;
+var listenerApPB20ActiveFunc = func {
+	if (bendixPB20ActivePrev == 0) {
+		if (getprop("/autopilot/Bendix-PB-20/controls/active") == 1) {
+			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
+		}
+	}
+	bendixPB20Active = getprop("/autopilot/Bendix-PB-20/controls/active");
+}
+setlistener("/autopilot/Bendix-PB-20/controls/active", listenerApPB20ActiveFunc);
 
 # Mode-selector
 var listenerApPB20ModeFunc = func {
 
-	if (	getprop("/autopilot/Bendix-PB-20/controls/active") == 1) {
-		#print ("-> listenerApPB20ModeFunc -> installed. Mode-selector=", getprop("/autopilot/Bendix-PB-20/controls/mode-selector"));
+	if (	getprop("/autopilot/Bendix-PB-20/mutex") == "" or
+		getprop("/autopilot/Bendix-PB-20/mutex") == "MODE") {
+		bendixPB20MutexSet("MODE");
+	}
+	else {
+		return;
+	}
+
+	if (getprop("/autopilot/Bendix-PB-20/controls/active") == 1) {
+		#print ("-> listenerApPB20ModeFunc -> Mode-selector=", getprop("/autopilot/Bendix-PB-20/controls/mode-selector"));
 
 		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 0) {
 			# NAV - Mode
@@ -63,7 +98,8 @@ var listenerApPB20ModeFunc = func {
 		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
 			# MAN - Mode
 
-			var rollKnobDeg = getprop("/instrumentation/turn-indicator/indicated-turn-rate") * 36.63;
+			#var rollKnobDeg = getprop("/instrumentation/turn-indicator/indicated-turn-rate") * 36.63;
+			var rollKnobDeg = 0.0;
 			setprop("/autopilot/Bendix-PB-20/settings/roll-knob-deg", rollKnobDeg);
 			listenerApPB20MANRollFunc();
 
@@ -90,7 +126,7 @@ var listenerApPB20ModeFunc = func {
 			}
 			setprop("/autopilot/locks/passive-mode", 0);
 		}
-		if (	getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 4) {
+		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 4) {
 			# GS AUTO - Mode
 
 			setprop("/autopilot/locks/heading", "nav1-hold");
@@ -103,6 +139,9 @@ var listenerApPB20ModeFunc = func {
 			# GS MAN - Mode
 
 			setprop("/autopilot/locks/heading", "nav1-hold");
+			if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 0) {
+				setprop("/autopilot/locks/altitude", "");
+			}
 
 			gsMANAltControl();
 
@@ -116,6 +155,7 @@ var listenerApPB20ModeFunc = func {
 		setprop("/autopilot/locks/altitude", "");
 		setprop("/autopilot/internal/wing-leveler-target-roll-deg", 0.0);
 		setprop("/autopilot/locks/passive-mode", 0);
+		setprop("/autopilot/locks/speed", "");	# for compatibility only (Bendix-PB-20 don't have speed-mode)
 	}
 }
 setlistener("/autopilot/Bendix-PB-20/controls/active", listenerApPB20ModeFunc);
@@ -168,6 +208,13 @@ setlistener("/autopilot/Bendix-PB-20/settings/pitch-wheel-deg", listenerApPB20MA
 # ALT switch
 var listenerApPB20AltFunc = func {
 
+	if (getprop("/autopilot/Bendix-PB-20/mutex") == "") {
+		bendixPB20MutexSet("PB20-ALT");
+	}
+	else {
+		return;
+	}
+
 	if (	getprop("/autopilot/Bendix-PB-20/controls/active") == 1) {
 		if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 1) {
 
@@ -186,7 +233,9 @@ var listenerApPB20AltFunc = func {
 				setprop("/autopilot/locks/altitude", "pitch-hold");
 			}
 			else {
-				setprop("/autopilot/locks/altitude", "");
+				if (getprop("/autopilot/locks/altitude") == "altitude-hold") {
+					setprop("/autopilot/locks/altitude", "");
+				}
 			}
 		}
 	}
@@ -201,31 +250,97 @@ setlistener("/autopilot/Bendix-PB-20/controls/alt-active", listenerApPB20AltFunc
 
 listenerApPB20SetHeadingFunc = func {
 
-	if (getprop("/autopilot/locks/heading") == "wing-leveler") {
-		setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
+	if (	getprop("/autopilot/Bendix-PB-20/mutex") == "" or
+		getprop("/autopilot/Bendix-PB-20/mutex") == "PASSIVE" ) {
+		bendixPB20MutexSet("HEADING");
 	}
-	elsif (getprop("/autopilot/locks/heading") == "dg-heading-hold") {
-		setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 1);
+	else {
+		return;
 	}
-	elsif (getprop("/autopilot/locks/heading") == "nav1-hold") {
-		if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
-			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 4);
-		}
-		else {
-			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 3);
-		}
-	}
+
+	menuSwitchBendixPB20();
 }
 setlistener("/autopilot/locks/heading", listenerApPB20SetHeadingFunc);
 
-listenerApPB20SetAltitudeFunc = func {
+listenerApPB20SetPassiveModeFunc = func {
 
-	if (getprop("/autopilot/locks/altitude") == "altitude-hold") {
+	if (getprop("/autopilot/Bendix-PB-20/mutex") == "") {
+		bendixPB20MutexSet("PASSIVE");
+	}
+	else {
+		return;
+	}
 
-		setprop("/autopilot/Bendix-PB-20/controls/alt-active", 1);
+	if (getprop("/autopilot/locks/passive-mode") == 1) {
+		if (getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
+			setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 0);
+		}
+		else {
+			gui.popupTip("You must be airborne and a route must be active to activate this mode !");
+			setprop("/autopilot/locks/passive-mode", 0);
+		}
+	}
+
+
+	if (getprop("/autopilot/locks/passive-mode") == 1) {
+		setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+		setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 0);
 	}
 }
+setlistener("/autopilot/locks/passive-mode", listenerApPB20SetPassiveModeFunc);
+
+listenerApPB20SetAltitudeFunc = func {
+
+	if (getprop("/autopilot/Bendix-PB-20/mutex") == "") {
+		bendixPB20MutexSet("ALT");
+	}
+	else {
+		return;
+	}
+
+	if (getprop("/autopilot/locks/altitude") == "altitude-hold") {
+		setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+		setprop("/autopilot/Bendix-PB-20/controls/alt-active", 1);
+		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
+			setprop("/autopilot/locks/heading", "wing-leveler");
+		}
+	}
+	else {
+		setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);
+	}
+
+	menuSwitchBendixPB20();
+}
 setlistener("/autopilot/locks/altitude", listenerApPB20SetAltitudeFunc);
+
+var menuSwitchBendixPB20 = func {
+	if (getprop("/autopilot/locks/heading") == "wing-leveler") {
+		setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+		setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
+	}
+	elsif (getprop("/autopilot/locks/heading") == "dg-heading-hold") {
+		setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+		setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 1);
+	}
+	elsif (	getprop("/autopilot/locks/heading") == "nav1-hold") {
+		if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
+			setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 4);
+		}
+		else {
+			setprop("/autopilot/Bendix-PB-20/controls/active", 1);
+			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 3);
+		}
+	}
+	elsif (getprop("/autopilot/locks/heading") == "") {
+		if (getprop("/autopilot/locks/altitude") == "") {
+			setprop("/autopilot/Bendix-PB-20/controls/active", 0);
+			setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);
+			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
+		}
+	}
+}
 
 listenerApPB20SetPitchFunc = func {
 

@@ -12,6 +12,8 @@ var kpForHeadingDeg = -2.3;
 var kpForHeading = 0.18;
 var tiForHeading = 3.0;
 
+var kpForWingLeveler = 0.5;
+
 var kpForGSHold = -0.018;
 
 # 707 needs about 180 seconds (at speed 250 kts) fo a 180° turn, much more than a theoretical standard-turn
@@ -42,6 +44,7 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
 	setprop("/autopilot/internal/target-kp-for-heading-hold", kpForHeading);
 	setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeading);
+	setprop("/autopilot/internal/target-kp-for-wing-leveler", kpForWingLeveler);
 	setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", 0.0);
 	setprop("/autopilot/internal/VOR-near-by", 0);
 	setprop("/autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
@@ -68,6 +71,17 @@ var getTotalLbs = func {
 }
 
 # switch-functions
+var listenerApWingLevelerSwitchFunc = func {
+
+	if (getprop("/autopilot/locks/heading") == "wing-leveller") {
+
+		#print ("-> listenerApWingLevelerSwitchFunc -> installed");
+		setprop("/autopilot/internal/target-kp-for-wing-leveler", (kpForWingLeveler * 0.05));
+		interpolate("/autopilot/internal/target-kp-for-wing-leveler", kpForWingLeveler, 5);
+	}
+}
+setlistener("/autopilot/locks/heading", listenerApWingLevelerSwitchFunc);
+
 var listenerApHeadingSwitchFunc = func {
 
 	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
@@ -215,7 +229,7 @@ setlistener("/autopilot/locks/altitude", listenerApGSHasChangedFunc);
 var listenerApGSClambFunc = func {
 	if (getprop("/autopilot/locks/altitude") == "gs1-hold" and getprop("/autopilot/internal/gs-in-range") == 1) {
 		setprop("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold * 0.05);
-		print ("-> listenerApGSClambFunc -> triggert: gs-in-range=", getprop("/autopilot/internal/gs-in-range"));
+		#print ("-> listenerApGSClambFunc -> triggert: gs-in-range=", getprop("/autopilot/internal/gs-in-range"));
 		interpolate("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold, 6);
 	}
 }

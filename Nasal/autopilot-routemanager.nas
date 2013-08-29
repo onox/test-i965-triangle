@@ -12,7 +12,7 @@ var kpForHeadingDeg = -2.3;
 var kpForHeading = 0.18;
 var tiForHeading = 3.0;
 
-var kpForWingLeveler = 0.5;
+var kpForWingLeveler = 0.8;
 
 var kpForGSHold = -0.018;
 

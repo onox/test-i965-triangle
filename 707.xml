@@ -489,8 +489,8 @@
         </aerosurface_scale>
 
      </channel>
+     
      <channel name="Yaw">
-
         <summer name="Rudder Command Sum">
             <input>fcs/rudder-cmd-norm</input>
             <input>fcs/yaw-trim-cmd-norm</input>
@@ -517,8 +517,8 @@
             </range>
             <output>fcs/rudder-pos-norm</output>
         </aerosurface_scale>
-
      </channel>
+     
      <channel name="Aeromechanical">
 
 			<kinematic name="Flaps Control">
@@ -910,7 +910,7 @@
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
-           <value>0.01</value>
+           <value>0.008</value>
        </product>
     </function>
 

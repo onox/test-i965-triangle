@@ -42,9 +42,9 @@
     <object-name>engineSupport</object-name>
     <object-name>slats</object-name>
     <object-name>lhngdoor</object-name>
-    <object-name>lhngdoorafter</object-name>
+    <object-name>lhngdooraft</object-name>
     <object-name>rhngdoor</object-name>
-    <object-name>rhngdoorafter</object-name>
+    <object-name>rhngdooraft</object-name>
     <object-name>wing</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
@@ -2233,10 +2233,10 @@ a
   <path>Aircraft/707/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>-15.0</x-m>
-    <y-m>1.73</y-m>
+    <y-m>1.6</y-m>
     <z-m> 0.0</z-m>
     <roll-deg>-10</roll-deg>
-    <heading-deg>0.0</heading-deg>
+    <heading-deg>3.0</heading-deg>
   </offsets>
   <overlay>
     <params>
@@ -2254,7 +2254,7 @@ a
     <y-m>-1.73</y-m>
     <z-m> 0.0</z-m>
     <roll-deg>-10</roll-deg>
-    <heading-deg>180.0</heading-deg>
+    <heading-deg>178.0</heading-deg>
   </offsets>
   <overlay>
     <params>

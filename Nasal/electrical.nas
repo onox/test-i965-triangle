@@ -861,4 +861,16 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 ##########  ATTENTION: The setlistener for the /engines/engine[x]/running you will find in the autostart.nas
 
-
+# switch back the lights, if there is now power on ess-bus
+setlistener("/controls/lighting/landing-light", func {
+    var bat = getprop("/b707/ess-bus") or 0;
+    if(bat < 20) setprop("/controls/lighting/landing-light", 0);
+});
+setlistener("/controls/lighting/landing-light[1]", func {
+    var bat = getprop("/b707/ess-bus") or 0;
+    if(bat < 20) setprop("/controls/lighting/landing-light[1]", 0);
+});
+setlistener("/controls/lighting/landing-light[2]", func {
+    var bat = getprop("/b707/ess-bus") or 0;
+    if(bat < 20) setprop("/controls/lighting/landing-light[2]", 0);
+});

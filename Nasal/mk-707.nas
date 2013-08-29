@@ -369,7 +369,7 @@ var mag_control = func {
 	var mag_selected = getprop("/instrumentation/compass-control/mag") or 0;
 	if( mag_selected ) {
 		interpolate("/instrumentation/heading-indicator/offset-deg", 0, 0.25);
-		settimer( mag_control, 82.5);
+		settimer( mag_control, 122.5);
 	}
 }
 
@@ -377,7 +377,7 @@ var mag_control2 = func {
 	var mag_selected2 = getprop("/instrumentation/compass-control[1]/mag") or 0;
 	if( mag_selected2 ) {
 		interpolate("/instrumentation/heading-indicator[1]/offset-deg", 0, 0.20);
-		settimer( mag_control2, 81.5);
+		settimer( mag_control2, 121.5);
 	}
 }
 

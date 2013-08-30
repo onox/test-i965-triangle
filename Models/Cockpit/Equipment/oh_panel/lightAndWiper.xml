@@ -12,7 +12,8 @@
 		<object-name>sockle.004</object-name>		
 		<object-name>sockle.005</object-name>		
 		<object-name>sockle.006</object-name>		
-		<object-name>sockle.007</object-name>	
+		<object-name>sockle.007</object-name>		
+		<object-name>sockle.008</object-name>
 		<object-name>lightTurn</object-name>
 		<object-name>lightTurn.001</object-name>
 		<object-name>lightTurn.002</object-name>
@@ -38,7 +39,8 @@
 		<object-name>switch.004</object-name>		
 		<object-name>switch.005</object-name>		
 		<object-name>switch.006</object-name>		
-		<object-name>switch.007</object-name>	
+		<object-name>switch.007</object-name>		
+		<object-name>switch.008</object-name>
 		<condition>	
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -55,7 +57,7 @@
       <type>rotate</type>
       <object-name>switch</object-name>
       <object-name>switch.001</object-name>
-      <property>/controls/lighting/landing-light</property>
+      <property>/controls/lighting/switches/landing-light</property>
       <factor>50</factor>
       <axis>
        <x>0</x>
@@ -80,7 +82,7 @@
           <repeatable>false</repeatable>
           <binding>
             <command>property-toggle</command>
-            <property>/controls/lighting/landing-light</property>
+            <property>/controls/lighting/switches/landing-light</property>
           </binding>		
           <binding>
             <command>property-toggle</command>
@@ -94,7 +96,7 @@
       <type>rotate</type>
       <object-name>switch.002</object-name>
       <object-name>switch.003</object-name>
-      <property>/controls/lighting/landing-light[1]</property>
+      <property>/controls/lighting/switches/landing-light[1]</property>
       <factor>50</factor>
       <axis>
        <x>0</x>
@@ -119,7 +121,7 @@
           <repeatable>false</repeatable>
           <binding>
             <command>property-toggle</command>
-      		<property>/controls/lighting/landing-light[1]</property>
+      		<property>/controls/lighting/switches/landing-light[1]</property>
           </binding>		
           <binding>
             <command>property-toggle</command>
@@ -132,7 +134,7 @@
   <animation>
       <type>rotate</type>
       <object-name>switch.004</object-name>
-      <property>/controls/lighting/nav-lights</property>
+      <property>/controls/lighting/switches/nav-lights</property>
       <factor>50</factor>
       <axis>
        <x>0</x>
@@ -155,7 +157,7 @@
           <repeatable>false</repeatable>
           <binding>
             <command>property-toggle</command>
-      		<property>/controls/lighting/nav-lights</property>
+      		<property>/controls/lighting/switches/nav-lights</property>
           </binding>		
           <binding>
             <command>property-toggle</command>
@@ -168,7 +170,7 @@
   <animation>
       <type>rotate</type>
       <object-name>switch.005</object-name>
-      <property>/controls/lighting/beacon</property>
+      <property>/controls/lighting/switches/beacon</property>
       <factor>50</factor>
       <axis>
        <x>0</x>
@@ -191,7 +193,7 @@
           <repeatable>false</repeatable>
           <binding>
             <command>property-toggle</command>
-      		<property>/controls/lighting/beacon</property>
+      		<property>/controls/lighting/switches/beacon</property>
           </binding>		
           <binding>
             <command>property-toggle</command>
@@ -204,7 +206,7 @@
   <animation>
       <type>rotate</type>
       <object-name>switch.006</object-name>
-      <property>/controls/lighting/strobe</property>
+      <property>/controls/lighting/switches/strobe</property>
       <factor>50</factor>
       <axis>
        <x>0</x>
@@ -227,7 +229,7 @@
           <repeatable>false</repeatable>
           <binding>
             <command>property-toggle</command>
-      		<property>/controls/lighting/strobe</property>
+      		<property>/controls/lighting/switches/strobe</property>
           </binding>		
           <binding>
             <command>property-toggle</command>
@@ -240,7 +242,7 @@
   <animation>
       <type>rotate</type>
       <object-name>switch.007</object-name>
-      <property>/controls/lighting/landing-light[2]</property>
+      <property>/controls/lighting/switches/landing-light[2]</property>
       <factor>50</factor>
       <axis>
        <x>0</x>
@@ -263,7 +265,43 @@
           <repeatable>false</repeatable>
           <binding>
             <command>property-toggle</command>
-      		<property>/controls/lighting/landing-light[2]</property>
+      		<property>/controls/lighting/switches/landing-light[2]</property>
+          </binding>		
+          <binding>
+            <command>property-toggle</command>
+            <property>/sim/sound/switch1</property>
+          </binding>		
+      </action>
+  </animation>
+  
+	<!-- Logo light -->
+  <animation>
+      <type>rotate</type>
+      <object-name>switch.008</object-name>
+      <property>/controls/lighting/switches/logo-lights</property>
+      <factor>50</factor>
+      <axis>
+       <x>0</x>
+       <y>1</y>
+       <z>0</z>
+      </axis>
+      <center>
+      <x-m> 0.0</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.279</z-m>
+      </center>  
+  </animation>
+
+  <animation>
+      <type>pick</type>
+      <object-name>switch.008</object-name>
+      <object-name>sockle.008</object-name>		
+      <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+      			<property>/controls/lighting/switches/logo-lights</property>
           </binding>		
           <binding>
             <command>property-toggle</command>

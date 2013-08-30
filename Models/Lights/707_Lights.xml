@@ -30,7 +30,9 @@
   <object-name>Strobes</object-name>
   <object-name>Spot</object-name>
   <object-name>Spot.001</object-name>
- 	<object-name>Spot.002</object-name>	
+ 	<object-name>Spot.002</object-name>
+  <object-name>lightconeRudderL</object-name>
+ 	<object-name>lightconeRudderR</object-name>	
 	<nopreview/>
 </animation>
 
@@ -75,6 +77,8 @@
 	<object-name>LightBall</object-name>
   <object-name>Strobes</object-name>
   <object-name>CabinWindows</object-name>	
+  <object-name>lightconeRudderL</object-name>
+ 	<object-name>lightconeRudderR</object-name>
 </animation>
 
 <!-- working for Rembrandt -->
@@ -107,7 +111,9 @@
   <object-name>Spot.001</object-name>
  	<object-name>Spot.002</object-name>	
   <object-name>Strobes</object-name>
-  <object-name>CabinWindows</object-name>		
+  <object-name>CabinWindows</object-name>
+  <object-name>lightconeRudderL</object-name>
+ 	<object-name>lightconeRudderR</object-name>		
 </effect>
 
 <!-- Landing and Search Light fake cone - disable in rembrand  -->
@@ -445,6 +451,28 @@
 	</condition>
 </animation>
 
+<animation>
+	<type>select</type>
+  <object-name>lightconeRudderL</object-name>
+	<condition>
+		<and>
+			<property>/sim/rendering/rembrandt/enabled</property>
+		  <property>sim/multiplay/generic/int[7]</property>
+		</and>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+  <object-name>lightconeRudderR</object-name>
+	<condition>
+		<and>
+			<property>/sim/rendering/rembrandt/enabled</property>
+		  <property>sim/multiplay/generic/int[7]</property>
+		</and>
+	</condition>
+</animation>
+
 <!-- Rembrand lights -->
 	<!-- Nav light back -->
 	<animation>
@@ -663,6 +691,83 @@
 		<far-m>36</far-m>
 		<cutoff>150</cutoff>
 	</animation>
+	
+	<!-- Logo light -->
+	<animation>
+		<type>light</type>
+		<light-type>spot</light-type>
+		<name>LogoLight</name>
+		<object-name>lightconeRudderL</object-name>
+		<position>
+			<x>21.19</x>
+			<y>-2.69</y>
+			<z> 1.79</z>
+		</position>
+		<direction>
+			<x>-0.3</x>
+			<y> 1.0</y>
+			<z> 1.0</z>
+		</direction>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>0.002</l>
+			<q>0.00005</q>
+		</attenuation>
+		<exponent>1</exponent>
+		<near-m>0.01</near-m>
+		<far-m>10</far-m>
+		<cutoff>40</cutoff>
+	</animation>
+	
+	<animation>
+		<type>light</type>
+		<light-type>spot</light-type>
+		<name>LogoLight</name>
+		<object-name>lightconeRudderR</object-name>
+		<position>
+			<x>21.19</x>
+			<y> 2.69</y>
+			<z> 1.79</z>
+		</position>
+		<direction>
+			<x>-0.3</x>
+			<y>-1.0</y>
+			<z> 1.0</z>
+		</direction>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>0.002</l>
+			<q>0.00005</q>
+		</attenuation>
+		<exponent>1</exponent>
+		<near-m>0.01</near-m>
+		<far-m>10</far-m>
+		<cutoff>40</cutoff>
+	</animation>	
 	
 	<!-- Landing light right-->
 	<animation>

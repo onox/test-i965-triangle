@@ -57,6 +57,9 @@ var listenerApPB20ActiveFunc = func {
 setlistener("/autopilot/Bendix-PB-20/controls/active", listenerApPB20ActiveFunc);
 
 # Mode-selector
+#
+# !!! FEHLER: bei zurückschalten von Mode 4,5 auf 3,2,1 bleibt GS eingeschaltet anstatt ALT (bei eingeschaltetem Alt-Switch) !!!
+#
 var listenerApPB20ModeFunc = func {
 
 	if (	getprop("/autopilot/Bendix-PB-20/mutex") == "" or
@@ -93,6 +96,9 @@ var listenerApPB20ModeFunc = func {
 			if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 0) {
 				setprop("/autopilot/locks/altitude", "");
 			}
+			else {
+				setprop("/autopilot/locks/altitude", "altitude-hold");
+			}
 			setprop("/autopilot/locks/passive-mode", 0);
 		}
 		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
@@ -111,6 +117,9 @@ var listenerApPB20ModeFunc = func {
 
 				setprop("/autopilot/locks/altitude", "pitch-hold");
 			}
+			else {
+				setprop("/autopilot/locks/altitude", "altitude-hold");
+			}
 
 			# resets
 			setprop("/autopilot/locks/passive-mode", 0);
@@ -124,6 +133,9 @@ var listenerApPB20ModeFunc = func {
 			if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 0) {
 				setprop("/autopilot/locks/altitude", "");
 			}
+			else {
+				setprop("/autopilot/locks/altitude", "altitude-hold");
+			}
 			setprop("/autopilot/locks/passive-mode", 0);
 		}
 		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 4) {
@@ -134,6 +146,7 @@ var listenerApPB20ModeFunc = func {
 
 			# resets
 			setprop("/autopilot/locks/passive-mode", 0);
+			setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);
 		}
 		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 5) {
 			# GS MAN - Mode
@@ -141,6 +154,9 @@ var listenerApPB20ModeFunc = func {
 			setprop("/autopilot/locks/heading", "nav1-hold");
 			if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 0) {
 				setprop("/autopilot/locks/altitude", "");
+			}
+			else {
+				setprop("/autopilot/locks/altitude", "altitude-hold");
 			}
 
 			gsMANAltControl();
@@ -251,7 +267,7 @@ setlistener("/autopilot/Bendix-PB-20/controls/alt-active", listenerApPB20AltFunc
 listenerApPB20SetHeadingFunc = func {
 
 	if (	getprop("/autopilot/Bendix-PB-20/mutex") == "" or
-		getprop("/autopilot/Bendix-PB-20/mutex") == "PASSIVE" ) {
+		getprop("/autopilot/Bendix-PB-20/mutex") == "PASSIVE") {
 		bendixPB20MutexSet("HEADING");
 	}
 	else {
@@ -292,7 +308,8 @@ setlistener("/autopilot/locks/passive-mode", listenerApPB20SetPassiveModeFunc);
 
 listenerApPB20SetAltitudeFunc = func {
 
-	if (getprop("/autopilot/Bendix-PB-20/mutex") == "") {
+	if (	getprop("/autopilot/Bendix-PB-20/mutex") == "" or
+		getprop("/autopilot/Bendix-PB-20/mutex") == "PASSIVE") {
 		bendixPB20MutexSet("ALT");
 	}
 	else {

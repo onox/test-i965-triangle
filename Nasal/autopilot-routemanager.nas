@@ -11,9 +11,9 @@
 var kpForHeadingDeg = -2.3;
 var kpForHeading = 0.18;
 var tiForHeading = 3.0;
-
-var kpForWingLeveler = 0.8;
-
+var kpForWingLeveler = 0.85;
+var kpForAltHold = 0.03;
+var kpForPitchHold = -0.05;
 var kpForGSHold = -0.018;
 
 # 707 needs about 180 seconds (at speed 250 kts) fo a 180° turn, much more than a theoretical standard-turn
@@ -71,13 +71,35 @@ var getTotalLbs = func {
 }
 
 # switch-functions
+var listenerApAltHoldSwitchFunc = func {
+
+	if (getprop("/autopilot/locks/altitude") == "altitude-hold") {
+
+		#print ("-> listenerApAltHoldSwitchFunc -> installed");
+		setprop("/autopilot/internal/target-kp-for-alt-hold", (kpForAltHold * 0.05));
+		interpolate("/autopilot/internal/target-kp-for-alt-hold", kpForAltHold, 12);
+	}
+}
+setlistener("/autopilot/locks/altitude", listenerApAltHoldSwitchFunc);
+
+var listenerApPitchHoldSwitchFunc = func {
+
+	if (getprop("/autopilot/locks/altitude") == "pitch-hold") {
+
+		#print ("-> listenerApPitchHoldSwitchFunc -> installed");
+		setprop("/autopilot/internal/target-kp-for-pitch-hold", (kpForPitchHold * 0.05));
+		interpolate("/autopilot/internal/target-kp-for-pitch-hold", kpForPitchHold, 8);
+	}
+}
+setlistener("/autopilot/locks/altitude", listenerApPitchHoldSwitchFunc);
+
 var listenerApWingLevelerSwitchFunc = func {
 
-	if (getprop("/autopilot/locks/heading") == "wing-leveller") {
+	if (getprop("/autopilot/locks/heading") == "wing-leveler") {
 
 		#print ("-> listenerApWingLevelerSwitchFunc -> installed");
 		setprop("/autopilot/internal/target-kp-for-wing-leveler", (kpForWingLeveler * 0.05));
-		interpolate("/autopilot/internal/target-kp-for-wing-leveler", kpForWingLeveler, 5);
+		interpolate("/autopilot/internal/target-kp-for-wing-leveler", kpForWingLeveler, 1);
 	}
 }
 setlistener("/autopilot/locks/heading", listenerApWingLevelerSwitchFunc);

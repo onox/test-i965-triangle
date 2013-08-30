@@ -47,6 +47,12 @@
     <object-name>lhngdooraft</object-name>
     <object-name>rhngdoor</object-name>
     <object-name>rhngdooraft</object-name>
+    <object-name>mgdoora</object-name>
+    <object-name>mgdoorb</object-name>
+    <object-name>mgdoorc</object-name>
+    <object-name>rhmgdoora</object-name>
+    <object-name>rhmgdoorb</object-name>
+    <object-name>rhmgdoorc</object-name>
     <object-name>wing</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>

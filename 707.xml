@@ -1077,15 +1077,18 @@
 		   <switch name="impact">
 		   		  <test logic="AND" value="1">
 		              velocities/mach gt 0.2
-		              position/h-agl-ft lt 6.0
+		              position/h-agl-ft lt 6.0 
+		              position/h-agl-ft gt 1.0   <!-- between EHAM and England there is h-agl-ft to 0 -->
 		              simulation/sim-time-sec gt 1.0
 		        </test>
 		   		  <test logic="AND" value="1">
 		              position/h-agl-ft lt 5.0
+		              position/h-agl-ft gt 1.0   <!-- between EHAM and England there is h-agl-ft to 0 -->
 		              simulation/sim-time-sec gt 1.0
 		        </test>
 		   		  <test logic="AND" value="1">
 		              position/h-agl-ft lt 6.5
+		              position/h-agl-ft gt 1.0   <!-- between EHAM and England there is h-agl-ft to 0 -->
 		              /b707/over-water != 0
 		              simulation/sim-time-sec gt 1.0
 		        </test>

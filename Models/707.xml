@@ -41,6 +41,10 @@
     <object-name>engineTwo</object-name>
     <object-name>engineThree</object-name>
     <object-name>engineFour</object-name>
+    <object-name>engineOnePW</object-name>
+    <object-name>engineTwoPW</object-name>
+    <object-name>engineThreePW</object-name>
+    <object-name>engineFourPW</object-name>
     <object-name>engineSupport</object-name>
     <object-name>slats</object-name>
     <object-name>lhngdoor</object-name>
@@ -292,8 +296,6 @@
   <!-- if crashed -->
 	<animation>
 		<type>select</type>
-		<object-name>engineOne</object-name>
-		<object-name>engineThree</object-name>  
 		<object-name>rhfiletflap</object-name>
   	<object-name>rhibflap</object-name>
   	<object-name>lhobflap</object-name>
@@ -1720,7 +1722,7 @@
     <z2-m>  0.46</z2-m>
   </axis>
  </animation>  
-a
+
  <animation>
   <type>rotate</type>
   <object-name>rhsp3</object-name>   
@@ -1788,6 +1790,87 @@ a
 		  <z-m> -0.647</z-m>
 		</offsets>
 	</model>
+
+  <!-- crashed or pratt and whitney engines -->	
+	<animation>
+		<type>select</type>
+		<object-name>engineOne</object-name>
+		<object-name>engineThree</object-name>  
+		<condition>
+			<not><property>sim/multiplay/generic/int[8]</property></not>
+			<not><property>sim/multiplay/generic/int[19]</property></not>
+		</condition>	
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>engineTwo</object-name>
+		<object-name>engineFour</object-name>  
+		<condition>
+			<not><property>sim/multiplay/generic/int[8]</property></not>
+		</condition>	
+	</animation>
+
+ <!--Pratt and Whitney JT4 engines -->
+	<model>
+		<name>engineOnePW</name>
+		<path>Aircraft/707/Models/PWJT4_1.xml</path>
+		<offsets>
+		  <x-m>  2.47</x-m>
+		  <y-m>-14.835</y-m>
+		  <z-m> -0.73</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>engineTwoPW</name>
+		<path>Aircraft/707/Models/PWJT4_2.xml</path>
+		<offsets>
+		  <x-m> -1.18</x-m>
+		  <y-m>-10.077</y-m>
+		  <z-m> -1.18</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>engineThreePW</name>
+		<path>Aircraft/707/Models/PWJT4_3.xml</path>
+		<offsets>
+		  <x-m> -1.18</x-m>
+		  <y-m> 10.077</y-m>
+		  <z-m> -1.18</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>engineFourPW</name>
+		<path>Aircraft/707/Models/PWJT4_4.xml</path>
+		<offsets>
+		  <x-m>  2.47</x-m>
+		  <y-m> 14.835</y-m>
+		  <z-m> -0.73</z-m>
+		</offsets>
+	</model>
+	
+  <!-- crashed or pratt and whitney engines selected -->	
+	<animation>
+		<type>select</type>
+		<object-name>engineOnePW</object-name>
+		<object-name>engineThreePW</object-name>  
+		<condition>
+			<property>sim/multiplay/generic/int[8]</property>
+			<not><property>sim/multiplay/generic/int[19]</property></not>
+		</condition>	
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>engineTwoPW</object-name>
+		<object-name>engineFourPW</object-name>  
+		<condition>
+			<property>sim/multiplay/generic/int[8]</property>
+		</condition>	
+	</animation>
 	
 	<model>
 		<name>ExternalLights</name>

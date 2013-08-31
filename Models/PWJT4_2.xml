@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <PropertyList>
- <path>RCo10.ac</path>
+ <path>PWJT4.ac</path>
   
 	<animation>
 		<type>spin</type>
@@ -21,6 +21,42 @@
 		 <z>0</z>
 		</axis>
 	</animation>
+		
+  <animation>
+      <type>translate</type>
+      <object-name>engineCowlCenter</object-name>
+      <property>sim/multiplay/generic/float[14]</property>
+      <factor>0.2</factor>
+      <axis>
+          <x> 1.0</x>
+          <y> 0.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+      <type>translate</type>
+      <object-name>engineCowlRear</object-name>
+      <property>sim/multiplay/generic/float[14]</property>
+      <factor>0.25</factor>
+      <axis>
+          <x> 1.0</x>
+          <y> 0.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+
+  <animation>
+      <type>translate</type>
+      <object-name>engineCowlFront</object-name>
+      <property>sim/multiplay/generic/float[14]</property>
+      <factor>0.4</factor>
+      <axis>
+          <x> 1.0</x>
+          <y> 0.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>  
 	
 	<animation>
 	<type>select</type>

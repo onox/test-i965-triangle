@@ -4,14 +4,14 @@
 <sim>
     <model>
         <livery>
-            <name type="string">Boeing 707-420</name>
-            <texture>707.png</texture>
+            <name type="string">Qantas</name>
+            <texture>Liveries/Qantas.png</texture>
         </livery>
     </model>
     <multiplay>
     	<generic>
-    		<int n="8">1</int>   <!-- engine type -->
-    		<int n="16">0</int>  <!-- immat position -->
+    		<int n="8">0</int>   <!-- engine type -->
+    		<int n="16">1</int>  <!-- immat position -->
     	</generic>
     </multiplay>
 </sim>

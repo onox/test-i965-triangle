@@ -8,6 +8,11 @@
             <texture>Liveries/LHC.png</texture>
         </livery>
     </model>
+    <multiplay>
+    	<generic>
+    		<int n="8">0</int>   <!-- engine type -->
+    		<int n="16">1</int>  <!-- immat position -->
+    	</generic>
+    </multiplay>
 </sim>
-<b707><immat-rudder>1</immat-rudder></b707>
 </PropertyList>

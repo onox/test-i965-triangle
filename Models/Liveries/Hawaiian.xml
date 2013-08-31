@@ -8,6 +8,11 @@
             <texture>Liveries/Hawaiian.png</texture>
         </livery>
     </model>
+    <multiplay>
+    	<generic>
+    		<int n="8">1</int>   <!-- engine type -->
+    		<int n="16">0</int>  <!-- immat position -->
+    	</generic>
+    </multiplay>
 </sim>
-<b707><immat-rudder>0</immat-rudder></b707>
 </PropertyList>

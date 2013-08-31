@@ -227,10 +227,11 @@
 			<int n="5" alias="/controls/lighting/strobe-state/state"/>										<!-- Strobe -->
 			<int n="6" alias="/controls/special/tyresmoke"/>															<!-- tyresmoke -->
 			<int n="7" alias="/controls/lighting/logo-lights"/> 														<!-- logo-light -->
+			<int n="8" type="int">0</int>														<!-- select engines type -->
 			<!-- int [7] - [13] was for the old registration system. -->
 			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power-VW Kombi -->
       <int n="15" type="int">0</int> <!-- jettison fuel 1 = left, 2 = right, 3 = both -->
-      <int n="16" alias="/b707/immat-rudder"/> <!-- immat on the rudder or on fuselage -->
+      <int n="16" type="int">0</int> <!-- immat on the rudder or on fuselage -->
       <int n="17" type="int">0</int> <!-- fire 1 = eng 1, 2 = eng 2, 3 = both -->
       <int n="18" type="int">0</int> <!-- fire 1 = eng 3, 2 = eng 4, 3 = both -->
       <int n="19" alias="/b707/crashed"/>
@@ -248,6 +249,7 @@
       <float n="11" alias="/b707/anti-ice/window-alpha-capt"/> <!-- the icing on the windshield -->
 			<float n="12" alias="/instrumentation/doors/nose/position-norm"/>							<!-- Nose -->
 			<float n="13" alias="/b707/ground-service/state"/>							<!-- iluminate the groundservice -->
+			<float n="14" alias="/engines/engine/reverser-pos-norm"/>							<!-- multiplayer see the cowl flaps -->
 			<string n="0" alias="/sim/multiplay/callsign"/>					<!-- registration -->
     </generic>
   </multiplay>
@@ -437,6 +439,8 @@
 		<ap-loop type="bool">0</ap-loop>
 		<compass-pos type="double">1.0</compass-pos> <!-- compass is closed -->
 		<over-water type="bool">0</over-water>
+		<immat-rudder type="bool">0</immat-rudder>
+		<pratt-whitney-engines type="bool">0</pratt-whitney-engines>
   </b707>
   
 	<payload>

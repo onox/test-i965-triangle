@@ -50,6 +50,8 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("/autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
 	setprop("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold);
 	setprop("/autopilot/internal/gs-in-range", 0);
+
+	setprop("/autopilot/internal/yaw-damper", 0);
 }
 setlistener("/sim/signals/fdm-initialized", listenerApRouteManagerInitFunc);
 

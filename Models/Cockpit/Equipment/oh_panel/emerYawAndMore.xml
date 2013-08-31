@@ -101,10 +101,7 @@
 					<value>20</value>
 				</greater-than>
 				<or>
-					<and>
-       			<property>/autopilot/switches/ap</property>
-						<property>/b707/yaw-damper-switch</property>
-					</and>
+					<property>/autopilot/internal/yaw-damper</property>
 		    	<property>/controls/test/warn-knob</property>
 		    </or>
 		  </and>
@@ -503,7 +500,7 @@
 	<animation>
 		  <type>rotate</type>
 		  <object-name>switch.004</object-name>
-		  <property>/b707/yaw-damper-switch</property>
+		  <property>/autopilot/internal/yaw-damper</property>
 		 	<interpolation>
 				<entry><ind>  0.0</ind><dep>  0.0</dep></entry>
 				<entry><ind>  1.0</ind><dep> 90.0</dep></entry>
@@ -529,7 +526,7 @@
 		    <repeatable>false</repeatable>
         <binding>
 		      <command>property-toggle</command>
-		      <property>/b707/yaw-damper-switch</property>
+		      <property>/autopilot/internal/yaw-damper</property>
         </binding>
 		    <binding>
 		      <command>property-toggle</command>

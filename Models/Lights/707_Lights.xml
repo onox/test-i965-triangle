@@ -16,14 +16,13 @@
   <object-name>LightBeaconGlow</object-name>	
   <object-name>LightTaxiGlowH</object-name>
   <object-name>LightTaxiGlowH.001</object-name>
-  <object-name>LightTaxiGlowH.002</object-name>  
+  <object-name>LightTaxiGlowH.002</object-name>
   <object-name>LightTailGlow</object-name>
   <object-name>LightNavGlowL</object-name>
   <object-name>LightNavGlowR</object-name>
 	<object-name>LightVolume</object-name>
 	<object-name>LightVolume.001</object-name>
 	<object-name>LightVolume.002</object-name>
-	<object-name>LightBall</object-name>
   <object-name>Cone-texture</object-name>
   <object-name>Cone-texture.001</object-name>
   <object-name>Cone-texture.002</object-name>
@@ -388,7 +387,6 @@
 <animation>
 	<type>select</type>
 	<object-name>LightVolume</object-name>
-	<object-name>LightBall</object-name>
 	<condition>
 		<and>
 			<property>sim/rendering/rembrandt/enabled</property>
@@ -648,50 +646,6 @@
 		<cutoff>40</cutoff>
 	</animation>
 	
-	<animation>
-		<type>light</type>
-		<light-type>point</light-type>
-		<name>LandingLightBall</name>
-		<object-name>LightBall</object-name>
-		<position>
-			<x>-18.8</x>
-			<y>  0.0</y>
-			<z>-1.51</z>
-		</position>
-		<direction>
-			<x> 1.0</x>
-			<y> 0.0</y>
-			<z> 0.0</z>
-		</direction>
-		<ambient>
-			<r>0.99</r>
-			<g>0.99</g>
-			<b>0.96</b>
-			<a>1.0</a>
-		</ambient>
-		<diffuse>
-			<r>0.99</r>
-			<g>0.99</g>
-			<b>0.96</b>
-			<a>1.0</a>
-		</diffuse>
-		<specular>
-			<r>0.99</r>
-			<g>0.99</g>
-			<b>0.96</b>
-			<a>1.0</a>
-		</specular>
-		<attenuation>
-			<c>1.0</c>
-			<l>0.0</l>
-			<q>0.75</q>
-		</attenuation>
-		<exponent>3</exponent>
-		<near-m>0.01</near-m>
-		<far-m>36</far-m>
-		<cutoff>150</cutoff>
-	</animation>
-	
 	<!-- Logo light -->
 	<animation>
 		<type>light</type>
@@ -776,14 +730,14 @@
 		<name>LandinglightRight</name>
 		<object-name>LightVolume.001</object-name>
 		<position>
-			<x>-3.77</x>
-			<y> 6.76</y>
-			<z>-0.09</z>
+			<x>-10.0</x>
+			<y> 3.92</y>
+			<z>-0.68</z>
 		</position>
 		<direction>
-			<x>-600.0</x>
-			<y>   0.0</y>
-			<z>   0.0</z>
+			<x>-1.0</x>
+			<y> 0.0</y>
+			<z> 0.0</z>
 		</direction>
 		<diffuse>
 			<r>1.0</r>
@@ -815,14 +769,14 @@
 		<name>LandinglightLeft</name>
 		<object-name>LightVolume.002</object-name>
 		<position>
-			<x>-3.77</x>
-			<y>-6.76</y>
-			<z>-0.09</z>
+			<x>-10.0</x>
+			<y>-3.92</y>
+			<z>-0.68</z>
 		</position>
 		<direction>
-			<x>-600.0</x>
-			<y>   0.0</y>
-			<z>   0.0</z>
+			<x>-1.0</x>
+			<y> 0.0</y>
+			<z> 0.0</z>
 		</direction>
 		<diffuse>
 			<r>1.0</r>

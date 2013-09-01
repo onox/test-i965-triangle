@@ -226,8 +226,8 @@
 			<int n="4" alias="/controls/lighting/beacon-state/state"/>										<!-- beacon -->
 			<int n="5" alias="/controls/lighting/strobe-state/state"/>										<!-- Strobe -->
 			<int n="6" alias="/controls/special/tyresmoke"/>															<!-- tyresmoke -->
-			<int n="7" alias="/controls/lighting/logo-lights"/> 														<!-- logo-light -->
-			<int n="8" type="int">0</int>														<!-- select engines type -->
+			<int n="7" alias="/controls/lighting/logo-lights"/> 													<!-- logo-light -->
+			<int n="8" type="int">0</int>																									<!-- select engines type -->
 			<!-- int [7] - [13] was for the old registration system. -->
 			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power-VW Kombi -->
       <int n="15" type="int">0</int> <!-- jettison fuel 1 = left, 2 = right, 3 = both -->

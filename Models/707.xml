@@ -424,7 +424,13 @@
 		<type>select</type>
 		<object-name>EmergencySlide</object-name>
 		<condition>
-			<property>sim/multiplay/generic/int[19]</property>
+			<and>
+				<property>sim/multiplay/generic/int[19]</property>
+				<less-than>
+						<property>/velocities/groundspeed-kt</property>
+						<value>0.2</value>
+				</less-than>
+			</and>
 		</condition>	
 	</animation>
 

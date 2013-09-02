@@ -1,8 +1,9 @@
-# Lake of Constance Hangar :: M.Kraus
-# May 2013
-# This file is licenced under the terms of the GNU General Public Licence V2 or later
-## ENGINES
-##########
+#######################################################################################
+#		Lake of Constance Hangar :: M.Kraus
+#		Boeing 707 for Flightgear Septemper 2013
+#		This file is licenced under the terms of the GNU General Public Licence V2 or later
+#######################################################################################
+
 var run1 = props.globals.getNode("engines/engine[0]/running");
 var run2 = props.globals.getNode("engines/engine[1]/running");
 var run3 = props.globals.getNode("engines/engine[2]/running");

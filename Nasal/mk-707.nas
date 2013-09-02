@@ -842,7 +842,8 @@ settimer( nacelle_deicing, 12); # start first after 12 sec
 var safety_valv_pos = func {
 	setprop("b707/pressurization/safety-valve-pos", 0);
 	setprop("/b707/pressurization/manual-mode-switch", 0);
-	if(getprop("b707/pressurization/safety-valve")){ 
+	var svs = getprop("b707/pressurization/safety-valve") or 0;
+	if(svs){ 
 		settimer( func { setprop("b707/pressurization/safety-valve-pos", 1) }, 2.1 );
 	}
 }

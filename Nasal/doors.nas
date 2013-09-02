@@ -1,6 +1,8 @@
-# =====
-# Doors
-# =====
+#######################################################################################
+#		Lake of Constance Hangar :: M.Kraus
+#		Boeing 707 for Flightgear Septemper 2013
+#		This file is licenced under the terms of the GNU General Public Licence V2 or later
+#######################################################################################
 
 Doors = {};
 
@@ -16,11 +18,25 @@ Doors.new = func {
 };
 
 Doors.pilotwinexport = func {
-   me.pilotwin.toggle();
+   me.pilotwin.toggle();	
+   
+   # if sombody open the cockpit windows in flight
+   var speed = getprop("/velocities/groundspeed-kt") or 0;
+   var alt = getprop("/position/altitude-agl-ft") or 0;
+	 if(speed > 200){	 	 
+	 	 setprop("b707/pressurization/safety-valve", 0);
+	 	 setprop("/b707/pressurization/cabin-altitude", alt);
+	 }
 }
 
 Doors.copilotwinexport = func {
-   me.copilotwin.toggle();
+   me.copilotwin.toggle();   
+   # if sombody open the cockpit windows in flight
+   var speed = getprop("/velocities/groundspeed-kt") or 0;
+	 if(speed > 200){
+	 	 setprop("b707/pressurization/safety-valve", 0);
+	 	 setprop("/b707/pressurization/cabin-altitude", alt);
+	 }
 }
 
 Doors.pasfrontexport = func {

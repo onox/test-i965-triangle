@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Boeing 707 for Flightgear Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
 <?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
 <fdm_config name="707" version="2.0" release="ALPHA"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,7 +13,7 @@
  <fileheader>
   <author>M.Kraus :: Lake of Constance Hangar</author>
   <filecreationdate>2013-04-24</filecreationdate>
-  <version>1.1.4</version>
+  <version>1.1.5</version>
   <description>Boeing 707 with Rolls Royce Conway RCo12/MK508 engines</description>
  </fileheader>
 
@@ -139,7 +145,7 @@
      <y>   0.00 </y>
      <z> -114.00 </z>
    </location>
-    <static_friction>  0.80 </static_friction>
+    <static_friction>  0.55 </static_friction>
     <dynamic_friction> 0.50 </dynamic_friction>
     <rolling_friction> 0.02 </rolling_friction>
     <spring_coeff unit="LBS/FT"> 90000 </spring_coeff>
@@ -165,7 +171,7 @@
      <y> -98.81 </y>
      <z> -116.3 </z>
    </location>
-   <static_friction>  0.80 </static_friction>
+   <static_friction>  0.55 </static_friction>
    <dynamic_friction> 0.70 </dynamic_friction>
    <rolling_friction> 0.04 </rolling_friction>
    <spring_coeff unit="LBS/FT">     230000.00 </spring_coeff>
@@ -181,7 +187,7 @@
      <y> 98.81 </y>
      <z> -116.3 </z>
    </location>
-   <static_friction>  0.80 </static_friction>
+   <static_friction>  0.55 </static_friction>
    <dynamic_friction> 0.70 </dynamic_friction>
    <rolling_friction> 0.04 </rolling_friction>
    <spring_coeff unit="LBS/FT">     230000.00 </spring_coeff>
@@ -197,7 +203,7 @@
      <y>   0.00 </y>
      <z> -50.00 </z>
     </location>
-    <static_friction>  0.80 </static_friction>
+    <static_friction>  0.55 </static_friction>
     <dynamic_friction> 0.50 </dynamic_friction>
    <spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>
@@ -209,7 +215,7 @@
      <y> -72.88 </y>
      <z> -43.65 </z>
     </location>
-    <static_friction>  0.80 </static_friction>
+    <static_friction>  0.55 </static_friction>
     <dynamic_friction> 0.50 </dynamic_friction>
    <spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>
@@ -221,7 +227,7 @@
      <y>  72.88 </y>
      <z> -43.65 </z>
     </location>
-    <static_friction>  0.80 </static_friction>
+    <static_friction>  0.55 </static_friction>
     <dynamic_friction> 0.50 </dynamic_friction>
    <spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>

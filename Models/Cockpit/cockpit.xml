@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Boeing 707 for Flightgear Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
 <PropertyList>
  <path>cockpit.ac</path>
  
@@ -581,6 +587,17 @@
 			<not><property>sim/multiplay/generic/int[19]</property></not>
 		</condition>
 	</animation>
+
+	<model>
+		<name>book</name>
+		<path>Aircraft/707/Models/Cockpit/Manual/book.xml</path>
+		<offsets>
+		  <x-m>-17.72</x-m>
+		  <y-m> 0.61</y-m>
+		  <z-m> 0.756</z-m>
+			<heading-deg>10.0</heading-deg>
+		</offsets>
+	</model>
 	
 	<animation>
 		<type>select</type>		
@@ -592,12 +609,14 @@
 			<object-name>engineer-panel-top</object-name>	
 			<object-name>engineer-panel-bottom</object-name>		
 			<object-name>pedestal</object-name>		
-			<object-name>door</object-name>
+			<object-name>door</object-name>	
+			<object-name>book</object-name>
 			<condition>
 		    <property>sim/current-view/internal</property>
 			</condition>
 	</animation>	
-
+	
+	
 	<!-- rudder pedals -->
 	<animation>
 		<type>translate</type>
@@ -712,7 +731,6 @@
 
   <animation>
 		<type>pick</type>
-		<object-name>window.pilot</object-name>
 		<object-name>window.piop</object-name>
 		<action>
 		  <button>0</button>
@@ -812,7 +830,6 @@
 	
   <animation>
 		<type>pick</type>
-		<object-name>window.copilot</object-name>
 		<object-name>window.coop</object-name>
 		<action>
 		  <button>0</button>

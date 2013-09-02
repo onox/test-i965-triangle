@@ -1,14 +1,19 @@
 <?xml version="1.0"?>
-<!--
-  Engine:     			Rolls Royce Conway MK508 RCo12
-  Author:   				M.Kraus with Aero-Matic v 0.82
+<!-- ###################################################################################
+		 Lake of Constance Hangar :: M.Kraus
+		 Septemper 2013
+		 This file is licenced under the terms of the GNU General Public Licence V2 or later
+		 ###################################################################################
 
-  Inputs:
-    name:           MK508
-    type:           turbine
-    thrust:         17500 lb
-    augmented?      no
-    injected?       no
+  	 Engine:     			Rolls Royce Conway MK508 RCo12
+  	 Author:   				M.Kraus with Aero-Matic v 0.82
+
+  	 Inputs:
+    	name:           MK508
+    	type:           turbine
+    	thrust:         17500 lb
+    	augmented?      no
+    	injected?       no
 -->
 <turbine_engine name="MK508">
   <milthrust> 17500.0 </milthrust>

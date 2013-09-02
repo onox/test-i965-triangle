@@ -1,9 +1,15 @@
 <?xml version="1.0"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Boeing 707 for Flightgear Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
 <PropertyList>
  <sim>
   <description>Boeing 707</description>
   <author>707 revamp by the Lake of Constance Hangar [Original from Innis Cunningham]</author>
-  <status>1.1.4</status>
+  <status>1.1.5</status>
   <flight-model>jsb</flight-model>
   <aero>707</aero>
   <virtual-cockpit archive="y">true</virtual-cockpit>
@@ -441,8 +447,22 @@
 		<over-water type="bool">0</over-water>
 		<immat-rudder type="bool">0</immat-rudder>
 		<pratt-whitney-engines type="bool">0</pratt-whitney-engines>
+		<manual>
+			<board type="double">0.0</board>
+			<page type="int">0</page>
+			<title type="string">BOEING</title>
+			<subtitle1 type="string">OPERATION MANUAL</subtitle1>
+			<text1 type="string"></text1>
+			<subtitle2 type="string"></subtitle2>
+			<text2 type="string"></text2>
+			<subtitle3 type="string">MODEL 707 - 420/430</subtitle3>
+			<text3 type="string">FOR FLIGHTGEAR SIMULATION ONLY</text3>
+			<subtitle4 type="string"></subtitle4>
+			<text4 type="string">Lake of Constance Hangar Vol. 1.1.5</text4>
+			<content include="Aircraft/707/Models/Cockpit/Manual/manual.xml"/>
+		</manual>
   </b707>
-  
+
 	<payload>
 		<weight>
 			<name type="string">Crew</name>
@@ -517,6 +537,7 @@
 				<file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
 				<file>Aircraft/707/Nasal/tcas.nas</file>
 				<file>Aircraft/707/Nasal/registration.nas</file>
+				<file>Aircraft/707/Nasal/manual.nas</file>
 		    <!-- <script><![CDATA[ gui.menuEnable("autopilot",0); ]]></script> -->
 			</b707> 
 			<view>

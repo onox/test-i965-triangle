@@ -72,6 +72,19 @@ var getTotalLbs = func {
 		getprop("/payload/weight[6]/weight-lb") );
 }
 
+# yaw damper
+var yawDamperRudderTrimPrev = getprop("/controls/flight/rudder-trim");
+var yawDamperFunc = func {
+	if (getprop("/autopilot/internal/yaw-damper") == 0) {
+		# reset rudder-trim to previous value
+		interpolate("/controls/flight/rudder-trim", yawDamperRudderTrimPrev, 3);
+	}
+	else {
+		yawDamperRudderTrimPrev = getprop("/controls/flight/rudder-trim");
+	}
+}
+setlistener("/autopilot/internal/yaw-damper", yawDamperFunc);
+
 # switch-functions
 var listenerApAltHoldSwitchFunc = func {
 

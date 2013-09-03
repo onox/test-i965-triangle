@@ -247,6 +247,7 @@
       </center>
   </animation>
   
+  <!--  
   <animation>
     <type>pick</type>
     <object-name>switch.003</object-name>
@@ -269,8 +270,8 @@
       </mod-up>
     </action>
   </animation>
+  -->
 
-  <!--
   <animation>
     <type>pick</type>
       <object-name>switch.003</object-name>
@@ -283,6 +284,11 @@
           <command>property-assign</command>
           <property>/b707/pressurization/cabin-alt-warning</property>  
           <value>1.0</value>
+        </binding>        
+        <binding>
+          <command>property-assign</command>
+          <property>/b707/pressurization/alt-cutout-horn</property>  
+          <value>1.0</value>
         </binding>
       <mod-up>
         <binding>
@@ -293,7 +299,7 @@
       </mod-up>
     </action>
   </animation>
-  -->
+
   
   <!-- cabin air temperature source selector --> 
 	<animation>

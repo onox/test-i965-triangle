@@ -66,6 +66,8 @@
     <object-name>rhmgdoorc</object-name>
     <object-name>wing</object-name>
     <object-name>elevwing</object-name>
+		<object-name>rhfiletflap</object-name>
+		<object-name>lhfiletflap</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>707.png</texture>

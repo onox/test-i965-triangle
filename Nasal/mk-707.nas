@@ -933,7 +933,11 @@ var calc_pressurization	= func{
 	psi = (psi < 0) ? 0 : psi;
 	interpolate("/b707/pressurization/cabin-differential-pressure", psi, t);
 	
-	if(calt > 8000) screen.log.write(sprintf("ATTENTION! Increase cabin pressure expressly!"), 1.0, 0.0, 0.0);
+	if(calt > 8000){
+		 screen.log.write(sprintf("ATTENTION! Increase cabin pressure expressly!"), 1.0, 0.0, 0.0);
+	}else{
+		if(svp) setprop("/b707/pressurization/alt-cutout-horn", 0); # reset if it was pushed during depressurization
+	}
 	
 	settimer(calc_pressurization, t);
 	

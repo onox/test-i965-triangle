@@ -196,6 +196,24 @@ var weightChangeHandler = func {
 var WeightFuelDialog = func {
     var name = "WeightAndFuel";
     var title = "BOEING 707 Weight and Fuel Settings";
+    var jt4Engines = getprop("sim/multiplay/generic/int[8]") or 0;
+    var cargo = getprop("sim/multiplay/generic/int[9]") or 0;
+    # rewrite the name of payload if cargo livery/aircraft selected
+    if(cargo){
+    	setprop("/payload/weight[1]/name", "Cargo upper 1");
+    	setprop("/payload/weight[2]/name", "Cargo upper 2");
+    	setprop("/payload/weight[3]/name", "Cargo upper 3");
+    	setprop("/payload/weight[4]/name", "Cargo lower 1");
+    	setprop("/payload/weight[5]/name", "Cargo lower 2");
+    	setprop("/payload/weight[6]/name", "Cargo lower 3");
+    }else{
+    	setprop("/payload/weight[1]/name", "First-class");
+    	setprop("/payload/weight[2]/name", "Second-class / wing");
+    	setprop("/payload/weight[3]/name", "Second-class / rear");
+    	setprop("/payload/weight[4]/name", "Luggage 1 - front");
+    	setprop("/payload/weight[5]/name", "Luggage 2 - center");
+    	setprop("/payload/weight[6]/name", "Luggage 3 - rear");    
+    }
     #
     # General Dialog Structure
     #
@@ -269,11 +287,19 @@ var WeightFuelDialog = func {
     }
 
     if(massLimits != nil ) {
-        tablerow("Max. Ramp Weight", "maximum-ramp-mass-lbs", "%.0f lbs" );
-        tablerow("Max. Takeoff", "maximum-takeoff-mass-lbs", "%.0f lbs" );
-        tablerow("Max. Landing", "maximum-landing-mass-lbs", "%.0f lbs" );
-        tablerow("Max. Arrested Landing  Weight", "maximum-arrested-landing-mass-lbs", "%.0f lbs" );
-        tablerow("Max. Zero Fuel Weight", "maximum-zero-fuel-mass-lbs", "%.0f lb" );
+        if(jt4Engines){
+		      tablerow("Max. Ramp Weight", "maximum-ramp-mass-lbs", "%.0f lbs" );
+		      tablerow("Max. Takeoff", "maximum-takeoff-mass-lbs-jt4", "%.0f lbs" );
+		      tablerow("Max. Landing", "maximum-landing-mass-lbs", "%.0f lbs" );
+		      tablerow("Max. Arrested Landing  Weight", "maximum-arrested-landing-mass-lbs", "%.0f lbs" );
+		      tablerow("Max. Zero Fuel Weight", "maximum-zero-fuel-mass-lbs", "%.0f lb" );
+        }else{
+		      tablerow("Max. Ramp Weight", "maximum-ramp-mass-lbs", "%.0f lbs" );
+		      tablerow("Max. Takeoff", "maximum-takeoff-mass-lbs", "%.0f lbs" );
+		      tablerow("Max. Landing", "maximum-landing-mass-lbs", "%.0f lbs" );
+		      tablerow("Max. Arrested Landing  Weight", "maximum-arrested-landing-mass-lbs", "%.0f lbs" );
+		      tablerow("Max. Zero Fuel Weight", "maximum-zero-fuel-mass-lbs", "%.0f lb" );    
+        }
     }
 
     #if( fdmdata.cg != nil ) { 
@@ -422,10 +448,12 @@ var WeightFuelDialog = func {
     kg.set("label", "kg");
     kg.set("halign", "left");
     
-    var pers = tcell(weightTable, "text", 0, 4);
-    pers.set("label", "Pers.");
-    pers.set("halign", "left");
-
+    if(!cargo){
+		  var pers = tcell(weightTable, "text", 0, 4);
+		  pers.set("label", "Pers.");
+		  pers.set("halign", "left");
+		}
+		
     var payload_base = props.globals.getNode(fdmdata.payload);
     if (payload_base != nil)
         var wgts = payload_base.getChildren("weight");
@@ -498,7 +526,7 @@ var WeightFuelDialog = func {
         kg.set("halign", "right");
         kg.set("live", 1);
         
-        if( i < 4){
+        if( i < 4 and !cargo){
 		      var pas = tcell(weightTable, "text", i+1, 4);
 		      pas.set("property", "b707/passengers/count["~i~"]");
 		      pas.set("label", "0123456");
@@ -511,11 +539,17 @@ var WeightFuelDialog = func {
     var bar = tcell(weightTable, "hrule", size(wgts)+1, 0);
     bar.set("colspan", 5);
     
-    var total_label = tcell(weightTable, "text", size(wgts)+2, 0);
-    total_label.set("label", "Total Load/Passengers");
-    total_label.set("halign", "left");
+    if(!cargo){
+		  var total_label = tcell(weightTable, "text", size(wgts)+2, 0);
+		  total_label.set("label", "Total Load/Passengers");
+		  total_label.set("halign", "left");
+		}else{
+		  var total_label = tcell(weightTable, "text", size(wgts)+2, 0);
+		  total_label.set("label", "Total Load");
+		  total_label.set("halign", "left");		
+		}
 
-    # set 120 passengers
+    # set 120 passengers or standard cargo
     var standLoad = tcell(weightTable, "button", size(wgts)+2, 1);  
     standLoad.set("pref-width", 70);
     standLoad.set("pref-height", 20);
@@ -536,13 +570,14 @@ var WeightFuelDialog = func {
     kg.set("halign", "right");
     kg.set("live", 1);
 
-    var ps = tcell(weightTable, "text",size(wgts) +2, 4);
-    ps.set("property", "b707/passengers/count-all");
-    ps.set("label", "0123456");
-    ps.set("format", "%.0f" );
-    ps.set("halign", "right");
-    ps.set("live", 1);
-
+		if(!cargo){
+		  var ps = tcell(weightTable, "text",size(wgts) +2, 4);
+		  ps.set("property", "b707/passengers/count-all");
+		  ps.set("label", "0123456");
+		  ps.set("format", "%.0f" );
+		  ps.set("halign", "right");
+		  ps.set("live", 1);
+		}
     # All done: pop it up
     fgcommand("dialog-new", dialog[name].prop());
     showDialog(name);

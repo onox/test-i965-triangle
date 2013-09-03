@@ -12,6 +12,7 @@ Doors.new = func {
 		   		 copilotwin : aircraft.door.new("instrumentation/doors/copilotwin", 2.0, 0),
 		   		 pasfront : aircraft.door.new("instrumentation/doors/pasfront", 4.0, 0),
 		   		 pasrear : aircraft.door.new("instrumentation/doors/pasrear", 4.0, 0),
+		   		 cargo : aircraft.door.new("instrumentation/doors/cargo", 6.0, 0),
 		   		 nose : aircraft.door.new("instrumentation/doors/nose", 2.0, 0),
          };
    return obj;
@@ -55,6 +56,17 @@ Doors.pasrearexport = func {
    	setprop("/b707/ground-service/enabled", 1);
   }else{
   	setprop("/instrumentation/doors/pasrear/position-norm", 0);
+  }
+}
+
+Doors.cargoexport = func {
+	var alt = getprop("/position/altitude-agl-ft") or 0;
+	var cargoliner = getprop("sim/multiplay/generic/int[9]") or 0;
+	if(alt < 7.0 and cargoliner){
+   	me.cargo.toggle();
+   	setprop("/b707/ground-service/enabled", 1);
+  }else{
+  	setprop("/instrumentation/doors/cargo/position-norm", 0);
   }
 }
 

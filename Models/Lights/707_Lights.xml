@@ -82,6 +82,7 @@
 	<object-name>LightBall</object-name>
   <object-name>Strobes</object-name>
   <object-name>CabinWindows</object-name>	
+  <object-name>CargoWindows</object-name>
   <object-name>lightconeRudderL</object-name>
  	<object-name>lightconeRudderR</object-name>
 </animation>
@@ -117,6 +118,7 @@
  	<object-name>Spot.002</object-name>	
   <object-name>Strobes</object-name>
   <object-name>CabinWindows</object-name>
+  <object-name>CargoWindows</object-name>
   <object-name>lightconeRudderL</object-name>
  	<object-name>lightconeRudderR</object-name>		
 </effect>
@@ -180,12 +182,23 @@
 	<object-name>CabinWindows</object-name>
 	<condition>
 		<property>sim/multiplay/generic/float[0]</property>
+		<not><property>sim/multiplay/generic/int[9]</property></not>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>CargoWindows</object-name>
+	<condition>
+		<property>sim/multiplay/generic/float[0]</property>
+		<property>sim/multiplay/generic/int[9]</property>
 	</condition>
 </animation>
 
 <animation>
   <type>material</type>
   <object-name>CabinWindows</object-name>
+  <object-name>CargoWindows</object-name>
   <emission>
     <red>0.4</red>
     <green>0.4</green>

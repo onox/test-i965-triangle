@@ -28,6 +28,7 @@
     <object-name>fuselage.inner</object-name>
     <object-name>doorFL</object-name>
     <object-name>doorRL</object-name>
+    <object-name>doorCargo</object-name>
     <object-name>nose</object-name>
     <object-name>fuselage</object-name>
     <object-name>vertstab</object-name>
@@ -69,35 +70,6 @@
     <texture-prop>texture</texture-prop>
     <texture>707.png</texture>
   </animation>
-
-	<effect>
-	<!-- <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from> -->
-	<inherits-from>Effects/model-combined-deferred</inherits-from>
-    <object-name>nonones</object-name>
-    <object-name>lhdoorinner</object-name>
-    <object-name>lhdoorouter</object-name>
-    <object-name>rhdoorinner</object-name>
-    <object-name>rhdoorouter</object-name>
-    <object-name>lhfiletflap</object-name>
-    <object-name>lhibflap</object-name>
-    <object-name>lhobflap</object-name>
-    <object-name>slatsL</object-name>
-    <object-name>slatsR</object-name>
-    <object-name>lhibail</object-name>
-    <object-name>lhobail</object-name>
-    <object-name>lhsp1</object-name>
-    <object-name>lhsp3</object-name>    
-    <object-name>rhfiletflap</object-name>
-    <object-name>rhibflap</object-name>
-    <object-name>rhobflap</object-name>
-    <object-name>rhibail</object-name>
-    <object-name>rhobail</object-name>
-    <object-name>rhsp1</object-name>
-    <object-name>rhsp3</object-name>  
-    <object-name>elevwing</object-name>
-    <object-name>wing</object-name>
-    <object-name>slats</object-name>
-	</effect>
 	
 	<!-- ##########  rembrandt do not work together with this effect ############ -->
 	<effect>
@@ -135,7 +107,7 @@
 	<!-- ############ end of rudder illumination ############ --> 
 	
 		
-	<!-- Passengers Cabin door front and rear -->
+	<!-- inside fuselage -->
 	<animation>
 		<type>material</type>
 		<object-name>fuselage.inner</object-name>
@@ -223,6 +195,7 @@
       	<property>sim/multiplay/generic/float[6]</property>
       	<property>sim/multiplay/generic/float[7]</property>
       	<property>sim/multiplay/generic/float[12]</property>
+      	<property>sim/multiplay/generic/float[15]</property>
       </or>
 		</condition>
 	</animation>
@@ -235,6 +208,7 @@
       	<property>sim/multiplay/generic/float[6]</property>
       	<property>sim/multiplay/generic/float[7]</property>
       	<property>sim/multiplay/generic/float[12]</property>
+      	<property>sim/multiplay/generic/float[15]</property>
       </or>
 		</condition>
 	</animation>
@@ -415,6 +389,40 @@
 		</action>
   </animation>	
   
+	<animation>
+      <type>rotate</type>
+      <object-name>doorCargo</object-name>
+      <property>sim/multiplay/generic/float[15]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep> 100.0</dep></entry>
+			</interpolation>
+      <center>
+          <x-m> 0.0</x-m>
+          <y-m>-0.8</y-m>
+          <z-m> 2.3</z-m>
+      </center>
+      <axis>
+          <x>-1</x>
+          <y> 0</y>
+          <z> 0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>		
+		<object-name>doorCargo</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.cargoexport();</script>
+		  </binding>
+		</action>
+  </animation>	
+    
 <!-- Emergency slide-->
 	<model>
 		<name>EmergencySlide</name>
@@ -1413,6 +1421,7 @@
  <animation>
   <type>rotate</type>
   <object-name>rudder</object-name>
+  <object-name>rudderWithLight</object-name>
   <property>controls/flight/rudder</property>
   <factor>-22.5</factor>
   <offset-deg>0</offset-deg>   
@@ -2377,7 +2386,7 @@
 	<name>registrationFuselageLeft</name>
   <path>Aircraft/707/Models/Registration/registration.xml</path>
   <offsets>
-    <x-m>-12.6</x-m>
+    <x-m>-13.5</x-m>
     <y-m>-1.73</y-m>
     <z-m> 0.0</z-m>
     <roll-deg>-10</roll-deg>

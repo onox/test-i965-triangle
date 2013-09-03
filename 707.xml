@@ -13,8 +13,8 @@
  <fileheader>
   <author>M.Kraus :: Lake of Constance Hangar</author>
   <filecreationdate>2013-04-24</filecreationdate>
-  <version>1.1.5</version>
-  <description>Boeing 707 with Rolls Royce Conway RCo12/MK508 engines</description>
+  <version>1.1.6</version>
+  <description>Boeing 707 with Rolls Royce Conway RCo12/MK508 engines or Pratt and Whitney JT4</description>
  </fileheader>
 
 <!--
@@ -704,6 +704,16 @@
            <property>metrics/Sw-sqft</property>
            <property>fcs/elevator-pos-rad</property>
            <value>0.2</value>
+       </product>
+    </function>
+  
+   	<function name="aero/coefficient/JT4">
+       <description>Lift_due_to_stronger_Engines</description>
+       <product>
+           <property>aero/qbar-psf</property>
+           <property>metrics/Sw-sqft</property>
+ 					 <property>/sim/multiplay/generic/int[8]</property> <!--only with the stronger TJ4 engines-->
+           <value>0.1</value>
        </product>
     </function>
   </axis>

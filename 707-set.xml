@@ -9,7 +9,7 @@
  <sim>
   <description>Boeing 707</description>
   <author>707 revamp by the Lake of Constance Hangar [Original from Innis Cunningham]</author>
-  <status>1.1.5</status>
+  <status>1.1.6</status>
   <flight-model>jsb</flight-model>
   <aero>707</aero>
   <virtual-cockpit archive="y">true</virtual-cockpit>

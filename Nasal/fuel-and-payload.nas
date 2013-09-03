@@ -880,6 +880,11 @@ setlistener("/b707/oil/oil-test", func(pos){
 
 var crossfeed_action = func {
 
+  # which engine is selected?
+  # Pratt and Whitney TJ4 or Conway RCo10
+  var tj4 = getprop("sim/multiplay/generic/int[8]") or 0;
+	var bogFac = (tj4 > 0) ? 48 : 36;
+
 	var pow = getprop("/b707/ess-bus") or 0;
 	var diff = 0;
 	var bog = 0;
@@ -917,8 +922,8 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 36;
-			var m1Neu = tfM1.getValue() + 10; # the difference to the 36 is the consumption during interpolation
+			bog -= bogFac;
+			var m1Neu = tfM1.getValue() + 10; # the difference to the bogFac is the consumption during interpolation
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
@@ -945,9 +950,9 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 36;
+			bog -= bogFac;
 			var m1Neu = bog*p1;
-			var m2Neu = tfM2.getValue() + 10; # the difference to the 36 is the consumption during interpolation
+			var m2Neu = tfM2.getValue() + 10; # the difference to the bogFac is the consumption during interpolation
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
 			var m4Neu = bog*p4;
@@ -973,11 +978,11 @@ var crossfeed_action = func {
 		var p4 = (tfM4.getValue() > 0) ? tfM4.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 36;
+			bog -= bogFac;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
-			var m3Neu = tfM3.getValue() + 10; # the difference to the 36 is the consumption during interpolation
+			var m3Neu = tfM3.getValue() + 10; # the difference to the bogFac is the consumption during interpolation
 			var m4Neu = bog*p4;
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
@@ -1001,12 +1006,12 @@ var crossfeed_action = func {
 		var p3 = (tfM3.getValue() > 0) ? tfM3.getValue()/bog : 0;
 		
 		if(bog > 600){ 
-			bog -= 36;
+			bog -= bogFac;
 			var m1Neu = bog*p1;
 			var m2Neu = bog*p2;
 			var cNeu = (pC) ? bog*pC : tfC.getValue();
 			var m3Neu = bog*p3;
-			var m4Neu = tfM4.getValue() + 10; # the difference to the 36< is the consumption during interpolation
+			var m4Neu = tfM4.getValue() + 10; # the difference to the bogFac< is the consumption during interpolation
 			interpolate("/consumables/fuel/tank[5]/level-lbs", m1Neu, 7);
 	  	interpolate("/consumables/fuel/tank[4]/level-lbs", m2Neu, 7);		
 	  	interpolate("/consumables/fuel/tank[3]/level-lbs", cNeu, 7);

@@ -6,7 +6,7 @@
 		###################################################################################
 -->
 <PropertyList>
-	<name>Engines: Start-up [spanish]</name>
+	<name>Engines: Start-up [Spanish]</name>
 	<description>Arranque de motores con unidad de alimentacion externa.</description>
 
 	<init>
@@ -244,7 +244,7 @@
 	<step>
 		<message>
 			Conectar a la unidad de alimentacion externa.
-			En el menu' principal B707 / Unidad de alimentacion externa
+			En el menu principal B707 / Unidad de alimentacion externa
 		</message>
 		<view>
 				<heading-offset-deg>240.8</heading-offset-deg>
@@ -293,7 +293,7 @@
 	
 	<step>
 		<message>
-			Conectar la bateri'a.
+			Conectar la bateria.
 		</message>
 		<view>
 				<heading-offset-deg>235.4</heading-offset-deg>
@@ -313,7 +313,7 @@
 		</marker>
 
 		<error>
-			<message>Abra la tapa y encienda la bateri'a.</message>
+			<message>Abra la tapa y encienda la bateria.</message>
 			<condition>
 				<not><property>/b707/battery-switch</property></not>
 			</condition>
@@ -327,7 +327,7 @@
 	
 	<step>
 		<message>
-			Poner el SELECTOR DE GARGA &amp; VOLTI0S en posicion BUS-TIE. Regulador Automa'tico de sincronizacion
+			Poner el SELECTOR DE GARGA AND VOLTI0S en posicion BUS-TIE. Regulador Automatico de sincronizacion
 		</message>
 		<view>
 				<heading-offset-deg>234.0</heading-offset-deg>
@@ -418,7 +418,7 @@
 	<step>
 		<message>
 			SELECTOR AC PARALELO ajustado a la alimentacion externa.
-			La fuente AC se sincronizara' a 400Hz.
+			La fuente AC se sincronizara a 400Hz.
 		</message>
 		<view>
 				<heading-offset-deg>241.4</heading-offset-deg>
@@ -464,7 +464,7 @@
 	<step>
 		<message>
 			BOMBAS AUXILIARES activadas.
-			Presion hidra'ulica para timon, tren y sistema de apoyo.
+			Presion hidraulica para timon, tren y sistema de apoyo.
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -484,7 +484,7 @@
 		</marker>
 
 		<error>
-			<message>Activar ambos y esperar hasta ALCANZAR 3000 PSI de PRESIoN HIDRA'ULICA DEL TIMoN.</message>
+			<message>Activar ambos y esperar hasta ALCANZAR 3000 PSI de PRESION HIDRAULICA DEL TIMON.</message>
 			<condition>
 				<or>
 					<not><property>/b707/hydraulic/ac-aux-pump[0]</property></not>
@@ -512,7 +512,7 @@
 	
 	<step>
 		<message>
-			VA'LVULA DE INTERCONEXIoN ACTIVADA
+			VALVULA DE INTERCONEXION ACTIVADA
 			Sistema de apoyo en BOMBAS AUXILIARES AC
 		</message>
 		<view>
@@ -555,7 +555,7 @@
 	
 	<step>
 		<message>
-			VA'LVULAS DE CIERRE DE FLUIDO HIDRA'ULICO activadas.
+			VALVULAS DE CIERRE DE FLUIDO HIDRAULICO activadas.
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -596,7 +596,7 @@
 	<step>
 		<message>
 			BOMBAS DE MOTOR activadas
-			Soporte Hidra'ulico para el resto de sistemas residuales.
+			Soporte Hidraulico para el resto de sistemas residuales.
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -616,7 +616,7 @@
 		</marker>
 
 		<error>
-			<message>Activar ambos y esperar hasta ALCANZAR 2200 PSI de PRESIoN HIDRA'ULICA DEL SISTEMA</message>
+			<message>Activar ambos y esperar hasta ALCANZAR 2200 PSI de PRESION HIDRAULICA DEL SISTEMA</message>
 			<condition>
 				<or>
 					<not><property>/b707/hydraulic/hyd-fluid-pump[0]</property></not>
@@ -644,7 +644,7 @@
 	
 	<step>
 		<message>
-			Conecte la Unidad de Alimentacion Externa al BUS DE SINCRONIZACIoN.
+			Conecte la Unidad de Alimentaci0n Externa al BUS DE SINCRONIZACION.
 		</message>
 		<view>
 				<heading-offset-deg>237.8</heading-offset-deg>
@@ -727,7 +727,7 @@
 
 	<step>
 		<message>
-			BUS del Regulador Automa'tico de sincronizacion
+			BUS del Regulador Automatico de sincronizacion
 			Abra todas las cubiertas y ajuste el regulador automatico para sincronizar el bus.
 			Luego cierre las cubiertas.
 		</message>
@@ -863,8 +863,8 @@
 	
 	<step>
 		<message>
-			Sincronizar todos las VA'LVULAS DE ALIMENTACIoN CRUZADA hasta su cierre (luces azules fuera)
-			Encender y apagar todas las va'lvulas unos segundos.
+			Sincronizar todos las VaLVULAS DE ALIMENTACION CRUZADA hasta su cierre (luces azules fuera)
+			Encender y apagar todas las valvulas unos segundos.
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -885,7 +885,7 @@
 
 		<error>
 			<message>
-				!Abra y cierre las Va'lvulas de Alimentacion Cruzada - una vez!
+				!Abra y cierre las Valvulas de Alimentacion Cruzada - una vez!
 			</message>
 			<condition>
 				<not><property>/b707/fuel/valves/valve-pos[0]</property></not>
@@ -910,7 +910,7 @@
 	
 	<step>
 		<message>
-			Encienda las BOMBAS DEL ALIMENTADOR DE PRESIoN
+			Encienda las BOMBAS DEL ALIMENTADOR DE PRESION
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -931,7 +931,7 @@
 
 		<error>
 			<message>
-				Encienda TODAS LAS BOMBAS DEL ALIMENTADOR DE PRESIoN
+				Encienda TODAS LAS BOMBAS DEL ALIMENTADOR DE PRESION
 			</message>
 			<condition>
 				<not><property>/b707/fuel/valves/boost-pump[0]</property></not>
@@ -964,7 +964,7 @@
 	
 	<step>
 		<message>
-			Encienda TODAS LAS VA'LVULAS DE PARADA DE MOTOR
+			Encienda TODAS LAS VALVULAS DE PARADA DE MOTOR
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -985,7 +985,7 @@
 
 		<error>
 			<message>
-				TODAS LAS VA'LVULAS DE PARADA DE MOTOR deben estar encendidas!
+				TODAS LAS VALVULAS DE PARADA DE MOTOR deben estar encendidas!
 			</message>
 			<condition>
 				<not><property>/b707/fuel/valves/fuel-shutoff[0]</property></not>
@@ -1054,7 +1054,7 @@
 	
 	<step>
 		<message>
-			Tire para cortar el 3.
+			Suba la palanca para cortar el 3.
 		</message>
 		<view>
 				<heading-offset-deg>300.2</heading-offset-deg>
@@ -1075,7 +1075,7 @@
 
 		<error>
 			<message>
-				Tire de la palanca 3!
+				Suba la palanca la palanca 3!
 			</message>
 			<condition>
 				<property>controls/engines/engine[2]/cutoff</property>
@@ -1117,7 +1117,7 @@
 	</step>
 	
 	<step>
-		<message>Arranque 3 - ¿ esta' la luz verde apagada?</message>
+		<message>Arranque 3 - esta la luz verde apagada?</message>
 		<view>
 				<heading-offset-deg>315.9</heading-offset-deg>
 				<pitch-offset-deg>-29.3</pitch-offset-deg>
@@ -1187,7 +1187,7 @@
 	
 	<step>
 		<message>
-			Tire para cortar el 4
+			Suba la palanca para cortar el 4
 		</message>
 		<view>
 				<heading-offset-deg>300.2</heading-offset-deg>
@@ -1208,7 +1208,7 @@
 
 		<error>
 			<message>
-				Tire de la palanca 4!
+				Suba la palanca 4!
 			</message>
 			<condition>
 				<property>controls/engines/engine[3]/cutoff</property>
@@ -1288,7 +1288,7 @@
 	</step>
 
 	<step>
-		<message>Pulse arranque 2 y luego tirar de la palanca para cortarlo.</message>
+		<message>Pulse arranque 2 y luego subir la palanca para cortarlo.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1313,7 +1313,7 @@
 		
 	<step>
 		<message>
-			Tire para cortar el 2.
+			Suba la palanca para cortar el 2.
 		</message>
 		<view>
 				<heading-offset-deg>300.2</heading-offset-deg>
@@ -1334,7 +1334,7 @@
 
 		<error>
 			<message>
-				Tire de la palanca 2!
+				Suba la palanca 2!
 			</message>
 			<condition>
 				<property>controls/engines/engine[1]/cutoff</property>
@@ -1439,7 +1439,7 @@
 	
 	<step>
 		<message>
-			Tire para cortar el 1
+			Suba la palanca para cortar el 1
 		</message>
 		<view>
 				<heading-offset-deg>300.2</heading-offset-deg>
@@ -1460,7 +1460,7 @@
 
 		<error>
 			<message>
-				Tire de la palanca 1!
+				Suba la palanca de la palanca 1!
 			</message>
 			<condition>
 				<property>controls/engines/engine[0]/cutoff</property>
@@ -2007,7 +2007,7 @@
 	
 	<step>
 		<message>
-			Cierre todos los buses del Regulador Automa'tico de sincronizacion
+			Cierre todos los buses del Regulador Automatico de sincronizacion
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -2048,7 +2048,7 @@
 	
 	<step>
 		<message>
-			Ahora nuestra fuente de energi'a esencial es el generador 1
+			Ahora nuestra fuente de energia esencial es el generador 1
 			Gire la manilla a la posicion GEN I
 		</message>
 		<view>
@@ -2130,7 +2130,7 @@
 	<step>
 		<message>
 			Ahora desconecte la unidad de alimentacion externa
-			Seleccione en el menu' principal: Boeing 707 / Unidad de Potencia Externa
+			Seleccione en el menu principal: Boeing 707 / Unidad de Potencia Externa
 		</message>
 		<view>
 				<heading-offset-deg>240.8</heading-offset-deg>
@@ -2180,7 +2180,7 @@
 	<step>
 		<message>
 			40 Hertz Converter - Controls 115Volt 60 cycle power to the stateroom and the number two galley areas.
-			40 Hertz Converter - Controles 115Volt de ciclo 60 del camarote y el nu'mero dos de las cocinas.
+			40 Hertz Converter - Controles 115Volt de ciclo 60 del camarote y el numero dos de las cocinas.
 		</message>
 		<view>
 			<heading-offset-deg>239.9</heading-offset-deg>
@@ -2309,7 +2309,7 @@
 		</marker>
 		<error>
 			<message>
-				Pongalo en posicion START. Si el re'gimen de RPM sobrepasa el 115% reinicie el compresor.
+				Pongalo en posicion START. Si el regimen de RPM sobrepasa el 115% reinicie el compresor.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/compressor-start[0]</property></not>
@@ -2356,8 +2356,8 @@
 		</marker>
 		<error>
 			<message>
-				Pongalo en posicion START. Si el re'gimen de RPM sobrepasa el 115% reinicie el compresor.
-				Tambie'n tenga cuidado con las luces a'mbar del compresor 1. Si es necesario reinicie la primera.
+				Pongalo en posicion START. Si el regimen de RPM sobrepasa el 115% reinicie el compresor.
+				Tambien tenga cuidado con las luces ambar del compresor 1. Si es necesario reinicie la primera.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/compressor-start[1]</property></not>
@@ -2410,8 +2410,8 @@
 		</marker>
 		<error>
 			<message>
-				Pongalo en posicion START. Si el re'gimen de RPM sobrepasa el 115% reinicie el compresor.
-				Tambie'n tenga cuidado con las luces a'mbar de los compresores 1 y 2. Si es necesario reinicielos.
+				Pongalo en posicion START. Si el regimen de RPM sobrepasa el 115% reinicie el compresor.
+				Tambien tenga cuidado con las luces ambar de los compresores 1 y 2. Si es necesario reinicielos.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/compressor-start[2]</property></not>
@@ -2448,7 +2448,7 @@
 
 	<step>
 		<message>
-			Conecte las va'lvulas de mariposa.
+			Conecte las valvulas de mariposa.
 		</message>
 		<view>
 				<heading-offset-deg>229.9</heading-offset-deg>
@@ -2522,7 +2522,7 @@
 
 	<step>
 		<message>
-			Abra la tapa de la Aerova'lvula de Seguridad, Safety-Air-valve.
+			Abra la tapa de la Aerovalvula de Seguridad, Safety-Air-valve.
 			Cambie el mando a su posicion inferior.
 		</message>
 		<view>
@@ -2544,7 +2544,7 @@
 
 		<error>
 			<message>
-				Baje la palanca para cerrar la va'lvula de seguridad, la luz a'mbar se apagara'.
+				Baje la palanca para cerrar la valvula de seguridad, la luz ambar se apagara.
 			</message>
 			<condition>
 				<not><property>/b707/pressurization/safety-valve</property></not>
@@ -2559,7 +2559,7 @@
 	
 	<step>
 		<message>
-			Ahora encienda el Modo Automa'tico de Presurizacion.
+			Ahora encienda el Modo Automatico de Presurizacion.
 		</message>
 		<view>
 				<heading-offset-deg>227.6</heading-offset-deg>

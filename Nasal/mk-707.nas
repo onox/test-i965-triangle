@@ -266,9 +266,10 @@ var show_dme = func {
 }
 
 var show_fuel_consumption = func {
+  var engineType = getprop("sim/multiplay/generic/int[8]") or 0;
 	var used = getprop("/b707/fuel/fuel-per-hour-lbs") or 0;
 	var fueltotal = getprop("/consumables/fuel/total-fuel-lbs") or 0;
-	var kg =  used * 0.45359237;
+	var kg = (!engineType) ? used * 0.45359237 : ((used * 0.45359237) - (used * 0.45359237 * 0.08)); # JT4 engines minus 8 percent
 	var totalkg = fueltotal * 0.45359237;
 	var rt = 0;
 	

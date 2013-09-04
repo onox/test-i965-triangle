@@ -707,15 +707,21 @@
        </product>
     </function>
   
+  	<!-- only for the difference between the newer and older engines -->
    	<function name="aero/coefficient/JT4">
        <description>Lift_due_to_stronger_Engines</description>
        <product>
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
+ 					 <property>/engines/engine[0]/n1</property> <!--only with the stronger TJ4 engines-->
+ 					 <property>/engines/engine[1]/n1</property> <!--only with the stronger TJ4 engines-->
+ 					 <property>/engines/engine[2]/n1</property> <!--only with the stronger TJ4 engines-->
+ 					 <property>/engines/engine[3]/n1</property> <!--only with the stronger TJ4 engines-->
  					 <property>/sim/multiplay/generic/int[8]</property> <!--only with the stronger TJ4 engines-->
-           <value>0.1</value>
+           <value>0.000000001</value>
        </product>
     </function>
+
   </axis>
 
   <axis name="DRAG"> <!-- ########################################################### -->

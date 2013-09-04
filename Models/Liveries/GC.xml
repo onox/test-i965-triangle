@@ -11,7 +11,7 @@
     <model>
         <livery>
             <name type="string">German Cargo</name>
-            <texture>Liveries/GermanCargo.png</texture>
+            <texture>Liveries/GC.png</texture>
         </livery>
     </model>
     <multiplay>

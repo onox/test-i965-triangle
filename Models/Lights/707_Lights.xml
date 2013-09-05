@@ -83,6 +83,8 @@
   <object-name>Strobes</object-name>
   <object-name>CabinWindows</object-name>	
   <object-name>CargoWindows</object-name>
+  <object-name>CabinWindowsDoorF</object-name>
+  <object-name>CabinWindowsDoorR</object-name>
   <object-name>lightconeRudderL</object-name>
  	<object-name>lightconeRudderR</object-name>
 </animation>
@@ -119,6 +121,8 @@
   <object-name>Strobes</object-name>
   <object-name>CabinWindows</object-name>
   <object-name>CargoWindows</object-name>
+  <object-name>CabinWindowsDoorF</object-name>
+  <object-name>CabinWindowsDoorR</object-name>
   <object-name>lightconeRudderL</object-name>
  	<object-name>lightconeRudderR</object-name>		
 </effect>
@@ -179,6 +183,24 @@
 <!-- Animations -->
 <animation>
 	<type>select</type>
+	<object-name>CabinWindowsDoorF</object-name>
+	<condition>
+		<property>sim/multiplay/generic/float[0]</property>
+		<not><property>sim/multiplay/generic/float[6]</property></not>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>CabinWindowsDoorR</object-name>
+	<condition>
+		<property>sim/multiplay/generic/float[0]</property>
+		<not><property>sim/multiplay/generic/float[7]</property></not>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
 	<object-name>CabinWindows</object-name>
 	<condition>
 		<property>sim/multiplay/generic/float[0]</property>
@@ -199,6 +221,8 @@
   <type>material</type>
   <object-name>CabinWindows</object-name>
   <object-name>CargoWindows</object-name>
+	<object-name>CabinWindowsDoorF</object-name>
+	<object-name>CabinWindowsDoorR</object-name>
   <emission>
     <red>0.4</red>
     <green>0.4</green>

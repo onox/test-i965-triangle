@@ -200,6 +200,7 @@ var WeightFuelDialog = func {
     var cargo = getprop("sim/multiplay/generic/int[9]") or 0;
     # rewrite the name of payload if cargo livery/aircraft selected
     if(cargo){
+      var title = "BOEING 707 - CARGO Weight and Fuel Settings";
     	setprop("/payload/weight[1]/name", "Cargo upper 1");
     	setprop("/payload/weight[2]/name", "Cargo upper 2");
     	setprop("/payload/weight[3]/name", "Cargo upper 3");

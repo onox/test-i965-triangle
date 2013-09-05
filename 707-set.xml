@@ -36,6 +36,9 @@
   
   <model>
    	 <path>Aircraft/707/Models/707.xml</path>
+      <livery>
+        <file type="string">707</file>
+      </livery>
 		 <pushback>
 			<kp type="double">500</kp>
 			<ki type="double">100</ki>
@@ -233,8 +236,8 @@
 			<int n="5" alias="/controls/lighting/strobe-state/state"/>										<!-- Strobe -->
 			<int n="6" alias="/controls/special/tyresmoke"/>															<!-- tyresmoke -->
 			<int n="7" alias="/controls/lighting/logo-lights"/> 													<!-- logo-light -->
-			<int n="8" type="int">1</int>																									<!-- select engines type -->
-			<int n="9" type="int">1</int>																									<!-- cargo aircraft -->
+			<int n="8" type="int">0</int>																									<!-- select engines type -->
+			<int n="9" type="int">0</int>																									<!-- cargo aircraft -->
 			<!-- int [7] - [13] was for the old registration system. -->
 			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power-VW Kombi -->
       <int n="15" type="int">0</int> <!-- jettison fuel 1 = left, 2 = right, 3 = both -->
@@ -447,8 +450,6 @@
 		<ap-loop type="bool">0</ap-loop>
 		<compass-pos type="double">1.0</compass-pos> <!-- compass is closed -->
 		<over-water type="bool">0</over-water>
-		<immat-rudder type="bool">0</immat-rudder>
-		<pratt-whitney-engines type="bool">0</pratt-whitney-engines>
 		<manual>
 			<board type="double">0.0</board>
 			<page type="int">0</page>

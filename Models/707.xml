@@ -26,9 +26,11 @@
     <type>material</type>
     <object-name>fuselage</object-name>
     <object-name>fuselage.inner</object-name>
+    <object-name>fuselage.belly</object-name>
     <object-name>doorFL</object-name>
     <object-name>doorRL</object-name>
     <object-name>doorCargo</object-name>
+    <object-name>doorBelly</object-name>
     <object-name>nose</object-name>
     <object-name>fuselage</object-name>
     <object-name>vertstab</object-name>
@@ -87,6 +89,13 @@
     <object-name>rudderWithLight</object-name>
 	</effect>
 	
+	<animation>
+		<type>noshadow</type>
+    <object-name>fuselage.inner</object-name>
+    <object-name>fuselage.belly</object-name>
+    <object-name>cockpit</object-name>    
+	</animation>
+	
 	<!-- objects without rembrandt -->
 	<animation>
 		<type>select</type>
@@ -113,6 +122,7 @@
 	<animation>
 		<type>material</type>
 		<object-name>fuselage.inner</object-name>
+		<object-name>fuselage.belly</object-name>
 		<emission>
 		  <red>0.1</red>
 		  <green>0.1</green>
@@ -120,7 +130,20 @@
 		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>	
-	
+
+	<animation>
+		<type>select</type>
+		<object-name>fuselage.inner</object-name>
+		<object-name>fuselage.belly</object-name>
+		<condition>
+		  <or>
+      	<property>sim/multiplay/generic/float[6]</property>
+      	<property>sim/multiplay/generic/float[7]</property>
+      	<property>sim/multiplay/generic/float[15]</property>
+      	<property>sim/multiplay/generic/float[16]</property>
+      </or>
+		</condition>
+	</animation>
 
 <!-- Externe -->
 	<model>
@@ -419,6 +442,40 @@
 		  <binding>
 		   <command>nasal</command>
 		   <script>b707.doorsystem.cargoexport();</script>
+		  </binding>
+		</action>
+  </animation>
+  
+	<animation>
+      <type>rotate</type>
+      <object-name>doorBelly</object-name>
+      <property>sim/multiplay/generic/float[16]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>  0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep> 60.0</dep></entry>
+			</interpolation>
+      <center>
+          <x-m> 0.0</x-m>
+          <y-m> 1.688</y-m>
+          <z-m> -0.0025</z-m>
+      </center>
+      <axis>
+          <x>-1</x>
+          <y> 0</y>
+          <z> 0</z>
+      </axis>
+  </animation>
+
+  <animation>
+		<type>pick</type>		
+		<object-name>doorBelly</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.bellyexport();</script>
 		  </binding>
 		</action>
   </animation>	

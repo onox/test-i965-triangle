@@ -261,6 +261,7 @@
 			<float n="13" alias="/b707/ground-service/state"/>							<!-- iluminate the groundservice -->
 			<float n="14" alias="/engines/engine/reverser-pos-norm"/>							<!-- multiplayer see the cowl flaps -->
 			<float n="15" alias="/instrumentation/doors/cargo/position-norm"/>						<!-- Cargo door -->
+			<float n="16" alias="/instrumentation/doors/belly/position-norm"/>						<!-- Belly door -->
 			<string n="0" alias="/sim/multiplay/callsign"/>					<!-- registration -->
     </generic>
   </multiplay>

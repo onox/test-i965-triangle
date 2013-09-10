@@ -329,7 +329,6 @@ var gauge_erec = func {
 
 }
 
-
 ####################################### total operating time ###################################
 var operating_time_counter = func {
 	#print("operating time counter works");

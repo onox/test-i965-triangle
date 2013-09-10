@@ -45,9 +45,9 @@
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
 		<emission>
-		  <red>0.08</red>
-		  <green>0.08</green>
-		  <blue>0.08</blue>
+		  <red>0.04</red>
+		  <green>0.04</green>
+		  <blue>0.04</blue>
 		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>

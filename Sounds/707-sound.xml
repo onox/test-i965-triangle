@@ -662,19 +662,6 @@
 				<offset>0.5</offset>
 			</pitch>
     </crashed>
-    
-	<!-- cargo door -->
-	<cargo>
-		<name>cargoDoor</name>
-		<mode>in-transit</mode>
-		<path>Aircraft/707/Sounds/cargo_door.wav</path>
-		<property>/instrumentation/doors/cargo/position-norm</property>
-		<pitch>
-			<internal>dt_play</internal>
-			<offset>1.0</offset>
-			<factor>-0.001</factor>
-		</pitch>
-	</cargo>
   
 	<squeal>
 		<name>squeal</name>
@@ -1146,6 +1133,60 @@
     <factor>0.3</factor>
    </volume>
   </door>
+ 
+  <door>
+   <name>Cargo_door</name>
+   <path>Sounds/door_close.wav</path>
+   <condition>
+      <equals>
+       <property>/instrumentation/doors/cargo/position-norm</property>
+       <value>0.0</value>
+      </equals>
+   </condition>
+   <volume>
+    <factor>0.4</factor>
+   </volume>
+  </door>
+ 
+  <door>
+   <name>Belly_door</name>
+   <path>Sounds/door_close.wav</path>
+   <condition>
+      <equals>
+       <property>/instrumentation/doors/belly/position-norm</property>
+       <value>0.0</value>
+      </equals>
+   </condition>
+   <volume>
+    <factor>0.4</factor>
+   </volume>
+  </door>  
+  
+	<!-- cargo door -->
+	<cargo>
+		<name>cargoDoor</name>
+		<mode>in-transit</mode>
+		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<property>/instrumentation/doors/cargo/position-norm</property>
+		<pitch>
+			<internal>dt_play</internal>
+			<offset>1.0</offset>
+			<factor>-0.001</factor>
+		</pitch>
+	</cargo>
+	
+	<!-- belly door -->
+	<belly>
+		<name>bellyDoor</name>
+		<mode>in-transit</mode>
+		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<property>/instrumentation/doors/belly/position-norm</property>
+		<pitch>
+			<internal>dt_play</internal>
+			<offset>1.0</offset>
+			<factor>-0.001</factor>
+		</pitch>
+	</belly>
   
    <click>
    <name>click on</name>

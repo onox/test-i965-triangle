@@ -204,9 +204,9 @@ var WeightFuelDialog = func {
     	setprop("/payload/weight[1]/name", "Cargo upper 1");
     	setprop("/payload/weight[2]/name", "Cargo upper 2");
     	setprop("/payload/weight[3]/name", "Cargo upper 3");
-    	setprop("/payload/weight[4]/name", "Cargo lower 1");
-    	setprop("/payload/weight[5]/name", "Cargo lower 2");
-    	setprop("/payload/weight[6]/name", "Cargo lower 3");
+    	setprop("/payload/weight[4]/name", "Cargo belly 1");
+    	setprop("/payload/weight[5]/name", "Cargo belly 2");
+    	setprop("/payload/weight[6]/name", "Cargo belly 3");
     }else{
     	setprop("/payload/weight[1]/name", "First-class");
     	setprop("/payload/weight[2]/name", "Second-class / wing");

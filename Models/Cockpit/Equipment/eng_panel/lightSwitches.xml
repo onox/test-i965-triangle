@@ -7,7 +7,35 @@
 -->
 <PropertyList>
  <path>lightSwitches.ac</path>
-
+ 
+	<animation>
+		<type>material</type>
+		<object-name>LampAmber</object-name>
+		<object-name>LampAmber.001</object-name>
+		<object-name>LampAmber.002</object-name>
+		<object-name>LampAmber.003</object-name>
+		<object-name>LampAmber.004</object-name>
+		<object-name>LampAmber.005</object-name>
+		<object-name>LampAmber.006</object-name>
+		<object-name>LampAmber.007</object-name>
+		<object-name>LampAmber.008</object-name>
+		<object-name>LampAmber.009</object-name>
+		<object-name>LampAmber.010</object-name>
+		<object-name>LampAmber.011</object-name>
+		<object-name>switch</object-name>
+		<object-name>sockle</object-name>
+		<object-name>sockle.001</object-name>
+		<condition>		
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.2</red>
+		  <green>0.2</green>
+		  <blue>0.2</blue>
+		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		</emission>
+	</animation>
+	
 	<animation>
 		<type>material</type>
 		<object-name>turn</object-name>
@@ -25,7 +53,211 @@
 		</emission>
 	</animation>
 	
-  
+	<animation>
+		<type>material</type>
+		<object-name>LampAmberON</object-name>
+		<object-name>LampAmberON.001</object-name>
+		<object-name>LampAmberON.002</object-name>
+		<object-name>LampAmberON.003</object-name>
+		<object-name>LampAmberON.004</object-name>
+		<object-name>LampAmberON.005</object-name>
+		<object-name>LampAmberON.006</object-name>
+		<object-name>LampAmberON.007</object-name>
+		<object-name>LampAmberON.008</object-name>
+		<object-name>LampAmberON.009</object-name>
+		<object-name>LampAmberON.010</object-name>
+		<object-name>LampAmberON.011</object-name>
+		<emission>
+		  <red>   1.0 </red>
+		  <green> 0.2 </green>
+		  <blue>  0.0 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		  <or>
+		  	<property>/instrumentation/doors/pilotwin/position-norm</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.001</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		  <or>
+		  	<property>/instrumentation/doors/copilotwin/position-norm</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.002</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		  <or>
+		  	<property>/instrumentation/doors/pasfront/position-norm</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.003</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		  <or>
+		  	<property>/instrumentation/doors/pasrear/position-norm</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.004</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		  <or>
+		  	<property>/instrumentation/doors/nose/position-norm</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+		
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.005</object-name>
+		<object-name>LampAmberON.006</object-name>
+		<object-name>LampAmberON.007</object-name>
+		<object-name>LampAmberON.008</object-name>
+		<object-name>LampAmberON.009</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+		  <or>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<!-- if it is an cargo aircraft -->
+	<animation>
+		<type>select</type>
+		<object-name>LampAmber.010</object-name>
+		<object-name>LampAmber.011</object-name>
+		<condition>		
+       <property>sim/multiplay/generic/int[9]</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.010</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+      <property>sim/multiplay/generic/int[9]</property>
+		  <or>
+		  	<property>/instrumentation/doors/cargo/position-norm</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.011</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+      <property>sim/multiplay/generic/int[9]</property>
+		  <or>
+		  	<property>/instrumentation/doors/belly/position-norm</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+  <!-- door warning test knob -->
+  <animation>
+      <type>translate</type>
+      <object-name>switch</object-name>
+      <property>/b707/warning/door-test</property>
+      <factor>0.0028</factor>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+      <center>
+          <x-m> 0.0725</x-m>
+          <y-m>-0.0068</y-m>
+          <z-m> 0.188</z-m>
+      </center>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+      <object-name>switch</object-name>
+      <object-name>sockle</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+        <binding>
+          <command>property-assign</command>
+          <property>/b707/warning/door-test</property>  
+          <value>1.0</value>
+        </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/b707/warning/door-test</property>  
+          <value>0.0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+    
   <!-- cabin dim --> 
 	<animation>
 		<type>rotate</type>

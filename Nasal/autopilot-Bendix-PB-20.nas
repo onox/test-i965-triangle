@@ -49,7 +49,9 @@ var bendixPB20ActivePrev = 0;
 var listenerApPB20ActiveFunc = func {
 	if (bendixPB20ActivePrev == 0) {
 		if (getprop("/autopilot/Bendix-PB-20/controls/active") == 1) {
-			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
+			if (getprop("/autopilot/Bendix-PB-20/mutex") == "") {
+				setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
+			}
 		}
 	}
 	bendixPB20Active = getprop("/autopilot/Bendix-PB-20/controls/active");
@@ -82,9 +84,11 @@ var listenerApPB20ModeFunc = func {
 				# resets
 				setprop("/autopilot/locks/altitude", "");
 				setprop("/autopilot/locks/heading", "");
+#print("MMM: listenerApPB20ModeFunc -> 1.1");
 			}
 			else {
 				gui.popupTip("You must be airborne and a route must be active to activate this mode !");
+#print("MMM: listenerApPB20ModeFunc -> 1.2");
 			}
 		}
 		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 1) {
@@ -95,9 +99,11 @@ var listenerApPB20ModeFunc = func {
 			# resets
 			if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 0) {
 				setprop("/autopilot/locks/altitude", "");
+#print("MMM: listenerApPB20ModeFunc -> 2.1");
 			}
 			else {
 				setprop("/autopilot/locks/altitude", "altitude-hold");
+#print("MMM: listenerApPB20ModeFunc -> 2.2");
 			}
 			setprop("/autopilot/locks/passive-mode", 0);
 		}
@@ -116,9 +122,11 @@ var listenerApPB20ModeFunc = func {
 				listenerApPB20MANPitchFunc();
 
 				setprop("/autopilot/locks/altitude", "pitch-hold");
+#print("MMM: listenerApPB20ModeFunc -> 3.1");
 			}
 			else {
 				setprop("/autopilot/locks/altitude", "altitude-hold");
+#print("MMM: listenerApPB20ModeFunc -> 3.2");
 			}
 
 			# resets
@@ -132,9 +140,11 @@ var listenerApPB20ModeFunc = func {
 			# resets
 			if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 0) {
 				setprop("/autopilot/locks/altitude", "");
+#print("MMM: listenerApPB20ModeFunc -> 4.1");
 			}
 			else {
 				setprop("/autopilot/locks/altitude", "altitude-hold");
+#print("MMM: listenerApPB20ModeFunc -> 4.2");
 			}
 			setprop("/autopilot/locks/passive-mode", 0);
 		}
@@ -147,6 +157,7 @@ var listenerApPB20ModeFunc = func {
 			# resets
 			setprop("/autopilot/locks/passive-mode", 0);
 			setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);
+#print("MMM: listenerApPB20ModeFunc -> 5");
 		}
 		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 5) {
 			# GS MAN - Mode
@@ -154,9 +165,11 @@ var listenerApPB20ModeFunc = func {
 			setprop("/autopilot/locks/heading", "nav1-hold");
 			if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 0) {
 				setprop("/autopilot/locks/altitude", "");
+#print("MMM: listenerApPB20ModeFunc -> 6.1");
 			}
 			else {
 				setprop("/autopilot/locks/altitude", "altitude-hold");
+#print("MMM: listenerApPB20ModeFunc -> 6.2");
 			}
 
 			gsMANAltControl();
@@ -231,13 +244,13 @@ var listenerApPB20AltFunc = func {
 		return;
 	}
 
-	if (	getprop("/autopilot/Bendix-PB-20/controls/active") == 1) {
+	if (getprop("/autopilot/Bendix-PB-20/controls/active") == 1) {
 		if (getprop("/autopilot/Bendix-PB-20/controls/alt-active") == 1) {
 
 			# set altitude-hold-value to the actual altitude plus an offset dependent on vspeed
 
 			var vspeed = getprop("/velocities/vertical-speed-fps");
-			var altOffset = vspeed * 10;	# ft climed/falled in 10 seconds
+			var altOffset = vspeed * 5;	# ft climed/falled in 5 seconds
 
 			var altitudeFt = getprop("/instrumentation/altimeter/indicated-altitude-ft") + altOffset;
 			setprop("/autopilot/settings/target-altitude-ft", altitudeFt);
@@ -291,10 +304,12 @@ listenerApPB20SetPassiveModeFunc = func {
 		if (getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
 			setprop("/autopilot/Bendix-PB-20/controls/active", 1);
 			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 0);
+#print("MMM: listenerApPB20SetPassiveModeFunc -> 1");
 		}
 		else {
 			gui.popupTip("You must be airborne and a route must be active to activate this mode !");
 			setprop("/autopilot/locks/passive-mode", 0);
+#print("MMM: listenerApPB20SetPassiveModeFunc -> 2");
 		}
 	}
 
@@ -321,10 +336,12 @@ listenerApPB20SetAltitudeFunc = func {
 		setprop("/autopilot/Bendix-PB-20/controls/alt-active", 1);
 		if (getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
 			setprop("/autopilot/locks/heading", "wing-leveler");
+#print("MMM: listenerApPB20SetAltitudeFunc -> 1");
 		}
 	}
 	else {
 		setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);
+#print("MMM: listenerApPB20SetAltitudeFunc -> 2");
 	}
 
 	menuSwitchBendixPB20();
@@ -332,22 +349,31 @@ listenerApPB20SetAltitudeFunc = func {
 setlistener("/autopilot/locks/altitude", listenerApPB20SetAltitudeFunc);
 
 var menuSwitchBendixPB20 = func {
+#	if (getprop("/autopilot/locks/passive-mode") == 1) {
+#		# in passive-mode the route-manager makes strange things, it seems to switch to 'wing-leveler' temporarily -> so do nothing here (I don't know this is correct and consitent with everything)
+#		return;
+#	}
+
 	if (getprop("/autopilot/locks/heading") == "wing-leveler") {
 		setprop("/autopilot/Bendix-PB-20/controls/active", 1);
 		setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
+#print("MMM: menuSwitchBendixPB -> 1");
 	}
 	elsif (getprop("/autopilot/locks/heading") == "dg-heading-hold") {
 		setprop("/autopilot/Bendix-PB-20/controls/active", 1);
 		setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 1);
+#print("MMM: menuSwitchBendixPB -> 2");
 	}
 	elsif (	getprop("/autopilot/locks/heading") == "nav1-hold") {
 		if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
 			setprop("/autopilot/Bendix-PB-20/controls/active", 1);
 			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 4);
+#print("MMM: menuSwitchBendixPB -> 3");
 		}
 		else {
 			setprop("/autopilot/Bendix-PB-20/controls/active", 1);
 			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 3);
+#print("MMM: menuSwitchBendixPB -> 4");
 		}
 	}
 	elsif (getprop("/autopilot/locks/heading") == "") {
@@ -355,6 +381,7 @@ var menuSwitchBendixPB20 = func {
 			setprop("/autopilot/Bendix-PB-20/controls/active", 0);
 			setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);
 			setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
+#print("MMM: menuSwitchBendixPB -> 5");
 		}
 	}
 }

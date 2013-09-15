@@ -188,6 +188,14 @@ var listenerApHeadingFunc = func {
 }
 setlistener("/autopilot/locks/heading", listenerApHeadingFunc);
 
+var listenerApGsNearFarInitFunc = func {
+	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
+		setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered",
+			getprop("/velocities/vertical-speed-fps"));
+
+		listenerApGsNearFarFunc();
+	}
+}
 var listenerApGsNearFarFunc = func {
 	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
 
@@ -244,7 +252,7 @@ var listenerApGsNearFarFunc = func {
 		settimer(listenerApGsNearFarFunc, 0.05);
 	}
 }
-setlistener("/autopilot/locks/altitude", listenerApGsNearFarFunc);
+setlistener("/autopilot/locks/altitude", listenerApGsNearFarInitFunc);
 
 
 # avoid flipping on 'gs-in-range'
@@ -389,7 +397,7 @@ var apHeadingWaypointSetVSpeedRepeat = func() {
 
 		# settimer for corretion of vspeed each 30 seconds
 		if (waypointVspeedChangedManually == 0 and getprop("autopilot/locks/altitude") == "vertical-speed-hold") {
-			settimer(apHeadingWaypointSetVSpeedRepeat, 30.0);
+			settimer(apHeadingWaypointSetVSpeedRepeat, 15.0);
 		}
 	}
 }

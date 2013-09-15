@@ -187,6 +187,7 @@
 	<condition>
 		<property>sim/multiplay/generic/float[0]</property>
 		<not><property>sim/multiplay/generic/float[6]</property></not>
+		<not><property>sim/multiplay/generic/int[19]</property></not>
 	</condition>
 </animation>
 
@@ -196,6 +197,7 @@
 	<condition>
 		<property>sim/multiplay/generic/float[0]</property>
 		<not><property>sim/multiplay/generic/float[7]</property></not>
+		<not><property>sim/multiplay/generic/int[19]</property></not>
 	</condition>
 </animation>
 

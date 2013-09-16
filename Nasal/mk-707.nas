@@ -957,10 +957,12 @@ var air_cond_cover = func {
 
 var air_compressor = func(nr){
   	var bt = getprop("/b707/air-conditioning/compressor-start["~nr~"]") or 0;
+  	var engNr = nr + 1;
+  	var engRun = getprop("/engines/engine["~engNr~"]/n2") or 0;
   	var ram = getprop("/b707/air-conditioning/ram-air-switch") or 0;
   	var pwr = getprop("/b707/ess-bus") or 0;
 
-  	if(ram and pwr){
+  	if(ram and pwr and engRun > 25){
 			if(bt > 0){
 				setprop("/b707/air-conditioning/compressor-start["~nr~"]", 0);
 				interpolate("/b707/air-conditioning/compressor-rpm["~nr~"]", 0, 5);

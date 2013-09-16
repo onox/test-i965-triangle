@@ -773,18 +773,30 @@ var engines_alive = func {
 		      b1 = bp2.getBoolValue() or 0;
 		      b2 = bp3.getBoolValue() or 0;
 		     cfv = v2.getBoolValue() or 0;
+		     if(n2 < 25){
+		     		setprop("/b707/air-conditioning/compressor-start[0]", 0);
+						interpolate("/b707/air-conditioning/compressor-rpm[0]", 0, 5);
+		     }
 		  }		  
 
 		  if(e.getIndex() == 2){
 		      b1 = bp6.getBoolValue() or 0;
 		      b2 = bp7.getBoolValue() or 0;
 		     cfv = v3.getBoolValue() or 0;
+		     if(n2 < 25){
+		     		setprop("/b707/air-conditioning/compressor-start[1]", 0);
+						interpolate("/b707/air-conditioning/compressor-rpm[1]", 0, 5);
+		     }
 		  }	
 		  
 		  if(e.getIndex() == 3){
 		      b1 = bp8.getBoolValue() or 0;
 		      b2 = bp9.getBoolValue() or 0;
 		     cfv = v4.getBoolValue() or 0;
+		     if(n2 < 25){
+		     		setprop("/b707/air-conditioning/compressor-start[2]", 0);
+						interpolate("/b707/air-conditioning/compressor-rpm[2]", 0, 5);
+		     }
 		  }		  
 		  
 		  ## BOOST-PUMPS ## are both closed and the crossfeed valve is closed too

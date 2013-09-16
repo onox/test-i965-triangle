@@ -9,7 +9,7 @@
  <sim>
   <description>Boeing 707</description>
   <author>707 revamp by the Lake of Constance Hangar [Original from Innis Cunningham]</author>
-  <status>1.1.7</status>
+  <status>1.1.8</status>
   <flight-model>jsb</flight-model>
   <aero>707</aero>
   <virtual-cockpit archive="y">true</virtual-cockpit>
@@ -18,10 +18,10 @@
 		<splash-texture>Aircraft/707/splash.png</splash-texture>
 	</startup>
   <rating>
-      <FDM type="int">4</FDM>
-      <systems type="int">4</systems>
-      <cockpit type="int">4</cockpit>
-      <model type="int">4</model>
+      <FDM type="int">5</FDM>
+      <systems type="int">5</systems>
+      <cockpit type="int">5</cockpit>
+      <model type="int">5</model>
   </rating>
   
   <systems n="0">

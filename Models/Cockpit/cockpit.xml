@@ -50,7 +50,7 @@
 		<object-name>window.side</object-name> 
 		<object-name>pedestal</object-name>
 		<object-name>PedalL</object-name>
-		<object-name>PedalR</object-name> 
+		<object-name>PedalR</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -58,6 +58,21 @@
 		  <red>0.25</red>
 		  <green>0.25</green>
 		  <blue>0.25</blue>
+		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>handle</object-name> 
+		<object-name>winslide</object-name> 
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.15</red>
+		  <green>0.15</green>
+		  <blue>0.15</blue>
 		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
 		</emission>
 	</animation>

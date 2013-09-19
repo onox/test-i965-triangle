@@ -12,6 +12,7 @@
         <livery>
             <name type="string">Lufthansa-Friedrichshafen</name>
             <texture>Liveries/LH-FN.png</texture>
+            <texture-container>Liveries/LH-FN-container.png</texture-container>
         </livery>
     </model>
     <multiplay>

@@ -12,7 +12,7 @@ Doors.new = func {
 		   		 copilotwin : aircraft.door.new("instrumentation/doors/copilotwin", 2.0, 0),
 		   		 pasfront : aircraft.door.new("instrumentation/doors/pasfront", 4.0, 0),
 		   		 pasrear : aircraft.door.new("instrumentation/doors/pasrear", 4.0, 0),
-		   		 cargo : aircraft.door.new("instrumentation/doors/cargo", 6.0, 0),
+		   		 cargo : aircraft.door.new("instrumentation/doors/cargo", 12.0, 0),
 		   		 belly : aircraft.door.new("instrumentation/doors/belly", 4.0, 0),
 		   		 nose : aircraft.door.new("instrumentation/doors/nose", 2.0, 0),
          };

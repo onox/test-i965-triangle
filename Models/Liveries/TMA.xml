@@ -12,6 +12,7 @@
         <livery>
             <name type="string">TMA - Libanon</name>
             <texture>Liveries/TMA.png</texture>
+            <texture-container>Liveries/TMA-container.png</texture-container>
         </livery>
     </model>
     <multiplay>

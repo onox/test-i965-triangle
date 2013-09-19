@@ -246,6 +246,8 @@ var update_virtual_bus = func {
 		  		ExternalConnected.setBoolValue(0);
 		    	setprop("/instrumentation/doors/pasfront/position-norm", 0);
 		    	setprop("/instrumentation/doors/pasrear/position-norm", 0);
+		    	setprop("/instrumentation/doors/cargo/position-norm", 0);
+		    	setprop("/instrumentation/doors/belly/position-norm", 0);
 		    	setprop("/instrumentation/doors/nose/position-norm", 0);
    				setprop("/b707/ground-service/enabled", 0);
 		  }

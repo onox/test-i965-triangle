@@ -12,6 +12,7 @@
         <livery>
             <name type="string">Fuerza Aerea Espanola</name>
             <texture>Liveries/FAE.png</texture>
+            <texture-container>Liveries/FAE-container.png</texture-container>
         </livery>
     </model>
     <multiplay>

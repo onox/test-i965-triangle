@@ -12,6 +12,7 @@
         <livery>
             <name type="string">German Cargo</name>
             <texture>Liveries/GC.png</texture>
+            <texture-container>Liveries/GC-container.png</texture-container>
         </livery>
     </model>
     <multiplay>

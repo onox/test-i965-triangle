@@ -12,6 +12,7 @@
         <livery>
             <name type="string">Boeing 707-420</name>
             <texture>707.png</texture>
+            <texture-container>container.png</texture-container>
         </livery>
     </model>
     <multiplay>

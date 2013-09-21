@@ -45,7 +45,19 @@
 			<kd type="double">0</kd>
 			<position-norm type="double">0</position-norm>
 		 </pushback>
+		 <door n="0">
+		  <position-x-m type="float">-15.836</position-x-m>
+		  <position-y-m type="float">-1.578</position-y-m>
+		  <position-z-m type="float">0.1365</position-z-m>
+		  <jetway-hood-deg type="float">5</jetway-hood-deg>
+		 </door>
   </model>
+  
+	<airport>
+		<runways>
+			<start-offset-m>30</start-offset-m>
+		</runways>
+	</airport>
 
   <sound>
       <path>Aircraft/707/Sounds/707-sound.xml</path>
@@ -521,33 +533,41 @@
 			<maximum-landing-mass-lbs>215000</maximum-landing-mass-lbs>
 		</mass-and-balance>
 	</limits>
-	
-	 <nasal>
-			<b707>
-				<file>Aircraft/707/Nasal/autostart.nas</file>
-				<file>Aircraft/707/Nasal/liveries.nas</file>
-				<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
-				<file>Aircraft/707/Nasal/electrical.nas</file>
-				<file>Aircraft/707/Nasal/mk-707.nas</file>
-				<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
-				<!--<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>-->
-				<file>Aircraft/707/Nasal/mk-frw.nas</file>
-				<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
-				<file>Aircraft/707/Nasal/mk-rmi.nas</file>
-				<file>Aircraft/707/Nasal/mk-wiper.nas</file>    
-				<file>Aircraft/707/Nasal/doors.nas</file>
-				<file>Aircraft/707/Nasal/tyresmoke.nas</file>
-				<file>Aircraft/707/Nasal/brakesystem.nas</file>
-				<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
-				<file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
-				<file>Aircraft/707/Nasal/tcas.nas</file>
-				<file>Aircraft/707/Nasal/registration.nas</file>
-				<file>Aircraft/707/Nasal/manual.nas</file>
-		    <!-- <script><![CDATA[ gui.menuEnable("autopilot",0); ]]></script> -->
-			</b707> 
-			<view>
-        <file>Aircraft/707/Nasal/view.nas</file>
-      </view> 
-		</nasal>
+ <nasal> 
+		<b707>
+			<file>Aircraft/707/Nasal/autostart.nas</file>
+			<file>Aircraft/707/Nasal/liveries.nas</file>
+			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
+			<file>Aircraft/707/Nasal/electrical.nas</file>
+			<file>Aircraft/707/Nasal/mk-707.nas</file>
+			<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
+			<!--<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>-->
+			<file>Aircraft/707/Nasal/mk-frw.nas</file>
+			<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
+			<file>Aircraft/707/Nasal/mk-rmi.nas</file>
+			<file>Aircraft/707/Nasal/mk-wiper.nas</file>    
+			<file>Aircraft/707/Nasal/doors.nas</file>
+			<file>Aircraft/707/Nasal/tyresmoke.nas</file>
+			<file>Aircraft/707/Nasal/brakesystem.nas</file>
+			<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
+			<file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
+			<file>Aircraft/707/Nasal/tcas.nas</file>
+			<file>Aircraft/707/Nasal/registration.nas</file>
+			<file>Aircraft/707/Nasal/manual.nas</file>
+	    <!-- <script><![CDATA[ gui.menuEnable("autopilot",0); ]]></script> -->
+		</b707> 
+		<view>
+      <file>Aircraft/707/Nasal/view.nas</file>
+    </view> 
+	</nasal>
+
+	<aircraft>
+		<door>
+			<x-m>16.2</x-m>
+			<y-m>10.047</y-m>
+			<z-m>2.7</z-m>
+		</door>
+		<jetway-hood-deg type="double">3</jetway-hood-deg>
+	</aircraft>
 
 </PropertyList>

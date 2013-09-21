@@ -184,11 +184,39 @@
                 <property type="string">/surface-positions/speedbrake-norm</property>
             </signal>
             <signal>
-                <type>int</type>
+                <type>float</type>
+                <property type="string">/sim/multiplay/generic/float[4]</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property type="string">/sim/multiplay/generic/float[5]</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property type="string">/sim/multiplay/generic/float[6]</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property type="string">/sim/multiplay/generic/float[7]</property>
+            </signal>
+            <signal>
+                <type>float</type>
                 <property type="string">/sim/multiplay/generic/float[8]</property>
             </signal>
             <signal>
-                <type>int</type>
+                <type>float</type>
+                <property type="string">/sim/multiplay/generic/float[9]</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property type="string">/sim/multiplay/generic/float[12]</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property type="string">/sim/multiplay/generic/float[15]</property>
+            </signal>
+            <signal>
+                <type>float</type>
                 <property type="string">/sim/multiplay/generic/float[16]</property>
             </signal>
         </signals>

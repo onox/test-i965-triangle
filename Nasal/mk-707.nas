@@ -690,7 +690,10 @@ var calc_oil_temp = func{
 	}
 
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
-		var n = e.getNode("oil-pressure-psi").getValue() or 0;
+	  var n = 0;
+	  if(e.getNode("oil-pressure-psi").getValue()){
+			n = e.getNode("oil-pressure-psi").getValue();
+		}
 		var r = e.getNode("running").getValue() or 0;
 		var t = n * 2.148;
 		if(r){
@@ -728,8 +731,14 @@ var nacelle_deicing = func {
   
 	# if engines running show me the temperature near the wing anti ice valve
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
-		var r = e.getNode("running").getValue() or 0;
-		var deg = e.getNode("egt-degf").getValue() or 0;
+		var r = 0;
+	  if(e.getNode("running").getValue()){
+			r = e.getNode("running").getValue();
+		}
+		var deg = 0;
+	  if(e.getNode("egt-degf").getValue()){
+			deg = e.getNode("egt-degf").getValue();
+		}		
 		var engineInlet = getprop("/b707/anti-ice/engine-inlet["~e.getIndex()~"]") or 0;
 		
 		if (!engineInlet) {

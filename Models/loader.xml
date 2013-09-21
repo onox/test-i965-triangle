@@ -14,8 +14,8 @@
     <type>material</type>
 			<object-name>jourContainerDeck</object-name>
 			<object-name>jourContainerDeck.001</object-name>
-    <property-base>sim/model/livery</property-base>
-    <texture-prop>texture-container</texture-prop>
+    	<property-base>sim/model/livery</property-base>
+    	<texture-prop>texture-container</texture-prop>
     <texture>container.png</texture>
   </animation>
  

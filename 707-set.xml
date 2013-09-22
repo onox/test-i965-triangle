@@ -274,6 +274,8 @@
 			<float n="14" alias="/engines/engine/reverser-pos-norm"/>							<!-- multiplayer see the cowl flaps -->
 			<float n="15" alias="/instrumentation/doors/cargo/position-norm"/>						<!-- Cargo door -->
 			<float n="16" alias="/instrumentation/doors/belly/position-norm"/>						<!-- Belly door -->
+      <float n="17" alias="/orientation/pitch-deg"/>       <!-- for the shadow without rembrandt -->
+      <float n="18" alias="/orientation/roll-deg"/>        <!-- for the shadow without rembrandt -->
 			<string n="0" alias="/sim/multiplay/callsign"/>					<!-- registration -->
     </generic>
   </multiplay>

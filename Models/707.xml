@@ -426,7 +426,24 @@
 			<not><property>sim/multiplay/generic/int[19]</property></not>
 		</condition>	
 	</animation>
+	
+  <!-- shadow without rembrandt -->
+	<model>
+		<name>NewShadow</name>
+		<path>Aircraft/707/Models/shadow.xml</path>
+	</model>
 
+	<animation>
+		<type>select</type>
+		<object-name>NewShadow</object-name>
+		<condition>
+			<and>
+				<not><property>sim/multiplay/generic/int[19]</property></not>
+				<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			</and>
+		</condition>
+	</animation>v
+  
 	<!-- animate the doors and the nose -->
 	<animation>
       <type>rotate</type>

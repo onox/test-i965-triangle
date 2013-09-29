@@ -84,8 +84,7 @@ Doors.noseexport = func {
 
 Doors.bellyexport = func {
 	var alt = getprop("/position/altitude-agl-ft") or 0;
-	var cargoliner = getprop("sim/multiplay/generic/int[9]") or 0;
-	if(alt < 7.0 and cargoliner){
+	if(alt < 7.0){
    	me.belly.toggle();
    	setprop("/b707/ground-service/enabled", 1);
   }else{

@@ -411,7 +411,62 @@
 		   <script>b707.doorsystem.bellyexport();</script>
 		  </binding>
 		</action>
-  </animation>		
+  </animation>
+  
+  	<model>
+	 <name>Loader3</name>
+	 <path>Aircraft/707/Models/bellyLoader.xml</path>
+	 <offsets>
+		<x-m>0</x-m>
+		<y-m>6.2</y-m>
+		<z-m>0</z-m>
+	 </offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Loader3</object-name>
+		<condition>
+		  <and>
+		    <not><property>sim/multiplay/generic/int[9]</property></not>
+				<or>
+		    	<property>sim/multiplay/generic/float[6]</property>
+		    	<property>sim/multiplay/generic/float[7]</property>
+		    	<property>sim/multiplay/generic/float[12]</property>
+		    	<property>sim/multiplay/generic/float[16]</property>
+		    </or>
+		  </and>
+		</condition>
+	</animation>
+	
+  <animation>
+      <type>translate</type>
+      <object-name>Loader3</object-name>
+      <property>sim/multiplay/generic/float[16]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep>  -7.0</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+		<type>pick</type>
+		<object-name>Loader3</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.bellyexport();</script>
+		  </binding>
+		</action>
+  </animation>
 
   <!-- if crashed -->
 	<animation>
@@ -631,8 +686,8 @@
 			<and>
 				<property>sim/multiplay/generic/int[19]</property>
 				<less-than>
-						<property>/velocities/groundspeed-kt</property>
-						<value>0.2</value>
+						<property>/velocities/vertical-speed-fps</property>
+						<value>0.1</value>
 				</less-than>
 			</and>
 		</condition>	

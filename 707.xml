@@ -1095,7 +1095,6 @@
  
  <system name="crash-detect">
 		<channel name="impact-ground">
-
 		   <switch name="impact">
 		   		  <test logic="AND" value="1">
 		              velocities/mach gt 0.2

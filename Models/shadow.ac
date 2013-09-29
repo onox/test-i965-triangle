@@ -4,7 +4,7 @@ OBJECT world
 kids 1
 OBJECT poly
 name "shadow"
-loc 4.716102 -1.077647 -0
+loc 4.716102 -1.03415 -0
 data 6
 shadow
 texture "shadow.png"

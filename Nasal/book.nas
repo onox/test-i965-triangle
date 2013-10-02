@@ -70,7 +70,7 @@ var canvasBook = {
 		m.canvas = canvas.new({
 			"name": "Book",
 			"size": [1024, 1024],
-			"view": [768, 1024],
+			"view": [1024, 1024],
 			"mipmapping": 1
 		});
 		# find the place for the texture
@@ -124,19 +124,19 @@ var canvasBook = {
 
 var manual = canvasBook.new();
 
-var BOOK_DE = [
+var BOOK_DE = [	
 	{
 		id		: "Page_01",
-		file		: "Aircraft/707/Model/Cockpit/Book/DE/Page_01.svg",
+		file		: "Aircraft/707/Models/Cockpit/Book/DE/Page_01.svg",
 	},
 	{
 		id		: "Page_02",
-		file		: "Aircraft/707/Model/Cockpit/Book/DE/Page_02.svg",
+		file		: "Aircraft/707/Models/Cockpit/Book/DE/Page_02.svg",
 	},
 	{
 		id		: "Page_03",
-		file		: "Aircraft/707/Model/Cockpit/Book/DE/Page_03.svg",
-	},
+		file		: "Aircraft/707/Models/Cockpit/Book/DE/Page_03.svg",
+	}
 ];
 
 manual.loadBook(BOOK_DE);

@@ -559,9 +559,6 @@
 		<view>
       <file>Aircraft/707/Nasal/view.nas</file>
     </view>
-		<book>
-		 <file>Aircraft/707/Nasal/book.nas</file>
-		</book>
 	</nasal>
 
 	<aircraft>

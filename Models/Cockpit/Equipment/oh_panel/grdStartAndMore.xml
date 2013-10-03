@@ -130,7 +130,7 @@
             	}else{
             		if(lsl or lsr){
 		          		setprop("/b707/start/ground-start", 1);
-		          		setprop("sim/model/start-idling", 1);
+		          	  b707.short_startup();
 		        			settimer(func{
 		        				setprop("/b707/start/ground-start", 0);
 									}, 10);
@@ -171,7 +171,7 @@
             		setprop("/b707/start/ground-start", 0);
             	}else{
             		setprop("/b707/start/ground-start", 2);
-		          	setprop("sim/model/start-idling", 1);
+		          	b707.short_startup();
           			settimer(func{
           				setprop("/b707/start/ground-start", 0);
 								}, 10);

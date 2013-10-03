@@ -614,16 +614,6 @@
 		</offsets>
 	</model>
 	
-	<model>
-		<name>canvasBook</name>
-		<path>Aircraft/707/Models/Cockpit/Book/book.xml</path>
-		<offsets>
-		  <x-m>-17.35</x-m>
-		  <y-m> 0.61</y-m>
-		  <z-m> 0.756</z-m>
-		</offsets>
-	</model>
-	
 	<animation>
 		<type>select</type>		
 			<object-name>yokes</object-name>		

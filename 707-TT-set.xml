@@ -7,24 +7,34 @@
 -->
 <PropertyList include="707-common.xml">
  <sim n="0">
-  <description>Boeing 707</description>
+  <description>Boeing 707 TT</description>
 	<startup>
-		<splash-texture>Aircraft/707/splash.png</splash-texture>
+		<splash-texture>Aircraft/707/splashTT.png</splash-texture>
 	</startup>
 	
   <model n="0">
-   	 <path>Aircraft/707/Models/707.xml</path>
+   	 <path>Aircraft/707/Models/707-TT.xml</path>
       <livery>
         <file type="string">707</file>
       </livery>
   </model>
  </sim>
+ 
+	<tanker type="bool">false</tanker>
 
+	<systems>
+		<refuel>
+		 <type>probe</type>
+		 <serviceable type="bool">true</serviceable>
+		 <max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
+		</refuel>
+	</systems>
+	
 	<nasal> 
 		<b707>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
-			<file>Aircraft/707/Nasal/liveries.nas</file>
+			<file>Aircraft/707/Nasal/liveriesTT.nas</file>
 			<file>Aircraft/707/Nasal/electrical.nas</file>
 			<file>Aircraft/707/Nasal/mk-707.nas</file>
 			<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
@@ -44,6 +54,18 @@
 		<view>
 		  <file>Aircraft/707/Nasal/view.nas</file>
 		</view>
+		<aar>
+			<file>Aircraft/Generic/aar.nas</file>
+		</aar>
 	</nasal>
+
+	<aircraft>
+		<door>
+			<x-m>16.2</x-m>
+			<y-m>10.047</y-m>
+			<z-m>2.7</z-m>
+		</door>
+		<jetway-hood-deg type="double">3</jetway-hood-deg>
+	</aircraft>
 
 </PropertyList>

@@ -11,7 +11,7 @@
  <path>707.ac</path>
  
   <sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>
- 
+
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/707/Models/Liveries", 10);
@@ -188,7 +188,7 @@
     		<property>b707/external-power-connected</property>
 		  </binding>
 		</action>
-  </animation>	
+  </animation>
 	
 	<!-- Stairways -->
 	<model>

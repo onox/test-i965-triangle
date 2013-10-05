@@ -1132,6 +1132,7 @@ setlistener("/fdm/jsbsim/systems/crash-detect/crash-on-ground", func(state){
 		 setprop("/controls/engines/engine[1]/fire", 1);
   	 props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
   	 setprop("/controls/gear/bake-parking", 0);
+  	 setprop("/b707/refuelling/hose-out", 0);
 	}
 },0,1);
 
@@ -1147,9 +1148,22 @@ setlistener("controls/gear/gear-down", func
   {
     if(!crashed){
   		props.globals.getNode("controls/gear/gear-down").setBoolValue(1);
+ 			setprop("/b707/refuelling/hose-out", 0);
     }else{
   		props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
     }
+  }else{
+  	setprop("/b707/refuelling/hose-out", 1);
   }
  });
+ 
+# only for Tanker but don't worry if its no Tanker aircraft
+var toggleRefuelling = func(){
+		var hose = getprop("/b707/refuelling/hose-out") or 0;
+		if(!hose){
+			setprop("/b707/refuelling/hose-out", 1);
+		}else{
+			setprop("/b707/refuelling/hose-out", 0);
+		}
+}
 

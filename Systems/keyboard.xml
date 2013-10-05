@@ -67,5 +67,13 @@
   </binding>
 </key>
 
+<key n="79">
+  <name>O</name>
+  <desc>Extend Refuelling Drogues</desc>  
+  <binding>
+		  <command>nasal</command>
+		  <script>b707.toggleRefuelling();</script>
+  </binding>
+</key>
 
 </PropertyList>

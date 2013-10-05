@@ -18,6 +18,107 @@
         <file type="string">707</file>
       </livery>
   </model>
+
+	<menubar>
+		<default>
+			<menu n="100">
+				<label>Boeing 707</label>
+				<enabled type="bool">true</enabled>
+				<item>
+					<label>Autostart / shutdown</label>
+					<binding>
+						<command>property-toggle</command>
+						<property>sim/model/start-idling</property>
+					</binding>
+				</item>
+				<item>
+					<label>--- Selection ---</label>
+					<enabled>false</enabled>
+				</item>
+				<item>
+					<label>Select livery</label>
+					<binding>
+						<command>nasal</command>
+						<script>aircraft.livery.dialog.open()</script>
+					</binding>
+				</item>
+				<item>
+					<label>Show/hide yokes</label>
+					<binding>
+						<command>property-toggle</command>
+		    		<property>sim/yokes-visible</property>
+					</binding>
+				</item>
+				<item>
+					<label>--- Equipment ---</label>
+					<enabled>false</enabled>
+				</item>
+				<item>
+					<label>Pushback</label>
+					<name>pushback</name>
+					<binding>
+						 <command>dialog-show</command>
+						 <dialog-name>pushback</dialog-name>
+					</binding>
+				</item>
+				<item>
+					<label>External Power Unit</label>
+					<binding>
+						<command>property-toggle</command>
+		    		<property>b707/external-power-connected</property>
+					</binding>
+				</item>
+			</menu>
+		</default>
+	</menubar>
+
+	<help>
+	  <title>Boeing 707</title>
+		<key>
+		  <name>L</name>
+		  <desc>toggle Landing Lights</desc>
+		</key>
+		<key>
+		  <name>Ctrl + B</name>
+		  <desc>Speedbrake</desc>
+		</key>
+		<key>
+		  <name>Del</name>
+		  <desc>toggle Reverser</desc>
+		</key>
+		<key>
+		  <name>y</name>
+		  <desc>toggle Yokes</desc>
+		</key>
+		<key>
+			<name>></name>
+			<desc>toggle Pilot - Engineer view</desc>
+		</key>
+		<key>
+		  <name>F9</name>
+		  <desc>open Fuel &amp; Weight Menu</desc>
+		</key>
+		<text>
+		 _______________ Boeing 707-420/430 ___________________
+	
+		 Startup engines:
+	
+		 follow the tutorials or use Autostart
+	
+		 Shutdown engines:
+	
+		 with autostart / shutdown menu 
+	
+		 _______________________________________________________
+		 The first 707 for Flightgear was from Innis Cunningham. 
+		 This version is a revamp of that original. Nearly 
+		 everthing in 3D models is written and painted new.
+		 Also the jsb fdm and the autopilot.
+		 For development I have used the BOEING 707 document 
+		 no. D6-3071-00
+
+		</text>
+	</help>
  </sim>
 
 	<nasal> 

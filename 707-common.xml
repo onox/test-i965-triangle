@@ -178,59 +178,6 @@
 	</view>
 		
   <chase-distance-m>-45</chase-distance-m>
-
-	<menubar>
-		<default>
-			<menu n="100">
-				<label>Boeing 707</label>
-				<enabled type="bool">true</enabled>
-				<item>
-					<label>Autostart / shutdown</label>
-					<binding>
-						<command>property-toggle</command>
-						<property>sim/model/start-idling</property>
-					</binding>
-				</item>
-				<item>
-					<label>--- Selection ---</label>
-					<enabled>false</enabled>
-				</item>
-				<item>
-					<label>Select livery</label>
-					<binding>
-						<command>nasal</command>
-						<script>aircraft.livery.dialog.open()</script>
-					</binding>
-				</item>
-				<item>
-					<label>Show/hide yokes</label>
-					<binding>
-						<command>property-toggle</command>
-		    		<property>sim/yokes-visible</property>
-					</binding>
-				</item>
-				<item>
-					<label>--- Equipment ---</label>
-					<enabled>false</enabled>
-				</item>
-				<item>
-					<label>Pushback</label>
-					<name>pushback</name>
-					<binding>
-						 <command>dialog-show</command>
-						 <dialog-name>pushback</dialog-name>
-					</binding>
-				</item>
-				<item>
-					<label>External Power Unit</label>
-					<binding>
-						<command>property-toggle</command>
-		    		<property>b707/external-power-connected</property>
-					</binding>
-				</item>
-			</menu>
-		</default>
-	</menubar>
 	
 	<multiplay>  
     <generic>
@@ -274,8 +221,7 @@
 			<string n="0" alias="/sim/multiplay/callsign"/>					<!-- registration -->
     </generic>
   </multiplay>
-	
-	<help include="Systems/help.xml"/>  
+ 
 	<flight-recorder include="Systems/flightrecorder.xml"/>
 
   <flaps>

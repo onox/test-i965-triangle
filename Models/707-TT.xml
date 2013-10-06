@@ -180,6 +180,7 @@
 		<type>select</type>
 		<object-name>ExternalPowerUnit</object-name>
 		<condition>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
 		  <property>sim/multiplay/generic/int[14]</property>
 		</condition>
 	</animation>
@@ -225,6 +226,7 @@
 		<type>select</type>
 		<object-name>frontStair</object-name>
 		<condition>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
 		  <or>
       	<property>sim/multiplay/generic/float[6]</property>
       	<property>sim/multiplay/generic/float[7]</property>
@@ -239,6 +241,7 @@
 		<type>select</type>
 		<object-name>rearStair</object-name>
 		<condition>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
 		  <or>
       	<property>sim/multiplay/generic/float[6]</property>
       	<property>sim/multiplay/generic/float[7]</property>
@@ -323,6 +326,7 @@
 		<object-name>Loader1</object-name>
 		<condition>
 		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
 		    <property>sim/multiplay/generic/int[9]</property>
 				<or>
 		    	<property>sim/multiplay/generic/float[6]</property>
@@ -380,6 +384,7 @@
 		<object-name>Loader2</object-name>
 		<condition>
 		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
 		    <property>sim/multiplay/generic/int[9]</property>
 				<or>
 		    	<property>sim/multiplay/generic/float[6]</property>
@@ -436,6 +441,7 @@
 		<object-name>Loader3</object-name>
 		<condition>
 		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
 		    <not><property>sim/multiplay/generic/int[9]</property></not>
 				<or>
 		    	<property>sim/multiplay/generic/float[6]</property>

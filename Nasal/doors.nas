@@ -15,6 +15,7 @@ Doors.new = func {
 		   		 cargo : aircraft.door.new("instrumentation/doors/cargo", 12.0, 0),
 		   		 belly : aircraft.door.new("instrumentation/doors/belly", 4.0, 0),
 		   		 nose : aircraft.door.new("instrumentation/doors/nose", 2.0, 0),
+		   		 refuel : aircraft.door.new("instrumentation/doors/refuel-hose", 14.0, 0),
          };
    return obj;
 };
@@ -90,6 +91,10 @@ Doors.bellyexport = func {
   }else{
   	setprop("/instrumentation/doors/belly/position-norm", 0);
   }
+}
+
+Doors.refuelexport = func {
+   	me.refuel.toggle();
 }
 
 # ==============

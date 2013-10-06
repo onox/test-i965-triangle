@@ -75,6 +75,13 @@
 							<script>b707.toggleRefuelling();</script>
 					</binding>
 				</item>
+				<item>
+					<label>Extend/retract tanker boom</label>
+					<binding>
+						<command>nasal</command>
+						<script>b707.doorsystem.refuelexport();</script>
+					</binding>
+				</item>
 			</menu>
 		</default>
 	</menubar>
@@ -132,13 +139,13 @@
 	</help>
  </sim>
  
-	<tanker type="bool">false</tanker>
+	<tanker type="bool">true</tanker>
 
 	<systems>
 		<refuel>
-		 <type>probe</type>
+		 <type>boom</type>
 		 <serviceable type="bool">true</serviceable>
-		 <max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
+		 <max-fuel-transfer-lbs-min>9000</max-fuel-transfer-lbs-min>
 		</refuel>
 	</systems>
 	
@@ -170,14 +177,5 @@
 			<file>Aircraft/Generic/aar.nas</file>
 		</aar>
 	</nasal>
-
-	<aircraft>
-		<door>
-			<x-m>16.2</x-m>
-			<y-m>10.047</y-m>
-			<z-m>2.7</z-m>
-		</door>
-		<jetway-hood-deg type="double">3</jetway-hood-deg>
-	</aircraft>
 
 </PropertyList>

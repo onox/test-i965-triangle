@@ -58,8 +58,18 @@
     </binding>
 </key>
 
+<!--
 <key n="267">
   <name>F11</name>
+  <desc>Pop up autopilot dialog</desc>
+  <binding>
+		  <command>nasal</command>
+		  <script>b707.changeView(11);</script>
+  </binding>
+</key>
+-->
+<key n="62">
+  <name>></name>
   <desc>Pop up autopilot dialog</desc>
   <binding>
 		  <command>nasal</command>

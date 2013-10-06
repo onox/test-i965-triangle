@@ -1148,12 +1148,9 @@ setlistener("controls/gear/gear-down", func
   {
     if(!crashed){
   		props.globals.getNode("controls/gear/gear-down").setBoolValue(1);
- 			setprop("/b707/refuelling/hose-out", 0);
     }else{
   		props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
     }
-  }else{
-  	setprop("/b707/refuelling/hose-out", 1);
   }
  });
  

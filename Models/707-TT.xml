@@ -88,11 +88,16 @@
 		<object-name>lhibail</object-name>
 		<object-name>rhobail</object-name>
 		<object-name>lhobail</object-name>
-		<object-name>refuelAPU</object-name>
-		<object-name>refuelHose</object-name>
+		<object-name>refuelAPURight</object-name>
+		<object-name>refuelAPULeft</object-name>
+		<object-name>refuelProbeRight</object-name>
+		<object-name>refuelProbeLeft</object-name>
 		<object-name>refuelPivot</object-name>
 		<object-name>refuelTube</object-name>
 		<object-name>refuelOperator</object-name>
+		<object-name>operatorRoom</object-name>
+		<object-name>operatorRoomWin</object-name>
+		<object-name>operatorPlace</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>707TT.png</texture>
@@ -116,7 +121,8 @@
 		<type>noshadow</type>
     <object-name>fuselage.inner</object-name>
     <object-name>fuselage.belly</object-name>
-    <object-name>cockpit</object-name>    
+    <object-name>cockpit</object-name>
+    <object-name>operatorRoom</object-name>     
 	</animation>
 	
 	<!-- objects without rembrandt -->
@@ -166,6 +172,72 @@
       	<property>sim/multiplay/generic/float[16]</property>
       	<property>sim/multiplay/generic/int[19]</property>
       </or>
+		</condition>
+	</animation>
+
+	<!-- see operators Room only on view number 12 -->
+	<model>
+	 <name>operationPanel</name>
+	 <path>Aircraft/707/Models/Cockpit/Equipment/tt_panel/tt_panel.xml</path>
+		<offsets>
+      <x-m>12.75</x-m>
+      <y-m>0</y-m>
+      <z-m>-1.23</z-m>
+      <heading-deg>180</heading-deg>
+    	<pitch-deg>-70</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+	 <name>operationRadar</name>
+	 <path>Aircraft/707/Models/Cockpit/Instruments/radar/radar.xml</path>
+		<offsets>
+      <x-m>12.8</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.9</z-m>
+      <heading-deg>180</heading-deg>
+    	<pitch-deg>-30</pitch-deg>
+    	<roll-deg>180</roll-deg>
+		</offsets>
+	</model>
+	
+	<animation>
+		<type>material</type>
+		<object-name>operatorRoom</object-name>
+		<condition>	
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.4</red>
+		  <green>0.4</green>
+		  <blue>0.4</blue>
+		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>operatorRoomWin</object-name>
+		<condition>	
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.1</red>
+		  <green>0.1</green>
+		  <blue>0.1</blue>
+		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>operatorRoom</object-name>
+		<object-name>operationPanel</object-name>
+		<condition>
+			<equals>
+		    <property>sim/current-view/view-number</property>
+		    <value>12</value>
+		  </equals>
 		</condition>
 	</animation>
 
@@ -531,25 +603,65 @@
   <!-- Air-to-Air Refuelsystem -->
 	<animation>
 		<type>select</type>
-		<object-name>refuelHose</object-name>
+		<object-name>refuelProbeRight</object-name>
 		<condition>
 		  <property>sim/multiplay/generic/int[10]</property>
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>refuelProbeLeft</object-name>
+		<condition>
+		  <property>sim/multiplay/generic/int[11]</property>
+		</condition>
+	</animation>
+	
   <animation>
 		<type>pick</type>
-		<object-name>refuelAPU</object-name>
+		<object-name>refuelAPULeft</object-name>
 		<action>
 		  <button>0</button>
 		  <repeatable>true</repeatable>
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
 		   <command>nasal</command>
-		   <script>b707.toggleRefuelling();</script>
+		   <script>b707.toggleProbeLeft();</script>
+		  </binding>
+		</action>
+  </animation>
+  
+  <animation>
+		<type>pick</type>
+		<object-name>refuelAPURight</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.toggleProbeRight();</script>
 		  </binding>
 		</action>
   </animation>	
+
+	<animation>
+		<type>rotate</type>
+		<object-name>refuelBoom</object-name>
+		<object-name>refuelTube</object-name>
+		<property>/b707/refuelling/boom-azimuth</property>
+		<factor>1.5</factor>
+		<axis>
+			<x> 0</x>
+			<y> 0</y>
+			<z> 1</z>
+		</axis>
+		<center>
+			<x-m>16.04</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
 	
 	<animation>
 		<name>Boom rotate</name>
@@ -573,6 +685,7 @@
 			<z-m>-0.6614</z-m>
 		</center>
 	</animation>
+	
 	<animation>
 		<name>Boom extend</name>
 		<type>translate</type>

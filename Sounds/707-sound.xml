@@ -1187,17 +1187,41 @@
 	</belly>
 	
 	<!-- refuelling boom -->
-	<belly>
+	<boom>
 		<name>refuelBoom</name>
 		<mode>in-transit</mode>
 		<path>Aircraft/707/Sounds/cargo_door.wav</path>
-		<property>/instrumentation/doors/refuel-hose/position-norm</property>
+		<property>/instrumentation/doors/refuel-boom/position-norm</property>
 		<pitch>
 			<internal>dt_play</internal>
 			<offset>1.0</offset>
-			<factor>-0.02</factor>
+			<factor>-0.002</factor>
 		</pitch>
-	</belly>
+	</boom>
+	
+	<probeLeft>
+		<name>ProbeLeft</name>
+		<mode>in-transit</mode>
+		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<property>/b707/refuelling/probe-left-lever</property>
+		<pitch>
+			<internal>dt_play</internal>
+			<offset>1.0</offset>
+			<factor>-0.002</factor>
+		</pitch>
+	</probeLeft>
+	
+	<probeRight>
+		<name>ProbeRight</name>
+		<mode>in-transit</mode>
+		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<property>/b707/refuelling/probe-right-lever</property>
+		<pitch>
+			<internal>dt_play</internal>
+			<offset>1.0</offset>
+			<factor>-0.002</factor>
+		</pitch>
+	</probeRight>
   
    <click>
    <name>click on</name>

@@ -691,10 +691,14 @@ var calc_oil_temp = func{
 
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 	  var n = 0;
-	  if(e.getNode("oil-pressure-psi").getValue()){
+	  if(e.getNode("oil-pressure-psi")!= nil and e.getNode("oil-pressure-psi").getValue()){
 			n = e.getNode("oil-pressure-psi").getValue();
 		}
-		var r = e.getNode("running").getValue() or 0;
+		var r = 0;
+		if(e.getNode("running") != nil){
+			r = e.getNode("running").getValue();
+		}
+		
 		var t = n * 2.148;
 		if(r){
 			# the oil temp calculation
@@ -732,11 +736,11 @@ var nacelle_deicing = func {
 	# if engines running show me the temperature near the wing anti ice valve
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
 		var r = 0;
-	  if(e.getNode("running").getValue()){
+	  if(e.getNode("running") != nil and e.getNode("running").getValue()){
 			r = e.getNode("running").getValue();
 		}
 		var deg = 0;
-	  if(e.getNode("egt-degf").getValue()){
+	  if(e.getNode("egt-degf") != nil and e.getNode("egt-degf").getValue()){
 			deg = e.getNode("egt-degf").getValue();
 		}		
 		var engineInlet = getprop("/b707/anti-ice/engine-inlet["~e.getIndex()~"]") or 0;
@@ -1132,7 +1136,8 @@ setlistener("/fdm/jsbsim/systems/crash-detect/crash-on-ground", func(state){
 		 setprop("/controls/engines/engine[1]/fire", 1);
   	 props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
   	 setprop("/controls/gear/bake-parking", 0);
-  	 setprop("/b707/refuelling/hose-out", 0);
+  	 setprop("/b707/refuelling/probe-right", 0);
+  	 setprop("/b707/refuelling/probe-left", 0);
 	}
 },0,1);
 
@@ -1155,12 +1160,24 @@ setlistener("controls/gear/gear-down", func
  });
  
 # only for Tanker but don't worry if its no Tanker aircraft
-var toggleRefuelling = func(){
-		var hose = getprop("/b707/refuelling/hose-out") or 0;
+var toggleProbeLeft = func(){
+		var hose = getprop("/b707/refuelling/probe-left") or 0;
 		if(!hose){
-			setprop("/b707/refuelling/hose-out", 1);
+			setprop("/b707/refuelling/probe-left", 1);
+			interpolate("/b707/refuelling/probe-left-lever", 1, 1);
 		}else{
-			setprop("/b707/refuelling/hose-out", 0);
+			setprop("/b707/refuelling/probe-left", 0);
+			interpolate("/b707/refuelling/probe-left-lever", 0, 1);
+		}
+}
+var toggleProbeRight = func(){
+		var hose = getprop("/b707/refuelling/probe-right") or 0;
+		if(!hose){
+			setprop("/b707/refuelling/probe-right", 1);
+			interpolate("/b707/refuelling/probe-right-lever", 1, 1);
+		}else{
+			setprop("/b707/refuelling/probe-right", 0);
+			interpolate("/b707/refuelling/probe-right-lever", 0, 1);
 		}
 }
 

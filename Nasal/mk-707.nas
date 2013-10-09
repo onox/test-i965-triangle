@@ -356,8 +356,12 @@ operating_time_counter();
 ####################################### speedbrake helper #######################################
 var stepSpeedbrakes = func(step) {
     # Hard-coded speedbrakes movement in 4 equal steps:
-    var val = 0.25 * step + getprop("/controls/flight/speedbrake");
-    setprop("/controls/flight/speedbrake", val > 1 ? 1 : val < 0 ? 0 : val);
+    var val = 0.25 * step + getprop("/controls/flight/spoilers");
+    setprop("/controls/flight/spoilers", val > 1 ? 1 : val < 0 ? 0 : val);
+}
+var fullSpeedbrakes = func {
+    var val = getprop("/controls/flight/spoilers");
+    setprop("/controls/flight/spoilers", val > 0 ? 0 : 1);
 }
 
 ######################################## compass control #######################################
@@ -1179,5 +1183,33 @@ var toggleProbeRight = func(){
 			setprop("/b707/refuelling/probe-right", 0);
 			interpolate("/b707/refuelling/probe-right-lever", 0, 1);
 		}
+}
+var toggleRefuelling = func{
+  var somethingOut = 0;
+  var lD = getprop("/b707/refuelling/probe-left") or 0;
+  var rD = getprop("/b707/refuelling/probe-right") or 0;
+  var bo = getprop("/instrumentation/doors/refuel-boom/position-norm") or 0;
+  
+  if(lD){
+  	somethingOut = 1;
+  } 
+  if(rD){
+  	somethingOut = 1;
+  }
+  if(bo > 0){
+  	somethingOut = 1;
+  }
+  
+  if(somethingOut){
+  	setprop("/tanker", 0);
+  	if(rD) toggleProbeRight();
+  	if(lD) toggleProbeLeft();
+		if(bo) b707.doorsystem.refuelexport();  
+  }else{
+  	setprop("/tanker", 1);
+  	if(!rD) toggleProbeRight();
+  	if(!lD) toggleProbeLeft();
+		if(!bo) b707.doorsystem.refuelexport();
+  }
 }
 

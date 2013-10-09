@@ -94,7 +94,11 @@
 		</key>
 		<key>
 		  <name>Ctrl + B</name>
-		  <desc>Speedbrake</desc>
+		  <desc>Full Speedbrakes</desc>
+		</key>
+		<key>
+		  <name>k/j</name>
+		  <desc>Step Speedbrake</desc>
 		</key>
 		<key>
 		  <name>Del</name>
@@ -114,7 +118,7 @@
 		</key>
 		<key>
 			<name>O</name>
-			<desc>toggle Refuelling Drogues</desc>
+			<desc>toggle Refuelling Boom/Drogues</desc>
 		</key>
 		<text>
 		 _____________ Boeing 707 Tanker Transport _________________

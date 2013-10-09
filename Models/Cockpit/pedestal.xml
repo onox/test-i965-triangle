@@ -109,7 +109,7 @@
   <animation>
 		<type>rotate</type>
 		<object-name>BrkLever</object-name>
-		<property>/controls/flight/speedbrake</property>
+		<property>/controls/flight/spoilers</property>
 		<factor> 60</factor>
 		<center>
 		  <x-m>-18.6285</x-m>

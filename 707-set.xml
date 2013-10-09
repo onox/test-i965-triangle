@@ -80,7 +80,11 @@
 		</key>
 		<key>
 		  <name>Ctrl + B</name>
-		  <desc>Speedbrake</desc>
+		  <desc>Full Speedbrakes</desc>
+		</key>
+		<key>
+		  <name>k/j</name>
+		  <desc>Step Speedbrake</desc>
 		</key>
 		<key>
 		  <name>Del</name>

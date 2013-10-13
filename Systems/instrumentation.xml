@@ -110,6 +110,8 @@ The only reason it's here is to specify a second ADF.
     </tacan>
 
     <radar>
+		  <name>radar</name>
+		  <number>0</number>
       <!-- Used for Air-to-Air Refueling -->
       <range type="int" archive="y">20</range>
       <range-factor type="double" archive="n">20</range-factor>

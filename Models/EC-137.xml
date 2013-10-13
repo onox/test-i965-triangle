@@ -12,15 +12,9 @@
  
   <sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>
   
-	<multiplay>
-		<refuel>
-		 	<type>boom</type>
-		</refuel>
-	</multiplay>
-  
   <nasal>
     <load>
-      var livery_update = aircraft.livery_update.new("Aircraft/707/Models/LiveriesTT", 10);
+      var livery_update = aircraft.livery_update.new("Aircraft/707/Models/LiveriesEC", 10);
     </load>
 
     <unload>

@@ -136,6 +136,21 @@
 		 <max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
 		</refuel>
 	</systems>
+
+ <instrumentation n="0">
+  <radar n="0">
+   <enabled type="bool">true</enabled>
+   <az-field type="double">120</az-field>
+   <range type="double">160</range>
+   <range-selected type="double">50</range-selected>
+   <display-rdr type="bool">true</display-rdr>
+   <radar-standby type="int">0</radar-standby>
+   <mode>
+    <rws type="bool">true</rws>
+    <tws-auto type="bool">false</tws-auto>
+   </mode>
+  </radar>
+ </instrumentation>
 	
 	<nasal> 
 		<b707>

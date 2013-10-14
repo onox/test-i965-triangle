@@ -13,7 +13,7 @@
 	</startup>
 	
   <model n="0">
-   	 <path>Aircraft/707/Models/EC-137.xml</path>
+   	 <path>Aircraft/707/Models/EC-137D.xml</path>
       <livery>
         <file type="string">EC-137</file>
       </livery>

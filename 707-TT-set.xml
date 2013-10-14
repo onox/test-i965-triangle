@@ -7,7 +7,7 @@
 -->
 <PropertyList include="707-common.xml">
  <sim n="0">
-  <description>Boeing 707 TT</description>
+  <description>Boeing 707 TT / KC-137D</description>
 	<startup>
 		<splash-texture>Aircraft/707/splashTT.png</splash-texture>
 	</startup>

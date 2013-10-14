@@ -291,6 +291,268 @@
 	<subtitle4 n="10"></subtitle4>
 	<text4 n="10">
 		- So switch back to stable release -
+	</text4>
+
+
+	<!-- ####################### spanish ##################### -->
+	<!-- pagina 11 -->
+	<title n="11">EMERGENCIA 707</title>
+	<subtitle1 n="11">FUEGO EN MOTOR</subtitle1>
+	<text1 n="11">
+		Palanca de Empuje - CERRADA
+		Fuente Esencial de potencia - COMPROBAR
+		Via del Generador - DESCONECTADA
+		Palanca de Arranque - CORTADA
+		Interruptor de Fuego en el Motor - TIRAR
+		Con el interruptor de alarma de fuego extinguido:
+		Interruptor de Fuego en el Motor - PRESIONAR
+	</text1>
+	<subtitle2 n="11"></subtitle2>
+	<text2 n="11"></text2>
+	<subtitle3 n="11">REINICIAR MOTOR/EN VUELO</subtitle3>
+	<text3 n="11">
+		No conectar la via del Generador
+		Interruptor Arranque panel superior - ON
+		Palanca de Arranque - ON
+	</text3>
+	<subtitle4 n="11"></subtitle4>
+	<text4 n="11">
+		Si reconectas la pista del Generador
+		en vuelo estropearas tu generador
+		y en el peor de los casos el motor
+		tambien.
+	</text4>
+	
+	<!-- pagina 12 -->	
+	<title n="12">EMERGENCICA 707</title>
+	<subtitle1 n="12">ALERTA DE HIELO</subtitle1>
+	<text1 n="12">
+		--------- Panel Superior ----------
+		Wing Anti-Ice - ENCENDIDO
+		Canasta Anti hielo - TODOS en ON
+		Calentador de ventana - AMBOS ARRIBA
+		--------- Panel de Ingeniero ----------
+		Fuel Heaters - TODOS en ON
+	</text1>
+	<subtitle2 n="12"></subtitle2>
+	<text2 n="12"></text2>
+	<subtitle3 n="12"></subtitle3>
+	<text3 n="12">
+		Controlar el instrumento del TAT
+		Temperatura Total del Aire
+		en el panel de Copiloto.
+		Con grados negativos se requiere
+		ajustar el Sistema Anti Hielo.
+	</text3>
+	<subtitle4 n="12"></subtitle4>
+	<text4 n="12"></text4>
+	
+	<!-- page 13 -->	
+	<title n="13">EMERGENCIA 707</title>
+	<subtitle1 n="13">ALERTA DE PRESURIZACION</subtitle1>
+	<text1 n="13">
+		--------- Panel Superior ----------
+		Oxigeno - ENCENDIDO
+		Seat Belts - ENCENDIDO
+		No Smoking - ENCENDIDO
+		Emer Exit Lights - ENCENDIDO
+		
+	</text1>
+	<subtitle2 n="13"></subtitle2>
+	<text2 n="13">
+		--------- Panel de Ingeniero ----------
+		Air Compressors - COMPROBAR
+		Air Cond Unit - AMBOS en ON
+		Safety Valve Override - NORMAL
+		Interruptor presurizacion derecho - AUTO
+		Interruptor presurizacion izquierdo - LANDING
+		Rate - max. DECR
+		Fwd/Aft Valve - NORMAL
+	</text2>
+	<subtitle3 n="13"></subtitle3>
+	<text3 n="13">
+	</text3>
+	<subtitle4 n="13"></subtitle4>
+	<text4 n="13">		
+		------------------------------------------
+		Descenso de Emergencia - INICIAR
+        La compensación de presión puede variar
+        dependiendo de la altura y tardar hasta
+        10 minutos.
+	</text4>
+	
+	<!-- page 14 -->	
+	<title n="14">Procedimientos Normales</title>
+	<subtitle1 n="14">Arranque del APU</subtitle1>
+	<text1 n="14">
+		--------- Panel de Ingeniero ----------
+		Bateria - ENCENDIDO
+		--------- Panel Auxiliar ----------
+		APU Master - START
+		APU Generator - ENCENDIDO
+		APU Bleed Valve - ABRIR
+		--------- Panel de Ingeniero ----------
+		AC Paralleling - APU
+		Essential Power - APU
+	</text1>
+	<subtitle2 n="14"></subtitle2>
+	<text2 n="14">
+	</text2>
+	<subtitle3 n="14">Parada de APU</subtitle3>
+	<text3 n="14">		
+		--------- Panel de Ingeniero ----------
+		Essential Power - COMPROBAR
+		--------- Panel Auxiliar ----------
+		APU Bleed Valve - CERRAR
+		APU Generator - APAGADO
+		APU Master - APAGADO
+	</text3>
+	<subtitle4 n="14"></subtitle4>
+	<text4 n="14">		
+	</text4>
+	
+	<!-- page 15 -->	
+	<title n="15">Procedimientos Normales</title>
+	<subtitle1 n="15">Despues de Arrancar Motores</subtitle1>
+	<text1 n="15">
+		--------- Panel Auxiliar ----------
+		APU Bleed Valve - CERRAR
+		--------- Panel de Ingeniero ----------
+		Power - ESTABLECER		
+		AC Paralleling - COMPROBAR
+		All Breakers - CERRAR
+	</text1>
+	<subtitle2 n="15"></subtitle2>
+	<text2 n="15">
+		RAM Air - ABIERTO
+		Air Compressor 2,3,4 - RUN/START
+		Boost Pumps - TODAS EN ON
+		Hydraulic System - COMPROBAR
+		Indicadores Air Compressor 2,3,4 - COMPROBAR
+	</text2>
+	<subtitle3 n="15"></subtitle3>
+	<text3 n="15">
+		Air Conditioning Wing Valve - ABRIR
+		Air Conditioning Unit - AMBOS en ON
+		Galley Power - ENCENDIDO
+		APU Master Switch - APAGADO
+	</text3>
+	<subtitle4 n="15"></subtitle4>
+	<text4 n="15">
+		Puertas - CERRADAS
+		Equipamiento en Tierra - DESCONECTADO
+	</text4>
+	
+	<!-- page 16 -->	
+	<title n="16">Procedimientos Normales</title>
+	<subtitle1 n="16">Antes de Despegar</subtitle1>
+	<text1 n="16">
+		--------- Panel de Ingeniero ----------
+		Todas las luces - APAGADAS
+		Interruptor de presurizacion derecho - AUTO
+		Interruptor de presurizacion izquierdo - TAKEOFF
+		Altitud - COMPROBAR
+		Cabin Altitud - COMPROBAR
+	</text1>
+	<subtitle2 n="16"></subtitle2>
+	<text2 n="16">
+		Crew/Main Temp - SELECCIONADO
+		Fuel Heat - ON/OFF
+	</text2>
+	<subtitle3 n="16"></subtitle3>
+	<text3 n="16">
+		--------- Panel Superior ----------
+		Transpondedor - AJUSTAR
+		Wing Anti-Ice - ON/OFF
+		Nacelle Anti-Ice - Todos ON/OFF
+		Oxigeno - NORM
+		Compass Controller - AJUSTAR LAT
+		Yaw Dumper - APAGADO
+		--> continua en pagina 17
+	</text3>
+	<subtitle4 n="16"></subtitle4>
+	<text4 n="16">
+	</text4>
+	
+	<!-- page 17 -->	
+	<title n="17">Procedimientos Normales</title>
+	<subtitle1 n="17">Antes del despegue</subtitle1>
+	<text1 n="17">
+		page 16 - COMPLETA
+		--------- Center Pedestal ----------
+		Ruedas de Trimado - TODAS A CERO
+		Radios - AJUSTAR PARA SALIDA
+		Palanca de Aerofreno - AVANTE TODA
+		Flaps - TAKEOFF
+	</text1>
+	<subtitle2 n="17"></subtitle2>
+	<text2 n="17">
+		Palanca de Empuje - MANTENER EN IDLE
+		Luces - ENCENDIDAS
+		Puerta de Cabina - CERRADA
+		Chequeo previo al despegue - COMPLETADO
+	</text2>
+	<subtitle3 n="17"></subtitle3>
+	<text3 n="17">
+	</text3>
+	<subtitle4 n="17"></subtitle4>
+	<text4 n="17">
+	</text4>
+	
+	<!-- page 18 -->	
+	<title n="18">Procedimientos Normales</title>
+	<subtitle1 n="18">Despegue</subtitle1>
+	<text1 n="18">
+		------- Con aeronave en pista --------
+		Transpondedor - ENCENDIDO
+		Palanca de Empuje - A TOPE
+		Indicadores de motor - MONITORIZAR
+		Gritar si hay alguna anomalia
+	</text1>
+	<subtitle2 n="18"></subtitle2>
+	<text2 n="18">
+		Verificar 80kts - GRITAR "80 KNOTS"
+		Verificar V de despegue - GRITAR "... KNOTS"
+		Verificar  Velocidad Vertical - GRITAR "VS ..."
+	</text2>
+	<subtitle3 n="18"></subtitle3>
+	<text3 n="18">
+		Gritar "TREN ARRIBA" cuando se establezca
+		una tasa positiva de ascenso.
+	</text3>
+	<subtitle4 n="18"></subtitle4>
+	<text4 n="18">
+	</text4>	
+	<!-- page 19 -->	
+	
+	<title n="19">Solo en Flightgear</title>
+	<subtitle1 n="19">Autopiloto</subtitle1>
+	<text1 n="19">
+		------- Nota --------
+		Puedes usar solo el Autopiloto
+		normal de Flightgear
+		del Menu Flightgear.
+		- o ...
+
+	</text1>
+	<subtitle2 n="19"></subtitle2>
+	<text2 n="19">		
+		o - los botones verdes del panel central
+        o - el BENDIX PB 20 original
+		en el pedestal central.
+		Si utilizas todos juntos, es tu
+		responsabilidad :-))
+	</text2>
+	<subtitle3 n="19"></subtitle3>
+	<text3 n="19">
+		GPS y Autoroute a veces tienen
+		problemas en sistemas windows
+		con la última version de desarrollo
+		de Flightgear.
+	</text3>
+	<subtitle4 n="19"></subtitle4>
+	<text4 n="19">
+		- Por tanto cambia a una version estable -
 	</text4>		
 	
 	<!-- ################## german ################### -->

@@ -300,19 +300,19 @@
 	<subtitle1 n="11">FUEGO EN MOTOR</subtitle1>
 	<text1 n="11">
 		Palanca de Empuje - CERRADA
-		Fuente Esencial de potencia - COMPROBAR
+		Fuente Esenc. de pot. - COMPROBAR
 		Via del Generador - DESCONECTADA
 		Palanca de Arranque - CORTADA
-		Interruptor de Fuego en el Motor - TIRAR
-		Con el interruptor de alarma de fuego extinguido:
-		Interruptor de Fuego en el Motor - PRESIONAR
+		Interr. de Fuego en el Motor - TIRAR
+		Con el interr. de alarma exting.:
+		Interr. de Fuego en el Motor - PRESIONAR
 	</text1>
 	<subtitle2 n="11"></subtitle2>
 	<text2 n="11"></text2>
 	<subtitle3 n="11">REINICIAR MOTOR/EN VUELO</subtitle3>
 	<text3 n="11">
 		No conectar la via del Generador
-		Interruptor Arranque panel superior - ON
+		Interr. Arranque panel superior - ON
 		Palanca de Arranque - ON
 	</text3>
 	<subtitle4 n="11"></subtitle4>
@@ -364,8 +364,8 @@
 		Air Compressors - COMPROBAR
 		Air Cond Unit - AMBOS en ON
 		Safety Valve Override - NORMAL
-		Interruptor presurizacion derecho - AUTO
-		Interruptor presurizacion izquierdo - LANDING
+		Interr. presur. derecho - AUTO
+		Interr. presur. izquierdo - LANDING
 		Rate - max. DECR
 		Fwd/Aft Valve - NORMAL
 	</text2>
@@ -376,9 +376,8 @@
 	<text4 n="13">		
 		------------------------------------------
 		Descenso de Emergencia - INICIAR
-        La compensación de presión puede variar
-        dependiendo de la altura y tardar hasta
-        10 minutos.
+		La compensación de presión puede variar 
+		dependiendo de la altura y tardar hasta 10 minutos.
 	</text4>
 	
 	<!-- page 14 -->	
@@ -449,8 +448,8 @@
 	<text1 n="16">
 		--------- Panel de Ingeniero ----------
 		Todas las luces - APAGADAS
-		Interruptor de presurizacion derecho - AUTO
-		Interruptor de presurizacion izquierdo - TAKEOFF
+		Interr. de presur. derecho - AUTO
+		Interr. de presur. izquierdo - TAKEOFF
 		Altitud - COMPROBAR
 		Cabin Altitud - COMPROBAR
 	</text1>
@@ -532,14 +531,11 @@
 		Puedes usar solo el Autopiloto
 		normal de Flightgear
 		del Menu Flightgear.
-		- o ...
-
+		o - los botones verdes del panel central
 	</text1>
 	<subtitle2 n="19"></subtitle2>
-	<text2 n="19">		
-		o - los botones verdes del panel central
-        o - el BENDIX PB 20 original
-		en el pedestal central.
+	<text2 n="19">
+		o - el BENDIX PB 20 original en el pedestal central.
 		Si utilizas todos juntos, es tu
 		responsabilidad :-))
 	</text2>

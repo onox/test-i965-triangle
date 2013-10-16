@@ -193,6 +193,7 @@
 			<int n="9" type="int">0</int>																									<!-- cargo aircraft -->
 			<int n="10" alias="/b707/refuelling/probe-right"/>														<!-- refuel probe -->
 			<int n="11" alias="/b707/refuelling/probe-left"/>															<!-- refuel probe -->
+			<int n="12" alias="/b707/refuelling/contact-ready"/>															<!-- communication between tanker and receiving aircraft -->
 			<!-- int [7] - [13] was for the old registration system. -->
 			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power-VW Kombi -->
       <int n="15" type="int">0</int> <!-- jettison fuel 1 = left, 2 = right, 3 = both -->

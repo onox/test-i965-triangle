@@ -6,6 +6,7 @@ var isEC = func {
 
     var mpOther = props.globals.getNode("/ai/models").getChildren("multiplayer");
     var otherNr = size(mpOther);
+	var am = getprop("/b707/refuelling/arial-master") or 0;
 
     # find EC-137D
     for(var v = 0; v < otherNr; v += 1) {
@@ -25,22 +26,10 @@ var isEC = func {
            }
        }
     }
+	
+	if(am) settimer( gotRefuellingMsg, 1.1);
 }
 
-var gotRefuellingMsg = func{
-		var state = getprop("/tanker") or 0;
-		if (state) {
-			if(fuelWeight < 60000){
-				setprop("sim/multiplay/generic/int[12]", 1);
-				settimer( gotRefuellingMsg, 1.1);
-			}else{
-				setprop("sim/multiplay/generic/int[12]", 2);
-			}
-		}else{
-			setprop("sim/multiplay/generic/int[12]", 0);
-		}	 
-}
-
-setlistener( "/tanker", func{ 
-	gotRefuellingMsg();
+setlistener( "/b707/refuelling/arial-master", func{ 
+	isEC();
 });

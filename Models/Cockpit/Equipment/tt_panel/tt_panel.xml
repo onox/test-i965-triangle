@@ -113,6 +113,7 @@
 		  	<and>
 		  		<property>/tanker</property>
 		  		<not><property>/b707/refuelling/contact</property></not>
+		  		<not><property>/b707/refuelling/ready</property></not>
 		  	</and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
@@ -121,7 +122,7 @@
 
   <animation>
 		<type>select</type>
-		<object-name>LampGreenON</object-name>
+		<object-name>LampGreenON.001</object-name>
 		<condition>			
 			<greater-than>
 				<property>/b707/ess-bus</property>
@@ -139,7 +140,7 @@
 
   <animation>
 		<type>select</type>
-		<object-name>LampGreenON.001</object-name>
+		<object-name>LampGreenON</object-name>
 		<condition>			
 			<greater-than>
 				<property>/b707/ess-bus</property>

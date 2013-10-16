@@ -139,16 +139,10 @@
 	<!-- ############ end of rudder illumination ############ --> 
 	
 	<animation>
-		<type>spin</type>
+		<type>rotate</type>
 		<object-name>Radome</object-name>
-		<condition>		
-			<greater-than>
-				<property>/b707/ess-bus</property>
-				<value>20</value>
-			</greater-than>
-		</condition>
-		<property>/sim/speed-up</property>
-		<factor>-5</factor>
+		<property>sim/time/elapsed-sec</property>
+		<factor>20</factor>
 		<center>
 			<x-m>10.022</x-m>
 			<y-m>0.05</y-m>

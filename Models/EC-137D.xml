@@ -141,7 +141,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Radome</object-name>
-		<property>sim/time/elapsed-sec</property>
+		<property>/sim/time/elapsed-sec</property>
 		<factor>20</factor>
 		<center>
 			<x-m>10.022</x-m>

@@ -8,13 +8,13 @@ var refuellingMsg = func{
 		var fuelWeight = getprop("/consumables/fuel/total-fuel-kg") or 0;
 		if (state) {
 			if(fuelWeight < 60000){
-				setprop("/b707/refuelling/contact-ready", 1);
+				setprop("sim/multiplay/generic/int[12]", 1);
 				settimer( refuellingMsg, 1.1);
 			}else{
-				setprop("/b707/refuelling/contact-ready", 2);
+				setprop("sim/multiplay/generic/int[12]", 2);
 			}
 		}else{
-			setprop("/b707/refuelling/contact-ready", 0);
+			setprop("sim/multiplay/generic/int[12]", 0);
 		}	 
 }
 

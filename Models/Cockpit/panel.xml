@@ -18,6 +18,16 @@
 </model>
 
 <model>
+  <name>refuel_Lamp</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/lamps/refuel_lamp_pilot.xml</path>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m>-0.61</y-m>
+    <z-m>0.83</z-m>
+  </offsets>
+</model>
+
+<model>
   <name>asi</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/asi/asi.xml</path>
   <offsets>

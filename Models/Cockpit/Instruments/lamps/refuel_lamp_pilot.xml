@@ -97,10 +97,21 @@
   <type>material</type>
   <object-name>LampAmberON</object-name>
   <emission>
-    <red>   1.0 </red>
-    <green> 0.8 </green>
-    <blue>  0.4 </blue>
+    <red>   5.0 </red>
+    <green> 0.0 </green>
+    <blue>  0.0 </blue>
   </emission>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>LampGreenON</object-name>
+	<object-name>LampGreenON.001</object-name>
+	<emission>
+	  <red>   0 </red>
+	  <green> 1.0 </green>
+	  <blue>  0 </blue>
+	</emission>
 </animation>
 
 <!-- Control lights -->

@@ -141,7 +141,7 @@
   <animation>
       <type>translate</type>
       <object-name>doorRefuel</object-name>
-      <property>/sim/multiplay/generic/float[18]</property>
+      <property>sim/multiplay/generic/float[18]</property>
 			<factor>1</factor>
       <axis>
           <x> 1.0</x>

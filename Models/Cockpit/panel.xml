@@ -27,6 +27,17 @@
   </offsets>
 </model>
 
+<animation>
+	<type>select</type>
+	<object-name>refuel_Lamp</object-name>
+	<condition>		
+		<equals>
+			<property>sim/aircraft</property>
+			<value type="string">EC-137D</value>
+		</equals>
+	</condition>
+</animation>
+
 <model>
   <name>asi</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/asi/asi.xml</path>

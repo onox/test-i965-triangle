@@ -89,6 +89,7 @@
 		<object-name>refuelPivot</object-name>
 		<object-name>refuelTube</object-name>
 		<object-name>refuelOperator</object-name>
+		<object-name>doorRefuel</object-name>
 		<object-name>Radome</object-name>
 		<object-name>RadomeSup</object-name>
     <property-base>sim/model/livery</property-base>
@@ -137,6 +138,17 @@
 	</animation>
 	
 	<!-- ############ end of rudder illumination ############ --> 
+  <animation>
+      <type>translate</type>
+      <object-name>doorRefuel</object-name>
+      <property>/sim/multiplay/generic/float[18]</property>
+			<factor>1</factor>
+      <axis>
+          <x> 1.0</x>
+          <y> 0.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
 	
 	<animation>
 		<type>rotate</type>

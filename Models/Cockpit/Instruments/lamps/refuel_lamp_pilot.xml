@@ -160,6 +160,10 @@
 				 <command>property-toggle</command>
 					 		<property>/b707/refuelling/receiving-switch</property>
 			</binding>
+        <binding>
+            <command>nasal</command>
+            <script>b707.doorsystem.refuelexport();</script>
+        </binding>
 		    <binding>
 		      <command>property-toggle</command>
 		      <property>/sim/sound/switch2</property>

@@ -114,7 +114,7 @@
 		</greater-than>
 	  <or>
 		<and>
-	  		<not><property>sim/multiplay/generic/int[12]</property></not>
+	  		<not><property>/sim/multiplay/generic/int[12]</property></not>
 			<property>/b707/refuelling/receiving-switch</property>
 		</and>
 	    <property>/controls/test/warn-knob</property>
@@ -133,7 +133,7 @@
 	  <or>
 		<and>
 	    	<greater-than>
-	    		<property>sim/multiplay/generic/int[12]</property>
+	    		<property>/sim/multiplay/generic/int[12]</property>
 	    		<value>1</value>
 	    	</greater-than>
 			<property>/b707/refuelling/receiving-switch</property>
@@ -154,8 +154,8 @@
 	  <or>
 		<and>
 	    	<greater-than>
-	    		<property>sim/multiplay/generic/int[12]</property>
-	    		<value>1</value>
+	    		<property>/sim/multiplay/generic/int[12]</property>
+	    		<value>0</value>
 	    	</greater-than>
 			<property>/b707/refuelling/receiving-switch</property>
 		</and>

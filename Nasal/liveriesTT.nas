@@ -1,7 +1,6 @@
 aircraft.livery.init("Aircraft/707/Models/LiveriesTT");
 
 # Not the best place but liveries are independent to the aircraft
-var nextToMe = -1;
 
 var isEC = func {
     var mpOther = props.globals.getNode("/ai/models").getChildren("multiplayer");
@@ -25,8 +24,14 @@ var isEC = func {
 					setprop("/b707/refuelling/contact",0);
 					setprop("/b707/refuelling/ready",0);
 				}
+			}else{
+				setprop("/b707/refuelling/contact",0);
+				setprop("/b707/refuelling/ready",0);
 			}
-       }
+		}else{
+			setprop("/b707/refuelling/contact",0);
+			setprop("/b707/refuelling/ready",0);
+		}
     }
 	if(am) settimer( isEC, 0.4);
 }

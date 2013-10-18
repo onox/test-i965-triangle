@@ -75,30 +75,30 @@
     <object-name>rhmgdoorc</object-name>
     <object-name>wing</object-name>
     <object-name>elevwing</object-name>
-		<object-name>rhfiletflap</object-name>
-		<object-name>lhfiletflap</object-name>
-		<object-name>rhibflap</object-name>
-		<object-name>lhibflap</object-name>
-		<object-name>rhobflap</object-name>
-		<object-name>lhobflap</object-name>
-		<object-name>rhsp1</object-name>
-		<object-name>lhsp1</object-name>
-		<object-name>rhsp3</object-name>
-		<object-name>lhsp3</object-name>
-		<object-name>rhibail</object-name>
-		<object-name>lhibail</object-name>
-		<object-name>rhobail</object-name>
-		<object-name>lhobail</object-name>
-		<object-name>refuelAPURight</object-name>
-		<object-name>refuelAPULeft</object-name>
-		<object-name>refuelProbeRight</object-name>
-		<object-name>refuelProbeLeft</object-name>
-		<object-name>refuelPivot</object-name>
-		<object-name>refuelTube</object-name>
-		<object-name>refuelOperator</object-name>
-		<object-name>operatorRoom</object-name>
-		<object-name>operatorRoomWin</object-name>
-		<object-name>operatorPlace</object-name>
+	<object-name>rhfiletflap</object-name>
+	<object-name>lhfiletflap</object-name>
+	<object-name>rhibflap</object-name>
+	<object-name>lhibflap</object-name>
+	<object-name>rhobflap</object-name>
+	<object-name>lhobflap</object-name>
+	<object-name>rhsp1</object-name>
+	<object-name>lhsp1</object-name>
+	<object-name>rhsp3</object-name>
+	<object-name>lhsp3</object-name>
+	<object-name>rhibail</object-name>
+	<object-name>lhibail</object-name>
+	<object-name>rhobail</object-name>
+	<object-name>lhobail</object-name>
+	<object-name>refuelAPURight</object-name>
+	<object-name>refuelAPULeft</object-name>
+	<object-name>refuelProbeRight</object-name>
+	<object-name>refuelProbeLeft</object-name>
+	<object-name>refuelPivot</object-name>
+	<object-name>refuelTube</object-name>
+	<object-name>refuelOperator</object-name>
+	<object-name>operatorRoom</object-name>
+	<object-name>operatorRoomWin</object-name>
+	<object-name>operatorPlace</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>707TT.png</texture>
@@ -606,7 +606,7 @@
 		<type>select</type>
 		<object-name>refuelProbeRight</object-name>
 		<condition>
-		  <property>sim/multiplay/generic/int[10]</property>
+		  <property>/sim/multiplay/generic/int[10]</property>
 		</condition>
 	</animation>
 	
@@ -614,7 +614,7 @@
 		<type>select</type>
 		<object-name>refuelProbeLeft</object-name>
 		<condition>
-		  <property>sim/multiplay/generic/int[11]</property>
+		  <property>/sim/multiplay/generic/int[11]</property>
 		</condition>
 	</animation>
 	

@@ -82,13 +82,6 @@
 		<object-name>lhibail</object-name>
 		<object-name>rhobail</object-name>
 		<object-name>lhobail</object-name>
-		<object-name>refuelAPURight</object-name>
-		<object-name>refuelAPULeft</object-name>
-		<object-name>refuelProbeRight</object-name>
-		<object-name>refuelProbeLeft</object-name>
-		<object-name>refuelPivot</object-name>
-		<object-name>refuelTube</object-name>
-		<object-name>refuelOperator</object-name>
 		<object-name>doorRefuel</object-name>
 		<object-name>Radome</object-name>
 		<object-name>RadomeSup</object-name>

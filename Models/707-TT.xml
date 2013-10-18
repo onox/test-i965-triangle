@@ -606,7 +606,7 @@
 		<type>select</type>
 		<object-name>refuelProbeRight</object-name>
 		<condition>
-		  <property>/sim/multiplay/generic/int[10]</property>
+		  <property>sim/multiplay/generic/int[10]</property>
 		</condition>
 	</animation>
 	
@@ -614,7 +614,7 @@
 		<type>select</type>
 		<object-name>refuelProbeLeft</object-name>
 		<condition>
-		  <property>/sim/multiplay/generic/int[11]</property>
+		  <property>sim/multiplay/generic/int[11]</property>
 		</condition>
 	</animation>
 	

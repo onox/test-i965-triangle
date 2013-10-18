@@ -122,7 +122,7 @@
       <binding>
         <command>property-adjust</command>
         <property>/autopilot/settings/target-speed-kt</property>
-        <step>5</step>
+        <step>1</step>
         <min>0</min>
         <max>500</max>
         <wrap>1</wrap>
@@ -135,7 +135,7 @@
       <binding>
         <command>property-adjust</command>
         <property>/autopilot/settings/target-speed-kt</property>
-        <step>-5</step>
+        <step>-1</step>
         <min>0</min>
         <max>500</max>
         <wrap>1</wrap>

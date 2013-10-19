@@ -178,6 +178,7 @@
 		<type>select</type>
 		<object-name>fuselage.inner</object-name>
 		<object-name>fuselage.belly</object-name>
+		<object-name>radioRoom</object-name>
 		<condition>
 		  <or>
       	<property>sim/multiplay/generic/float[6]</property>
@@ -185,9 +186,19 @@
       	<property>sim/multiplay/generic/float[15]</property>
       	<property>sim/multiplay/generic/float[16]</property>
       	<property>sim/multiplay/generic/int[19]</property>
+      	<equals>
+      		<property>sim/current-view/view-number</property>
+      		<value>12</value>
+      	</equals>
       </or>
 		</condition>
 	</animation>
+
+
+	<model>
+		<name>radioRoom</name>
+		<path>Aircraft/707/Models/Cockpit/Awacs/radioroom.xml</path>
+	</model>
 
 <!-- Externe -->
 	<model>
@@ -2154,7 +2165,7 @@
 	
 	<model>
 		<name>ExternalLights</name>
-		<path>Aircraft/707/Models/Lights/707_Lights.xml</path>	
+		<path>Aircraft/707/Models/Lights/Awacs_Lights.xml</path>	
 		<offsets>
 			<x-m>0</x-m>
 			<y-m>0</y-m>

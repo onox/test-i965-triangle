@@ -101,10 +101,8 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>bg</object-name>
-		<object-name>bg.001</object-name>
-		<object-name>cover</object-name>
 		<object-name>radarblade</object-name>
+		<object-name>bg</object-name>
 		<condition>
 			<greater-than>
 				<property>/b707/ess-bus</property>
@@ -165,9 +163,9 @@
 		<property>/instrumentation/mptcas/on</property>
 		<factor>-90</factor>
 		<center>
-			<x-m> 0.0</x-m>
-			<y-m> 0.0521</y-m>
-			<z-m>-0.0536</z-m>
+			<x-m> 0.02512</x-m>
+			<y-m> 0.08391</y-m>
+			<z-m>-0.2062</z-m>
 		</center>
 		<axis>
 			<x>1</x>
@@ -198,12 +196,12 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>KnobRange</object-name>
-		<property>/instrumentation/mptcas/display-factor</property>
-		<factor>190</factor>
+		<property>/instrumentation/mptcas/display-factor-awacs</property>
+		<factor>300</factor> <!-- on the smaller one is 180 -->
 		<center>
-			<x-m> 0.0</x-m>
-			<y-m>-0.0509</y-m>
-			<z-m>-0.0536</z-m>
+			<x-m> 0.02512</x-m>
+			<y-m>-0.08374</y-m>
+			<z-m>-0.2062</z-m>
 		</center>
 		<axis>
 			<x>1</x>
@@ -222,9 +220,9 @@
 		<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>/instrumentation/mptcas/display-factor</property>
+				<property>/instrumentation/mptcas/display-factor-awacs</property>
 				<step>-0.01</step>
-				<min>0.05</min>
+				<min>0.03</min>
 				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
@@ -239,9 +237,9 @@
 		<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>/instrumentation/mptcas/display-factor</property>
+				<property>/instrumentation/mptcas/display-factor-awacs</property>
 				<step>0.01</step>
-				<min>0.05</min>
+				<min>0.03</min>
 				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
@@ -256,9 +254,9 @@
 		<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>/instrumentation/mptcas/display-factor</property>
+				<property>/instrumentation/mptcas/display-factor-awacs</property>
 				<step>-0.01</step>
-				<min>0.05</min>
+				<min>0.03</min>
 				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
@@ -273,9 +271,9 @@
 		<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>/instrumentation/mptcas/display-factor</property>
+				<property>/instrumentation/mptcas/display-factor-awacs</property>
 				<step>0.01</step>
-				<min>0.05</min>
+				<min>0.03</min>
 				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
@@ -291,8 +289,8 @@
 <!-- MULTIPLAYER -->
 
 <model>
-  <name>multis</name>
-  <path>Aircraft/707/Models/Cockpit/Instruments/radar/mps.xml</path>
+  <name>multis-ai</name>
+  <path>Aircraft/707/Models/Cockpit/Awacs/radar/mps-ai.xml</path>
   <offsets>
     <x-m>0</x-m>
     <y-m>0</y-m>
@@ -302,7 +300,7 @@
 
 <animation>
 	<type>rotate</type>
-	<object-name>multis</object-name>
+	<object-name>multis-ai</object-name>
 	<property>orientation/heading-deg</property>
 	<factor>1</factor>
 	<axis>
@@ -314,7 +312,7 @@
 
 <animation>
 	<type>select</type>
-	<object-name>multis</object-name>
+	<object-name>multis-ai</object-name>
 	<condition>
 		<greater-than>
 			<property>/b707/ess-bus</property>

@@ -133,7 +133,7 @@ var toggleLandingLights = func {
 }
 
 ################## Little Help Window on bottom of screen #################
-var help_win = screen.window.new( 0, 0, 1, 3 );
+var help_win = screen.window.new( 0, 0, 1, 5 );
 help_win.fg = [1,1,1,1];
 
 var messenger = func{
@@ -302,7 +302,7 @@ var show_mp_info = func (i){
 	var dis = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
 	var code = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
 
-  help_win.write(sprintf(cs~" %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", al, as, dis) ); 
+  help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", al, as, dis) ); 
 } 
 
 var show_ai_info = func (i){
@@ -311,7 +311,30 @@ var show_ai_info = func (i){
 	var as  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
 	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
 
-  help_win.write(sprintf(cs~" %.0fft / %.0fkts / %.2fnm", al, as, dis) );
+  help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm", al, as, dis) );
+}
+
+var show_mp_awacs_info = func (i){
+	var cs  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/tas-kt") or 0;
+	var dis = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
+	var bg = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/course-to-mp") or 0;
+	var code = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
+
+  help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg /  %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", bg, ct, al, as, dis) ); 
+} 
+
+var show_ai_awacs_info = func (i){
+	var cs  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
+	var bg = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/course-to-mp") or 0;
+	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
+
+  help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg / %.0fft / %.0fkts / %.2fnm", bg, ct, al, as, dis) );
 }
 
 #################################### helper for the standby ADI ############################################

@@ -136,9 +136,10 @@ var tcas = func {
 				  var text3 = sprintf("%.0f / %.0f", true_hdg, course_to_mp);
 				  var text4 = sprintf("%.0f", tas_kt);
 				  
-
-				  var aiAircraft = { callsign: {cs: callsign, dis: distance }};
-				  append(aircraft_list,aiAircraft);
+					if(callsign != "" and distance > 0){
+						var aiAircraft = {cs: callsign, dis: distance };
+						append(aircraft_list,aiAircraft);
+					}
 				  
 				  #
 					#setprop("/instrumentation/mptcas/table/row[1]/col[0]", callsign);
@@ -168,14 +169,18 @@ var tcas = func {
 			}
 	
 		}
+		
+		#debug.dump(aircraft_list);
 
 #return a list of the hash keys sorted by altitude_m
-var sortedkeys= sort (keys(aircraft_list), func (a,b) aircraft_list[a].dis - aircraft_list[b].dis);
- 
-foreach (var i; sortedkeys) 
- print (i, ": ", aircraft_list[i].cs, ", ", aircraft_list[i].dis);
-		
-		
+#var sortedkeys= sort(aircraft_list, func (a,b) { aircraft_list[a].dis < aircraft_list[b].dis; });
+
+	forindex (var i; aircraft_list){ 
+	 	print (i, ": ", aircraft_list[i].cs, ", ", aircraft_list[i].dis);
+	 	var n = i + 1;
+		setprop("/instrumentation/mptcas/table/row["~n~"]/col[0]",aircraft_list[i].cs);	
+		setprop("/instrumentation/mptcas/table/row["~n~"]/col[1]",aircraft_list[i].dis);	
+	}
 		
 	if (run) settimer(tcas, 0.7);
 	

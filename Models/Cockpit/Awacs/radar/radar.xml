@@ -208,7 +208,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor-awacs</property>
-				<step>-0.1</step>
+				<step>-0.008</step>
 				<min>0.0</min>
 				<max>0.8</max>
 				<wrap>false</wrap>
@@ -225,7 +225,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor-awacs</property>
-				<step>0.1</step>
+				<step>0.008</step>
 				<min>0.0</min>
 				<max>0.8</max>
 				<wrap>false</wrap>
@@ -242,7 +242,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor-awacs</property>
-				<step>-0.01</step>
+				<step>-0.002</step>
 				<min>0.0</min>
 				<max>0.8</max>
 				<wrap>false</wrap>
@@ -259,7 +259,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor-awacs</property>
-				<step>0.01</step>
+				<step>0.002</step>
 				<min>0.0</min>
 				<max>0.8</max>
 				<wrap>false</wrap>
@@ -285,9 +285,20 @@
   </offsets>
 </model>
 
+<model>
+  <name>multis-ai</name>
+  <path>Aircraft/707/Models/Cockpit/Awacs/radar/mps-ai.xml</path>
+  <offsets>
+    <x-m>0</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+  </offsets>
+</model>
+
 <animation>
 	<type>rotate</type>
 	<object-name>multis</object-name>
+	<object-name>multis-ai</object-name>
 	<property>orientation/heading-deg</property>
 	<factor>1</factor>
 	<axis>
@@ -300,11 +311,15 @@
 <animation>
 	<type>select</type>
 	<object-name>multis</object-name>
+	<object-name>multis-ai</object-name>
 	<condition>
-		<greater-than>
-			<property>/b707/ess-bus</property>
-			<value>20</value>
-		</greater-than>
+		<and>
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+			<property>/instrumentation/mptcas/on</property>
+		</and>
 	</condition>
 </animation>
 

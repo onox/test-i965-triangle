@@ -6,7 +6,7 @@
 		This file is licenced under the terms of the GNU General Public Licence V2 or later
 		###################################################################################
 -->
-<PropertyList>
+<PropertyList include="table.xml">
 
 	<path>radarblind.ac</path>
 	
@@ -79,5 +79,6 @@
 			<property>/instrumentation/mptcas/on</property>
 		</condition>
 	</animation>
+	
 
 </PropertyList>

@@ -160,6 +160,24 @@
 		</axis>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>Radome</object-name>
+		<condition>
+			<not>
+      	<equals>
+      		<property>sim/current-view/view-number</property>
+      		<value>12</value>
+      	</equals>
+      </not>
+		</condition>
+	</animation>
+	
+	<model>
+		<name>radioRoom</name>
+		<path>Aircraft/707/Models/Cockpit/Awacs/radioroom.xml</path>
+	</model>
+	
 		
 	<!-- inside fuselage -->
 	<animation>
@@ -193,12 +211,6 @@
       </or>
 		</condition>
 	</animation>
-
-
-	<model>
-		<name>radioRoom</name>
-		<path>Aircraft/707/Models/Cockpit/Awacs/radioroom.xml</path>
-	</model>
 
 <!-- Externe -->
 	<model>
@@ -2040,6 +2052,19 @@
 		  <z-m>0.0</z-m>
 		</offsets>
 	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>cockpit</object-name>
+		<condition>
+			<not>
+      	<equals>
+      		<property>sim/current-view/view-number</property>
+      		<value>12</value>
+      	</equals>
+      </not>
+		</condition>
+	</animation>
 
  <!--Conway RCo.10 engines -->
 	<model>

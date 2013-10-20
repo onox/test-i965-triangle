@@ -61,10 +61,10 @@
             <z-m>  1.24</z-m>
         </offsets>
     </model>
-    
+
     <model>
         <name>RAD2</name>
-        <path>Aircraft/707/Models/Cockpit/Awacs/radar/radar-ai.xml</path>
+        <path>Aircraft/707/Models/Cockpit/Awacs/radar/radarblind.xml</path>
         <offsets>
             <x-m>-11.20</x-m>
             <y-m>  0.617</y-m>

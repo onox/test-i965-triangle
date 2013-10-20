@@ -19,6 +19,8 @@ var tcas = func {
 		
 		var display_factor = getprop("/instrumentation/mptcas/display-factor") or 0;
 		var display_factor_awacs = getprop("/instrumentation/mptcas/display-factor-awacs") or 0;
+		
+		var aircraft_list = [];
 	
 		# Multiplayer TCAS
 	
@@ -125,6 +127,29 @@ var tcas = func {
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/altitude-ft", alt_ft);				# only info
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/tas-kt", tas_kt);							# only info
 				
+				# test to set it to the table
+				if(getprop("sim/aircraft") == "EC-137D"){
+				  var true_hdg = getprop("ai/models/aircraft[" ~ n ~ "]/orientation/true-heading-deg") or 0;
+				  var aircraft = "AI";
+				  var text1 = sprintf("%.1f", distance);
+				  var text2 = sprintf("%.0f", alt_ft);
+				  var text3 = sprintf("%.0f / %.0f", true_hdg, course_to_mp);
+				  var text4 = sprintf("%.0f", tas_kt);
+				  
+
+				  var aiAircraft = { callsign: {cs: callsign, dis: distance }};
+				  append(aircraft_list,aiAircraft);
+				  
+				  #
+					#setprop("/instrumentation/mptcas/table/row[1]/col[0]", callsign);
+					#setprop("/instrumentation/mptcas/table/row[1]/col[1]", text1);
+					#setprop("/instrumentation/mptcas/table/row[1]/col[2]", text2);
+					#setprop("/instrumentation/mptcas/table/row[1]/col[3]", text3);
+					#setprop("/instrumentation/mptcas/table/row[1]/col[4]", text4);
+					#setprop("/instrumentation/mptcas/table/row[1]/col[5]", aircraft);
+					
+				}
+				
 				# select object if in range of radar / 3.24 found by trial and error depends on range select knob
 				if (display < 3.23){ 
 					setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 1);
@@ -143,6 +168,14 @@ var tcas = func {
 			}
 	
 		}
+
+#return a list of the hash keys sorted by altitude_m
+var sortedkeys= sort (keys(aircraft_list), func (a,b) aircraft_list[a].dis - aircraft_list[b].dis);
+ 
+foreach (var i; sortedkeys) 
+ print (i, ": ", aircraft_list[i].cs, ", ", aircraft_list[i].dis);
+		
+		
 		
 	if (run) settimer(tcas, 0.7);
 	

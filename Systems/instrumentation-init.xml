@@ -218,41 +218,9 @@
   		<col n="0">CALLSIGN</col>
   		<col n="1">DISTANCE</col>
   		<col n="2">ALTITUDE</col>
-  		<col n="3">HDG/CRS TO</col>
+  		<col n="3">HDG / DIR</col>
   		<col n="4">TAS</col>
   		<col n="5">AIRCRAFT</col>
-  	</row>
-  	<row n="1">
-  		<col n="0">D-MKF1</col>
-  		<col n="1">177.8</col>
-  		<col n="2">42000</col>
-  		<col n="3">256</col>
-  		<col n="4">586</col>
-  		<col n="5">188</col>
-  	</row>
-  	<row n="2">
-  		<col n="0"></col>
-  		<col n="1"></col>
-  		<col n="2"></col>
-  		<col n="3"></col>
-  		<col n="4"></col>
-  		<col n="5"></col>
-  	</row>
-  	<row n="4">
-  		<col n="0"></col>
-  		<col n="1"></col>
-  		<col n="2"></col>
-  		<col n="3"></col>
-  		<col n="4"></col>
-  		<col n="5"></col>
-  	</row>
-  	<row n="5">
-  		<col n="0"></col>
-  		<col n="1"></col>
-  		<col n="2"></col>
-  		<col n="3"></col>
-  		<col n="4"></col>
-  		<col n="5"></col>
   	</row>
   </table>
 </mptcas>

@@ -56,15 +56,34 @@ var tcas = func {
 			  
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-x", x);										# for the radar pos
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-y", y);										# for the radar pos
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-xa", xa);										# for the radar pos
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-ya", ya);										# for the radar pos
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-xa", xa);									# for the radar pos
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/dis-ya", ya);									# for the radar pos
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/callsign", callsign);					# only info
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/distance-nm", distance);			# only info		
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/course-to-mp",course_to_mp);	# only info
-				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/bearing-deg", bearing);			# only info	
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/bearing-deg", bearing);				# only info	
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/altitude-ft", alt_ft);				# only info
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/tas-kt", tas_kt);							# only info
 				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/id-code", t_code);						# only info
+				
+				# fill the Awacs data array
+				if(getprop("sim/aircraft") == "EC-137D"){
+				  var true_hdg = getprop("ai/models/multiplayer[" ~ n ~ "]/orientation/true-heading-deg") or 0;
+				  t_code = (t_code > 0) ? t_code : "----";
+				  
+				  var model_short = getprop("ai/models/multiplayer[" ~ n ~ "]/sim/model/path");
+				  if(model_short != nil) {
+						var u = split("/", model_short); # give array
+						var s = size(u); # how many elements in array
+						var o = u[s-1];	 # the last element
+						var m = size(o); # how long is this string in the last element
+						var e = m - 4;   # - 4 chars .xml
+						var ms = substr(o, 0, e); # the string without .xml
+				  }else{
+				  	var ms = "no ident";
+				  }
+				  aircraft_list[callsign] = {cs: callsign, dis: distance, alt: alt_ft, th: true_hdg, ctm: course_to_mp, tas: tas_kt, at: ms~" | "~t_code };
+				}
 				
 				# select object if in range of radar / 3.24 found by trial and error depends on range select knob
 				if (display < 3.23){ 
@@ -118,34 +137,19 @@ var tcas = func {
 			  
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/dis-x", x);										# for the radar pos
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/dis-y", y);										# for the radar pos
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/dis-xa", xa);										# for the radar pos
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/dis-ya", ya);										# for the radar pos
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/dis-xa", xa);									# for the radar pos
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/dis-ya", ya);									# for the radar pos
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/callsign", callsign);					# only info
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/distance-nm", distance);			# only info	
-				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/bearing-deg", bearing);			# only info		
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/bearing-deg", bearing);			  # only info		
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/course-to-mp",course_to_mp);	# only info
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/altitude-ft", alt_ft);				# only info
 				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/tas-kt", tas_kt);							# only info
 				
-				# test to set it to the table
+				# fill the Awacs data array
 				if(getprop("sim/aircraft") == "EC-137D"){
 				  var true_hdg = getprop("ai/models/aircraft[" ~ n ~ "]/orientation/true-heading-deg") or 0;
-				  var aircraft = "AI";
-				  var text1 = sprintf("%.1f", distance);
-				  var text2 = sprintf("%.0f", alt_ft);
-				  var text3 = sprintf("%.0f / %.0f", true_hdg, course_to_mp);
-				  var text4 = sprintf("%.0f", tas_kt);
-				  
-				  aircraft_list[callsign] = {cs: callsign, dis: distance };
-				  
-				  #
-					#setprop("/instrumentation/mptcas/table/row[1]/col[0]", callsign);
-					#setprop("/instrumentation/mptcas/table/row[1]/col[1]", text1);
-					#setprop("/instrumentation/mptcas/table/row[1]/col[2]", text2);
-					#setprop("/instrumentation/mptcas/table/row[1]/col[3]", text3);
-					#setprop("/instrumentation/mptcas/table/row[1]/col[4]", text4);
-					#setprop("/instrumentation/mptcas/table/row[1]/col[5]", aircraft);
-					
+				  aircraft_list[callsign] = {cs: callsign, dis: distance, alt: alt_ft, th: true_hdg, ctm: course_to_mp, tas: tas_kt, at: "AI" };
 				}
 				
 				# select object if in range of radar / 3.24 found by trial and error depends on range select knob
@@ -167,20 +171,60 @@ var tcas = func {
 	
 		}
 		
-		#debug.dump(aircraft_list);
+		if(getprop("sim/aircraft") == "EC-137D"){
+			# first reset the old inputs
+			foreach(var r; props.globals.getNode("/instrumentation/mptcas/table").getChildren("row")){
+				if(r.getNode("col[0]") != nil){
+					r.getNode("col[0]").setValue("------------");
+				}
+				if(r.getNode("col[1]") != nil){
+					r.getNode("col[1]").setValue("------------");
+				}
+				if(r.getNode("col[2]") != nil){
+					r.getNode("col[2]").setValue("------------");
+				}
+				if(r.getNode("col[3]") != nil){
+					r.getNode("col[3]").setValue("------------");
+				}
+				if(r.getNode("col[4]") != nil){
+					r.getNode("col[4]").setValue("------------");
+				}
+				if(r.getNode("col[5]") != nil){
+					r.getNode("col[5]").setValue("------------");
+				}
+			}
 
-#return a list of the hash keys sorted by altitude_m
-var sortedkeys = sort(keys(aircraft_list), func (a,b) { aircraft_list[a].dis - aircraft_list[b].dis; });
+			# write the heading
+			setprop("/instrumentation/mptcas/table/row[0]/col[0]","CALLSIGN");	
+			setprop("/instrumentation/mptcas/table/row[0]/col[1]","DISTANCE");
+			setprop("/instrumentation/mptcas/table/row[0]/col[2]","ALTITUDE");	
+			setprop("/instrumentation/mptcas/table/row[0]/col[3]","HDG | DIR");
+			setprop("/instrumentation/mptcas/table/row[0]/col[4]","TAS");	
+			setprop("/instrumentation/mptcas/table/row[0]/col[5]","AIRCRAFT | ID");
+			
+			#return a list of the hash keys sorted by altitude_m
+			var sortedkeys = sort(keys(aircraft_list), func (a,b) { aircraft_list[a].dis - aircraft_list[b].dis; });
 
-	var n = 1;
-	foreach (var i; sortedkeys){ 
-	 	print (i, ": ", aircraft_list[i].cs, ", ", aircraft_list[i].dis);
-		setprop("/instrumentation/mptcas/table/row["~n~"]/col[0]",aircraft_list[i].cs);	
-		setprop("/instrumentation/mptcas/table/row["~n~"]/col[1]",aircraft_list[i].dis);
-		n += 1;	
-	}
-		
-	if (run) settimer(tcas, 0.7);
+			var n = 1; #n=0 is the headline
+			foreach (var i; sortedkeys){ 
+			 	#print (i, ": ", aircraft_list[i].cs, ", ", aircraft_list[i].dis);
+			 				
+				var text1 = sprintf("%.1f", aircraft_list[i].dis);
+				var text2 = sprintf("%.0f", aircraft_list[i].alt);
+				var text3 = sprintf("%.0f | %.0f", aircraft_list[i].th, aircraft_list[i].ctm);
+				var text4 = sprintf("%.0f", aircraft_list[i].tas);
+				var text5 = aircraft_list[i].at;
+						
+				setprop("/instrumentation/mptcas/table/row["~n~"]/col[0]",aircraft_list[i].cs);	
+				setprop("/instrumentation/mptcas/table/row["~n~"]/col[1]",text1);
+				setprop("/instrumentation/mptcas/table/row["~n~"]/col[2]",text2);	
+				setprop("/instrumentation/mptcas/table/row["~n~"]/col[3]",text3);
+				setprop("/instrumentation/mptcas/table/row["~n~"]/col[4]",text4);	
+				setprop("/instrumentation/mptcas/table/row["~n~"]/col[5]",text5);
+				n += 1;	
+			}
+		}
+	if (run) settimer(tcas, 1.4);
 	
 }
 

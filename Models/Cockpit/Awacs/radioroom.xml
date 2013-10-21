@@ -64,7 +64,7 @@
 
     <model>
         <name>RAD2</name>
-        <path>Aircraft/707/Models/Cockpit/Awacs/radar/radarblind.xml</path>
+        <path>Aircraft/707/Models/Cockpit/Awacs/radar/radardata.xml</path>
         <offsets>
             <x-m>-11.20</x-m>
             <y-m>  0.617</y-m>

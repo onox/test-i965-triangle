@@ -9,33 +9,14 @@
 <PropertyList>
 
 	<path>radar.ac</path>
-	
-	<animation>
-		<type>material</type>
-		<object-name>bg</object-name>
-		<condition>
-			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
-		</condition>
-		<emission>
-			<red>0.2</red>
-			<green>0.6</green>
-			<blue>0.0</blue>
-			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
-		</emission>
-	</animation>
 
 	<animation>
 		<type>material</type>
 		<object-name>bg</object-name>
-		<condition>
-			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/systems/electrical/outputs/cabin-dim</property>
-		</condition>
 		<emission>
 			<red>0.4</red>
 			<green>0.8</green>
 			<blue>0.0</blue>
-			<factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -98,12 +79,21 @@
 		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
+
+	<animation>
+		<type>noshadow</type>
+			<object-name>sup</object-name>
+	</animation>
+
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+			<object-name>sup</object-name>
+  </effect>
 	
 	<animation>
 		<type>select</type>
 		<object-name>radarblade</object-name>
 		<object-name>bg</object-name>
-		<object-name>bg.001</object-name>
 		<object-name>cover</object-name>
 		<condition>
 			<greater-than>
@@ -183,8 +173,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>KnobRange</object-name>
-		<property>/instrumentation/mptcas/display-factor</property>
-		<factor>300</factor>
+		<property>/instrumentation/mptcas/display-factor-awacs</property>
+		<factor>3000</factor>
 		<center>
 			<x-m> 0.02512</x-m>
 			<y-m>-0.08374</y-m>

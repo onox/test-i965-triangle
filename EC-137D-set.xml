@@ -134,7 +134,7 @@
 			<from-model type="bool">true</from-model>
 			<from-model-idx type="int">true</from-model-idx>
 			<!-- x/y/z == right/up/back -->
-			<x-offset-m archive="y"> 0.12</x-offset-m>
+			<x-offset-m archive="y"> 0.25</x-offset-m>
 			<y-offset-m archive="y">1.22</y-offset-m>
 			<z-offset-m archive="y">-10.67</z-offset-m>			
 			<pitch-offset-deg type="double">-7.0</pitch-offset-deg>

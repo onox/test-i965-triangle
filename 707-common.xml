@@ -9,7 +9,7 @@
  <sim n="0">
   <description>Boeing 707</description>
   <author>Lake of Constance Hangar [Original from Innis Cunningham]</author>
-  <status>2.1.0</status>
+  <status>2.1.1</status>
   <flight-model>jsb</flight-model>
   <aero>707</aero>
   <virtual-cockpit archive="y">true</virtual-cockpit>
@@ -197,7 +197,7 @@
 			<!-- [13] the last free property -->
 			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power-VW Kombi -->
       <int n="15" type="int">0</int> <!-- jettison fuel 1 = left, 2 = right, 3 = both -->
-      <int n="16" type="int">0</int> <!-- immat on the rudder or on fuselage -->
+      <int n="16" type="int">0</int> <!-- 0 no immat, 1 immat on the rudder, 2 on fuselage down, 3 fuselage upper back -->
       <int n="17" type="int">0</int> <!-- fire 1 = eng 1, 2 = eng 2, 3 = both -->
       <int n="18" type="int">0</int> <!-- fire 1 = eng 3, 2 = eng 4, 3 = both -->
       <int n="19" alias="/b707/crashed"/>

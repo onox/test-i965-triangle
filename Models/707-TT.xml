@@ -2867,6 +2867,43 @@
   </overlay>
 </model>
 
+<!-- Registration fuselage upper back -->
+<model>
+	<name>registrationFuselageRightBack</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>11.5</x-m>
+    <y-m>1.55</y-m>
+    <z-m>1.62</z-m>
+    <roll-deg>34</roll-deg>
+    <heading-deg>-1.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<model>
+	<name>registrationFuselageLeftBack</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>11.5</x-m>
+    <y-m>-1.55</y-m>
+    <z-m> 1.62</z-m>
+    <roll-deg>34</roll-deg>
+    <heading-deg>179.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
 <animation>
 	<type>select</type>
 	<object-name>registrationRudderRight</object-name>
@@ -2874,8 +2911,23 @@
 	<object-name>registrationWingTop</object-name>
 	<object-name>registrationWingBottom</object-name>
 	<condition>
-		<property>sim/multiplay/generic/int[16]</property>
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>3</value>
+		</equals>
 	</condition>	
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>registrationFuselageRightBack</object-name>
+	<object-name>registrationFuselageLeftBack</object-name>
+	<condition>
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>2</value>
+		</equals>
+	</condition>
 </animation>
 
 <animation>
@@ -2883,8 +2935,11 @@
 	<object-name>registrationFuselageRight</object-name>
 	<object-name>registrationFuselageLeft</object-name>
 	<condition>
-		<not><property>sim/multiplay/generic/int[16]</property></not>
-	</condition>	
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>1</value>
+		</equals>
+	</condition>
 </animation>
   
 </PropertyList>

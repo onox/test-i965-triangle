@@ -11,7 +11,7 @@ var isEC = func {
     for(var v = 0; v < otherNr; v += 1) {
 
        if (mpOther[v].getNode("sim/model/path").getValue() == "Aircraft/707/Models/EC-137D.xml" and
-           mpOther[v].getNode("id").getValue() >= 0 and mpOther[v].getNode("radar/range-nm").getValue() < 0.1 ) {
+           mpOther[v].getNode("id").getValue() >= 0 and mpOther[v].getNode("radar/range-nm").getValue() < 0.3 ) {
 
 			if (mpOther[v].getNode("sim/multiplay/generic/int[12]").getValue() != nil){
 				if(mpOther[v].getNode("sim/multiplay/generic/int[12]").getValue() == 1){

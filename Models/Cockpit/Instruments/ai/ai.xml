@@ -215,10 +215,10 @@
 		<type>select</type>
 		<object-name>ZR.Alt</object-name>
 		<condition>
-		  <and>
-		    <property>/instrumentation/nav[0]/nav-loc</property>
-		    <property>/instrumentation/nav[0]/in-range</property>
-		  </and>
+		  <!--><and>
+		    <property>/instrumentation/nav[0]/nav-loc</property>-->
+		  <property>/instrumentation/nav[0]/in-range</property>
+		  <!--</and>-->
 		</condition>
 	</animation>
 
@@ -249,10 +249,10 @@
 		<type>select</type>
 		<object-name>ZR.Azi</object-name>
 		<condition>
-		  <and>
-		    <property>/instrumentation/nav[0]/nav-loc</property>
-		    <property>/instrumentation/nav[0]/in-range</property>
-		  </and>
+  		  <!--><and>
+  		    <property>/instrumentation/nav[0]/nav-loc</property>-->
+  		  <property>/instrumentation/nav[0]/in-range</property>
+  		  <!--</and>-->
 		</condition>
 	</animation>
 

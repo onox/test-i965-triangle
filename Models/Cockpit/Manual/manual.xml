@@ -806,6 +806,254 @@
 	<subtitle4 n="28"></subtitle4>
 	<text4 n="28">
 		- Nutzen Sie dann die letzte FG Version -
-	</text4>				
+	</text4>
+	
+	<!-- ####################### czech ##################### -->
+	<!-- page 30 -->
+	<title n="30">PRIPAD NOUZE 707</title>
+	<subtitle1 n="30">POZAR MOTORU</subtitle1>
+	<text1 n="30">
+		Pripuste motoru - ZAVRENO
+		Nezbytny zdroj  - ZKONTROLUJ
+		Generator- ODPOJENO
+		Paka napojeni paliva - ODPOJENO
+		Tahlo pozaru motoru- POTAHNI
+		Jestlize tahlo pozaru zhasne a pozar je uhasen:
+		Tahlo pozaru motoru - POTLAC
+	</text1>
+	<subtitle2 n="30"></subtitle2>
+	<text2 n="30"></text2>
+	<subtitle3 n="30">RESTARTOVANI MOTORU ZA LETU</subtitle3>
+	<text3 n="30">
+		Nezapinejte znovu generator
+		Starter  - ZAPNUTO
+		Paka napojeni paliva - ZAPNUTO
+	</text3>
+	<subtitle4 n="30"></subtitle4>
+	<text4 n="30">
+		Jestlize zapnete za letu generator, muzete jej znicit a v nejhorsim pripade i znicit motor.
+	</text4>
+	
+	<!-- page 31 -->	
+	<title n="31">PRIPAD NOUZE 707</title>
+	<subtitle1 n="31">VAROVANI PRED NAMRAZOU</subtitle1>
+	<text1 n="31">
+		--------- NAHLAVNI PANEL----------
+		Namraza na kridlech- ZAPNUTO
+		Namraza motoru – VSECHNY ZAPNUTO
+		 Vyhrivani oken - VYSOKÝ VÝKON
+		--------- Inzenyrsky panel ----------
+		Vyhrivani paliva - ZAPNUTO
+	</text1>
+	<subtitle2 n="31"></subtitle2>
+	<text2 n="31"></text2>
+	<subtitle3 n="31"></subtitle3>
+	<text3 n="31">
+		Kontroluj teplotu venkovniho vzduchu
+		TAT – zarizeni na panelu kopilota
+		V pripade minusovych hodnot je vyzadovano nastaveni proti namraze
+	</text3>
+	<subtitle4 n="31"></subtitle4>
+	<text4 n="31"></text4>
+	
+	<!-- page 32 -->	
+	<title n="32">PRIPAD NOUZE 707</title>
+	<subtitle1 n="32">VAROVANI PRI POKLESU TLAKU V KABINE</subtitle1>
+	<text1 n="32">
+		--------- Nahlavni panel ----------
+		Kyslik - ZAPNUTO
+		Bezpecnostni pasy - ZAPNUTO
+		Zakaz koureni- ZAPNUTO
+		Nouzova únikova svetla - ZAPNUTO
+	</text1>
+	<subtitle2 n="32"></subtitle2>
+	<text2 n="32">
+		--------- Inzenyrsky panel----------
+		Kyslikovy kompresor - ZKONTROLUJ
+		Klimatizace – OBE ZAPNUTO
+		Bezpecnostni ventil – NORMALNI
+		Natlakovani, pravy prepinac - AUTO
+		Natlakovani, levy prepinac - PRISTANI
+		Hodnota tlaku – MAXIMALNI SNIZENI
+		Predni/zadni ventil - NORMALNI
+	</text2>
+	<subtitle3 n="32"></subtitle3>
+	<text3 n="32">
+	</text3>
+	<subtitle4 n="32"></subtitle4>
+	<text4 n="32">		
+		------------------------------------------
+		Nouzovy sestup - INICIOVAT
+	</text4>
+	
+	<!-- page 33 -->	
+	<title n="33">Normalni procedury</title>
+	<subtitle1 n="33">APU Start</subtitle1>
+	<text1 n="33">
+		--------- Inzenyrsky panel----------
+		Baterie - ZAPNUTO
+		--------- Pomocny panel----------
+		APU Hlavni vypinac - START
+		APU Generator - ZAPNUTO
+		APU Pruchozi ventil - OTEVENO
+		--------- Inzenyrsky panel ----------
+		AC Paralelni - APU
+		Nezbytny zdroj energie - APU
+	</text1>
+	<subtitle2 n="33"></subtitle2>
+	<text2 n="33">
+	</text2>
+	<subtitle3 n="33">APU Vypnuti</subtitle3>
+	<text3 n="33">		
+		--------- Inzenyrsky panel----------
+		Nezbytny zdroj energie - ZKONTROLUJ
+		--------- Pomocny panel ----------
+		APU Pruchozi ventil - ZAVRI
+		APU Generator - VYPNUTO
+		APU Hlavni vypinac - VYPNUTO
+	</text3>
+	<subtitle4 n="33"></subtitle4>
+	<text4 n="33">		
+	</text4>
+	
+	<!-- page 34 -->	
+	<title n="34">Normalni procedury</title>
+	<subtitle1 n="34">Po nastartovani motoru</subtitle1>
+	<text1 n="34">
+		--------- Pomocny panel----------
+		APU Pruchozi ventil - ZAVRENO
+		--------- Inzenyrsky panel----------
+		Zdroj energie- USTALEN		
+		AC Paralelni – VSECHNY ZKONTROL
+		Vsechny pojistky - ZAVRENO
+	</text1>
+	<subtitle2 n="34"></subtitle2>
+	<text2 n="34">
+		RAM kyslik - OTEV?ENO
+		Kyslikovy kompresor 2,3,4 - BEZI/START
+		Pidavne pumpy – VSECHNY ZAPNUTY
+		Hydraulicke systemy- ZKONTROLUJ
+		Kyslikovy kompresor 2,3,4 Indikovano - 
+	</text2>
+	<subtitle3 n="34"></subtitle3>
+	<text3 n="34">
+		ZKONTROL
+		Ventil klimatizace v kridle - OTEVRENO
+		Klimatizace- OBE ZAPNUTY
+	</text3>
+	<subtitle4 n="34"></subtitle4>
+	<text4 n="34">
+		Zavisly zdroj - ZAPNUTO
+		APU hlavni vypinac - VYPNUTO
+		Dvere - ZAVRENY
+		Pozemni vybaveni  - ODPOJENO
+	</text4>
+	
+	<!-- page 35 -->	
+	<title n="35">Normalni procedury</title>
+	<subtitle1 n="35">Before Takeoff</subtitle1>
+	<text1 n="35">
+		--------- Inzenyrsky panel ----------
+		Vsechny svetla - ZAPNUTY
+		Natlakovani, pravy prepinac - AUTOMATICKY
+		Natlakovani, levy prepinac - VZLET
+		Vyskomer - ZKONTROLUJ
+	</text1>
+	<subtitle2 n="35"></subtitle2>
+	<text2 n="35">
+		Vyska kabiny - ZKONTROLUJ
+		Posadka/Hlavni topeni - VYBRANO
+		Vyhrivani paliva – ZAPNUTO/VYPNUTO
+	</text2>
+	<subtitle3 n="35"></subtitle3>
+	<text3 n="35">
+		--------- Nahlavni panel----------
+		Transponder - NASTAVEN
+		Vyhrivani kridla- ZAPNUTO/VYPNUTO
+		Vyhrivani motoru - VSECHNY ZAPNUTO/VYPNUTO
+		Kyslik-  NASTAVENO NA - NORMALNE
+		Kompas – NASTAVENO LAT.
+		Yaw Dumper - VYPNUTO
+		--> pokracuj stranka 36
+	</text3>
+	<subtitle4 n="35"></subtitle4>
+	<text4 n="35">
+	</text4>
+	
+	<!-- page 36 -->	
+	<title n="36">Normalni procedury</title>
+	<subtitle1 n="36">Pred vzletem</subtitle1>
+	<text1 n="36">
+		stranka 35 - KOMPLETNI
+		--------- Centralni pedestal ----------
+		Vsechny trimy- NULA
+		Radio – NASTAVENO PRO ODLET
+		Brzdove paky – PLNE VPREDU
+		Klapky - VZLET
+	</text1>
+	<subtitle2 n="36"></subtitle2>
+	<text2 n="36">
+		Pripuste motoru- VOLNOBEH
+		Svetla - ZAPNUTO
+		Dvere kokpitu - ZAMKNUTY
+		Kontrola pred vzletem - KOMPLETNI
+	</text2>
+	<subtitle3 n="36"></subtitle3>
+	<text3 n="36">
+	</text3>
+	<subtitle4 n="36"></subtitle4>
+	<text4 n="36">
+	</text4>
+	
+	<!-- page 37 -->	
+	<title n="37">Normalni procedury</title>
+	<subtitle1 n="37">Vzlet</subtitle1>
+	<text1 n="37">
+		------- Letadlo na ranveji --------
+		Transponder - ZAPNUTO
+		Pripuste motoru – PLNÝ TAH
+		Pristroje motoru- MONITORUJ
+		Upozorni na jakoukoli abnormalitu!
+	</text1>
+	<subtitle2 n="37"></subtitle2>
+	<text2 n="37">
+		Over 80 uzlu - ZVOLEJ "80 KNOTS"
+		Over vzletova rychlost - ZVOLEJ"... KNOTS"
+		Over vertikalni rychlost- ZVOLEJ "VS ..."
+	</text2>
+	<subtitle3 n="37"></subtitle3>
+	<text3 n="37">
+		Zvolej "ZATAHNOUT PODVOZEK" kdyz je potvrzeno stoupani 
+		
+	</text3>
+	<subtitle4 n="37"></subtitle4>
+	<text4 n="37">
+	</text4>	
+	
+	<!-- page 38 -->	
+	<title n="38">Flightgear pouze</title>
+	<subtitle1 n="38">Autopilot</subtitle1>
+	<text1 n="38">
+		------- Mej na pameti --------
+		Pouzij buď
+		bezny autopilot ve Flightgearu
+		v Menu.
+
+	</text1>
+	<subtitle2 n="38"></subtitle2>
+	<text2 n="38">		
+		nebo – nebo zelene tlacitka na centralnim panelu
+		nebo – originalni BENDIX PB 20 na centralnim panelu
+		Jestlize pouzijes vsechny naraz, je to
+	</text2>
+	<subtitle3 n="38"></subtitle3>
+	<text3 n="38">
+		na tvoji zodpovednost. :-)
+		GPS a auto trasa maji nekdy problem s posledni verzi FG a Windows
+	</text3>
+	<subtitle4 n="38"></subtitle4>
+	<text4 n="38">
+		- Tak pouzij posledni stabilni verzi -
+	</text4>			
 	
 </PropertyList>

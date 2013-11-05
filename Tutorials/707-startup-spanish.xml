@@ -6,7 +6,7 @@
 		###################################################################################
 -->
 <PropertyList>
-	<name>Engines: Start-up [Spanish]</name>
+	<name>Engines: Start-up [spanish]</name>
 	<description>Arranque de motores con unidad de alimentacion externa.</description>
 
 	<init>

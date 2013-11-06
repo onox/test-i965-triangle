@@ -9,9 +9,9 @@
 ##############################################################################
 
 var kpForHeadingDeg = -2.6;
+var headingMaxRoll = 20;
 var kpForHeading = 0.1;
 var tiForHeading = 6.0;
-var headingMaxRoll = 20;
 var kpForWingLeveler = 0.85;
 var kpForAltHold = -0.01;
 var kpForPitchHold = -0.05;
@@ -43,15 +43,17 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("autopilot/locks/passive-mode", 0);
 
 	setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
+	setprop("/autopilot/internal/heading-min-roll", (headingMaxRoll * (-1)));
+	setprop("/autopilot/internal/heading-max-roll", headingMaxRoll);
 	setprop("/autopilot/internal/target-kp-for-heading-hold", kpForHeading);
 	setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeading);
-	setprop("/autopilot/internal/heading-max-roll", headingMaxRoll);
 	setprop("/autopilot/internal/target-kp-for-wing-leveler", kpForWingLeveler);
 	setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", 0.0);
 	setprop("/autopilot/internal/VOR-near-by", 0);
 	setprop("/autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
 	setprop("/autopilot/internal/target-kp-for-alt-hold", kpForAltHold);
 	setprop("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold);
+	setprop("/autopilot/internal/target-kp-for-pitch-hold", kpForPitchHold);
 	setprop("/autopilot/internal/gs-in-range", 0);
 
 	setprop("/autopilot/internal/yaw-damper", 0);
@@ -206,6 +208,7 @@ var listenerApHeadingFunc = func {
 		if (airspeedKt < 210) {
 			headingMaxRollCurrent = headingMaxRoll - ((210 - airspeedKt) * 0.0714285);
 			headingMaxRollCurrent = (headingMaxRollCurrent < 15 ? 15 : headingMaxRollCurrent);
+	setprop("/autopilot/internal/target-kp-for-pitch-hold", kpForPitchHold);
 
 			kpForHeadingDegCurrent =  kpForHeadingDeg + ((210 - airspeedKt) * 0.0171428);
 			kpForHeadingDegCurrent = (kpForHeadingDegCurrent > -1.4 ? -1.4 : kpForHeadingDegCurrent);
@@ -216,11 +219,11 @@ var listenerApHeadingFunc = func {
 		setprop("/autopilot/internal/heading-min-roll", headingMaxRollCurrent * (-1));
 
 
-#		print("");
-#		print ("heading-bug-error-deg=", getprop("/autopilot/internal/heading-bug-error-deg")); 
-#		print ("target-roll-deg      =", getprop("/autopilot/internal/target-roll-deg")); 
-#		print ("target-kp-for-heading-hold=", getprop("/autopilot/internal/target-kp-for-heading-hold")); 
-#		print ("target-ti-for-heading-hold=", getprop("/autopilot/internal/target-ti-for-heading-hold")); 
+		#print("");
+		#print ("indicated-heading-deg=", getprop("/instrumentation/heading-indicator/indicated-heading-deg"));
+		#print ("heading-bug-error-deg=", getprop("/autopilot/internal/heading-bug-error-deg")); 
+		#print ("true-heading-error-deg=", getprop("/autopilot/internal/true-heading-error-deg")); 
+		#print ("target-roll-deg      =", getprop("/autopilot/internal/target-roll-deg")); 
 
 		settimer(listenerApHeadingFunc, timerGap);
 	}

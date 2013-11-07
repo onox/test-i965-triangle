@@ -233,20 +233,22 @@
 	</enable>
 	<input>
 		<prop>/instrumentation/turn-indicator/indicated-turn-rate</prop>
+		<scale>30.0</scale>
 	</input>
 	<reference>
 		<prop>/autopilot/internal/wing-leveler-target-roll-deg</prop>
+		<scale>30.0</scale>
 	</reference>
 	<output>
 		<prop>/autopilot/internal/aileron-servo</prop>
 	</output>
 	<config>
-		<Kp>/autopilot/internal/target-kp-for-wing-leveler</Kp>
+		<Kp>/autopilot/internal/target-kp-for-heading-hold</Kp>
 		<beta>1.0</beta>
 		<alpha>0.1</alpha>
 		<gamma>0.0</gamma>
-		<Ti>10.0</Ti>
-		<Td>0.00001</Td>
+		<Ti>/autopilot/internal/target-ti-for-heading-hold</Ti>
+		<Td>0.05</Td>
 		<u_min>-1.0</u_min>
 		<u_max>1.0</u_max>
 	</config>

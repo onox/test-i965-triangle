@@ -64,6 +64,7 @@
 		<tutorial include="Tutorials/707-startup-english.xml"/>
 		<tutorial include="Tutorials/707-startup-spanish.xml"/>
 		<tutorial include="Tutorials/707-startup-portugues.xml"/>
+		<tutorial include="Tutorials/707-startup-italiano.xml"/>
 	</tutorials>
    
   <view>

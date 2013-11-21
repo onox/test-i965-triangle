@@ -177,7 +177,7 @@ var listenerApPB20ModeFunc = func {
 	}
 }
 setlistener("/autopilot/Bendix-PB-20/controls/active", listenerApPB20ModeFunc);
-setlistener("/autopilot/Bendix-PB-20/controls/mode-selector", listenerApPB20ModeFunc);
+setlistener("/autopilot/Bendix-PB-20/controls/mode-selector", listenerApPB20ModeFunc, 1,0);
 
 # switches off 'altitude-hold' if GS is in range and all other conditions are satisfied
 var gsMANAltControl = func {
@@ -195,6 +195,8 @@ var gsMANAltControl = func {
 
 # MAN - Mode - roll-selector
 var listenerApPB20MANRollFunc = func {
+    # if roll-knob-deg turn, the mode selector jump to mode 2
+	setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
 
 	if (	getprop("/autopilot/Bendix-PB-20/controls/active") == 1 and
 		getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 2) {

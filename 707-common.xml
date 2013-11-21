@@ -9,7 +9,7 @@
  <sim n="0">
   <description>Boeing 707</description>
   <author>Lake of Constance Hangar [Original from Innis Cunningham]</author>
-  <status>2.1.2</status>
+  <status>2.1.3</status>
   <flight-model>jsb</flight-model>
   <aero>707</aero>
   <virtual-cockpit archive="y">true</virtual-cockpit>
@@ -33,18 +33,18 @@
   </instrumentation>
   
   <model>
-		 <pushback>
-			<kp type="double">500</kp>
-			<ki type="double">100</ki>
-			<kd type="double">0</kd>
-			<position-norm type="double">0</position-norm>
-		 </pushback>
-		 <door n="0">
-		  <position-x-m type="float">-15.836</position-x-m>
-		  <position-y-m type="float">-1.578</position-y-m>
-		  <position-z-m type="float">0.1365</position-z-m>
-		  <jetway-hood-deg type="float">5</jetway-hood-deg>
-		 </door>
+	 <pushback>
+		<kp type="double">500</kp>
+		<ki type="double">100</ki>
+		<kd type="double">0</kd>
+		<position-norm type="double">0</position-norm>
+	 </pushback>
+	 <door n="0">
+	  <position-x-m type="float">-15.836</position-x-m>
+	  <position-y-m type="float">-1.578</position-y-m>
+	  <position-z-m type="float">0.1365</position-z-m>
+	  <jetway-hood-deg type="float">5</jetway-hood-deg>
+	 </door>
   </model>
   
 	<airport>

@@ -165,8 +165,8 @@ var listenerApHeadingFunc = func {
 			# full load: 196000 lbs
 
 			# iterate to 0.07 at full load
-			#kpForHeading = 0.18 - ((totalLbs - 100000.0) * 0.00002);
-			#kpForHeading = (kpForHeading < 0.07 ? 0.07 : kpForHeading);
+			kpForHeading = 0.1 - ((totalLbs - 100000.0) * 000000313);
+			kpForHeading = (kpForHeading < 0.07 ? 0.07 : kpForHeading);
 
 			# iterate to 8.0 at full load
 			tiForHeadingCurrent = tiForHeadingCurrent + ((totalLbs - 100000.0) * 0.000052083);

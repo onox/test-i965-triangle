@@ -744,9 +744,9 @@
             <table>
                 <independentVar>position/h-agl-ft</independentVar>
                 <tableData>
-                  0             0.47        
-                  10            0.65        
-                  20            0.73        
+                  0             0.105        
+                  10            0.149        
+                  20            0.203        
                   27            0       
                 </tableData>
             </table>
@@ -994,7 +994,7 @@
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>
-              0.0     -1.600
+              0.0     -1.900
               2.0     -0.325
             </tableData>
           </table>

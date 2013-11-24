@@ -16,6 +16,8 @@ var kpForAltHold = -0.01;
 var kpForPitchHold = -0.05;
 var kpForGSHold = -0.018;
 
+var headingInterpolationSeconds = 4;
+
 # 707 needs about 180 seconds (at speed 250 kts) fo a 180° turn, much more than a theoretical standard-turn
 var wpAircraftSpecificTurnFactor = 2.0;
 # passed distance (kts) per second per kt (707 needs 4 second to get into 20 deg. roll)
@@ -114,6 +116,8 @@ var listenerApPitchHoldSwitchFunc = func {
 }
 setlistener("/autopilot/locks/altitude", listenerApPitchHoldSwitchFunc);
 
+var kpForHeadingInterpolationIncrement = kpForHeading;
+var kpForHeadingActual = kpForHeading;
 var listenerApHeadingSwitchFunc = func {
 
 	if (	getprop("/autopilot/locks/heading") == "wing-leveler" or
@@ -121,11 +125,14 @@ var listenerApHeadingSwitchFunc = func {
 		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
 		((getprop("/autopilot/locks/heading") == "true-heading-hold") and (getprop("/autopilot/route-manager/active") == 0))) {
 
-		#print ("-> listenerApHeadingSwitchFunc -> installed");
-		setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.1));
+		#print ("kpForHeadingActual=", kpForHeadingActual, "   kpForHeading=", kpForHeading);
+		if (kpForHeadingActual > (kpForHeading - (2 * kpForHeadingInterpolationIncrement))) {
+			#print ("-> listenerApHeadingSwitchFunc -> installed");
+			setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.1));
 
-		setprop("/autopilot/internal/target-kp-for-heading-deg", (kpForHeadingDeg * 0.05));
-		interpolate("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg, 1);
+			setprop("/autopilot/internal/target-kp-for-heading-deg", (kpForHeadingDeg * 0.05));
+			interpolate("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg,1);
+		}
 	}
 }
 setlistener("/autopilot/internal/wing-leveler-target-roll-deg", listenerApHeadingSwitchFunc);
@@ -181,10 +188,9 @@ var listenerApHeadingFunc = func {
 		setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeadingCurrent);
 
 		# interpolate 'kpForHeading'
-		var interpolationSeconds = 4;
-		var numInterpolations = (1 / timerGap) * interpolationSeconds;
-		var kpForHeadingInterpolationIncrement = kpForHeading / numInterpolations;
-		var kpForHeadingActual = getprop("/autopilot/internal/target-kp-for-heading-hold");
+		var numInterpolations = (1 / timerGap) * headingInterpolationSeconds;
+		kpForHeadingInterpolationIncrement = kpForHeading / numInterpolations;
+		kpForHeadingActual = getprop("/autopilot/internal/target-kp-for-heading-hold");
 		if (kpForHeadingActual < kpForHeading) {
 			kpForHeadingActual = kpForHeadingActual + kpForHeadingInterpolationIncrement;
 			kpForHeadingActual = (kpForHeadingActual > kpForHeading ? kpForHeading : kpForHeadingActual);

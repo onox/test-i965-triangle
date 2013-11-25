@@ -213,6 +213,10 @@
             </signal>
             <signal>
                 <type>float</type>
+                <property type="string">/sim/multiplay/generic/float[14]</property>
+            </signal>
+            <signal>
+                <type>float</type>
                 <property type="string">/sim/multiplay/generic/float[15]</property>
             </signal>
             <signal>

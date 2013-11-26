@@ -110,6 +110,14 @@
 			<desc>toggle Pilot - Autopilot view</desc>
 		</key>
 		<key>
+		  <name>F7</name>
+		  <desc>open Map</desc>
+		</key>
+		<key>
+		  <name>F8</name>
+		  <desc>open Route-manager</desc>
+		</key>
+		<key>
 		  <name>F9</name>
 		  <desc>open Fuel &amp; Weight Menu</desc>
 		</key>

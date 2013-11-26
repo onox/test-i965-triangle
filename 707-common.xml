@@ -321,7 +321,7 @@
 		<Bendix-PB-20>
 			<controls>
 				<mode-selector type="int">2</mode-selector>	  <!-- 2 is manual control-->
-				<active type="bool">0</active>	  						<!-- the AP engage switch -->	
+				<active type="bool">0</active>	  			  <!-- the AP engage switch -->	
 			</controls>	
 		</Bendix-PB-20> 
 	</autopilot>

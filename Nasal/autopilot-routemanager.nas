@@ -126,7 +126,7 @@ var listenerApHeadingSwitchFunc = func {
 		((getprop("/autopilot/locks/heading") == "true-heading-hold") and (getprop("/autopilot/route-manager/active") == 0))) {
 
 		#print ("kpForHeadingActual=", kpForHeadingActual, "   kpForHeading=", kpForHeading);
-		if (kpForHeadingActual > (kpForHeading - (2 * kpForHeadingInterpolationIncrement))) {
+		if (kpForHeadingActual > (kpForHeading - (1.2 * kpForHeadingInterpolationIncrement))) {
 			#print ("-> listenerApHeadingSwitchFunc -> installed");
 			setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.1));
 

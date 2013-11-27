@@ -201,10 +201,7 @@ var listenerApPB20MANRollFunc = func {
 	if (	getprop("/autopilot/Bendix-PB-20/controls/active") == 1 and
 		getprop("/autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
 
-		var wingLevelerRollDeg = getprop("/autopilot/Bendix-PB-20/settings/roll-knob-deg") * 0.020776;
-		wingLevelerRollDeg = (wingLevelerRollDeg > 0.72555 ? 0.72555 : wingLevelerRollDeg);
-		wingLevelerRollDeg = (wingLevelerRollDeg < -0.72555 ? -0.72555 : wingLevelerRollDeg);
-		setprop("/autopilot/internal/wing-leveler-target-roll-deg", wingLevelerRollDeg);
+		setprop("/autopilot/internal/wing-leveler-target-roll-deg", getprop("/autopilot/Bendix-PB-20/settings/roll-knob-deg"));
 	}
 }
 setlistener("/autopilot/Bendix-PB-20/settings/roll-knob-deg", listenerApPB20MANRollFunc);

@@ -69,6 +69,10 @@
 	<checklists>
     	<checklist include="Checklists/before-engines-startup-EPU.xml"/>
     	<checklist include="Checklists/before-engines-startup-APU.xml"/>
+    	<checklist include="Checklists/before-engines-startup-II.xml"/>
+    	<checklist include="Checklists/before-engines-startup-III.xml"/>
+    	<checklist include="Checklists/startup-engines.xml"/>
+    	<checklist include="Checklists/after-engines-startup-I.xml"/>
 	</checklists>
 	
   <view>

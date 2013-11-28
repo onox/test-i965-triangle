@@ -6,14 +6,14 @@
 		###################################################################################
 -->
 <PropertyList> 
-    <title>Before engines startup /EPU</title>
+    <title>I.Before engines startup/EPU</title>
     <item>
       <name>Preflight check</name>
       <value>COMPLETED</value>
     </item>
 	
     <item>
-      <name>Battery Master</name>
+      <name>BATTERY MASTER</name>
       <value>ON</value>
 	  <marker>
 	      <x-m>-17.5860</x-m>
@@ -39,7 +39,33 @@
     </item>
 	
     <item>
-      <name>Doors</name>
+      <name>SELECTOR LOAD/VOLTS</name>
+      <value>BATT</value>
+	  <marker>
+	      <x-m>-17.5463</x-m>
+	      <y-m>0.5802</y-m>
+	      <z-m>1.4620</z-m>
+	      <scale>2.4380</scale>
+	  </marker>
+      <condition>
+        <equals>
+          <property>/b707/load-volt-selector</property>
+          <value>5</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>/b707/load-volt-selector</property>
+        <value>5</value>
+      </binding>        
+	  <binding>
+	    <command>property-toggle</command>
+	    <property>/sim/sound/switch1</property>
+	  </binding>
+    </item>
+	
+    <item>
+      <name>DOORS</name>
       <value>CLOSED</value>
 		<marker>
 		    <x-m>-17.1744</x-m>
@@ -124,7 +150,7 @@
     </item>
 	
     <item>
-      <name>Brakes</name>
+      <name>BRAKES</name>
       <value>CLOSED - PULL</value>
 	  <marker>
 	      <x-m>-18.5587</x-m>
@@ -146,7 +172,7 @@
     </item>
 
 	<item>
-		<name>External Power Unit</name>
+		<name>EXTERNAL POWER UNIT</name>
 		<value>CONNECTED</value>
 		<marker>
 		    <x-m>-17.5248</x-m>
@@ -168,7 +194,7 @@
 	</item> 
 
 	<item>
-		<name>Essential Power</name>
+		<name>ESSENTIAL POWER</name>
 		<value>SELECT EXT POWER</value>
 		<marker>
 		    <x-m>-17.5388</x-m>
@@ -194,7 +220,7 @@
 	</item>
 
 	<item>
-		<name>Selector AC-Paralleling</name>
+		<name>SELECTOR AC-PARALLELING</name>
 		<value>SYNCHRONIZED</value>
 		<marker>
 		    <x-m>-17.5545</x-m>
@@ -219,6 +245,32 @@
 	    </binding>
 	</item>
 
+	<item>
+		<name>GROUND CONNECT</name>
+		<value>ON</value>
+		<marker>
+		    <x-m>-17.5545</x-m>
+		    <y-m>0.7364</y-m>
+		    <z-m>1.2545</z-m>
+		    <scale>2.5041</scale>
+		</marker>
+		<condition>
+		  <equals>
+		    <property>/b707/ground-connect</property>
+		    <value>1</value>
+		  </equals>
+		</condition>
+		<binding>
+		  <command>property-assign</command>
+		  <property>/b707/ground-connect</property>
+		  <value>1</value>
+		</binding>  
+	    <binding>
+	      <command>property-toggle</command>
+	      <property>/sim/sound/switch1</property>
+	    </binding>
+	</item>
+	
 	<item>
 		<name>AC AUX PUMP 1</name>
 		<value>ON</value>

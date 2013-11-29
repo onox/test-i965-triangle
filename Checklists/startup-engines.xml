@@ -6,7 +6,15 @@
 		###################################################################################
 -->
 <PropertyList> 
-    <title>IV. Startup engines</title>
+    <title>IV. Startup engines</title>    
+	<item>
+      <name>III. Before engines startup</name>
+      <value>COMPLETED</value>
+    </item>
+    <item>
+      <name>THROTTLE</name>
+      <value>IDLE</value>
+    </item>
     <item>
       <name>Start ENG 3</name>
       <value>OVERHEAD PANEL - switch STARTER 3 ON</value>

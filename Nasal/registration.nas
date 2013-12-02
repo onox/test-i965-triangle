@@ -19,6 +19,8 @@
 # Immatriculation by Zakharov
 # Tuned by Torsten Dreyer
 # ===========================
+var registrationDialog = gui.Dialog.new("/sim/gui/dialogs/b707/status/dialog",
+				  "Aircraft/707/Systems/registration.xml");
 
 setlistener("/sim/signals/fdm-initialized", func {
   var callsign = props.globals.getNode("",1).getValue();

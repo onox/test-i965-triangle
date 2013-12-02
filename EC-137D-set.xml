@@ -74,7 +74,20 @@
 						<command>property-toggle</command>
 		    		<property>b707/external-power-connected</property>
 					</binding>
+				</item>			
+				<item>
+					<label>--- Registration ---</label>
+					<enabled>false</enabled>
 				</item>
+	            <item>
+	              <label>A/C Registration</label>
+	              <binding>
+	                <command>nasal</command>
+	                <script><![CDATA[ 
+	                  b707.registrationDialog.toggle();
+	                ]]></script>
+	              </binding>
+	            </item>
 			</menu>
 		</default>
 	</menubar>

@@ -256,7 +256,7 @@
 	
 	<item>
 		<name>ESSENTIAL POWER</name>
-		<value>SELECT EXT POWER</value>
+		<value>SELECT APU</value>
 		<marker>
 		    <x-m>-17.5388</x-m>
 		    <y-m>0.6620</y-m>

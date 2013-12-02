@@ -13,7 +13,7 @@
     </item>
 
 	<item>
-		<name>CROSSFEET VALVE RESERVE L</name>
+		<name>CROSSFEED VALVE RESERVE L</name>
 		<value>POSITION CHECK</value>
 		<marker>
 		    <x-m>-17.8207</x-m>
@@ -39,7 +39,7 @@
 	</item> 
 	
 	<item>
-		<name>CROSSFEET VALVE TANK 1</name>
+		<name>CROSSFEED VALVE TANK 1</name>
 		<value>POSITION CHECK</value>
 		<marker>
 		    <x-m>-17.7802</x-m>
@@ -65,7 +65,7 @@
 	</item>  
 	
 	<item>
-		<name>CROSSFEET VALVE TANK 2</name>
+		<name>CROSSFEED VALVE TANK 2</name>
 		<value>POSITION CHECK</value>
 		<marker>
 		    <x-m>-17.7116</x-m>
@@ -91,7 +91,7 @@
 	</item>  
 	
 	<item>
-		<name>CROSSFEET VALVE TANK 3</name>
+		<name>CROSSFEED VALVE TANK 3</name>
 		<value>POSITION CHECK</value>
 		<marker>
 		    <x-m>-17.6430</x-m>
@@ -117,7 +117,7 @@
 	</item>  
 	
 	<item>
-		<name>CROSSFEET VALVE TANK 4</name>
+		<name>CROSSFEED VALVE TANK 4</name>
 		<value>POSITION CHECK</value>
 		<marker>
 		    <x-m>-17.5727</x-m>
@@ -143,7 +143,7 @@
 	</item>  
 	
 	<item>
-		<name>CROSSFEET VALVE RESERVE R</name>
+		<name>CROSSFEED VALVE RESERVE R</name>
 		<value>POSITION CHECK</value>
 		<marker>
 		    <x-m>-17.5314</x-m>

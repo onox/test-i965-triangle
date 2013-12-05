@@ -217,8 +217,12 @@
 		<action>
 			<name>calibrate fine dec</name>
 			<button>0</button>
-		<repeatable>true</repeatable>
-			<binding>
+			<repeatable>true</repeatable>
+			<binding>	          
+				<condition>
+		            <not><property>devices/status/keyboard/shift</property></not>
+		            <not><property>devices/status/keyboard/super</property></not>
+		        </condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor</property>
 				<step>-0.01</step>
@@ -226,7 +230,21 @@
 				<max>0.62</max>
 				<wrap>false</wrap>
 			</binding>
-		  <binding>
+			<binding>	          
+				<condition>
+		            <or>
+						<property>devices/status/keyboard/shift</property>
+						<property>devices/status/keyboard/super</property>
+					</or>
+		        </condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/mptcas/display-factor</property>
+				<step>-0.1</step>
+				<min>0.03</min>
+				<max>0.62</max>
+				<wrap>false</wrap>
+			</binding>
+		  	<binding>
 				<command>property-toggle</command>
 				<property>/sim/sound/switch3</property>
 			</binding>
@@ -235,10 +253,28 @@
 			<name>calibrate fine inc</name>
 			<button>1</button>
 		<repeatable>true</repeatable>
-			<binding>
+			<binding>	          
+				<condition>
+		            <not><property>devices/status/keyboard/shift</property></not>
+		            <not><property>devices/status/keyboard/super</property></not>
+		        </condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor</property>
 				<step>0.01</step>
+				<min>0.03</min>
+				<max>0.62</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>	          
+				<condition>
+		            <or>
+						<property>devices/status/keyboard/shift</property>
+						<property>devices/status/keyboard/super</property>
+					</or>
+		        </condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/mptcas/display-factor</property>
+				<step>0.1</step>
 				<min>0.03</min>
 				<max>0.62</max>
 				<wrap>false</wrap>
@@ -252,10 +288,28 @@
 			<name>calibrate fine dec</name>
 			<button>3</button>
 		<repeatable>true</repeatable>
-			<binding>
+			<binding>	          
+				<condition>
+		            <not><property>devices/status/keyboard/shift</property></not>
+		            <not><property>devices/status/keyboard/super</property></not>
+		        </condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor</property>
 				<step>-0.01</step>
+				<min>0.03</min>
+				<max>0.62</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>	          
+				<condition>
+		            <or>
+						<property>devices/status/keyboard/shift</property>
+						<property>devices/status/keyboard/super</property>
+					</or>
+		        </condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/mptcas/display-factor</property>
+				<step>-0.1</step>
 				<min>0.03</min>
 				<max>0.62</max>
 				<wrap>false</wrap>
@@ -269,10 +323,28 @@
 			<name>calibrate fine inc</name>
 			<button>4</button>
 		<repeatable>true</repeatable>
-			<binding>
+			<binding>	          
+				<condition>
+		            <not><property>devices/status/keyboard/shift</property></not>
+		            <not><property>devices/status/keyboard/super</property></not>
+		        </condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/mptcas/display-factor</property>
 				<step>0.01</step>
+				<min>0.03</min>
+				<max>0.62</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>	          
+				<condition>
+		            <or>
+						<property>devices/status/keyboard/shift</property>
+						<property>devices/status/keyboard/super</property>
+					</or>
+		        </condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/mptcas/display-factor</property>
+				<step>0.1</step>
 				<min>0.03</min>
 				<max>0.62</max>
 				<wrap>false</wrap>

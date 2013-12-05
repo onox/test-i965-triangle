@@ -55,6 +55,7 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold);
 	setprop("/autopilot/internal/target-kp-for-pitch-hold", kpForPitchHold);
 	setprop("/autopilot/internal/gs-in-range", 0);
+	setprop("/autopilot/internal/elevator-position", 0.0);
 
 	setprop("/autopilot/internal/yaw-damper", 0);
 }
@@ -94,6 +95,7 @@ setlistener("/autopilot/internal/yaw-damper", yawDamperFunc);
 var listenerApAltHoldSwitchFunc = func {
 
 	if (	getprop("/autopilot/locks/altitude") == "altitude-hold" or
+		getprop("/autopilot/locks/altitude") == "agl-hold" or
 		getprop("/autopilot/locks/altitude") == "vertical-speed-hold") {
 
 		#print ("-> listenerApAltHoldSwitchFunc -> installed");
@@ -118,6 +120,7 @@ setlistener("/autopilot/locks/altitude", listenerApPitchHoldSwitchFunc);
 
 var kpForHeadingInterpolationIncrement = kpForHeading;
 var kpForHeadingActual = kpForHeading;
+var kpForHeadingCurrent = kpForHeading;
 var listenerApHeadingSwitchFunc = func {
 
 	if (	getprop("/autopilot/locks/heading") == "wing-leveler" or
@@ -125,19 +128,22 @@ var listenerApHeadingSwitchFunc = func {
 		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
 		((getprop("/autopilot/locks/heading") == "true-heading-hold") and (getprop("/autopilot/route-manager/active") == 0))) {
 
-		#print ("kpForHeadingActual=", kpForHeadingActual, "   kpForHeading=", kpForHeading);
-		if (kpForHeadingActual > (kpForHeading - (1.2 * kpForHeadingInterpolationIncrement))) {
-			#print ("-> listenerApHeadingSwitchFunc -> installed");
-			setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeading * 0.1));
+		#print ("-> listenerApHeadingSwitchFunc -> installed");
+		setprop("/autopilot/internal/target-kp-for-heading-hold", (kpForHeadingCurrent * 0.1));
 
-			setprop("/autopilot/internal/target-kp-for-heading-deg", (kpForHeadingDeg * 0.05));
-			interpolate("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg,1);
-		}
+		setprop("/autopilot/internal/target-kp-for-heading-deg", (kpForHeadingDeg * 0.05));
+		interpolate("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg,1);
 	}
 }
-setlistener("/autopilot/internal/wing-leveler-target-roll-deg", listenerApHeadingSwitchFunc);
-setlistener("/autopilot/settings/heading-bug-deg", listenerApHeadingSwitchFunc);
-setlistener("/instrumentation/nav[0]/radials/selected-deg", listenerApHeadingSwitchFunc);
+var listenerApHeadingChangeFunc = func {
+	# action only if interpolation is not still running
+	if (kpForHeadingActual > (kpForHeadingCurrent - (1.2 * kpForHeadingInterpolationIncrement))) {
+		listenerApHeadingSwitchFunc();
+	}
+}
+setlistener("/autopilot/internal/wing-leveler-target-roll-deg", listenerApHeadingChangeFunc);
+setlistener("/autopilot/settings/heading-bug-deg", listenerApHeadingChangeFunc);
+setlistener("/instrumentation/nav[0]/radials/selected-deg", listenerApHeadingChangeFunc);
 setlistener("/autopilot/locks/heading", listenerApHeadingSwitchFunc);
 
 var listenerApHeadingPassiveModeFunc = func {
@@ -165,20 +171,27 @@ var listenerApHeadingFunc = func {
 		var timerGap = 0.05;
 
 		var airspeedKt = getprop("/velocities/airspeed-kt");
+		var altitudeFt = getprop("/position/altitude-ft");
 		var totalLbs = getTotalLbs();
 
 		var tiForHeadingCurrent = tiForHeading;
+		kpForHeadingCurrent = kpForHeading;
 		if (totalLbs > 100000) {
 			# full load: 196000 lbs
 
 			# iterate to 0.07 at full load
-			kpForHeading = 0.1 - ((totalLbs - 100000.0) * 000000313);
-			kpForHeading = (kpForHeading < 0.07 ? 0.07 : kpForHeading);
+			kpForHeadingCurrent = kpForHeadingCurrent - ((totalLbs - 100000.0) * 0.000000313);
 
 			# iterate to 8.0 at full load
 			tiForHeadingCurrent = tiForHeadingCurrent + ((totalLbs - 100000.0) * 0.000052083);
 
 		}
+		if (altitudeFt > 30000.0) {
+			kpForHeadingCurrent = kpForHeadingCurrent - ((altitudeFt - 30000.0) * 0.0000025);
+		}
+		kpForHeadingCurrent = (kpForHeadingCurrent < 0.05 ? 0.05 : kpForHeadingCurrent);
+		#print ("kpForHeadingCurrent=", kpForHeadingCurrent);
+
 		if (airspeedKt < 210) {
 			tiForHeadingCurrent = tiForHeadingCurrent + ((210 - airspeedKt) * 0.2);
 		}
@@ -187,16 +200,19 @@ var listenerApHeadingFunc = func {
 
 		setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeadingCurrent);
 
-		# interpolate 'kpForHeading'
+		# interpolate 'kpForHeading(Current)'
 		var numInterpolations = (1 / timerGap) * headingInterpolationSeconds;
-		kpForHeadingInterpolationIncrement = kpForHeading / numInterpolations;
+		kpForHeadingInterpolationIncrement = kpForHeadingCurrent / numInterpolations;
 		kpForHeadingActual = getprop("/autopilot/internal/target-kp-for-heading-hold");
-		if (kpForHeadingActual < kpForHeading) {
+		if (kpForHeadingActual < kpForHeadingCurrent) {
 			kpForHeadingActual = kpForHeadingActual + kpForHeadingInterpolationIncrement;
-			kpForHeadingActual = (kpForHeadingActual > kpForHeading ? kpForHeading : kpForHeadingActual);
+			kpForHeadingActual = (kpForHeadingActual > kpForHeadingCurrent ? kpForHeadingCurrent : kpForHeadingActual);
 
+			setprop("/autopilot/internal/target-kp-for-heading-hold", kpForHeadingActual);
 		}
-		setprop("/autopilot/internal/target-kp-for-heading-hold", kpForHeadingActual);
+		else {
+			setprop("/autopilot/internal/target-kp-for-heading-hold", kpForHeadingCurrent);
+		}
 		#print ("target-kp-for-heading-hold=", getprop("/autopilot/internal/target-kp-for-heading-hold")); 
 
 		var headingMaxRollCurrent = headingMaxRoll;
@@ -692,6 +708,55 @@ var listenerApNav1NearFarFunc = func {
 	}
 }
 setlistener("/autopilot/locks/heading", listenerApNav1NearFarFunc);
+
+# adjust elevator-position to avoid elevator-trim getting to it's end-position: alt-/vspeed-modes are driven by elevator-trim
+var counterForElevatorMovement = 0.0;
+var elevatorTrimPosAverages = [0.0, 0.0, 0.0, 0.0, 0.0];
+var elevatorTrimPosMax = 0.9;
+var adjustElevatorPosition = func {
+	if (	getprop("/autopilot/locks/altitude") == "altitude-hold" or
+		getprop("/autopilot/locks/altitude") == "agl-hold" or
+		getprop("/autopilot/locks/altitude") == "vertical-speed-hold" or
+		getprop("/autopilot/locks/altitude") == "gs1-hold" or
+		getprop("/autopilot/locks/altitude") == "pitch-hold" or
+		getprop("/autopilot/locks/altitude") == "aoa-hold" or
+		getprop("/autopilot/locks/altitude") == "speed-with-pitch-trim") {
+
+		# experimental - move elevator if elevator-trim reaches end-position
+		if (counterForElevatorMovement >= size(elevatorTrimPosAverages)) {	# each 5-th iteration
+			var elevatorTrimPosAverage = 0.0;
+			for (var i=0; i < size(elevatorTrimPosAverages); i=i+1) {
+				elevatorTrimPosAverage += elevatorTrimPosAverages[i];
+			}
+			elevatorTrimPosAverage = elevatorTrimPosAverage / size(elevatorTrimPosAverages);
+			var elevatorPos = getprop("/autopilot/internal/elevator-position");
+			#print("adjustElevatorPosition=", elevatorTrimPosAverage);
+			if (elevatorTrimPosAverage < (elevatorTrimPosMax * (-1))) {
+				if (elevatorPos >= -0.99) {
+					interpolate("/autopilot/internal/elevator-position", elevatorPos - 0.01, 0.9);
+					#print("adjustElevatorPosition=", getprop("/autopilot/internal/elevator-position"));
+				}
+			}
+			elsif (elevatorTrimPosAverage > elevatorTrimPosMax) {
+				if (elevatorPos <= 0.99) {
+					interpolate("/autopilot/internal/elevator-position", elevatorPos + 0.01, 0.9);
+					#print("adjustElevatorPosition=", getprop("/autopilot/internal/elevator-positionr"));
+				}
+			}
+
+			counterForElevatorMovement = 0;
+		}
+		else {
+			if (counterForElevatorMovement < size(elevatorTrimPosAverages)) {
+				elevatorTrimPosAverages[counterForElevatorMovement] = getprop("/controls/flight/elevator-trim");
+			}
+			counterForElevatorMovement += 1;
+		}
+
+		settimer(adjustElevatorPosition, 0.2);
+	}
+}
+setlistener("/autopilot/locks/altitude", adjustElevatorPosition);
 
 
 ### speed with pitch

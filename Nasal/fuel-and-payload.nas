@@ -352,7 +352,8 @@ var WeightFuelDialog = func {
     var tnames = ["Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1", "Res 4"];
 
     var tanks = props.globals.getNode("/consumables/fuel").getChildren("tank");
-    for(var i=0; i<size(tanks); i+=1) {
+    for(var i=0; i<size(tanks)-1; i+=1) {
+		#print("Tanks in for:"~i);
         var t = tanks[i];
         var tname = tnames[i-1] ~ "";
         var tnode = t.getNode("name");

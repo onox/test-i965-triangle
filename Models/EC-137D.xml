@@ -20,8 +20,6 @@
     <object-name>nose</object-name>
     <object-name>vertstab</object-name>
     <object-name>rudder</object-name>
-    <object-name>vertstabWithLight</object-name>
-    <object-name>rudderWithLight</object-name>
     <object-name>nonones</object-name>
     <object-name>lhaftfairing</object-name>
     <object-name>lhdoorinner</object-name>
@@ -110,8 +108,6 @@
     <object-name>fuselage</object-name>
     <object-name>vertstab</object-name>
     <object-name>rudder</object-name>
-    <object-name>vertstabWithLight</object-name>
-    <object-name>rudderWithLight</object-name>
     <object-name>nonones</object-name>
     <object-name>lhaftfairing</object-name>
     <object-name>lhdoorinner</object-name>
@@ -164,48 +160,14 @@
     <texture-prop>texture</texture-prop>
     <texture>EC-137.png</texture>
   </animation>
-	
-	<!-- ##########  rembrandt do not work together with this effect ############ -->
-	<effect>
-		<inherits-from>Effects/lightmap</inherits-from>
-		<parameters>
-			<texture n="1">
-				<image>Aircraft/707/Models/Lights/logolight.png</image>
-			</texture>
-			<condition><use>/controls/lighting/logo-lights</use></condition>
-			<factor>1</factor>
-		</parameters>
-    <object-name>vertstabWithLight</object-name>
-    <object-name>rudderWithLight</object-name>
-	</effect>
-	
+
 	<animation>
 		<type>noshadow</type>
     <object-name>fuselage.inner</object-name>
     <object-name>fuselage.belly</object-name>
     <object-name>cockpit</object-name>    
 	</animation>
-	
-	<!-- objects without rembrandt -->
-	<animation>
-		<type>select</type>
-    <object-name>vertstabWithLight</object-name>
-    <object-name>rudderWithLight</object-name>
-		<condition>	
-		  <not><property>/sim/rendering/rembrandt/enabled</property></not>
-		</condition>
-	</animation>
-	<!-- objects for rembrandt -->	
-	<animation>
-		<type>select</type>
-    <object-name>vertstab</object-name>
-    <object-name>rudder</object-name>
-		<condition>	
-		  <property>/sim/rendering/rembrandt/enabled</property>
-		</condition>
-	</animation>
-	
-	<!-- ############ end of rudder illumination ############ --> 
+
   <animation>
       <type>translate</type>
       <object-name>doorRefuel</object-name>

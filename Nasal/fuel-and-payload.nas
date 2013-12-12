@@ -349,7 +349,7 @@ var WeightFuelDialog = func {
     kg.set("label", "kg");
     kg.set("halign", "left");
     
-    var tnames = ["Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1", "Res 4"];
+    var tnames = ["Res 4", "Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1"];
 
     var tanks = props.globals.getNode("/consumables/fuel").getChildren("tank");
     for(var ti=0; ti<7; ti+=1) {

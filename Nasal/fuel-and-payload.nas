@@ -352,14 +352,17 @@ var WeightFuelDialog = func {
     var tnames = ["Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1", "Res 4"];
 
     var tanks = props.globals.getNode("/consumables/fuel").getChildren("tank");
-    for(var i=0; i<size(tanks)-1; i+=1) {
-		#print("Tanks in for:"~i);
-        var t = tanks[i];
-        var tname = tnames[i-1] ~ "";
+    for(var ti=0; ti<7; ti+=1) {
+        var t = tanks[ti];
+        var tname = tnames[ti] ~ "";
+
+		#print("Tanks in for:"~ti);
+		#print("Tank name: "~tnames[ti]);
+		
         var tnode = t.getNode("name");
         if(tnode != nil) { tname = tnode.getValue(); }
 
-        var tankprop = "/consumables/fuel/tank["~i~"]";
+        var tankprop = "/consumables/fuel/tank["~ti~"]";
 
         var cap = t.getNode("capacity-gal_us", 0);
 
@@ -370,33 +373,33 @@ var WeightFuelDialog = func {
         # Ignore tanks of capacity 0
         if (cap == 0) { continue; }
 
-        var title = tcell(fuelTable, "text", i+1, 0);
+        var title = tcell(fuelTable, "text", ti+1, 0);
         title.set("label", tname);
         title.set("halign", "left");
 
         var selected = props.globals.initNode(tankprop ~ "/selected", 1, "BOOL");
         if (selected.getAttribute("writable")) {
-            var sel = tcell(fuelTable, "checkbox", i+1, 1);
+            var sel = tcell(fuelTable, "checkbox", ti+1, 1);
             sel.set("property", tankprop ~ "/selected");
             sel.set("live", 1);
             sel.setBinding("dialog-apply");
         }
 
-        var slider = tcell(fuelTable, "slider", i+1, 2);
+        var slider = tcell(fuelTable, "slider", ti+1, 2);
         slider.set("property", tankprop ~ "/level-gal_us");
         slider.set("live", 1);
         slider.set("min", 0);
         slider.set("max", cap);
         slider.setBinding("dialog-apply");
 
-        var lbs = tcell(fuelTable, "text", i+1, 3);
+        var lbs = tcell(fuelTable, "text", ti+1, 3);
         lbs.set("property", tankprop ~ "/level-lbs");
 				lbs.set("label", "0123456");
 				lbs.set("format", "%.1f" );
 				lbs.set("halign", "right");
 				lbs.set("live", 1);
 
-        var kg = tcell(fuelTable, "text", i+1, 4);
+        var kg = tcell(fuelTable, "text", ti+1, 4);
         kg.set("property", tankprop ~ "/level-kg");
 				kg.set("label", "0123456");
 				kg.set("format", "%.1f" );

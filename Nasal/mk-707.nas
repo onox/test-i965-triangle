@@ -772,7 +772,7 @@ var nacelle_deicing = func {
 		}		
 		var engineInlet = getprop("/b707/anti-ice/engine-inlet["~e.getIndex()~"]") or 0;
 		
-		if (!engineInlet) {
+		if (!engineInlet and e.getIndex() < 4) {
 		  var n = e.getIndex() + 1;
 		  if(tat <= -10) iceAlertEngines = 1;
 		  if(tat <= -30) setprop("/controls/engines/engine["~e.getIndex()~"]/cutoff", 1);

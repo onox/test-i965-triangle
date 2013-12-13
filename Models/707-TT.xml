@@ -2978,6 +2978,23 @@
 		</equals>
 	</condition>
 </animation>
+
+<model>
+	<name>registrationCockpitPanel</name>
+  <path>Aircraft/707/Models/Registration/flightnumber.xml</path>
+  <offsets>
+    <x-m>-18.91</x-m>
+    <y-m>-0.285</y-m>
+    <z-m>0.972</z-m>
+    <heading-deg>-90.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.013</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
   
 </PropertyList>
 

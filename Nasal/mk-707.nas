@@ -314,6 +314,15 @@ var show_ai_info = func (i){
   help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm", al, as, dis) );
 }
 
+var show_ta_info = func (i){
+	var cs  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/tas-kt") or 0;
+	var dis = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/distance-nm") or 0;
+
+  help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm", al, as, dis) );
+}
+
 var show_mp_awacs_info = func (i){
 	var cs  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/callsign") or "";
 	var al  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
@@ -333,6 +342,17 @@ var show_ai_awacs_info = func (i){
 	var bg = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/bearing-deg") or 0;
 	var ct = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/course-to-mp") or 0;
 	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
+
+  help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg / %.0fft / %.0fkts / %.2fnm", bg, ct, al, as, dis) );
+}
+
+var show_ta_awacs_info = func (i){
+	var cs  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/tas-kt") or 0;
+	var bg = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/course-to-mp") or 0;
+	var dis = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/distance-nm") or 0;
 
   help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg / %.0fft / %.0fkts / %.2fnm", bg, ct, al, as, dis) );
 }

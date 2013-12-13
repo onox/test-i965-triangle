@@ -24,6 +24,7 @@
 		<type>material</type>
 		<object-name>firewarning</object-name>
 		<object-name>panel</object-name> 
+		<object-name>immat.text</object-name> 
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>

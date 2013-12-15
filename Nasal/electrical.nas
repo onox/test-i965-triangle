@@ -344,13 +344,13 @@ var update_virtual_bus = func {
 					if(mag1){
 						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator/indicated-heading-deg"));
 					}else{
-						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator-dg/indicated-heading-deg"));	
+						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator-fg/indicated-heading-deg"));	
 					}
 	
 					if(mag2){
 						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator/indicated-heading-deg"));
 					}else{
-						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator-dg/indicated-heading-deg"));	
+						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator-fg/indicated-heading-deg"));	
 					}
 
 				}

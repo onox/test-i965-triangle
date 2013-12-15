@@ -79,10 +79,10 @@ The only reason it's here is to specify a second ADF.
         <suction>/systems/static/pressure-inhg</suction>
     </heading-indicator>
 
-    <heading-indicator-dg>
-        <name>heading-indicator-dg</name>
+    <heading-indicator-fg>
+        <name>heading-indicator-fg</name>
         <number>0</number>
-    </heading-indicator-dg>
+    </heading-indicator-fg>
 
     <magnetic-compass>
         <name>magnetic-compass</name>

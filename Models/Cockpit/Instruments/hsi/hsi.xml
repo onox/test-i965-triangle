@@ -134,7 +134,7 @@
 		<object-name>From</object-name>
 		<object-name>noNav</object-name>
 		<object-name>needle</object-name>
-		<property>orientation/heading-deg</property>
+		<property>b707/hsi/indicated-heading-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x>-1</x>

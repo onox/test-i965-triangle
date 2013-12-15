@@ -410,6 +410,28 @@ var fullSpeedbrakes = func {
 ######################################## compass control #######################################
 # if compass control is set to MAG (directional gyro slaved to flux valve) and not DG (compass indicate directional gyro heading)
 
+var show_indicated_heading = func {
+	var mag1 = 	getprop("instrumentation/compass-control[0]/mag") or 0;
+	var mag2 = 	getprop("instrumentation/compass-control[1]/mag") or 0;
+	
+	if(mag1){
+		setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator/indicated-heading-deg"));
+	}else{
+		setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator-dg/indicated-heading-deg"));	
+	}
+	
+	if(mag2){
+		setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator/indicated-heading-deg"));
+	}else{
+		setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator-dg/indicated-heading-deg"));	
+	}
+	
+	settimer( show_indicated_heading, 0);
+
+}
+# fire up the compass
+settimer( show_indicated_heading, 30);
+
 # the offset will be set automatically
 
 var mag_control = func {
@@ -431,13 +453,13 @@ var mag_control2 = func {
 setlistener( "/instrumentation/compass-control/mag", func(state){ 
 		var compos = getprop("/b707/compass-pos") or 0;
 		var state = state.getValue();
-		mag_control(); 
+		#mag_control(); 
 		if (state and compos) {toggle_switch2(); interpolate("/b707/compass-pos", 0, 0.8);} # 0 is out
 });
 setlistener( "/instrumentation/compass-control[1]/mag", func(state){ 
 		var compos = getprop("/b707/compass-pos") or 0;
 		var state = state.getValue();
-		mag_control2(); 
+		#mag_control2(); 
 		if (state and compos) {b707.toggle_switch2(); interpolate("/b707/compass-pos", 0, 0.8);} # 0 is out
 });
 

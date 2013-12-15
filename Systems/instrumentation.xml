@@ -73,19 +73,17 @@ The only reason it's here is to specify a second ADF.
         <number>0</number>
     </clock> 
     
-    <!-- Pilot -->
-		<heading-indicator-dg>
-		  <name>heading-indicator</name>
-		  <number>0</number>
-		  <suction>/systems/vacuum/suction-inhg</suction>
-		</heading-indicator-dg>
+	<heading-indicator-dg>
+	  <name>heading-indicator-dg</name>
+	  <number>0</number>
+	  <suction>/systems/vacuum/suction-inhg</suction>
+	</heading-indicator-dg>
 
-		<!-- Copilot -->
-		<heading-indicator-dg>
-		  <name>heading-indicator</name>
-		  <number>1</number>
-		  <suction>/systems/vacuum/suction-inhg</suction>
-		</heading-indicator-dg>
+	<heading-indicator>
+	  <name>heading-indicator</name>
+	  <number>0</number>
+	  <suction>/systems/vacuum/suction-inhg</suction>
+	</heading-indicator>
 
     <magnetic-compass>
         <name>magnetic-compass</name>
@@ -97,10 +95,10 @@ The only reason it's here is to specify a second ADF.
         <number>0</number>
     </slip-skid-ball>
 
-		<turn-indicator>
-			<name>turn-indicator</name>
-			<number>0</number>
-		</turn-indicator>
+	<turn-indicator>
+		<name>turn-indicator</name>
+		<number>0</number>
+	</turn-indicator>
 
     <tacan n="0">
       <name>tacan</name>

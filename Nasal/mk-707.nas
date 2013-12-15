@@ -413,7 +413,7 @@ var fullSpeedbrakes = func {
 setlistener( "/instrumentation/compass-control[0]/mag[0]", func(state){ 
 	var value = state.getValue();
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
-	
+	nIndicatedHeading.unalias();
 	if(value){
 		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}else{
@@ -424,7 +424,7 @@ setlistener( "/instrumentation/compass-control[0]/mag[0]", func(state){
 setlistener( "/instrumentation/compass-control[0]/mag[1]", func(state){ 
 	var value = state.getValue();
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
-	
+	nIndicatedHeading.unalias();
 	if(value){
 		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}else{

@@ -410,6 +410,8 @@ var fullSpeedbrakes = func {
 # mag compass control will find in the electrical.nas#
 
 ############################## the magnetic compass up or down #####################################
+###### the magnetic variation you will find in fuel-and-payload.nas above line 910 
+
 setlistener( "/instrumentation/compass-control[0]/mag[0]", func(state){ 
 	var value = state.getValue();
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");

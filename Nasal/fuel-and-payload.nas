@@ -906,7 +906,12 @@ var engines_alive = func {
 	flo.setValue(new); 
 	fph.setValue(co); 
 	fct.setValue(tc);
-
+	
+	
+	################## magnetic compass offset is here #####################
+	setprop("instrumentation/heading-indicator-fg/offset-deg",-getprop("/environment/magnetic-variation-deg"));
+	
+	
 	settimer( engines_alive, 8);
 }
 ###################################################################################################

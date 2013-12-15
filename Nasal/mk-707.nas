@@ -415,9 +415,9 @@ setlistener( "/instrumentation/compass-control[0]/mag[0]", func(state){
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
-		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
-	}else{
 		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+	}else{
+		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
 },1,0);
 
@@ -426,9 +426,9 @@ setlistener( "/instrumentation/compass-control[0]/mag[1]", func(state){
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
-		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
-	}else{
 		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+	}else{
+		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
 },1,0);
 

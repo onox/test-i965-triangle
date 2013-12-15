@@ -225,4 +225,8 @@
   </table>
 </mptcas>
 
+<transponder>
+  <inputs><knob-mode type="int">0</knob-mode></inputs>
+</transponder>
+
 </PropertyList>

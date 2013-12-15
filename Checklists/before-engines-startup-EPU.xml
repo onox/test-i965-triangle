@@ -39,6 +39,32 @@
     </item>
 	
     <item>
+      <name>TRANSPONDER</name>
+      <value>STBY</value>
+	  <marker>
+	      <x-m>-18.4529</x-m>
+	      <y-m>-0.2537</y-m>
+	      <z-m>1.3818</z-m>
+	      <scale>1.4463</scale>
+	  </marker>
+      <condition>
+        <equals>
+          <property>/instrumentation/transponder/inputs/knob-mode</property>
+          <value>1</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/transponder/inputs/knob-mode</property>
+        <value>1</value>
+      </binding>        
+	  <binding>
+	    <command>property-toggle</command>
+	    <property>/sim/sound/switch1</property>
+	  </binding>
+    </item>
+	
+    <item>
       <name>SELECTOR LOAD/VOLTS</name>
       <value>BATT</value>
 	  <marker>

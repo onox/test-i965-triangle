@@ -333,29 +333,7 @@ var update_virtual_bus = func {
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
 				}
-				
-				######################################## compass control #######################################
-				# if compass control is set to MAG (heading-indicator) and not DG (heading-indicator-dg)
 
-				if (essdcbus_volts > 20) {
-					var mag1 = 	getprop("instrumentation/compass-control[0]/mag") or 0;
-					var mag2 = 	getprop("instrumentation/compass-control[1]/mag") or 0;
-	
-					if(mag1){
-						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/magnetic-compass/indicated-heading-deg"));
-					}else{
-						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator-fg/indicated-heading-deg"));	
-					}
-	
-					if(mag2){
-						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/magnetic-compass/indicated-heading-deg"));
-					}else{
-						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator-fg/indicated-heading-deg"));	
-					}
-
-				}
-				####################################### end of compas control #######################################
-				
 				# bus-tie fall back on freq problems
 				if(generator1.get_output_volts() and EssFreq.getValue() != generator1.frequency.getValue()){
 					generator1.gen_bus_tie.setValue(0);		

@@ -410,6 +410,27 @@ var fullSpeedbrakes = func {
 # mag compass control will find in the electrical.nas#
 
 ############################## the magnetic compass up or down #####################################
+setlistener( "/instrumentation/compass-control[0]/mag[0]", func(state){ 
+	var value = state.getValue();
+	var nIndicatedHeading = props.globals.initNode("b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
+	
+	if(value){
+		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
+	}else{
+		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+	}
+},1,0);
+
+setlistener( "/instrumentation/compass-control[0]/mag[1]", func(state){ 
+	var value = state.getValue();
+	var nIndicatedHeading = props.globals.initNode("b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
+	
+	if(value){
+		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
+	}else{
+		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+	}
+},1,0);
 
 var compass_swing = func{
 	var state = getprop("/b707/compass-pos") or 0;

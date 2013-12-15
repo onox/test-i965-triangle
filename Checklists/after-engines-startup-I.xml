@@ -249,10 +249,10 @@
 		<name>ESSENTIAL POWER SOURCE</name>
 		<value>GEN 1</value>
 		<marker>
-		    <x-m>-17.5661</x-m>
-		    <y-m>0.7339</y-m>
-		    <z-m>1.2521</z-m>
-		    <scale>3.2975</scale>
+		    <x-m>-17.5388</x-m>
+		    <y-m>0.6620</y-m>
+		    <z-m>1.3645</z-m>
+		    <scale>2.5041</scale>
 		</marker>
 		<condition>
 		  <equals>
@@ -275,10 +275,10 @@
 		<name>GROUND CONNECT</name>
 		<value>OFF</value>
 		<marker>
-		    <x-m>-17.5545</x-m>
-		    <y-m>0.7364</y-m>
-		    <z-m>1.2545</z-m>
-		    <scale>2.5041</scale>
+		    <x-m>-17.5248</x-m>
+		    <y-m>0.6331</y-m>
+		    <z-m>1.4066</z-m>
+		    <scale>1.9091</scale>
 		</marker>
 		<condition>
 		  <equals>

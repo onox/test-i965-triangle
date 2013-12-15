@@ -342,13 +342,13 @@ var update_virtual_bus = func {
 					var mag2 = 	getprop("instrumentation/compass-control[1]/mag") or 0;
 	
 					if(mag1){
-						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator/indicated-heading-deg"));
+						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/magnetic-compass/indicated-heading-deg"));
 					}else{
 						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator-fg/indicated-heading-deg"));	
 					}
 	
 					if(mag2){
-						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator/indicated-heading-deg"));
+						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/magnetic-compass/indicated-heading-deg"));
 					}else{
 						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator-fg/indicated-heading-deg"));	
 					}

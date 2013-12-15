@@ -135,6 +135,7 @@
 		<object-name>noNav</object-name>
 		<object-name>needle</object-name>
 		<property>b707/hsi/indicated-heading-deg</property>
+		<!--><property>instrumentation/heading-indicator/indicated-heading-deg</property>-->
 		<factor>-1</factor>
 		<axis>
 			<x>-1</x>

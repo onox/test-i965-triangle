@@ -334,6 +334,28 @@ var update_virtual_bus = func {
 					  }
 				}
 				
+				######################################## compass control #######################################
+				# if compass control is set to MAG (heading-indicator) and not DG (heading-indicator-dg)
+
+				if (essdcbus_volts > 20) {
+					var mag1 = 	getprop("instrumentation/compass-control[0]/mag") or 0;
+					var mag2 = 	getprop("instrumentation/compass-control[1]/mag") or 0;
+	
+					if(mag1){
+						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator/indicated-heading-deg"));
+					}else{
+						setprop("b707/hsi[0]/indicated-heading-deg", getprop("instrumentation/heading-indicator-dg/indicated-heading-deg"));	
+					}
+	
+					if(mag2){
+						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator/indicated-heading-deg"));
+					}else{
+						setprop("b707/hsi[1]/indicated-heading-deg", getprop("instrumentation/heading-indicator-dg/indicated-heading-deg"));	
+					}
+
+				}
+				####################################### end of compas control #######################################
+				
 				# bus-tie fall back on freq problems
 				if(generator1.get_output_volts() and EssFreq.getValue() != generator1.frequency.getValue()){
 					generator1.gen_bus_tie.setValue(0);		
@@ -373,11 +395,11 @@ var update_virtual_bus = func {
 				EssSourceFailure.setBoolValue(1);
 				essdcbus_volts = 0;
 			}
-		  
+
 		  if(battery.switch.getBoolValue() and essdcbus_volts < 24){
 		  	EssSourceFailure.setBoolValue(1);
 		  	power_source = "battery";	
-				essdcbus_volts = battery.get_output_volts();	  
+			essdcbus_volts = battery.get_output_volts();	  
 		  }
 		  
 		  if (essdcbus_volts < 20 and count == 60){ 

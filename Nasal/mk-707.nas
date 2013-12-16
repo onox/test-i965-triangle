@@ -141,7 +141,7 @@ var h_altimeter = func {
 var h_heading = func {
 	var press_hdg = getprop("/autopilot/settings/heading-bug-deg");
 	if(  press_hdg == nil ) press_hdg = 0.0;
-	help_win.write(sprintf("Target heading: %.0f ", press_hdg) );
+	help_win.write(sprintf("Heading bug: %.0f ", press_hdg) );
 }
 
 var h_course = func {
@@ -214,7 +214,9 @@ var show_alti = func {
 var show_lat_lon = func {
 	var lat = getprop("/position/latitude-string");
 	var lon = getprop("/position/longitude-string");
-	help_win.write(sprintf("lat: "~lat~" lon: "~lon)); 
+	var mv = getprop("/environment/magnetic-variation-deg") or 0;
+	mv = int(mv);
+	help_win.write(sprintf("lat: "~lat~" lon: "~lon~" / Magnetic variation is "~mv)); 
 }
 
 var show_tat = func {
@@ -431,6 +433,7 @@ setlistener( "/instrumentation/compass-control[0]/lat-turn", func(state){
 	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
 	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
+	show_lat_lon();
 },1,0);
 
 setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){ 
@@ -442,6 +445,7 @@ setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){
 	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
 	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
+	show_lat_lon();
 },1,0);
 
 setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){ 
@@ -452,6 +456,7 @@ setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){
 	var f = (nS) ? -1 : 1;
 	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
+	show_lat_lon();
 },1,0);
 
 setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){ 
@@ -462,6 +467,7 @@ setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){
 	var f = (nS) ? -1 : 1;
 	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
+	show_lat_lon();
 },1,0);
 
 var compass_swing = func{

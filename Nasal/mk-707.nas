@@ -224,7 +224,7 @@ var show_lat_lon = func {
 	dgc1 = dgc1*f1;
 	dgc2 = dgc2*f2;
 	mv = int(mv);
-	help_win.write(sprintf("lat: "~lat~" lon: "~lon~" / Magnetic variation is "~mv~" / Compass Control 1 lat: "~dgc1~" / Compass Control 2 lat: "~dgc2)); 
+	help_win.write(sprintf("lat: "~lat~" lon: "~lon~" / Magnetic variation is "~mv~" / Compass Controller 1 lat: "~dgc1~" / Compass Controller 2 lat: "~dgc2)); 
 }
 
 var show_tat = func {
@@ -452,7 +452,7 @@ setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){
 	var f = (nS) ? -1 : 1;
 	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
 	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
-	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
+	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
 	show_lat_lon();
 },1,0);
 

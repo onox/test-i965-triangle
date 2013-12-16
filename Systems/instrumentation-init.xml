@@ -163,13 +163,13 @@
 
 <!-- B707 Compass Controll  -->
 <compass-control>
-  <mag type="bool">0</mag>
+  <mag type="bool">1</mag>
   <lat-knob type="bool">0</lat-knob>
   <lat-turn type="double">0</lat-turn>
 </compass-control>
 
 <compass-control n="1">
-  <mag type="bool">0</mag>
+  <mag type="bool">1</mag>
   <lat-knob type="bool">0</lat-knob>
   <lat-turn type="double">0</lat-turn>
 </compass-control>

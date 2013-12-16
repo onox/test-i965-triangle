@@ -409,11 +409,12 @@
 		    <property>/b707/pressurization/safety-valve</property>
 		    <value>1</value>
 		  </equals>
-		</condition>		
+		</condition>
 		<binding>
-            <command>nasal</command>
-            <script>b707.safety_valv_pos();</script>
-		</binding>    
+		  <command>property-assign</command>
+		  <property>/b707/pressurization/safety-valve</property>
+		  <value>1</value>
+		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
 	      <property>/sim/sound/switch1</property>

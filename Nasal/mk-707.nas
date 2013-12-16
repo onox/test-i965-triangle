@@ -447,18 +447,20 @@ setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){
 setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){ 
 	var nS = state.getBoolValue() or 0;
 	var latPos = getprop("/position/latitude-deg") or 0;
+	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
 	var latCorr = getprop("/instrumentation/compass-control[0]/lat-turn") or 0;
 	var f = (nS) ? -1 : 1;
-	var offset = int(latPos - (latCorr * f));
+	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
 },1,0);
 
 setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){ 
 	var nS = state.getBoolValue() or 0;
 	var latPos = getprop("/position/latitude-deg") or 0;
+	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
 	var latCorr = getprop("/instrumentation/compass-control[1]/lat-turn") or 0;
 	var f = (nS) ? -1 : 1;
-	var offset = int(latPos - (latCorr * f));
+	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
 },1,0);
 

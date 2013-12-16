@@ -404,10 +404,9 @@ setlistener( "/instrumentation/compass-control[0]/mag", func(state){
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
-		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
+		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
 	}else{
-		# nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
-		nIndicatedHeading.alias("instrumentation/heading-indicator/indicated-heading-deg");
+		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
 },1,0);
 
@@ -416,12 +415,18 @@ setlistener( "/instrumentation/compass-control[1]/mag", func(state){
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
-		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
+		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
 	}else{
-		# nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
-		nIndicatedHeading.alias("instrumentation/heading-indicator[1]/indicated-heading-deg");
+		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
 },1,0);
+
+	
+	
+	################## magnetic compass offset is here #####################
+	setprop("instrumentation/heading-indicator-fg/offset-deg",-getprop("/environment/magnetic-variation-deg"));
+	
+	
 
 setlistener( "/instrumentation/compass-control[0]/lat-turn", func(state){ 
 	var latCorr = state.getValue() or 0;
@@ -429,7 +434,7 @@ setlistener( "/instrumentation/compass-control[0]/lat-turn", func(state){
 	var nS = getprop("/instrumentation/compass-control[0]/lat-knob") or 0;
 	var f = (nS) ? -1 : 1;
 	var offset = int(latPos - (latCorr * f));
-	setprop("/instrumentation/heading-indicator/offset-deg", offset);
+	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
 },1,0);
 
 setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){ 
@@ -438,7 +443,7 @@ setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){
 	var nS = getprop("/instrumentation/compass-control[1]/lat-knob") or 0;
 	var f = (nS) ? -1 : 1;
 	var offset = int(latPos - (latCorr * f));
-	setprop("/instrumentation/heading-indicator[1]/offset-deg", offset);
+	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
 },1,0);
 
 setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){ 
@@ -447,7 +452,7 @@ setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){
 	var latCorr = getprop("/instrumentation/compass-control[0]/lat-turn") or 0;
 	var f = (nS) ? -1 : 1;
 	var offset = int(latPos - (latCorr * f));
-	setprop("/instrumentation/heading-indicator/offset-deg", offset);
+	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
 },1,0);
 
 setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){ 
@@ -456,7 +461,7 @@ setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){
 	var latCorr = getprop("/instrumentation/compass-control[1]/lat-turn") or 0;
 	var f = (nS) ? -1 : 1;
 	var offset = int(latPos - (latCorr * f));
-	setprop("/instrumentation/heading-indicator[1]/offset-deg", offset);
+	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
 },1,0);
 
 var compass_swing = func{

@@ -421,29 +421,27 @@ setlistener( "/instrumentation/compass-control[1]/mag", func(state){
 	}
 },1,0);
 
-	
-	
-	################## magnetic compass offset is here #####################
-	setprop("instrumentation/heading-indicator-fg/offset-deg",-getprop("/environment/magnetic-variation-deg"));
-	
-	
 
 setlistener( "/instrumentation/compass-control[0]/lat-turn", func(state){ 
 	var latCorr = state.getValue() or 0;
 	var latPos = getprop("/position/latitude-deg") or 0;
+	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
 	var nS = getprop("/instrumentation/compass-control[0]/lat-knob") or 0;
 	var f = (nS) ? -1 : 1;
-	var offset = int(latPos - (latCorr * f));
+	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
+	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
 },1,0);
 
 setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){ 
 	var latCorr = state.getValue() or 0;
 	var latPos = getprop("/position/latitude-deg") or 0;
+	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
 	var nS = getprop("/instrumentation/compass-control[1]/lat-knob") or 0;
 	var f = (nS) ? -1 : 1;
-	var offset = int(latPos - (latCorr * f));
-	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
+	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
+	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
+	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
 },1,0);
 
 setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){ 

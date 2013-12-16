@@ -326,7 +326,7 @@
       <binding>
         <command>property-assign</command>
         <property>/instrumentation/compass-control[0]/mag</property>
-        <value>1</value>
+        <value>0</value>
       </binding> 
       <binding>
         <command>nasal</command>

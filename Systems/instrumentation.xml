@@ -78,6 +78,12 @@ The only reason it's here is to specify a second ADF.
         <number>0</number>
         <suction>/systems/static/pressure-inhg</suction>
     </heading-indicator>
+	
+    <heading-indicator>
+        <name>heading-indicator</name>
+        <number>1</number>
+        <suction>/systems/static/pressure-inhg</suction>
+    </heading-indicator>
 
     <heading-indicator-fg>
         <name>heading-indicator-fg</name>

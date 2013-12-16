@@ -206,9 +206,6 @@
             <condition>
             	<not><property>devices/status/keyboard/shift</property></not>
             	<not><property>devices/status/keyboard/super</property></not>
-                <not>
-                    <property>devices/status/keyboard/ctrl</property>
-                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -219,13 +216,10 @@
         </binding>
         <binding>
             <condition>
-						     <or>
-						      <property>devices/status/keyboard/shift</property>
-						      <property>devices/status/keyboard/super</property>
-						     </or>
-                <not>
-                    <property>devices/status/keyboard/ctrl</property>
-                </not>
+		     <or>
+		      <property>devices/status/keyboard/shift</property>
+		      <property>devices/status/keyboard/super</property>
+		     </or>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -233,17 +227,6 @@
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-               <property>devices/status/keyboard/ctrl</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>instrumentation/heading-indicator/offset-deg</property>
-            <step>1</step>
-            <min>-45</min>
-            <max>45</max>
-            <wrap>false</wrap>
         </binding>
     </action>
     <action>
@@ -254,9 +237,6 @@
             <condition>
             	<not><property>devices/status/keyboard/shift</property></not>
             	<not><property>devices/status/keyboard/super</property></not>
-                <not>
-                    <property>devices/status/keyboard/ctrl</property>
-                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -267,13 +247,10 @@
         </binding>
         <binding>
             <condition>
-						     <or>
-						      <property>devices/status/keyboard/shift</property>
-						      <property>devices/status/keyboard/super</property>
-						     </or>
-                <not>
-                    <property>devices/status/keyboard/ctrl</property>
-                </not>
+		     <or>
+		      <property>devices/status/keyboard/shift</property>
+		      <property>devices/status/keyboard/super</property>
+		     </or>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -282,17 +259,6 @@
             <max>360</max>
             <wrap>true</wrap>
         </binding>        
-        <binding>
-            <condition>
-               <property>devices/status/keyboard/ctrl</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>instrumentation/heading-indicator/offset-deg</property>
-            <step>-1</step>
-            <min>-45</min>
-            <max>45</max>
-            <wrap>false</wrap>
-        </binding>
     </action>
     <action>
         <name>hdg dec</name>
@@ -302,9 +268,6 @@
             <condition>
             	<not><property>devices/status/keyboard/shift</property></not>
             	<not><property>devices/status/keyboard/super</property></not>
-                <not>
-                    <property>devices/status/keyboard/ctrl</property>
-                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -315,13 +278,10 @@
         </binding>
         <binding>
             <condition>
-						     <or>
-						      <property>devices/status/keyboard/shift</property>
-						      <property>devices/status/keyboard/super</property>
-						     </or>
-                <not>
-                    <property>devices/status/keyboard/ctrl</property>
-                </not>
+		     <or>
+		      <property>devices/status/keyboard/shift</property>
+		      <property>devices/status/keyboard/super</property>
+		     </or>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -329,17 +289,6 @@
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-               <property>devices/status/keyboard/ctrl</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>instrumentation/heading-indicator/offset-deg</property>
-            <step>1</step>
-            <min>-45</min>
-            <max>45</max>
-            <wrap>false</wrap>
         </binding>
     </action>
     <action>
@@ -350,9 +299,6 @@
             <condition>
             	<not><property>devices/status/keyboard/shift</property></not>
             	<not><property>devices/status/keyboard/super</property></not>
-                <not>
-                    <property>devices/status/keyboard/ctrl</property>
-                </not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -363,13 +309,10 @@
         </binding>
         <binding>
             <condition>
-						     <or>
-						      <property>devices/status/keyboard/shift</property>
-						      <property>devices/status/keyboard/super</property>
-						     </or>
-                <not>
-                    <property>devices/status/keyboard/ctrl</property>
-                </not>
+		     <or>
+		      <property>devices/status/keyboard/shift</property>
+		      <property>devices/status/keyboard/super</property>
+		     </or>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/settings/heading-bug-deg</property>
@@ -377,17 +320,6 @@
             <min>0</min>
             <max>360</max>
             <wrap>true</wrap>
-        </binding>
-        <binding>
-            <condition>
-               <property>devices/status/keyboard/ctrl</property>
-            </condition>
-            <command>property-adjust</command>
-            <property>instrumentation/heading-indicator/offset-deg</property>
-            <step>-1</step>
-            <min>-45</min>
-            <max>45</max>
-            <wrap>false</wrap>
         </binding>
     </action>
 	</animation>

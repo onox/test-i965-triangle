@@ -33,17 +33,6 @@ var airplaneCrashed  = props.globals.initNode("/b707/crashed", 0,"BOOL");
 
 ################################ Reverser ####################################
 
-# The heading offset to 0
-var turn_offset_deg = setlistener("b707/ess-bus", func(volt)
-{
-if (volt.getValue() >= 23.0)
- {
-  interpolate("/instrumentation/heading-indicator/offset-deg", 0, 2.4);
-  interpolate("/instrumentation/heading-indicator[1]/offset-deg", 0, 3.2);
-  removelistener(turn_offset_deg);
- }
-}, 0, 0);
-
 var togglereverser = func {
 	r1 = "/fdm/jsbsim/propulsion/engine";
 	r2 = "/fdm/jsbsim/propulsion/engine[1]";
@@ -407,31 +396,67 @@ var fullSpeedbrakes = func {
     setprop("/controls/flight/spoilers", val > 0 ? 0 : 1);
 }
 
-# mag compass control will find in the electrical.nas#
-
 ############################## the magnetic compass up or down #####################################
-###### the magnetic variation you will find in fuel-and-payload.nas above line 910 
+###### the magnetic variation is setting to the heading-indicator-dg in the fuel-and-payload.nas bellow line 912 
 
-setlistener( "/instrumentation/compass-control[0]/mag[0]", func(state){ 
+setlistener( "/instrumentation/compass-control[0]/mag", func(state){ 
 	var value = state.getValue();
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
-		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+		# nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+		nIndicatedHeading.alias("instrumentation/heading-indicator/indicated-heading-deg");
 	}else{
 		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
 },1,0);
 
-setlistener( "/instrumentation/compass-control[0]/mag[1]", func(state){ 
+setlistener( "/instrumentation/compass-control[1]/mag", func(state){ 
 	var value = state.getValue();
 	var nIndicatedHeading = props.globals.initNode("b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
-		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+		# nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+		nIndicatedHeading.alias("instrumentation/heading-indicator[1]/indicated-heading-deg");
 	}else{
 		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
+},1,0);
+
+setlistener( "/instrumentation/compass-control[0]/lat-turn", func(state){ 
+	var latCorr = state.getValue() or 0;
+	var latPos = getprop("/position/latitude-deg") or 0;
+	var nS = getprop("/instrumentation/compass-control[0]/lat-knob") or 0;
+	var f = (nS) ? -1 : 1;
+	var offset = int(latPos - (latCorr * f));
+	setprop("/instrumentation/heading-indicator/offset-deg", offset);
+},1,0);
+
+setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){ 
+	var latCorr = state.getValue() or 0;
+	var latPos = getprop("/position/latitude-deg") or 0;
+	var nS = getprop("/instrumentation/compass-control[1]/lat-knob") or 0;
+	var f = (nS) ? -1 : 1;
+	var offset = int(latPos - (latCorr * f));
+	setprop("/instrumentation/heading-indicator[1]/offset-deg", offset);
+},1,0);
+
+setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){ 
+	var nS = state.getBoolValue() or 0;
+	var latPos = getprop("/position/latitude-deg") or 0;
+	var latCorr = getprop("/instrumentation/compass-control[0]/lat-turn") or 0;
+	var f = (nS) ? -1 : 1;
+	var offset = int(latPos - (latCorr * f));
+	setprop("/instrumentation/heading-indicator/offset-deg", offset);
+},1,0);
+
+setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){ 
+	var nS = state.getBoolValue() or 0;
+	var latPos = getprop("/position/latitude-deg") or 0;
+	var latCorr = getprop("/instrumentation/compass-control[1]/lat-turn") or 0;
+	var f = (nS) ? -1 : 1;
+	var offset = int(latPos - (latCorr * f));
+	setprop("/instrumentation/heading-indicator[1]/offset-deg", offset);
 },1,0);
 
 var compass_swing = func{
@@ -1141,7 +1166,7 @@ setlistener("/b707/emergency/emer-flap-outbd", func(state){
 	}
 },0,1);
 
-######################### very bad control to the rudder ############################################
+#########################  control to the rudder ############################################
 
 var rudder_hyd_negativ_control = func{
 	#overwrite the rudder control since I will found a better solution

@@ -255,7 +255,7 @@
 	
     <item>
       <name>COMPASS CONTROLLER 2</name>
-      <value>SET LATITUDE / MAG</value>
+      <value>SET LATITUDE / DG</value>
 	  <marker>
 	      <x-m>-18.6107</x-m>
 	      <y-m>0.1008</y-m>
@@ -263,12 +263,12 @@
 	      <scale>1.8430</scale>
 	  </marker>
       <condition>
-        <property>/instrumentation/compass-control[1]/mag</property>
+        <not><property>/instrumentation/compass-control[1]/mag</property></not>
       </condition>
       <binding>
         <command>property-assign</command>
         <property>/instrumentation/compass-control[1]/mag</property>
-        <value>1</value>
+        <value>0</value>
       </binding>
       <binding>
         <command>nasal</command>
@@ -313,7 +313,7 @@
 	
     <item>
       <name>COMPASS CONTROLLER 1</name>
-      <value>SET LATITUDE / MAG</value>
+      <value>SET LATITUDE / DG</value>
 	  <marker>
 	      <x-m>-18.6107</x-m>
 	      <y-m>-0.0893</y-m>
@@ -321,7 +321,7 @@
 	      <scale>1.8430</scale>
 	  </marker>
       <condition>
-        <property>/instrumentation/compass-control[0]/mag</property>
+        <not><property>/instrumentation/compass-control[0]/mag</property></not>
       </condition>
       <binding>
         <command>property-assign</command>

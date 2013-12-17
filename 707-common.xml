@@ -76,6 +76,7 @@
     	<checklist include="Checklists/after-engines-startup-I.xml"/>
     	<checklist include="Checklists/after-engines-startup-II.xml"/>
     	<checklist include="Checklists/before-taxiing.xml"/>
+    	<checklist include="Checklists/during-flight.xml"/>
 	</checklists>
 
   <view>

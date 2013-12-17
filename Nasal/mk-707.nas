@@ -406,8 +406,10 @@ var fullSpeedbrakes = func {
     setprop("/controls/flight/spoilers", val > 0 ? 0 : 1);
 }
 
-############################## the magnetic compass up or down #####################################
-###### the magnetic variation is setting to the heading-indicator-dg in the fuel-and-payload.nas bellow line 912 
+################# compass controllers and the magnetic compass up or down #####################################
+
+props.globals.initNode("/instrumentation/compass-control[0]/justify",0,"BOOL");
+props.globals.initNode("/instrumentation/compass-control[1]/justify",0,"BOOL");
 
 setlistener( "/instrumentation/compass-control[0]/mag", func(state){ 
 	var value = state.getValue();
@@ -439,7 +441,13 @@ setlistener( "/instrumentation/compass-control[0]/lat-turn", func(state){
 	var nS = getprop("/instrumentation/compass-control[0]/lat-knob") or 0;
 	var f = (nS) ? -1 : 1;
 	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
-	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
+	var latJustify = latPos - latCorr * f;
+	if (latJustify >= -1 and latJustify <= 1) {
+		setprop("instrumentation/compass-control[0]/justify",1);
+	}else{
+		setprop("instrumentation/compass-control[0]/justify",0);
+	}
+	var offset = -magVar + (latJustify/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
 	show_lat_lon();
 },1,0);
@@ -451,7 +459,13 @@ setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){
 	var nS = getprop("/instrumentation/compass-control[1]/lat-knob") or 0;
 	var f = (nS) ? -1 : 1;
 	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
-	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
+	var latJustify = latPos - latCorr * f;
+	if (latJustify >= -1 and latJustify <= 1) {
+		setprop("instrumentation/compass-control[1]/justify",1);
+	}else{
+		setprop("instrumentation/compass-control[1]/justify",0);
+	}
+	var offset = -magVar + (latJustify/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
 	show_lat_lon();
 },1,0);
@@ -461,8 +475,14 @@ setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){
 	var latPos = getprop("/position/latitude-deg") or 0;
 	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
 	var latCorr = getprop("/instrumentation/compass-control[0]/lat-turn") or 0;
-	var f = (nS) ? -1 : 1;
-	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
+	var f = (nS) ? -1 : 1;	
+	var latJustify = latPos - latCorr * f;
+	if (latJustify >= -1 and latJustify <= 1) {
+		setprop("instrumentation/compass-control[0]/justify",1);
+	}else{
+		setprop("instrumentation/compass-control[0]/justify",0);
+	}
+	var offset = -magVar + (latJustify/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
 	show_lat_lon();
 },1,0);
@@ -472,8 +492,14 @@ setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){
 	var latPos = getprop("/position/latitude-deg") or 0;
 	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
 	var latCorr = getprop("/instrumentation/compass-control[1]/lat-turn") or 0;
-	var f = (nS) ? -1 : 1;
-	var offset = -magVar + ((latPos-latCorr * f )/90.0) * 40.0;
+	var f = (nS) ? -1 : 1;	
+	var latJustify = latPos - latCorr * f;
+	if (latJustify >= -1 and latJustify <= 1) {
+		setprop("instrumentation/compass-control[1]/justify",1);
+	}else{
+		setprop("instrumentation/compass-control[1]/justify",0);
+	}
+	var offset = -magVar + (latJustify/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
 	show_lat_lon();
 },1,0);

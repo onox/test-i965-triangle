@@ -6,7 +6,7 @@
 		###################################################################################
 -->
 <PropertyList> 
-    <title>VII. Before taxiing</title>    
+    <title>VII. Before taxiing or takeoff</title>    
 	<item>
       <name>VI. After startup engines</name>
       <value>COMPLETED</value>
@@ -99,7 +99,7 @@
 	
 	<item>
 		<name>AIR COMPRESSOR ENG 2</name>
-		<value>START</value>
+		<value>ON</value>
 		<marker>
 		    <x-m>-17.4926</x-m>
 		    <y-m>0.5843</y-m>
@@ -124,7 +124,7 @@
 
 	<item>
 		<name>AIR COMPRESSOR ENG 3</name>
-		<value>START</value>
+		<value>ON</value>
 		<marker>
 		    <x-m>-17.4372</x-m>
 		    <y-m>0.5843</y-m>
@@ -149,7 +149,7 @@
 
 	<item>
 		<name>AIR COMPRESSOR ENG 4</name>
-		<value>START</value>
+		<value>ON</value>
 		<marker>
 		    <x-m>-17.3802</x-m>
 		    <y-m>0.5843</y-m>

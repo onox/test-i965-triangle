@@ -611,7 +611,27 @@
 	      <property>/sim/sound/switch1</property>
 	    </binding>
 	</item>
-	
+
+	<item>
+		<name>SPEEDBRAKE LEVER</name>
+		<value>FULL FORWARD</value>
+		<condition>
+		  <equals>
+		    <property>/controls/flight/spoilers</property>
+		    <value>0</value>
+		  </equals>
+		</condition>		
+		<binding>
+		  <command>property-assign</command>
+		  <property>/controls/flight/spoilers</property>
+		  <value>0</value>
+		</binding>    
+	    <binding>
+	      <command>property-toggle</command>
+	      <property>/sim/sound/switch1</property>
+	    </binding>
+	</item>	
+
 	<item>
 		<name>ALL TRIM WHEELS</name>
 		<value>RESET</value>

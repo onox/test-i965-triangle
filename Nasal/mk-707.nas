@@ -983,17 +983,25 @@ var calc_pressurization	= func{
 	var calt = getprop("/b707/pressurization/cabin-altitude") or 0;
 	var max = getprop("/b707/pressurization/cabin-max") or 0;
 	var mode = getprop("/b707/pressurization/mode-switch") or 0; # true is take off / false for landing
+	var engBleedAir1 = getprop("/b707/air-conditioning/eng-bleed-air[0]") or 0;
+	var engBleedAir2 = getprop("/b707/air-conditioning/eng-bleed-air[1]") or 0;
+	var engBleedAir3 = getprop("/b707/air-conditioning/eng-bleed-air[2]") or 0;
+	var engBleedAir4 = getprop("/b707/air-conditioning/eng-bleed-air[3]") or 0;
+	engBleedAir1 = (engBleedAir1) ? getprop("engines/engine[0]/n1") : 0;
+	engBleedAir2 = (engBleedAir2) ? getprop("engines/engine[1]/n1") : 0;
+	engBleedAir3 = (engBleedAir3) ? getprop("engines/engine[2]/n1") : 0;
+	engBleedAir4 = (engBleedAir4) ? getprop("engines/engine[3]/n1") : 0;
 	
 	# this is a fake calculation for psi in air supply and the control for the overheat of the compressors
 	if(comrpm1.getValue() > 115) settimer(func{air_compressor(0)}, 0);
 	if(comrpm2.getValue() > 115) settimer(func{air_compressor(1)}, 0);
 	if(comrpm3.getValue() > 115) settimer(func{air_compressor(2)}, 0);
 	
-	var airSupplyDuct = (comrpm1.getValue() + comrpm2.getValue() + comrpm3.getValue()) / 30 * 6;
+	var airSupplyDuct = (engBleedAir1 + engBleedAir2 + engBleedAir3 + engBleedAir4 + comrpm1.getValue() + comrpm2.getValue() + comrpm3.getValue()) / 30 * 6;
 	airSupplyDuct = (airSupplyDuct >= 0) ? airSupplyDuct : 0;
 	interpolate("/b707/air-conditioning/air-supply-psi", airSupplyDuct, t);
 	
-	if(svp and airSupplyDuct > 10){
+	if(svp and airSupplyDuct > 18){
 	
 		if(ms){
 		

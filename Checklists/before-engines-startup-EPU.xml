@@ -100,38 +100,40 @@
 		    <scale>5.0000</scale>
 		</marker>
       <condition>
-        <equals>
-          <property>/instrumentation/doors/pilotwin/position-norm</property>
-          <value>0</value>
-        </equals>
-        <equals>
-          <property>/instrumentation/doors/copilotwin/position-norm</property>
-          <value>0</value>
-        </equals>
-        <equals>
-          <property>/instrumentation/doors/pasfront/position-norm</property>
-          <value>0</value>
-        </equals>
-        <equals>
-          <property>/instrumentation/doors/pasrear/position-norm</property>
-          <value>0</value>
-        </equals>
-        <equals>
-          <property>/instrumentation/doors/nose/position-norm</property>
-          <value>0</value>
-        </equals>
-        <equals>
-          <property>/instrumentation/doors/cargo/position-norm</property>
-          <value>0</value>
-        </equals>
-        <equals>
-          <property>/instrumentation/doors/belly/position-norm</property>
-          <value>0</value>
-        </equals>
-        <equals>
-          <property>/instrumentation/doors/refuel-boom/position-norm</property>
-          <value>0</value>
-        </equals>
+  		<and>
+  	        <equals>
+  	          <property>/instrumentation/doors/pilotwin/position-norm</property>
+  	          <value>0</value>
+  	        </equals>
+  	        <equals>
+  	          <property>/instrumentation/doors/copilotwin/position-norm</property>
+  	          <value>0</value>
+  	        </equals>
+  	        <equals>
+  	          <property>/instrumentation/doors/pasfront/position-norm</property>
+  	          <value>0</value>
+  	        </equals>
+  	        <equals>
+  	          <property>/instrumentation/doors/pasrear/position-norm</property>
+  	          <value>0</value>
+  	        </equals>
+  	        <equals>
+  	          <property>/instrumentation/doors/nose/position-norm</property>
+  	          <value>0</value>
+  	        </equals>
+  	        <equals>
+  	          <property>/instrumentation/doors/cargo/position-norm</property>
+  	          <value>0</value>
+  	        </equals>
+  	        <equals>
+  	          <property>/instrumentation/doors/belly/position-norm</property>
+  	          <value>0</value>
+  	        </equals>
+  	        <equals>
+  	          <property>/instrumentation/doors/refuel-boom/position-norm</property>
+  	          <value>0</value>
+  	        </equals>
+  		</and>
       </condition>      
 	  <binding>
         <command>property-assign</command>

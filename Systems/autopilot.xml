@@ -407,6 +407,21 @@
 	</input>
 	<reference>
 		<condition>
+			<or>
+				<equals>
+					<property>/autopilot/locks/heading</property>
+					<value>dg-heading-hold</value>
+				</equals>
+				<equals>
+					<property>/autopilot/locks/heading</property>
+					<value>true-heading-hold</value>
+				</equals>
+			</or>
+		</condition>
+		<property>/autopilot/internal/target-roll-deg</property>
+	</reference>
+	<reference>
+		<condition>
 			<equals>
 				<property>/autopilot/locks/heading</property>
 				<value>wing-leveler</value>

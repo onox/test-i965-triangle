@@ -82,49 +82,49 @@
 		<pointmass name="CREW">
 			  <weight unit="LBS">540</weight>
 			  <location name="POINTMASS" unit="IN">
-			  <x>-700</x>
+			  <x>-600</x>
 			  <y>   0</y>
-			  <z>  36</z>
+			  <z>   0</z>
 			  </location>
 		</pointmass>
 		<pointmass name="PASSENGER FIRST CLASS">
 			  <weight unit="LBS"> 0</weight><!-- passengers-->
 			  <location name="POINTMASS" unit="IN">
-			  <x>-500</x>
+			  <x>-400</x>
 			  <y>  0</y>
-			  <z> 36</z>
+			  <z>  0</z>
 			  </location>
 		</pointmass>
 		<pointmass name="PASSENGER SECOND CLASS">
 			  <weight unit="LBS"> 0</weight><!-- passengers-->
 			  <location name="POINTMASS" unit="IN">
-			  <x>-250</x>
+			  <x>-100</x>
 			  <y>   0</y>
-			  <z>  36</z>
+			  <z>   0</z>
 			  </location>
 		</pointmass>
 		<pointmass name="PASSENGER SECOND CLASS">
 			  <weight unit="LBS"> 0</weight><!-- passengers-->
 			  <location name="POINTMASS" unit="IN">
-			  <x> 250</x>
+			  <x>  50</x>
 			  <y>   0</y>
-			  <z>  36</z>
+			  <z>   0</z>
 			  </location>
 		</pointmass>
 		<pointmass name="LUGGAGE 1">
 			  <weight unit="LBS">  0</weight><!-- cargo or more passengers -->
 			  <location name="POINTMASS" unit="IN">
-			  <x>-600</x>
+			  <x>-400</x>
 			  <y>   0</y>
-			  <z> -33</z>
+			  <z>   0</z>
 			  </location>
 		</pointmass>
 		<pointmass name="LUGGAGE 2">
 			  <weight unit="LBS">  0</weight><!-- cargo or more passengers -->
 			  <location name="POINTMASS" unit="IN">
-			  <x>-300</x>
+			  <x>-100</x>
 			  <y>   0</y>
-			  <z> -33</z>
+			  <z>   0</z>
 			  </location>
 		</pointmass>
 		<pointmass name="LUGGAGE 3">
@@ -132,7 +132,7 @@
 			  <location name="POINTMASS" unit="IN">
 			  <x> 50</x>
 			  <y>  0</y>
-			  <z>-33</z>
+			  <z>  0</z>
 			  </location>
 		</pointmass>
 	</mass_balance>
@@ -148,9 +148,9 @@
     <static_friction>  0.55 </static_friction>
     <dynamic_friction> 0.50 </dynamic_friction>
     <rolling_friction> 0.02 </rolling_friction>
-    <spring_coeff unit="LBS/FT">150000 </spring_coeff>
-    <damping_coeff unit="LBS/FT/SEC">12000 </damping_coeff>
-    <damping_coeff_rebound unit="LBS/FT/SEC">24000</damping_coeff_rebound>
+    <spring_coeff unit="LBS/FT"> 90000 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC"> 6000 </damping_coeff>
+    <damping_coeff_rebound unit="LBS/FT/SEC">12000</damping_coeff_rebound>
     <relaxation_velocity>
       <rolling unit="FT/SEC">0.6</rolling>
       <side unit="FT/SEC">0.6</side>
@@ -345,7 +345,7 @@
   <tank type="FUEL" number="0">
      <location unit="IN">
        <x>   39.37 </x>
-       <y>  500.00 </y>
+       <y>  700.00 </y>
        <z>  -16.65 </z>
      </location>
      <capacity unit="LBS"> 2941.00 </capacity>
@@ -355,7 +355,7 @@
   <tank type="FUEL" number="1">
      <location unit="IN">
        <x>  120.12 </x>
-       <y>  307.10 </y>
+       <y>  507.10 </y>
        <z>  -16.65 </z>
      </location>
      <capacity unit="LBS"> 15564.00 </capacity>
@@ -374,7 +374,7 @@
   <!-- center tank -->
   <tank type="FUEL" number="3">
      <location unit="IN">
-       <x>-200.0 </x>
+       <x>   0.0 </x>
        <y>   0.0 </y>
        <z> -16.65 </z>
      </location>
@@ -395,7 +395,7 @@
   <tank type="FUEL" number="5">
      <location unit="IN">
        <x>  120.12 </x>
-       <y> -307.10 </y>
+       <y> -507.10 </y>
        <z>  -16.65 </z>
      </location>
      <capacity unit="LBS"> 15564.00 </capacity>
@@ -405,7 +405,7 @@
   <tank type="FUEL" number="6">
      <location unit="IN">
        <x>   39.37 </x>
-       <y> -500.00 </y>
+       <y> -700.00 </y>
        <z>  -16.65 </z>
      </location>
      <capacity unit="LBS"> 2941.00 </capacity>
@@ -660,7 +660,7 @@
                0.00    0.170
                0.23    1.400
                0.50    0.740
-               0.60    0.440
+               0.60    0.340
                
                <!--
               -0.20   -0.680
@@ -729,35 +729,15 @@
        <product>
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
-			 <property>/engines/engine[0]/n1</property>
-			 <property>/engines/engine[1]/n1</property>
-			 <property>/engines/engine[2]/n1</property>
-			 <property>/engines/engine[3]/n1</property>
-			 <property>/sim/multiplay/generic/int[8]</property>
+ 					 <property>/engines/engine[0]/n1</property> <!--only with the stronger TJ4 engines-->
+ 					 <property>/engines/engine[1]/n1</property> <!--only with the stronger TJ4 engines-->
+ 					 <property>/engines/engine[2]/n1</property> <!--only with the stronger TJ4 engines-->
+ 					 <property>/engines/engine[3]/n1</property> <!--only with the stronger TJ4 engines-->
+ 					 <property>/sim/multiplay/generic/int[8]</property> <!--only with the stronger TJ4 engines-->
            <value>0.000000002</value>
        </product>
     </function>
-
-   	<function name="aero/coefficient/CLstabilizer">
-       <description>Lift_due_to_stabilizer</description>
-       <product>
-           <table>
-               <independentVar>inertia/weight-lbs</independentVar>
-               <tableData>
-                 0				 0
-                 150000		 50000
-                 250000		350000
-                 350000		550000
-                 450000		750000		
-               </tableData>
-           </table>
-           <property>aero/qbar-psf</property>
-           <property>metrics/Sw-sqft</property>
-		   <property>/controls/special/mach-trim-switch</property>
-           <value>0.0000007</value>
-       </product>
-    </function>
-
+	
     <function name="aero/coefficient/CLground">
         <description>Lift_due_ground_reactions</description>
         <product>
@@ -814,7 +794,7 @@
         <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
-	  	  <property>/b707/anti-ice/drag-coefficient</property> <!-- if ice is on wings -->
+	  			<property>/b707/anti-ice/drag-coefficient</property> <!-- if ice is on wings -->
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>

@@ -1272,7 +1272,7 @@ var clean_or_refuel = func{
 	  }
 	  
 	  settimer(clean_or_refuel, 0.1);
-	  print("working");
+	  #print("working");
 	}
 };
 

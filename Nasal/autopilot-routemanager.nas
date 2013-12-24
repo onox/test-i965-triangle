@@ -231,7 +231,7 @@ var listenerApHeadingFunc = func {
 
 
 		#print("");
-		#print ("indicated-heading-deg=", getprop("/instrumentation/heading-indicator-fg/indicated-heading-deg"));
+		#print ("indicated-heading-deg=", getprop("/b707/hsi/indicated-heading-deg"));
 		#print ("heading-bug-error-deg=", getprop("/autopilot/internal/heading-bug-error-deg")); 
 		#print ("true-heading-error-deg=", getprop("/autopilot/internal/true-heading-error-deg")); 
 		#print ("target-roll-deg      =", getprop("/autopilot/internal/target-roll-deg")); 
@@ -392,6 +392,8 @@ var apHeadingWaypointSetVSpeed = func {
 
 			# calculate vspeed
 			var vspeed = 0.0;
+			var vspeedPrev = getprop("autopilot/settings/vertical-speed-fpm");
+			
 			if (waypointDistanceNm > 0.0) {
 				var substructionNm = (waypointDistanceNm > 4.0 ? 4.0 : 0.0);
 				vspeed = (altitudeDistFt * groundspeedKt / (waypointDistanceNm - substructionNm)) * 0.01; # nm/h -> ft/min : factor=0.01
@@ -399,7 +401,7 @@ var apHeadingWaypointSetVSpeed = func {
 			}
 			# clamb: limit vspeed to min., max. values
 			if (vspeed > 0) {
-				maxVSpeed = 1500.0;
+				maxVSpeed = 2600.0;
 			}
 			else {
 				vspeed = (vspeed < -1000.0) ? -1000.0 : vspeed;
@@ -407,13 +409,18 @@ var apHeadingWaypointSetVSpeed = func {
 			}
 
 			# clamp climbrate according to weigth, altitude etc.
-			var minClimpRate = -1500.0;
-			var maxClimpRate = 1500.0;
-			vspeed = (vspeed < minClimpRate ? minClimpRate : vspeed);
-			vspeed = (vspeed > maxClimpRate ? maxClimpRate : vspeed);
+			var minClimpRate = -2600.0;
+			var maxClimpRate = 2600.0;
+			
+			if((vspeedPrev >= 0 and vspeedPrev > vspeed) or
+		   	   (vspeedPrev < 0 and vspeedPrev < vspeed)){
+   				vspeed = (vspeed < minClimpRate ? minClimpRate : vspeed);
+   				vspeed = (vspeed > maxClimpRate ? maxClimpRate : vspeed);
+			}else{
+				vspeed = vspeedPrev;
+			}
 
 			#print("apHeadingWaypointSetVSpeed: listenerApHeadingWaypoint: vspeed=", vspeed);
-			var vspeedPrev = getprop("autopilot/settings/vertical-speed-fpm");
 			if (vspeedPrev == nil) {
 				vspeedPrev = waypointVspeedMaxValue;
 			}

@@ -392,7 +392,7 @@ var apHeadingWaypointSetVSpeed = func {
 
 			# calculate vspeed
 			var vspeed = 0.0;
-			var vspeedPrev = getprop("autopilot/settings/vertical-speed-fpm");
+			var vspeedPrev = getprop("autopilot/settings/vertical-speed-fpm") or 0;
 			
 			if (waypointDistanceNm > 0.0) {
 				var substructionNm = (waypointDistanceNm > 4.0 ? 4.0 : 0.0);
@@ -404,7 +404,7 @@ var apHeadingWaypointSetVSpeed = func {
 				maxVSpeed = 2600.0;
 			}
 			else {
-				vspeed = (vspeed < -1000.0) ? -1000.0 : vspeed;
+				vspeed = (vspeed < -2600.0) ? -2600.0 : vspeed;
 				vspeed = (vspeed > -200.0) ? -200.0 : vspeed;
 			}
 
@@ -412,31 +412,28 @@ var apHeadingWaypointSetVSpeed = func {
 			var minClimpRate = -2600.0;
 			var maxClimpRate = 2600.0;
 			
-			if((vspeedPrev >= 0 and vspeedPrev > vspeed) or
-		   	   (vspeedPrev < 0 and vspeedPrev < vspeed)){
+			if((vspeed > 0 and vspeedPrev > 0 and vspeedPrev > vspeed) or
+		   	   (vspeed < 0 and vspeedPrev < 0 and vspeedPrev < vspeed)){
+			   	vspeed = vspeedPrev;
+			}else{
    				vspeed = (vspeed < minClimpRate ? minClimpRate : vspeed);
    				vspeed = (vspeed > maxClimpRate ? maxClimpRate : vspeed);
-			}else{
-				vspeed = vspeedPrev;
 			}
-
-			#print("apHeadingWaypointSetVSpeed: listenerApHeadingWaypoint: vspeed=", vspeed);
-			if (vspeedPrev == nil) {
-				vspeedPrev = waypointVspeedMaxValue;
-			}
+			
+			# print("apHeadingWaypointSetVSpeed: listenerApHeadingWaypoint: vspeed=", vspeed);
 			# set vspeed, only if vspeed has not been changed mannually and the change is greater than 5%
-			if (vspeedPrev == waypointVspeedPrev or waypointVspeedPrev == waypointVspeedMaxValue) {
+			 if (vspeedPrev == waypointVspeedPrev or waypointVspeedPrev == waypointVspeedMaxValue) {
 				waypointVspeedChangedManually = 0;
-			}
-			else {
+			 }
+			 else {
 				waypointVspeedChangedManually = 1;
-			}
-			if (waypointVspeedChangedManually == 0 and (abs(vspeed) > abs(vspeedPrev * 0.05))) {
-				setprop("autopilot/settings/vertical-speed-fpm", vspeed);
-				waypointVspeedPrev = vspeed;
-			}
+			 }
+			 if (waypointVspeedChangedManually == 0 and (abs(vspeed) > abs(vspeedPrev * 0.05))) {
+			 	setprop("autopilot/settings/vertical-speed-fpm", vspeed);
+			 	waypointVspeedPrev = vspeed;
+			 }
 
-			if (	getprop("autopilot/locks/altitude") != "vertical-speed-hold" and
+			if (getprop("autopilot/locks/altitude") != "vertical-speed-hold" and
 				getprop("autopilot/locks/altitude") != "altitude-hold") {
 				setprop("autopilot/locks/altitude", "vertical-speed-hold");
 			}

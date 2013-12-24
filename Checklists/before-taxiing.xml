@@ -382,7 +382,7 @@
 		    <![CDATA[
         	var latP = getprop("/position/latitude-deg") or 0;
 			if(latP < 0) setprop("/instrumentation/compass-control[1]/lat-knob", 1);
-			latP = int(latP);
+			latP = abs(int(latP));
 			setprop("/instrumentation/compass-control[1]/lat-turn", latP);
 		    ]]>
         </script>
@@ -445,7 +445,7 @@
 		    <![CDATA[
         	var latP = getprop("/position/latitude-deg") or 0;
 			if(latP < 0) setprop("/instrumentation/compass-control[0]/lat-knob", 1);
-			latP = int(latP);
+			latP = abs(int(latP));
 			setprop("/instrumentation/compass-control[0]/lat-turn", latP);
 		    ]]>
         </script>

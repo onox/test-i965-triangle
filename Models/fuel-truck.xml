@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Boeing 707 for Flightgear Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
+
+<PropertyList>
+	<path>fuel-truck.ac</path>
+ 
+	<animation>
+		<type>material</type>
+		<object-name>fuel_truck</object-name>
+		<condition>
+			<not><property>/sim/rendering/rembrandt/enabled</property></not>
+		</condition>
+		<emission>
+		  <red>0.04</red>
+		  <green>0.04</green>
+		  <blue>0.04</blue>
+		  <factor-prop>sim/multiplay/generic/float[0]</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>tube</object-name>
+		<condition>
+			<property>/services/fuel-truck/connect</property>
+		</condition>	
+	</animation>
+		
+</PropertyList>

@@ -257,6 +257,38 @@
 		  </binding>
 		</action>
   </animation>
+  
+  <!-- Fuel Truck -->
+  <model>
+  	<name>fuel-truck</name>
+	<path>Aircraft/707/Models/fuel-truck.xml</path>
+  	<condition>
+  		<equals>
+  			<property>/services/fuel-truck/enable</property>
+  			<value>1</value>
+  		</equals>
+  	</condition>
+  </model>
+	
+  <animation>
+		<type>pick</type>
+		<object-name>fuel-truck</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+          <binding>
+            <command>nasal</command>
+            <script><![CDATA[ 
+				setprop("/b707/ground-service/enabled", 0);
+				setprop("/services/fuel-truck/transfer", 0);
+				setprop("/services/fuel-truck/connect", 0);
+				setprop("/services/fuel-truck/enable", 0);
+				setprop("/services/fuel-truck/clean", 0);
+            ]]></script>
+          </binding>
+		</action>
+  </animation>
 	
 	<!-- Stairways -->
 	<model>

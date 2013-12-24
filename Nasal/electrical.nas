@@ -242,7 +242,8 @@ var update_virtual_bus = func {
 		  power_source = nil;
 		  EssSourceFailure.setBoolValue(1);
 
-		  if(getprop("velocities/groundspeed-kt") > 15){
+		  if(getprop("velocities/groundspeed-kt") > 15 or 
+		  	(getprop("/controls/engines/engine[0]/reverser") and getprop("/controls/engines/engine[0]/throttle") > 0.2)){
 		  		ExternalConnected.setBoolValue(0);
 		    	setprop("/instrumentation/doors/pasfront/position-norm", 0);
 		    	setprop("/instrumentation/doors/pasrear/position-norm", 0);
@@ -250,6 +251,10 @@ var update_virtual_bus = func {
 		    	setprop("/instrumentation/doors/belly/position-norm", 0);
 		    	setprop("/instrumentation/doors/nose/position-norm", 0);
    				setprop("/b707/ground-service/enabled", 0);
+				setprop("/services/fuel-truck/transfer", 0);
+				setprop("/services/fuel-truck/connect", 0);
+				setprop("/services/fuel-truck/enable", 0);
+				setprop("/services/fuel-truck/clean", 0);
 		  }
 		  
 		  if(battery.switch.getBoolValue()){		  

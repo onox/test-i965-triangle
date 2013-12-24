@@ -1221,8 +1221,64 @@ var dump_loop_r = func{
 settimer( func { engines_alive(); } , 6);
 settimer( func { crossfeed_action(); } , 7);
 
+############################################# external fuel service action ###########################################
+var clean_or_refuel = func{
+	# Fuel Truck Controls
+	var request_kg = getprop("/services/fuel-truck/request-kg") or 0;
+	var total_fuel = getprop("consumables/fuel/total-fuel-kg") or 0; 
+	
+	if (getprop("/services/fuel-truck/enable")) {
+	
+	  if(getprop("/services/fuel-truck/connect")){
+	
+		if (getprop("/services/fuel-truck/transfer")) {
+		
+			if (total_fuel < request_kg and total_fuel < 72485.0) {
+				setprop("/consumables/fuel/tank[0]/level-kg", getprop("/consumables/fuel/tank[0]/level-kg") + 0.5);
+				setprop("/consumables/fuel/tank[1]/level-kg", getprop("/consumables/fuel/tank[1]/level-kg") + 3);
+				setprop("/consumables/fuel/tank[2]/level-kg", getprop("/consumables/fuel/tank[2]/level-kg") + 3);
+				setprop("/consumables/fuel/tank[3]/level-kg", getprop("/consumables/fuel/tank[3]/level-kg") + 6);
+				setprop("/consumables/fuel/tank[4]/level-kg", getprop("/consumables/fuel/tank[4]/level-kg") + 3);
+				setprop("/consumables/fuel/tank[5]/level-kg", getprop("/consumables/fuel/tank[5]/level-kg") + 3);
+				setprop("/consumables/fuel/tank[6]/level-kg", getprop("/consumables/fuel/tank[6]/level-kg") + 0.5);
+				if()
+			} else {
+				setprop("/services/fuel-truck/transfer", 0);
+				setprop("/services/fuel-truck/connect", 0);
+				setprop("/services/fuel-truck/enable", 0);
+				screen.log.write("Re-fueling complete! Have a nice flight... :)", 1, 1, 1);
+			}				
+		
+		}
+		
+		if (getprop("/services/fuel-truck/clean")) {
+		
+			if (getprop("consumables/fuel/total-fuel-kg") > 19) {
+			
+				setprop("/consumables/fuel/tank[0]/level-kg", getprop("/consumables/fuel/tank[0]/level-kg") - 0.5);
+				setprop("/consumables/fuel/tank[1]/level-kg", getprop("/consumables/fuel/tank[1]/level-kg") - 3);
+				setprop("/consumables/fuel/tank[2]/level-kg", getprop("/consumables/fuel/tank[2]/level-kg") - 3);
+				setprop("/consumables/fuel/tank[3]/level-kg", getprop("/consumables/fuel/tank[3]/level-kg") - 6);
+				setprop("/consumables/fuel/tank[4]/level-kg", getprop("/consumables/fuel/tank[4]/level-kg") - 3);
+				setprop("/consumables/fuel/tank[5]/level-kg", getprop("/consumables/fuel/tank[5]/level-kg") - 3);
+				setprop("/consumables/fuel/tank[6]/level-kg", getprop("/consumables/fuel/tank[6]/level-kg") - 0.5);
+			
+			} else {
+				setprop("/services/fuel-truck/clean", 0);
+				screen.log.write("Finished draining the fuel tanks...", 1, 1, 1);
+			}	
+		
+		}
+	  }
+	  
+	  settimer(clean_or_refuel, 0.1);
+	  print("working");
+	}
+};
 
-
+setlistener("/services/fuel-truck/enable", func{
+	clean_or_refuel();
+},1,0);
 
 
 

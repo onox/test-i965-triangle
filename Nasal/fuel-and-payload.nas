@@ -1269,7 +1269,7 @@ var clean_or_refuel = func{
 
 			if (fuel_truck_clean.getBoolValue()) {
 
-				if (getprop("consumables/fuel/total-fuel-kg") > 19) {
+				if (getprop("consumables/fuel/total-fuel-kg") > 11) {
 
 					setprop("/consumables/fuel/tank[0]/level-kg", getprop("/consumables/fuel/tank[0]/level-kg") - 0.5);
 					setprop("/consumables/fuel/tank[1]/level-kg", getprop("/consumables/fuel/tank[1]/level-kg") - 3);

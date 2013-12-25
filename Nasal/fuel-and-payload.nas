@@ -1293,6 +1293,11 @@ var clean_or_refuel = func{
 		loop_id = 0;
 		}
 		settimer(clean_or_refuel, 0.12);
+	}else{
+		setprop("/b707/ground-service/fuel-truck/transfer", 0);
+		setprop("/b707/ground-service/fuel-truck/connect", 0);
+		setprop("/b707/ground-service/fuel-truck/clean", 0);
+		setprop("/b707/ground-service/fuel-truck/state", 0);
 	}
 };
 

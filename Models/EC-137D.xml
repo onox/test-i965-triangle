@@ -302,10 +302,10 @@
   	<name>fuel-truck</name>
 	<path>Aircraft/707/Models/fuel-truck.xml</path>
   	<condition>
-  		<equals>
-  			<property>services/fuel-truck/enable</property>
-  			<value>1</value>
-  		</equals>
+  		<greater-than>
+  			<property>sim/multiplay/generic/float[13]</property>
+  			<value>0</value>
+  		</greater-than>
   	</condition>
   </model>
 	
@@ -319,11 +319,10 @@
           <binding>
             <command>nasal</command>
             <script><![CDATA[ 
-				setprop("/b707/ground-service/enabled", 0);
-				setprop("/services/fuel-truck/transfer", 0);
-				setprop("/services/fuel-truck/connect", 0);
-				setprop("/services/fuel-truck/enable", 0);
-				setprop("/services/fuel-truck/clean", 0);
+				setprop("/b707/ground-service/fuel-truck/transfer", 0);
+				setprop("/b707/ground-service/fuel-truck/connect", 0);
+				setprop("/b707/ground-service/fuel-truck/enable", 0);
+				setprop("/b707/ground-service/fuel-truck/clean", 0);
             ]]></script>
           </binding>
 		</action>

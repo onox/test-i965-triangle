@@ -228,7 +228,7 @@
 		<float n="10" alias="/b707/anti-ice/window-alpha-fo"/> <!-- the icing on the windshield -->
 		<float n="11" alias="/b707/anti-ice/window-alpha-capt"/> <!-- the icing on the windshield -->
 		<float n="12" alias="/instrumentation/doors/nose/position-norm"/>						<!-- Nose -->
-		<float n="13" alias="/b707/ground-service/state"/>										<!-- iluminate the groundservice -->
+		<float n="13" alias="/b707/ground-service/fuel-truck/state"/>									<!-- fuel-truck -->
 		<float n="14" alias="/engines/engine/reverser-pos-norm"/>								<!-- multiplayer see the cowl flaps -->
 		<float n="15" alias="/instrumentation/doors/cargo/position-norm"/>						<!-- Cargo door -->
 		<float n="16" alias="/instrumentation/doors/belly/position-norm"/>						<!-- Belly door -->

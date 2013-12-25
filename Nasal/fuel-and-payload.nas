@@ -1222,11 +1222,11 @@ settimer( func { engines_alive(); } , 6);
 settimer( func { crossfeed_action(); } , 7);
 
 ############################################# external fuel service action ###########################################
-var fuel_truck = props.globals.initNode("b707/ground-service/fuel-truck/state",0,"DOUBLE");
-var fuel_truck_enable = props.globals.initNode("b707/ground-service/fuel-truck/enable",0,"BOOL");
-var fuel_truck_connect = props.globals.initNode("b707/ground-service/fuel-truck/connect",0,"BOOL");
-var fuel_truck_transfer = props.globals.initNode("b707/ground-service/fuel-truck/transfer",0,"BOOL");
-var fuel_truck_clean = props.globals.initNode("b707/ground-service/fuel-truck/clean",0,"BOOL");
+var fuel_truck = props.globals.getNode("b707/ground-service/fuel-truck/state");
+var fuel_truck_enable = props.globals.getNode("b707/ground-service/fuel-truck/enable");
+var fuel_truck_connect = props.globals.getNode("b707/ground-service/fuel-truck/connect");
+var fuel_truck_transfer = props.globals.getNode("b707/ground-service/fuel-truck/transfer");
+var fuel_truck_clean = props.globals.getNode("b707/ground-service/fuel-truck/clean");
 
 var loop_id = 0;
 

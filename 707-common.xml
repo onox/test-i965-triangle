@@ -228,7 +228,7 @@
 		<float n="10" alias="/b707/anti-ice/window-alpha-fo"/> <!-- the icing on the windshield -->
 		<float n="11" alias="/b707/anti-ice/window-alpha-capt"/> <!-- the icing on the windshield -->
 		<float n="12" alias="/instrumentation/doors/nose/position-norm"/>						<!-- Nose -->
-		<float n="13" alias="/b707/ground-service/fuel-truck/state"/>									<!-- fuel-truck -->
+		<float n="13" alias="/b707/ground-service/fuel-truck/state"/>							<!-- fuel-truck -->
 		<float n="14" alias="/engines/engine/reverser-pos-norm"/>								<!-- multiplayer see the cowl flaps -->
 		<float n="15" alias="/instrumentation/doors/cargo/position-norm"/>						<!-- Cargo door -->
 		<float n="16" alias="/instrumentation/doors/belly/position-norm"/>						<!-- Belly door -->
@@ -238,7 +238,7 @@
     </generic>
   </multiplay>
  
-	<flight-recorder include="Systems/flightrecorder.xml"/>
+  <flight-recorder include="Systems/flightrecorder.xml"/>
 
   <flaps>
     <setting>0.0</setting>
@@ -436,6 +436,15 @@
 			<text4 type="string">Lake of Constance Hangar Vol. 1.1.5</text4>
 			<content include="Aircraft/707/Models/Cockpit/Manual/manual.xml"/>
 		</manual>
+		<ground-service>
+			<fuel-truck>
+				<state type="double">0.0</state>
+				<enable type="bool">0</enable>
+				<connect type="bool">0</connect>
+				<transfer type="bool">0</transfer>
+				<clean type="bool">0</clean>
+			</fuel-truck>
+		</ground-service>
   </b707>
 
 	<payload>

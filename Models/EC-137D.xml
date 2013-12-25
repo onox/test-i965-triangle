@@ -303,7 +303,7 @@
 	<path>Aircraft/707/Models/fuel-truck.xml</path>
   	<condition>
   		<equals>
-  			<property>/services/fuel-truck/enable</property>
+  			<property>services/fuel-truck/enable</property>
   			<value>1</value>
   		</equals>
   	</condition>

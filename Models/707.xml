@@ -260,7 +260,7 @@
   
   <!-- Fuel Truck -->
   <model>
-  	<name>fuel-truck</name>
+  	<name>FuelTruck</name>
 	<path>Aircraft/707/Models/fuel-truck.xml</path>
 	<offsets>
 	  <x-m>0.0</x-m>
@@ -271,15 +271,15 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>fuel-truck</object-name>
+		<object-name>FuelTruck</object-name>
 		<condition>
 				<property>sim/multiplay/generic/float[13]</property>
 		</condition>
 	</animation> 
-	
+  
   <animation>
 		<type>pick</type>
-		<object-name>fuel-truck</object-name>
+		<object-name>FuelTruck</object-name>
 		<action>
 		  <button>0</button>
 		  <repeatable>true</repeatable>

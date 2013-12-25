@@ -262,16 +262,18 @@
   <model>
   	<name>fuel-truck</name>
 	<path>Aircraft/707/Models/fuel-truck.xml</path>
+	<offsets>
+	  <x-m>0.0</x-m>
+	  <y-m>0.0</y-m>
+	  <z-m>0.0</z-m>
+	</offsets>
   </model>
 
 	<animation>
 		<type>select</type>
 		<object-name>fuel-truck</object-name>
 		<condition>
-			<greater-than>
 				<property>sim/multiplay/generic/float[13]</property>
-				<value>0</value>
-			</greater-than>
 		</condition>
 	</animation> 
 	

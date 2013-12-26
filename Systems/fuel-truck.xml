@@ -87,13 +87,14 @@
 						if ((getprop("/b707/ground-service/fuel-truck/enable") == 1) and (getprop("/b707/ground-service/fuel-truck/connect") == 1)) {
 							if(getprop("/b707/ground-service/fuel-truck/transfer") == nil or getprop("/b707/ground-service/fuel-truck/transfer") == 0){
 								setprop("/b707/ground-service/fuel-truck/transfer", 1);
-								screen.log.write("Re-fueling process started...", 0, 0.584, 1);
+								screen.log.write("Re-fueling process started...", 0.0, 0.9, 0.0);
 							}else{
 								setprop("/b707/ground-service/fuel-truck/transfer", 0);
-								screen.log.write("Stoped Re-fueling process!", 0, 0.584, 1);
+								screen.log.write("Stoped Re-fueling process!", 0.0, 0.9, 0.0);
 							}
-						} else
+						} else {
 							screen.log.write("Please enable and connect the Fuel Truck First!", 1, 0, 0);
+						}
 					</script>
 				</binding>
 			</button>
@@ -111,14 +112,15 @@
 							else {
 								if(getprop("/b707/ground-service/fuel-truck/clean") == nil or getprop("/b707/ground-service/fuel-truck/clean") == 0){
 									setprop("/b707/ground-service/fuel-truck/clean", 1);
-									screen.log.write("Cleaning Fuel Tanks...", 0, 0.584, 1);
+									screen.log.write("Cleaning Fuel Tanks...", 0.0, 0.9, 0.0);
 								}else{
 									setprop("/b707/ground-service/fuel-truck/clean", 0);
-									screen.log.write("Stoped cleaning Fuel Tanks!", 0, 0.584, 1);
+									screen.log.write("Stoped cleaning Fuel Tanks!", 0.0, 0.9, 0.0);
 								}
 							}
-						} else
+						} else {
 							screen.log.write("Please enable and connect the Fuel Truck First!", 1, 0, 0);
+						}
 					</script>
 				</binding>
 			</button>

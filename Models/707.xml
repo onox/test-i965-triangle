@@ -273,7 +273,8 @@
 		<type>select</type>
 		<object-name>FuelTruck</object-name>
 		<condition>
-				<property>sim/multiplay/generic/float[13]</property>
+		  <property>sim/multiplay/generic/float[13]</property>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
 		</condition>
 	</animation> 
   

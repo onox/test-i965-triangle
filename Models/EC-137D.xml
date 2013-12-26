@@ -307,14 +307,15 @@
 	  <z-m>0.0</z-m>
 	</offsets>
   </model>
-
-	<animation>
-		<type>select</type>
-		<object-name>FuelTruck</object-name>
-		<condition>
-				<property>sim/multiplay/generic/float[13]</property>
-		</condition>
-	</animation> 
+  
+<animation>
+	<type>select</type>
+	<object-name>FuelTruck</object-name>
+	<condition>
+	  <property>sim/multiplay/generic/float[13]</property>
+	  <not><property>sim/multiplay/generic/int[19]</property></not>
+	</condition>
+</animation> 
   
   <animation>
 		<type>pick</type>

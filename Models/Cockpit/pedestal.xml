@@ -50,7 +50,7 @@
 		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
-	
+
 	 <!-- Autopilot controller -->
 	 <model>
 		<path>Aircraft/707/Models/Cockpit/Instruments/ap/autopilot.xml</path>

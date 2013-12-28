@@ -43,6 +43,8 @@
 
 <marker-beacon>
   <test type="int">0</test>
+  <audio-btn type="bool">0</audio-btn>
+  <power-btn type="bool">0</power-btn>
 </marker-beacon>
 
 <nav n="0">

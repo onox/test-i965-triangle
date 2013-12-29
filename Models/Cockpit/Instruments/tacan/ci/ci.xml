@@ -98,13 +98,10 @@
     <type>select</type>
     <object-name>innerMarkerOn</object-name>
     <condition>
-        <equals>
-          <property>/instrumentation/tacan/in-range</property>
-          <value>1</value>
-        </equals>
+        <property>/instrumentation/tacan/in-range</property>
         <less-than>
           <property>/instrumentation/tacan/indicated-distance-nm</property>
-          <value>1.0</value>
+          <value>4.0</value>
         </less-than>
     </condition>
   </animation>
@@ -131,13 +128,11 @@
       <max-deg>20</max-deg>
       <interpolation>
         <entry><ind>30 </ind><dep>  0 </dep></entry>
-        <entry><ind>4.1</ind><dep>  0 </dep></entry>
-        <entry><ind>4  </ind><dep>-20 </dep></entry>
-        <entry><ind>2.5</ind><dep>-10 </dep></entry>
-        <entry><ind>1  </ind><dep>  0 </dep></entry>
-        <entry><ind>0.9</ind><dep> 20 </dep></entry>
-        <entry><ind>0.6</ind><dep> 10 </dep></entry>
-        <entry><ind>0.3</ind><dep>  0 </dep></entry>
+        <entry><ind>6.1</ind><dep>  0 </dep></entry>
+        <entry><ind>10 </ind><dep>-20 </dep></entry>
+        <entry><ind>4  </ind><dep>  0 </dep></entry>
+        <entry><ind>3.9</ind><dep> 20 </dep></entry>
+        <entry><ind>0.5</ind><dep>  0 </dep></entry>
       </interpolation>
       <axis>
           <x>1.0</x>

@@ -128,6 +128,7 @@
       <max-deg>20</max-deg>
       <interpolation>
         <entry><ind>30.0 </ind><dep>  0 </dep></entry>
+        <entry><ind>10.1 </ind><dep>  0 </dep></entry>
         <entry><ind>10.0 </ind><dep>-20 </dep></entry>
         <entry><ind>3.0  </ind><dep>  0 </dep></entry>
         <entry><ind>2.99</ind><dep> 20 </dep></entry>

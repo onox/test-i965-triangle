@@ -2837,9 +2837,9 @@
 	<name>registrationCockpitPanel</name>
   <path>Aircraft/707/Models/Registration/flightnumber.xml</path>
   <offsets>
-    <x-m>-18.91</x-m>
-    <y-m>-0.424</y-m>
-    <z-m>0.95</z-m>
+      <x-m>-18.91</x-m>
+      <y-m>-0.425</y-m>
+      <z-m>0.952</z-m>
     <heading-deg>-90.0</heading-deg>
   </offsets>
   <overlay>

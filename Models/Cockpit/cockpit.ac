@@ -7586,7 +7586,7 @@ refs 4
 kids 0
 OBJECT poly
 name "immat.text"
-loc -18.9194393 0.9698669 0.2818678
+loc -18.9194393 0.9512466 0.4242743
 texture "cockpit.png"
 texrep 1 1
 numvert 4

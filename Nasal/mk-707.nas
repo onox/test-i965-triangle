@@ -264,6 +264,32 @@ var show_dme = func {
   }
 }
 
+var show_tacan = func {
+	var tacan_freq = getprop("/instrumentation/tacan/display/channel");
+	help_win.write("Tacan: "~tacan_freq); 
+}
+
+var show_tacan_dme = func {
+    var tacan_miles = getprop("/instrumentation/tacan/indicated-distance-nm") or 0;
+    var tacan_in_range = getprop("/instrumentation/tacan/in-range") or 0;
+
+    var decToString = func(x){
+      var d = int(math.mod((x*100),100));
+
+      return (int(x)~"."~d);  
+    }
+
+      var x = decToString(tacan_miles);
+      var freq = getprop("/instrumentation/tacan/frequencies/selected-channel") or 0;
+      var frex = getprop("/instrumentation/tacan/frequencies/selected-channel[4]");
+	  if(tacan_in_range){
+	     help_win.write("Distance to TACAN \""~freq ~ frex~"\" " ~ x ~" nm");
+	  }else{
+	     help_win.write("TACAN \""~freq ~ frex~"\" not in range!");
+	  }
+      
+}
+
 var show_fuel_consumption = func {
   var engineType = getprop("sim/multiplay/generic/int[8]") or 0;
 	var used = getprop("/b707/fuel/fuel-per-hour-lbs") or 0;

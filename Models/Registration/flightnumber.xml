@@ -16,6 +16,7 @@
  General Public License for more details.
 
  the /707/Models/Registration/flightnumber.xml is shown only in the cockpit
+ and you find the model in the 707.xml, 707-TT.xml and EC-137D.xml
 -->
 <PropertyList>
   <params>

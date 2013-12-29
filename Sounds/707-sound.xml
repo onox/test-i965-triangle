@@ -841,12 +841,12 @@
 						</less-than>
 						<greater-than>
 							<property>/position/altitude-agl-ft</property>
-							<value>200.0</value>					
+							<value>600.0</value>					
 						</greater-than>
 					</and>
 					<greater-than>
 						<property>/velocities/mach</property>
-						<value>0.81</value>
+						<value>0.9</value>
 					</greater-than>
 				</or>
 			</and>

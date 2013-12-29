@@ -98,15 +98,15 @@ The only reason it's here is to specify a second ADF.
 		<number>0</number>
 	</turn-indicator>
 
-    <tacan n="0">
+    <tacan>
       <name>tacan</name>
       <number>0</number>
       <serviceable type="bool" archive="y">true</serviceable>
-      <switch-position type="int" archive="y">1</switch-position>
+      <switch-position type="int" archive="y">0</switch-position>
     </tacan>
 
     <radar>
-		  <name>radar</name>
+		<name>radar</name>
 		  <number>0</number>
       <!-- Used for Air-to-Air Refueling -->
       <range type="int" archive="y">20</range>

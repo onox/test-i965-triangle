@@ -200,11 +200,14 @@
 	<on type="bool">0</on>
 </mptcas>
 
-<tacan n="0">
+<tacan>
   <name>tacan</name>
   <number>0</number>
 	<serviceable type="bool" archive="y">true</serviceable>
-	<switch-position type="int" archive="y">1</switch-position>
+	<switch-position type="int" archive="y">0</switch-position>      
+	<xy-position type="int" archive="y">0</xy-position>
+    <volume type="double" archive="y">0.0</volume>
+	<display n="0"><correction type="double">0.0</correction></display>
 </tacan>
 
 <radar n="0">

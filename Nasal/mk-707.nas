@@ -1023,9 +1023,10 @@ var calc_pressurization	= func{
 	engBleedAir4 = (engBleedAir4) ? getprop("engines/engine[3]/n1") : 0;
 	
 	# this is a fake calculation for psi in air supply and the control for the overheat of the compressors
-	if(comrpm1.getValue() > 115) settimer(func{air_compressor(0)}, 0);
-	if(comrpm2.getValue() > 115) settimer(func{air_compressor(1)}, 0);
-	if(comrpm3.getValue() > 115) settimer(func{air_compressor(2)}, 0);
+	var overspeedMach = getprop("/velocities/mach") or 0;
+	if(comrpm1.getValue() > 115 or overspeedMach > 0.93) settimer(func{air_compressor(0)}, 0);
+	if(comrpm2.getValue() > 115 or overspeedMach > 0.93) settimer(func{air_compressor(1)}, 0);
+	if(comrpm3.getValue() > 115 or overspeedMach > 0.93) settimer(func{air_compressor(2)}, 0);
 	
 	var airSupplyDuct = (engBleedAir1 + engBleedAir2 + engBleedAir3 + engBleedAir4 + comrpm1.getValue() + comrpm2.getValue() + comrpm3.getValue()) / 30 * 6;
 	airSupplyDuct = (airSupplyDuct >= 0) ? airSupplyDuct : 0;

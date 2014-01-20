@@ -430,7 +430,7 @@
 
         <aerosurface_scale name="Elevator Control">
             <input>fcs/pitch-trim-sum</input>
-            <gain>0.009</gain>
+            <gain>0.005</gain>
             <range>
                 <min>-15</min>
                 <max>15</max>
@@ -460,7 +460,7 @@
 
         <aerosurface_scale name="Left Aileron Control">
             <input>fcs/roll-trim-sum</input>
-            <gain>0.007</gain>
+            <gain>0.005</gain>
             <range>
                 <min>-20</min>
                 <max>20</max>
@@ -478,7 +478,7 @@
 
         <aerosurface_scale name="Right Aileron Control">
             <input>fcs/roll-trim-sum</input>
-            <gain>0.007</gain>
+            <gain>0.006</gain>
             <range>
                 <min>-20</min>
                 <max>20</max>
@@ -508,7 +508,7 @@
 
         <aerosurface_scale name="Rudder Control">
             <input>fcs/rudder-command-sum</input>
-            <gain>0.01</gain>
+            <gain>0.007</gain>
             <range>
                 <min>-30</min>
                 <max>30</max>
@@ -1142,7 +1142,7 @@
 		              simulation/sim-time-sec gt 1.0
 		        </test>
 		   		<test logic="AND" value="1">
-		              position/h-agl-ft lt 6.5
+		              position/h-agl-ft lt 5.95
 		              position/h-agl-ft gt 0.1   <!-- between EHAM and England there is h-agl-ft to 0 -->
 		              /b707/over-water != 0
 		              simulation/sim-time-sec gt 1.0

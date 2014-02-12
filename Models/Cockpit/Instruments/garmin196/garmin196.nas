@@ -2214,9 +2214,11 @@ var rockerright = func (x){
 
 ##recalc speed to display
 var change_speed_display = func{
-	var max_speed = getprop("/instrumentation/garmin196/max-speed");
-	var speed = getprop("/instrumentation/gps/indicated-ground-speed-kt");
-	setprop("/instrumentation/garmin196/speed-display",315*speed/max_speed);
+	var max_speed = getprop("/instrumentation/garmin196/max-speed") or 0;
+	var speed = getprop("/instrumentation/gps/indicated-ground-speed-kt") or 0;
+	if(max_speed != 0){
+		setprop("/instrumentation/garmin196/speed-display",315*speed/max_speed);
+	}
 }
 
 ##calcul du turn rate

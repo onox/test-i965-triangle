@@ -199,7 +199,7 @@
   			<!-- x/y/z == right/up/back -->
   			<x-offset-m archive="y">-1.36</x-offset-m>
   			<y-offset-m archive="y"> 1.05</y-offset-m>
-  			<z-offset-m archive="y"> 8.99</z-offset-m>
+  			<z-offset-m archive="y"> 8.85</z-offset-m>
   			<heading-offset-deg type="double">70.0</heading-offset-deg>
   			<pitch-offset-deg type="double">-2.0</pitch-offset-deg>
   			<from-model-idx type="int">0</from-model-idx>

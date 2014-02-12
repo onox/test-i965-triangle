@@ -55,14 +55,7 @@
 						<command>property-toggle</command>
 		    		<property>sim/yokes-visible</property>
 					</binding>
-				</item>
-				<item>
-					<label>Garmin 196</label>
-					<binding>
-						<command>property-toggle</command>
-		    		<property>/instrumentation/garmin196/selected</property>
-					</binding>
-				</item>				
+				</item>			
 				<item>
 					<label>--- Equipment ---</label>
 					<enabled>false</enabled>
@@ -245,9 +238,6 @@
 		<view>
 		  <file>Aircraft/707/Nasal/view.nas</file>
 		</view>
-		<garmin196>
-			<file>Aircraft/707/Models/Cockpit/Instruments/garmin196/garmin196.nas</file>
-		</garmin196>
 	</nasal>
 
 </PropertyList>

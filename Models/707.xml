@@ -212,7 +212,6 @@
 		</condition>
 	</animation>
 	
-
 	<animation>
 		<type>select</type>
 		<object-name>fuselage.inner</object-name>
@@ -2868,24 +2867,6 @@
     </params>
   </overlay>
 </model>
-
-<model> 
-	<name>theIncredibleGarmin</name>
-	<path>Aircraft/707/Models/Cockpit/Instruments/garmin196/garmin196.xml</path>
-	<offsets> 
-		<x-m>-18.83</x-m>
-		<y-m>0.0</y-m>
-		<z-m>1.11</z-m>
-	</offsets>
-</model>
-
-<animation>
-	<type>select</type>
-	<object-name>theIncredibleGarmin</object-name>
-	<condition>
-		<property>/instrumentation/garmin196/selected</property>
-	</condition>	
-</animation>
 
 <model> 
 	<name>theCabin</name>

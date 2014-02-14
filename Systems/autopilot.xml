@@ -848,6 +848,10 @@
 			<property>/autopilot/locks/speed</property>
 			<value>speed-with-pitch-trim</value>
 		</equals>
+        <less-than>
+	       <property>/instrumentation/nav[0]/gs-rate-of-climb</property>
+	       <value>0.0</value>
+        </less-than>
 	</condition>
     </enable>
     <input>

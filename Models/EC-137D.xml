@@ -79,7 +79,13 @@
 	<object-name>LeftGearCompressor</object-name>
 	<object-name>LeftGearCompressor1</object-name>
 	<condition>
-    	<not><property>sim/current-view/internal</property></not>
+		<or>
+	    	<not><property>sim/current-view/internal</property></not>				
+			<equals>
+				<property>sim/current-view/view-number</property>
+				<value>12</value>
+			</equals>
+		</or>
 	</condition>
 </animation> 
  
@@ -624,11 +630,11 @@
 	<animation>
 		<type>select</type>
 		<object-name>rhfiletflap</object-name>
-  	<object-name>rhibflap</object-name>
-  	<object-name>lhobflap</object-name>
-  	<object-name>nose</object-name>
-  	<object-name>doorFL</object-name>
-  	<object-name>doorRL</object-name>
+	  	<object-name>rhibflap</object-name>
+	  	<object-name>lhobflap</object-name>
+	  	<object-name>nose</object-name>
+	  	<object-name>doorFL</object-name>
+	  	<object-name>doorRL</object-name>
 		<condition>
 			<not><property>sim/multiplay/generic/int[19]</property></not>
 		</condition>	

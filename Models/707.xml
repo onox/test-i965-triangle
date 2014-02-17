@@ -217,15 +217,15 @@
 		<object-name>fuselage.inner</object-name>
 		<condition>
 			<or>
-				<property>sim/multiplay/generic/int[9]</property>
+				<property>/sim/multiplay/generic/int[9]</property>
 				<and>
 					<not>
 						<equals>
-							<property>sim/current-view/view-number</property>
+							<property>/sim/current-view/view-number</property>
 							<value>12</value>
 						</equals>
 					</not>
-					<not><property>sim/multiplay/generic/int[9]</property></not>
+					<not><property>/sim/multiplay/generic/int[9]</property></not>
 				</and>
 			</or>
 		</condition>
@@ -2878,10 +2878,10 @@
 	<object-name>theCabin</object-name>
 	<condition>
 		<equals>
-			<property>sim/current-view/view-number</property>
+			<property>/sim/current-view/view-number</property>
 			<value>12</value>
 		</equals>
-		<not><property>sim/multiplay/generic/int[9]</property></not>
+		<not><property>/sim/multiplay/generic/int[9]</property></not>
 	</condition>	
 </animation>
 
@@ -2895,10 +2895,10 @@
 	<object-name>theContainerInside</object-name>
 	<condition>
 		<equals>
-			<property>sim/current-view/view-number</property>
+			<property>/sim/current-view/view-number</property>
 			<value>12</value>
 		</equals>
-		<property>sim/multiplay/generic/int[9]</property>
+		<property>/sim/multiplay/generic/int[9]</property>
 	</condition>	
 </animation>
   

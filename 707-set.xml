@@ -18,6 +18,10 @@
         <file type="string">707</file>
       </livery>
   </model>
+  
+  <remote>
+   <pilot-callsign type="string"/>
+  </remote>
 
 	<menubar>
 		<default>
@@ -97,7 +101,20 @@
 	                  b707.registrationDialog.toggle();
 	                ]]></script>
 	              </binding>
-	            </item>
+	            </item>			
+				<item>
+					<label>--- Boarding ---</label>
+					<enabled>false</enabled>
+				</item>
+		        <item>
+		         <label>Select Passenger</label>
+		         <binding>
+		          <command>nasal</command>
+		          <script>
+		            dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
+		           </script>
+		          </binding>
+		         </item>
 			</menu>
 		</default>
 	</menubar>
@@ -185,7 +202,7 @@
       <name>Passengers View</name>
       <enabled type="bool">true</enabled>
       <type>lookfrom</type>
-      <internal type="bool">falseaau</internal>
+      <internal type="bool">false</internal>
       <config>
   			<from-model type="bool">true</from-model>
   			<from-model-idx type="int">true</from-model-idx>
@@ -238,6 +255,20 @@
 		<view>
 		  <file>Aircraft/707/Nasal/view.nas</file>
 		</view>
+		
+	    <dual_control_tools>
+	     <file>Aircraft/707/Nasal/DualControl/dual-control-tools.nas</file>
+	    </dual_control_tools>
+	    <aircraft_dual_control>
+	     <file>Aircraft/707/Nasal/DualControl/707-dual-control.nas</file>
+	    </aircraft_dual_control>
+	    <dual_control>
+	     <file>Aircraft/707/Nasal/DualControl/pilot-dual-control.nas</file>
+	    </dual_control>
 	</nasal>
+	
+    <dual-control>
+      <active type="bool">0</active>
+    </dual-control>
 
 </PropertyList>

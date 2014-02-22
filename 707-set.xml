@@ -251,10 +251,8 @@
 			<file>Aircraft/707/Nasal/tcas.nas</file>
 			<file>Aircraft/707/Nasal/registration.nas</file>
 			<file>Aircraft/707/Nasal/manual.nas</file>
+			<file>Aircraft/707/Nasal/shake.nas</file>
 		</b707> 
-		<view>
-		  <file>Aircraft/707/Nasal/view.nas</file>
-		</view>
 		
 	    <dual_control_tools>
 	     <file>Aircraft/707/Nasal/DualControl/dual-control-tools.nas</file>

@@ -200,9 +200,6 @@
 	<b707>
 		<file>Aircraft/707/Nasal/DualControl/707-PAX.nas</file>
 	</b707> 
-	<view>
-	  <file>Aircraft/707/Nasal/view.nas</file>
-	</view>
     <!-- Dual control. -->
     <dual_control_tools>
      <file>Aircraft/707/Nasal/DualControl/dual-control-tools.nas</file>

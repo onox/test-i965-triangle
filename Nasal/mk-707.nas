@@ -607,12 +607,14 @@ setlistener("/b707/vibrations/vib-sel", eng_vib,1,0);
 
 ############################## view helper ###############################
 var changeView = func (n){
+  setprop("/b707/shake-effect/effect",0);
   var actualView = props.globals.getNode("/sim/current-view/view-number", 1);
   if (actualView.getValue() == n){
     actualView.setValue(0);
   }else{
     actualView.setValue(n);
   }
+  setprop("/b707/shake-effect/effect",1);
 }
 
 ################## hydraulic system and auxilliary pumps #################
@@ -1355,4 +1357,6 @@ var toggleRefuelling = func{
 		if(!bo) b707.doorsystem.refuelexport();
   }
 }
+
+
 

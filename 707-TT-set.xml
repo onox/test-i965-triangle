@@ -273,9 +273,6 @@
 			<file>Aircraft/707/Nasal/registration.nas</file>
 			<file>Aircraft/707/Nasal/manual.nas</file>
 		</b707> 
-		<view>
-		  <file>Aircraft/707/Nasal/view.nas</file>
-		</view>
 		<aar>
 			<file>Aircraft/Generic/aar.nas</file>
 		</aar>

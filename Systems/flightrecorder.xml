@@ -119,6 +119,9 @@
                 <type>double</type><property type="string">/b707/ground-connect</property>
             </signal>
             <signal>
+                <type>bool</type><property type="string">/b707/shake-effect/effect</property>
+            </signal>
+            <signal>
                 <type>bool</type><property type="string">/controls/lighting/strobe</property>
             </signal>
             <signal>

@@ -1864,7 +1864,7 @@
 			<path>Aircraft/707/Sounds/trimwheel.wav</path>
 			<property>/b707/trim/elevator-trim-turn</property>
 			<volume>
-				<factor>0.5</factor>
+				<property>/sim/current-view/internal</property>
 			</volume>
 		</trim-wheels>
 		

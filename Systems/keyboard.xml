@@ -24,15 +24,6 @@
   </binding>
 </key>
 
-<key n="9">
-  <name> Tab </name>
-  <desc>toggle officer view</desc>
-  <binding>
-		  <command>nasal</command>
-		  <script>b707.changeView(10);</script>
-  </binding>
-</key>
-
 <key n="108">
   <name>L</name>
   <desc>toggle landing lights</desc>

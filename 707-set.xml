@@ -231,7 +231,8 @@
  </sim>
 
 	<nasal> 
-		<b707>
+		<b707>		
+			<file>Aircraft/707/Nasal/shake.nas</file>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
 			<file>Aircraft/707/Nasal/liveries.nas</file>
@@ -250,8 +251,7 @@
 			<file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
 			<file>Aircraft/707/Nasal/tcas.nas</file>
 			<file>Aircraft/707/Nasal/registration.nas</file>
-			<file>Aircraft/707/Nasal/manual.nas</file>
-			<file>Aircraft/707/Nasal/shake.nas</file>
+			<file>Aircraft/707/Nasal/manual.nas</file>	
 		</b707> 
 		
 	    <dual_control_tools>

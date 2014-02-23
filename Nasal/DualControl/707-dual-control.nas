@@ -16,7 +16,8 @@ var pilot_type   = "Aircraft/707/Models/707.xml";
 var copilot_type = "Aircraft/707/Models/707-PAX.xml";
 
 ############################ PROPERTIES MP ###########################
-
+var compressionW      = "sim/multiplay/generic/float[1]";
+var rollspeedW        = "sim/multiplay/generic/float[2]";
 
 var l_dual_control    = "dual-control/active";
 
@@ -53,11 +54,19 @@ var copilot_connect_pilot = func (pilot) {
   # Make sure dual-control is activated in the FDM FCS.
   print("Copilot section");
   setprop(l_dual_control, 1);
+  
+  setprop("sim/current-view/view-number",8);
+  setprop("b707/shake-effect/effect",1);
 
   return [
 
       ##################################################
       # Map pilot properties to buffer properties
+	  
+      DCT.Translator.new(pilot.getNode("sim/multiplay/generic/float[1]"),
+                         props.globals.getNode("sim/multiplay/generic/float[1]", 1)),
+      DCT.Translator.new(pilot.getNode("sim/multiplay/generic/float[2]"),
+                         props.globals.getNode("sim/multiplay/generic/float[2]", 1))
 
   ];
 

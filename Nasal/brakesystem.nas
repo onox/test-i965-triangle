@@ -79,7 +79,7 @@ var BrakeSystem =
                 # absorb more energy
                 var V1 = getprop("/velocities/groundspeed-kt");
 				
-				if(V1 > 30)
+				if(V1 > 20)
 				{
 					setprop("/b707/shake-effect/effect",1);
 				}else{
@@ -96,7 +96,9 @@ var BrakeSystem =
 	                if (V2>0)
 	                    ThermalEnergy += Mass * (V1*V1 - V2*V2)/2;
 				}
-            }
+            }else{
+					setprop("/b707/shake-effect/effect",0);
+			}
 
             # cooling effect: reduce thermal energy by factor (1-m.CoolingFactor)^dt
             ThermalEnergy = ThermalEnergy * math.exp(me.LnCoolFactor * dt);

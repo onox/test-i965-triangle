@@ -252,7 +252,8 @@
   </b707>
 	
 	<nasal> 
-		<b707>
+		<b707>		
+			<file>Aircraft/707/Nasal/shake.nas</file>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
 			<file>Aircraft/707/Nasal/liveriesTT.nas</file>

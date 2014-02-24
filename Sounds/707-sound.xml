@@ -21,6 +21,12 @@
 					<not><property>/sim/current-view/internal</property></not>
 					<not>
 						<equals>
+							<property>/sim/current-view/name</property>
+							<value type="string">Passengers View</value>
+						</equals>
+					</not>					
+					<not>
+						<equals>
 							<property>/sim/current-view/view-number</property>
 							<value>12</value>	
 						</equals>
@@ -69,6 +75,12 @@
 			<or>
 				<and>
 					<not><property>/sim/current-view/internal</property></not>
+					<not>
+						<equals>
+							<property>/sim/current-view/name</property>
+							<value type="string">Passengers View</value>
+						</equals>
+					</not>
 					<not>
 						<equals>
 							<property>/sim/current-view/view-number</property>
@@ -121,6 +133,12 @@
 					<not><property>/sim/current-view/internal</property></not>
 					<not>
 						<equals>
+							<property>/sim/current-view/name</property>
+							<value type="string">Passengers View</value>
+						</equals>
+					</not>
+					<not>
+						<equals>
 							<property>/sim/current-view/view-number</property>
 							<value>12</value>	
 						</equals>
@@ -169,6 +187,12 @@
 			<or>
 				<and>
 					<not><property>/sim/current-view/internal</property></not>
+					<not>
+						<equals>
+							<property>/sim/current-view/name</property>
+							<value type="string">Passengers View</value>
+						</equals>
+					</not>
 					<not>
 						<equals>
 							<property>/sim/current-view/view-number</property>
@@ -220,8 +244,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 		</condition>	   
@@ -262,8 +286,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 		</condition>	   
@@ -304,8 +328,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 		</condition>	   
@@ -346,8 +370,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 		</condition>	   
@@ -390,8 +414,8 @@
 				<not><property>/sim/current-view/internal</property></not>
 				<not>
 					<equals>
-						<property>/sim/current-view/view-number</property>
-						<value>12</value>	
+						<property>/sim/current-view/name</property>
+						<value type="string">Passengers View</value>
 					</equals>
 				</not>
 			</and>
@@ -435,8 +459,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 			<or>
@@ -480,8 +504,8 @@
 				<not><property>/sim/current-view/internal</property></not>
 				<not>
 					<equals>
-						<property>/sim/current-view/view-number</property>
-						<value>12</value>	
+						<property>/sim/current-view/name</property>
+						<value type="string">Passengers View</value>
 					</equals>
 				</not>
 			</and>
@@ -526,8 +550,8 @@
 				<not><property>/sim/current-view/internal</property></not>
 				<not>
 					<equals>
-						<property>/sim/current-view/view-number</property>
-						<value>12</value>	
+						<property>/sim/current-view/name</property>
+						<value type="string">Passengers View</value>
 					</equals>
 				</not>
 			</and>
@@ -571,8 +595,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 			<or>
@@ -616,8 +640,8 @@
 				<not><property>/sim/current-view/internal</property></not>
 				<not>
 					<equals>
-						<property>/sim/current-view/view-number</property>
-						<value>12</value>	
+						<property>/sim/current-view/name</property>
+						<value type="string">Passengers View</value>
 					</equals>
 				</not>
 			</and>
@@ -661,8 +685,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 			<or>
@@ -690,8 +714,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 			<or>
@@ -1507,8 +1531,8 @@
 							<not><property>/sim/current-view/internal</property></not>
 							<not>
 								<equals>
-									<property>/sim/current-view/view-number</property>
-									<value>12</value>	
+									<property>/sim/current-view/name</property>
+									<value type="string">Passengers View</value>
 								</equals>
 							</not>
 						</and>
@@ -1544,8 +1568,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>								
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 			<or>
@@ -1573,8 +1597,8 @@
 					<not><property>/sim/current-view/internal</property></not>
 					<not>
 						<equals>
-							<property>/sim/current-view/view-number</property>
-							<value>12</value>	
+							<property>/sim/current-view/name</property>
+							<value type="string">Passengers View</value>
 						</equals>
 					</not>
 				</and>
@@ -1604,8 +1628,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 		    <property>/b707/external-power-connected</property>
@@ -1631,8 +1655,8 @@
 					<not><property>/sim/current-view/internal</property></not>
 					<not>
 						<equals>
-							<property>/sim/current-view/view-number</property>
-							<value>12</value>	
+							<property>/sim/current-view/name</property>
+							<value type="string">Passengers View</value>
 						</equals>
 					</not>
 				</and>
@@ -1667,8 +1691,8 @@
 			<or>
 				<property>/sim/current-view/internal</property>
 				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>12</value>	
+					<property>/sim/current-view/name</property>
+					<value type="string">Passengers View</value>
 				</equals>
 			</or>
 			<property>/b707/ground-service/fuel-truck/state</property>
@@ -1696,8 +1720,8 @@
 				<or>
 					<property>/sim/current-view/internal</property>
 					<equals>
-						<property>/sim/current-view/view-number</property>
-						<value>12</value>	
+						<property>/sim/current-view/name</property>
+						<value type="string">Passengers View</value>
 					</equals>
 				</or>
 				<greater-than>
@@ -1723,8 +1747,8 @@
 				<not><property>/sim/current-view/internal</property></not>			
 				<not>
 					<equals>
-						<property>/sim/current-view/view-number</property>
-						<value>12</value>	
+						<property>/sim/current-view/name</property>
+						<value type="string">Passengers View</value>
 					</equals>
 				</not>
 				<greater-than>

@@ -8,10 +8,9 @@
 <PropertyList>
 
   <sim>
-    <author>Lake of Constance Hangar</author>
-    <aircraft-version>2.2.2</aircraft-version>
-    <status>2.2.2</status>
     <description>Boeing 707 Passenger</description>
+    <author>Lake of Constance Hangar</author>
+    <status>2.2.3</status>
     <flight-model>null</flight-model>
 
     <model>

@@ -62,11 +62,28 @@ var copilot_connect_pilot = func (pilot) {
 
       ##################################################
       # Map pilot properties to buffer properties
-	  
+
+	  # float[1] and float[2] for the rumble effect on ground
       DCT.Translator.new(pilot.getNode("sim/multiplay/generic/float[1]"),
                          props.globals.getNode("sim/multiplay/generic/float[1]", 1)),
       DCT.Translator.new(pilot.getNode("sim/multiplay/generic/float[2]"),
-                         props.globals.getNode("sim/multiplay/generic/float[2]", 1))
+                         props.globals.getNode("sim/multiplay/generic/float[2]", 1)),
+      DCT.Translator.new(pilot.getNode("engines/engine[0]/n1"),
+                         props.globals.getNode("engines/engine[0]/n1", 1)),
+      DCT.Translator.new(pilot.getNode("engines/engine[0]/n2"),
+                         props.globals.getNode("engines/engine[0]/n2", 1)),
+      DCT.Translator.new(pilot.getNode("engines/engine[1]/n1"),
+                         props.globals.getNode("engines/engine[1]/n1", 1)),
+      DCT.Translator.new(pilot.getNode("engines/engine[1]/n2"),
+                         props.globals.getNode("engines/engine[1]/n2", 1)),
+      DCT.Translator.new(pilot.getNode("engines/engine[2]/n1"),
+                         props.globals.getNode("engines/engine[2]/n1", 1)),
+      DCT.Translator.new(pilot.getNode("engines/engine[2]/n2"),
+                         props.globals.getNode("engines/engine[2]/n2", 1)),
+      DCT.Translator.new(pilot.getNode("engines/engine[3]/n1"),
+                         props.globals.getNode("engines/engine[3]/n1", 1)),
+      DCT.Translator.new(pilot.getNode("engines/engine[3]/n2"),
+                         props.globals.getNode("engines/engine[3]/n2", 1))
 
   ];
 

@@ -17,6 +17,7 @@
 		<type>material</type>
 		<object-name>cabin</object-name>
 		<object-name>ablage</object-name>
+		<object-name>theSeats</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>

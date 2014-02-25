@@ -523,9 +523,9 @@ copilot_dialog.create = func {
     titlebar.set("layout", "hbox");
     titlebar.addChild("empty").set("stretch", 1);
     if (contains(aircraft_dual_control, "copilot_view")) {
-        titlebar.addChild("text").set("label", "Pilots online");
+        titlebar.addChild("text").set("label", "Book your flight");
     } else {
-        titlebar.addChild("text").set("label", "Copilots online");
+        titlebar.addChild("text").set("label", "Passengers online");
     }
     var w = titlebar.addChild("button");
     w.set("pref-width", 16);

@@ -789,10 +789,11 @@ setlistener("/b707/generator/gen-drive[3]", func(state){
 var calc_oil_temp = func{
 
 	var atemp  =  getprop("/environment/temperature-degc") or 0;
+	var vmach  =  getprop("/velocities/mach") or 0;
 	
 	# without any engine and no support what happens to the wingTemperature
   # Calculate TAT Value (TAT = static temp (1 +((1.4 - 1) / 2) Mach^2) )
-	var tat = atemp * (1 + (0.2 * getprop("/velocities/mach") * getprop("/velocities/mach")));
+	var tat = atemp * (1 + (0.2 * vmach * vmach));
 	interpolate("/b707/anti-ice/total-air-temperature", tat, 32); # show it on instrument
 	var digittat = abs(tat);
 	interpolate("/b707/anti-ice/total-air-temperature-digit", digittat, 32); # show it on instrument

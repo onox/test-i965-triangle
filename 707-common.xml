@@ -449,6 +449,9 @@
 				<clean type="bool">0</clean>
 			</fuel-truck>
 		</ground-service>
+		<stabilizer>
+			<cutout type="double">0.0</cutout>
+		</stabilizer>
   </b707>
 
 	<payload>

@@ -1005,7 +1005,7 @@
   		<object-name>ElevatorStabArrow</object-name>
   		<property>/b707/stabilizer/cutout</property>
   		<interpolation>
-  		  <entry><ind> 3.0</ind><dep>-4.0</dep></entry>
+  		  <entry><ind> 4.0</ind><dep>-4.0</dep></entry>
   		  <entry><ind>   0</ind><dep>   0</dep></entry>
   		  <entry><ind>-1.0</ind><dep> 1.8</dep></entry>
   		</interpolation>

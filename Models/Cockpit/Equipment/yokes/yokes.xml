@@ -252,7 +252,7 @@
 		      <property>/b707/stabilizer/cutout</property>
 		      <step>0.1</step>
 		      <min>-1.0</min>
-		      <max> 3.0</max>
+		      <max> 4.0</max>
 		      <wrap>false</wrap>
         </binding>      
 		    <binding>
@@ -269,7 +269,7 @@
 		      <property>/b707/stabilizer/cutout</property>
 		      <step>-0.1</step>
 		      <min>-1.0</min>
-		      <max> 3.0</max>
+		      <max> 4.0</max>
 		      <wrap>false</wrap>
         </binding>              
 		    <binding>
@@ -293,7 +293,7 @@
         <property>/b707/stabilizer/cutout</property>
         <step>0.1</step>
         <min>-1.0</min>
-        <max> 3.0</max>
+        <max> 4.0</max>
         <wrap>false</wrap>
         </binding>        
         <binding>
@@ -329,7 +329,7 @@
         <property>/b707/stabilizer/cutout</property>
         <step>-0.1</step>
         <min>-1.0</min>
-        <max> 3.0</max>
+        <max> 4.0</max>
         <wrap>false</wrap>
         </binding>        
         <binding>

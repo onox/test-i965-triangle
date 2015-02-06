@@ -762,67 +762,28 @@
 		</action>
   </animation>	
 
-	<animation>
-		<type>rotate</type>
-		<object-name>refuelBoom</object-name>
+    <model>
+        <name>fuel-line</name>
+        <path>Aircraft/ExpansionPack/Models/Airport/Fuel-Truck/fuel-line.xml</path>
+    </model>
+
+    <!-- A separate .ac file is used for the boom, so disable the
+         refueling boom that is part of the main .ac file.
+    -->
+    <animation>
+        <type>select</type>
+        <object-name>refuelBoom</object-name>
 		<object-name>refuelTube</object-name>
-		<property>/b707/refuelling/boom-azimuth</property>
-		<factor>1.5</factor>
-		<axis>
-			<x> 0</x>
-			<y> 0</y>
-			<z> 1</z>
-		</axis>
-		<center>
-			<x-m>16.04</x-m>
-			<y-m>0</y-m>
-			<z-m>0</z-m>
-		</center>
-	</animation>
-	
-	<animation>
-		<name>Boom rotate</name>
-		<type>rotate</type>
-		<object-name>refuelBoom</object-name>
-		<object-name>refuelTube</object-name>
-		<property>sim/multiplay/generic/float[18]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>0.7</ind><dep>40</dep></entry>
-			<entry><ind>1</ind><dep>40</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-		<center>
-			<x-m>16.15</x-m>
-			<y-m>0</y-m>
-			<z-m>-0.6614</z-m>
-		</center>
-	</animation>
-	
-	<animation>
-		<name>Boom extend</name>
-		<type>translate</type>
-		<object-name>refuelTube</object-name>
-		<property>sim/multiplay/generic/float[18]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>0.7</ind><dep>0</dep></entry>
-			<entry><ind>1</ind><dep>4.0</dep></entry>
-		</interpolation>
-		<axis>
-			<x1-m>16.15</x1-m>
-			<y1-m>0</y1-m>
-			<z1-m>-0.6614</z1-m>
-			<x2-m>24.293</x2-m>
-			<y2-m>0</y2-m>
-			<z2-m>0.9878</z2-m>
-		</axis>
-	</animation>
-	
+		<condition>
+		    <false/>
+		</condition>
+    </animation>
+
+    <model>
+        <name>boom</name>
+        <path>boom.xml</path>
+    </model>
+
   <animation>
 		<type>pick</type>
 		<object-name>refuelPivot</object-name>

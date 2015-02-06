@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Copyright (c) 2015 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <filter>
+        <type>gain</type>
+        <gain>1.0</gain>
+
+        <input>
+            <expression>
+                <difference>
+                    <property>/sim/model/fuel-truck/line-heading-deg</property>
+                    <value>180.0</value>
+                </difference>
+            </expression>
+        </input>
+        <output>
+            <property>/engines/engine[9]/n1</property>
+        </output>
+
+        <min>-20.0</min>
+        <max> 20.0</max>
+    </filter>
+
+    <filter>
+        <type>gain</type>
+        <gain>1.0</gain>
+
+        <input>
+            <property>/sim/model/fuel-truck/line-pitch-deg</property>
+        </input>
+        <output>
+            <property>/engines/engine[9]/n2</property>
+        </output>
+
+        <min>-10.0</min>
+        <max> 25.0</max>
+    </filter>
+
+    <filter>
+        <type>gain</type>
+        <gain>1.0</gain>
+
+        <input>
+            <property>/sim/model/fuel-truck/line-length</property>
+        </input>
+        <output>
+            <property>/engines/engine[9]/rpm</property>
+        </output>
+
+        <min> 8.1</min>
+        <max>12.9</max>
+    </filter>
+
+</PropertyList>

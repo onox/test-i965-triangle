@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!--###################################################################################
-		Lake of Constance Hangar :: M.Kraus
-		Boeing 707 for Flightgear Septemper 2013
-		This file is licenced under the terms of the GNU General Public Licence V2 or later
-		###################################################################################
+	Lake of Constance Hangar :: M.Kraus
+	Boeing 707 for Flightgear Septemper 2013
+	This file is licenced under the terms of the GNU General Public Licence V2 or later
+	###################################################################################
 -->
 <PropertyList include="707-common.xml">
  <sim n="0">
@@ -11,12 +11,29 @@
 	<startup>
 		<splash-texture>Aircraft/707/splashTT.png</splash-texture>
 	</startup>
-	
+
+    <systems>
+        <autopilot>
+            <path>Systems/boom.xml</path>
+        </autopilot>
+    </systems>
+
   <model n="0">
    	 <path>Aircraft/707/Models/707-TT.xml</path>
       <livery>
         <file type="string">707</file>
       </livery>
+
+      <fuel-truck>
+          <x-m type="double">-18.0</x-m>
+          <y-m type="double">0.0</y-m>
+          <yaw-deg type="double">0.0</yaw-deg>
+
+          <line-diameter type="double">80.0</line-diameter>
+          <px type="double">16.15</px>
+          <py type="double">0.0</py>
+          <pz type="double">-0.6614</pz>
+      </fuel-truck>
   </model>
 
 	<menubar>
@@ -92,6 +109,13 @@
 							<script>b707.toggleRefuelling();</script>
 					</binding>
 				</item>			
+                <item>
+                    <label>Fuel Truck</label>
+                    <binding>
+                        <command>dialog-show</command>
+                        <dialog-name>fuel-truck</dialog-name>
+                    </binding>
+                </item>
 				<item>
 					<label>--- Registration ---</label>
 					<enabled>false</enabled>
@@ -252,6 +276,13 @@ no. D6-3071-00
 		 <serviceable type="bool">true</serviceable>
 		 <max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
 		</refuel>
+
+        <refuel-ground>
+            <level-gal_us type="double">3200.0</level-gal_us>
+            <x-m type="double">-18.0</x-m>
+            <y-m type="double">0.0</y-m>
+            <yaw-deg type="double">0.0</yaw-deg>
+        </refuel-ground>
 	</systems>
 
   <b707 n="0">
@@ -294,6 +325,7 @@ no. D6-3071-00
 			<file>Aircraft/707/Nasal/tcas.nas</file>
 			<file>Aircraft/707/Nasal/registration.nas</file>
 			<file>Aircraft/707/Nasal/manual.nas</file>
+			<file>Aircraft/707/Nasal/refueling.nas</file>
 		</b707> 
 		<aar>
 			<file>Aircraft/Generic/aar.nas</file>

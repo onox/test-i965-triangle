@@ -35,8 +35,8 @@
             <property>/engines/engine[9]/n1</property>
         </output>
 
-        <min>-20.0</min>
-        <max> 20.0</max>
+        <min>-30.0</min>
+        <max> 30.0</max>
     </filter>
 
     <filter>
@@ -50,8 +50,8 @@
             <property>/engines/engine[9]/n2</property>
         </output>
 
-        <min>-10.0</min>
-        <max> 25.0</max>
+        <min>-12.5</min>
+        <max> 50.0</max>
     </filter>
 
     <filter>

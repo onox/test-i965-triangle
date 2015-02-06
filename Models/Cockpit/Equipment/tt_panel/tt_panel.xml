@@ -761,7 +761,7 @@
 		  </action>
 	</animation>
 	
-  <!-- the Instruments -->
+    <!-- The instruments -->
 	<animation>
 		<type>rotate</type>
 		<object-name>AZI.Needle</object-name>
@@ -810,11 +810,10 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ELEV.Needle</object-name>
-		<property>/instrumentation/doors/refuel-boom/position-norm</property>
+		<property>/engines/engine[9]/n2</property>
 		<interpolation>
-		  <entry><ind>  0</ind><dep>  0</dep></entry>
-		  <entry><ind>0.7</ind><dep>125</dep></entry>
-		  <entry><ind>1.0</ind><dep>125</dep></entry>
+		  <entry><ind>-12.5</ind><dep> 20</dep></entry>
+		  <entry><ind> 50.0</ind><dep>145</dep></entry>
 		</interpolation>
 		<center>
 			<x-m> 0.0</x-m>

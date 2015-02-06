@@ -789,11 +789,10 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>TELE.Needle</object-name>
-		<property>/instrumentation/doors/refuel-boom/position-norm</property>
+		<property>/engines/engine[9]/rpm</property>
 		<interpolation>
-		  <entry><ind>  0</ind><dep>-90</dep></entry>
-		  <entry><ind>0.7</ind><dep>-90</dep></entry>
-		  <entry><ind>1.0</ind><dep> 48</dep></entry>
+		  <entry><ind> 8.100</ind><dep>-90</dep></entry>
+		  <entry><ind>14.196</ind><dep> 90</dep></entry>
 		</interpolation>
 		<center>
 			<x-m> 0.0</x-m>

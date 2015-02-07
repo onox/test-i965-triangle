@@ -270,6 +270,20 @@ no. D6-3071-00
  
 	<tanker type="bool">true</tanker>
 
+    <engines>
+        <engine n="9">
+            <rpm type="double">8.1</rpm>
+        </engine>
+    </engines>
+
+    <refueling>
+        <boom-rate type="double">0.0</boom-rate>
+    </refueling>
+
+    <input>
+        <mice include="Sim/refueling-mice.xml"/>
+    </input>
+
 	<systems>
 		<refuel>
 		 <type>boom</type>

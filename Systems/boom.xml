@@ -57,6 +57,14 @@
     <filter>
         <type>gain</type>
         <gain>1.0</gain>
+        <enable>
+            <condition>
+                <greater-than>
+                    <property>/sim/multiplay/generic/int[12]</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+        </enable>
 
         <input>
             <property>/sim/model/fuel-truck/line-length</property>
@@ -66,7 +74,107 @@
         </output>
 
         <min> 8.1</min>
-        <max>12.9</max>
+        <max>11.76</max>
+    </filter>
+
+    <filter>
+        <name>Boom Telescope Move Rate</name>
+        <type>noise-spike</type>
+        <enable>
+            <condition>
+                <equals>
+                    <property>/sim/multiplay/generic/int[12]</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </enable>
+
+        <input>
+            <condition>
+                <less-than>
+                    <property>/refueling/boom-rate</property>
+                    <value>0.0</value>
+                </less-than>
+            </condition>
+            <value>8.1</value>
+        </input>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>/refueling/boom-rate</property>
+                    <value>0.0</value>
+                </greater-than>
+            </condition>
+            <value>11.76</value>
+        </input>
+        <input>
+            <property>/engines/engine[9]/rpm</property>
+        </input>
+        <output>
+            <property>/engines/engine[9]/rpm</property>
+        </output>
+
+        <max-rate-of-change>
+            <property>/refueling/boom-rate</property>
+            <abs type="bool">true</abs>
+        </max-rate-of-change>
+    </filter>
+
+    <!-- Sets 'reset-boom-rate' to true if moving the boom towards its
+         physical limit, false otherwise. This logic is used by the gain
+         filter below to set the move rate back to 0 m/s upon reaching
+         the beginning or end.
+    -->
+    <logic>
+        <name>Boom Telescope Limit Reset Move</name>
+        <input>
+            <or>
+                <and>
+                    <less-than>
+                        <property>/refueling/boom-rate</property>
+                        <value>0.0</value>
+                    </less-than>
+                    <less-than-equals>
+                        <property>/engines/engine[9]/rpm</property>
+                        <value>8.1</value>
+                    </less-than-equals>
+                </and>
+                <and>
+                    <greater-than>
+                        <property>/refueling/boom-rate</property>
+                        <value>0.0</value>
+                    </greater-than>
+                    <greater-than-equals>
+                        <property>/engines/engine[9]/rpm</property>
+                        <value>11.76</value>
+                    </greater-than-equals>
+                </and>
+            </or>
+        </input>
+        <output>
+            <property>/refueling/reset-boom-rate</property>
+        </output>
+    </logic>
+
+    <!-- Resets the move rate to 0 m/s if 'reset-move-rate' is true.
+
+         This filter is used to automatically reset the move rate to
+         0 m/s, so that the user does not have to scroll back to 0 from
+         a negative or positive move, which would be tiresome.
+    -->
+    <filter>
+        <name>Boom Telescope Move Rate Resetter</name>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <enable>
+            <property>/refueling/reset-boom-rate</property>
+        </enable>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/refueling/boom-rate</property>
+        </output>
     </filter>
 
 </PropertyList>

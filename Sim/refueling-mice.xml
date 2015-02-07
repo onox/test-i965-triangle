@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2015 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <mouse n="0">
+        <!-- Crosshair mode -->
+        <mode n="1">
+            <!-- Middle click -->
+            <button n="1">
+                <binding>
+                    <condition>
+                        <equals>
+                            <property>/sim/multiplay/generic/int[12]</property>
+                            <value>0</value>
+                        </equals>
+                    </condition>
+                    <command>property-assign</command>
+                    <property>/refueling/boom-rate</property>
+                    <value>0.0</value>
+                </binding>
+            </button>
+
+            <!-- Mouse wheel up -->
+            <button n="3">
+                <binding>
+                    <condition>
+                        <equals>
+                            <property>/sim/multiplay/generic/int[12]</property>
+                            <value>0</value>
+                        </equals>
+                    </condition>
+                    <command>property-adjust</command>
+                    <property>/refueling/boom-rate</property>
+                    <step type="double">0.5</step>
+                    <max type="double">2.0</max>
+                </binding>
+            </button>
+
+            <!-- Mouse wheel down -->
+            <button n="4">
+                <binding>
+                    <condition>
+                        <equals>
+                            <property>/sim/multiplay/generic/int[12]</property>
+                            <value>0</value>
+                        </equals>
+                    </condition>
+                    <command>property-adjust</command>
+                    <property>/refueling/boom-rate</property>
+                    <step type="double">-0.5</step>
+                    <min type="double">-2.0</min>
+                </binding>
+            </button>
+        </mode>
+    </mouse>
+
+</PropertyList>

@@ -277,6 +277,8 @@ no. D6-3071-00
     </engines>
 
     <refueling>
+        <boom-min-m type="double">8.1</boom-min-m>
+        <boom-max-m type="double">11.76</boom-max-m>
         <boom-rate type="double">0.0</boom-rate>
     </refueling>
 

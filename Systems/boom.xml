@@ -22,6 +22,14 @@
     <filter>
         <type>gain</type>
         <gain>1.0</gain>
+        <enable>
+            <condition>
+                <greater-than>
+                    <property>/sim/multiplay/generic/int[12]</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+        </enable>
 
         <input>
             <expression>
@@ -73,8 +81,12 @@
             <property>/engines/engine[9]/rpm</property>
         </output>
 
-        <min> 8.1</min>
-        <max>11.76</max>
+        <min>
+            <property>/refueling/boom-min-m</property>
+        </min>
+        <max>
+            <property>/refueling/boom-max-m</property>
+        </max>
     </filter>
 
     <filter>
@@ -96,7 +108,7 @@
                     <value>0.0</value>
                 </less-than>
             </condition>
-            <value>8.1</value>
+            <property>/refueling/boom-min-m</property>
         </input>
         <input>
             <condition>
@@ -105,7 +117,7 @@
                     <value>0.0</value>
                 </greater-than>
             </condition>
-            <value>11.76</value>
+            <property>/refueling/boom-max-m</property>
         </input>
         <input>
             <property>/engines/engine[9]/rpm</property>
@@ -136,7 +148,7 @@
                     </less-than>
                     <less-than-equals>
                         <property>/engines/engine[9]/rpm</property>
-                        <value>8.1</value>
+                        <property>/refueling/boom-min-m</property>
                     </less-than-equals>
                 </and>
                 <and>
@@ -146,7 +158,7 @@
                     </greater-than>
                     <greater-than-equals>
                         <property>/engines/engine[9]/rpm</property>
-                        <value>11.76</value>
+                        <property>/refueling/boom-max-m</property>
                     </greater-than-equals>
                 </and>
             </or>

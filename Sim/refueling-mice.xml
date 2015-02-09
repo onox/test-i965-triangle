@@ -68,6 +68,42 @@
                     <min type="double">-2.0</min>
                 </binding>
             </button>
+
+            <!-- Mouse left/right motion -->
+            <x-axis-ctrl>
+                <binding>
+                    <condition>
+                        <equals>
+                            <property>/sim/multiplay/generic/int[12]</property>
+                            <value>0</value>
+                        </equals>
+                    </condition>
+                    <command>property-adjust</command>
+                    <property>/engines/engine[9]/n1</property>
+                    <factor type="double">80.0</factor>
+                    <min type="double">-30.0</min>
+                    <max type="double">30.0</max>
+                    <wrap type="bool">false</wrap>
+                </binding>
+            </x-axis-ctrl>
+
+            <!-- Mouse up/down motion -->
+            <y-axis-ctrl>
+                <binding>
+                    <condition>
+                        <equals>
+                            <property>/sim/multiplay/generic/int[12]</property>
+                            <value>0</value>
+                        </equals>
+                    </condition>
+                    <command>property-adjust</command>
+                    <property>/engines/engine[9]/n2</property>
+                    <factor type="double">80.0</factor>
+                    <min type="double">-12.5</min>
+                    <max type="double">50.0</max>
+                    <wrap type="bool">false</wrap>
+                </binding>
+            </y-axis-ctrl>
         </mode>
     </mouse>
 

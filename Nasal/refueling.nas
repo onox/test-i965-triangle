@@ -1,3 +1,3 @@
 io.include("Aircraft/ExpansionPack/Nasal/init.nas");
 
-with("fuel_truck_dialog");
+with("refueling_boom");

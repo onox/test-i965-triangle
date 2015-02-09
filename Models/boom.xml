@@ -51,28 +51,6 @@
     </animation>
 
     <animation>
-        <type>rotate</type>
-        <property>/orientation/pitch-deg</property>
-        <factor>-1</factor>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <property>/orientation/roll-deg</property>
-        <factor>1</factor>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
         <type>translate</type>
         <object-name>refuel-tube</object-name>
         <property>engines/engine[9]/rpm</property>

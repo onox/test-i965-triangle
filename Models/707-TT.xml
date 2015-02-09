@@ -762,11 +762,6 @@
 		</action>
   </animation>	
 
-    <model>
-        <name>fuel-line</name>
-        <path>Aircraft/ExpansionPack/Models/Airport/Fuel-Truck/fuel-line.xml</path>
-    </model>
-
     <!-- A separate .ac file is used for the boom, so disable the
          refueling boom that is part of the main .ac file.
     -->

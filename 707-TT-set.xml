@@ -23,18 +23,13 @@
       <livery>
         <file type="string">707</file>
       </livery>
-
-      <fuel-truck>
-          <x-m type="double">-18.0</x-m>
-          <y-m type="double">0.0</y-m>
-          <yaw-deg type="double">0.0</yaw-deg>
-
-          <line-diameter type="double">80.0</line-diameter>
-          <px type="double">16.15</px>
-          <py type="double">0.0</py>
-          <pz type="double">-0.6614</pz>
-      </fuel-truck>
   </model>
+
+  <multiplay>
+    <generic>
+        <int n="12">1</int>
+    </generic>
+  </multiplay>
 
 	<menubar>
 		<default>
@@ -109,13 +104,6 @@
 							<script>b707.toggleRefuelling();</script>
 					</binding>
 				</item>			
-                <item>
-                    <label>Fuel Truck</label>
-                    <binding>
-                        <command>dialog-show</command>
-                        <dialog-name>fuel-truck</dialog-name>
-                    </binding>
-                </item>
 				<item>
 					<label>--- Registration ---</label>
 					<enabled>false</enabled>
@@ -272,14 +260,24 @@ no. D6-3071-00
 
     <engines>
         <engine n="9">
+            <!-- Initial position of refueling boom -->
+            <n1 type="double">0.0</n1>
+            <n2 type="double">-12.5</n2>
             <rpm type="double">8.1</rpm>
         </engine>
     </engines>
 
     <refueling>
+        <!-- Limits of refueling boom -->
         <boom-min-m type="double">8.1</boom-min-m>
         <boom-max-m type="double">11.76</boom-max-m>
+
         <boom-rate type="double">0.0</boom-rate>
+
+        <!-- Origin of refueling boom -->
+        <origin-x-m type="double">16.15</origin-x-m>
+        <origin-y-m type="double">0.0</origin-y-m>
+        <origin-z-m type="double">-0.6614</origin-z-m>
     </refueling>
 
     <input>
@@ -292,13 +290,6 @@ no. D6-3071-00
 		 <serviceable type="bool">true</serviceable>
 		 <max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
 		</refuel>
-
-        <refuel-ground>
-            <level-gal_us type="double">3200.0</level-gal_us>
-            <x-m type="double">-18.0</x-m>
-            <y-m type="double">0.0</y-m>
-            <yaw-deg type="double">0.0</yaw-deg>
-        </refuel-ground>
 	</systems>
 
   <b707 n="0">

@@ -32,12 +32,7 @@
         </enable>
 
         <input>
-            <expression>
-                <difference>
-                    <property>/sim/model/fuel-truck/line-heading-deg</property>
-                    <value>180.0</value>
-                </difference>
-            </expression>
+            <property>/refueling/boom-heading-deg</property>
         </input>
         <output>
             <property>/engines/engine[9]/n1</property>
@@ -50,9 +45,17 @@
     <filter>
         <type>gain</type>
         <gain>1.0</gain>
+        <enable>
+            <condition>
+                <greater-than>
+                    <property>/sim/multiplay/generic/int[12]</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+        </enable>
 
         <input>
-            <property>/sim/model/fuel-truck/line-pitch-deg</property>
+            <property>/refueling/boom-pitch-deg</property>
         </input>
         <output>
             <property>/engines/engine[9]/n2</property>
@@ -75,7 +78,7 @@
         </enable>
 
         <input>
-            <property>/sim/model/fuel-truck/line-length</property>
+            <property>/refueling/boom-length</property>
         </input>
         <output>
             <property>/engines/engine[9]/rpm</property>

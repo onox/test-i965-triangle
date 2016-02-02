@@ -273,7 +273,8 @@ no. D6-3071-00
         <boom-max-m type="double">11.76</boom-max-m>
 
         <boom-rate type="double">0.0</boom-rate>
-        <max-track-distance-m type="double">10.0</max-track-distance-m>
+        <max-contact-distance-m type="double">10.0</max-contact-distance-m>
+        <max-pre-contact-distance-m type="double">100.0</max-pre-contact-distance-m>
 
         <closest>
             <distance-m type="double"></distance-m>

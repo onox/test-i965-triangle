@@ -23,7 +23,7 @@
   </rating>
   
   <systems n="0">
-    <autopilot n="0">
+    <autopilot n="2">
         <path>Aircraft/707/Systems/autopilot.xml</path>
     </autopilot>
 	</systems>

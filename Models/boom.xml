@@ -21,6 +21,11 @@
 
     <path>boom.ac</path>
 
+    <!-- Disable collisions with other aircraft -->
+    <animation>
+        <enable-hot type="bool">false</enable-hot>
+    </animation>
+
     <offsets>
         <x-m>16.15</x-m>
         <z-m>-0.6614</z-m>

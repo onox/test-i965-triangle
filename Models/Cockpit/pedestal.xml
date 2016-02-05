@@ -1033,6 +1033,39 @@
         </action>
     </animation>
 
+    <animation>
+        <type>pick</type>
+        <object-name>RudderScale</object-name>
+        <object-name>RudderArrow</object-name>
+        <object-name>RudderSup</object-name>
+        <object-name>RudderTab</object-name>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>tooltip-rudder-trim</tooltip-id>
+                <label>Rudder trim: %3d %%</label>
+                <mapping>percent</mapping>
+                <property>/controls/flight/rudder-trim</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>AileronTab</object-name>
+        <object-name>AileronScale</object-name>
+        <object-name>AileronArrow</object-name>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>tooltip-aileron-trim</tooltip-id>
+                <label>Aileron trim: %3d %%</label>
+                <mapping>percent</mapping>
+                <property>/controls/flight/aileron-trim</property>
+            </binding>
+        </hovered>
+    </animation>
+
+
     <!-- Stab trim normally switches ... here in FG for showing up, what
          level the electrical stab trim is.
     -->

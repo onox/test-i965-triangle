@@ -32,7 +32,7 @@
                         </equals>
                     </condition>
                     <command>property-assign</command>
-                    <property>/refueling/boom-rate</property>
+                    <property>/refueling/boom/commands/telescope-rate</property>
                     <value>0.0</value>
                 </binding>
             </button>
@@ -47,7 +47,7 @@
                         </equals>
                     </condition>
                     <command>property-adjust</command>
-                    <property>/refueling/boom-rate</property>
+                    <property>/refueling/boom/commands/telescope-rate</property>
                     <step type="double">0.5</step>
                     <max type="double">2.0</max>
                 </binding>
@@ -63,7 +63,7 @@
                         </equals>
                     </condition>
                     <command>property-adjust</command>
-                    <property>/refueling/boom-rate</property>
+                    <property>/refueling/boom/commands/telescope-rate</property>
                     <step type="double">-0.5</step>
                     <min type="double">-2.0</min>
                 </binding>
@@ -79,7 +79,7 @@
                         </equals>
                     </condition>
                     <command>property-adjust</command>
-                    <property>/engines/engine[9]/n1</property>
+                    <property>/refueling/boom/commands/heading-deg</property>
                     <factor type="double">80.0</factor>
                     <min type="double">-30.0</min>
                     <max type="double">30.0</max>
@@ -97,7 +97,7 @@
                         </equals>
                     </condition>
                     <command>property-adjust</command>
-                    <property>/engines/engine[9]/n2</property>
+                    <property>/refueling/boom/commands/pitch-deg</property>
                     <factor type="double">80.0</factor>
                     <min type="double">-12.5</min>
                     <max type="double">50.0</max>

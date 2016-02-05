@@ -37,7 +37,7 @@ var isEC = func {
 }
 
 setlistener( "/tanker", func{ 
-	isEC();
+#	isEC();
 });
 
 

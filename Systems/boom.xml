@@ -19,20 +19,19 @@
 
 <PropertyList>
 
+    <!-- ================================================================== -->
+    <!-- Physical Movement of Boom and Telescope                            -->
+    <!-- ================================================================== -->
+
+    <!-- These filters clamp the requested heading, pitch, and length to
+         the physical limits of the boom.
+    -->
+
     <filter>
-        <type>gain</type>
-        <gain>1.0</gain>
-        <enable>
-            <condition>
-                <greater-than>
-                    <property>/sim/multiplay/generic/int[12]</property>
-                    <value>0</value>
-                </greater-than>
-            </condition>
-        </enable>
+        <type>noise-spike</type>
 
         <input>
-            <property>/refueling/boom-heading-deg</property>
+            <property>/refueling/boom/commands/heading-deg</property>
         </input>
         <output>
             <property>/engines/engine[9]/n1</property>
@@ -40,22 +39,18 @@
 
         <min>-30.0</min>
         <max> 30.0</max>
+
+        <max-rate-of-change>
+            <property>/refueling/boom/limits/heading-rate</property>
+            <abs type="bool">true</abs>
+        </max-rate-of-change>
     </filter>
 
     <filter>
-        <type>gain</type>
-        <gain>1.0</gain>
-        <enable>
-            <condition>
-                <greater-than>
-                    <property>/sim/multiplay/generic/int[12]</property>
-                    <value>0</value>
-                </greater-than>
-            </condition>
-        </enable>
+        <type>noise-spike</type>
 
         <input>
-            <property>/refueling/boom-pitch-deg</property>
+            <property>/refueling/boom/commands/pitch-deg</property>
         </input>
         <output>
             <property>/engines/engine[9]/n2</property>
@@ -63,74 +58,90 @@
 
         <min>-12.5</min>
         <max> 50.0</max>
+
+        <max-rate-of-change>
+            <property>/refueling/boom/limits/pitch-rate</property>
+            <abs type="bool">true</abs>
+        </max-rate-of-change>
     </filter>
 
     <filter>
-        <type>gain</type>
-        <gain>1.0</gain>
-        <enable>
-            <condition>
-                <greater-than>
-                    <property>/sim/multiplay/generic/int[12]</property>
-                    <value>0</value>
-                </greater-than>
-            </condition>
-        </enable>
+        <type>noise-spike</type>
 
         <input>
-            <property>/refueling/boom-length</property>
+            <property>/refueling/boom/commands/length-m</property>
         </input>
         <output>
             <property>/engines/engine[9]/rpm</property>
         </output>
 
         <min>
-            <property>/refueling/boom-min-m</property>
+            <property>/refueling/boom/limits/telescope-min-m</property>
         </min>
         <max>
-            <property>/refueling/boom-max-m</property>
+            <property>/refueling/boom/limits/telescope-max-m</property>
         </max>
+
+        <max-rate-of-change>
+            <property>/refueling/boom/limits/telescope-rate</property>
+            <abs type="bool">true</abs>
+        </max-rate-of-change>
     </filter>
+
+    <!-- ================================================================== -->
+    <!-- Manual Movement of Telescope                                       -->
+    <!-- ================================================================== -->
 
     <filter>
         <name>Boom Telescope Move Rate</name>
         <type>noise-spike</type>
         <enable>
             <condition>
-                <equals>
-                    <property>/sim/multiplay/generic/int[12]</property>
-                    <value>0</value>
-                </equals>
+                <not>
+                    <property>/refueling/contact/active</property>
+                </not>
             </condition>
         </enable>
 
+        <!-- Extend the boom to the minimum or maximum length
+             depending on whether the requested rate is negative
+             or positive.
+        -->
         <input>
             <condition>
                 <less-than>
-                    <property>/refueling/boom-rate</property>
+                    <property>/refueling/boom/commands/telescope-rate</property>
                     <value>0.0</value>
                 </less-than>
             </condition>
-            <property>/refueling/boom-min-m</property>
+            <property>/refueling/boom/limits/telescope-min-m</property>
         </input>
         <input>
             <condition>
                 <greater-than>
-                    <property>/refueling/boom-rate</property>
+                    <property>/refueling/boom/commands/telescope-rate</property>
                     <value>0.0</value>
                 </greater-than>
             </condition>
-            <property>/refueling/boom-max-m</property>
+            <property>/refueling/boom/limits/telescope-max-m</property>
         </input>
+
         <input>
             <property>/engines/engine[9]/rpm</property>
         </input>
         <output>
-            <property>/engines/engine[9]/rpm</property>
+            <property>/refueling/boom/commands/length-m</property>
         </output>
 
+        <min>
+            <property>/refueling/boom/limits/telescope-min-m</property>
+        </min>
+        <max>
+            <property>/refueling/boom/limits/telescope-max-m</property>
+        </max>
+
         <max-rate-of-change>
-            <property>/refueling/boom-rate</property>
+            <property>/refueling/boom/commands/telescope-rate</property>
             <abs type="bool">true</abs>
         </max-rate-of-change>
     </filter>
@@ -146,22 +157,22 @@
             <or>
                 <and>
                     <less-than>
-                        <property>/refueling/boom-rate</property>
+                        <property>/refueling/boom/commands/telescope-rate</property>
                         <value>0.0</value>
                     </less-than>
                     <less-than-equals>
                         <property>/engines/engine[9]/rpm</property>
-                        <property>/refueling/boom-min-m</property>
+                        <property>/refueling/boom/limits/telescope-min-m</property>
                     </less-than-equals>
                 </and>
                 <and>
                     <greater-than>
-                        <property>/refueling/boom-rate</property>
+                        <property>/refueling/boom/commands/telescope-rate</property>
                         <value>0.0</value>
                     </greater-than>
                     <greater-than-equals>
                         <property>/engines/engine[9]/rpm</property>
-                        <property>/refueling/boom-max-m</property>
+                        <property>/refueling/boom/limits/telescope-max-m</property>
                     </greater-than-equals>
                 </and>
             </or>
@@ -188,7 +199,7 @@
             <value>0.0</value>
         </input>
         <output>
-            <property>/refueling/boom-rate</property>
+            <property>/refueling/boom/commands/telescope-rate</property>
         </output>
     </filter>
 

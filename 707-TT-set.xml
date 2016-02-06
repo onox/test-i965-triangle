@@ -260,17 +260,6 @@ no. D6-3071-00
  
 	<tanker type="bool">true</tanker>
 
-    <engines>
-        <!-- Refueling boom and telescope -->
-        <engine n="9">
-            <!-- Used by noise-spike filter. If left undefined, value
-                 is 0.0 and thus it will take too long before telescope
-                 starts extending.
-            -->
-            <rpm type="double">8.1</rpm>
-        </engine>
-    </engines>
-
     <refueling>
         <boom>
             <commands>
@@ -278,14 +267,14 @@ no. D6-3071-00
                 <heading-deg type="double">0.0</heading-deg>
                 <pitch-deg type="double">-12.5</pitch-deg>
 
-                <length-m type="double">0.0</length-m>
+                <length-m type="double">8.1</length-m>
                 <telescope-rate type="double">0.0</telescope-rate>
             </commands>
 
             <limits>
                 <heading-rate type="double">80.0</heading-rate>
                 <pitch-rate type="double">80.0</pitch-rate>
-                <telescope-rate type="double">5.0</telescope-rate>
+                <telescope-rate type="double">6.0</telescope-rate>
 
                 <!-- Limits of refueling boom -->
                 <telescope-min-m type="double">8.1</telescope-min-m>

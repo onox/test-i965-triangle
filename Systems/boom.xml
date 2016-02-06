@@ -127,7 +127,7 @@
         </input>
 
         <input>
-            <property>/engines/engine[9]/rpm</property>
+            <property>/refueling/boom/commands/length-m</property>
         </input>
         <output>
             <property>/refueling/boom/commands/length-m</property>

@@ -739,7 +739,15 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>b707.tracking_updater.disconnect_immediately()</script>
+                <script>b707.tracking_updater.disconnect()</script>
+            </binding>
+        </action>
+        <action>
+            <button>1</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>b707.tracking_updater.disconnect_fast()</script>
             </binding>
         </action>
 	</animation>

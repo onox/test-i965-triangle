@@ -104,14 +104,35 @@
   </binding>
 </key>
 
-<key n="79">
-  <name>O</name>
-  <desc>Disconnect refueling boom immediately</desc>
-  <binding>
-		  <command>nasal</command>
-		  <script>b707.tracking_updater.disconnect_immediately()</script>
-  </binding>
-</key>
+    <key n="100">
+        <name>d</name>
+        <desc>Disconnect refueling boom</desc>
+        <binding>
+            <command>nasal</command>
+            <script>b707.tracking_updater.disconnect()</script>
+        </binding>
+    </key>
+
+    <key n="68">
+        <name>D</name>
+        <desc>Disconnect refueling boom immediately</desc>
+        <mod-shift>
+            <binding>
+                <command>nasal</command>
+                <script>b707.tracking_updater.disconnect_fast()</script>
+            </binding>
+        </mod-shift>
+    </key>
+
+    <key n="114">
+        <name>r</name>
+        <desc>Move refueling boom to ready position</desc>
+        <binding>
+            <command>nasal</command>
+            <script>b707.tracking_updater.ready()</script>
+        </binding>
+    </key>
+
 <key n="2">
   <name>Ctrl + b</name>
   <desc>Speedbrakes/Spoiler full</desc>  

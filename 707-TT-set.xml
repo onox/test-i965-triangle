@@ -170,8 +170,16 @@
 		  <desc>open Fuel &amp; Weight Menu</desc>
 		</key>
 		<key>
-			<name>O</name>
+			<name>d</name>
+			<desc>Disconnect refueling boom</desc>
+		</key>
+        <key>
+			<name>D</name>
 			<desc>Disconnect refueling boom immediately</desc>
+		</key>
+        <key>
+			<name>r</name>
+			<desc>Move refueling boom to ready position</desc>
 		</key>
 		<text>
 _____________ Boeing 707 Tanker Transport _________________
@@ -282,6 +290,16 @@ no. D6-3071-00
             </limits>
 
             <poses>
+                <ready>
+                    <heading-deg type="double">0.0</heading-deg>
+                    <pitch-deg type="double">20.0</pitch-deg>
+                    <length-m type="double">9.1</length-m>
+                </ready>
+                <disconnect>
+                    <heading-deg type="double">0.0</heading-deg>
+                    <pitch-deg type="double">5.0</pitch-deg>
+                    <length-m type="double">8.1</length-m>
+                </disconnect>
                 <off>
                     <heading-deg type="double">0.0</heading-deg>
                     <pitch-deg type="double">-12.5</pitch-deg>
@@ -289,6 +307,8 @@ no. D6-3071-00
                 </off>
             </poses>
         </boom>
+
+        <automatic-movement type="bool">false</automatic-movement>
 
         <max-contact-distance-m type="double">10.0</max-contact-distance-m>
         <max-pre-contact-distance-m type="double">100.0</max-pre-contact-distance-m>

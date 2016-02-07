@@ -98,7 +98,7 @@
         <enable>
             <condition>
                 <not>
-                    <property>/refueling/contact/active</property>
+                    <property>/refueling/automatic-movement</property>
                 </not>
             </condition>
         </enable>

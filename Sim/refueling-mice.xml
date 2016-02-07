@@ -26,10 +26,9 @@
             <button n="1">
                 <binding>
                     <condition>
-                        <equals>
-                            <property>/sim/multiplay/generic/int[12]</property>
-                            <value>0</value>
-                        </equals>
+                        <not>
+                            <property>/refueling/automatic-movement</property>
+                        </not>
                     </condition>
                     <command>property-assign</command>
                     <property>/refueling/boom/commands/telescope-rate</property>
@@ -41,10 +40,9 @@
             <button n="3">
                 <binding>
                     <condition>
-                        <equals>
-                            <property>/sim/multiplay/generic/int[12]</property>
-                            <value>0</value>
-                        </equals>
+                        <not>
+                            <property>/refueling/automatic-movement</property>
+                        </not>
                     </condition>
                     <command>property-adjust</command>
                     <property>/refueling/boom/commands/telescope-rate</property>
@@ -57,10 +55,9 @@
             <button n="4">
                 <binding>
                     <condition>
-                        <equals>
-                            <property>/sim/multiplay/generic/int[12]</property>
-                            <value>0</value>
-                        </equals>
+                        <not>
+                            <property>/refueling/automatic-movement</property>
+                        </not>
                     </condition>
                     <command>property-adjust</command>
                     <property>/refueling/boom/commands/telescope-rate</property>
@@ -73,10 +70,9 @@
             <x-axis-ctrl>
                 <binding>
                     <condition>
-                        <equals>
-                            <property>/sim/multiplay/generic/int[12]</property>
-                            <value>0</value>
-                        </equals>
+                        <not>
+                            <property>/refueling/automatic-movement</property>
+                        </not>
                     </condition>
                     <command>property-adjust</command>
                     <property>/refueling/boom/commands/heading-deg</property>
@@ -91,10 +87,9 @@
             <y-axis-ctrl>
                 <binding>
                     <condition>
-                        <equals>
-                            <property>/sim/multiplay/generic/int[12]</property>
-                            <value>0</value>
-                        </equals>
+                        <not>
+                            <property>/refueling/automatic-movement</property>
+                        </not>
                     </condition>
                     <command>property-adjust</command>
                     <property>/refueling/boom/commands/pitch-deg</property>

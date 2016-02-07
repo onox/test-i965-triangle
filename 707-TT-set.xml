@@ -171,7 +171,7 @@
 		</key>
 		<key>
 			<name>O</name>
-			<desc>toggle Refuelling Boom/Drogues</desc>
+			<desc>Disconnect refueling boom immediately</desc>
 		</key>
 		<text>
 _____________ Boeing 707 Tanker Transport _________________
@@ -280,6 +280,14 @@ no. D6-3071-00
                 <telescope-min-m type="double">8.1</telescope-min-m>
                 <telescope-max-m type="double">11.76</telescope-max-m>
             </limits>
+
+            <poses>
+                <off>
+                    <heading-deg type="double">0.0</heading-deg>
+                    <pitch-deg type="double">-12.5</pitch-deg>
+                    <length-m type="double">8.1</length-m>
+                </off>
+            </poses>
         </boom>
 
         <max-contact-distance-m type="double">10.0</max-contact-distance-m>

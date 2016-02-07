@@ -70,7 +70,7 @@
 
 <key n="264">
 	<name>F8</name>
-	<desc>Show map</desc>
+	<desc>Show router manager</desc>
 	<binding>
 	<command>dialog-show</command>
 	<dialog-name>route-manager</dialog-name>
@@ -106,10 +106,10 @@
 
 <key n="79">
   <name>O</name>
-  <desc>Extend Refuelling Drogues</desc>  
+  <desc>Disconnect refueling boom immediately</desc>
   <binding>
 		  <command>nasal</command>
-		  <script>b707.toggleRefuelling();</script>
+		  <script>b707.tracking_updater.disconnect_immediately()</script>
   </binding>
 </key>
 <key n="2">

@@ -668,49 +668,44 @@
 		</action>
   </animation>
 	
-  <!-- Boom Telescope is here Boom out/in -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
+        <drag-direction>vertical</drag-direction>
+        <drag-scale-px>-10.0</drag-scale-px>
 		<object-name>leverL</object-name>
-		<property>/b707/refuelling/boom-telescope-lever</property>
+		<property>/refueling/boom/commands/telescope-rate</property>
 		<factor>1</factor>
 		<center>
-		  <x-m>-0.0052</x-m>
-		  <y-m> 0.0</y-m>
-		  <z-m>-0.01</z-m>
+		  <x-m>-0.0003</x-m>
+		  <y-m>-0.1506</y-m>
+		  <z-m>-0.0109</z-m>
 		</center>
 		<axis>
 		  <x>0</x>
 		  <y>-1</y>
 		  <z>0</z>
 		</axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/refueling/boom/commands/telescope-rate</property>
+                <factor>-0.5</factor>
+                <min>-2.0</min>
+                <max>2.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
 	</animation>
 	
 	<animation>
-		<type>pick</type>
-		<object-name>leverL</object-name>
-		<visible>true</visible>
-		  <action>
-		    <name>boom_on_off</name>
-		    <button>0</button>
-		    <repeatable>true</repeatable>
-        <binding>
-            <command>nasal</command>
-            <script>b707.doorsystem.refuelexport();</script>
-        </binding>
-		  </action>
-	</animation>
-
-  <!-- Boom Azimuth is here Boom out/in -->
-	<animation>
 		<type>rotate</type>
 		<object-name>leverR</object-name>
-		<property>/b707/refuelling/boom-azimuth</property>
-		<factor>1</factor>
+		<property>/refueling/boom/commands/heading-deg</property>
+		<factor>-0.2</factor>
 		<center>
-		  <x-m> 0.0</x-m>
-		  <y-m> 0.1551</y-m>
-		  <z-m>-0.01</z-m>
+		  <x-m> 0.0003</x-m>
+		  <y-m> 0.1549</y-m>
+		  <z-m>-0.0109</z-m>
 		</center>
 		<axis>
 		  <x>1</x>
@@ -718,49 +713,37 @@
 		  <z>0</z>
 		</axis>
 	</animation>
-	
-	<animation>
+
+    <animation>
+		<type>rotate</type>
+		<object-name>leverR</object-name>
+		<property>/refueling/boom/commands/pitch-deg</property>
+		<factor>0.2</factor>
+		<center>
+		  <x-m> 0.0003</x-m>
+		  <y-m> 0.1549</y-m>
+		  <z-m>-0.0109</z-m>
+		</center>
+		<axis>
+		  <x>0</x>
+		  <y>1</y>
+		  <z>0</z>
+		</axis>
+	</animation>
+
+    <animation>
 		<type>pick</type>
 		<object-name>leverR</object-name>
-		<visible>true</visible>
-		  <action>
-		    <name>azimuth_zero</name>
-		    <button>0</button>
-		    <repeatable>true</repeatable>
-        <binding>
-            <command>property-assign</command>
-            <property>/b707/refuelling/boom-azimuth</property>
-            <value>0.0</value>
-        </binding>
-		  </action>
-		  <action>
-		    <name>azimuth_left</name>
-		    <button>3</button>
-		    <repeatable>true</repeatable>
-        <binding>
-            <command>property-adjust</command>
-            <property>/b707/refuelling/boom-azimuth</property>
-            <step>-1.5</step>
-            <min>-30</min>
-            <max>30</max>
-            <wrap>false</wrap>
-        </binding>
-		  </action>
-		  <action>
-		    <name>azimuth_right</name>
-		    <button>4</button>
-		    <repeatable>true</repeatable>
-        <binding>
-            <command>property-adjust</command>
-            <property>/b707/refuelling/boom-azimuth</property>
-            <step>1.5</step>
-            <min>-30</min>
-            <max>30</max>
-            <wrap>false</wrap>
-        </binding>
-		  </action>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>b707.tracking_updater.disconnect_immediately()</script>
+            </binding>
+        </action>
 	</animation>
-	
+
     <!-- The instruments -->
 	<animation>
 		<type>rotate</type>

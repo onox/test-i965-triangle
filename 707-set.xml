@@ -284,6 +284,9 @@ no. D6-3071-00
 	    <dual_control>
 	     <file>Aircraft/707/Nasal/DualControl/pilot-dual-control.nas</file>
 	    </dual_control>
+		<damage>
+		 <file>Aircraft/707/Nasal/damage.nas</file>
+		</damage>
 	</nasal>
 	
     <dual-control>

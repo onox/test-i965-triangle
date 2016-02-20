@@ -83,7 +83,7 @@
 	</condition>
 </animation>
  
-  <sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>
+  <!--<sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>-->
   
 	<multiplay>
 		<refuel>

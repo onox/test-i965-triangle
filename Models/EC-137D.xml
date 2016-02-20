@@ -10,6 +10,14 @@
 
  <path>EC-137.ac</path>
 
+    <multiplay>
+        <refuel>
+            <offset-x-m type="double">-16.2983</offset-x-m>
+            <offset-y-m type="double">0.0</offset-y-m>
+            <offset-z-m type="double">2.03077</offset-z-m>
+        </refuel>
+    </multiplay>
+
 <animation>
 	<type>select</type>		
     <object-name>fuselage</object-name>

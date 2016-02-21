@@ -874,7 +874,8 @@ var Target = {
         obj.VSpeed          = c.getNode("velocities/vertical-speed-fps");
         obj.Callsign        = c.getNode("callsign");
         obj.name            = c.getNode("name");
-        obj.validTree       = c.getNode("valid");
+        obj.Valid            = c.getNode("valid");
+        obj.validTree       = 0;
         obj.TransponderID = c.getNode("instrumentation/transponder/transmitted-id");
         
         obj.engineTree      = c.getNode("engines");
@@ -955,7 +956,7 @@ var Target = {
         var altTree =me.TgtsFiles.getNode("position/altitude-ft",1);
         var latTree =me.TgtsFiles.getNode("position/latitude-deg",1);
         var lonTree =me.TgtsFiles.getNode("position/longitude-deg",1);
-         var valid =me.TgtsFiles.getNode("valid",1);
+         me.validTree =me.TgtsFiles.getNode("valid",1);
          var radarBearing =me.TgtsFiles.getNode("radar/bearing-deg",1);
          var radarRange =me.TgtsFiles.getNode("radar/range-nm",1);
          var elevation =me.TgtsFiles.getNode("radar/elevation-deg",1);
@@ -968,8 +969,7 @@ var Target = {
         altTree.setValue(me.Alt.getValue());
         latTree.setValue(me.lat.getValue());
         lonTree.setValue(me.lon.getValue());
-        valid.setValue(me.validTree.getValue());
-        valid.setValue(me.validTree.getValue());
+        me.validTree.setValue(me.Valid.getValue());
         radarBearing.setValue(me.Bearing.getValue());
         radarRange.setValue(me.Range.getValue());
         elevation.setValue(me.Elevation.getValue());
@@ -992,7 +992,8 @@ var Target = {
     },
 
     remove: func(){
-        me.validTree = 0;
+        #me.validTree = 0;
+        if(me.validTree != 0){me.validTree.setValue(0);}
         me.InstrTgts.removeChild(me.type, me.index);
     },
 
@@ -1001,6 +1002,7 @@ var Target = {
         # The property is initialised when the target is in range of "instrumentation/radar/range"
         # But nothing is done when "It's no more in range"
         # So this is a little hack for HUD.
+        if(me.validTree != 0){me.validTree.setValue(0);}
         me.RdrProp.getNode("in-range").setValue("false");
         
         var Tempo_TgtsFiles = me.InstrTgts.getNode(me.shortstring, 1);

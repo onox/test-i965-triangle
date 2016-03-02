@@ -386,6 +386,9 @@ no. D6-3071-00
 		<aar>
 			<file>Aircraft/Generic/aar.nas</file>
 		</aar>
+		<damage>
+			<file>Aircraft/707/Nasal/damage.nas</file>
+		</damage>
 	</nasal>
 
 </PropertyList>

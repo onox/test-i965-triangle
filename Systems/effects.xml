@@ -20,11 +20,11 @@
 <PropertyList>
 
     <!-- ================================================================== -->
-    <!-- Glass effects                                                      -->
+    <!-- ALS frost                                                          -->
     <!-- ================================================================== -->
 
     <filter>
-        <name>Aircraft Effect Frost Level Left Side</name>
+        <name>Effect Frost Level Left Side</name>
         <type>noise-spike</type>
         <max-rate-of-change>0.1</max-rate-of-change>
         <enable>
@@ -49,7 +49,7 @@
     </filter>
 
     <filter>
-        <name>Aircraft Effect Frost Level Right Side</name>
+        <name>Effect Frost Level Right Side</name>
         <type>noise-spike</type>
         <max-rate-of-change>0.1</max-rate-of-change>
         <enable>
@@ -70,6 +70,65 @@
         </input>
         <output>
             <property>/environment/aircraft-effects/frost-level-right</property>
+        </output>
+    </filter>
+
+    <!-- ================================================================== -->
+    <!-- ALS rain                                                           -->
+    <!-- ================================================================== -->
+
+    <filter>
+        <name>Effect Rain Splash X Axis</name>
+        <update-interval-secs type="double">0.1</update-interval-secs>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <expression>
+                <table>
+                    <property>/velocities/airspeed-kt</property>
+                    <entry><ind>   0 </ind><dep> -0.33 </dep></entry>
+                    <entry><ind>   5 </ind><dep> -0.33 </dep></entry>
+                    <entry><ind>  20 </ind><dep> -1.7  </dep></entry>
+                    <entry><ind>  50 </ind><dep> -2.1  </dep></entry>
+                </table>
+            </expression>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/splash-vector-x</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Effect Rain Splash Y Axis</name>
+        <update-interval-secs type="double">0.1</update-interval-secs>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/splash-vector-y</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Effect Rain Splash Z Axis</name>
+        <update-interval-secs type="double">0.1</update-interval-secs>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <expression>
+                <table>
+                    <property>/velocities/airspeed-kt</property>
+                    <entry><ind>   0 </ind><dep> -1.22 </dep></entry>
+                    <entry><ind>   5 </ind><dep> -1.12 </dep></entry>
+                    <entry><ind>  20 </ind><dep> -0.17 </dep></entry>
+                    <entry><ind>  50 </ind><dep> -0.35 </dep></entry>
+                </table>
+            </expression>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/splash-vector-z</property>
         </output>
     </filter>
 

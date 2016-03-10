@@ -214,7 +214,7 @@
 		<int n="5" alias="/controls/lighting/strobe-state/state"/>								<!-- Strobe -->
 		<int n="6" alias="/controls/special/tyresmoke"/>										<!-- tyresmoke -->
 		<int n="7" alias="/controls/lighting/logo-lights"/> 									<!-- logo-light -->
-		<int n="8" type="int">0</int>															<!-- select engines type -->
+		<!--<int n="8" type="int">0</int>-->															<!-- select engines type -->
 		<int n="9" type="int">0</int>															<!-- cargo aircraft -->
 		<int n="10" alias="/b707/refuelling/probe-right"/>										<!-- refuel probe -->
 		<int n="11" alias="/b707/refuelling/probe-left"/>										<!-- refuel probe -->
@@ -236,8 +236,8 @@
 		<float n="7" alias="/instrumentation/doors/pasrear/position-norm"/>						<!-- Passenger - back -->
 		<float n="8" alias="/position/altitude-agl-ft"/>    <!-- for the kind of fire or lights -->
 		<float n="9" alias="/controls/special/wiper-deg"/>
-		<float n="10" alias="/environment/aircraft-effects/frost-level-right"/> <!-- the icing on the windshield -->
-		<float n="11" alias="/environment/aircraft-effects/frost-level-left"/> <!-- the icing on the windshield -->
+		<!--<float n="10" alias="/environment/aircraft-effects/frost-level-right"/>--> <!-- the icing on the windshield -->
+		<!--<float n="11" alias="/environment/aircraft-effects/frost-level-left"/>--> <!-- the icing on the windshield -->
 		<float n="12" alias="/instrumentation/doors/nose/position-norm"/>						<!-- Nose -->
 		<float n="13" alias="/b707/ground-service/fuel-truck/state"/>							<!-- fuel-truck -->
 		<float n="14" alias="/engines/engine/reverser-pos-norm"/>								<!-- multiplayer see the cowl flaps -->

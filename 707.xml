@@ -14,7 +14,7 @@
   <author>M.Kraus :: Lake of Constance Hangar</author>
   <filecreationdate>2014-02-24</filecreationdate>
   <version>2.2.4</version>
-  <description>Boeing 707 with Rolls Royce Conway RCo12/MK508 engines or Pratt and Whitney JT4</description>
+  <description>Boeing 707-320B Advanced or 707-320C with Pratt and Whitney JT3D-3 engines</description>
  </fileheader>
 
 <!--
@@ -237,7 +237,7 @@
 
  <propulsion>
 
-   <engine file="MK508">
+   <engine file="JT3D-3">
     <location unit="IN">
       <x>  22.11 </x>
       <y>-586.50 </y>
@@ -263,7 +263,7 @@
     </thruster>
   </engine>
 
-   <engine file="MK508">
+   <engine file="JT3D-3">
     <location unit="IN">
       <x>-164.20 </x>
       <y>-393.62 </y>
@@ -289,7 +289,7 @@
     </thruster>
   </engine>
 
-   <engine file="MK508">
+   <engine file="JT3D-3">
     <location unit="IN">
       <x>-164.20 </x>
       <y> 393.62 </y>
@@ -315,7 +315,7 @@
     </thruster>
   </engine>
 
-   <engine file="MK508">
+   <engine file="JT3D-3">
     <location unit="IN">
       <x>  22.11 </x>
       <y> 586.50 </y>
@@ -723,21 +723,6 @@
        </product>
     </function>
   
-  	<!-- only for the difference between the newer and older engines -->
-   	<function name="aero/coefficient/JT4">
-       <description>Lift_due_to_stronger_Engines</description>
-       <product>
-           <property>aero/qbar-psf</property>
-           <property>metrics/Sw-sqft</property>
- 					 <property>/engines/engine[0]/n1</property> <!--only with the stronger TJ4 engines-->
- 					 <property>/engines/engine[1]/n1</property> <!--only with the stronger TJ4 engines-->
- 					 <property>/engines/engine[2]/n1</property> <!--only with the stronger TJ4 engines-->
- 					 <property>/engines/engine[3]/n1</property> <!--only with the stronger TJ4 engines-->
- 					 <property>/sim/multiplay/generic/int[8]</property> <!--only with the stronger TJ4 engines-->
-           <value>0.000000002</value>
-       </product>
-    </function>
-	
     <function name="aero/coefficient/CLground">
         <description>Lift_due_ground_reactions</description>
         <product>

@@ -2180,68 +2180,7 @@
      </axis>
     </animation>
 
- <!--Conway RCo.10 engines -->
-	<model>
-		<name>engineOne</name>
-		<path>Aircraft/707/Models/RCo10_1.xml</path>
-		<offsets>
-		  <x-m>  2.42</x-m>
-		  <y-m>-14.835</y-m>
-		  <z-m> -0.647</z-m>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>engineTwo</name>
-		<path>Aircraft/707/Models/RCo10_2.xml</path>
-		<offsets>
-		  <x-m> -1.25</x-m>
-		  <y-m>-10.077</y-m>
-		  <z-m> -1.10</z-m>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>engineThree</name>
-		<path>Aircraft/707/Models/RCo10_3.xml</path>
-		<offsets>
-		  <x-m> -1.25</x-m>
-		  <y-m> 10.077</y-m>
-		  <z-m> -1.10</z-m>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>engineFour</name>
-		<path>Aircraft/707/Models/RCo10_4.xml</path>
-		<offsets>
-		  <x-m>  2.42</x-m>
-		  <y-m> 14.835</y-m>
-		  <z-m> -0.647</z-m>
-		</offsets>
-	</model>
-
-  <!-- crashed or pratt and whitney engines -->	
-	<animation>
-		<type>select</type>
-		<object-name>engineOne</object-name>
-		<object-name>engineThree</object-name>  
-		<condition>
-			<not><property>sim/multiplay/generic/int[8]</property></not>
-			<not><property>sim/multiplay/generic/int[19]</property></not>
-		</condition>	
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>engineTwo</object-name>
-		<object-name>engineFour</object-name>  
-		<condition>
-			<not><property>sim/multiplay/generic/int[8]</property></not>
-		</condition>	
-	</animation>
-
- <!--Pratt and Whitney JT4 engines -->
+    <!-- Pratt and Whitney JT4 engines -->
 	<model>
 		<name>engineOnePW</name>
 		<path>Aircraft/707/Models/PWJT4_1.xml</path>
@@ -2281,27 +2220,17 @@
 		  <z-m> -0.73</z-m>
 		</offsets>
 	</model>
-	
-  <!-- crashed or pratt and whitney engines selected -->	
+
+    <!-- crashed or pratt and whitney engines selected -->
 	<animation>
 		<type>select</type>
 		<object-name>engineOnePW</object-name>
 		<object-name>engineThreePW</object-name>  
 		<condition>
-			<property>sim/multiplay/generic/int[8]</property>
 			<not><property>sim/multiplay/generic/int[19]</property></not>
 		</condition>	
 	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>engineTwoPW</object-name>
-		<object-name>engineFourPW</object-name>  
-		<condition>
-			<property>sim/multiplay/generic/int[8]</property>
-		</condition>	
-	</animation>
-	
+
 	<model>
 		<name>ExternalLights</name>
 		<path>Aircraft/707/Models/Lights/Awacs_Lights.xml</path>	
@@ -2311,7 +2240,6 @@
 			<z-m>0</z-m>
 		</offsets>
 	</model> 
-
 
 <!-- Fire , #1 -->
 <model>

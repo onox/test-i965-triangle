@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2015 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <!-- ================================================================== -->
+    <!-- Glass effects                                                      -->
+    <!-- ================================================================== -->
+
+    <filter>
+        <name>Aircraft Effect Frost Level Left Side</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.1</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <expression>
+                <difference>
+                    <value>1.0</value>
+                    <property>/b707/anti-ice/window-alpha-capt</property>
+                </difference>
+            </expression>
+            <scale>2.0</scale>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/frost-level-left</property>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Aircraft Effect Frost Level Right Side</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.1</max-rate-of-change>
+        <enable>
+            <condition>
+                <not>
+                    <property>/sim/freeze/replay-state</property>
+                </not>
+            </condition>
+        </enable>
+        <input>
+            <expression>
+                <difference>
+                    <value>1.0</value>
+                    <property>/b707/anti-ice/window-alpha-fo</property>
+                </difference>
+            </expression>
+            <scale>2.0</scale>
+        </input>
+        <output>
+            <property>/environment/aircraft-effects/frost-level-right</property>
+        </output>
+    </filter>
+
+</PropertyList>

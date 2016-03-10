@@ -30,6 +30,9 @@
         <property-rule n="100">
             <path>Aircraft/707/Systems/views.xml</path>
         </property-rule>
+        <property-rule n="101">
+            <path>Aircraft/707/Systems/effects.xml</path>
+        </property-rule>
 	</systems>
 
 	<instrumentation>
@@ -233,8 +236,8 @@
 		<float n="7" alias="/instrumentation/doors/pasrear/position-norm"/>						<!-- Passenger - back -->
 		<float n="8" alias="/position/altitude-agl-ft"/>    <!-- for the kind of fire or lights -->
 		<float n="9" alias="/controls/special/wiper-deg"/>
-		<float n="10" alias="/b707/anti-ice/window-alpha-fo"/> <!-- the icing on the windshield -->
-		<float n="11" alias="/b707/anti-ice/window-alpha-capt"/> <!-- the icing on the windshield -->
+		<float n="10" alias="/environment/aircraft-effects/frost-level-right"/> <!-- the icing on the windshield -->
+		<float n="11" alias="/environment/aircraft-effects/frost-level-left"/> <!-- the icing on the windshield -->
 		<float n="12" alias="/instrumentation/doors/nose/position-norm"/>						<!-- Nose -->
 		<float n="13" alias="/b707/ground-service/fuel-truck/state"/>							<!-- fuel-truck -->
 		<float n="14" alias="/engines/engine/reverser-pos-norm"/>								<!-- multiplayer see the cowl flaps -->

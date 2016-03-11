@@ -1,5 +1,5 @@
-Boeing 707-320B Advanced ands 707-320C
-======================================
+Boeing 707-320B Advanced or 707-320C
+====================================
 
 This is a model of the Boeing 707-320B Advanced or 707-320C. It is based
 on the 707 model made by Marc Kraus, who improved the original model, created
@@ -16,7 +16,8 @@ Dependencies
 
 Due to use of the ALS glass effect, FlightGear 2016.1 or higher is required.
 Additionally, the tanker version requires the
-[ExpansionPack][url-fg-expansion-pack] aircraft.
+[ExpansionPack][url-fg-expansion-pack] aircraft. Also, the ExpansionPack is
+required in order to hear the thunder of lightning.
 
 Installation
 ------------
@@ -32,6 +33,8 @@ New features
 * Exterior glass reflection
 
 * ALS glass effect for rain and frost
+
+* Thunder sounds
 
 * Boomer can fully move the refueling boom. Boom will automatically 'snap'
   to any aircraft that is within range and has defined a fuel receptacle in

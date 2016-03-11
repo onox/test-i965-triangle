@@ -1153,12 +1153,12 @@
       <path>Aircraft/707/Sounds/rain.wav</path>
       <condition>
         <greater-than>
-          <property>/environment/metar/rain-norm</property>
+          <property>/environment/rain-norm</property>
           <value>0.2</value>
         </greater-than>
       </condition>
       <volume>
-        <property>/environment/metar/rain-norm</property>
+        <property>/environment/rain-norm</property>
         <factor>1.00</factor>
         <offset>0.00</offset>
         <min>0.4</min>
@@ -1467,7 +1467,7 @@
         </less-than>
       </condition>
       <volume>
-        <property>/environment/metar/rain-norm</property>
+        <property>/environment/rain-norm</property>
         <factor>1.00</factor>
         <offset>0.00</offset>
         <min>0.3</min>
@@ -1491,7 +1491,7 @@
         </greater-than>
       </condition>
       <volume>
-        <property>/environment/metar/rain-norm</property>
+        <property>/environment/rain-norm</property>
         <factor>1.00</factor>
         <offset>0.00</offset>
         <min>0.3</min>

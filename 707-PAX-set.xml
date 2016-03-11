@@ -124,6 +124,7 @@
 
   <nasal>
 	<b707>		
+        <file>Aircraft/707/Nasal/sound.nas</file>
 		<file>Aircraft/707/Nasal/shake.nas</file>
 		<file>Aircraft/707/Nasal/DualControl/707-PAX.nas</file>
 	</b707> 

@@ -26,6 +26,9 @@
         <autopilot n="2">
             <path>Aircraft/707/Systems/autopilot.xml</path>
         </autopilot>
+        <autopilot n="3">
+            <path>Aircraft/707/Systems/thunder.xml</path>
+        </autopilot>
 
         <property-rule n="100">
             <path>Aircraft/707/Systems/views.xml</path>

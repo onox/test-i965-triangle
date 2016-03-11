@@ -361,6 +361,7 @@ no. D6-3071-00
 	
 	<nasal> 
 		<b707>		
+            <file>Aircraft/707/Nasal/sound.nas</file>
 			<file>Aircraft/707/Nasal/shake.nas</file>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>

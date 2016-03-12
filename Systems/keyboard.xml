@@ -20,7 +20,7 @@
   <desc>toggle pilot engineer view</desc>
   <binding>
 		  <command>nasal</command>
-		  <script>b707.changeView(9);</script>
+		  <script>b707.changeView(10);</script>
   </binding>
 </key>
 
@@ -100,7 +100,7 @@
   <desc>Pop up autopilot dialog</desc>
   <binding>
 		  <command>nasal</command>
-		  <script>b707.changeView(11);</script>
+		  <script>b707.changeView(9);</script>
   </binding>
 </key>
 

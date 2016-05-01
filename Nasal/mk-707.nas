@@ -1359,5 +1359,6 @@ var toggleRefuelling = func{
   }
 }
 
-
-
+# Disable the FlightGear's default autopilot since there are already
+# two in the cockpit.
+gui.menuEnable("autopilot-settings", 0);

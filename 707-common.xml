@@ -160,6 +160,11 @@
             <z-offset-min-m type="float">30.0</z-offset-min-m>
             <z-offset-max-m type="float">300.0</z-offset-max-m>
         </current-view>
+
+        <!-- Fix scrolling direction of knobs -->
+        <mouse>
+            <invert-mouse-wheel type="bool">true</invert-mouse-wheel>
+        </mouse>
     </sim>
 
 	<engines>

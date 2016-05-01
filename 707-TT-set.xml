@@ -261,7 +261,7 @@ no. D6-3071-00
             <poses>
                 <ready>
                     <heading-deg type="double">0.0</heading-deg>
-                    <pitch-deg type="double">20.0</pitch-deg>
+                    <pitch-deg type="double">30.0</pitch-deg>
                     <length-m type="double">9.1</length-m>
                 </ready>
                 <disconnect>

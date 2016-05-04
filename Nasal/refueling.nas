@@ -2,7 +2,7 @@ io.include("Aircraft/ExpansionPack/Nasal/init.nas");
 
 with("refueling_boom");
 
-check_version("refueling_boom", 6, 0);
+check_version("refueling_boom", 7, 0);
 
 # Update receiver tracking state of the refueling boom
 var tracking_updater = refueling_boom.RefuelingBoomTrackingUpdater.new();

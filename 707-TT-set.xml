@@ -238,7 +238,7 @@ no. D6-3071-00
 	<tanker type="bool">true</tanker>
 
     <refueling>
-        <boom>
+        <boom include="Aircraft/ExpansionPack/Systems/refueling-boom-configuration.xml">
             <commands>
                 <!-- Initial position of refueling boom -->
                 <heading-deg type="double">0.0</heading-deg>
@@ -254,6 +254,12 @@ no. D6-3071-00
                 <telescope-rate type="double">6.0</telescope-rate>
 
                 <!-- Limits of refueling boom -->
+                <heading-min-deg type="double">-30.0</heading-min-deg>
+                <heading-max-deg type="double">30.0</heading-max-deg>
+
+                <pitch-min-deg type="double">-12.5</pitch-min-deg>
+                <pitch-max-deg type="double">50.0</pitch-max-deg>
+
                 <telescope-min-m type="double">8.1</telescope-min-m>
                 <telescope-max-m type="double">11.76</telescope-max-m>
             </limits>
@@ -275,27 +281,17 @@ no. D6-3071-00
                     <length-m type="double">8.1</length-m>
                 </off>
             </poses>
+
+            <max-contact-distance-m type="double">10.0</max-contact-distance-m>
+            <max-pre-contact-distance-m type="double">100.0</max-pre-contact-distance-m>
+
+            <!-- Origin of refueling boom -->
+            <origin>
+                <x-m type="double">16.15</x-m>
+                <y-m type="double">0.0</y-m>
+                <z-m type="double">-0.6614</z-m>
+            </origin>
         </boom>
-
-        <automatic-movement type="bool">false</automatic-movement>
-
-        <max-contact-distance-m type="double">10.0</max-contact-distance-m>
-        <max-pre-contact-distance-m type="double">100.0</max-pre-contact-distance-m>
-
-        <closest>
-            <distance-m type="double"></distance-m>
-            <callsign type="string"></callsign>
-        </closest>
-
-        <contact>
-            <active type="bool">false</active>
-            <callsign type="string"></callsign>
-        </contact>
-
-        <!-- Origin of refueling boom -->
-        <origin-x-m type="double">16.15</origin-x-m>
-        <origin-y-m type="double">0.0</origin-y-m>
-        <origin-z-m type="double">-0.6614</origin-z-m>
     </refueling>
 
     <input>

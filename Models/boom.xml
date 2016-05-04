@@ -37,9 +37,7 @@
         <property>engines/engine[9]/n2</property>
         <factor>1</factor>
         <axis>
-            <x>0</x>
             <y>1</y>
-            <z>0</z>
         </axis>
     </animation>
 
@@ -49,12 +47,11 @@
         <property>engines/engine[9]/n1</property>
         <factor>-1</factor>
         <axis>
-            <x>0</x>
-            <y>0</y>
             <z>1</z>
         </axis>
     </animation>
 
+    <!-- Length -->
     <animation>
         <type>translate</type>
         <object-name>refuel-tube</object-name>
@@ -62,8 +59,6 @@
         <factor>1</factor>
         <axis>
             <x>1</x>
-            <y>0</y>
-            <z>0</z>
         </axis>
     </animation>
 

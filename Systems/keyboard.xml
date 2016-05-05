@@ -109,7 +109,7 @@
         <desc>Disconnect refueling boom</desc>
         <binding>
             <command>nasal</command>
-            <script>b707.tracking_updater.disconnect()</script>
+            <script>boom.tracking_updater.disconnect()</script>
         </binding>
     </key>
 
@@ -119,7 +119,7 @@
         <mod-shift>
             <binding>
                 <command>nasal</command>
-                <script>b707.tracking_updater.disconnect_fast()</script>
+                <script>boom.tracking_updater.disconnect_fast()</script>
             </binding>
         </mod-shift>
     </key>
@@ -129,7 +129,7 @@
         <desc>Move refueling boom to ready position</desc>
         <binding>
             <command>nasal</command>
-            <script>b707.tracking_updater.ready()</script>
+            <script>boom.tracking_updater.ready()</script>
         </binding>
     </key>
 

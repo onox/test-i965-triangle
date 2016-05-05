@@ -16,6 +16,12 @@
         <autopilot>
             <path>Systems/boom.xml</path>
         </autopilot>
+        <autopilot>
+            <path>Systems/drogue-right.xml</path>
+        </autopilot>
+        <autopilot>
+            <path>Systems/drogue-left.xml</path>
+        </autopilot>
     </systems>
 
   <model n="0">
@@ -283,7 +289,7 @@ no. D6-3071-00
             </poses>
 
             <max-contact-distance-m type="double">10.0</max-contact-distance-m>
-            <max-pre-contact-distance-m type="double">100.0</max-pre-contact-distance-m>
+            <max-pre-contact-distance-m type="double">50.0</max-pre-contact-distance-m>
 
             <!-- Origin of refueling boom -->
             <origin>
@@ -292,6 +298,68 @@ no. D6-3071-00
                 <z-m type="double">-0.6614</z-m>
             </origin>
         </boom>
+
+        <drogues>
+            <!-- Right drogue -->
+            <drogue n="0" include="Aircraft/ExpansionPack/Systems/refueling-drogue-configuration.xml">
+                <commands>
+                    <!-- Initial position of hose and drogue -->
+                    <heading-deg type="double">0.0</heading-deg>
+                    <pitch-deg type="double">0.0</pitch-deg>
+
+                    <!-- Initial position of drogue -->
+                    <drogue-yaw-deg type="double">0.0</drogue-yaw-deg>
+                    <drogue-pitch-deg type="double">0.0</drogue-pitch-deg>
+
+                    <length-m type="double">0.0</length-m>
+                </commands>
+                <settings>
+                    <default-length-m type="double">20.0</default-length-m>
+                </settings>
+
+                <!-- Origin of hose and drogue -->
+                <origin>
+                    <x-m type="double">10.6674</x-m>
+                    <y-m type="double">19.9500</y-m>
+                    <z-m type="double"> 0.3400</z-m>
+                </origin>
+            </drogue>
+
+            <!-- Left drogue -->
+            <drogue n="1" include="Aircraft/ExpansionPack/Systems/refueling-drogue-configuration.xml">
+                <commands>
+                    <!-- Initial position of hose and drogue -->
+                    <heading-deg type="double">0.0</heading-deg>
+                    <pitch-deg type="double">0.0</pitch-deg>
+
+                    <!-- Initial position of drogue -->
+                    <drogue-yaw-deg type="double">0.0</drogue-yaw-deg>
+                    <drogue-pitch-deg type="double">0.0</drogue-pitch-deg>
+
+                    <length-m type="double">0.0</length-m>
+                </commands>
+                <settings>
+                    <default-length-m type="double">20.0</default-length-m>
+                </settings>
+
+                <!-- Origin of hose and drogue -->
+                <origin>
+                    <x-m type="double">10.6674</x-m>
+                    <y-m type="double">-19.9500</y-m>
+                    <z-m type="double"> 0.3400</z-m>
+                </origin>
+            </drogue>
+
+            <max-contact-distance-m type="double">40.0</max-contact-distance-m>
+            <max-pre-contact-distance-m type="double">100.0</max-pre-contact-distance-m>
+
+            <limits>
+                <yaw-rate type="double">50.0</yaw-rate>
+                <pitch-rate type="double">50.0</pitch-rate>
+
+                <length-rate type="double">2.0</length-rate>
+            </limits>
+        </drogues>
     </refueling>
 
     <input>
@@ -349,8 +417,13 @@ no. D6-3071-00
 			<file>Aircraft/707/Nasal/tcas.nas</file>
 			<file>Aircraft/707/Nasal/registration.nas</file>
 			<file>Aircraft/707/Nasal/manual.nas</file>
+		</b707>
+        <boom>
 			<file>Aircraft/707/Nasal/refueling.nas</file>
-		</b707> 
+        </boom>
+        <drogues>
+			<file>Aircraft/707/Nasal/refueling_drogues.nas</file>
+        </drogues>
 		<aar>
 			<file>Aircraft/Generic/aar.nas</file>
 		</aar>

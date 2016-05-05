@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Copyright (c) 2015 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList include="Aircraft/ExpansionPack/Systems/refueling-drogue.xml">
+
+    <params>
+        <inputs>
+            <yaw>/refueling/drogues/drogue[1]/commands/heading-deg</yaw>
+            <pitch>/refueling/drogues/drogue[1]/commands/pitch-deg</pitch>
+            <length>/refueling/drogues/drogue[1]/commands/length-m</length>
+            <active>/refueling/drogues/drogue[1]/contact/active</active>
+            <enabled>/b707/refuelling/probe-left</enabled>
+            <default-length>/refueling/drogues/drogue[1]/settings/default-length-m</default-length>
+
+            <drogue-yaw>/refueling/drogues/drogue[1]/commands/drogue-yaw-deg</drogue-yaw>
+            <drogue-pitch>/refueling/drogues/drogue[1]/commands/drogue-pitch-deg</drogue-pitch>
+        </inputs>
+        <internal>
+            <length-factor>/refueling/drogues/drogue[1]/internal/length-factor</length-factor>
+        </internal>
+        <outputs>
+            <yaw>/engines/engine[6]/n1</yaw>
+            <pitch>/engines/engine[6]/n2</pitch>
+            <length>/engines/engine[6]/rpm</length>
+
+            <drogue-yaw>/engines/engine[5]/n1</drogue-yaw>
+            <drogue-pitch>/engines/engine[5]/n2</drogue-pitch>
+        </outputs>
+    </params>
+
+</PropertyList>

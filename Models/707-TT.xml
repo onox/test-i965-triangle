@@ -22,6 +22,7 @@
     <object-name>nose</object-name>
     <object-name>vertstab</object-name>
     <object-name>rudder</object-name>
+    <object-name>rudder-trim</object-name>
     <object-name>nonones</object-name>
     <object-name>lhaftfairing</object-name>
     <object-name>lhdoorinner</object-name>
@@ -92,15 +93,15 @@
 		</refuel>
 	</multiplay>
   
-  <nasal>
-    <load>
-      var livery_update = aircraft.livery_update.new("Aircraft/707/Models/LiveriesTT", 10);
-    </load>
+    <nasal>
+        <load>
+            var livery_update = aircraft.livery_update.new("Aircraft/707/Models/LiveriesTT", 10);
+        </load>
 
-    <unload>
-      livery_update.stop();
-    </unload>
-  </nasal>
+        <unload>
+            livery_update.stop();
+        </unload>
+    </nasal>
 
   <animation>
     <type>material</type>
@@ -114,6 +115,7 @@
     <object-name>nose</object-name>
     <object-name>vertstab</object-name>
     <object-name>rudder</object-name>
+    <object-name>rudder-trim</object-name>
     <object-name>nonones</object-name>
     <object-name>lhaftfairing</object-name>
     <object-name>lhdoorinner</object-name>
@@ -718,7 +720,7 @@
 	</animation>
 	
   <!-- Air-to-Air Refuelsystem -->
-	<animation>
+<!--	<animation>
 		<type>select</type>
 		<object-name>refuelProbeRight</object-name>
 		<condition>
@@ -732,7 +734,7 @@
 		<condition>
 		  <property>sim/multiplay/generic/int[11]</property>
 		</condition>
-	</animation>
+	</animation>-->
 	
   <animation>
 		<type>pick</type>
@@ -792,7 +794,59 @@
 		  </binding>
 		</action>
   </animation>	
-  
+
+    <!-- Temporarily hide refuelProbeRight in old .ac file for testing -->
+    <animation>
+        <type>select</type>
+	    <object-name>refuelProbeRight</object-name>
+	    <object-name>refuelProbeLeft</object-name>
+        <condition>
+            <false/>
+        </condition>
+    </animation>
+
+    <model>
+        <name>drogue-right</name>
+        <path>Aircraft/ExpansionPack/Models/AAR/drogue.xml</path>
+        <offsets>
+            <x-m>10.6674</x-m>
+            <y-m>19.9500</y-m>
+            <z-m> 0.3400</z-m>
+        </offsets>
+        <overlay>
+            <params>
+                <yaw>engines/engine[8]/n1</yaw>
+                <pitch>engines/engine[8]/n2</pitch>
+                <length>engines/engine[8]/rpm</length>
+                <length-factor>0.0404827159044446</length-factor><!-- 0.0404827159044446 1.0/24.7019 -->
+
+                <yaw-drogue>engines/engine[7]/n1</yaw-drogue>
+                <pitch-drogue>engines/engine[7]/n2</pitch-drogue>
+            </params>
+        </overlay>
+    </model>
+
+    <model>
+        <name>drogue-left</name>
+        <path>Aircraft/ExpansionPack/Models/AAR/drogue.xml</path>
+        <offsets>
+            <x-m>10.6674</x-m>
+            <y-m>-19.9500</y-m>
+            <z-m> 0.3400</z-m>
+        </offsets>
+        <overlay>
+            <params>
+                <yaw>engines/engine[6]/n1</yaw>
+                <pitch>engines/engine[6]/n2</pitch>
+                <length>engines/engine[6]/rpm</length>
+                <length-factor>0.0404827159044446</length-factor><!-- 0.0404827159044446 1.0/24.7019 -->
+
+                <yaw-drogue>engines/engine[5]/n1</yaw-drogue>
+                <pitch-drogue>engines/engine[5]/n2</pitch-drogue>
+            </params>
+        </overlay>
+    </model>
+
 	<!-- animate the doors and the nose -->
 	<animation>
       <type>rotate</type>
@@ -1923,7 +1977,7 @@
 
  <animation>
   <type>rotate</type>
-  <object-name>lhelevator</object-name>
+  <object-name>tailR-elevator</object-name>
   <property>controls/flight/elevator</property>
   <factor>15</factor>
   <offset-deg>0</offset-deg>   
@@ -1960,6 +2014,7 @@
  <animation>
   <type>rotate</type>
   <object-name>rudder</object-name>
+  <object-name>rudder-trim</object-name>
   <object-name>rudderWithLight</object-name>
   <property>controls/flight/rudder</property>
   <factor>-22.5</factor>

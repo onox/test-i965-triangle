@@ -358,6 +358,7 @@ no. D6-3071-00
                 <pitch-rate type="double">50.0</pitch-rate>
 
                 <length-rate type="double">2.0</length-rate>
+                <active-length-rate type="double">10.0</active-length-rate>
             </limits>
         </drogues>
     </refueling>

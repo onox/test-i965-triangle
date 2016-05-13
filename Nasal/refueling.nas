@@ -17,7 +17,3 @@ var tracking_updater = refueling_boom.RefuelingBoomTrackingUpdater.new(callback_
 # Update the actual state of the refueling boom
 var boom_position_updater = refueling_boom.RefuelingBoomPositionUpdater.new(tracking_updater);
 tracking_updater.set_chooser(boom_position_updater);
-
-setlistener("/sim/signals/fdm-initialized", func {
-    boom_position_updater.enable();
-});

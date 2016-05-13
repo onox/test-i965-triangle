@@ -2,7 +2,7 @@ io.include("Aircraft/ExpansionPack/Nasal/init.nas");
 
 with("refueling_drogues");
 
-check_version("refueling_drogues", 1, 0);
+check_version("refueling_drogues", 2, 0);
 
 var callback_pose_right = func {
     var heading_deg = getprop("/engines/engine[8]/n1") or 0.0;
@@ -30,6 +30,10 @@ tracking_updater_right.set_chooser(decision_updater_right);
 tracking_updater_left.set_chooser(decision_updater_left);
 
 setlistener("/sim/signals/fdm-initialized", func {
-    decision_updater_right.enable();
-    decision_updater_left.enable();
+    setlistener("/refueling/drogues/drogue[0]/enabled", func (node) {
+        decision_updater_right.enable_or_disable(node.getBoolValue());
+    }, 1, 0);
+    setlistener("/refueling/drogues/drogue[1]/enabled", func (node) {
+        decision_updater_left.enable_or_disable(node.getBoolValue());
+    }, 1, 0);
 });

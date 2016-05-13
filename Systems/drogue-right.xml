@@ -25,8 +25,10 @@
             <pitch>/refueling/drogues/drogue[0]/commands/pitch-deg</pitch>
             <length>/refueling/drogues/drogue[0]/commands/length-m</length>
             <active>/refueling/drogues/drogue[0]/contact/active</active>
-            <enabled>/b707/refuelling/probe-right</enabled>
+            <enabled>/refueling/drogues/drogue[0]/enabled</enabled>
+
             <default-length>/refueling/drogues/drogue[0]/settings/default-length-m</default-length>
+            <max-length>/refueling/drogues/drogue[0]/settings/max-length-m</max-length>
 
             <drogue-yaw>/refueling/drogues/drogue[0]/commands/drogue-yaw-deg</drogue-yaw>
             <drogue-pitch>/refueling/drogues/drogue[0]/commands/drogue-pitch-deg</drogue-pitch>

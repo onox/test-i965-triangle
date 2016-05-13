@@ -1286,8 +1286,10 @@ setlistener("/fdm/jsbsim/systems/crash-detect/crash-on-ground", func(state){
 		 setprop("/controls/engines/engine[1]/fire", 1);
   	 props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
   	 setprop("/controls/gear/bake-parking", 0);
-  	 setprop("/b707/refuelling/probe-right", 0);
-  	 setprop("/b707/refuelling/probe-left", 0);
+
+     # Disable drogues and their hoses
+  	 setprop("/refueling/drogues/drogue[0]/enabled", 0);
+  	 setprop("/refueling/drogues/drogue[1]/enabled", 0);
 	}
 },0,1);
 
@@ -1309,31 +1311,22 @@ setlistener("controls/gear/gear-down", func
   }
  });
  
-# only for Tanker but don't worry if its no Tanker aircraft
-var toggleProbeLeft = func(){
-		var hose = getprop("/b707/refuelling/probe-left") or 0;
-		if(!hose){
-			setprop("/b707/refuelling/probe-left", 1);
-			interpolate("/b707/refuelling/probe-left-lever", 1, 1);
-		}else{
-			setprop("/b707/refuelling/probe-left", 0);
-			interpolate("/b707/refuelling/probe-left-lever", 0, 1);
-		}
-}
-var toggleProbeRight = func(){
-		var hose = getprop("/b707/refuelling/probe-right") or 0;
-		if(!hose){
-			setprop("/b707/refuelling/probe-right", 1);
-			interpolate("/b707/refuelling/probe-right-lever", 1, 1);
-		}else{
-			setprop("/b707/refuelling/probe-right", 0);
-			interpolate("/b707/refuelling/probe-right-lever", 0, 1);
-		}
-}
+# Only for tanker, but don't worry if it's not a tanker aircraft
+var toggleProbeLeft = func {
+    var enabled = getprop("/refueling/drogues/drogue[1]/enabled") or 0;
+    setprop("/refueling/drogues/drogue[1]/enabled", !enabled);
+    interpolate("/b707/refuelling/probe-left-lever", !enabled, 1);
+};
+var toggleProbeRight = func {
+    var enabled = getprop("/refueling/drogues/drogue[0]/enabled") or 0;
+    setprop("/refueling/drogues/drogue[0]/enabled", !enabled);
+    interpolate("/b707/refuelling/probe-right-lever", !enabled, 1);
+};
+
 var toggleRefuelling = func{
   var somethingOut = 0;
-  var lD = getprop("/b707/refuelling/probe-left") or 0;
-  var rD = getprop("/b707/refuelling/probe-right") or 0;
+  var rD = getprop("/refueling/drogues/drogue[0]/enabled") or 0;
+  var lD = getprop("/refueling/drogues/drogue[1]/enabled") or 0;
   var bo = getprop("/instrumentation/doors/refuel-boom/position-norm") or 0;
   
   if(lD){

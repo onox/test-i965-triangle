@@ -268,7 +268,7 @@
 				<value type="string">Aircraft/707/Models/707-TT.xml</value>
 			</equals>	
 		  <or>
-		  	<property>/b707/refuelling/probe-left</property>
+			<property>/refueling/drogues/drogue[1]/enabled</property>
 		    <property>/controls/test/warn-knob</property>
 		    <property>/b707/warning/door-test</property>
 		  </or>
@@ -288,7 +288,7 @@
 				<value type="string">Aircraft/707/Models/707-TT.xml</value>
 			</equals>	
 		  <or>
-		  	<property>/b707/refuelling/probe-right</property>
+			<property>/refueling/drogues/drogue[0]/enabled</property>
 		    <property>/controls/test/warn-knob</property>
 		    <property>/b707/warning/door-test</property>
 		  </or>

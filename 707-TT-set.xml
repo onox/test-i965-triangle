@@ -13,13 +13,13 @@
 	</startup>
 
     <systems>
-        <autopilot>
+        <autopilot n="4">
             <path>Systems/boom.xml</path>
         </autopilot>
-        <autopilot>
+        <autopilot n="5">
             <path>Systems/drogue-right.xml</path>
         </autopilot>
-        <autopilot>
+        <autopilot n="6">
             <path>Systems/drogue-left.xml</path>
         </autopilot>
     </systems>

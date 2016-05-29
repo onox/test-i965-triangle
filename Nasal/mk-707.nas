@@ -609,10 +609,17 @@ setlistener("/b707/vibrations/vib-sel", eng_vib,1,0);
 var changeView = func (n){
   setprop("/b707/shake-effect/effect",0);
   var actualView = props.globals.getNode("/sim/current-view/view-number", 1);
-  if (actualView.getValue() == n){
+  var index = 0;
+  foreach (var view ; props.globals.getNode("/sim").getChildren("view")) {
+    if (view.getIndex() == n) {
+        break;
+    }
+    index = index + 1;
+  }
+  if (actualView.getValue() == index){
     actualView.setValue(0);
   }else{
-    actualView.setValue(n);
+    actualView.setValue(index);
   }
   setprop("/b707/shake-effect/effect",1);
 }

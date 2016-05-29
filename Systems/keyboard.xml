@@ -82,7 +82,7 @@
         <desc>Toggle engineer view</desc>
         <binding>
             <command>nasal</command>
-            <script>b707.changeView(10);</script>
+            <script>b707.changeView(103);</script>
         </binding>
     </key>
 
@@ -91,7 +91,7 @@
         <desc>Toggle overhead view</desc>
         <binding>
             <command>nasal</command>
-            <script>b707.changeView(11);</script>
+            <script>b707.changeView(104);</script>
         </binding>
     </key>
 
@@ -100,7 +100,7 @@
         <desc>Toggle autopilot view</desc>
         <binding>
             <command>nasal</command>
-            <script>b707.changeView(9);</script>
+            <script>b707.changeView(102);</script>
         </binding>
     </key>
 

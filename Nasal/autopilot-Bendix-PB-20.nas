@@ -241,7 +241,8 @@ var listenerApPB20AltFunc = func {
 			var altOffset = vspeed * 5;	# ft climed/falled in 5 seconds
 
 			var altitudeFt = getprop("/instrumentation/altimeter/indicated-altitude-ft") + altOffset;
-			setprop("/autopilot/settings/target-altitude-ft", altitudeFt);
+            var roundedAltitudeFt = math.round(altitudeFt/100.0)*100.0;
+			setprop("/autopilot/settings/target-altitude-ft", roundedAltitudeFt);
 
 			setprop("/autopilot/locks/altitude", "altitude-hold");
 		}

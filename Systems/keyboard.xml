@@ -15,15 +15,6 @@
       <script>b707.togglereverser();</script>
   </binding>
 </key>
-<key n="60">
-  <name> > </name>
-  <desc>toggle pilot engineer view</desc>
-  <binding>
-		  <command>nasal</command>
-		  <script>b707.changeView(10);</script>
-  </binding>
-</key>
-
 <key n="108">
   <name>L</name>
   <desc>toggle landing lights</desc>
@@ -85,24 +76,33 @@
         <script>b707.WeightFuelDialog()</script>
     </binding>
 </key>
-<!--
-<key n="267">
-  <name>F11</name>
-  <desc>Pop up autopilot dialog</desc>
-  <binding>
-		  <command>nasal</command>
-		  <script>b707.changeView(11);</script>
-  </binding>
-</key>
--->
-<key n="62">
-  <name>Shift + ></name>
-  <desc>Pop up autopilot dialog</desc>
-  <binding>
-		  <command>nasal</command>
-		  <script>b707.changeView(9);</script>
-  </binding>
-</key>
+
+    <key n="261">
+        <name>F5</name>
+        <desc>Toggle engineer view</desc>
+        <binding>
+            <command>nasal</command>
+            <script>b707.changeView(10);</script>
+        </binding>
+    </key>
+
+    <key n="262">
+        <name>F6</name>
+        <desc>Toggle overhead view</desc>
+        <binding>
+            <command>nasal</command>
+            <script>b707.changeView(11);</script>
+        </binding>
+    </key>
+
+    <key n="267">
+        <name>F11</name>
+        <desc>Toggle autopilot view</desc>
+        <binding>
+            <command>nasal</command>
+            <script>b707.changeView(9);</script>
+        </binding>
+    </key>
 
     <key n="100">
         <name>d</name>

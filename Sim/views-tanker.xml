@@ -19,7 +19,7 @@
 
 <PropertyList>
 
-    <view n="105">
+    <view n="106">
         <name>Boom Operator Officer</name>
         <enabled type="bool">true</enabled>
         <type>lookfrom</type>

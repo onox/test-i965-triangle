@@ -165,7 +165,7 @@
                 <ready>
                     <heading-deg type="double">0.0</heading-deg>
                     <pitch-deg type="double">30.0</pitch-deg>
-                    <length-m type="double">9.1</length-m>
+                    <length-m type="double">8.1</length-m>
                 </ready>
                 <disconnect>
                     <heading-deg type="double">0.0</heading-deg>

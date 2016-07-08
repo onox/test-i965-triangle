@@ -84,7 +84,7 @@
 	</condition>
 </animation>
  
-  <!--<sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>-->
+  <sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>
   
 	<multiplay>
 		<refuel>
@@ -800,6 +800,7 @@
         <type>select</type>
 	    <object-name>refuelProbeRight</object-name>
 	    <object-name>refuelProbeLeft</object-name>
+	    <object-name>antenaasa</object-name>
         <condition>
             <false/>
         </condition>
@@ -1977,7 +1978,7 @@
 
  <animation>
   <type>rotate</type>
-  <object-name>tailR-elevator</object-name>
+  <object-name>lhelevator</object-name>
   <property>controls/flight/elevator</property>
   <factor>15</factor>
   <offset-deg>0</offset-deg>   
@@ -3030,7 +3031,10 @@
 		</equals>
 	</condition>
 </animation>
-  
+
+    <model>
+        <name>shared-models</name>
+        <path>Aircraft/707/Models/shared.xml</path>
+    </model>
+
 </PropertyList>
-
-

@@ -312,87 +312,24 @@
 	</condition>
 </animation>
 
-<animation>
-  <type>select</type>
-  <object-name>WingtipLampLOn</object-name>
-  <object-name>WingtipLampROn</object-name>
-  <condition>
-    <property>sim/multiplay/generic/int[3]</property>
-  </condition>
-</animation>
-
-<animation>
-  <type>select</type>
-  <object-name>WingtipLampL</object-name>
-  <object-name>WingtipLampR</object-name>
-  <condition>
-    <not><property>sim/multiplay/generic/int[3]</property></not>
-  </condition>
-</animation>
-
-
-<!-- Left (red) nav light -->
-
-<animation>
-  <type>select</type>
-  <object-name>LightNavGlowL</object-name>
-  <condition>
-    <property>sim/multiplay/generic/int[3]</property>
-  </condition>
-</animation>
-
-<animation>
-  <type>flash</type>
-  <object-name>LightNavGlowL</object-name>
-  <center>
-   <x-m> 10.79</x-m>
-   <y-m>-21.04</y-m>
-   <z-m> 5.52</z-m>
-  </center>
-  <axis>
-   <x>-1</x>
-   <y>-1</y>
-   <z>0</z>
-  </axis>
-  <power>4</power>
-  <factor>1</factor>
-  <offset>22</offset>
-  <two-sides type="bool">false</two-sides>
-  <min>0.01</min>
-  <max>1</max>
-</animation>
-
-<!-- Right (green) nav light -->
-
-<animation>
-  <type>select</type>
-  <object-name>LightNavGlowR</object-name>
-  <condition>
-    <property>sim/multiplay/generic/int[3]</property>
-  </condition>
-</animation>
-
-<animation>
-  <type>flash</type>
-  <object-name>LightNavGlowR</object-name>
-  <center>
-   <x-m>10.79</x-m>
-   <y-m>21.04</y-m>
-   <z-m> 5.52</z-m>
-  </center>
-  <axis>
-   <x>-1</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
-  <power>4</power>
-  <factor>1</factor>
-  <offset>22</offset>
-  <two-sides type="bool">false</two-sides>
-  <min>0.01</min>
-  <max>1</max>
-</animation>
-
+    <animation>
+        <type>select</type>
+        <object-name>WingtipL</object-name>
+        <object-name>WingtipLampL</object-name>
+        <object-name>WingtipLampLOn</object-name>
+        <object-name>WingtipR</object-name>
+        <object-name>WingtipLampR</object-name>
+        <object-name>WingtipLampROn</object-name>
+        <object-name>LightNavGlowL</object-name>
+        <object-name>LightNavGlowR</object-name>
+        <object-name>LightTailGlow</object-name>
+        <object-name>TailLampL</object-name>
+        <object-name>TailLampLOn</object-name>
+        <object-name>TailLight</object-name>
+        <condition>
+            <false/>
+        </condition>
+    </animation>
 
 <!-- Tail Light -->
 <!--  Rembrand - Nav light - Left, Right, Tail -->
@@ -405,14 +342,6 @@
 			<property>sim/multiplay/generic/int[2]</property>
 		</and>
 	</condition>
-</animation>
-
-<animation>
-  <type>select</type>
-  <object-name>LightTailGlow</object-name>
-  <condition>
-    <property>sim/multiplay/generic/int[2]</property>
-  </condition>
 </animation>
 
 <!--  Rembrand  -->

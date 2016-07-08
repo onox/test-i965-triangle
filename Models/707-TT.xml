@@ -315,7 +315,7 @@
 		<condition>
 			<equals>
 		    <property>sim/current-view/view-number</property>
-		    <value>12</value>
+		    <value>13</value>
 		  </equals>
 		</condition>
 	</animation>

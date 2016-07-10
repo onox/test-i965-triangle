@@ -247,7 +247,7 @@
                 <enabled type="bool">false</enabled>
             </drogue>
 
-            <max-contact-distance-m type="double">1.0</max-contact-distance-m>
+            <max-contact-distance-m type="double">3.0</max-contact-distance-m>
             <max-pre-contact-distance-m type="double">50.0</max-pre-contact-distance-m>
 
             <limits>

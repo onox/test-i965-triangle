@@ -27,7 +27,7 @@
                 <binding>
                     <condition>
                         <not>
-                            <property>/refueling/automatic-movement</property>
+                            <property>/refueling/boom/automatic-movement</property>
                         </not>
                     </condition>
                     <command>property-assign</command>
@@ -41,7 +41,7 @@
                 <binding>
                     <condition>
                         <not>
-                            <property>/refueling/automatic-movement</property>
+                            <property>/refueling/boom/automatic-movement</property>
                         </not>
                     </condition>
                     <command>property-adjust</command>
@@ -56,7 +56,7 @@
                 <binding>
                     <condition>
                         <not>
-                            <property>/refueling/automatic-movement</property>
+                            <property>/refueling/boom/automatic-movement</property>
                         </not>
                     </condition>
                     <command>property-adjust</command>
@@ -71,7 +71,7 @@
                 <binding>
                     <condition>
                         <not>
-                            <property>/refueling/automatic-movement</property>
+                            <property>/refueling/boom/automatic-movement</property>
                         </not>
                     </condition>
                     <command>property-adjust</command>
@@ -88,7 +88,7 @@
                 <binding>
                     <condition>
                         <not>
-                            <property>/refueling/automatic-movement</property>
+                            <property>/refueling/boom/automatic-movement</property>
                         </not>
                     </condition>
                     <command>property-adjust</command>

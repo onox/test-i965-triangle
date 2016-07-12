@@ -1,167 +1,85 @@
-<?xml version="1.0"?>
-<!--###################################################################################
-		Lake of Constance Hangar :: M.Kraus
-		Boeing 707 for Flightgear Septemper 2013
-		This file is licenced under the terms of the GNU General Public Licence V2 or later
-		###################################################################################
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2013 Marc Kraus
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
+
 <PropertyList include="707-common.xml">
- <sim include="Sim/views-pax.xml">
-  <description>Boeing 707</description>
-	<startup>
-		<splash-texture>Aircraft/707/splash.png</splash-texture>
-	</startup>
-	
-  <model n="0">
-   	 <path>Aircraft/707/Models/707.xml</path>
-      <livery>
-        <file type="string">707</file>
-      </livery>
-  </model>
-  
-  <remote>
-   <pilot-callsign type="string"/>
-  </remote>
 
-	<menubar>
-		<default>
-			<menu n="100">
-				<label>Boeing 707</label>
-				<enabled type="bool">true</enabled>
-				<item>
-					<label>Autostart / shutdown</label>
-					<binding>
-						<command>property-toggle</command>
-						<property>sim/model/start-idling</property>
-					</binding>
-				</item>      
-				<item>
-			        <label>Checklists</label>
-			        <binding>
-			          <command>dialog-show</command>
-			          <dialog-name>checklist</dialog-name>
-			        </binding>
-			    </item>
-				<item>
-					<label>--- Selection ---</label>
-					<enabled>false</enabled>
-				</item>
-				<item>
-					<label>Select livery</label>
-					<binding>
-						<command>nasal</command>
-						<script>aircraft.livery.dialog.open()</script>
-					</binding>
-				</item>
-				<item>
-					<label>Show/hide yokes</label>
-					<binding>
-						<command>property-toggle</command>
-		    		<property>sim/yokes-visible</property>
-					</binding>
-				</item>			
-				<item>
-					<label>--- Equipment ---</label>
-					<enabled>false</enabled>
-				</item>
-				<item>
-					<label>Pushback</label>
-					<name>pushback</name>
-					<binding>
-						 <command>dialog-show</command>
-						 <dialog-name>pushback</dialog-name>
-					</binding>
-				</item>				
-				<item>
-					<label>Fuel Truck Controls</label>
-					<binding>
-						<command>nasal</command>
-							<script>
-						 	   var fuel = gui.Dialog.new("sim/gui/dialogs/fuel/dialog", "Aircraft/707/Systems/fuel-truck.xml");
-							   fuel.open();
-							</script>
-					</binding>
-				</item>
-				<item>
-					<label>External Power Unit</label>
-					<binding>
-						<command>property-toggle</command>
-		    		<property>b707/external-power-connected</property>
-					</binding>
-				</item>				
-				<item>
-					<label>--- Registration ---</label>
-					<enabled>false</enabled>
-				</item>
-	            <item>
-	              <label>A/C Registration</label>
-	              <binding>
-	                <command>nasal</command>
-	                <script><![CDATA[ 
-	                  b707.registrationDialog.toggle();
-	                ]]></script>
-	              </binding>
-	            </item>			
-				<item>
-					<label>--- Boarding ---</label>
-					<enabled>false</enabled>
-				</item>
-		        <item>
-		         <label>Select Passenger</label>
-		         <binding>
-		          <command>nasal</command>
-		          <script>
-		            dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
-		           </script>
-		          </binding>
-		         </item>
-			</menu>
-		</default>
-	</menubar>
+    <sim include="Sim/views-pax.xml">
+        <description>Boeing 707</description>
 
-	<help include="Sim/help.xml"/>
- </sim>
+        <startup>
+            <splash-texture>Aircraft/707/splash.png</splash-texture>
+        </startup>
 
-	<nasal> 
-		<b707>
+        <model n="0">
+            <path>Aircraft/707/Models/707.xml</path>
+            <livery>
+                <file type="string">707</file>
+            </livery>
+        </model>
+
+        <remote>
+            <pilot-callsign type="string"/>
+        </remote>
+
+        <menubar include="Sim/menubar.xml"/>
+        <help include="Sim/help.xml"/>
+    </sim>
+
+    <nasal>
+        <b707>
             <file>Aircraft/707/Nasal/sound.nas</file>
-			<file>Aircraft/707/Nasal/shake.nas</file>
-			<file>Aircraft/707/Nasal/autostart.nas</file>
-			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
-			<file>Aircraft/707/Nasal/liveries.nas</file>
-			<file>Aircraft/707/Nasal/electrical.nas</file>
-			<file>Aircraft/707/Nasal/mk-707.nas</file>
-			<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
-			<file>Aircraft/707/Nasal/mk-frw.nas</file>
-			<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
-			<file>Aircraft/707/Nasal/mk-rmi.nas</file>
-			<file>Aircraft/707/Nasal/mk-wiper.nas</file>
-			<file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>   
-			<file>Aircraft/707/Nasal/doors.nas</file>
-			<file>Aircraft/707/Nasal/tyresmoke.nas</file>
-			<file>Aircraft/707/Nasal/brakesystem.nas</file>
-			<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
-			<file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
-		    <file>Aircraft/707/Nasal/damage.nas</file>
+            <file>Aircraft/707/Nasal/shake.nas</file>
+            <file>Aircraft/707/Nasal/autostart.nas</file>
+            <file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
+            <file>Aircraft/707/Nasal/liveries.nas</file>
+            <file>Aircraft/707/Nasal/electrical.nas</file>
+            <file>Aircraft/707/Nasal/mk-707.nas</file>
+            <file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
+            <file>Aircraft/707/Nasal/mk-frw.nas</file>
+            <file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
+            <file>Aircraft/707/Nasal/mk-rmi.nas</file>
+            <file>Aircraft/707/Nasal/mk-wiper.nas</file>
+            <file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>
+            <file>Aircraft/707/Nasal/doors.nas</file>
+            <file>Aircraft/707/Nasal/tyresmoke.nas</file>
+            <file>Aircraft/707/Nasal/brakesystem.nas</file>
+            <file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
+            <file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
+            <file>Aircraft/707/Nasal/damage.nas</file>
             <file>Aircraft/707/Nasal/radar2.nas</file>
-			<file>Aircraft/707/Nasal/tcas.nas</file>
-			<file>Aircraft/707/Nasal/registration.nas</file>
-			<file>Aircraft/707/Nasal/manual.nas</file>	
-		</b707> 
-		
-	    <dual_control_tools>
-	     <file>Aircraft/707/Nasal/DualControl/dual-control-tools.nas</file>
-	    </dual_control_tools>
-	    <aircraft_dual_control>
-	     <file>Aircraft/707/Nasal/DualControl/707-dual-control.nas</file>
-	    </aircraft_dual_control>
-	    <dual_control>
-	     <file>Aircraft/707/Nasal/DualControl/pilot-dual-control.nas</file>
-	    </dual_control>
-	</nasal>
-	
+            <file>Aircraft/707/Nasal/tcas.nas</file>
+            <file>Aircraft/707/Nasal/registration.nas</file>
+            <file>Aircraft/707/Nasal/manual.nas</file>
+        </b707>
+        <dual_control_tools>
+            <file>Aircraft/707/Nasal/DualControl/dual-control-tools.nas</file>
+        </dual_control_tools>
+        <aircraft_dual_control>
+            <file>Aircraft/707/Nasal/DualControl/707-dual-control.nas</file>
+        </aircraft_dual_control>
+        <dual_control>
+            <file>Aircraft/707/Nasal/DualControl/pilot-dual-control.nas</file>
+        </dual_control>
+    </nasal>
+
     <dual-control>
-      <active type="bool">0</active>
+        <active type="bool">0</active>
     </dual-control>
 
 </PropertyList>

@@ -20,10 +20,19 @@
 <PropertyList include="Aircraft/ExpansionPack/Systems/refueling-boom.xml">
 
     <params>
+        <inputs>
+            <pdl-power>/b707/ess-bus</pdl-power>
+            <pdl-power-value>20.0</pdl-power-value>
+        </inputs>
         <outputs>
             <yaw>/engines/engine[9]/n1</yaw>
             <pitch>/engines/engine[9]/n2</pitch>
             <length>/engines/engine[9]/rpm</length>
+
+            <pdl>
+                <aft-forward-state>/refueling/pdl/aft-forward-state</aft-forward-state>
+                <up-down-state>/refueling/pdl/up-down-state</up-down-state>
+            </pdl>
         </outputs>
     </params>
 

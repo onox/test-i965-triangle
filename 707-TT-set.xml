@@ -48,7 +48,9 @@
 
         <multiplay>
             <generic>
-                <int n="12" alias="/refueling/contact/active"/>
+                <int n="12" alias="/refueling/boom/contact/active"/>
+                <int n="10" alias="/refueling/pdl/aft-forward-state"/>
+                <int n="11" alias="/refueling/pdl/up-down-state"/>
                 <string n="19" alias="/refueling/contact/callsign"/>
             </generic>
         </multiplay>
@@ -76,14 +78,18 @@
                 <telescope-rate type="double">6.0</telescope-rate>
 
                 <!-- Limits of refueling boom -->
+
+                <!-- Recommended range is -10.0 deg to 10.0 deg -->
                 <heading-min-deg type="double">-30.0</heading-min-deg>
                 <heading-max-deg type="double">30.0</heading-max-deg>
 
+                <!-- Recommended range is 20.0 deg to 40.0 deg -->
                 <pitch-min-deg type="double">-12.5</pitch-min-deg>
                 <pitch-max-deg type="double">50.0</pitch-max-deg>
 
+                <!-- Telescoop is 20 ft long. Recommended range is 6.1 to 18.3 ft -->
                 <telescope-min-m type="double">8.1</telescope-min-m>
-                <telescope-max-m type="double">11.76</telescope-max-m>
+                <telescope-max-m type="double">14.196</telescope-max-m><!-- 20 ft + 8.1 m -->
             </limits>
 
             <poses>
@@ -114,6 +120,11 @@
                 <z-m type="double">-0.6614</z-m>
             </origin>
         </boom>
+
+        <pdl>
+            <aft-forward-state type="int">0</aft-forward-state>
+            <up-down-state type="int">0</up-down-state>
+        </pdl>
 
         <drogues>
             <!-- Right drogue -->

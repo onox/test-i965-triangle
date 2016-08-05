@@ -95,8 +95,8 @@
 
     <params>
         <pdl>
-            <aft-forward-state>/sim/multiplay/generic/int[10]</aft-forward-state>
-            <up-down-state>/sim/multiplay/generic/int[11]</up-down-state>
+            <aft-forward-state>sim/multiplay/generic/int[10]</aft-forward-state>
+            <up-down-state>sim/multiplay/generic/int[11]</up-down-state>
         </pdl>
     </params>
 

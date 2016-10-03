@@ -8,7 +8,7 @@ setlistener("/instrumentation/mptcas/on", func(state) {
 }, 0, 1);
 
 
-var myRadar = b707.Radar.new(NewRangeTab:[100],NewRangeIndex:0,forcePath:"instrumentation/radar2/targets",NewAutoUpdate:1,newDopplerSpeedLimit:50,NewhaveSweep:0,NewUnfocused_az_fld:360);
+var myRadar = b707.Radar.new(NewRangeTab:[500],NewRangeIndex:0,forcePath:"instrumentation/radar2/targets",NewAutoUpdate:1,newDopplerSpeedLimit:50,NewhaveSweep:0,NewUnfocused_az_fld:360);
 
 
 #var path = "ai/models/multiplayer";

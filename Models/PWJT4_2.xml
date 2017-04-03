@@ -8,7 +8,15 @@
 
 <PropertyList>
  <path>PWJT4.ac</path>
-  
+
+    <effect>
+        <inherits-from>Effects/exterior-reflection</inherits-from>
+        <object-name>engineCowlFront</object-name>
+        <object-name>engineCowlCenter</object-name>
+        <object-name>engineCowlRear</object-name>
+        <object-name>engineInner</object-name>
+    </effect>
+
 	<animation>
 		<type>spin</type>
 		<object-name>engineCone</object-name>

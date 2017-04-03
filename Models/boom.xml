@@ -31,6 +31,12 @@
         <z-m>-0.6614</z-m>
     </offsets>
 
+    <effect>
+        <inherits-from>Effects/exterior-reflection</inherits-from>
+        <object-name>refuel-boom</object-name>
+        <object-name>refuel-tube</object-name>
+    </effect>
+
     <!-- Pitch -->
     <animation>
         <type>rotate</type>

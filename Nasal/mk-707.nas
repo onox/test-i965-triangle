@@ -1,3 +1,7 @@
+io.include("Aircraft/ExpansionPack/Nasal/init.nas");
+
+with("logger");
+
 # Lake of Constance Hangar :: M.Kraus
 # Avril 2013
 # This file is licenced under the terms of the GNU General Public Licence V2 or later
@@ -51,48 +55,52 @@ var togglereverser = func {
 	rv3 = "/engines/engine[2]/reverser-pos-norm"; 
 	rv4 = "/engines/engine[3]/reverser-pos-norm"; 
 
-	val1 = getprop(rv1) or 0;
-	
-	t1 = getprop("/controls/engines/engine[0]/throttle") or 0;
+	var reverser_cmd = getprop(rv1) or 0;
+	var throttle = getprop("/controls/engines/engine[0]/throttle") or 0;
 
-	if ((val1 == 0 or val1 == nil) and t1 < 0.25) {
-		interpolate(rv1, 1.0, 1.4); 
-		interpolate(rv2, 1.0, 1.4);
-		interpolate(rv3, 1.0, 1.4); 
-		interpolate(rv4, 1.0, 1.4);   
-		setprop(r1,"reverser-angle-rad",2);
-		setprop(r2,"reverser-angle-rad",2);   
-		setprop(r3,"reverser-angle-rad",2);
-		setprop(r4,"reverser-angle-rad",2);
-		setprop(rc1,"reverser", "true");
-		setprop(rc2,"reverser", "true");
-		setprop(rc3,"reverser", "true");
-		setprop(rc4,"reverser", "true");
-		setprop(r5,"engine", "true");
-		setprop(r5,"engine[1]", "true");
-		setprop(r5,"engine[2]", "true");
-		setprop(r5,"engine[3]", "true");
-	} else {
-		if (val1 == 1.0 and t1 == 0){
-		interpolate(rv1, 0.0, 1.4);
-		interpolate(rv2, 0.0, 1.4); 
-		interpolate(rv3, 0.0, 1.4);
-		interpolate(rv4, 0.0, 1.4);  
-		setprop(r1,"reverser-angle-rad",0);
-		setprop(r2,"reverser-angle-rad",0); 
-		setprop(r3,"reverser-angle-rad",0);
-		setprop(r4,"reverser-angle-rad",0);
-		setprop(rc1,"reverser",0);
-		setprop(rc2,"reverser",0);
-		setprop(rc3,"reverser",0);
-		setprop(rc4,"reverser",0);
-		setprop(r5,"engine", "true");
-		setprop(r5,"engine[1]", "true");
-		setprop(r5,"engine[2]", "true");
-		setprop(r5,"engine[3]", "true");
-		}
-	}
+    var activate_reverser = !reverser_cmd;
+    var throttle_idle = throttle == 0.0;
+
+    if (throttle_idle) {
+        var status = activate_reverser ? "Activating" : "Deactivating";
+        logger.screen.green(sprintf("%s reverse thrust", status));
+
+        interpolate(rv1, activate_reverser ? 1.0 : 0.0, 1.4);
+        interpolate(rv2, activate_reverser ? 1.0 : 0.0, 1.4);
+        interpolate(rv3, activate_reverser ? 1.0 : 0.0, 1.4);
+        interpolate(rv4, activate_reverser ? 1.0 : 0.0, 1.4);
+
+        setprop(r1, "reverser-angle-rad", activate_reverser ? 2 : 0);
+        setprop(r2, "reverser-angle-rad", activate_reverser ? 2 : 0);
+        setprop(r3, "reverser-angle-rad", activate_reverser ? 2 : 0);
+        setprop(r4, "reverser-angle-rad", activate_reverser ? 2 : 0);
+
+        setprop(rc1,"reverser", activate_reverser);
+        setprop(rc2,"reverser", activate_reverser);
+        setprop(rc3,"reverser", activate_reverser);
+        setprop(rc4,"reverser", activate_reverser);
+
+        setprop(r5, "engine", 1);
+        setprop(r5, "engine[1]", 1);
+        setprop(r5, "engine[2]", 1);
+        setprop(r5, "engine[3]", 1);
+    }
+    else {
+        var status = activate_reverser ? "activate" : "deactivate";
+        logger.screen.red(sprintf("Set throttle to idle before trying to %s reverse thrust", status));
+    }
 }
+
+setlistener("/controls/engines/engine[0]/throttle", func (n) {
+    if (n.getValue() == 0.0) {
+        logger.screen.white("Throttle idle");
+    }
+}, 0, 0);
+
+setlistener("/controls/flight/spoilers", func (n) {
+    logger.screen.green(sprintf("Spoilers %d %%", n.getValue() * 100.0));
+}, 0, 0);
+
 
 var toggleLandingLights = func {
 
@@ -432,8 +440,8 @@ var stepSpeedbrakes = func(step) {
     setprop("/controls/flight/spoilers", val > 1 ? 1 : val < 0 ? 0 : val);
 }
 var fullSpeedbrakes = func {
-    var val = getprop("/controls/flight/spoilers");
-    setprop("/controls/flight/spoilers", val > 0 ? 0 : 1);
+    var value = getprop("/controls/flight/spoilers");
+    setprop("/controls/flight/spoilers", !value);
 }
 
 ################# compass controllers and the magnetic compass up or down #####################################

@@ -54,18 +54,20 @@ var frw_show = func(s) {
   setprop(p~"flight-time/hours",hours);
   setprop(p~"flight-time/minutes",minutes);
   setprop(p~"flight-time/seconds",seconds);
+
+  setprop(p~"indicated-short-string", frw_get_time_on_screen());
 }
 
-var frw_show_time_on_screen = func{
-  var hours = getprop(p~"flight-time/hours") or 0;
-  var minutes = getprop(p~"flight-time/minutes") or 0;
-  var seconds = getprop(p~"flight-time/seconds") or 0;
+var frw_get_time_on_screen = func{
+    var hours   = getprop(p~"flight-time/hours")   or 0;
+    var minutes = getprop(p~"flight-time/minutes") or 0;
+    var seconds = getprop(p~"flight-time/seconds") or 0;
 
-  if (hours > 0){
-    screen.log.write(sprintf("%3dh %02dmin %02dsec", hours, minutes, seconds), 0.0, 0.7, 0.0);
-  }else{
-    screen.log.write(sprintf("%02dmin %02dsec", minutes, seconds), 0.0, 0.7, 0.0);
-  }
+    if (hours > 0) {
+        return sprintf("%d hours, %d minutes, and %d seconds", hours, minutes, seconds);
+    } else {
+        return sprintf("%d minutes and %d seconds", minutes, seconds);
+    }
 }
 
 #=============================== Flightgear Rallye Mode actions =======================================
@@ -105,3 +107,6 @@ var frw_control = func {
   }
 }
 
+setlistener("/sim/signals/fdm-initialized", func {
+    frw_show(0);
+});

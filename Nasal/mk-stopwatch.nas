@@ -1,3 +1,7 @@
+io.include("Aircraft/ExpansionPack/Nasal/init.nas");
+
+with("logger");
+
 # Lake of Constance Hangar :: M.Kraus
 # Avril 2013
 # This file is licenced under the terms of the GNU General Public Licence V2 or later
@@ -61,9 +65,9 @@ var sw_show_time_on_screen = func{
   var minutes = getprop(sw~"flight-time/minutes") or 0;
   var seconds = getprop(sw~"flight-time/seconds") or 0;
 
-  if (hours > 0){
-    screen.log.write(sprintf("%3dh %02dmin %02dsec", hours, minutes, seconds), 0.0, 0.9, 0.0);
-  }else{
-    screen.log.write(sprintf("%02dmin %02dsec", minutes, seconds), 0.0, 0.9, 0.0);
+  if (hours > 0) {
+    logger.screen.green(sprintf("Accumulated flight time: %3dh %02dmin %02dsec", hours, minutes, seconds));
+  } else {
+    logger.screen.green(sprintf("Accumulated flight time: %02dmin %02dsec", minutes, seconds));
   }
 }

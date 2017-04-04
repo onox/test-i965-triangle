@@ -28,13 +28,13 @@
         </startup>
 
         <systems>
-            <autopilot n="4">
+            <autopilot n="5">
                 <path>Systems/boom.xml</path>
             </autopilot>
-            <autopilot n="5">
+            <autopilot n="6">
                 <path>Systems/drogue-right.xml</path>
             </autopilot>
-            <autopilot n="6">
+            <autopilot n="7">
                 <path>Systems/drogue-left.xml</path>
             </autopilot>
         </systems>

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2017 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <flipflop>
+        <name>A/P Pattern Switcher</name>
+        <type>RS</type>
+        <S>
+            <and>
+                <property>/aircraft/afcs/locks/pattern</property>
+                <equals>
+                    <property>/autopilot/locks/heading</property>
+                    <value>dg-heading-hold</value>
+                </equals>
+            </and>
+        </S>
+        <R>
+            <not>
+                <property>/aircraft/afcs/locks/pattern</property>
+            </not>
+        </R>
+        <output>
+            <property>/aircraft/afcs/active/pattern</property>
+        </output>
+    </flipflop>
+
+    <filter>
+        <name>Pattern Downwind Heading</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <difference>
+                    <property>/aircraft/afcs/logic/pattern/upwind-heading-deg</property>
+                    <value>180.0</value>
+                </difference>
+            </expression>
+        </input>
+        <output>
+            <property>/aircraft/afcs/logic/pattern/downwind-heading-deg</property>
+        </output>
+        <period>
+            <min>0.0</min>
+            <max>360.0</max>
+        </period>
+    </filter>
+
+    <filter>
+        <name>Pattern Crosswind Heading</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <difference>
+                    <property>/aircraft/afcs/logic/pattern/upwind-heading-deg</property>
+                    <value>90.0</value>
+                </difference>
+            </expression>
+        </input>
+        <output>
+            <property>/aircraft/afcs/logic/pattern/crosswind-heading-deg</property>
+        </output>
+        <period>
+            <min>0.0</min>
+            <max>360.0</max>
+        </period>
+    </filter>
+
+    <filter>
+        <name>Pattern Base Heading</name>
+        <type>gain</type>
+        <input>
+            <expression>
+                <difference>
+                    <property>/aircraft/afcs/logic/pattern/downwind-heading-deg</property>
+                    <value>90.0</value>
+                </difference>
+            </expression>
+        </input>
+        <output>
+            <property>/aircraft/afcs/logic/pattern/base-heading-deg</property>
+        </output>
+        <period>
+            <min>0.0</min>
+            <max>360.0</max>
+        </period>
+    </filter>
+
+    <!-- ================================================================== -->
+    <!-- State Machines                                                     -->
+    <!-- ================================================================== -->
+
+    <state-machine>
+        <branch>/aircraft/afcs/logic/pattern</branch>
+
+        <state>
+            <name>init</name>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/aircraft/afcs/locks/pattern</property>
+                <value type="bool">false</value>
+            </enter>
+        </state>
+
+        <state>
+            <name>start</name>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/aircraft/afcs/logic/pattern/upwind-heading-deg</property>
+                <property>/orientation/heading-magnetic-deg</property>
+            </enter>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/aircraft/afcs/logic/pattern/leg-duration-s</property>
+                <value type="double">120.0</value>
+            </enter>
+        </state>
+
+        <state>
+            <name>upwind</name>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/autopilot/settings/heading-bug-deg</property>
+                <property>/aircraft/afcs/logic/pattern/upwind-heading-deg</property>
+            </enter>
+        </state>
+
+        <state>
+            <name>crosswind-1</name>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/autopilot/settings/heading-bug-deg</property>
+                <property>/aircraft/afcs/logic/pattern/crosswind-heading-deg</property>
+            </enter>
+        </state>
+
+        <state>
+            <name>crosswind-2</name>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/autopilot/settings/heading-bug-deg</property>
+                <property>/aircraft/afcs/logic/pattern/downwind-heading-deg</property>
+            </enter>
+        </state>
+
+        <state>
+            <name>downwind</name>
+        </state>
+
+        <state>
+            <name>base-1</name>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/autopilot/settings/heading-bug-deg</property>
+                <property>/aircraft/afcs/logic/pattern/base-heading-deg</property>
+            </enter>
+        </state>
+
+        <state>
+            <name>base-2</name>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/autopilot/settings/heading-bug-deg</property>
+                <property>/aircraft/afcs/logic/pattern/upwind-heading-deg</property>
+            </enter>
+        </state>
+
+        <state>
+            <name>stop</name>
+
+            <enter>
+                <command>property-assign</command>
+                <property>/autopilot/settings/heading-bug-deg</property>
+                <property>/orientation/heading-magnetic-deg</property>
+            </enter>
+        </state>
+
+        <transition>
+            <name>t-1</name>
+            <source>init</source>
+            <target>start</target>
+            <condition>
+                <property>/aircraft/afcs/active/pattern</property>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-2</name>
+            <source>start</source>
+            <target>upwind</target>
+            <condition>
+                <true/>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-3</name>
+            <source>upwind</source>
+            <target>crosswind-1</target>
+            <condition>
+                <greater-than>
+                    <property>/aircraft/afcs/logic/pattern/elapsed-time-msec</property>
+                    <expression>
+                        <product>
+                            <property>/aircraft/afcs/logic/pattern/leg-duration-s</property>
+                            <value>1000.0</value>
+                        </product>
+                    </expression>
+                </greater-than>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-4</name>
+            <source>crosswind-1</source>
+            <target>crosswind-2</target>
+            <condition>
+                <greater-than>
+                    <property>/aircraft/afcs/logic/pattern/elapsed-time-msec</property>
+                    <value>5000.0</value>
+                </greater-than>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-5</name>
+            <source>crosswind-2</source>
+            <target>downwind</target>
+            <condition>
+                <less-than>
+                    <expression>
+                        <abs>
+                            <difference>
+                                <property>/orientation/heading-magnetic-deg</property>
+                                <property>/aircraft/afcs/logic/pattern/downwind-heading-deg</property>
+                            </difference>
+                        </abs>
+                    </expression>
+                    <value>0.25</value>
+                </less-than>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-6</name>
+            <source>downwind</source>
+            <target>base-1</target>
+            <condition>
+                <greater-than>
+                    <property>/aircraft/afcs/logic/pattern/elapsed-time-msec</property>
+                    <expression>
+                        <product>
+                            <property>/aircraft/afcs/logic/pattern/leg-duration-s</property>
+                            <value>1000.0</value>
+                        </product>
+                    </expression>
+                </greater-than>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-7</name>
+            <source>base-1</source>
+            <target>base-2</target>
+            <condition>
+                <greater-than>
+                    <property>/aircraft/afcs/logic/pattern/elapsed-time-msec</property>
+                    <value>5000.0</value>
+                </greater-than>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-8</name>
+            <source>base-2</source>
+            <target>upwind</target>
+            <condition>
+                <less-than>
+                    <expression>
+                        <abs>
+                            <difference>
+                                <property>/orientation/heading-magnetic-deg</property>
+                                <property>/aircraft/afcs/logic/pattern/upwind-heading-deg</property>
+                            </difference>
+                        </abs>
+                    </expression>
+                    <value>0.25</value>
+                </less-than>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-9</name>
+            <source>upwind</source>
+            <source>downwind</source>
+            <source>crosswind-1</source>
+            <source>crosswind-2</source>
+            <source>base-1</source>
+            <source>base-2</source>
+            <target>stop</target>
+            <condition>
+                <not>
+                    <property>/aircraft/afcs/locks/pattern</property>
+                </not>
+            </condition>
+        </transition>
+
+        <transition>
+            <name>t-10</name>
+            <source>stop</source>
+            <target>init</target>
+            <condition>
+                <true/>
+            </condition>
+        </transition>
+    </state-machine>
+
+</PropertyList>

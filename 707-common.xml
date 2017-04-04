@@ -42,6 +42,9 @@
             <autopilot n="3">
                 <path>Aircraft/707/Systems/thunder.xml</path>
             </autopilot>
+            <autopilot n="4">
+                <path>Aircraft/707/Systems/pattern.xml</path>
+            </autopilot>
 
             <property-rule n="100">
                 <path>Aircraft/707/Systems/views.xml</path>
@@ -445,6 +448,12 @@
             <z-m>2.7</z-m>
         </door>
         <jetway-hood-deg type="double">3</jetway-hood-deg>
+
+        <afcs>
+            <locks>
+                <pattern type="bool">false</pattern>
+            </locks>
+        </afcs>
     </aircraft>
 
 </PropertyList>

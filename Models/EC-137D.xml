@@ -176,6 +176,63 @@
     <texture>EC-137.png</texture>
   </animation>
 
+    <effect>
+        <inherits-from>Effects/exterior-reflection</inherits-from>
+        <object-name>doorBelly</object-name>
+        <object-name>doorCargo</object-name>
+        <object-name>doorFL</object-name>
+        <object-name>doorRL</object-name>
+        <object-name>elevwing</object-name>
+        <object-name>engineSupport</object-name>
+        <object-name>fuselage</object-name>
+        <object-name>lhelevator</object-name>
+        <object-name>lhfiletflap</object-name>
+        <object-name>lhibail</object-name>
+        <object-name>lhibflap</object-name>
+        <object-name>lhngdoor</object-name>
+        <object-name>lhngdooraft</object-name>
+        <object-name>lhobail</object-name>
+        <object-name>lhobflap</object-name>
+        <object-name>lhsp1</object-name>
+        <object-name>lhsp3</object-name>
+        <object-name>mgdoora</object-name>
+        <object-name>mgdoorb</object-name>
+        <object-name>mgdoorc</object-name>
+        <object-name>nose</object-name>
+        <object-name>nosewheelwell</object-name>
+        <object-name>probe</object-name>
+        <object-name>refuelAPULeft</object-name>
+        <object-name>refuelAPURight</object-name>
+        <object-name>refuelBoom</object-name>
+        <object-name>refuelOperator</object-name>
+        <object-name>refuelPivot</object-name>
+        <object-name>refuelTube</object-name>
+        <object-name>lhdoorinner</object-name>
+        <object-name>lhdoorouter</object-name>
+        <object-name>rhdoorinner</object-name>
+        <object-name>rhdoorouter</object-name>
+        <object-name>rhelevator</object-name>
+        <object-name>rhfiletflap</object-name>
+        <object-name>rhibail</object-name>
+        <object-name>rhibflap</object-name>
+        <object-name>rhmgdoora</object-name>
+        <object-name>rhmgdoorb</object-name>
+        <object-name>rhmgdoorc</object-name>
+        <object-name>rhngdoor</object-name>
+        <object-name>rhngdooraft</object-name>
+        <object-name>rhobail</object-name>
+        <object-name>rhobflap</object-name>
+        <object-name>rhsp1</object-name>
+        <object-name>rhsp3</object-name>
+        <object-name>rudder</object-name>
+        <object-name>slatsL</object-name>
+        <object-name>slatsR</object-name>
+        <object-name>vertstab</object-name>
+        <object-name>wing</object-name>
+        <object-name>Radome</object-name>
+        <object-name>RadomeSup</object-name>
+    </effect>
+
 	<animation>
 		<type>noshadow</type>
     <object-name>fuselage.inner</object-name>

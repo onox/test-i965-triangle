@@ -1,217 +1,231 @@
+<?xml version="1.0"?>
+
 <PropertyList>
- 	<path>tt_panel.ac</path>
- 	
-	<animation>
-		<type>material</type>
-		<object-name>LampAmber</object-name>
-		<object-name>LampGreen</object-name>
-		<object-name>LampGreen.001</object-name>
-		<object-name>operatorPanel</object-name>
-		<object-name>support</object-name>
-		<object-name>sockle</object-name>
-		<object-name>sockle.001</object-name>
-		<object-name>sockle.002</object-name>
-		<object-name>SockleLever</object-name>
-		<object-name>bezel</object-name>
-		<object-name>switch</object-name>
-		<object-name>knob</object-name>
-		<object-name>leverDL</object-name>
-		<object-name>leverDR</object-name>
-		<object-name>leverL</object-name>
-		<object-name>leverR</object-name>
-		<condition>	
-			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-		</condition>
-		<emission>
-		  <red>0.3</red>
-		  <green>0.3</green>
-		  <blue>0.3</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
-		</emission>
-	</animation>
-	
-	<animation>
-		<type>material</type>
-		<object-name>turn</object-name>
-		<object-name>turn.001</object-name>
-		<object-name>turn.002</object-name>
-		<object-name>turn.003</object-name>
-		<condition>	
-			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-		</condition>
-		<emission>
-		  <red>0.15</red>
-		  <green>0.15</green>
-		  <blue>0.15</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
-		</emission>
-	</animation>
-	
-	<animation>
-		<type>material</type>
-		<object-name>AZI.Face</object-name>
-		<object-name>AZI.Needle</object-name>
-		<object-name>ELEV.Face</object-name>
-		<object-name>ELEV.Needle</object-name>
-		<object-name>SIG.Face</object-name>
-		<object-name>SIG.Needle</object-name>
-		<object-name>TELE.Face</object-name>
-		<object-name>TELE.Needle</object-name>
-		<condition>
-			<property>/systems/electrical/outputs/cabin-dim</property>
-		</condition>
-		<emission>
-		  <red>0.7</red>
-		  <green>0.6</green>
-		  <blue>0.5</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
-		</emission>
-	</animation>
-	
-	<animation>
-		<type>noshadow</type>
-		<object-name>LampAmber</object-name>
-		<object-name>LampGreen</object-name>
-		<object-name>LampGreen.001</object-name>		
-		<object-name>LampAmberON</object-name>
-		<object-name>LampGreenON</object-name>
-		<object-name>LampGreenON.001</object-name>
-	</animation>
 
-	<animation>
-		<type>material</type>
-		<object-name>LampAmberON</object-name>
-		<emission>
-		  <red>   5.0 </red>
-		  <green> 0.0 </green>
-		  <blue>  0.0 </blue>
-		</emission>
-	</animation>
+    <path>tt_panel.ac</path>
 
-	<animation>
-		<type>material</type>
-		<object-name>LampGreenON</object-name>
-		<object-name>LampGreenON.001</object-name>
-		<emission>
-		  <red>   0 </red>
-		  <green> 1.0 </green>
-		  <blue>  0 </blue>
-		</emission>
-	</animation>
-	
-  <!-- Control lights -->
-  <animation>
-		<type>select</type>
-		<object-name>LampAmberON</object-name>
-		<condition>			
-			<greater-than>
-				<property>/b707/ess-bus</property>
-				<value>20</value>
-			</greater-than>
-		  <or>
-		  	<and>
-		  		<property>/tanker</property>
-		  		<not><property>/b707/refuelling/contact</property></not>
-		  		<not><property>/b707/refuelling/ready</property></not>
-		  	</and>
-		    <property>/controls/test/warn-knob</property>
-		  </or>
-		</condition>
-	</animation>
+    <animation>
+        <type>material</type>
+        <object-name>LampAmber</object-name>
+        <object-name>LampGreen</object-name>
+        <object-name>LampGreen.001</object-name>
+        <object-name>operatorPanel</object-name>
+        <object-name>support</object-name>
+        <object-name>sockle</object-name>
+        <object-name>sockle.001</object-name>
+        <object-name>sockle.002</object-name>
+        <object-name>SockleLever</object-name>
+        <object-name>bezel</object-name>
+        <object-name>switch</object-name>
+        <object-name>knob</object-name>
+        <object-name>leverDL</object-name>
+        <object-name>leverDR</object-name>
+        <object-name>leverL</object-name>
+        <object-name>leverR</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/rembrandt/enabled</property>
+            </not>
+        </condition>
+        <emission>
+            <red>0.3</red>
+            <green>0.3</green>
+            <blue>0.3</blue>
+            <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+        </emission>
+    </animation>
 
-  <animation>
-		<type>select</type>
-		<object-name>LampGreenON.001</object-name>
-		<condition>			
-			<greater-than>
-				<property>/b707/ess-bus</property>
-				<value>20</value>
-			</greater-than>
-		  <or>
-		  	<and>
-		  		<property>/tanker</property>
-		  		<property>/b707/refuelling/contact</property>
-		  	</and>
-		    <property>/controls/test/warn-knob</property>
-		  </or>
-		</condition>
-	</animation>
+    <animation>
+        <type>material</type>
+        <object-name>turn</object-name>
+        <object-name>turn.001</object-name>
+        <object-name>turn.002</object-name>
+        <object-name>turn.003</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/rembrandt/enabled</property>
+            </not>
+        </condition>
+        <emission>
+            <red>0.15</red>
+            <green>0.15</green>
+            <blue>0.15</blue>
+            <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+        </emission>
+    </animation>
 
-  <animation>
-		<type>select</type>
-		<object-name>LampGreenON</object-name>
-		<condition>			
-			<greater-than>
-				<property>/b707/ess-bus</property>
-				<value>20</value>
-			</greater-than>
-		  <or>
-		  	<and>
-		  		<property>/tanker</property>
-		  		<property>/b707/refuelling/ready</property>
-		  	</and>
-		    <property>/controls/test/warn-knob</property>
-		  </or>
-		</condition>
-	</animation>
-	
-  <!-- switch and knobs -->
-  <!-- Arial Refuel Master -->
-	<animation>
-		<type>rotate</type>
-		<object-name>switch</object-name>
-		<property>/tanker</property>
-		<factor>-60</factor>
-		<center>
-		  <x-m>0.0</x-m>
-		  <y-m>0.0</y-m>
-		  <z-m>0.0</z-m>
-		</center>
-		<axis>
-		  <x>0</x>
-		  <y>1</y>
-		  <z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>switch</object-name>
-		<object-name>sockle</object-name>
-		<visible>true</visible>
-		  <action>
-		    <name>tanker_on_off</name>
-		    <button>0</button>
-		    <repeatable>true</repeatable>
-        <binding>
-            <command>nasal</command>
-            <script>
-            	var t = getprop("/tanker") or 0;
-            	if(!t){
-            		setprop("/tanker", 1);
-            	}else{
-            		setprop("/tanker", 0);
-            	}
-          		<!-- fall back, if there is no essential power -->
-          		if(getprop("/b707/ess-bus") == nil or getprop("/b707/ess-bus") &lt; 20.0){
-		      			settimer(func{
-		      				setprop("/tanker", 0);
-								}, 0.5);
-							 	if(getprop("/sim/sound/switch2") == 1){
-									 setprop("/sim/sound/switch2", 0); 
-								}else{
-									 setprop("/sim/sound/switch2", 1);
-								}
-            	}
+    <animation>
+        <type>material</type>
+        <object-name>AZI.Face</object-name>
+        <object-name>AZI.Needle</object-name>
+        <object-name>ELEV.Face</object-name>
+        <object-name>ELEV.Needle</object-name>
+        <object-name>SIG.Face</object-name>
+        <object-name>SIG.Needle</object-name>
+        <object-name>TELE.Face</object-name>
+        <object-name>TELE.Needle</object-name>
+        <condition>
+            <property>/systems/electrical/outputs/cabin-dim</property>
+        </condition>
+        <emission>
+            <red>0.7</red>
+            <green>0.6</green>
+            <blue>0.5</blue>
+            <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>noshadow</type>
+        <object-name>LampAmber</object-name>
+        <object-name>LampGreen</object-name>
+        <object-name>LampGreen.001</object-name>
+        <object-name>LampAmberON</object-name>
+        <object-name>LampGreenON</object-name>
+        <object-name>LampGreenON.001</object-name>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>LampAmberON</object-name>
+        <emission>
+            <red>   5.0 </red>
+            <green> 0.0 </green>
+            <blue>  0.0 </blue>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>LampGreenON</object-name>
+        <object-name>LampGreenON.001</object-name>
+        <emission>
+            <red>   0 </red>
+            <green> 1.0 </green>
+            <blue>  0 </blue>
+        </emission>
+    </animation>
+
+    <!-- Control lights -->
+    <animation>
+        <type>select</type>
+        <object-name>LampAmberON</object-name>
+        <condition>
+            <greater-than>
+                <property>/b707/ess-bus</property>
+                <value>20</value>
+            </greater-than>
+            <or>
+                <and>
+                    <property>/tanker</property>
+                    <not>
+                        <property>/b707/refuelling/contact</property>
+                    </not>
+                    <not>
+                        <property>/b707/refuelling/ready</property>
+                    </not>
+                </and>
+                <property>/controls/test/warn-knob</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>LampGreenON.001</object-name>
+        <condition>
+            <greater-than>
+                <property>/b707/ess-bus</property>
+                <value>20</value>
+            </greater-than>
+            <or>
+                <and>
+                    <property>/tanker</property>
+                    <property>/b707/refuelling/contact</property>
+                </and>
+                <property>/controls/test/warn-knob</property>
+            </or>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>LampGreenON</object-name>
+        <condition>
+            <greater-than>
+                <property>/b707/ess-bus</property>
+                <value>20</value>
+            </greater-than>
+            <or>
+                <and>
+                    <property>/tanker</property>
+                    <property>/b707/refuelling/ready</property>
+                </and>
+                <property>/controls/test/warn-knob</property>
+            </or>
+        </condition>
+    </animation>
+
+    <!-- switch and knobs -->
+    <!-- Arial Refuel Master -->
+    <animation>
+        <type>rotate</type>
+        <object-name>switch</object-name>
+        <property>/tanker</property>
+        <factor>-60</factor>
+        <center>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>switch</object-name>
+        <object-name>sockle</object-name>
+        <visible>true</visible>
+        <action>
+            <name>tanker_on_off</name>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    var t = getprop("/tanker") or 0;
+                    setprop("/tanker", !t);
+
+                    <!-- fall back, if there is no essential power -->
+                    if (getprop("/b707/ess-bus") == nil or getprop("/b707/ess-bus") &lt; 20.0) {
+                        settimer(func {
+                            setprop("/tanker", 0);
+                        }, 0.5);
+                        setprop("/sim/sound/switch2", !getprop("/sim/sound/switch2")); 
+                    }
             </script>
-        </binding>
-        <binding>
-          <command>property-toggle</command>
-          <property>/sim/sound/switch2</property>
-        </binding>
-		  </action>
-	</animation>
-	
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch2</property>
+            </binding>
+        </action>
+
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>refuel-master</tooltip-id>
+                <label>Aerial refuel master: %s</label>
+                <mapping>on-off</mapping>
+                <property>/tanker</property>
+            </binding>
+        </hovered>
+    </animation>
+
     <!-- The warn knop -->
     <animation>
         <type>translate</type>
@@ -226,465 +240,333 @@
     </animation>
 
     <animation>
-      <type>pick</type>
-      <object-name>knob</object-name>
-      <visible>true</visible>
-      <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-          <binding>
-            <command>property-assign</command>
-            <property>/controls/test/warn-knob</property>  
-            <value>1.0</value>
-          </binding>
-        <mod-up>
-          <binding>
-            <command>property-assign</command>
-            <property>/controls/test/warn-knob</property>  
-            <value>0.0</value>
-          </binding>
-        </mod-up>
-      </action>
+        <type>pick</type>
+        <object-name>knob</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-assign</command>
+                <property>/controls/test/warn-knob</property>
+                <value>1.0</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/controls/test/warn-knob</property>
+                    <value>0.0</value>
+                </binding>
+            </mod-up>
+        </action>
     </animation>
-    
-  <!-- cabin dim --> 
-	<animation>
-		<type>rotate</type>
-		<object-name>turn</object-name>
-		<property>/controls/lighting/cabin-dim</property>
-		<factor>225</factor>
-		<axis>
-		 <x>-1</x>
-		 <y>0</y>
-		 <z>0</z>
-		</axis>
-		<center>
-		<x-m> 0.0</x-m>
-		<y-m>-0.08</y-m>
-		<z-m>-0.0458</z-m>
-		</center>  
-	</animation>
-     
-	<animation>
-		<type>pick</type>
-		<object-name>turn</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/lighting/cabin-dim</property>
-		    <step>0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>1</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/lighting/cabin-dim</property>
-		    <step>-0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>3</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/lighting/cabin-dim</property>
-		    <step>0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>4</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/controls/lighting/cabin-dim</property>
-		    <step>-0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-	</animation>
-	
-  <!-- wing-light-right dim --> 
-	<animation>
-		<type>rotate</type>
-		<object-name>turn.001</object-name>
-		<property>/b707/refuelling/wing-light-right</property>
-		<factor>225</factor>
-		<axis>
-		 <x>-1</x>
-		 <y>0</y>
-		 <z>0</z>
-		</axis>
-		<center>
-		<x-m> 0.0</x-m>
-		<y-m>-0.027</y-m>
-		<z-m>-0.0458</z-m>
-		</center>  
-	</animation>
-     
-	<animation>
-		<type>pick</type>
-		<object-name>turn.001</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-right</property>
-		    <step>0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>1</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-right</property>
-		    <step>-0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>3</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-right</property>
-		    <step>0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>4</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-right</property>
-		    <step>-0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-	</animation>
-	
-  <!-- wing-light-center dim --> 
-	<animation>
-		<type>rotate</type>
-		<object-name>turn.002</object-name>
-		<property>/b707/refuelling/wing-light-center</property>
-		<factor>225</factor>
-		<axis>
-		 <x>-1</x>
-		 <y>0</y>
-		 <z>0</z>
-		</axis>
-		<center>
-		<x-m> 0.0</x-m>
-		<y-m> 0.027</y-m>
-		<z-m>-0.0458</z-m>
-		</center>  
-	</animation>
-     
-	<animation>
-		<type>pick</type>
-		<object-name>turn.002</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-center</property>
-		    <step>0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>1</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-center</property>
-		    <step>-0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>3</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-center</property>
-		    <step>0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>4</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-center</property>
-		    <step>-0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-	</animation>
-	
-  <!-- wing-light-left dim --> 
-	<animation>
-		<type>rotate</type>
-		<object-name>turn.003</object-name>
-		<property>/b707/refuelling/wing-light-left</property>
-		<factor>225</factor>
-		<axis>
-		 <x>-1</x>
-		 <y>0</y>
-		 <z>0</z>
-		</axis>
-		<center>
-		<x-m> 0.0</x-m>
-		<y-m> 0.08</y-m>
-		<z-m>-0.0458</z-m>
-		</center>  
-	</animation>
-     
-	<animation>
-		<type>pick</type>
-		<object-name>turn.003</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-left</property>
-		    <step>0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>1</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-left</property>
-		    <step>-0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>3</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-left</property>
-		    <step>0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-		<action>
-		  <button>4</button>
-		  <repeatable>true</repeatable>
-		  <binding>
-		    <command>property-adjust</command>
-		    <property>/b707/refuelling/wing-light-left</property>
-		    <step>-0.1</step>
-		    <min>0</min>
-		    <max>1</max>
-		    <wrap>0</wrap>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
-		  </binding>
-		</action>
-	</animation>
-	
-  <!-- levers -->
-  <!-- right Probe and Drogue -->
-	<animation>
-		<type>rotate</type>
-		<object-name>leverDR</object-name>
-		<property>/b707/refuelling/probe-right-lever</property>
-		<factor>22</factor>
-		<center>
-		  <x-m>-0.07</x-m>
-		  <y-m> 0.0</y-m>
-		  <z-m> 0.02</z-m>
-		</center>
-		<axis>
-		  <x>0</x>
-		  <y>-1</y>
-		  <z>0</z>
-		</axis>
-	</animation>
 
-  <animation>
-		<type>pick</type>
-		<object-name>leverDR</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		   <command>nasal</command>
-		   <script>b707.toggleProbeRight();</script>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch1</property>
-		  </binding>
-		</action>
-  </animation>
-	
-  <!-- left Probe and Drogue -->
-	<animation>
-		<type>rotate</type>
-		<object-name>leverDL</object-name>
-		<property>/b707/refuelling/probe-left-lever</property>
-		<factor>22</factor>
-		<center>
-		  <x-m>-0.07</x-m>
-		  <y-m> 0.0</y-m>
-		  <z-m> 0.02</z-m>
-		</center>
-		<axis>
-		  <x>0</x>
-		  <y>-1</y>
-		  <z>0</z>
-		</axis>
-	</animation>
-	
-  <animation>
-		<type>pick</type>
-		<object-name>leverDL</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		   <command>nasal</command>
-		   <script>b707.toggleProbeLeft();</script>
-		  </binding>
-		  <binding>
-		    <command>property-toggle</command>
-		    <property>/sim/sound/switch1</property>
-		  </binding>
-		</action>
-  </animation>
-	
-	<animation>
-		<type>knob</type>
+    <!-- cabin dim -->
+    <animation>
+        <type>rotate</type>
+        <object-name>turn</object-name>
+        <property>/controls/lighting/cabin-dim</property>
+        <factor>225</factor>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <center>
+            <x-m> 0.0</x-m>
+            <y-m>-0.08</y-m>
+            <z-m>-0.0458</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>turn</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/lighting/cabin-dim</property>
+                <step>0.1</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch3</property>
+            </binding>
+        </action>
+        <action>
+            <button>1</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/lighting/cabin-dim</property>
+                <step>-0.1</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch3</property>
+            </binding>
+        </action>
+        <action>
+            <button>3</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/lighting/cabin-dim</property>
+                <step>0.1</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch3</property>
+            </binding>
+        </action>
+        <action>
+            <button>4</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/lighting/cabin-dim</property>
+                <step>-0.1</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch3</property>
+            </binding>
+        </action>
+    </animation>
+
+    <!-- wing-light-right dim -->
+    <animation>
+        <type>knob</type>
+        <drag-direction>horizontal</drag-direction>
+        <object-name>turn.001</object-name>
+        <property>/b707/refuelling/wing-light-right</property>
+        <factor>112.5</factor>
+        <axis>
+            <x>-1</x>
+        </axis>
+        <center>
+            <x-m> 0.0</x-m>
+            <y-m>-0.027</y-m>
+            <z-m>-0.0458</z-m>
+        </center>
+
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/b707/refuelling/wing-light-right</property>
+                <factor>0.1</factor>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch3</property>
+            </binding>
+        </action>
+
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>lights-pdl-af</tooltip-id>
+                <label>Brightness PDL Aft/Forward: %3d %%</label>
+                <measure-text>Brightness PDL Aft/Forward: 100 %</measure-text>
+                <mapping>percent</mapping>
+                <property>/b707/refuelling/wing-light-right</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- wing-light-center dim -->
+    <animation>
+        <type>knob</type>
+        <drag-direction>horizontal</drag-direction>
+        <object-name>turn.002</object-name>
+        <property>/b707/refuelling/wing-light-center</property>
+        <factor>112.5</factor>
+        <axis>
+            <x>-1</x>
+        </axis>
+        <center>
+            <x-m> 0.0</x-m>
+            <y-m> 0.027</y-m>
+            <z-m>-0.0458</z-m>
+        </center>
+
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/b707/refuelling/wing-light-center</property>
+                <factor>0.1</factor>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch3</property>
+            </binding>
+        </action>
+
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>lights-pdl-white</tooltip-id>
+                <label>Brightness PDL White: %3d %%</label>
+                <measure-text>Brightness PDL White: 100 %</measure-text>
+                <mapping>percent</mapping>
+                <property>/b707/refuelling/wing-light-center</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- wing-light-left dim -->
+    <animation>
+        <type>knob</type>
+        <drag-direction>horizontal</drag-direction>
+        <object-name>turn.003</object-name>
+        <property>/b707/refuelling/wing-light-left</property>
+        <factor>112.5</factor>
+        <axis>
+            <x>-1</x>
+        </axis>
+        <center>
+            <x-m> 0.0</x-m>
+            <y-m> 0.08</y-m>
+            <z-m>-0.0458</z-m>
+        </center>
+
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/b707/refuelling/wing-light-left</property>
+                <factor>0.1</factor>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch3</property>
+            </binding>
+        </action>
+
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>lights-pdl-ud</tooltip-id>
+                <label>Brightness PDL Up/Down: %3d %%</label>
+                <measure-text>Brightness PDL Up/Down: 100 %</measure-text>
+                <mapping>percent</mapping>
+                <property>/b707/refuelling/wing-light-left</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- levers -->
+    <!-- right Probe and Drogue -->
+    <animation>
+        <type>rotate</type>
+        <object-name>leverDR</object-name>
+        <property>/b707/refuelling/probe-right-lever</property>
+        <factor>22</factor>
+        <center>
+            <x-m>-0.07</x-m>
+            <y-m> 0.0</y-m>
+            <z-m> 0.02</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>leverDR</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                <command>nasal</command>
+                <script>b707.toggleProbeRight();</script>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch1</property>
+            </binding>
+        </action>
+    </animation>
+
+    <!-- left Probe and Drogue -->
+    <animation>
+        <type>rotate</type>
+        <object-name>leverDL</object-name>
+        <property>/b707/refuelling/probe-left-lever</property>
+        <factor>22</factor>
+        <center>
+            <x-m>-0.07</x-m>
+            <y-m> 0.0</y-m>
+            <z-m> 0.02</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>leverDL</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                <command>nasal</command>
+                <script>b707.toggleProbeLeft();</script>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch1</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>knob</type>
         <drag-direction>vertical</drag-direction>
         <drag-scale-px>-10.0</drag-scale-px>
-		<object-name>leverL</object-name>
-		<property>/refueling/boom/commands/telescope-rate</property>
-		<factor>1</factor>
-		<center>
-		  <x-m>-0.0003</x-m>
-		  <y-m>-0.1506</y-m>
-		  <z-m>-0.0109</z-m>
-		</center>
-		<axis>
-		  <x>0</x>
-		  <y>-1</y>
-		  <z>0</z>
-		</axis>
+        <object-name>leverL</object-name>
+        <property>/refueling/boom/commands/telescope-rate</property>
+        <factor>1</factor>
+        <center>
+            <x-m>-0.0003</x-m>
+            <y-m>-0.1506</y-m>
+            <z-m>-0.0109</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
         <action>
             <binding>
                 <command>property-adjust</command>
@@ -695,45 +577,45 @@
                 <wrap>false</wrap>
             </binding>
         </action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>leverR</object-name>
-		<property>/refueling/boom/commands/heading-deg</property>
-		<factor>-0.2</factor>
-		<center>
-		  <x-m> 0.0003</x-m>
-		  <y-m> 0.1549</y-m>
-		  <z-m>-0.0109</z-m>
-		</center>
-		<axis>
-		  <x>1</x>
-		  <y>0</y>
-		  <z>0</z>
-		</axis>
-	</animation>
+    </animation>
 
     <animation>
-		<type>rotate</type>
-		<object-name>leverR</object-name>
-		<property>/refueling/boom/commands/pitch-deg</property>
-		<factor>0.2</factor>
-		<center>
-		  <x-m> 0.0003</x-m>
-		  <y-m> 0.1549</y-m>
-		  <z-m>-0.0109</z-m>
-		</center>
-		<axis>
-		  <x>0</x>
-		  <y>1</y>
-		  <z>0</z>
-		</axis>
-	</animation>
+        <type>rotate</type>
+        <object-name>leverR</object-name>
+        <property>/refueling/boom/commands/heading-deg</property>
+        <factor>-0.2</factor>
+        <center>
+            <x-m> 0.0003</x-m>
+            <y-m> 0.1549</y-m>
+            <z-m>-0.0109</z-m>
+        </center>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
 
     <animation>
-		<type>pick</type>
-		<object-name>leverR</object-name>
+        <type>rotate</type>
+        <object-name>leverR</object-name>
+        <property>/refueling/boom/commands/pitch-deg</property>
+        <factor>0.2</factor>
+        <center>
+            <x-m> 0.0003</x-m>
+            <y-m> 0.1549</y-m>
+            <z-m>-0.0109</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>leverR</object-name>
         <action>
             <button>0</button>
             <repeatable>false</repeatable>
@@ -750,71 +632,92 @@
                 <script>b707.tracking_updater.disconnect_fast()</script>
             </binding>
         </action>
-	</animation>
+    </animation>
 
     <!-- The instruments -->
-	<animation>
-		<type>rotate</type>
-		<object-name>AZI.Needle</object-name>
-		<property>/engines/engine[9]/n1</property>
-		<min>-30.0</min>
-		<max>30.0</max>
-		<scale>1.0</scale>
-		<interpolation>
-		  <entry><ind>-30</ind><dep>-90</dep></entry>
-		  <entry><ind>  0</ind><dep>  0</dep></entry>
-		  <entry><ind> 30</ind><dep> 90</dep></entry>
-		</interpolation>
-		<center>
-			<x-m> 0.0</x-m>
-			<y-m>-0.0833</y-m>
-			<z-m> 0.0387</z-m>
-		</center>
-		<axis>
-		  <x>-1</x>
-		  <y>0</y>
-		  <z>0</z>
-		</axis>
-	</animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>AZI.Needle</object-name>
+        <property>/engines/engine[9]/n1</property>
+        <min>-30.0</min>
+        <max>30.0</max>
+        <scale>1.0</scale>
+        <interpolation>
+            <entry>
+                <ind>-30</ind>
+                <dep>-90</dep>
+            </entry>
+            <entry>
+                <ind>  0</ind>
+                <dep>  0</dep>
+            </entry>
+            <entry>
+                <ind> 30</ind>
+                <dep> 90</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m> 0.0</x-m>
+            <y-m>-0.0833</y-m>
+            <z-m> 0.0387</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
 
-	<animation>
-		<type>rotate</type>
-		<object-name>TELE.Needle</object-name>
-		<property>/engines/engine[9]/rpm</property>
-		<interpolation>
-		  <entry><ind> 8.100</ind><dep>-90</dep></entry>
-		  <entry><ind>14.196</ind><dep> 90</dep></entry>
-		</interpolation>
-		<center>
-			<x-m> 0.0</x-m>
-			<y-m>-0.0331</y-m>
-			<z-m> 0.0387</z-m>
-		</center>
-		<axis>
-		  <x>-1</x>
-		  <y>0</y>
-		  <z>0</z>
-		</axis>
-	</animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>TELE.Needle</object-name>
+        <property>/engines/engine[9]/rpm</property>
+        <interpolation>
+            <entry>
+                <ind> 8.100</ind>
+                <dep>-90</dep>
+            </entry>
+            <entry>
+                <ind>14.196</ind>
+                <dep> 90</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m> 0.0</x-m>
+            <y-m>-0.0331</y-m>
+            <z-m> 0.0387</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
 
-	<animation>
-		<type>rotate</type>
-		<object-name>ELEV.Needle</object-name>
-		<property>/engines/engine[9]/n2</property>
-		<interpolation>
-		  <entry><ind>-12.5</ind><dep> 20</dep></entry>
-		  <entry><ind> 50.0</ind><dep>145</dep></entry>
-		</interpolation>
-		<center>
-			<x-m> 0.0</x-m>
-			<y-m> 0.0179</y-m>
-			<z-m> 0.0387</z-m>
-		</center>
-		<axis>
-		  <x>-1</x>
-		  <y>0</y>
-		  <z>0</z>
-		</axis>
-	</animation>
-	
+    <animation>
+        <type>rotate</type>
+        <object-name>ELEV.Needle</object-name>
+        <property>/engines/engine[9]/n2</property>
+        <interpolation>
+            <entry>
+                <ind>-12.5</ind>
+                <dep> 20</dep>
+            </entry>
+            <entry>
+                <ind> 50.0</ind>
+                <dep>145</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m> 0.0</x-m>
+            <y-m> 0.0179</y-m>
+            <z-m> 0.0387</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
 </PropertyList>

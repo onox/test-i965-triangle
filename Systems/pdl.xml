@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Copyright (c) 2017 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<system name="pdl">
+
+    <channel name="electrical-power">
+
+        <switch name="master">
+            <output>/aircraft/lighting/power-norm</output>
+            <default value="0.0"/>
+
+            <test logic="AND" value="1.0">
+                /b707/ess-bus GT 20.0
+                /tanker EQ 1
+            </test>
+        </switch>
+
+        <pure_gain name="center">
+            <input>/b707/refuelling/wing-light-center</input>
+            <gain>/aircraft/lighting/power-norm</gain>
+            <output>/aircraft/lighting/pdl-white</output>
+        </pure_gain>
+
+        <pure_gain name="right">
+            <input>/b707/refuelling/wing-light-right</input>
+            <gain>/aircraft/lighting/power-norm</gain>
+            <output>/aircraft/lighting/pdl-right</output>
+        </pure_gain>
+
+        <pure_gain name="left">
+            <input>/b707/refuelling/wing-light-left</input>
+            <gain>/aircraft/lighting/power-norm</gain>
+            <output>/aircraft/lighting/pdl-left</output>
+        </pure_gain>
+    </channel>
+
+    <channel name="aft-forward">
+
+        <switch name="right-1">
+            <output>/aircraft/lighting/pdl-af-1</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-right">
+                /refueling/pdl/aft-forward-state EQ 1
+                /refueling/pdl/aft-forward-state EQ 2
+            </test>
+        </switch>
+
+        <switch name="right-2">
+            <output>/aircraft/lighting/pdl-af-2</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="//aircraft/lighting/pdl-right">
+                /refueling/pdl/aft-forward-state EQ 2
+                /refueling/pdl/aft-forward-state EQ 3
+                /refueling/pdl/aft-forward-state EQ 4
+            </test>
+        </switch>
+
+        <switch name="right-3">
+            <output>/aircraft/lighting/pdl-af-3</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-right">
+                /refueling/pdl/aft-forward-state EQ 4
+                /refueling/pdl/aft-forward-state EQ 5
+                /refueling/pdl/aft-forward-state EQ 6
+            </test>
+        </switch>
+
+        <switch name="right-4">
+            <output>/aircraft/lighting/pdl-af-4</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-right">
+                /refueling/pdl/aft-forward-state EQ 6
+                /refueling/pdl/aft-forward-state EQ 7
+                /refueling/pdl/aft-forward-state EQ 8
+            </test>
+        </switch>
+
+
+        <switch name="right-5">
+            <output>/aircraft/lighting/pdl-af-5</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-right">
+                /refueling/pdl/aft-forward-state EQ 8
+                /refueling/pdl/aft-forward-state EQ 9
+            </test>
+        </switch>
+
+    </channel>
+
+    <channel name="up-down">
+
+        <switch name="right-1">
+            <output>/aircraft/lighting/pdl-ud-1</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-left">
+                /refueling/pdl/up-down-state EQ 1
+                /refueling/pdl/up-down-state EQ 2
+            </test>
+        </switch>
+
+        <switch name="right-2">
+            <output>/aircraft/lighting/pdl-ud-2</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-left">
+                /refueling/pdl/up-down-state EQ 2
+                /refueling/pdl/up-down-state EQ 3
+                /refueling/pdl/up-down-state EQ 4
+            </test>
+        </switch>
+
+        <switch name="right-3">
+            <output>/aircraft/lighting/pdl-ud-3</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-left">
+                /refueling/pdl/up-down-state EQ 4
+                /refueling/pdl/up-down-state EQ 5
+                /refueling/pdl/up-down-state EQ 6
+            </test>
+        </switch>
+
+        <switch name="right-4">
+            <output>/aircraft/lighting/pdl-ud-4</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-left">
+                /refueling/pdl/up-down-state EQ 6
+                /refueling/pdl/up-down-state EQ 7
+                /refueling/pdl/up-down-state EQ 8
+            </test>
+        </switch>
+
+        <switch name="right-5">
+            <output>/aircraft/lighting/pdl-ud-5</output>
+            <default value="0.0"/>
+
+            <test logic="OR" value="/aircraft/lighting/pdl-left">
+                /refueling/pdl/up-down-state EQ 8
+                /refueling/pdl/up-down-state EQ 9
+            </test>
+        </switch>
+
+    </channel>
+
+</system>

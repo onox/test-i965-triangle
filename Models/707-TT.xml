@@ -93,16 +93,70 @@
 		</refuel>
 	</multiplay>
 
-    <params>
-        <pdl>
-            <aft-forward-state>sim/multiplay/generic/int[10]</aft-forward-state>
-            <up-down-state>sim/multiplay/generic/int[11]</up-down-state>
-        </pdl>
-    </params>
-
     <nasal>
         <load>
             var livery_update = aircraft.livery_update.new("Aircraft/707/Models/LiveriesTT", 10);
+
+            var rplayer = cmdarg();
+
+            var pdl_af_state = rplayer.getNode("sim/multiplay/generic/int[10]").getPath();
+            var pdl_ud_state = rplayer.getNode("sim/multiplay/generic/int[11]").getPath();
+
+            var pdl_af1   = rplayer.initNode("aircraft/lighting/pdl-af-1", 0.0, "DOUBLE");
+            var pdl_af2   = rplayer.initNode("aircraft/lighting/pdl-af-2", 0.0, "DOUBLE");
+            var pdl_af3   = rplayer.initNode("aircraft/lighting/pdl-af-3", 0.0, "DOUBLE");
+            var pdl_af4   = rplayer.initNode("aircraft/lighting/pdl-af-4", 0.0, "DOUBLE");
+            var pdl_af5   = rplayer.initNode("aircraft/lighting/pdl-af-5", 0.0, "DOUBLE");
+
+            var pdl_ud1   = rplayer.initNode("aircraft/lighting/pdl-ud-1", 0.0, "DOUBLE");
+            var pdl_ud2   = rplayer.initNode("aircraft/lighting/pdl-ud-2", 0.0, "DOUBLE");
+            var pdl_ud3   = rplayer.initNode("aircraft/lighting/pdl-ud-3", 0.0, "DOUBLE");
+            var pdl_ud4   = rplayer.initNode("aircraft/lighting/pdl-ud-4", 0.0, "DOUBLE");
+            var pdl_ud5   = rplayer.initNode("aircraft/lighting/pdl-ud-5", 0.0, "DOUBLE");
+
+            var pdl_white = rplayer.initNode("aircraft/lighting/pdl-white", 0.0, "DOUBLE");
+
+            var pdl_light_center = rplayer.getNode("sim/multiplay/generic/float[16]");
+            var pdl_light_right = rplayer.getNode("sim/multiplay/generic/float[18]");
+            var pdl_light_left = rplayer.getNode("sim/multiplay/generic/float[19]");
+
+            setlistener(pdl_af_state, func (node) {
+                var state = node.getValue();
+                var state1 = state == 1 or state == 2;
+                var state2 = state == 2 or state == 3 or state == 4;
+                var state3 = state == 4 or state == 5 or state == 6;
+                var state4 = state == 6 or state == 7 or state == 8;
+                var state5 = state == 8 or state == 9;
+
+                var brightness = pdl_light_right.getValue();
+
+                pdl_af1.setValue(state1 * brightness);
+                pdl_af2.setValue(state2 * brightness);
+                pdl_af3.setValue(state3 * brightness);
+                pdl_af4.setValue(state4 * brightness);
+                pdl_af5.setValue(state5 * brightness);
+
+                pdl_white.setValue(pdl_light_center.getValue());
+            });
+
+            setlistener(pdl_ud_state, func (node) {
+                var state = node.getValue();
+                var state1 = state == 1 or state == 2;
+                var state2 = state == 2 or state == 3 or state == 4;
+                var state3 = state == 4 or state == 5 or state == 6;
+                var state4 = state == 6 or state == 7 or state == 8;
+                var state5 = state == 8 or state == 9;
+
+                var brightness = pdl_light_left.getValue();
+
+                pdl_ud1.setValue(state1 * brightness);
+                pdl_ud2.setValue(state2 * brightness);
+                pdl_ud3.setValue(state3 * brightness);
+                pdl_ud4.setValue(state4 * brightness);
+                pdl_ud5.setValue(state5 * brightness);
+
+                pdl_white.setValue(pdl_light_center.getValue());
+            });
         </load>
 
         <unload>
@@ -271,7 +325,7 @@
       	<property>sim/multiplay/generic/float[6]</property>
       	<property>sim/multiplay/generic/float[7]</property>
       	<property>sim/multiplay/generic/float[15]</property>
-      	<property>sim/multiplay/generic/float[16]</property>
+      	<!--<property>sim/multiplay/generic/float[16]</property>-->
       	<property>sim/multiplay/generic/int[19]</property>
       </or>
 		</condition>
@@ -475,19 +529,10 @@
         <path>boom.xml</path>
     </model>
 
-  <animation>
-		<type>pick</type>
-		<object-name>refuelPivot</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		   <command>nasal</command>
-		   <script>b707.doorsystem.refuelexport();</script>
-		  </binding>
-		</action>
-  </animation>	
+    <model>
+        <name>pdl</name>
+        <path>pdl.xml</path>
+    </model>
 
     <!-- Temporarily hide refuelProbeRight in old .ac file for testing -->
     <animation>
@@ -628,20 +673,6 @@
       </axis>
   </animation>
 
-  <animation>
-		<type>pick</type>
-		<object-name>doorRL</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		   <command>nasal</command>
-		   <script>b707.doorsystem.pasrearexport();</script>
-		  </binding>
-		</action>
-  </animation>	
-  
 	<animation>
       <type>rotate</type>
       <object-name>doorCargo</object-name>
@@ -677,40 +708,6 @@
 		</action>
   </animation>
   
-	<animation>
-      <type>rotate</type>
-      <object-name>doorBelly</object-name>
-      <property>sim/multiplay/generic/float[16]</property>
-			<interpolation>
-				<entry><ind>    0.0</ind><dep>  0.0</dep></entry>
-				<entry><ind>    1.0</ind><dep> 60.0</dep></entry>
-			</interpolation>
-      <center>
-          <x-m> 0.0</x-m>
-          <y-m> 1.688</y-m>
-          <z-m> -0.0025</z-m>
-      </center>
-      <axis>
-          <x>-1</x>
-          <y> 0</y>
-          <z> 0</z>
-      </axis>
-  </animation>
-
-  <animation>
-		<type>pick</type>		
-		<object-name>doorBelly</object-name>
-		<action>
-		  <button>0</button>
-		  <repeatable>true</repeatable>
-		  <interval-sec>0.2</interval-sec>
-		  <binding>
-		   <command>nasal</command>
-		   <script>b707.doorsystem.bellyexport();</script>
-		  </binding>
-		</action>
-  </animation>	
-    
 <!-- Emergency slide-->
 	<model>
 		<name>EmergencySlide</name>
@@ -2730,313 +2727,5 @@
         <name>shared-models</name>
         <path>Aircraft/707/Models/shared.xml</path>
     </model>
-
-    <!-- =============================================================== -->
-    <!-- ALS Pilot Director Lights                                       -->
-    <!-- =============================================================== -->
-
-    <model>
-        <name>pdl-af-red-1</name>
-        <path>Effects/lights/pdl_red.xml</path>
-        <offsets>
-            <x-m>-12.3518</x-m>
-            <y-m> 0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-af-green-2</name>
-        <path>Effects/lights/pdl_green.xml</path>
-        <offsets>
-            <x-m>-11.3518</x-m>
-            <y-m> 0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-af-green-3</name>
-        <path>Effects/lights/pdl_green.xml</path>
-        <offsets>
-            <x-m>-10.3518</x-m>
-            <y-m> 0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-af-green-4</name>
-        <path>Effects/lights/pdl_green.xml</path>
-        <offsets>
-            <x-m>-9.3518</x-m>
-            <y-m> 0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-af-red-5</name>
-        <path>Effects/lights/pdl_red.xml</path>
-        <offsets>
-            <x-m>-8.3518</x-m>
-            <y-m> 0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-ud-red-1</name>
-        <path>Effects/lights/pdl_red.xml</path>
-        <offsets>
-            <x-m>-12.3518</x-m>
-            <y-m>-0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-ud-green-2</name>
-        <path>Effects/lights/pdl_green.xml</path>
-        <offsets>
-            <x-m>-11.3518</x-m>
-            <y-m>-0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-ud-green-3</name>
-        <path>Effects/lights/pdl_green.xml</path>
-        <offsets>
-            <x-m>-10.3518</x-m>
-            <y-m>-0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-ud-green-4</name>
-        <path>Effects/lights/pdl_green.xml</path>
-        <offsets>
-            <x-m>-9.3518</x-m>
-            <y-m>-0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name>pdl-ud-red-5</name>
-        <path>Effects/lights/pdl_red.xml</path>
-        <offsets>
-            <x-m>-8.3518</x-m>
-            <y-m>-0.6000</y-m>
-            <z-m>-1.6500</z-m>
-        </offsets>
-    </model>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-af-red-1</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>1</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>2</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-af-green-2</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>2</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>3</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>4</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-af-green-3</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>4</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>5</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>6</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-af-green-4</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>6</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>7</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>8</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-af-red-5</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>8</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/aft-forward-state"/>
-                    <value>9</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-ud-red-1</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>1</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>2</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-ud-green-2</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>2</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>3</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>4</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-ud-green-3</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>4</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>5</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>6</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-ud-green-4</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>6</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>7</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>8</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>pdl-ud-red-5</object-name>
-        <nopreview/>
-        <condition>
-            <or>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>8</value>
-                </equals>
-                <equals>
-                    <property alias="/params/pdl/up-down-state"/>
-                    <value>9</value>
-                </equals>
-            </or>
-        </condition>
-    </animation>
 
 </PropertyList>

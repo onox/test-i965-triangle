@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Copyright (c) 2017 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <path>pdl.ac</path>
+
+    <offsets>
+        <x-m>0.9</x-m>
+    </offsets>
+
+    <effect>
+        <inherits-from>Effects/exterior-reflection</inherits-from>
+        <object-name>pdl</object-name>
+    </effect>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-white</object-name>
+        <ambient>
+            <red>0.5</red>
+            <green>0.5</green>
+            <blue>0.5</blue>
+        </ambient>
+        <emission>
+            <red>1.0</red>
+            <green>1.0</green>
+            <blue>1.0</blue>
+            <factor-prop>aircraft/lighting/pdl-white</factor-prop>
+        </emission>
+    </animation>
+
+    <!-- =============================================================== -->
+    <!-- Pilot Director Lights - Right Row - Aft Forward                 -->
+    <!-- =============================================================== -->
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-af-1</object-name>
+        <ambient>
+            <red>0.5</red>
+        </ambient>
+        <emission>
+            <red>1.0</red>
+            <factor-prop>aircraft/lighting/pdl-af-1</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-af-2</object-name>
+        <ambient>
+            <green>0.5</green>
+        </ambient>
+        <emission>
+            <green>1.0</green>
+            <factor-prop>aircraft/lighting/pdl-af-2</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-af-3</object-name>
+        <ambient>
+            <green>0.5</green>
+        </ambient>
+        <emission>
+            <green>1.0</green>
+            <factor-prop>aircraft/lighting/pdl-af-3</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-af-4</object-name>
+        <ambient>
+            <green>0.5</green>
+        </ambient>
+        <emission>
+            <green>1.0</green>
+            <factor-prop>aircraft/lighting/pdl-af-4</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-af-5</object-name>
+        <ambient>
+            <red>0.5</red>
+        </ambient>
+        <emission>
+            <red>1.0</red>
+            <factor-prop>aircraft/lighting/pdl-af-5</factor-prop>
+        </emission>
+    </animation>
+
+    <!-- =============================================================== -->
+    <!-- Pilot Director Lights - Left Row - Up Down                      -->
+    <!-- =============================================================== -->
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-ud-1</object-name>
+        <ambient>
+            <red>0.5</red>
+        </ambient>
+        <emission>
+            <red>1.0</red>
+            <factor-prop>aircraft/lighting/pdl-ud-1</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-ud-2</object-name>
+        <ambient>
+            <green>0.5</green>
+        </ambient>
+        <emission>
+            <green>1.0</green>
+            <factor-prop>aircraft/lighting/pdl-ud-2</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-ud-3</object-name>
+        <ambient>
+            <green>0.5</green>
+        </ambient>
+        <emission>
+            <green>1.0</green>
+            <factor-prop>aircraft/lighting/pdl-ud-3</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-ud-4</object-name>
+        <ambient>
+            <green>0.5</green>
+        </ambient>
+        <emission>
+            <green>1.0</green>
+            <factor-prop>aircraft/lighting/pdl-ud-4</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>pdl-ud-5</object-name>
+        <ambient>
+            <red>0.5</red>
+        </ambient>
+        <emission>
+            <red>1.0</red>
+            <factor-prop>aircraft/lighting/pdl-ud-5</factor-prop>
+        </emission>
+    </animation>
+
+</PropertyList>

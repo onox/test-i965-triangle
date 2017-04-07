@@ -69,7 +69,7 @@
 
     <!-- Autopilot controller -->
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/ap/autopilot.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/ap/autopilot.xml</path>
         <name>ap_controller</name>
         <offsets>
             <x-m>-18.48</x-m>

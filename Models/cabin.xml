@@ -36,12 +36,12 @@
 	
 	<model> 
 		<name>theSeats</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/seats/seatspass.xml</path>
+		<path>Aircraft/onox-tanker/Models/Cockpit/Equipment/seats/seatspass.xml</path>
 	</model>
 
 	
 	 <model>
-		<path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+		<path>Aircraft/onox-tanker/Models/Lights/lightcone-small.xml</path>
 		<name>light_cabin</name>
 		<offsets>   
 		  <x-m> 8.86</x-m>

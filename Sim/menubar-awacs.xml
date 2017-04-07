@@ -72,7 +72,7 @@
                 <binding>
                     <command>nasal</command>
                     <script>
-                        var fuel = gui.Dialog.new("sim/gui/dialogs/fuel/dialog", "Aircraft/707/Systems/fuel-truck.xml");
+                        var fuel = gui.Dialog.new("sim/gui/dialogs/fuel/dialog", "Aircraft/onox-tanker/Systems/fuel-truck.xml");
                         fuel.open();
                     </script>
                 </binding>

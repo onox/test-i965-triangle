@@ -1,4 +1,4 @@
-io.include("Aircraft/ExpansionPack/Nasal/init.nas");
+io.include("Aircraft/onox-tanker/ExpansionPack/Nasal/init.nas");
 
 with("logger");
 
@@ -92,7 +92,7 @@ var togglereverser = func {
 }
 
 setlistener("/controls/engines/engine[0]/throttle", func (n) {
-    if (n.getValue() == 0.0 !getprop("/autopilot/Bendix-PB-20/controls/active")) {
+    if (n.getValue() == 0.0 and !getprop("/autopilot/Bendix-PB-20/controls/active")) {
         logger.screen.white("Throttle idle");
     }
 }, 0, 0);

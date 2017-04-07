@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Copyright (c) 2016 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <!-- ================================================================== -->
+    <!-- Physical Movement of Hose and Drogue                               -->
+    <!-- ================================================================== -->
+
+    <filter>
+        <name>Hose Length</name>
+        <type>noise-spike</type>
+
+        <input>
+            <condition>
+                <and>
+                    <property alias="/params/inputs/enabled"/>
+                    <property alias="/params/inputs/active"/>
+                </and>
+            </condition>
+            <property alias="/params/inputs/length"/>
+        </input>
+        <input>
+            <condition>
+                <property alias="/params/inputs/enabled"/>
+            </condition>
+            <property alias="/params/inputs/default-length"/>
+        </input>
+        <input>
+            <value>0.0</value>
+        </input>
+        <output>
+            <property alias="/params/outputs/length"/>
+        </output>
+
+        <max>
+            <property alias="/params/inputs/max-length"/>
+        </max>
+
+        <max-rate-of-change>
+            <condition>
+                <property alias="/params/inputs/active"/>
+            </condition>
+            <property>/refueling/drogues/limits/active-length-rate</property>
+            <abs type="bool">true</abs>
+        </max-rate-of-change>
+        <max-rate-of-change>
+            <property>/refueling/drogues/limits/length-rate</property>
+            <abs type="bool">true</abs>
+        </max-rate-of-change>
+    </filter>
+
+    <filter>
+        <name>Hose And Drogue Movement Factor Length</name>
+        <type>gain</type>
+
+        <input>
+            <expression>
+                <table>
+                    <property alias="/params/outputs/length"/>
+                    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+                    <entry><ind>5.0</ind><dep>0.5</dep></entry>
+                    <entry><ind>10.0</ind><dep>1.0</dep></entry>
+                </table>
+            </expression>
+        </input>
+        <output>
+            <property alias="/params/internal/length-factor"/>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Hose Yaw Side Slip</name>
+        <type>gain</type>
+
+        <input>
+            <condition>
+                <property alias="/params/inputs/active"/>
+            </condition>
+            <property alias="/params/inputs/yaw"/>
+        </input>
+        <input>
+            <expression>
+                <product>
+                    <property>/orientation/side-slip-deg</property>
+                    <property alias="/params/internal/length-factor"/>
+                    <value>1.0</value>
+                </product>
+            </expression>
+        </input>
+        <output>
+            <property alias="/params/outputs/yaw"/>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Drogue Yaw Side Slip</name>
+        <type>gain</type>
+
+        <input>
+            <condition>
+                <property alias="/params/inputs/active"/>
+            </condition>
+            <property alias="/params/inputs/drogue-yaw"/>
+        </input>
+        <input>
+            <expression>
+                <product>
+                    <property>/orientation/side-slip-deg</property>
+                    <property alias="/params/internal/length-factor"/>
+                    <value>1.5</value>
+                </product>
+            </expression>
+        </input>
+        <output>
+            <property alias="/params/outputs/drogue-yaw"/>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Hose Pitch AoA</name>
+        <type>gain</type>
+
+        <input>
+            <condition>
+                <property alias="/params/inputs/active"/>
+            </condition>
+            <property alias="/params/inputs/pitch"/>
+        </input>
+        <input>
+            <expression>
+                <product>
+                    <property>/orientation/alpha-deg</property>
+                    <property alias="/params/internal/length-factor"/>
+                    <value>-1.0</value>
+                </product>
+            </expression>
+        </input>
+        <output>
+            <property alias="/params/outputs/pitch"/>
+        </output>
+    </filter>
+
+    <filter>
+        <name>Drogue Pitch AoA</name>
+        <type>gain</type>
+
+        <input>
+            <condition>
+                <property alias="/params/inputs/active"/>
+            </condition>
+            <property alias="/params/inputs/drogue-pitch"/>
+        </input>
+        <input>
+            <expression>
+                <product>
+                    <property>/orientation/alpha-deg</property>
+                    <property alias="/params/internal/length-factor"/>
+                    <value>-2.0</value>
+                </product>
+            </expression>
+        </input>
+        <output>
+            <property alias="/params/outputs/drogue-pitch"/>
+        </output>
+    </filter>
+
+</PropertyList>

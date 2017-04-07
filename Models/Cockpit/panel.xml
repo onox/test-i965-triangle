@@ -20,7 +20,7 @@
 
     <model>
         <name>testwarn</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/testwarn/testwarn.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/testwarn/testwarn.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.62</y-m>
@@ -29,7 +29,7 @@
     </model>
     <model>
         <name>refuel_Lamp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/refuel_lamp_pilot.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/refuel_lamp_pilot.xml</path>
         <condition>
             <equals>
                 <property>sim/aircraft</property>
@@ -44,7 +44,7 @@
     </model>
     <model>
         <name>asi</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/asi/asi.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/asi/asi.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.523</y-m>
@@ -53,7 +53,7 @@
     </model>
     <model>
         <name>ai</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/ai/ai.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/ai/ai.xml</path>
         <offsets>
             <x-m>-18.967</x-m>
             <y-m>-0.428</y-m>
@@ -62,7 +62,7 @@
     </model>
     <model>
         <name>agl</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/agl/agl.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/agl/agl.xml</path>
         <offsets>
             <x-m>-18.967</x-m>
             <y-m>-0.343</y-m>
@@ -71,7 +71,7 @@
     </model>
     <model>
         <name>agl-switch</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/agl/agl-switch.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/agl/agl-switch.xml</path>
         <offsets>
             <x-m>-18.967</x-m>
             <y-m>-0.343</y-m>
@@ -80,7 +80,7 @@
     </model>
     <model>
         <name>alt</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/alt/alt.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/alt/alt.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>-0.271</y-m>
@@ -89,7 +89,7 @@
     </model>
     <model>
         <name>marker_beacon</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
         <offsets>
             <x-m>-18.921</x-m>
             <y-m>-0.21</y-m>
@@ -98,7 +98,7 @@
     </model>
     <model>
         <name>pneumatic_brake</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/pneubrake/pneubrake.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/pneubrake/pneubrake.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0</y-m>
@@ -107,7 +107,7 @@
     </model>
     <model>
         <name>rmi</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/rmi/rmi.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.523</y-m>
@@ -116,7 +116,7 @@
     </model>
     <model>
         <name>hsi</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/hsi/hsi.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/hsi/hsi.xml</path>
         <offsets>
             <x-m>-18.967</x-m>
             <y-m>-0.426</y-m>
@@ -125,7 +125,7 @@
     </model>
     <model>
         <name>vsi</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/vs/vsi.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/vs/vsi.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>-0.33</y-m>
@@ -134,7 +134,7 @@
     </model>
     <model>
         <name>clock</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/clock/clock.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/clock/clock.xml</path>
         <condition>
             <and>
                 <equals>
@@ -169,7 +169,7 @@
     </model>
     <model>
         <name>tancan_dme</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/tacan/dme/dme.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/tacan/dme/dme.xml</path>
         <condition>
             <or>
                 <equals>
@@ -202,7 +202,7 @@
     </model>
     <model>
         <name>tancan_rmi</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/tacan/ci/ci.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/tacan/ci/ci.xml</path>
         <condition>
             <or>
                 <equals>
@@ -235,7 +235,7 @@
     </model>
     <model>
         <name>speed-limit-lamps</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/speed-limit.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/speed-limit.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>-0.6</y-m>
@@ -244,7 +244,7 @@
     </model>
     <model>
         <name>mach</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/mach/mach.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/mach/mach.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>-0.6</y-m>
@@ -253,7 +253,7 @@
     </model>
     <model>
         <name>turn</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/turn/turn.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/turn/turn.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>-0.523</y-m>
@@ -262,7 +262,7 @@
     </model>
     <model>
         <name>dme</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/dme/dme.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/dme/dme.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>-0.33</y-m>
@@ -271,7 +271,7 @@
     </model>
     <model>
         <name>trim</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/trim/trim.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/trim/trim.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>-0.25</y-m>
@@ -284,7 +284,7 @@
     <!-- Center panel -->
     <model>
         <name>reverser_warning_lights</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/reverser.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/reverser.xml</path>
         <offsets>
             <x-m>-18.92</x-m>
             <y-m> 0.0</y-m>
@@ -293,7 +293,7 @@
     </model>
     <model>
         <name>ALT-Setting</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/alt-set/alt-set.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/alt-set/alt-set.xml</path>
         <offsets>
             <x-m>-18.92</x-m>
             <y-m>-0.141</y-m>
@@ -302,7 +302,7 @@
     </model>
     <model>
         <name>lamp-mach-trim</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/machtrim.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/machtrim.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.141</y-m>
@@ -311,7 +311,7 @@
     </model>
     <model>
         <name>altm</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/altm/altm.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/altm/altm.xml</path>
         <offsets>
             <x-m>-18.92</x-m>
             <y-m>-0.141</y-m>
@@ -320,7 +320,7 @@
     </model>
     <model>
         <name>adi</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/adi/adi.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/adi/adi.xml</path>
         <offsets>
             <x-m>-18.92</x-m>
             <y-m>-0.141</y-m>
@@ -329,7 +329,7 @@
     </model>
     <model>
         <name>epr1</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/epr_1.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/epr_1.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.08</y-m>
@@ -338,7 +338,7 @@
     </model>
     <model>
         <name>epr2</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/epr_2.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/epr_2.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.038</y-m>
@@ -347,7 +347,7 @@
     </model>
     <model>
         <name>epr3</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/epr_3.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/epr_3.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.004</y-m>
@@ -356,7 +356,7 @@
     </model>
     <model>
         <name>epr4</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/epr_4.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/epr_4.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.046</y-m>
@@ -365,7 +365,7 @@
     </model>
     <model>
         <name>n11</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n1_1.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/n1_1.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.08</y-m>
@@ -374,7 +374,7 @@
     </model>
     <model>
         <name>n12</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n1_2.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/n1_2.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.038</y-m>
@@ -383,7 +383,7 @@
     </model>
     <model>
         <name>n13</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n1_3.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/n1_3.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.004</y-m>
@@ -392,7 +392,7 @@
     </model>
     <model>
         <name>n14</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n1_4.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/n1_4.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.046</y-m>
@@ -401,7 +401,7 @@
     </model>
     <model>
         <name>extemp1</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/exh_1.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/exh_1.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.08</y-m>
@@ -410,7 +410,7 @@
     </model>
     <model>
         <name>extemp2</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/exh_2.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/exh_2.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.038</y-m>
@@ -419,7 +419,7 @@
     </model>
     <model>
         <name>extemp3</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/exh_3.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/exh_3.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.004</y-m>
@@ -428,7 +428,7 @@
     </model>
     <model>
         <name>extemp4</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/exh_4.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/exh_4.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.046</y-m>
@@ -437,7 +437,7 @@
     </model>
     <model>
         <name>n21</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_1.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/n2_1.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.08</y-m>
@@ -446,7 +446,7 @@
     </model>
     <model>
         <name>n22</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_2.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/n2_2.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.038</y-m>
@@ -455,7 +455,7 @@
     </model>
     <model>
         <name>n23</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_3.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/n2_3.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.004</y-m>
@@ -464,7 +464,7 @@
     </model>
     <model>
         <name>n24</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/n2_4.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/n2_4.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.046</y-m>
@@ -473,7 +473,7 @@
     </model>
     <model>
         <name>ff1</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/ffkgh_1.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/ffkgh_1.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.08</y-m>
@@ -482,7 +482,7 @@
     </model>
     <model>
         <name>ff2</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/ffkgh_2.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/ffkgh_2.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m>-0.038</y-m>
@@ -491,7 +491,7 @@
     </model>
     <model>
         <name>ff3</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/ffkgh_3.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/ffkgh_3.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.004</y-m>
@@ -500,7 +500,7 @@
     </model>
     <model>
         <name>ff4</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/eng_control/ffkgh_4.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/eng_control/ffkgh_4.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.046</y-m>
@@ -509,7 +509,7 @@
     </model>
     <model>
         <name>gears_and_flaps</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/flapstack/flapstack.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/flapstack/flapstack.xml</path>
         <offsets>
             <x-m>-18.92</x-m>
             <y-m>  0.0</y-m>
@@ -518,7 +518,7 @@
     </model>
     <model>
         <name>oil_and_flaps_warning</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/oil_and_flaps.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/oil_and_flaps.xml</path>
         <offsets>
             <x-m>-18.92</x-m>
             <y-m>  0.093</y-m>
@@ -527,7 +527,7 @@
     </model>
     <model>
         <name>oil_and_slats_warning</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/oil_and_slats.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/oil_and_slats.xml</path>
         <offsets>
             <x-m>-18.92</x-m>
             <y-m> -0.126</y-m>
@@ -536,7 +536,7 @@
     </model>
     <model>
         <name>gs_in_range_lamp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/gs_range.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/gs_range.xml</path>
         <offsets>
             <x-m>-18.92</x-m>
             <y-m> -0.160</y-m>
@@ -545,7 +545,7 @@
     </model>
     <model>
         <name>flight rallye watch</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/frw/frw.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/frw/frw.xml</path>
         <offsets>
             <x-m>-18.966</x-m>
             <y-m>-0.06</y-m>
@@ -556,7 +556,7 @@
     <!-- Copilot panel -->
     <model>
         <name>air_temp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/airtemp/airtemp.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/airtemp/airtemp.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.231</y-m>
@@ -565,7 +565,7 @@
     </model>
     <model>
         <name>total_air_temperature_indicator</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/tat/tat.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/tat/tat.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.23</y-m>
@@ -574,7 +574,7 @@
     </model>
     <model>
         <name>operating_time_indicator</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/operating_time/opt.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/operating_time/opt.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.22</y-m>
@@ -583,7 +583,7 @@
     </model>
     <model>
         <name>asi_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/asi/asi.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/asi/asi.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.305</y-m>
@@ -592,7 +592,7 @@
     </model>
     <model>
         <name>ai_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/ai/ai.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/ai/ai.xml</path>
         <offsets>
             <x-m>-18.967</x-m>
             <y-m> 0.399</y-m>
@@ -601,7 +601,7 @@
     </model>
     <model>
         <name>agl_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/agl/agl.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/agl/agl.xml</path>
         <offsets>
             <x-m>-18.967</x-m>
             <y-m> 0.482</y-m>
@@ -610,7 +610,7 @@
     </model>
     <model>
         <name>agl-switch_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/agl/agl-switch.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/agl/agl-switch.xml</path>
         <offsets>
             <x-m>-18.967</x-m>
             <y-m> 0.335</y-m>
@@ -619,7 +619,7 @@
     </model>
     <model>
         <name>alt_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/alt/alt.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/alt/alt.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>  0.549</y-m>
@@ -628,7 +628,7 @@
     </model>
     <model>
         <name>marker_beacon_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/marker_beacon.xml</path>
         <offsets>
             <x-m>-18.921</x-m>
             <y-m> 0.61</y-m>
@@ -637,7 +637,7 @@
     </model>
     <model>
         <name>rmi_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/rmi/rmi.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/rmi/rmi.xml</path>
         <offsets>
             <x-m>-18.919</x-m>
             <y-m> 0.305</y-m>
@@ -646,7 +646,7 @@
     </model>
     <model>
         <name>hsi_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/hsi/hsi-copilot.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/hsi/hsi-copilot.xml</path>
         <offsets>
             <x-m>-18.967</x-m>
             <y-m>  0.401</y-m>
@@ -655,7 +655,7 @@
     </model>
     <model>
         <name>vsi_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/vs/vsi.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/vs/vsi.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m> 0.495</y-m>
@@ -664,7 +664,7 @@
     </model>
     <model>
         <name>clock_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/clock/clock.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/clock/clock.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>0.575</y-m>
@@ -673,7 +673,7 @@
     </model>
     <model>
         <name>dme_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/dme/dme.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/dme/dme.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m> 0.495</y-m>
@@ -682,7 +682,7 @@
     </model>
     <model>
         <name>trim_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/trim/trim.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/trim/trim.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>0.575</y-m>
@@ -691,7 +691,7 @@
     </model>
     <model>
         <name>speed-limit-lamps_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/speed-limit.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/speed-limit.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m>0.231</y-m>
@@ -700,7 +700,7 @@
     </model>
     <model>
         <name>mach_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/mach/mach.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/mach/mach.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m> 0.231</y-m>
@@ -709,7 +709,7 @@
     </model>
     <model>
         <name>turn_cp</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/turn/turn.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/turn/turn.xml</path>
         <offsets>
             <x-m>-18.916</x-m>
             <y-m> 0.308</y-m>
@@ -720,7 +720,7 @@
     <!-- Center top panel -->
     <model>
         <name>firewarning_lamps</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/firewarning/firewarning.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/firewarning/firewarning.xml</path>
         <offsets>
             <x-m>-18.797</x-m>
             <y-m>  0.00</y-m>
@@ -729,7 +729,7 @@
     </model>
     <model>
         <name>Autopilot Helper</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/ap/ap-fg.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/ap/ap-fg.xml</path>
         <offsets>
             <x-m>-18.812</x-m>
             <y-m>-0.126</y-m>
@@ -739,7 +739,7 @@
 
     <!-- Middle pedestal -->
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radio/comm1.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radio/comm1.xml</path>
         <offsets>
             <x-m>-18.885</x-m>
             <y-m>-0.12</y-m>
@@ -748,7 +748,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radio/comm2.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radio/comm2.xml</path>
         <offsets>
             <x-m>-18.885</x-m>
             <y-m> 0.12</y-m>
@@ -757,7 +757,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radio/nav1.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radio/nav1.xml</path>
         <offsets>
             <x-m>-18.833</x-m>
             <y-m>-0.12</y-m>
@@ -766,7 +766,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radio/nav2.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radio/nav2.xml</path>
         <offsets>
             <x-m>-18.833</x-m>
             <y-m> 0.12</y-m>
@@ -775,7 +775,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf1.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radio/adf1.xml</path>
         <offsets>
             <x-m>-18.782</x-m>
             <y-m>-0.12</y-m>
@@ -784,7 +784,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf2.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radio/adf2.xml</path>
         <offsets>
             <x-m>-18.782</x-m>
             <y-m> 0.12</y-m>
@@ -793,7 +793,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radio/tacan.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radio/tacan.xml</path>
         <condition>
             <or>
                 <equals>
@@ -826,7 +826,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radar/radar.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radar/radar.xml</path>
         <offsets>
             <x-m>-18.85</x-m>
             <y-m>-0.0</y-m>

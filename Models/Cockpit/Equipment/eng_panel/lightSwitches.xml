@@ -189,7 +189,7 @@
        		<property>sim/multiplay/generic/int[9]</property>
 					<equals>
 						<property>sim/model/path</property>
-						<value type="string">Aircraft/707/Models/707-TT.xml</value>
+						<value type="string">Aircraft/onox-tanker/Models/707-TT.xml</value>
 					</equals>	
        </or>
 		</condition>
@@ -207,7 +207,7 @@
        		<property>sim/multiplay/generic/int[9]</property>
 					<equals>
 						<property>sim/model/path</property>
-						<value type="string">Aircraft/707/Models/707-TT.xml</value>
+						<value type="string">Aircraft/onox-tanker/Models/707-TT.xml</value>
 					</equals>	
        </or>
 		  <or>
@@ -230,7 +230,7 @@
        		<property>sim/multiplay/generic/int[9]</property>
 					<equals>
 						<property>sim/model/path</property>
-						<value type="string">Aircraft/707/Models/707-TT.xml</value>
+						<value type="string">Aircraft/onox-tanker/Models/707-TT.xml</value>
 					</equals>	
        </or>
 		  <or>
@@ -250,7 +250,7 @@
 		<condition>
 		   <equals>
 		   		<property>sim/model/path</property>
-		   		<value type="string">Aircraft/707/Models/707-TT.xml</value>
+		   		<value type="string">Aircraft/onox-tanker/Models/707-TT.xml</value>
 		   </equals>		
 		</condition>
 	</animation>
@@ -265,7 +265,7 @@
 			</greater-than>
 			<equals>
 				<property>sim/model/path</property>
-				<value type="string">Aircraft/707/Models/707-TT.xml</value>
+				<value type="string">Aircraft/onox-tanker/Models/707-TT.xml</value>
 			</equals>	
 		  <or>
 			<property>/refueling/drogues/drogue[1]/enabled</property>
@@ -285,7 +285,7 @@
 			</greater-than>
 			<equals>
 				<property>sim/model/path</property>
-				<value type="string">Aircraft/707/Models/707-TT.xml</value>
+				<value type="string">Aircraft/onox-tanker/Models/707-TT.xml</value>
 			</equals>	
 		  <or>
 			<property>/refueling/drogues/drogue[0]/enabled</property>
@@ -305,7 +305,7 @@
 			</greater-than>
 			<equals>
 				<property>sim/model/path</property>
-				<value type="string">Aircraft/707/Models/707-TT.xml</value>
+				<value type="string">Aircraft/onox-tanker/Models/707-TT.xml</value>
 			</equals>	
 		  <or>
 		  	<property>/instrumentation/doors/refuel-boom/position-norm</property>

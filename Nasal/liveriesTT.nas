@@ -1,4 +1,4 @@
-aircraft.livery.init("Aircraft/707/Models/LiveriesTT");
+aircraft.livery.init("Aircraft/onox-tanker/Models/LiveriesTT");
 
 # Not the best place but liveries are independent to the aircraft
 
@@ -10,7 +10,7 @@ var isEC = func {
     # find EC-137D
     for(var v = 0; v < otherNr; v += 1) {
 
-       if (mpOther[v].getNode("sim/model/path").getValue() == "Aircraft/707/Models/EC-137D.xml" and
+       if (mpOther[v].getNode("sim/model/path").getValue() == "Aircraft/onox-tanker/Models/EC-137D.xml" and
            mpOther[v].getNode("id").getValue() >= 0 and mpOther[v].getNode("radar/range-nm").getValue() < 0.3 ) {
 
 			if (mpOther[v].getNode("sim/multiplay/generic/int[12]").getValue() != nil){

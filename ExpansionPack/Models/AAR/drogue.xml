@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Copyright (c) 2016 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+    <path>drogue.ac</path>
+
+    <!-- Disable collisions with other aircraft -->
+    <animation>
+        <enable-hot type="bool">false</enable-hot>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <condition>
+            <greater-than>
+                <property alias="/params/length"/>
+                <value>0.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <!-- Pitch hose and drogue -->
+    <animation>
+        <type>rotate</type>
+        <property alias="/params/pitch"/>
+        <factor>1</factor>
+        <axis>
+            <y>1</y>
+        </axis>
+    </animation>
+
+    <!-- Yaw hose and drogue -->
+    <animation>
+        <type>rotate</type>
+        <property alias="/params/yaw"/>
+        <factor>-1</factor>
+        <axis>
+            <z>1</z>
+        </axis>
+    </animation>
+
+    <!-- Length -->
+    <animation>
+        <type>scale</type>
+        <object-name>hose</object-name>
+        <property alias="/params/length"/>
+        <x-min>0.0</x-min>
+        <y-min>1.0</y-min>
+        <z-min>1.0</z-min>
+        <x-factor alias="/params/length-factor"/>
+        <y-factor>0.0</y-factor>
+        <z-factor>0.0</z-factor>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>drogue</object-name>
+        <property alias="/params/length"/>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+
+    <!-- Reset yaw of drogue to zero -->
+    <animation>
+        <type>rotate</type>
+        <object-name>drogue</object-name>
+        <property alias="/params/yaw"/>
+        <factor>1</factor>
+        <axis>
+            <z>1</z>
+        </axis>
+    </animation>
+
+    <!-- Reset pitch of drogue to zero -->
+    <animation>
+        <type>rotate</type>
+        <object-name>drogue</object-name>
+        <property alias="/params/pitch"/>
+        <factor>-1</factor>
+        <axis>
+            <y>1</y>
+        </axis>
+    </animation>
+
+    <!-- Yaw drogue -->
+    <animation>
+        <type>rotate</type>
+        <object-name>drogue</object-name>
+        <property alias="/params/yaw-drogue"/>
+        <factor>1</factor>
+        <axis>
+            <z>1</z>
+        </axis>
+    </animation>
+
+    <!-- Pitch drogue -->
+    <animation>
+        <type>rotate</type>
+        <object-name>drogue</object-name>
+        <property alias="/params/pitch-drogue"/>
+        <factor>1</factor>
+        <axis>
+            <y>1</y>
+        </axis>
+    </animation>
+
+</PropertyList>

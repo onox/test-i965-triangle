@@ -84,7 +84,7 @@
 	</condition>
 </animation>
  
-  <sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>
+  <sound><path>Aircraft/onox-tanker/Sounds/mp-sound.xml</path></sound>
   
 	<multiplay>
 		<refuel>
@@ -95,7 +95,7 @@
 
     <nasal>
         <load>
-            var livery_update = aircraft.livery_update.new("Aircraft/707/Models/LiveriesTT", 10);
+            var livery_update = aircraft.livery_update.new("Aircraft/onox-tanker/Models/LiveriesTT", 10);
 
             var rplayer = cmdarg();
 
@@ -334,7 +334,7 @@
 	<!-- see operators Room only on view number 12 -->
 	<model>
 		<name>operationLight1</name>
-		<path>Aircraft/707/Models/Lights/lightcone-small-oo.xml</path>
+		<path>Aircraft/onox-tanker/Models/Lights/lightcone-small-oo.xml</path>
 		<offsets>   
 		  <x-m>12.65</x-m>
 		  <y-m>-0.24</y-m>
@@ -346,7 +346,7 @@
 	
 	<model>
 		<name>operationLight2</name>
-		<path>Aircraft/707/Models/Lights/lightcone-small-oo.xml</path>
+		<path>Aircraft/onox-tanker/Models/Lights/lightcone-small-oo.xml</path>
 		<offsets>   
 		  <x-m>12.65</x-m>
 		  <y-m> 0.24</y-m>
@@ -358,7 +358,7 @@
 	
 	<model>
 		<name>operationLight3</name>
-		<path>Aircraft/707/Models/Lights/lightcone-small-oo.xml</path>
+		<path>Aircraft/onox-tanker/Models/Lights/lightcone-small-oo.xml</path>
 		<offsets>   
 		  <x-m>11.0</x-m>
 		  <y-m> 0.0</y-m>
@@ -370,7 +370,7 @@
 		
 	<model>
 	 <name>operationPanel</name>
-	 <path>Aircraft/707/Models/Cockpit/Equipment/tt_panel/tt_panel.xml</path>
+	 <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/tt_panel/tt_panel.xml</path>
 		<offsets>
       <x-m>12.75</x-m>
       <y-m>0</y-m>
@@ -382,7 +382,7 @@
 
 	<model>
 	 <name>operationRadar</name>
-	 <path>Aircraft/707/Models/Cockpit/Instruments/radar/radar.xml</path>
+	 <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radar/radar.xml</path>
 		<offsets>
       <x-m>12.8</x-m>
       <y-m>0</y-m>
@@ -453,7 +453,7 @@
   <!-- shadow without rembrandt -->
 	<model>
 		<name>NewShadow</name>
-		<path>Aircraft/707/Models/shadow.xml</path>
+		<path>Aircraft/onox-tanker/Models/shadow.xml</path>
 	</model>
 
 	<animation>
@@ -547,7 +547,7 @@
 
     <model>
         <name>drogue-right</name>
-        <path>Aircraft/ExpansionPack/Models/AAR/drogue.xml</path>
+        <path>Aircraft/onox-tanker/ExpansionPack/Models/AAR/drogue.xml</path>
         <offsets>
             <x-m>10.6674</x-m>
             <y-m>19.9500</y-m>
@@ -568,7 +568,7 @@
 
     <model>
         <name>drogue-left</name>
-        <path>Aircraft/ExpansionPack/Models/AAR/drogue.xml</path>
+        <path>Aircraft/onox-tanker/ExpansionPack/Models/AAR/drogue.xml</path>
         <offsets>
             <x-m>10.6674</x-m>
             <y-m>-19.9500</y-m>
@@ -711,7 +711,7 @@
 <!-- Emergency slide-->
 	<model>
 		<name>EmergencySlide</name>
-		<path>Aircraft/707/Models/Cockpit/Equipment/emer_slide/emer_slide.xml</path>
+		<path>Aircraft/onox-tanker/Models/Cockpit/Equipment/emer_slide/emer_slide.xml</path>
 		<offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -766,7 +766,7 @@
  
 	<model>
 		<name>NoseGearSmoke</name>
-		<path>Aircraft/707/Models/Effects/tyre-smoke-nose.xml</path>
+		<path>Aircraft/onox-tanker/Models/Effects/tyre-smoke-nose.xml</path>
 		<offsets>
       <x-m>-15.678</x-m>
       <y-m>0</y-m>
@@ -1010,7 +1010,7 @@
  
 	<model>
 		<name>RightGearBase</name>
-		<path>Aircraft/707/Models/wheels.xml</path>
+		<path>Aircraft/onox-tanker/Models/wheels.xml</path>
 		<offsets>
 		  <x-m> 1.82</x-m>
 		  <y-m> 2.76</y-m>
@@ -1020,7 +1020,7 @@
 
 	<model>
 		<name>LeftGearBase</name>
-		<path>Aircraft/707/Models/wheels.xml</path>
+		<path>Aircraft/onox-tanker/Models/wheels.xml</path>
 		<offsets>
 		  <x-m> 1.82</x-m>
 		  <y-m>-2.76</y-m>
@@ -1031,7 +1031,7 @@
 
 	<model>
 		<name>RightGearSmoke</name>
-		<path>Aircraft/707/Models/Effects/tyre-smoke-right.xml</path>
+		<path>Aircraft/onox-tanker/Models/Effects/tyre-smoke-right.xml</path>
 		<offsets>
 		  <x-m> 1.82</x-m>
 		  <y-m> 2.59</y-m>
@@ -1041,7 +1041,7 @@
 
 	<model>
 		<name>LeftGearSmoke</name>
-		<path>Aircraft/707/Models/Effects/tyre-smoke-left.xml</path>
+		<path>Aircraft/onox-tanker/Models/Effects/tyre-smoke-left.xml</path>
 		<offsets>
 		  <x-m> 1.82</x-m>
 		  <y-m>-2.53</y-m>
@@ -2049,7 +2049,7 @@
  <!--cockpit -->
 	<model>
 		<name>cockpit</name>
-		<path>Aircraft/707/Models/Cockpit/cockpit.xml</path>
+		<path>Aircraft/onox-tanker/Models/Cockpit/cockpit.xml</path>
 		<offsets>
 		  <x-m>0.0</x-m>
 		  <y-m>0.0</y-m>
@@ -2059,7 +2059,7 @@
 
 	<model>
 		<name>registrationCockpitPanel</name>
-	  <path>Aircraft/707/Models/Registration/flightnumber.xml</path>
+	  <path>Aircraft/onox-tanker/Models/Registration/flightnumber.xml</path>
 	  <offsets>
 	      <x-m>-18.91</x-m>
 	      <y-m>-0.425</y-m>
@@ -2094,7 +2094,7 @@
     <!-- Pratt and Whitney JT4 engines -->
 	<model>
 		<name>engineOnePW</name>
-		<path>Aircraft/707/Models/PWJT4_1.xml</path>
+		<path>Aircraft/onox-tanker/Models/PWJT4_1.xml</path>
 		<offsets>
 		  <x-m>  2.47</x-m>
 		  <y-m>-14.835</y-m>
@@ -2104,7 +2104,7 @@
 	
 	<model>
 		<name>engineTwoPW</name>
-		<path>Aircraft/707/Models/PWJT4_2.xml</path>
+		<path>Aircraft/onox-tanker/Models/PWJT4_2.xml</path>
 		<offsets>
 		  <x-m> -1.18</x-m>
 		  <y-m>-10.077</y-m>
@@ -2114,7 +2114,7 @@
 	
 	<model>
 		<name>engineThreePW</name>
-		<path>Aircraft/707/Models/PWJT4_3.xml</path>
+		<path>Aircraft/onox-tanker/Models/PWJT4_3.xml</path>
 		<offsets>
 		  <x-m> -1.18</x-m>
 		  <y-m> 10.077</y-m>
@@ -2124,7 +2124,7 @@
 	
 	<model>
 		<name>engineFourPW</name>
-		<path>Aircraft/707/Models/PWJT4_4.xml</path>
+		<path>Aircraft/onox-tanker/Models/PWJT4_4.xml</path>
 		<offsets>
 		  <x-m>  2.47</x-m>
 		  <y-m> 14.835</y-m>
@@ -2144,7 +2144,7 @@
 
 	<model>
 		<name>ExternalLights</name>
-		<path>Aircraft/707/Models/Lights/707_Lights.xml</path>	
+		<path>Aircraft/onox-tanker/Models/Lights/707_Lights.xml</path>	
 		<offsets>
 			<x-m>0</x-m>
 			<y-m>0</y-m>
@@ -2154,7 +2154,7 @@
 
 <!-- Fire , #1 -->
 <model>
-  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire-in-flight.xml</path>
 		<condition>
 			<and>
 				<greater-than>
@@ -2181,7 +2181,7 @@
   </offsets>
 </model>
 <model>
-  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire-in-flight.xml</path>
 		<condition>
 			<and>
 				<greater-than>
@@ -2209,7 +2209,7 @@
 </model>
 
 <model>
-  <path>Aircraft/707/Models/Effects/fire.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire.xml</path>
 		<condition>
 			<and>
 				<less-than-equals>
@@ -2239,7 +2239,7 @@
 
 <!-- Fire, #2 -->
 <model>
-  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire-in-flight.xml</path>
 		<condition>
 			<and>
 				<greater-than>
@@ -2266,7 +2266,7 @@
   </offsets>
 </model>
 <model>
-  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire-in-flight.xml</path>
 		<condition>
 			<and>
 				<greater-than>
@@ -2294,7 +2294,7 @@
 </model>
 
 <model>
-  <path>Aircraft/707/Models/Effects/fire.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire.xml</path>
 		<condition>
 			<and>
 				<less-than-equals>
@@ -2324,7 +2324,7 @@
 
 <!-- Fire, #3 -->
 <model>
-  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire-in-flight.xml</path>
 		<condition>
 			<and>
 				<greater-than>
@@ -2351,7 +2351,7 @@
   </offsets>
 </model>
 <model>
-  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire-in-flight.xml</path>
 		<condition>
 			<and>
 				<greater-than>
@@ -2379,7 +2379,7 @@
 </model>
 
 <model>
-  <path>Aircraft/707/Models/Effects/fire.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire.xml</path>
 		<condition>
 			<and>
 				<less-than-equals>
@@ -2408,7 +2408,7 @@
 
 <!-- Fire, #4 -->
 <model>
-  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire-in-flight.xml</path>
 		<condition>
 			<and>
 				<greater-than>
@@ -2435,7 +2435,7 @@
   </offsets>
 </model>
 <model>
-  <path>Aircraft/707/Models/Effects/fire-in-flight.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire-in-flight.xml</path>
 		<condition>
 			<and>
 				<greater-than>
@@ -2463,7 +2463,7 @@
 </model>
 
 <model>
-  <path>Aircraft/707/Models/Effects/fire.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fire.xml</path>
 		<condition>
 			<and>
 				<less-than-equals>
@@ -2492,7 +2492,7 @@
 
 <!-- Jettison / Fuel dump, left -->
 <model>
-  <path>Aircraft/707/Models/Effects/fuel_dump.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fuel_dump.xml</path>
 		<condition>
 			<or>
 				<equals>
@@ -2515,7 +2515,7 @@
 
 <!-- Jettison / Fuel dump, right -->
 <model>
-  <path>Aircraft/707/Models/Effects/fuel_dump.xml</path>
+  <path>Aircraft/onox-tanker/Models/Effects/fuel_dump.xml</path>
 		<condition>
 			<or>
 				<equals>
@@ -2539,7 +2539,7 @@
 <!-- Registration -->
 <model>
 	<name>registrationRudderRight</name>
-  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <path>Aircraft/onox-tanker/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>20.39</x-m>
     <y-m>0.18</y-m>
@@ -2556,7 +2556,7 @@
 
 <model>
 	<name>registrationRudderLeft</name>
-  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <path>Aircraft/onox-tanker/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>20.39</x-m>
     <y-m>-0.18</y-m>
@@ -2574,7 +2574,7 @@
 <!-- Registration (wingTop)-->
 <model>
 	<name>registrationWingTop</name>
-  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <path>Aircraft/onox-tanker/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>7.72</x-m>
     <y-m>17.34</y-m>
@@ -2594,7 +2594,7 @@
 <!-- Registration (wingBottom) --> 
 <model>
 	<name>registrationWingBottom</name>
-  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <path>Aircraft/onox-tanker/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>  7.72</x-m>
     <y-m>-17.34</y-m>
@@ -2614,7 +2614,7 @@
 <!-- Registration fuselage -->
 <model>
 	<name>registrationFuselageRight</name>
-  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <path>Aircraft/onox-tanker/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>-15.0</x-m>
     <y-m>1.6</y-m>
@@ -2632,7 +2632,7 @@
 
 <model>
 	<name>registrationFuselageLeft</name>
-  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <path>Aircraft/onox-tanker/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>-13.5</x-m>
     <y-m>-1.68</y-m>
@@ -2651,7 +2651,7 @@
 <!-- Registration fuselage upper back -->
 <model>
 	<name>registrationFuselageRightBack</name>
-  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <path>Aircraft/onox-tanker/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>11.5</x-m>
     <y-m>1.55</y-m>
@@ -2669,7 +2669,7 @@
 
 <model>
 	<name>registrationFuselageLeftBack</name>
-  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <path>Aircraft/onox-tanker/Models/Registration/registration.xml</path>
   <offsets>
     <x-m>11.5</x-m>
     <y-m>-1.55</y-m>
@@ -2725,7 +2725,7 @@
 
     <model>
         <name>shared-models</name>
-        <path>Aircraft/707/Models/shared.xml</path>
+        <path>Aircraft/onox-tanker/Models/shared.xml</path>
     </model>
 
 </PropertyList>

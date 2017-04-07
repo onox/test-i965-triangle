@@ -1,4 +1,4 @@
-aircraft.livery.init("Aircraft/707/Models/LiveriesEC");
+aircraft.livery.init("Aircraft/onox-tanker/Models/LiveriesEC");
 
 # Not the best place but liveries are independent to the aircraft
 

@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-    <name>Aircraft/707/Models/Effects/exterior-reflection</name>
+    <name>Aircraft/onox-tanker/Models/Effects/exterior-reflection</name>
 
     <inherits-from>Effects/model-combined-deferred</inherits-from>
 

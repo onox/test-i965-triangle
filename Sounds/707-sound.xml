@@ -680,7 +680,7 @@
 	<rumble>
 		<name>rumble</name>
 		<mode>looped</mode>
-		<path>Aircraft/707/Sounds/thrust.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/thrust.wav</path>
 		<condition>			
 			<or>
 				<property>/sim/current-view/internal</property>
@@ -709,7 +709,7 @@
 	<rumble>
 		<name>rumbleOnGround</name>
 		<mode>looped</mode>
-		<path>Aircraft/707/Sounds/rumblingOnGround.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/rumblingOnGround.wav</path>
 		<condition>			
 			<or>
 				<property>/sim/current-view/internal</property>
@@ -762,7 +762,7 @@
   <crashed>
     <name>AirplaneCrashed</name>
     <mode>looped</mode>
-    <path>Aircraft/707/Sounds/crash_ground.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/crash_ground.wav</path>
      <condition>			
      	<and>
 				<greater-than>
@@ -785,7 +785,7 @@
   
 	<squeal>
 		<name>squeal</name>
-		<path>Aircraft/707/Sounds/touchdown.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/touchdown.wav</path>
       <condition>
           <or>
               <property>gear/gear[0]/wow</property>
@@ -831,7 +831,7 @@
 	<reverser>
 		<name>Reverse</name>	
 		<mode>looped</mode>
-		<path>Aircraft/707/Sounds/reverser.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/reverser.wav</path>
 		<condition>			
 			<or>
 				<property>/engines/engine[0]/running</property>
@@ -875,7 +875,7 @@
 	<enginesmsg>
 		<name>starting one</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/original/starting_1.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/original/starting_1.wav</path>
 		<property>controls/engines/engine[0]/msg</property>
 		<volume>
 			<factor>1</factor>
@@ -885,7 +885,7 @@
 	<enginesmsg>
 		<name>starting two</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/original/starting_2.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/original/starting_2.wav</path>
 		<property>controls/engines/engine[1]/msg</property>
 		<volume>
 			<factor>1</factor>
@@ -895,7 +895,7 @@
 	<enginesmsg>
 		<name>starting three</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/original/starting_3.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/original/starting_3.wav</path>
 		<property>controls/engines/engine[2]/msg</property>
 		<volume>
 			<factor>1</factor>
@@ -905,7 +905,7 @@
 	<enginesmsg>
 		<name>starting four</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/original/starting_4.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/original/starting_4.wav</path>
 		<property>controls/engines/engine[3]/msg</property>
 		<volume>
 			<factor>1</factor>
@@ -915,7 +915,7 @@
 	<enginesmsg>
 		<name>all started</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/original/all_engines_started.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/original/all_engines_started.wav</path>
 		<condition>
 	  	<equals>
 				<property>controls/engines/msg</property>
@@ -929,7 +929,7 @@
 	
 	<stall>
 		<name>stall or overspeed</name>
-		<path>Aircraft/707/Sounds/speed.wav</path>		
+		<path>Aircraft/onox-tanker/Sounds/speed.wav</path>		
 		<condition>
 			<and>
 				<greater-than>
@@ -963,7 +963,7 @@
 	<testwarning>
 		<name>test warning</name>
 		<mode>looped</mode>
-		<path>Aircraft/707/Sounds/warning.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/warning.wav</path>
       <condition>
         <and>
 					<greater-than>
@@ -998,7 +998,7 @@
 	<firewarning>
 		<name>fire warning</name>
 		<mode>looped</mode>
-		<path>Aircraft/707/Sounds/fire.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/fire.wav</path>
       <condition>
       	<and>
 					<greater-than>
@@ -1022,7 +1022,7 @@
 	<mdawarning>
 		<name>mda warning</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/warning.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/warning.wav</path>
       <condition>
         <and>
 					<greater-than>
@@ -1041,7 +1041,7 @@
 	<icewarning>
 		<name>ice warning</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/warning.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/warning.wav</path>
       <condition>
         <and>
 					<greater-than>
@@ -1060,7 +1060,7 @@
 	<call>
 		<name>nosmoking</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/cabinalert.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/cabinalert.wav</path>
       <condition>
         <and>
 					<greater-than>
@@ -1078,7 +1078,7 @@
 	<call>
 		<name>seatbelts</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/cabinalert.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/cabinalert.wav</path>
       <condition>
         <and>
 					<greater-than>
@@ -1096,7 +1096,7 @@
 	<call>
 		<name>grdcall</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/groundcall.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/groundcall.wav</path>
       <condition>
         <and>
 					<greater-than>
@@ -1114,7 +1114,7 @@
 	<call>
 		<name>cabinAtten</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/groundcall.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/groundcall.wav</path>
       <condition>
         <and>
 					<greater-than>
@@ -1132,7 +1132,7 @@
 	<call>
 		<name>persAccom</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/groundcall.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/groundcall.wav</path>
       <condition>
         <and>
 					<greater-than>
@@ -1150,7 +1150,7 @@
     <rain>
       <name>rain</name>
       <mode>looped</mode>
-      <path>Aircraft/707/Sounds/rain.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/rain.wav</path>
       <condition>
         <greater-than>
           <property>/environment/rain-norm</property>
@@ -1174,7 +1174,7 @@
 	<pneumatic>
 		<name>pneumatic break close</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/pneumaticlose.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/pneumaticlose.wav</path>
       <condition>
 				 <property>/controls/gear/brake-parking</property>
       </condition>
@@ -1186,7 +1186,7 @@
 	<pneumatic>
 		<name>pneumatic break open</name>
 		<mode>once</mode>
-		<path>Aircraft/707/Sounds/pneumatic.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/pneumatic.wav</path>
       <condition>
 				 <not><property>/controls/gear/brake-parking</property></not>
       </condition>
@@ -1269,7 +1269,7 @@
 	<cargo>
 		<name>cargoDoor</name>
 		<mode>in-transit</mode>
-		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/cargo_door.wav</path>
 		<property>/instrumentation/doors/cargo/position-norm</property>
 		<pitch>
 			<internal>dt_play</internal>
@@ -1282,7 +1282,7 @@
 	<belly>
 		<name>bellyDoor</name>
 		<mode>in-transit</mode>
-		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/cargo_door.wav</path>
 		<property>/instrumentation/doors/belly/position-norm</property>
 		<pitch>
 			<internal>dt_play</internal>
@@ -1295,7 +1295,7 @@
 	<boom>
 		<name>refuelBoom</name>
 		<mode>in-transit</mode>
-		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/cargo_door.wav</path>
 		<property>/instrumentation/doors/refuel-boom/position-norm</property>
 		<pitch>
 			<internal>dt_play</internal>
@@ -1307,7 +1307,7 @@
 	<probeLeft>
 		<name>ProbeLeft</name>
 		<mode>in-transit</mode>
-		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/cargo_door.wav</path>
 		<property>/b707/refuelling/probe-left-lever</property>
 		<pitch>
 			<internal>dt_play</internal>
@@ -1319,7 +1319,7 @@
 	<probeRight>
 		<name>ProbeRight</name>
 		<mode>in-transit</mode>
-		<path>Aircraft/707/Sounds/cargo_door.wav</path>
+		<path>Aircraft/onox-tanker/Sounds/cargo_door.wav</path>
 		<property>/b707/refuelling/probe-right-lever</property>
 		<pitch>
 			<internal>dt_play</internal>
@@ -1330,7 +1330,7 @@
   
    <click>
    <name>click on</name>
-   <path>Aircraft/707/Sounds/click.wav</path>
+   <path>Aircraft/onox-tanker/Sounds/click.wav</path>
    <condition>
     <property>/instrumentation/generic/click</property>
    </condition>
@@ -1341,7 +1341,7 @@
 
   <click>
    <name>click off</name>
-   <path>Aircraft/707/Sounds/click.wav</path>
+   <path>Aircraft/onox-tanker/Sounds/click.wav</path>
    <condition>
     <not>
      <property>/instrumentation/generic/click</property>
@@ -1355,7 +1355,7 @@
   <switch>
     <name>click1 on</name>
     <mode>once</mode>
-    <path>Aircraft/707/Sounds/click.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/click.wav</path>
     <condition>
       <property>/sim/sound/switch1</property>
     </condition>
@@ -1367,7 +1367,7 @@
   <switch>
     <name>click1 off</name>
     <mode>once</mode>
-    <path>Aircraft/707/Sounds/click.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/click.wav</path>
     <condition>
       <not>
         <property>/sim/sound/switch1</property>
@@ -1381,7 +1381,7 @@
   <switch>
     <name>click2 on</name>
     <mode>once</mode>
-    <path>Aircraft/707/Sounds/click2.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/click2.wav</path>
     <condition>
       <property>/sim/sound/switch2</property>
     </condition>
@@ -1393,7 +1393,7 @@
   <switch>
     <name>click2 off</name>
     <mode>once</mode>
-    <path>Aircraft/707/Sounds/click2.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/click2.wav</path>
     <condition>
       <not>
         <property>/sim/sound/switch2</property>
@@ -1407,7 +1407,7 @@
   <switch>
     <name>click3 on</name>
     <mode>once</mode>
-    <path>Aircraft/707/Sounds/click3.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/click3.wav</path>
     <condition>
       <property>/sim/sound/switch3</property>
     </condition>
@@ -1419,7 +1419,7 @@
   <switch>
     <name>click3 off</name>
     <mode>once</mode>
-    <path>Aircraft/707/Sounds/click3.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/click3.wav</path>
     <condition>
       <not>
         <property>/sim/sound/switch3</property>
@@ -1433,7 +1433,7 @@
   <switch>
     <name>click4 on</name>
     <mode>once</mode>
-    <path>Aircraft/707/Sounds/click4.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/click4.wav</path>
     <condition>
       <property>/sim/sound/switch4</property>
     </condition>
@@ -1445,7 +1445,7 @@
   <switch>
     <name>click4 off</name>
     <mode>once</mode>
-    <path>Aircraft/707/Sounds/click4.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/click4.wav</path>
     <condition>
       <not>
         <property>/sim/sound/switch4</property>
@@ -1459,7 +1459,7 @@
     <wiperhu>
       <name>wiperhu</name>
       <mode>once</mode>
-      <path>Aircraft/707/Sounds/hu.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/hu.wav</path>
       <condition>
         <less-than>
       		<property>/controls/special/wiper-deg</property>
@@ -1483,7 +1483,7 @@
     <wiperho>
       <name>wiperho</name>
       <mode>once</mode>
-      <path>Aircraft/707/Sounds/ho.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/ho.wav</path>
       <condition>
         <greater-than>
       		<property>/controls/special/wiper-deg</property>
@@ -1507,7 +1507,7 @@
     <pushback>
       <name>Pushback_outside</name>
       <mode>looped</mode>
-      <path>Aircraft/707/Sounds/pushback.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/pushback.wav</path>
       <condition>
       	<and>
 					<or>
@@ -1546,7 +1546,7 @@
     <pushback>
       <name>Pushback_inside</name>
       <mode>looped</mode>
-      <path>Aircraft/707/Sounds/pushback.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/pushback.wav</path>
       <condition>
       	<and>
 			<or>
@@ -1573,7 +1573,7 @@
     <extpowerunit>
       <name>ExtPower_outside</name>
       <mode>looped</mode>
-      <path>Aircraft/707/Sounds/external.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/external.wav</path>
       <condition>
       	<and>
 			<or>
@@ -1606,7 +1606,7 @@
     <extpowerunit>
       <name>ExtPower_inside</name>
       <mode>looped</mode>
-      <path>Aircraft/707/Sounds/external.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/external.wav</path>
       <condition>
       	<and>			
 			<or>
@@ -1631,7 +1631,7 @@
     <refuelservice>
       <name>RefuelService_outside</name>
       <mode>looped</mode>
-      <path>Aircraft/707/Sounds/pushback.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/pushback.wav</path>
       <condition>
 		<and>
 			<or>
@@ -1669,7 +1669,7 @@
     <refuelservice>
       <name>RefuelService_inside</name>
       <mode>looped</mode>
-      <path>Aircraft/707/Sounds/pushback.wav</path>
+      <path>Aircraft/onox-tanker/Sounds/pushback.wav</path>
       <condition>
       	<and>			
 			<or>
@@ -1698,7 +1698,7 @@
 
     <apu>
 			<name>APU-internal</name>
-			<path>Aircraft/707/Sounds/apu.wav</path>
+			<path>Aircraft/onox-tanker/Sounds/apu.wav</path>
 			<mode>looped</mode>
 			<condition>			
 				<or>
@@ -1725,7 +1725,7 @@
 		</apu>
     <apu>
 			<name>APU-external</name>
-			<path>Aircraft/707/Sounds/apu.wav</path>
+			<path>Aircraft/onox-tanker/Sounds/apu.wav</path>
 			<mode>looped</mode>
 			<condition>			
 				<not><property>/sim/current-view/internal</property></not>			
@@ -1754,7 +1754,7 @@
   <music>
     <name>Big Band one</name>
     <mode>looped</mode>
-    <path>Aircraft/707/Sounds/50.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/50.wav</path>
      <condition>
      		<and>
 		     <greater-than>
@@ -1775,7 +1775,7 @@
   <music>
     <name>Rock n Roll one</name>
     <mode>looped</mode>
-    <path>Aircraft/707/Sounds/paul_anka.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/paul_anka.wav</path>
      <condition>
      		<and>
 		     <greater-than>
@@ -1796,7 +1796,7 @@
   <music>
     <name>Jack Sparrow Theme three</name>
     <mode>looped</mode>
-    <path>Aircraft/707/Sounds/jack_sparrow.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/jack_sparrow.wav</path>
      <condition>
      		<and>
 		     <greater-than>
@@ -1817,7 +1817,7 @@
   <aux-pump>
     <name>Auxilliary Pumps</name>
     <mode>looped</mode>
-    <path>Aircraft/707/Sounds/pump.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/pump.wav</path>
      <condition>			
      	<and>
 				<greater-than>
@@ -1843,7 +1843,7 @@
   <hyd-pump>
     <name>System Pumps</name>
     <mode>looped</mode>
-    <path>Aircraft/707/Sounds/pump.wav</path>
+    <path>Aircraft/onox-tanker/Sounds/pump.wav</path>
      <condition>			
      	<and>
 				<greater-than>
@@ -1869,7 +1869,7 @@
 		<trim-wheels>
 			<name>Trim Wheels</name>
 			<mode>in-transit</mode>
-			<path>Aircraft/707/Sounds/trimwheel.wav</path>
+			<path>Aircraft/onox-tanker/Sounds/trimwheel.wav</path>
 			<property>/b707/trim/elevator-trim-turn</property>
 			<volume>
 				<property>/sim/current-view/internal</property>

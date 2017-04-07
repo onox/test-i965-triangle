@@ -24,7 +24,7 @@
         <description>Boeing 707 TT / KC-137D</description>
 
         <startup>
-            <splash-texture>Aircraft/707/splashTT.png</splash-texture>
+            <splash-texture>Aircraft/onox-tanker/splashTT.png</splash-texture>
         </startup>
 
         <systems>
@@ -40,7 +40,7 @@
         </systems>
 
         <model n="0">
-            <path>Aircraft/707/Models/707-TT.xml</path>
+            <path>Aircraft/onox-tanker/Models/onox-tanker.xml</path>
             <livery>
                 <file type="string">707</file>
             </livery>
@@ -62,7 +62,7 @@
     <tanker type="bool">true</tanker>
 
     <refueling>
-        <boom include="Aircraft/ExpansionPack/Systems/refueling-boom-configuration.xml">
+        <boom include="Aircraft/onox-tanker/ExpansionPack/Systems/refueling-boom-configuration.xml">
             <commands>
                 <!-- Initial position of refueling boom -->
                 <heading-deg type="double">0.0</heading-deg>
@@ -128,7 +128,7 @@
 
         <drogues>
             <!-- Right drogue -->
-            <drogue n="0" include="Aircraft/ExpansionPack/Systems/refueling-drogue-configuration.xml">
+            <drogue n="0" include="Aircraft/onox-tanker/ExpansionPack/Systems/refueling-drogue-configuration.xml">
                 <commands>
                     <!-- Initial position of hose and drogue -->
                     <heading-deg type="double">0.0</heading-deg>
@@ -156,7 +156,7 @@
             </drogue>
 
             <!-- Left drogue -->
-            <drogue n="1" include="Aircraft/ExpansionPack/Systems/refueling-drogue-configuration.xml">
+            <drogue n="1" include="Aircraft/onox-tanker/ExpansionPack/Systems/refueling-drogue-configuration.xml">
                 <commands>
                     <!-- Initial position of hose and drogue -->
                     <heading-deg type="double">0.0</heading-deg>
@@ -226,35 +226,35 @@
 
     <nasal>
         <b707>
-            <file>Aircraft/707/Nasal/sound.nas</file>
-            <file>Aircraft/707/Nasal/shake.nas</file>
-            <file>Aircraft/707/Nasal/autostart.nas</file>
-            <file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
-            <file>Aircraft/707/Nasal/liveriesTT.nas</file>
-            <file>Aircraft/707/Nasal/electrical.nas</file>
-            <file>Aircraft/707/Nasal/mk-707.nas</file>
-            <file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
-            <file>Aircraft/707/Nasal/mk-frw.nas</file>
-            <file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
-            <file>Aircraft/707/Nasal/mk-rmi.nas</file>
-            <file>Aircraft/707/Nasal/mk-wiper.nas</file>
-            <file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>
-            <file>Aircraft/707/Nasal/doors.nas</file>
-            <file>Aircraft/707/Nasal/tyresmoke.nas</file>
-            <file>Aircraft/707/Nasal/brakesystem.nas</file>
-            <file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
-            <file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
-            <file>Aircraft/707/Nasal/damage.nas</file>
-            <file>Aircraft/707/Nasal/radar2.nas</file>
-            <file>Aircraft/707/Nasal/tcas.nas</file>
-            <file>Aircraft/707/Nasal/registration.nas</file>
-            <file>Aircraft/707/Nasal/manual.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/sound.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/shake.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/autostart.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/fuel-and-payload.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/liveriesTT.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/electrical.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/mk-707.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/mk-agl-radar.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/mk-frw.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/mk-stopwatch.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/mk-rmi.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/mk-wiper.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/mk-ci-tacan.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/doors.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/tyresmoke.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/brakesystem.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/autopilot-routemanager.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/autopilot-Bendix-PB-20.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/damage.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/radar2.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/tcas.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/registration.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/manual.nas</file>
         </b707>
         <boom>
-            <file>Aircraft/707/Nasal/refueling.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/refueling.nas</file>
         </boom>
         <drogues>
-            <file>Aircraft/707/Nasal/refueling_drogues.nas</file>
+            <file>Aircraft/onox-tanker/Nasal/refueling_drogues.nas</file>
         </drogues>
         <aar>
             <file>Aircraft/Generic/aar.nas</file>

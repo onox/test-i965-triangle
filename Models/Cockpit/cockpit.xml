@@ -194,7 +194,7 @@
 
     <!-- Small lightcones for panel -->
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini.xml</path>
         <name>capt_light_1</name>
         <offsets>
             <x-m>-18.6</x-m>
@@ -205,7 +205,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini.xml</path>
         <name>capt_light_2</name>
         <offsets>
             <x-m>-18.6</x-m>
@@ -216,7 +216,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-small.xml</path>
         <name>capt_light_3</name>
         <offsets>
             <x-m>-18.4</x-m>
@@ -227,7 +227,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini.xml</path>
         <name>capt_light_4</name>
         <offsets>
             <x-m>-18.5</x-m>
@@ -238,7 +238,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini.xml</path>
         <name>capt_light_5</name>
         <offsets>
             <x-m>-18.6</x-m>
@@ -249,7 +249,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-small.xml</path>
         <name>capt_light_6</name>
         <offsets>
             <x-m>-18.4</x-m>
@@ -262,7 +262,7 @@
 
     <!-- Pedestal light -->
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-small.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-small.xml</path>
         <name>capt_light_7</name>
         <offsets>
             <x-m>-18.8</x-m>
@@ -275,7 +275,7 @@
 
     <!-- Overhead light -->
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-small-overhead.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-small-overhead.xml</path>
         <name>ov_light_1</name>
         <offsets>
             <x-m>-18.1</x-m>
@@ -286,7 +286,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-small-overhead.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-small-overhead.xml</path>
         <name>ov_light_2</name>
         <offsets>
             <x-m>-18.1</x-m>
@@ -297,7 +297,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-small-overhead.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-small-overhead.xml</path>
         <name>ov_light_3</name>
         <offsets>
             <x-m>-18.1</x-m>
@@ -310,7 +310,7 @@
 
     <!-- Engineer light -->
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini-engineer.xml</path>
         <name>eng_light_1</name>
         <offsets>
             <x-m>-17.75</x-m>
@@ -321,7 +321,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini-engineer.xml</path>
         <name>eng_light_2</name>
         <offsets>
             <x-m>-17.55</x-m>
@@ -332,7 +332,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini-engineer.xml</path>
         <name>eng_light_3</name>
         <offsets>
             <x-m>-17.35</x-m>
@@ -343,7 +343,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini-engineer.xml</path>
         <name>eng_light_4</name>
         <offsets>
             <x-m>-17.15</x-m>
@@ -354,7 +354,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini-engineer.xml</path>
         <name>eng_light_5</name>
         <offsets>
             <x-m>-17.75</x-m>
@@ -365,7 +365,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini-engineer.xml</path>
         <name>eng_light_6</name>
         <offsets>
             <x-m>-17.55</x-m>
@@ -376,7 +376,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini-engineer.xml</path>
         <name>eng_light_7</name>
         <offsets>
             <x-m>-17.35</x-m>
@@ -387,7 +387,7 @@
         </offsets>
     </model>
     <model>
-        <path>Aircraft/707/Models/Lights/lightcone-mini-engineer.xml</path>
+        <path>Aircraft/onox-tanker/Models/Lights/lightcone-mini-engineer.xml</path>
         <name>eng_light_8</name>
         <offsets>
             <x-m>-17.15</x-m>
@@ -425,7 +425,7 @@
 
     <!-- Ice on the windshield -->
     <model>
-        <path>Aircraft/707/Models/Cockpit/windowIce.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/windowIce.xml</path>
         <name>window_ice</name>
         <offsets>
             <x-m>0</x-m>
@@ -436,7 +436,7 @@
 
     <!-- Magnetic compass -->
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/mag_compass/mag_compass.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/mag_compass/mag_compass.xml</path>
         <name>window_ice</name>
         <offsets>
             <x-m>-18.849</x-m>
@@ -448,7 +448,7 @@
     <!-- Equipment -->
     <model>
         <name>pedestal</name>
-        <path>Aircraft/707/Models/Cockpit/pedestal.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/pedestal.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
@@ -458,7 +458,7 @@
 
     <!-- Radio volume switches -->
     <model>
-        <path>Aircraft/707/Models/Cockpit/Instruments/radio/radio-volume.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/radio/radio-volume.xml</path>
         <name>radio_volume</name>
         <offsets>
             <x-m>-18.395</x-m>
@@ -470,7 +470,7 @@
     <!-- This light must be here, for lighting without pedestal shadow -->
     <model>
         <name>ap_and_brake_lamps</name>
-        <path>Aircraft/707/Models/Cockpit/Instruments/lamps/autopilot_and_brake.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Instruments/lamps/autopilot_and_brake.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
@@ -480,7 +480,7 @@
 
     <model>
         <name>panel-equipment</name>
-        <path>Aircraft/707/Models/Cockpit/panel.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/panel.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
@@ -489,7 +489,7 @@
     </model>
     <model>
         <name>overhead-panel-equipment</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/ohpanel.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/oh_panel/ohpanel.xml</path>
         <offsets>
             <x-m>-18.55</x-m>
             <y-m>  0.0</y-m>
@@ -499,7 +499,7 @@
     </model>
     <model>
         <name>circuit-breaker-panel</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/oh_panel/circuitBreaker.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/oh_panel/circuitBreaker.xml</path>
         <offsets>
             <x-m>-18.04</x-m>
             <y-m>  0.0</y-m>
@@ -509,7 +509,7 @@
     </model>
     <model>
         <name>engineer-panel-top</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/epaneltop.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/eng_panel/epaneltop.xml</path>
         <offsets>
             <x-m>-17.545</x-m>
             <y-m>  0.646</y-m>
@@ -519,7 +519,7 @@
     </model>
     <model>
         <name>engineer-panel-bottom</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/eng_panel/epanelbot.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/eng_panel/epanelbot.xml</path>
         <offsets>
             <x-m>-17.545</x-m>
             <y-m>  0.761</y-m>
@@ -528,7 +528,7 @@
     </model>
     <model>
         <name>wiper_pilot</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/wiper/wiper-l.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/wiper/wiper-l.xml</path>
         <offsets>
             <x-m>-19.06</x-m>
             <y-m> -0.54</y-m>
@@ -539,7 +539,7 @@
     </model>
     <model>
         <name>wiper_copilot</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/wiper/wiper-r.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/wiper/wiper-r.xml</path>
         <offsets>
             <x-m>-19.06</x-m>
             <y-m>  0.54</y-m>
@@ -551,7 +551,7 @@
     </model>
     <model>
         <name>seats</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/seats/seats.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/seats/seats.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
@@ -560,7 +560,7 @@
     </model>
     <model>
         <name>yokes</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/yokes/yokes.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/yokes/yokes.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
@@ -569,7 +569,7 @@
     </model>
     <model>
         <name>tiller</name>
-        <path>Aircraft/707/Models/Cockpit/Equipment/yokes/tiller.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Equipment/yokes/tiller.xml</path>
         <offsets>
             <x-m>-18.816</x-m>
             <y-m> -0.701</y-m>
@@ -589,7 +589,7 @@
     </animation>
     <model>
         <name>pilots</name>
-        <path>Aircraft/707/Models/Cockpit/Pilots/pilots.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Pilots/pilots.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
@@ -610,7 +610,7 @@
     </animation>
     <model>
         <name>book</name>
-        <path>Aircraft/707/Models/Cockpit/Manual/book.xml</path>
+        <path>Aircraft/onox-tanker/Models/Cockpit/Manual/book.xml</path>
         <offsets>
             <x-m>-17.72</x-m>
             <y-m> 0.61</y-m>

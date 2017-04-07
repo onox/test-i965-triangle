@@ -99,7 +99,7 @@
     <!-- Power unit -->
     <model>
         <name>ExternalPowerUnit</name>
-        <path>Aircraft/707/Models/epu.xml</path>
+        <path>Aircraft/onox-tanker/Models/epu.xml</path>
         <offsets>
             <x-m>-17.5</x-m>
             <y-m>7.0</y-m>
@@ -134,7 +134,7 @@
     <!-- Fuel truck -->
     <model>
         <name>FuelTruck</name>
-        <path>Aircraft/707/Models/fuel-truck.xml</path>
+        <path>Aircraft/onox-tanker/Models/fuel-truck.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
@@ -174,7 +174,7 @@
     <!-- Stairways -->
     <model>
         <name>frontStair</name>
-        <path>Aircraft/707/Models/stairs.xml</path>
+        <path>Aircraft/onox-tanker/Models/stairs.xml</path>
         <offsets>
             <x-m>-15.39</x-m>
             <y-m>-5.1</y-m>
@@ -239,7 +239,7 @@
     <!-- Cargo equipment -->
     <model>
         <name>Loader1</name>
-        <path>Aircraft/707/Models/loader.xml</path>
+        <path>Aircraft/onox-tanker/Models/loader.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-6.2</y-m>

@@ -110,7 +110,7 @@
 
   <!-- smoke -->
 	<model>
-		<path>Aircraft/707/Models/Effects/smoke_1.xml</path>
+		<path>Aircraft/onox-tanker/Models/Effects/smoke_1.xml</path>
 		<offsets>
 			<x-m> 2.1</x-m>
 			<y-m> 0.0</y-m>

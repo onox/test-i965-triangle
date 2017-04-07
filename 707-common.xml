@@ -37,25 +37,25 @@
 
         <systems>
             <autopilot n="2">
-                <path>Aircraft/707/Systems/autopilot.xml</path>
+                <path>Aircraft/onox-tanker/Systems/autopilot.xml</path>
             </autopilot>
             <autopilot n="3">
-                <path>Aircraft/707/Systems/thunder.xml</path>
+                <path>Aircraft/onox-tanker/Systems/thunder.xml</path>
             </autopilot>
             <autopilot n="4">
-                <path>Aircraft/707/Systems/pattern.xml</path>
+                <path>Aircraft/onox-tanker/Systems/pattern.xml</path>
             </autopilot>
 
             <property-rule n="100">
-                <path>Aircraft/707/Systems/views.xml</path>
+                <path>Aircraft/onox-tanker/Systems/views.xml</path>
             </property-rule>
             <property-rule n="101">
-                <path>Aircraft/707/Systems/effects.xml</path>
+                <path>Aircraft/onox-tanker/Systems/effects.xml</path>
             </property-rule>
         </systems>
 
         <instrumentation>
-            <path>Aircraft/707/Systems/instrumentation.xml</path>
+            <path>Aircraft/onox-tanker/Systems/instrumentation.xml</path>
         </instrumentation>
 
         <model>
@@ -84,7 +84,7 @@
         </airport>
 
         <sound>
-            <path>Aircraft/707/Sounds/707-sound.xml</path>
+            <path>Aircraft/onox-tanker/Sounds/707-sound.xml</path>
             <switch type="bool">false</switch>
             <stall-horn type="bool">false</stall-horn>
         </sound>
@@ -393,7 +393,7 @@
             <text3 type="string">FOR FLIGHTGEAR SIMULATION ONLY</text3>
             <subtitle4 type="string"></subtitle4>
             <text4 type="string">Leaky Constant Hangar 2.3</text4>
-            <content include="Aircraft/707/Models/Cockpit/Manual/manual.xml"/>
+            <content include="Aircraft/onox-tanker/Models/Cockpit/Manual/manual.xml"/>
         </manual>
 
         <ground-service>

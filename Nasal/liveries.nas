@@ -1,1 +1,1 @@
-aircraft.livery.init("Aircraft/707/Models/Liveries");
+aircraft.livery.init("Aircraft/onox/Models/Liveries");

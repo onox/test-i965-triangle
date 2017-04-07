@@ -17,7 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<PropertyList include="Aircraft/ExpansionPack/Systems/thunder-two-windows.xml">
+<PropertyList include="Aircraft/onox-tanker/ExpansionPack/Systems/thunder-two-windows.xml">
 
     <params>
         <windows>

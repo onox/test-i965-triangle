@@ -2106,8 +2106,8 @@
 		<name>engineTwoPW</name>
 		<path>Aircraft/onox-tanker/Models/PWJT4_2.xml</path>
 		<offsets>
-		  <x-m> -1.18</x-m>
-		  <y-m>-10.077</y-m>
+		  <x-m> -2.2300</x-m>
+		  <y-m> -9.3775</y-m>
 		  <z-m> -1.18</z-m>
 		</offsets>
 	</model>
@@ -2116,8 +2116,8 @@
 		<name>engineThreePW</name>
 		<path>Aircraft/onox-tanker/Models/PWJT4_3.xml</path>
 		<offsets>
-		  <x-m> -1.18</x-m>
-		  <y-m> 10.077</y-m>
+		  <x-m> -2.2300</x-m>
+		  <y-m>  9.3775</y-m>
 		  <z-m> -1.18</z-m>
 		</offsets>
 	</model>
@@ -2259,8 +2259,8 @@
 			</and>
 		</condition>
   <offsets>
-		  <x-m> -1.25</x-m>
-		  <y-m>-10.077</y-m>
+          <x-m> -2.3000</x-m>
+          <y-m> -9.3775</y-m>
 		  <z-m> -1.10</z-m>
     <pitch-deg>-35</pitch-deg>
   </offsets>
@@ -2286,8 +2286,8 @@
 			</and>
 		</condition>
   <offsets>
-		  <x-m> -1.25</x-m>
-		  <y-m>-10.077</y-m>
+          <x-m> -2.3000</x-m>
+          <y-m> -9.3775</y-m>
 		  <z-m> -1.10</z-m>
     <pitch-deg>145</pitch-deg>
   </offsets>
@@ -2314,8 +2314,8 @@
 			</and>
 		</condition>
   <offsets>
-		  <x-m> -1.25</x-m>
-		  <y-m>-10.077</y-m>
+          <x-m> -2.3000</x-m>
+          <y-m> -9.3775</y-m>
 		  <z-m> -1.10</z-m>
     <pitch-deg>-35</pitch-deg>
   </offsets>
@@ -2344,8 +2344,8 @@
 			</and>
 		</condition>
   <offsets>
-		  <x-m> -1.25</x-m>
-		  <y-m> 10.077</y-m>
+          <x-m> -2.3000</x-m>
+          <y-m>  9.3775</y-m>
 		  <z-m> -1.10</z-m>
     <pitch-deg>-35</pitch-deg>
   </offsets>
@@ -2371,8 +2371,8 @@
 			</and>
 		</condition>
   <offsets>
-		  <x-m> -1.25</x-m>
-		  <y-m> 10.077</y-m>
+          <x-m> -2.3000</x-m>
+          <y-m>  9.3775</y-m>
 		  <z-m> -1.10</z-m>
     <pitch-deg>145</pitch-deg>
   </offsets>
@@ -2399,8 +2399,8 @@
 			</and>
 		</condition>
   <offsets>
-		  <x-m> -1.25</x-m>
-		  <y-m> 10.077</y-m>
+          <x-m> -2.3000</x-m>
+          <y-m>  9.3775</y-m>
 		  <z-m> -1.10</z-m>
     <pitch-deg>-35</pitch-deg>
   </offsets>

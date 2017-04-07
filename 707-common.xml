@@ -124,9 +124,9 @@
                 <!-- 7 unused -->
                 <!-- 8 unused -->
                 <int n="9" type="int">0</int><!-- cargo aircraft -->
-                <!-- 10 unused -->
-                <!-- 11 unused -->
-                <int n="12"  type="int">0</int><!-- communication between tanker and receiving aircraft -->
+                <!-- 10 used by tanker -->
+                <!-- 11 used by tanker -->
+                <!-- 12 used by tanker -->
                 <int n="13" alias="/instrumentation/mptcas/on"/><!-- show AWACS radar turning -->
                 <int n="14" alias="/b707/external-power-connected"/><!-- External Power-VW Kombi -->
 
@@ -167,15 +167,14 @@
                 <float n="14" alias="/engines/engine/reverser-pos-norm"/><!-- multiplayer see the cowl flaps -->
                 <float n="15" alias="/instrumentation/doors/cargo/position-norm"/><!-- Cargo door -->
 
+                <!-- 16 used by tanker -->
                 <float n="17" alias="/orientation/pitch-deg"/><!-- for the shadow without rembrandt -->
-
-                <!-- PDL -->
-                <float n="16" alias="/aircraft/lighting/pdl-white"/>
-                <float n="18" alias="/aircraft/lighting/pdl-right"/>
-                <float n="19" alias="/aircraft/lighting/pdl-left"/>
+                <!-- 18 used by tanker -->
+                <!-- 19 used by tanker -->
 
                 <!-- <string n="0" alias="/sim/multiplay/callsign"/>-->
                 <!-- will be init in the registration.nas DO NOT USE string[0] for other properties -->
+                <!-- string[19] used by tanker -->
             </generic>
         </multiplay>
  

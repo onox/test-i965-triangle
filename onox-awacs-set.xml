@@ -64,6 +64,22 @@
         </radar>
     </instrumentation>
 
+    <b707 n="0">
+        <refuelling>
+            <!-- To prevent segfault -->
+            <wing-light-left type="double">0.0</wing-light-left>
+            <wing-light-right type="double">0.0</wing-light-right>
+            <wing-light-center type="double">0.0</wing-light-center>
+        </refuelling>
+    </b707>
+
+    <refueling>
+        <pdl>
+            <aft-forward-state type="int">0</aft-forward-state>
+            <up-down-state type="int">0</up-down-state>
+        </pdl>
+    </refueling>
+
     <nasal>
         <b707>
             <file>Aircraft/onox-tanker/Nasal/sound.nas</file>

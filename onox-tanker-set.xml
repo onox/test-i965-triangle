@@ -48,9 +48,15 @@
 
         <multiplay>
             <generic>
-                <int n="12" alias="/refueling/boom/contact/active"/>
                 <int n="10" alias="/refueling/pdl/aft-forward-state"/>
                 <int n="11" alias="/refueling/pdl/up-down-state"/>
+                <int n="12" alias="/refueling/boom/contact/active"/>
+
+                <!-- PDL -->
+                <float n="16" alias="/aircraft/lighting/pdl-white"/>
+                <float n="18" alias="/aircraft/lighting/pdl-right"/>
+                <float n="19" alias="/aircraft/lighting/pdl-left"/>
+
                 <string n="19" alias="/refueling/contact/callsign"/>
             </generic>
         </multiplay>

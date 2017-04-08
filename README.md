@@ -20,21 +20,14 @@ the appearance that the boom or drogue is actually connected to the aircraft.
 
 For more information, see the [FlightGear wiki][url-fg-wiki-aar].
 
-Dependencies
-------------
-
-Due to use of the ALS glass effect, FlightGear 2016.1 or higher is required.
-Additionally, the [ExpansionPack][url-fg-expansion-pack] aircraft is required
-in order to hear the thunder of lightning, see the drogues, receiver tracking
-by drogues and boom, and to be able to receive damage.
+The 3D model of the Pilot Director Lights under the fuselage was made by
+Martien van der Plas.
 
 Installation
 ------------
 
-1. Rename this directory to `707` and place it in FlightGear's `Aircraft`
-   directory.
-
-2. Install the [ExpansionPack][url-fg-expansion-pack] aircraft.
+Rename this directory to `onox-tanker` and place it in FlightGear's `Aircraft`
+directory.
 
 New features
 ------------
@@ -57,9 +50,10 @@ New features
 
 * Can be damaged by missiles
 
-* ALS procedural lights for navigation lights and Pilot Director Lights
+* ALS procedural lights for navigation lights
+
+* Pilot Director Lights 3D model made by Martien van der Plas
 
 * Zoom in or out using mouse scrollwheel, up to a distance of 300 meters
 
-  [url-fg-expansion-pack]: https://github.com/onox/ExpansionPack
   [url-fg-wiki-aar]: http://wiki.flightgear.org/Multiplayer_Aerial_refueling

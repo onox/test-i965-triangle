@@ -130,7 +130,7 @@
             <enter>
                 <command>property-assign</command>
                 <property>/aircraft/afcs/logic/pattern/leg-duration-s</property>
-                <value type="double">120.0</value>
+                <value type="double">240.0</value>
             </enter>
         </state>
 

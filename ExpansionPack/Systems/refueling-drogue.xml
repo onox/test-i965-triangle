@@ -90,9 +90,9 @@
         <type>gain</type>
 
         <input>
-            <condition>
+<!--            <condition>
                 <property alias="/params/inputs/active"/>
-            </condition>
+            </condition>-->
             <property alias="/params/inputs/yaw"/>
         </input>
         <input>
@@ -114,9 +114,9 @@
         <type>gain</type>
 
         <input>
-            <condition>
+<!--            <condition>
                 <property alias="/params/inputs/active"/>
-            </condition>
+            </condition>-->
             <property alias="/params/inputs/drogue-yaw"/>
         </input>
         <input>
@@ -138,9 +138,9 @@
         <type>gain</type>
 
         <input>
-            <condition>
+<!--            <condition>
                 <property alias="/params/inputs/active"/>
-            </condition>
+            </condition>-->
             <property alias="/params/inputs/pitch"/>
         </input>
         <input>
@@ -162,9 +162,9 @@
         <type>gain</type>
 
         <input>
-            <condition>
+<!--            <condition>
                 <property alias="/params/inputs/active"/>
-            </condition>
+            </condition>-->
             <property alias="/params/inputs/drogue-pitch"/>
         </input>
         <input>

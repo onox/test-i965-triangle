@@ -33,7 +33,7 @@
         <condition>
             <equals>
                 <property>sim/aircraft</property>
-                <value type="string">EC-137D</value>
+                <value type="string">onox-awacs</value>
             </equals>
         </condition>
         <offsets>
@@ -174,11 +174,11 @@
             <or>
                 <equals>
                     <property>sim/aircraft</property>
-                    <value type="string">EC-137D</value>
+                    <value type="string">onox-awacs</value>
                 </equals>
                 <equals>
                     <property>sim/aircraft</property>
-                    <value type="string">707-TT</value>
+                    <value type="string">onox-tanker</value>
                 </equals>
                 <equals>
                     <property>sim/model/livery/file</property>
@@ -207,11 +207,11 @@
             <or>
                 <equals>
                     <property>sim/aircraft</property>
-                    <value type="string">EC-137D</value>
+                    <value type="string">onox-awacs</value>
                 </equals>
                 <equals>
                     <property>sim/aircraft</property>
-                    <value type="string">707-TT</value>
+                    <value type="string">onox-tanker</value>
                 </equals>
                 <equals>
                     <property>sim/model/livery/file</property>
@@ -798,11 +798,11 @@
             <or>
                 <equals>
                     <property>sim/aircraft</property>
-                    <value type="string">EC-137D</value>
+                    <value type="string">onox-awacs</value>
                 </equals>
                 <equals>
                     <property>sim/aircraft</property>
-                    <value type="string">707-TT</value>
+                    <value type="string">onox-tanker</value>
                 </equals>
                 <equals>
                     <property>sim/model/livery/file</property>

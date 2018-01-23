@@ -119,6 +119,8 @@
             <max-contact-distance-m type="double">1.0</max-contact-distance-m>
             <max-pre-contact-distance-m type="double">50.0</max-pre-contact-distance-m>
 
+            <is-boomer-view type="bool">false</is-boomer-view>
+
             <!-- Origin of refueling boom -->
             <origin>
                 <x-m type="double">16.15</x-m>

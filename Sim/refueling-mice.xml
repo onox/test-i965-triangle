@@ -26,9 +26,12 @@
             <button n="1">
                 <binding>
                     <condition>
-                        <not>
-                            <property>/refueling/boom/automatic-movement</property>
-                        </not>
+                        <and>
+                            <property>/refueling/boom/is-boomer-view</property>
+                            <not>
+                                <property>/refueling/boom/automatic-movement</property>
+                            </not>
+                        </and>
                     </condition>
                     <command>property-assign</command>
                     <property>/refueling/boom/commands/telescope-rate</property>
@@ -40,9 +43,12 @@
             <button n="3">
                 <binding>
                     <condition>
-                        <not>
-                            <property>/refueling/boom/automatic-movement</property>
-                        </not>
+                        <and>
+                            <property>/refueling/boom/is-boomer-view</property>
+                            <not>
+                                <property>/refueling/boom/automatic-movement</property>
+                            </not>
+                        </and>
                     </condition>
                     <command>property-adjust</command>
                     <property>/refueling/boom/commands/telescope-rate</property>
@@ -55,9 +61,12 @@
             <button n="4">
                 <binding>
                     <condition>
-                        <not>
-                            <property>/refueling/boom/automatic-movement</property>
-                        </not>
+                        <and>
+                            <property>/refueling/boom/is-boomer-view</property>
+                            <not>
+                                <property>/refueling/boom/automatic-movement</property>
+                            </not>
+                        </and>
                     </condition>
                     <command>property-adjust</command>
                     <property>/refueling/boom/commands/telescope-rate</property>
@@ -67,12 +76,15 @@
             </button>
 
             <!-- Mouse left/right motion -->
-            <x-axis-ctrl>
+            <x-axis>
                 <binding>
                     <condition>
-                        <not>
-                            <property>/refueling/boom/automatic-movement</property>
-                        </not>
+                        <and>
+                            <property>/refueling/boom/is-boomer-view</property>
+                            <not>
+                                <property>/refueling/boom/automatic-movement</property>
+                            </not>
+                        </and>
                     </condition>
                     <command>property-adjust</command>
                     <property>/refueling/boom/commands/heading-deg</property>
@@ -81,15 +93,62 @@
                     <max type="double">30.0</max>
                     <wrap type="bool">false</wrap>
                 </binding>
-            </x-axis-ctrl>
 
-            <!-- Mouse up/down motion -->
-            <y-axis-ctrl>
+                <!-- From FGDATA/mice.xml: Left button pressed: control rudder -->
                 <binding>
                     <condition>
-                        <not>
-                            <property>/refueling/boom/automatic-movement</property>
-                        </not>
+                        <and>
+                            <not>
+                                <property>/refueling/boom/is-boomer-view</property>
+                            </not>
+                            <property>/devices/status/mice/mouse[0]/button[0]</property>
+                            <not>
+                                <property>/devices/status/mice/mouse[0]/button[1]</property>
+                            </not>
+                        </and>
+                    </condition>
+                    <command>property-adjust</command>
+                    <property>/controls/flight/rudder</property>
+                    <factor type="double">4.0</factor>
+                    <min type="double">-1.0</min>
+                    <max type="double">1.0</max>
+                    <wrap type="bool">false</wrap>
+                </binding>
+
+                <!-- From FGDATA/mice.xml: No buttons pressed: control ailerons -->
+                <binding>
+                    <condition>
+                        <and>
+                            <not>
+                                <property>/refueling/boom/is-boomer-view</property>
+                            </not>
+                            <not>
+                                <property>/devices/status/mice/mouse[0]/button[0]</property>
+                            </not>
+                            <not>
+                                <property>/devices/status/mice/mouse[0]/button[1]</property>
+                            </not>
+                        </and>
+                    </condition>
+                    <command>property-adjust</command>
+                    <property>/controls/flight/aileron</property>
+                    <factor type="double">4.0</factor>
+                    <min type="double">-1.0</min>
+                    <max type="double">1.0</max>
+                    <wrap type="bool">false</wrap>
+                </binding>
+            </x-axis>
+
+            <!-- Mouse up/down motion -->
+            <y-axis>
+                <binding>
+                    <condition>
+                        <and>
+                            <property>/refueling/boom/is-boomer-view</property>
+                            <not>
+                                <property>/refueling/boom/automatic-movement</property>
+                            </not>
+                        </and>
                     </condition>
                     <command>property-adjust</command>
                     <property>/refueling/boom/commands/pitch-deg</property>
@@ -98,7 +157,41 @@
                     <max type="double">50.0</max>
                     <wrap type="bool">false</wrap>
                 </binding>
-            </y-axis-ctrl>
+
+                <!-- From FGDATA/mice.xml: No buttons pressed: control elevator -->
+                <binding>
+                    <condition>
+                        <and>
+                            <not>
+                                <property>/refueling/boom/is-boomer-view</property>
+                            </not>
+                            <not>
+                                <property>/devices/status/mice/mouse[0]/button[0]</property>
+                            </not>
+                            <not>
+                                <property>/devices/status/mice/mouse[0]/button[1]</property>
+                            </not>
+                        </and>
+                    </condition>
+                    <command>property-adjust</command>
+                    <property>/controls/flight/elevator</property>
+                    <factor type="double">-4.0</factor>
+                    <min type="double">-1.0</min>
+                    <max type="double">1.0</max>
+                    <wrap type="bool">false</wrap>
+                </binding>
+
+                <!-- From FGDATA/mice.xml: Middle button pressed: control throttle -->
+                <binding>
+                    <condition>
+                        <not>
+                            <property>/refueling/boom/is-boomer-view</property>
+                        </not>
+                    </condition>
+                    <command>nasal</command>
+                    <script>controls.throttleMouse()</script>
+                </binding>
+            </y-axis>
         </mode>
     </mouse>
 

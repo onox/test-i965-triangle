@@ -19,6 +19,19 @@
 
 <PropertyList>
 
+    <logic>
+        <name>View Boomer Enabled</name>
+        <input>
+            <equals>
+                <property>/sim/current-view/name</property>
+                <value>Boom Operator Officer</value>
+            </equals>
+        </input>
+        <output>
+            <property>/refueling/boom/is-boomer-view</property>
+        </output>
+    </logic>
+
     <!-- ================================================================== -->
     <!-- Scroll Wheel Zooming                                               -->
     <!-- ================================================================== -->

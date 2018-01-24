@@ -1,6 +1,7 @@
 io.include("Aircraft/onox-tanker/ExpansionPack/Nasal/init.nas");
 
 with("refueling_boom");
+with("logger");
 
 check_version("refueling_boom", 8, 2);
 
@@ -28,3 +29,21 @@ var lights_timer = maketimer(0, func {
     contact_node.setBoolValue(tracking_updater.is_enabled());
 });
 lights_timer.start();
+
+setlistener("/aircraft/afcs/active/pattern", func (n) {
+    if (n.getBoolValue())
+        logger.screen.green("Racetrack pattern AP enabled");
+    else {
+        logger.screen.red("Racetrack pattern AP disabled");
+        setprop("/aircraft/afcs/locks/pattern", 0);
+    }
+}, 0, 0);
+
+setlistener("/aircraft/afcs/locks/pattern", func (n) {
+    var hdg = getprop("/autopilot/locks/heading") == "dg-heading-hold";
+
+    if (n.getBoolValue() and !hdg) {
+        logger.screen.white("Racetrack pattern AP not enabled (Enable HDG AP!)");
+        n.setBoolValue(0);
+    }
+}, 0, 0);

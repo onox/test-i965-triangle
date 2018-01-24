@@ -19,10 +19,9 @@
 
 <PropertyList>
 
-    <flipflop>
+    <logic>
         <name>A/P Pattern Switcher</name>
-        <type>RS</type>
-        <S>
+        <input>
             <and>
                 <property>/aircraft/afcs/locks/pattern</property>
                 <equals>
@@ -30,16 +29,11 @@
                     <value>dg-heading-hold</value>
                 </equals>
             </and>
-        </S>
-        <R>
-            <not>
-                <property>/aircraft/afcs/locks/pattern</property>
-            </not>
-        </R>
+        </input>
         <output>
             <property>/aircraft/afcs/active/pattern</property>
         </output>
-    </flipflop>
+    </logic>
 
     <filter>
         <name>Pattern Downwind Heading</name>

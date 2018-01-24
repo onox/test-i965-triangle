@@ -58,10 +58,6 @@
         <desc>Checklists</desc>
     </key>
     <key>
-        <name>F7</name>
-        <desc>Open map</desc>
-    </key>
-    <key>
         <name>F8</name>
         <desc>Open the route manager</desc>
     </key>

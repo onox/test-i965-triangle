@@ -23,6 +23,25 @@ For more information, see the [FlightGear wiki][url-fg-wiki-aar].
 The 3D model of the Pilot Director Lights under the fuselage was made by
 Martien van der Plas.
 
+How to be a boomer
+------------------
+
+1. Take-off from the runway
+
+2. Enable the HDG autopilot (green button in front of you)
+
+3. Press F7 to start flying the racetrack pattern
+
+4. Go to the 'Boom Operator Officer' view
+
+5. Turn on the PDL lights using the knobs
+
+6. Press the 'r' key to enable the automatic tracking system (the READY light will turn on)
+
+7. Use the mouse to move the boom (if cursor is crosshair) and the scroll wheel to extend / retract the telescope
+
+Note that only compatible aircraft can be tracked and lag setting must have been adjusted. See the URL above for detailed instructions.
+
 Installation
 ------------
 

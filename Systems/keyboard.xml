@@ -52,10 +52,10 @@
 
 <key n="263">
 	<name>F7</name>
-	<desc>Show map</desc>
+	<desc>Toggle racetrack pattern AP</desc>
 	<binding>
-	<command>dialog-show</command>
-	<dialog-name>map</dialog-name>
+        <command>property-toggle</command>
+        <property>/aircraft/afcs/locks/pattern</property>
 	</binding>
 </key>
 
